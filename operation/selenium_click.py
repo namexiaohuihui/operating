@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*- 
 """
 @__author__ :70486 
-@file: __init__.py.py
-@time: 2017/6/20 21:43
+@file: selenium_click
+@time: 2017/6/20 22:07
 @项目名称:operating
 """
+import os
+
 '''
                        _oo0oo_
                       o8888888o
@@ -25,22 +27,48 @@
      =====`-.____`.___ \_____/___.-`___.-'=====
                         `=---='
 
-
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
                佛祖保佑         永无BUG
 '''
-
 from parameter import browser_establish
-from operation import selenium_input
-from operation import selenium_click
+'''
+global browser
+browser = browser_establish.browser_confirm().call_browser()
+'''
 
-one = browser_establish.browser_confirm()
-_browser_ = one.call_browser()
-_browser_.get("https://www.baidu.com")
+def id_click(browser,id):
+    try:
+        # global browser
+        browser.find_element_by_id(id).click()
+    except:
+        writeLog()
 
-selenium_input.css_input(_browser_,"input[id=kw][name=wd]","大佬")
-selenium_click.css_click(_browser_,"input[type=submit][id=su]")
+
+def name_click(browser,name):
+    try:
+        # global browser
+        browser.find_element_by_name(name).click()
+    except:
+        writeLog()
 
 
+def xpath_click(browser,xpath):
+    try:
+        # global browser
+        browser.find_element_by_xpath(xpath).click()
+    except:
+        writeLog()
 
+
+def css_click(browser,css):
+    try:
+        # global browser
+        browser.find_element_by_css_selector(css).click()
+    except:
+        writeLog()
+
+def writeLog():
+    basename = os.path.splitext(os.path.basename(__file__))[0]
+    print("文件名为", basename, "出现了错误")
+    raise

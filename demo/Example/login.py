@@ -73,9 +73,12 @@ def writeLog():
     # 组合日志文件名（当前文件名+当前时间）.比如：case_login_success_20150817192533
     basename = os.path.splitext(os.path.basename(__file__))[0]
     logFile = basename + "-" + datetime.datetime.now().strftime("%Y%m%d%H%M%S") + ".log"
+    # 创建文件
     logging.basicConfig(filename=logFile)
+    # 获取错误日志并打印
     s = traceback.format_exc()
     logging.error(s)
+    # 截图
     browser.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
 
 

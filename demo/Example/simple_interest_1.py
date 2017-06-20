@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*- 
 """
 @__author__ :70486 
-@file: __init__.py.py
-@time: 2017/6/20 21:43
+@file: simple_interest_1.py
+@time: 2017/6/20 22:39
 @项目名称:operating
 """
 '''
@@ -30,17 +30,24 @@
 
                佛祖保佑         永无BUG
 '''
-
-from parameter import browser_establish
-from operation import selenium_input
-from operation import selenium_click
-
-one = browser_establish.browser_confirm()
-_browser_ = one.call_browser()
-_browser_.get("https://www.baidu.com")
-
-selenium_input.css_input(_browser_,"input[id=kw][name=wd]","大佬")
-selenium_click.css_click(_browser_,"input[type=submit][id=su]")
+print('----------------------方法1--------------------------')
 
 
+# 方法1,实现__new__方法
+# 并在将一个类的实例绑定到类变量_instance上,
+# 如果cls._instance为None说明该类还没有实例化过,实例化该类,并返回
+# 如果cls._instance不为None,直接返回cls._instance
+class Singleton(object):
+    def __new__(cls, *args, **kw):
+        if not hasattr(cls, '_instance'):
+            orig = super(Singleton, cls)
+            cls._instance = orig.__new__(cls, *args, **kw)
+        return cls._instance
 
+
+class MyClass(Singleton):
+    a = 1
+
+
+one = MyClass()
+two = MyClass()

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*- 
 """
 @__author__ :70486 
-@file: __init__.py.py
-@time: 2017/6/20 21:43
+@file: simple_interest_3.py
+@time: 2017/6/20 22:42
 @项目名称:operating
 """
 '''
@@ -30,17 +30,21 @@
 
                佛祖保佑         永无BUG
 '''
-
-from parameter import browser_establish
-from operation import selenium_input
-from operation import selenium_click
-
-one = browser_establish.browser_confirm()
-_browser_ = one.call_browser()
-_browser_.get("https://www.baidu.com")
-
-selenium_input.css_input(_browser_,"input[id=kw][name=wd]","大佬")
-selenium_click.css_click(_browser_,"input[type=submit][id=su]")
+print ('----------------------方法3--------------------------')
 
 
+# 方法3:本质上是方法1的升级（或者说高级）版
+# 使用__metaclass__（元类）的高级python用法
+class Singleton2(type):
+    def __init__(cls, name, bases, dict):
+        super(Singleton2, cls).__init__(name, bases, dict)
+        cls._instance = None
 
+    def __call__(cls, *args, **kw):
+        if cls._instance is None:
+            cls._instance = super(Singleton2, cls).__call__(*args, **kw)
+        return cls._instance
+
+
+class MyClass3(object):
+    __metaclass__ = Singleton2

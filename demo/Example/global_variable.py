@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*- 
 """
 @__author__ :70486 
-@file: __init__.py.py
-@time: 2017/6/20 21:43
+@file: global_variable.py
+@time: 2017/6/20 23:21
 @项目名称:operating
 """
 '''
@@ -30,17 +30,32 @@
 
                佛祖保佑         永无BUG
 '''
+global a
+a = 3
 
-from parameter import browser_establish
-from operation import selenium_input
-from operation import selenium_click
+def Fuc():
+    global a
+    print(a)
+    a = a + 1
+if __name__ == "__main__":
+    global a
+    for i in range(10):
+        Fuc()
+        print ('hello')
+    print (a)
 
-one = browser_establish.browser_confirm()
-_browser_ = one.call_browser()
-_browser_.get("https://www.baidu.com")
+    a = [3]
+'''
+def Fuc():
+     print
+     a[0]
+     a[0] = a[0] + 1
 
-selenium_input.css_input(_browser_,"input[id=kw][name=wd]","大佬")
-selenium_click.css_click(_browser_,"input[type=submit][id=su]")
 
-
-
+if __name__ == "__main__":
+     global a
+     for i in range(10):
+        Fuc()
+        print ('hello')
+  print( a[0])
+'''

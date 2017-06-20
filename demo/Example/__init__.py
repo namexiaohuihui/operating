@@ -2,7 +2,7 @@
 """
 @__author__ :70486 
 @file: __init__.py.py
-@time: 2017/6/20 21:43
+@time: 2017/6/20 22:38
 @项目名称:operating
 """
 '''
@@ -30,17 +30,3 @@
 
                佛祖保佑         永无BUG
 '''
-
-from parameter import browser_establish
-from operation import selenium_input
-from operation import selenium_click
-
-one = browser_establish.browser_confirm()
-_browser_ = one.call_browser()
-_browser_.get("https://www.baidu.com")
-
-selenium_input.css_input(_browser_,"input[id=kw][name=wd]","大佬")
-selenium_click.css_click(_browser_,"input[type=submit][id=su]")
-
-
-

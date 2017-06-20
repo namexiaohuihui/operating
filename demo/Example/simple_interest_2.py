@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*- 
 """
 @__author__ :70486 
-@file: __init__.py.py
-@time: 2017/6/20 21:43
+@file: simple_interest_2.py
+@time: 2017/6/20 22:42
 @项目名称:operating
 """
 '''
@@ -30,17 +30,25 @@
 
                佛祖保佑         永无BUG
 '''
+print('----------------------方法2--------------------------')
 
-from parameter import browser_establish
-from operation import selenium_input
-from operation import selenium_click
+# 方法2,共享属性;所谓单例就是所有引用(实例、对象)拥有相同的状态(属性)和行为(方法)
+# 同一个类的所有实例天然拥有相同的行为(方法),
+# 只需要保证同一个类的所有实例具有相同的状态(属性)即可
+# 所有实例共享属性的最简单最直接的方法就是__dict__属性指向(引用)同一个字典(dict)
+# 可参看:http://code.activestate.com/recipes/66531/
+class Borg(object):
+    _state = {}
 
-one = browser_establish.browser_confirm()
-_browser_ = one.call_browser()
-_browser_.get("https://www.baidu.com")
-
-selenium_input.css_input(_browser_,"input[id=kw][name=wd]","大佬")
-selenium_click.css_click(_browser_,"input[type=submit][id=su]")
+    def __new__(cls, *args, **kw):
+        ob = super(Borg, cls).__new__(cls, *args, **kw)
+        ob.__dict__ = cls._state
+        return ob
 
 
+class MyClass2(Borg):
+    a = 1
 
+
+one = MyClass2()
+two = MyClass2()
