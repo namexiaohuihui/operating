@@ -3,10 +3,9 @@
 @__author__ :70486 
 @file: selenium_input.py
 @time: 2017/6/21 0:01
-@项目名称:operating
 """
 import os
-
+# 这是元素输入类，传入相应的id，name，text，xpath，css以及内容就可以执行输入的指令
 '''
                        _oo0oo_
                       o8888888o
@@ -32,42 +31,45 @@ import os
 
                佛祖保佑         永无BUG
 '''
-from parameter import browser_establish
-'''
-global browser
-browser = browser_establish.browser_confirm().call_browser()
-'''
+from parameter.browser import  browser_establish
 
-def id_input(browser,id,data):
+global browser
+browser =  browser_establish.browser_using().call_browser()
+
+
+def id_input(id, data):
     try:
-        # global browser
+        global browser
         ele = browser.find_element_by_id(id)
         ele.clear()
         ele.send_keys(data)
     except:
         writeLog()
 
-def name_input(browser,name,data):
+
+def name_input(name, data):
     try:
-        # global browser
+        global browser
         ele = browser.find_element_by_name(name)
         ele.clear()
         ele.send_keys(data)
     except:
         writeLog()
 
-def css_input(browser,css,data):
+
+def css_input(css, data):
     try:
-        # global browser
+        global browser
         ele = browser.find_element_by_css_selector(css)
         ele.clear()
         ele.send_keys(data)
     except:
         writeLog()
 
-def xpath_input(browser,xpath,data):
+
+def xpath_input(xpath, data):
     try:
-        # global browser
+        global browser
         ele = browser.find_element_by_xpath(xpath)
         ele.clear()
         ele.send_keys(data)
@@ -77,5 +79,6 @@ def xpath_input(browser,xpath,data):
 
 def writeLog():
     basename = os.path.splitext(os.path.basename(__file__))[0]
-    print("文件名为", basename, "出现了错误")
+    print("文件出现错误,名为名=%s"% \
+          basename,)
     raise

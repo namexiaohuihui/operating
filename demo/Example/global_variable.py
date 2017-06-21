@@ -3,7 +3,6 @@
 @__author__ :70486 
 @file: global_variable.py
 @time: 2017/6/20 23:21
-@项目名称:operating
 """
 '''
                        _oo0oo_

@@ -3,7 +3,7 @@
 @__author__ :70486 
 @file: simple_interest_1.py
 @time: 2017/6/20 22:39
-@项目名称:operating
+
 """
 '''
                        _oo0oo_
@@ -44,10 +44,10 @@ class Singleton(object):
             cls._instance = orig.__new__(cls, *args, **kw)
         return cls._instance
 
-
 class MyClass(Singleton):
     a = 1
 
 
 one = MyClass()
 two = MyClass()
+

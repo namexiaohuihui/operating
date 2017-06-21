@@ -3,7 +3,7 @@
 @__author__ :70486 
 @file: simple_interest_2.py
 @time: 2017/6/20 22:42
-@项目名称:operating
+
 """
 '''
                        _oo0oo_

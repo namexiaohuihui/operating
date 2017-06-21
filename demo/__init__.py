@@ -3,7 +3,6 @@
 @__author__ :70486 
 @file: __init__.py.py
 @time: 2017/6/20 21:43
-@项目名称:operating
 """
 '''
                        _oo0oo_
@@ -31,16 +30,17 @@
                佛祖保佑         永无BUG
 '''
 
-from parameter import browser_establish
-from operation import selenium_input
-from operation import selenium_click
+from parameter.browser import  browser_establish
+from operation import  selenium_move_child
 
-one = browser_establish.browser_confirm()
+
+one =  browser_establish.browser_using()
 _browser_ = one.call_browser()
 _browser_.get("https://www.baidu.com")
+_browser_.implicitly_wait(30)
+selenium_move_child.parameter_move_child(0,"//*[@id=\"u1\"]/a[8]","搜索设置")
 
-selenium_input.css_input(_browser_,"input[id=kw][name=wd]","大佬")
-selenium_click.css_click(_browser_,"input[type=submit][id=su]")
+
 
 
 

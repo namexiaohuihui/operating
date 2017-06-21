@@ -3,10 +3,9 @@
 @__author__ :70486 
 @file: selenium_click
 @time: 2017/6/20 22:07
-@项目名称:operating
 """
 import os
-
+# 这是元素点击类，传入相应的id，name，text，xpath，css就可以执行的点击事件
 '''
                        _oo0oo_
                       o8888888o
@@ -31,44 +30,46 @@ import os
 
                佛祖保佑         永无BUG
 '''
-from parameter import browser_establish
-'''
-global browser
-browser = browser_establish.browser_confirm().call_browser()
-'''
+from parameter.browser import browser_establish
 
-def id_click(browser,id):
+global browser
+browser = browser_establish.browser_using().call_browser()
+
+
+def id_click(id):
     try:
-        # global browser
+        global browser
         browser.find_element_by_id(id).click()
     except:
         writeLog()
 
 
-def name_click(browser,name):
+def name_click(name):
     try:
-        # global browser
+        global browser
         browser.find_element_by_name(name).click()
     except:
         writeLog()
 
 
-def xpath_click(browser,xpath):
+def xpath_click(xpath):
     try:
-        # global browser
+        global browser
         browser.find_element_by_xpath(xpath).click()
     except:
         writeLog()
 
 
-def css_click(browser,css):
+def css_click(css):
     try:
-        # global browser
+        global browser
         browser.find_element_by_css_selector(css).click()
     except:
         writeLog()
 
+
 def writeLog():
     basename = os.path.splitext(os.path.basename(__file__))[0]
-    print("文件名为", basename, "出现了错误")
+    print("文件出现错误,名为名=%s" % \
+          basename, )
     raise

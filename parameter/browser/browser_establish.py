@@ -3,7 +3,6 @@
 @__author__ :70486 
 @file: browser_establish.py
 @time: 2017/6/20 22:24
-@项目名称:operating
 """
 '''
                        _oo0oo_
@@ -44,6 +43,7 @@ class browser_confirm(object):
             cls._instance = orig.__new__(cls, *args, **kw)
         return cls._instance
 
+class   browser_using(browser_confirm):
     # 调用函数，实现打开谷歌浏览器的步骤
     def chrome_browser(self):
         # 实现全局变量的引用
