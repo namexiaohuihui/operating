@@ -52,7 +52,7 @@ def id_move(id):
 def name_move(name):
     try:
         #   找到需要转移的元素
-        ele = browser.find_element_by_name("tj_settingicon")
+        ele = browser.find_element_by_name(name)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
         auto_move(ele)
     except:

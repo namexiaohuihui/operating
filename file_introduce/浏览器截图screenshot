@@ -1,0 +1,44 @@
+一、截图方法
+
+1.get_screenshot_as_file(self, filename)
+
+--这个方法是获取当前window的截图，出现IOError时候返回False,截图成功返回True。
+
+filename参数是保存文件的路径。
+Usage:
+driver.get_screenshot_as_file('/Screenshots/foo.png')
+
+
+
+2.get_screenshot_as_base64(self)
+
+--这个方法也是获取屏幕截图，保存的是base64的编码格式，在HTML界面输出截图的时候，会用到。
+
+比如，想把截图放到html测试报告里。
+Usage:
+driver.get_screenshot_as_base64()
+
+
+
+3.get_screenshot_as_png(self)
+--这个是获取屏幕截图，保存的是二进制数据，很少用到.
+Usage:
+driver.get_screenshot_as_png()
+
+二、异常后截图
+
+1.为了能抛异常，把定位登录按钮的id换了个错的id。
+
+2.给图片命名时候加个时间戳，避免同一个文件名称被覆盖掉。
+
+3.文件路径，这里直接写的文件名称，就是跟当前的脚本同一个路径。如果图片输出到其它文件路径，需要些文件的绝对路径了。
+
+4.截图的结果，如果没截到图返回False,截图成功会返回True。
+try:
+    _browser_.find_element_by_id("weqw")
+except Exception as msg:
+    now = time.strftime("%Y%m%d.%H.%M.%S")
+    # t是返回情况
+    t = _browser_.get_screenshot_as_file("%s.png" % now)
+    print(u"截图%s" % t)
+

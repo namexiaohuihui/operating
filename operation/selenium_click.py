@@ -51,6 +51,13 @@ def name_click(name):
     except:
         writeLog()
 
+def text_click(text):
+    try:
+        global browser
+        browser.find_element_by_link_text(text).click()
+    except:
+        writeLog()
+
 
 def xpath_click(xpath):
     try:
@@ -70,6 +77,5 @@ def css_click(css):
 
 def writeLog():
     basename = os.path.splitext(os.path.basename(__file__))[0]
-    print("文件出现错误,名为名=%s" % \
-          basename, )
+    print("文件出现错误,名为名%s" % basename, )
     raise

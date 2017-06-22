@@ -6,11 +6,10 @@
 @项目名称:operating_call
 这是需要隐藏的元素类，通过鼠标移动之后找出隐藏的元素在通过传入相应的id，name，text，xpath，css就可以执行查找第二个元素了
 """
-import os
-import time
-from selenium.webdriver import ActionChains
 
 from parameter.browser import browser_establish
+from operation import selenium_move
+from operation import selenium_click
 
 global browser
 browser = browser_establish.browser_using().call_browser()
@@ -22,175 +21,140 @@ _text = 'text'
 _xpath = 'xpath'
 _css = 'css'
 
-
-def parameter_move_child(a=0, move=None, child=None):
-    try:
-        if a == 1:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_id(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_id(child).click()
-        elif a == 2:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_id(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_name(child).click()
-        elif a == 3:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_id(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_link_text(child).click()
-        elif a == 4:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_id(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_xpath(child).click()
-        elif a == 5:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_id(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_css_selector(child).click()
-        elif a == 6:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_name(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_id(child).click()
-        elif a == 7:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_name(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_name(child).click()
-        elif a == 8:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_name(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_link_text(child).click()
-        elif a == 9:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_name(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_xpath(child).click()
-        elif a == 10:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_name(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_css_selector(child).click()
-        elif a == 11:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_link_text(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_id(child).click()
-        elif a == 12:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_link_text(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_name(child).click()
-        elif a == 13:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_link_text(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_link_text(child).click()
-        elif a == 14:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_link_text(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_xpath(child).click()
-        elif a == 15:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_link_text(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_css_selector(child).click()
-        elif a == 16:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_xpath(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_id(child).click()
-        elif a == 17:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_xpath(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_name(child).click()
-        elif a == 18:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_xpath(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_link_text(child).click()
-        elif a == 19:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_xpath(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_xpath(child).click()
-        elif a == 20:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_xpath(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_css_selector(child).click()
-        elif a == 21:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_css_selector(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_id(child).click()
-        elif a == 22:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_css_selector(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_name(child).click()
-        elif a == 23:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_css_selector(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_link_text(child).click()
-        elif a == 24:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_css_selector(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_xpath(child).click()
-        elif a == 25:
-            #   找到需要转移的元素
-            ele = browser.find_element_by_css_selector(move)
-            #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-            auto_move(ele)
-            browser.find_element_by_css_selector(child).click()
-        else:
-            print("悬停寻找子类出现参数输入不对等的情况", "move=%s,child=%s" % \
-                  move, child)
-    except:
-        writeLog()
+# ---------------------鼠标移动的对象为id，隐藏的对象为其他---------------------------------#
+def id_move_id_child(move=None, child=None):
+    selenium_move.id_move(move)
+    selenium_click.id_click(child)
 
 
-# 查找函数 move_number = move.find(_id) :此步骤暂定
+def id_move_name_child(move=None, child=None):
+    selenium_move.id_move(move)
+    selenium_click.name_click(child)
+
+
+def id_move_text_child(move=None, child=None):
+    selenium_move.id_move(move)
+    selenium_click.text_click(child)
+
+
+def id_move_xpath_child(move=None, child=None):
+    selenium_move.id_move(move)
+    selenium_click.xpath_click(child)
+
+
+def id_move_css_child(move=None, child=None):
+    selenium_move.id_move(move)
+    selenium_click.css_click(child)
+
+
+# ---------------------鼠标移动的对象为name，隐藏的对象为其他---------------------------------#
+def name_move_id_child(move=None, child=None):
+    selenium_move.name_move(move)
+    selenium_click.id_click(child)
+
+
+def name_move_name_child(move=None, child=None):
+    selenium_move.name_move(move)
+    selenium_click.name_click(child)
+
+
+def name_move_text_child(move=None, child=None):
+    selenium_move.name_move(move)
+    selenium_click.text_click(child)
+
+
+def name_move_xpath_child(move=None, child=None):
+    selenium_move.name_move(move)
+    selenium_click.xpath_click(child)
+
+
+def name_move_css_child(move=None, child=None):
+    selenium_move.name_move(move)
+    selenium_click.css_click(child)
+
+
+# ---------------------鼠标移动的对象为text，隐藏的对象为其他---------------------------------#
+def text_move_id_click(move=None, child=None):
+    selenium_move.text_move(move)
+    selenium_click.id_click(child)
+
+
+def text_move_name_click(move=None, child=None):
+    selenium_move.text_move(move)
+    selenium_click.name_click(child)
+
+
+def text_move_text_click(move=None, child=None):
+    selenium_move.text_move(move)
+    selenium_click.text_click(child)
+
+
+def text_move_xpath_click(move=None, child=None):
+    selenium_move.text_move(move)
+    selenium_click.xpath_click(child)
+
+
+def text_move_css_click(move=None, child=None):
+    selenium_move.text_move(move)
+    selenium_click.css_click(child)
+
+
+# ---------------------鼠标移动的对象为xpath，隐藏的对象为其他---------------------------------#
+def xpath_move_id_click(move=None, child=None):
+    selenium_move.xpath_move(move)
+    selenium_click.id_click(child)
+
+
+def xpath_move_name_click(move=None, child=None):
+    selenium_move.xpath_move(move)
+    selenium_click.name_click(child)
+
+
+def xpath_move_text_click(move=None, child=None):
+    selenium_move.xpath_move(move)
+    selenium_click.text_click(child)
+
+
+def xpath_move_xpath_click(move=None, child=None):
+    selenium_move.xpath_move(move)
+    selenium_click.xpath_click(child)
+
+
+def xpath_move_css_click(move=None, child=None):
+    selenium_move.xpath_move(move)
+    selenium_click.css_click(child)
+
+
+# ---------------------鼠标移动的对象为css，隐藏的对象为其他---------------------------------#
+def css_move_id_click(move=None, child=None):
+    selenium_move.css_move(move)
+    selenium_click.id_click(child)
+
+
+def css_move_name_click(move=None, child=None):
+    selenium_move.css_move(move)
+    selenium_click.name_click(child)
+
+
+def css_move_text_click(move=None, child=None):
+    selenium_move.css_move(move)
+    selenium_click.text_click(child)
+
+
+def css_move_xpath_click(move=None, child=None):
+    selenium_move.css_move(move)
+    selenium_click.xpath_click(child)
+
+
+def css_move_css_click(move=None, child=None):
+    selenium_move.css_move(move)
+    selenium_click.css_click(child)
+
+
+# ---------------------鼠标移动的对象和隐藏的对象未知，通过前缀进行区分---------------------------------#
+
 def auto_move_child(move=None, child=None):
-    # 这些参数是用于识别出现了那些关键字
-    move_result = 3456
-    child_result = 3456
     # 这些参数是用于存储切割之后的路径
-    move_route = None
-    child_route = None
-    str = "尼玛"
     if move.find(_id) == -1:
         if move.find(_name) == -1:
             if move.find(_text) == -1:
@@ -199,32 +163,30 @@ def auto_move_child(move=None, child=None):
                         print("悬停寻找父类关键字怎么出问题了,move=%s" % \
                               move)
                     else:
-                        move_result = 5
-                        child_result = auto_child_number(child)
+                        move_route = css_character_cutting(move)
+                        selenium_move.css_move(move_route)
+                        auto_child_number(child)
                 else:
-                    move_result = 4
-                    child_result = auto_child_number(child)
+                    move_route = xpath_character_cutting(move)
+                    selenium_move.xpath_move(move_route)
+                    auto_child_number(child)
             else:
-                move_result = 3
-                child_result = auto_child_number(child)
+                move_route = text_character_cutting(move)
+                selenium_move.text_move(move_route)
+                auto_child_number(child)
         else:
-            move_result = 2
-            child_result = auto_child_number(child)
+            move_route = name_character_cutting(move)
+            selenium_move.name_move(move_route)
+            auto_child_number(child)
     else:
-        move_result = 1
-        child_result = auto_child_number(child)
+        move_route = id_character_cutting(move)
+        selenium_move.id_move(move_route)
+        auto_child_number(child)
 
-    #获取元素的路径：
-    这里有坑，应该是先移动父类然后再点击子类
-    move_route = character_cutting(move_result, move)
-    child_route = character_cutting(child_result, child)
-
-    route_implement_click(move_result,move_route)
-    route_implement_click(child_result,child)
 
 # 此元素用于判断子元素的路径类型
 def auto_child_number(child):
-    child_result = 3456
+    child_result = None
     if child.find(_id) == -1:
         if child.find(_name) == -1:
             if child.find(_text) == -1:
@@ -233,56 +195,38 @@ def auto_child_number(child):
                         print("悬停寻找子类关键字怎么出问题了,child=%s" % \
                               child)
                     else:
-                        child_result = 5
+                        child_result = css_character_cutting(child)
+                        selenium_click.css_click(child_result)
                 else:
-                    child_result = 4
+                    child_result = xpath_character_cutting(child)
+                    selenium_click.xpath_click(child_result)
             else:
-                child_result = 3
+                child_result = text_character_cutting(child)
+                selenium_click.text_click(child_result)
         else:
-            child_result = 2
+            child_result = name_character_cutting(child)
+            selenium_click.name_click(child_result)
     else:
-        child_result = 1
-
-    return child_result
-
-
-# 此函数用于切割数据
-def character_cutting(number=5, _move=None):
-    _child = None
-    if number == 1:
-        _child = _move[2:]
-    elif number == 2:
-        _child = _move[4:]
-    elif number == 3:
-        _child = _move[4:]
-    elif number == 4:
-        _child = _move[4:]
-    elif number == 5:
-        _child = _move[3:]
-    return _child
+        child_result = id_character_cutting(child)
+        selenium_click.id_click(child_result)
 
 
-# 此函数用于第二个子元素的点击
-def route_implement_click(number=5, move_child=None):
-    if number == 1:
-        browser.find_element_by_id(move_child).click()
-    elif number == 2:
-        browser.find_element_by_name(move_child).click()
-    elif number == 3:
-        browser.find_element_by_link_text(move_child).click()
-    elif number == 4:
-        browser.find_element_by_xpath(move_child).click()
-    elif number == 5:
-        browser.find_element_by_css_selector(move_child).click()
+# 根据相应的前缀进行切割
+def id_character_cutting(_move):
+    return _move.find[2:0]
 
 
-def auto_move(move_ele):
-    ActionChains(browser).move_to_element(move_ele).perform()
-    time.sleep(2)
+def name_character_cutting(_move):
+    return _move.find[4:0]
 
 
-def writeLog():
-    basename = os.path.splitext(os.path.basename(__file__))[0]
-    print("文件出现错误,名为名=%s" % \
-          basename, )
-    raise
+def text_character_cutting(_move):
+    return _move.find[4:0]
+
+
+def xpath_character_cutting(_move):
+    return _move.find[5:0]
+
+
+def css_character_cutting(_move):
+    return _move.find[3:0]
