@@ -1,0 +1,38 @@
+现在本机上有个本地仓库：
+
+[root@test01 H2_20151112]# cd H2/
+[root@test01 H2]# Git branch
+* develop
+
+
+
+执行git init命令
+
+[root@test01 H2_20151112]# git init
+Reinitialized existing Git repository in /media/sf_nginx/H2_20151112/.git/
+
+
+
+在本地目录下找到.git文件
+
+[root@test01 H2_20151112]# ls -a
+.  ..  .git  .gitignore  H2
+
+
+
+删除.git
+
+[root@test01 H2_20151112]# rm -rf .git
+
+
+
+[root@test01 H2_20151112]# ls -a
+.  ..  .gitignore  H2
+
+
+删除本地仓库目录
+
+[root@test01 sf_nginx]# rm -rf H2_20151112
+
+
+这样就把无用的本地仓库给完全删除掉了
