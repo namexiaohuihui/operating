@@ -7,12 +7,13 @@
 这是需要隐藏的元素类，通过鼠标移动之后找出隐藏的元素在通过传入相应的id，name，text，xpath，css就可以执行查找第二个元素了
 """
 
-from parameter.browser import browser_establish
 from operation import selenium_move
 from operation import selenium_click
+from constant.browser.browser_establish import browser_confirm
 
 global browser
-browser = browser_establish.browser_using().call_browser()
+bc = browser_confirm.__new__(browser_confirm)
+browser = bc.call_browser()
 
 # 这是参数是用于识别元素路径前面携带的关键字
 _id = 'id'

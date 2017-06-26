@@ -1,0 +1,35 @@
+iframe：
+    1.切入
+        driver.switch_to.frame(0)  # 1.用frame的index来定位，第一个是0
+        # driver.switch_to.frame("frame1")  # 2.用id来定位
+        # driver.switch_to.frame("myframe")  # 3.用name来定位
+        # driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))  # 4.用WebElement对象来定位
+
+    2.退出
+        driver.switch_to.parent_frame()  # 后台回主文档进行任务，如果当前已是主文档，则无效果
+        driver.switch_to.default_content()#切换主文档进行任务，如果当前已是主文档，则无效果
+
+多窗口:
+    1.# 新开一个窗口，通过执行js来新开一个窗口
+        js='window.open("https://www.sogou.com");'
+        browser.execute_script(js)
+
+    2.获得当前窗口的句柄
+        browser.current_window_handle
+
+    3.获取当前窗口句柄集合（列表类型）
+     browser.window_handles
+
+    4.切换窗口句柄
+        # 窗口切换，切换为新打开的窗口
+        browser.switch_to_window(handles[-1])
+        # 切换回最初打开的窗口
+        browser.switch_to_window(handles[0])
+        #切换指定的窗口
+        browser.switch_to_window(handle)
+
+    5.关闭窗口
+        # 关闭当前窗口
+        browser.close()
+        # 关闭所有窗口
+        browser.quit()

@@ -35,10 +35,11 @@ from selenium.webdriver import ActionChains
 
                佛祖保佑         永无BUG
 '''
-from parameter.browser import  browser_establish
+from constant.browser.browser_establish import browser_confirm
 
 global browser
-browser =  browser_establish.browser_using().call_browser()
+bc = browser_confirm.__new__(browser_confirm)
+browser = bc.call_browser()
 
 def id_move(id):
     try:

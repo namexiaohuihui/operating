@@ -34,7 +34,7 @@ from  selenium import webdriver
 # 定义一个全局变量
 global _browser_
 
-
+#__new__创建一个对象，__init__实例化一个对象
 class browser_confirm(object):
     # 单例类判断。如果该类创建过就不需要重新创建了
     def __new__(cls, *args, **kw):
@@ -43,12 +43,12 @@ class browser_confirm(object):
             cls._instance = orig.__new__(cls, *args, **kw)
         return cls._instance
 
-class   browser_using(browser_confirm):
     # 调用函数，实现打开谷歌浏览器的步骤
     def chrome_browser(self):
         # 实现全局变量的引用
         global _browser_
         _browser_ = webdriver.Chrome()
+        print(U"打开谷歌")
         return _browser_
 
     # 调用函数，实现打开ie浏览器的步骤
@@ -56,6 +56,7 @@ class   browser_using(browser_confirm):
         # 实现全局变量的引用
         global _browser_
         _browser_ = webdriver.Ie
+        print(U"打开ie")
         return _browser_
 
     # 调用函数，实现打开火狐浏览器的步骤
@@ -63,6 +64,7 @@ class   browser_using(browser_confirm):
         # 实现全局变量的引用
         global _browser_
         _browser_ = webdriver.Firefox()
+        print(U"打开火狐")
         return _browser_
 
     def call_browser(str):

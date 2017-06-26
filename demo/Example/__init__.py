@@ -30,13 +30,27 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
                佛祖保佑         永无BUG
+
 '''
 
+class Student(object):
+
+    def __new__(cls, *args, **kw):
+        if not hasattr(cls, '_instance'):
+            orig = super(Student, cls)
+            cls._instance = orig.__new__(cls, *args, **kw)
+        return cls._instance
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
 
 
-def kk(n):
-    n=ff(n)
-    return n
-def ff(l):
-    return l+6
-print(kk(9))
+kk = Student.__new__(Student)
+kk.__init__('Bart Simpson', 59)
+lisa = Student('Lisa Simpson', 87)
+kk.print_score()
+lisa.print_score()
