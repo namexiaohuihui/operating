@@ -8,9 +8,9 @@
 
 class url_content(object):
     #主线链接
-    url_thread = 'https://www.baidu.com'
+    url_thread = 'https://www.baidu.com/'
     #登录链接
-    url_login = ''
+    url_login = url_thread + ''
 
 
 
@@ -23,3 +23,6 @@ class url_content(object):
 
     def return_account (self):
         return self.url_thread
+
+    def return_landing (self):
+        return self.url_login

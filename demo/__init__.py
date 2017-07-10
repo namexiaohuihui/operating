@@ -50,9 +50,6 @@ try:
     newwindow = 'window.open(\'url.return_account()\');'
     _browser_.execute_script(newwindow)
 
-
-
-
 except Exception as msg:
     now = time.strftime("%Y%m%d.%H.%M.%S")
     t = _browser_.get_screenshot_as_file("%s.png" % now)
