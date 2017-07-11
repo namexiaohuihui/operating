@@ -85,3 +85,5 @@ class browser_confirm(object):
                 print(U"你输入的不是浏览器的简写,cm = Chrome,ie = Ie,fox = Firefox", str)
                 _browser_ = webdriver.Chrome()
             return _browser_
+        else:
+            print (u'如果没有异常执行这块代码')
