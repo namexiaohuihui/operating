@@ -17,3 +17,9 @@ try:
     1/0
 except Exception,e:
     traceback.print_exc()
+
+5.python3.x
+try:
+    raise
+except Exception as err:
+    print(err)
