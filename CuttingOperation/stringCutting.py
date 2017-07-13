@@ -9,4 +9,3 @@ def specified_cut(str,op,num,ber):
         string = str.split(op,num)[ber]
         return string;
 
-def _init_ == _init_()
