@@ -108,5 +108,4 @@ def OnlyCharNum(s):
             s = s.replace(c,'');
     return s;
 
-if __name__ == '__main__':
-    print(OnlyCharNum("a000 aa-b"))
+

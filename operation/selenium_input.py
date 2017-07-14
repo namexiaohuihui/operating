@@ -33,14 +33,16 @@ import os
 '''
 from constant.browser.browser_establish import browser_confirm
 
-global browser
-bc = browser_confirm.__new__(browser_confirm)
-browser = bc.call_browser()
+def browser_data():
+    global browser
+    bc = browser_confirm.__new__(browser_confirm)
+    browser = bc.call_browser()
+    return browser
 
 
 def id_input(id, data):
     try:
-        global browser
+        browser = browser_data()
         ele = browser.find_element_by_id(id)
         ele.clear()
         ele.send_keys(data)
@@ -50,7 +52,7 @@ def id_input(id, data):
 
 def name_input(name, data):
     try:
-        global browser
+        browser = browser_data()
         ele = browser.find_element_by_name(name)
         ele.clear()
         ele.send_keys(data)
@@ -60,7 +62,7 @@ def name_input(name, data):
 
 def css_input(css, data):
     try:
-        global browser
+        browser = browser_data()
         ele = browser.find_element_by_css_selector(css)
         ele.clear()
         ele.send_keys(data)
@@ -70,7 +72,7 @@ def css_input(css, data):
 
 def xpath_input(xpath, data):
     try:
-        global browser
+        browser = browser_data()
         ele = browser.find_element_by_xpath(xpath)
         ele.clear()
         ele.send_keys(data)

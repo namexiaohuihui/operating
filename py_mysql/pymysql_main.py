@@ -57,12 +57,11 @@ class pymysqls(object):
         print('成功插入', self.cursor.rowcount, '条数据')
 
     def selects(self,sql,data):
-        # 查询数据
-      #  sql = "SELECT name,saving FROM money WHERE account = '%s' "
-      # data = ('13512345678',)
+        print("查询")
         self.cursor.execute(sql % data)
         for row in self.cursor.fetchall():
-            print("id:%s\tphone:%s" % row)
+            id = row[0]
+            print("id为%s" %id)
         print('共查找出', self.cursor.rowcount, '条数据')
 
     def delects(self,sql,data):
@@ -96,3 +95,12 @@ class pymysqls(object):
             print('事务处理成功', self.cursor.rowcount)
 
 
+if __name__ == '__main__':
+    print("33")
+    pm = pymysqls.__new__(pymysqls)
+    # pm.connects()
+    # pm.cureors()
+    pm.connects_cureors('192.168.10.204', 3306, 'root', '123456', 'lnlife_1', 'utf8')
+    sql = "SELECT * FROM lnsm_user WHERE phone = %s;"
+    data = ('18778036030')
+    pm.selects(sql, data)

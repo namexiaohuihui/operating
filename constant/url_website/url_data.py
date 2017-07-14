@@ -8,11 +8,9 @@
 
 class url_content(object):
     #主线链接
-    url_thread = 'https://www.baidu.com/'
+    url_thread = 'http://seller.t-lianni.com/user/login?f=/'
     #登录链接
     url_login = url_thread + ''
-
-
 
     # 单例类判断。如果该类创建过就不需要重新创建了
     def __new__(cls, *args, **kw):

@@ -37,13 +37,16 @@ from selenium.webdriver import ActionChains
 '''
 from constant.browser.browser_establish import browser_confirm
 
-global browser
-bc = browser_confirm.__new__(browser_confirm)
-browser = bc.call_browser()
+def browser_data():
+    global browser
+    bc = browser_confirm.__new__(browser_confirm)
+    browser = bc.call_browser()
+    return browser
 
 def id_move(id):
     try:
         #   找到需要转移的元素
+        browser = browser_data()
         ele = browser.find_element_by_id(id)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
         auto_move(ele)
@@ -53,6 +56,7 @@ def id_move(id):
 def name_move(name):
     try:
         #   找到需要转移的元素
+        browser = browser_data()
         ele = browser.find_element_by_name(name)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
         auto_move(ele)
@@ -62,6 +66,7 @@ def name_move(name):
 def text_move(text):
     try:
         #   找到需要转移的元素
+        browser = browser_data()
         ele = browser.find_element_by_link_text(text)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
         auto_move(ele)
@@ -71,6 +76,7 @@ def text_move(text):
 def xpath_move(xpath):
     try:
         #   找到需要转移的元素
+        browser = browser_data()
         ele = browser.find_element_by_xpath(xpath)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
         auto_move(ele)
@@ -80,6 +86,7 @@ def xpath_move(xpath):
 def css_move(css):
     try:
         #   找到需要转移的元素
+        browser = browser_data()
         ele = browser.find_element_by_css_selector(css)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
         auto_move(ele)

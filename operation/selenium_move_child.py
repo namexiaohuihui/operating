@@ -9,11 +9,6 @@
 
 from operation import selenium_move
 from operation import selenium_click
-from constant.browser.browser_establish import browser_confirm
-
-global browser
-bc = browser_confirm.__new__(browser_confirm)
-browser = bc.call_browser()
 
 # 这是参数是用于识别元素路径前面携带的关键字
 _id = 'id'

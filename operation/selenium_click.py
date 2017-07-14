@@ -32,14 +32,16 @@ import os
 '''
 from constant.browser.browser_establish import browser_confirm
 
-global browser
-bc = browser_confirm.__new__(browser_confirm)
-browser = bc.call_browser()
 
+def browser_data():
+    global browser
+    bc = browser_confirm.__new__(browser_confirm)
+    browser = bc.call_browser()
+    return browser
 
 def id_click(id):
     try:
-        global browser
+        browser =  browser_data()
         browser.find_element_by_id(id).click()
     except:
         writeLog()
@@ -47,14 +49,14 @@ def id_click(id):
 
 def name_click(name):
     try:
-        global browser
+        browser = browser_data()
         browser.find_element_by_name(name).click()
     except:
         writeLog()
 
 def text_click(text):
     try:
-        global browser
+        browser = browser_data()
         browser.find_element_by_link_text(text).click()
     except:
         writeLog()
@@ -62,7 +64,7 @@ def text_click(text):
 
 def xpath_click(xpath):
     try:
-        global browser
+        browser = browser_data()
         browser.find_element_by_xpath(xpath).click()
     except:
         writeLog()
@@ -70,7 +72,7 @@ def xpath_click(xpath):
 
 def css_click(css):
     try:
-        global browser
+        browser = browser_data()
         browser.find_element_by_css_selector(css).click()
     except:
         writeLog()
