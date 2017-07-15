@@ -8,7 +8,7 @@
 
 class url_content(object):
     #主线链接
-    url_thread = 'http://seller.t-lianni.com/user/login?f=/'
+    url_thread = 'http://---/user/login?f=/'
     #登录链接
     url_login = url_thread + ''
 
