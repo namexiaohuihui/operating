@@ -1,0 +1,21 @@
+
+unittest:
+1.成功是 .，失败是 F，出错是 E，跳过是 S。
+2.每个测试方法均以 test 开头，否则是不被unittest识别的。
+3.#setUp用来为测试准备环境，tearDown用来清理环境.每执行一次函数就会调用它们
+    #setUpClass() 与 tearDownClass():从头到尾只调用一次
+4.跳过某个case
+skip装饰器一共有三个 unittest.skip(reason)、
+unittest.skipIf(condition, reason)、unittest.skipUnless(condition,
+ reason)，skip无条件跳过，skipIf当condition为True时跳过，
+ skipUnless当condition为False时跳过。
+ 也可以在函数中假如self.skipTest('Do not run this.')效果和装饰器一样
+
+ 5.使用testcase来执行函数
+  # 用addTests + TestLoader
+    # loadTestsFromName()，传入'模块名.TestCase名'
+    #suite.addTests(unittest.TestLoader().loadTestsFromName('test_mathfunc.TestMathFunc'))
+    #suite.addTests(
+    #    unittest.TestLoader().loadTestsFromNames(['test_mathfunc.TestMathFunc']))  # loadTestsFromNames()，类似，传入列表
+    # loadTestsFromTestCase()，传入TestCase
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestMathFunc))
