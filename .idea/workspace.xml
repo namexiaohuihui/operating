@@ -2,42 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demo/test_suite.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page_web/web_shop/sign/sign_in.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practical/Exception _error/DefinitionError.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner1.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practical/file_introduce/网址" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/constant/browser/browser_establish.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/constant/parameter/parameter_data.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/constant/url_website/url_data.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/constant/介绍" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/Example/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/Example/global_variable.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/Example/login.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/Example/simple_interest_1.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/Example/simple_interest_2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/Example/simple_interest_3.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/Example/simple_interest_4.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/__init__-20170620214633.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/__init__-20170620214633.log-screenshot_error.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/异常" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/selenium_click.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/selenium_input.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/selenium_move.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/selenium_move_child.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/介绍" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/py_mysql/pymysql_main.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/appium_app/app_shop/projects" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/appium_app/app_shop/sign/sign_in.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practical/Program_exit/exit_os_sys.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/sign/sign_in-20170716181804.log" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CuttingOperation/stringCutting.py" afterPath="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/file_introduce/git删除本地库.txt" afterPath="$PROJECT_DIR$/practical/file_introduce/git删除本地库.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/file_introduce/iframe内嵌切换以及多窗口切换" afterPath="$PROJECT_DIR$/practical/file_introduce/iframe内嵌切换以及多窗口切换" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/file_introduce/字符操作pring_string" afterPath="$PROJECT_DIR$/practical/file_introduce/字符操作pring_string" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/file_introduce/文件操作operation_file" afterPath="$PROJECT_DIR$/practical/file_introduce/文件操作operation_file" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/file_introduce/日志打印logging_basicConfig" afterPath="$PROJECT_DIR$/practical/file_introduce/日志打印logging_basicConfig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/file_introduce/框架.txt" afterPath="$PROJECT_DIR$/practical/file_introduce/框架.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/file_introduce/浏览器截图screenshot" afterPath="$PROJECT_DIR$/practical/file_introduce/浏览器截图screenshot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/test_suite.py" afterPath="$PROJECT_DIR$/demo/test_suite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/sign/sign_in.py" afterPath="$PROJECT_DIR$/page_web/web_shop/sign/sign_in.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" afterPath="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/constant/url_website/url_data.py" afterPath="$PROJECT_DIR$/practical/constant/url_website/url_data.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/file_introduce/网址" afterPath="$PROJECT_DIR$/practical/file_introduce/网址" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,11 +27,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="sign_in.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/sign_in.py">
+        <entry file="file://$PROJECT_DIR$/appium_app/app_shop/sign/sign_in.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
-              <folding />
+            <state relative-caret-position="308">
+              <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+              <folding>
+                <element signature="e#102#111#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,11 +80,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/demo/dalao.py" />
-        <option value="$PROJECT_DIR$/parameter/browser_establish.py" />
-        <option value="$PROJECT_DIR$/demo/Example/simple_interest_1.py" />
-        <option value="$PROJECT_DIR$/demo/Example/simple_interest_2.py" />
-        <option value="$PROJECT_DIR$/demo/Example/simple_interest_3.py" />
         <option value="$PROJECT_DIR$/demo/Example/simple_interest_4.py" />
         <option value="$PROJECT_DIR$/demo/Example/global_variable.py" />
         <option value="$PROJECT_DIR$/parameter/browser/browser_using.py" />
@@ -144,7 +115,6 @@
         <option value="$PROJECT_DIR$/constant/browser/browser_establish.py" />
         <option value="$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner2.py" />
         <option value="$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner.py" />
-        <option value="$PROJECT_DIR$/demo/test_suite.py" />
         <option value="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
         <option value="$PROJECT_DIR$/practical/file_introduce/框架.txt" />
         <option value="$PROJECT_DIR$/practical/file_introduce/网址" />
@@ -153,16 +123,22 @@
         <option value="$PROJECT_DIR$/demo/Example/__init__.py" />
         <option value="$PROJECT_DIR$/demo/__init__.py" />
         <option value="$PROJECT_DIR$/practical/constant/parameter/parameter_data.py" />
-        <option value="$PROJECT_DIR$/practical/constant/url_website/url_data.py" />
+        <option value="$PROJECT_DIR$/demo/test_suite.py" />
+        <option value="$PROJECT_DIR$/practical/Program_exit/exit_os_sys.py" />
+        <option value="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/sign/sign_in.py" />
+        <option value="$PROJECT_DIR$/appium_app/app_shop/sign.py" />
+        <option value="$PROJECT_DIR$/practical/constant/url_website/url_data.py" />
+        <option value="$PROJECT_DIR$/appium_app/app_shop/projects" />
+        <option value="$PROJECT_DIR$/appium_app/app_shop/sign/sign_in.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="796" />
+    <option name="y" value="53" />
+    <option name="width" value="1076" />
+    <option name="height" value="949" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -200,6 +176,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -209,6 +186,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="practical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="practical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CuttingOperation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -248,9 +247,48 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appium_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appium_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sign" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -442,9 +480,9 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.sign_in" />
-        <item index="1" class="java.lang.String" itemvalue="Python.__init__" />
-        <item index="2" class="java.lang.String" itemvalue="Python.__init__ (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_suite.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in test_suite.py" />
+        <item index="2" class="java.lang.String" itemvalue="Python.__init__" />
+        <item index="3" class="java.lang.String" itemvalue="Python.__init__ (1)" />
         <item index="4" class="java.lang.String" itemvalue="Python.parameter_data" />
       </list>
     </recent_temporary>
@@ -466,34 +504,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_suite_py - 2017.07.16 at 16h 41m 14s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2017.07.17 at 10h 53m 54s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2017.07.16 at 16h 42m 50s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2017.07.17 at 10h 59m 44s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2017.07.16 at 16h 43m 43s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2017.07.17 at 10h 59m 50s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2017.07.16 at 17h 00m 40s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2017.07.17 at 11h 01m 03s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2017.07.16 at 17h 01m 12s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2017.07.17 at 11h 02m 39s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2017.07.16 at 17h 01m 52s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2017.07.17 at 11h 02m 45s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2017.07.16 at 17h 07m 04s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2017.07.17 at 11h 06m 55s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2017.07.16 at 17h 07m 27s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2017.07.17 at 11h 08m 21s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2017.07.16 at 17h 07m 52s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2017.07.17 at 11h 09m 55s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2017.07.16 at 17h 08m 08s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2017.07.17 at 11h 13m 09s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -507,25 +545,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="796" y="53" width="1076" height="949" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2647504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34056604" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37564322" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32816228" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25656325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3990307" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3990307" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -539,39 +577,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo/20170622231630.log" />
-    <entry file="file://$PROJECT_DIR$/demo/20170622.23.37.25.png" />
-    <entry file="file://$PROJECT_DIR$/demo/20170626.21.18.58.png" />
-    <entry file="file://$PROJECT_DIR$/practical/file_introduce/浏览器截图screenshot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/file_introduce/iframe内嵌切换以及多窗口切换">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web_page_switching/webpage_switch.py" />
-    <entry file="file://$PROJECT_DIR$/web_page_switching/html_switch.py" />
-    <entry file="file://$PROJECT_DIR$/demo/Example/simple_interest_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/Example/global_variable.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-484">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/ie/webdriver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-73">
@@ -630,31 +635,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/__init__-20170620214633.log-screenshot_error.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/__init__-20170620214633.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="45" lean-forward="true" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/geckodriver.log" />
+    <entry file="file://$PROJECT_DIR$/demo/__init__-20170620214633.log-screenshot_error.png" />
+    <entry file="file://$PROJECT_DIR$/demo/__init__-20170620214633.log" />
     <entry file="file://$PROJECT_DIR$/demo/20170714175007.log" />
     <entry file="file://$PROJECT_DIR$/demo/20170714175138.log" />
     <entry file="file://$PROJECT_DIR$/demo/20170714175221.log" />
     <entry file="file://$PROJECT_DIR$/demo/__init__-20170714175555.log" />
-    <entry file="file://$PROJECT_DIR$/practical/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/__init__.py" />
     <entry file="file://E:/Program Files/Python36/Lib/logging/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1135">
@@ -663,43 +650,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/Example/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/Example/login.py" />
     <entry file="file://$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1056">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/异常">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner2.py" />
+    <entry file="file://$PROJECT_DIR$/demo/异常" />
     <entry file="file://$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-622">
           <caret line="66" column="7" lean-forward="false" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -707,31 +671,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="706" column="0" lean-forward="false" selection-start-line="706" selection-start-column="0" selection-end-line="706" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/sign_in-20170716172134.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-83">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/file_introduce/日志打印logging_basicConfig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="5" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/sign_in-20170716172134.log" />
     <entry file="file://$PROJECT_DIR$/practical/file_introduce/网址">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -739,17 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#118#133#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/test_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -757,26 +693,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/Example/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="33" column="3" lean-forward="true" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/Example/__init__.py" />
     <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
@@ -785,64 +705,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="82" column="19" lean-forward="true" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/__init__.py" />
     <entry file="file://$PROJECT_DIR$/practical/operation/selenium_click.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="44" column="34" lean-forward="false" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="34" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/sign_in-20170716173437.log-screenshot_error.png" />
+    <entry file="file://$PROJECT_DIR$/demo/geckodriver.log" />
+    <entry file="file://$PROJECT_DIR$/practical/file_introduce/日志打印logging_basicConfig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="43" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practical/operation/selenium_input.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="-47">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practical/constant/url_website/url_data.py">
+    <entry file="file://E:/Program Files/Python36/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        <state relative-caret-position="96">
+          <caret line="198" column="4" lean-forward="false" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="4" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/constant/parameter/parameter_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/sign_in-20170716173437.log-screenshot_error.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
+        <state relative-caret-position="162">
           <caret line="39" column="6" lean-forward="false" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/sign_in-20170717 110330.log" />
+    <entry file="file://$PROJECT_DIR$/demo/test_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/Program_exit/exit_os_sys.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1408">
+          <caret line="64" column="23" lean-forward="false" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/sign_in-20170717 114507.log" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/-1514532798/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="890" column="6" lean-forward="false" selection-start-line="890" selection-start-column="6" selection-end-line="890" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/sign_in-20170717 115109.log" />
+    <entry file="file://$PROJECT_DIR$/appium_app/app_shop/sign.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/sign_in.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        <state relative-caret-position="22">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding>
+            <element signature="e#110#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/constant/parameter/parameter_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/constant/url_website/url_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appium_app/app_shop/projects">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appium_app/app_shop/sign/sign_in.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="e#102#111#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -62,9 +62,9 @@ def string_lookup_find(str, ing, number=0):
 
 
 # 在字符串str查找ing出现的位置.找不到时就抛出异常
-def string_lookup_index(str, ing):
+def string_lookup_index(whole,local):
     try:
-        nPos = str.index(ing)
+        nPos = whole.index(local)
         return nPos;
     except Exception as orr:
         return -1;

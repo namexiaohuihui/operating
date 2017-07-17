@@ -1,5 +1,0 @@
-ERROR:root:Traceback (most recent call last):
-  File "E:/operating/page_web/web_shop/sign/sign_in.py", line 52, in test_browesr
-    tt = ele.title
-AttributeError: 'WebElement' object has no attribute 'title'
-
