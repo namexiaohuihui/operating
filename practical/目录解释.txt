@@ -1,0 +1,9 @@
+constant：浏览器和参数
+CuttingOperation：字符串的操作
+
+Exception _error：自定义错误，暂时没用
+file_introduce：一些文档
+HTMLTestRunner：将结果生成html，现在出问题
+operation：元素操作点击输入以及鼠标移动等
+Program_exit：程序退出
+py_mysql：数据库操作
