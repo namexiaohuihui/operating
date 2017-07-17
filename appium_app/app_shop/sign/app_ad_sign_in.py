@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Administrator'
 """
-@file: sign_in.py
+@file: app_ad_sign_in.py
 @time: 2017/7/17 13:45
+adb connect 72836533
 """
 import os
 from selenium import webdriver
@@ -14,13 +15,13 @@ PATH = lambda p: os.path.abspath(
 
 desired_caps = {}
 desired_caps['device'] = 'Android'
-desired_caps['browserName'] = ''
+desired_caps['browserName'] = '72836533:5555'
 desired_caps['version'] = '5.1.1'
-desired_caps['app'] = PATH('C:\Users\Stephen\Desktop\Cweixin6510android1080.apk')
+desired_caps['app'] = PATH('E:\drivers\weixin6510android1080.apk')
 desired_caps['app-package'] = 'com.tencent.mm'
 desired_caps['app-activity'] = '.ui.LauncherUI'
 
-driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 
 el = driver.find_element_by_name("Add Contact")
 el.click()

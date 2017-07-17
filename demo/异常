@@ -1,0 +1,25 @@
+1.扑捉异常并打印
+try:
+    print  aa
+except  NameError, msg:
+    print  msg
+
+2.try...finally...扑捉异常之后继续执行
+
+3.直接Raise抛出异常
+filename = raw_input('please input file name:')
+if filename=='hello':
+    raise NameError('input file name error !')
+
+4.找到某个文件中的函数出现错误
+import traceback
+try:
+    1/0
+except Exception,e:
+    traceback.print_exc()
+
+5.python3.x
+try:
+    raise
+except Exception as err:
+    print(err)
