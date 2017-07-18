@@ -5,3 +5,46 @@ https://python3-cookbook.readthedocs.io/zh_CN/latest/copyright.html
 http://www.cnblogs.com/AlwinXu/p/5558325.html
 http://www.cnblogs.com/fnng/p/4662797.html
 https://huilansame.github.io/huilansame.github.io/archivers/python-unittest
+
+
+官网介绍:
+https://shankargarg.wordpress.com/2016/02/25/create-an-appium-project-by-integrating-appium-eclipse-maven-testng/
+
+完美用例书写:
+http://www.cnblogs.com/xianjie0318/p/6512932.html
+
+虫师unittest:
+http://www.cnblogs.com/fnng/p/4662797.html
+
+测试报告HTML书写：
+http://www.cnblogs.com/AlwinXu/p/5558325.html
+
+
+
+selenium自动化测试资源整理（含所有版本chrome、chromedriver、firefox下载链接）:
+1. 所有版本chrome下载
+http://www.slimjet.com/chrome/google-chrome-old-version.php
+
+http://google_chrome.en.downloadastro.com/old_versions/
+
+http://filehippo.com/zh/download_google_chrome/
+
+http://www.chromedownloads.net/
+
+http://google-chrome.en.uptodown.com/mac/old :Mac的多些，Windows下的很缺，但是有好多其他的软件下载
+
+chromedriver:http://chromedriver.storage.googleapis.com/index.html
+
+chromedriver与chrome映射表:http://blog.csdn.net/huilan_same/article/details/51896672
+
+2. 所有版本firefox下载
+http://ftp.mozilla.org/pub/firefox/releases/
+
+geckodriver：
+https://github.com/mozilla/geckodriver/releases
+
+3. 所有版本selenium以及IEDriverServer下载
+http://selenium-release.storage.googleapis.com/index.html
+
+4.pom.xml里的-java、remote、firefox、chrome、ie等
+http://mvnrepository.com/artifact/org.seleniumhq.selenium
