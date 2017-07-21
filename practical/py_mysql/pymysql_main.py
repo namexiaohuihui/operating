@@ -100,7 +100,7 @@ if __name__ == '__main__':
     pm = pymysqls.__new__(pymysqls)
     # pm.connects()
     # pm.cureors()
-    pm.connects_cureors('192.168.10.204', 3306, 'root', '123456', 'lnlife_1', 'utf8')
+    pm.connects_cureors('load', 8888, 'root', 'mima', 'table', 'utf8')
     sql = "SELECT * FROM lnsm_user WHERE phone = %s;"
-    data = ('18778036030')
+    data = ('---')
     pm.selects(sql, data)
