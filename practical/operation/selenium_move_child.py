@@ -7,9 +7,8 @@
 这是需要隐藏的元素类，通过鼠标移动之后找出隐藏的元素在通过传入相应的id，name，text，xpath，css就可以执行查找第二个元素了
 """
 
-from operation import selenium_move
 
-from practical.operation import selenium_click
+from practical.operation import selenium_click, selenium_move
 
 # 这是参数是用于识别元素路径前面携带的关键字
 _id = 'id'

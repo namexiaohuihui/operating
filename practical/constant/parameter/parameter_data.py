@@ -5,8 +5,8 @@
 @项目名称:operating
 """
 class parameter_content(object):
-    account = '18778036030'
-    password = 'qweasd11'
+    account = '---'
+    password = '****'
 
     # 单例类判断。如果该类创建过就不需要重新创建了
     def __new__(cls, *args, **kw):

@@ -6,6 +6,8 @@
 """
 import os
 # 这是元素输入类，传入相应的id，name，text，xpath，css以及内容就可以执行输入的指令
+import sys
+
 '''
                        _oo0oo_
                       o8888888o
@@ -34,9 +36,8 @@ import os
 from practical.constant.browser.browser_establish import browser_confirm
 
 def browser_data():
-    global browser
     bc = browser_confirm.__new__(browser_confirm)
-    browser = bc.call_browser()
+    browser = bc.bro_wser()
     return browser
 
 
@@ -83,4 +84,5 @@ def writeLog():
     basename = os.path.splitext(os.path.basename(__file__))[0]
     print("自己定义的_文件出现错误,名为名=%s"% \
           basename,)
+    sys.exit(0)
     raise

@@ -39,9 +39,8 @@ from selenium.webdriver import ActionChains
 from practical.constant.browser.browser_establish import browser_confirm
 
 def browser_data():
-    global browser
     bc = browser_confirm.__new__(browser_confirm)
-    browser = bc.call_browser()
+    browser = bc.bro_wser()
     return browser
 
 def id_move(id):
