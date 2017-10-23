@@ -24,8 +24,11 @@ datefmt: 指定时间格式，同time.strftime()
 level: 设置日志级别，默认为logging.WARNING
 stream: 指定将日志的输出流，可以指定输出到sys.stderr,sys.stdout或者文件，默认输出到sys.stderr，当stream和filename同时指定时，stream被忽略
 
+http://www.jianshu.com/p/feb86c06c4f4
 logging打印信息函数：
 
-logging.debug('This is debug message')
-logging.info('This is info message')
-logging.warning('This is warning message')
+logging.debug('debug message')
+logging.info('info message')
+logging.warn('warn message')
+logging.error('error message')
+logging.critical('critical message')

@@ -8,16 +8,18 @@
 
 class url_content(object):
     #主线链接
-    url_thread = 'http:***/'
+    url_thread = 'http:666/'
     #登录链接
-    url_login = url_thread + 'user/login?f=/'
+    url_login = url_thread + 'login'
 
+    '''
     # 单例类判断。如果该类创建过就不需要重新创建了
     def __new__(cls, *args, **kw):
         if not hasattr(cls, '_instance'):
             orig = super(url_content, cls)
             cls._instance = orig.__new__(cls, *args, **kw)
         return cls._instance
+    '''
 
     def return_account (self):
         return self.url_thread

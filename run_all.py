@@ -4,14 +4,14 @@ import os
 import HTMLTestRunner
 
 # 用例路径
-case_path = os.path.join(os.getcwd(), "case")
+case_path = os.path.join(os.getcwd(), "page_web")
 # 报告存放路径
 report_path = os.path.join(os.getcwd(), "report")
 # html报告文件
 report_abspath = os.path.join(report_path, "result.html")
 
 discover = unittest.defaultTestLoader.discover(case_path,
-                                                pattern="test*.py",
+                                                pattern="web_*.py",
                                                 top_level_dir=None)
 
 
