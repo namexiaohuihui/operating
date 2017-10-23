@@ -26,3 +26,5 @@ class definition_error(Exception):
         s = traceback.format_exc()
         # 指定输出类型。。
         logging.error(s)
+
+

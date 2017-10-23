@@ -55,7 +55,7 @@ class browser_confirm(object):
     def chrome_browser(self):
         try:
             # 实现全局变量的引用
-            self._browser_ = webdriver.Chrome("E:\drivers\chromedriver.exe")
+            self._browser_ = webdriver.Chrome("E:\drivers\Drivers\chromedriver59-61.exe")
             print(U"打开谷歌")
         except:
             self.writeLog(self)
@@ -123,7 +123,7 @@ class browser_confirm(object):
 
         # 验证网址是否正确，如果错误就直接退出程序
         whole = _browser_.current_url
-        if whole.index('ler') == -1:
+        if whole.index('ad') == -1:
             print('Web page open failed')
 
         return _browser_;

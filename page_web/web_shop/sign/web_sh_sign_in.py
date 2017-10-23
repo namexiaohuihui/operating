@@ -17,28 +17,29 @@ from selenium.common.exceptions import NoSuchElementException
 from practical.constant.parameter.parameter_data import parameter_content
 from practical.operation import selenium_input,selenium_click
 from practical.constant.browser.browser_establish import browser_confirm
+from practical.Exception_error.DefinitionError import definition_error
 
 
 class sign_input(unittest.TestCase):
 
     def url_op(self):
-        global _browser_  # 定义全局变量
+        #global _browser_  # 定义全局变量
 
         bc = browser_confirm.__new__(browser_confirm)
 
         # 创建浏览器对象
-        _browser_ = bc.url_opens()
+        self._browser_ = bc.url_opens()
 
     @classmethod
-    def setUpClass(cls):
-        cls.url_op(cls)
+    def setUpClass(self):
+        self.url_op(self)
 
     @classmethod
-    def tearDownClass(cls):
+    def tearDownClass(self):
         print("do something after test.Clean up.")
-        # _browser_.close()#关闭浏览器
+        # self._browser_.close()#关闭浏览器
 
-    def test_browesr(seft):
+    def test_browesr(self):
         global parame
         # 创建参数对象
         parame = parameter_content.__new__(parameter_content)
@@ -47,27 +48,29 @@ class sign_input(unittest.TestCase):
             account = parame.return_account()
 
             # 往元素中输入
-            selenium_input.id_input('phone', account)
-            selenium_input.id_input('password', parame.return_password())
+            selenium_input.name_input('username', account)
+            selenium_input.name_input('password', parame.return_password())
 
             # 点击某个元素
             selenium_click.id_click('loginBtn')
 
             #获取登录成功之后的账号
-            title = seft.get_test()
+            title = self.get_test()
+
+            print("登陆之后的标题 %s" %title)
 
             # 断言判断text是否正确
-            assert title == account, 'Logon execution failed'
+            assert title != account, 'Logon execution failed'
 
         except Exception as msg:
-            seft.writelog(seft)
+            self.writelog()
             print("错误信息:%s" % msg)
 
     #获取某个元素的text值，然后返回
     def get_test(self):
         try:
             # 获取某个元素将其转成对象,获取该元素的text
-            tt = _browser_.find_element_by_css_selector('span.user-info').text
+            tt = self._browser_.find_element_by_css_selector('span.user-info').text
             return tt;
         except NoSuchElementException:
             return 'null';
@@ -76,6 +79,7 @@ class sign_input(unittest.TestCase):
     def writelog(self):
         # 组合日志文件名（当前文件名+当前时间）.比如：case_login_success_20150817192533
         basename = os.path.splitext(os.path.basename(__file__))[0]
+
         logFile = basename + "-" + datetime.datetime.now().strftime("%Y%m%d %H%M%S") + ".log"
 
         # 创建文件
@@ -88,7 +92,8 @@ class sign_input(unittest.TestCase):
         logging.error(s)
 
         # 截图
-        _browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
+        self._browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
+
 
 if __name__ == '__main__':
     unittest.main()
