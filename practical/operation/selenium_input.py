@@ -7,6 +7,7 @@
 import os
 # 这是元素输入类，传入相应的id，name，text，xpath，css以及内容就可以执行输入的指令
 import sys
+from time import sleep
 
 '''
                        _oo0oo_
@@ -33,52 +34,42 @@ import sys
 
                佛祖保佑         永无BUG
 '''
-from practical.constant.browser.browser_establish import browser_confirm
 
-def browser_data():
-    bc = browser_confirm.__new__(browser_confirm)
-    browser = bc.bro_wser()
-    return browser
-
-
-def id_input(id, data):
+def id_input(browser,id, data):
     try:
-        browser = browser_data()
         ele = browser.find_element_by_id(id)
-        ele.clear()
-        ele.send_keys(data)
+        ele_clear_keys(ele, data)
     except:
         writeLog()
 
 
-def name_input(name, data):
+def name_input(browser,name, data):
     try:
-        browser = browser_data()
         ele = browser.find_element_by_name(name)
-        ele.clear()
-        ele.send_keys(data)
+        ele_clear_keys(ele, data)
     except:
         writeLog()
 
 
-def css_input(css, data):
+def css_input(browser,css, data):
     try:
-        browser = browser_data()
         ele = browser.find_element_by_css_selector(css)
-        ele.clear()
-        ele.send_keys(data)
+        ele_clear_keys(ele, data)
     except:
         writeLog()
 
 
-def xpath_input(xpath, data):
+def xpath_input(browser,xpath, data):
     try:
-        browser = browser_data()
         ele = browser.find_element_by_xpath(xpath)
-        ele.clear()
-        ele.send_keys(data)
+        ele_clear_keys(ele,data)
     except:
         writeLog()
+
+def ele_clear_keys(ele,data):
+    ele.clear()
+    ele.send_keys(data)
+    sleep(1)
 
 def writeLog():
     basename = os.path.splitext(os.path.basename(__file__))[0]

@@ -8,7 +8,7 @@
 
 class url_content(object):
     #主线链接
-    url_thread = 'http:www.baidu.com/'
+    url_thread = 'http:baidu.com/'
     #登录链接
     url_login = url_thread + 'login'
 

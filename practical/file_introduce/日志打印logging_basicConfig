@@ -25,10 +25,31 @@ level: 设置日志级别，默认为logging.WARNING
 stream: 指定将日志的输出流，可以指定输出到sys.stderr,sys.stdout或者文件，默认输出到sys.stderr，当stream和filename同时指定时，stream被忽略
 
 http://www.jianshu.com/p/feb86c06c4f4
-logging打印信息函数：
+logging打印信息函数:
+#可运行的例子
+   if __name__ == '__main__':
+    #定义执行者的名字
+    logger = logging.getLogger("simple_example")
+    #定义等级
+    logger.setLevel(logging.DEBUG)
 
-logging.debug('debug message')
-logging.info('info message')
-logging.warn('warn message')
-logging.error('error message')
-logging.critical('critical message')
+    # 输出到屏幕
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+
+    # 输出到文件
+    fh = logging.FileHandler("log2.log")
+    fh.setLevel(logging.WARNING)
+
+    # 设置日志格式
+    fomatter = logging.Formatter('%(asctime)s -%(name)s-%(levelname)s-%(module)s:%(message)s')
+    ch.setFormatter(fomatter)
+    fh.setFormatter(fomatter)
+    logger.addHandler(ch)
+    logger.addHandler(fh)
+
+    logger.debug("debug message")
+    logger.info("info message")
+    logger.warning("warning message")
+    logger.error("error message")
+    logger.critical("critical message")

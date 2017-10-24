@@ -36,64 +36,53 @@ from selenium.webdriver import ActionChains
 
                佛祖保佑         永无BUG
 '''
-from practical.constant.browser.browser_establish import browser_confirm
 
-def browser_data():
-    bc = browser_confirm.__new__(browser_confirm)
-    browser = bc.bro_wser()
-    return browser
-
-def id_move(id):
+def id_move(browser,id):
     try:
         #   找到需要转移的元素
-        browser = browser_data()
         ele = browser.find_element_by_id(id)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-        auto_move(ele)
+        auto_move(browser,ele)
     except:
         writeLog()
 
-def name_move(name):
+def name_move(browser,name):
     try:
         #   找到需要转移的元素
-        browser = browser_data()
         ele = browser.find_element_by_name(name)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-        auto_move(ele)
+        auto_move(browser,ele)
     except:
         writeLog()
 
-def text_move(text):
+def text_move(browser,text):
     try:
         #   找到需要转移的元素
-        browser = browser_data()
         ele = browser.find_element_by_link_text(text)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-        auto_move(ele)
+        auto_move(browser,ele)
     except:
         writeLog()
 
-def xpath_move(xpath):
+def xpath_move(browser,xpath):
     try:
         #   找到需要转移的元素
-        browser = browser_data()
         ele = browser.find_element_by_xpath(xpath)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-        auto_move(ele)
+        auto_move(browser,ele)
     except:
         writeLog()
 
-def css_move(css):
+def css_move(browser,css):
     try:
         #   找到需要转移的元素
-        browser = browser_data()
         ele = browser.find_element_by_css_selector(css)
         #   实现转移指令,perform执行所有 ActionChains 中存储的行为，可以理解成是对整个操作事件的提交动作。
-        auto_move(ele)
+        auto_move(browser,ele)
     except:
         writeLog()
 
-def auto_move(br_ele):
+def auto_move(browser,br_ele):
     ActionChains(browser).move_to_element(br_ele).perform()
     time.sleep(2)
 

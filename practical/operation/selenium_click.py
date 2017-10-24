@@ -34,51 +34,38 @@ from practical.Exception_error.DefinitionError import definition_error
 
                佛祖保佑         永无BUG
 '''
-from practical.constant.browser.browser_establish import browser_confirm
-
-
-def browser_data():
-    bc = browser_confirm.__new__(browser_confirm)
-    browser = bc.bro_wser()
-    return browser
-
-def id_click(id):
+def id_click(browser,id):
     try:
-        browser =  browser_data()
         browser.find_element_by_id(id).click()
         sleep(2)
     except:
         writeLog(browser)
 
 
-def name_click(name):
+def name_click(browser,name):
     try:
-        browser = browser_data()
         browser.find_element_by_name(name).click()
         sleep(2)
     except:
         writeLog(browser)
 
-def text_click(text):
+def text_click(browser,text):
     try:
-        browser = browser_data()
         browser.find_element_by_link_text(text).click()
         sleep(2)
     except:
         writeLog(browser)
 
 
-def xpath_click(xpath):
+def xpath_click(browser,xpath):
     try:
-        browser = browser_data()
         browser.find_element_by_xpath(xpath).click()
         sleep(2)
     except:
         writeLog(browser)
 
-def css_click(css):
+def css_click(browser,css):
     try:
-        browser = browser_data()
         browser.find_element_by_css_selector(css).click()
         sleep(2)
     except:
@@ -90,4 +77,4 @@ def writeLog(browser):
     # 组合日志文件名（当前文件名 + 当前时间）.比如：case_login_success_20150817192533
     de_error = definition_error()
     de_error.erroe_get(basename, browser)
-    raise
+    #raise

@@ -9,7 +9,6 @@
 import os
 import unittest
 from time import sleep
-from  selenium import webdriver
 from practical.constant.parameter.parameter_data import parameter_content
 from practical.operation import selenium_input, selenium_click
 from practical.constant.browser.browser_establish import browser_confirm
@@ -133,11 +132,11 @@ class sign_input(unittest.TestCase):
     def case_browesr(self, account, password, str, ele_css_load):
         try:
             # 往元素中输入
-            selenium_input.name_input('username', account)
-            selenium_input.name_input('password', password)
+            selenium_input.name_input(self.browser,'username', account)
+            selenium_input.name_input(self.browser,'password', password)
 
             # 点击某个元素
-            selenium_click.css_click('#loginBtn')
+            selenium_click.css_click(self.browser,'#loginBtn')
 
         except Exception as msg:
             self.writelog()
