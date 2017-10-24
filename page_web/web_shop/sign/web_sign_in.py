@@ -9,9 +9,9 @@
 import os
 import unittest
 from time import sleep
-
+from  selenium import webdriver
 from practical.constant.parameter.parameter_data import parameter_content
-from practical.operation import selenium_input,selenium_click
+from practical.operation import selenium_input, selenium_click
 from practical.constant.browser.browser_establish import browser_confirm
 from practical.Exception_error.DefinitionError import definition_error
 
@@ -21,19 +21,20 @@ unittest.TestCase的使用：
     使用setUpClass时，调用class函数需要传入self：比如：self.url_op(self)
     使用setUp时，则相反不需要传入self
 '''
-class sign_input(unittest.TestCase):
 
+
+class sign_input(unittest.TestCase):
     @classmethod
     def setUpClass(self):
+        self.basename = os.path.splitext(os.path.basename(__file__))[0]
         self.url_op(self)
 
     @classmethod
     def tearDownClass(self):
-        print( " :The program has completed the use case.")
-        #self.browser.close()#关闭浏览器
+        print(" :The program has completed the use case.")
+        # self.browser.close()#关闭浏览器
 
     def url_op(self):
-
         bc = browser_confirm.__new__(browser_confirm)
 
         # 创建浏览器对象
@@ -42,7 +43,7 @@ class sign_input(unittest.TestCase):
         # 创建参数对象
         self.parame = parameter_content()
 
-    #密码输入错误的提示
+    # 密码输入错误的提示
     def test_case01(self):
 
         try:
@@ -53,7 +54,7 @@ class sign_input(unittest.TestCase):
             ele_css_load = '.login-box-msg'
 
             # 定义需要输入的参数
-            account = "-"
+            account = "panhui"
             password = "---"
 
             # 调用公共函数进行数据执行
@@ -64,13 +65,14 @@ class sign_input(unittest.TestCase):
             # 这一块先不判断，制作程序是否可以运行的结果
             log_msg = self.browser.find_element_by_css_selector(ele_css_load).text
 
-            assert str + 'Login judgment', log_msg == '登陆失败，账号或密码错误'
+            assert log_msg == '登陆失败，账号或密码错误', str + 'Login judgment'
+
+            print(str + "执行成功")
         except Exception as msg:
             self.writelog()
             print(str + "错误信息:%s" % msg)
 
-
-    #账号输入错误的提示
+    # 账号输入错误的提示
     def test_case02(self):
         try:
             # 定义函数名，供于数据打印
@@ -90,11 +92,13 @@ class sign_input(unittest.TestCase):
 
             # 这一块先不判断，制作程序是否可以运行的结果
             log_msg = self.browser.find_element_by_css_selector(ele_css_load).text
-            assert str + 'Login judgment', log_msg == '登陆失败，用户不存在'
+            assert log_msg == '登陆失败， 用户不存在', str + 'Login judgment'
+
+            print(str + "执行成功")
+
         except Exception as  msg:
             self.writelog()
             print(str + "错误信息:%s" % msg)
-
 
     # 成功登陆的提示
     def test_case03(self):
@@ -115,15 +119,18 @@ class sign_input(unittest.TestCase):
             sleep(5)
 
             # 这一块先不判断，制作程序是否可以运行的结果
-            log_msg = self.browser.find_element_by_css_selector(ele_css_load).text
-            assert str + 'Login judgment', log_msg == "欢迎您: +\"account\"+,登录连你生活管理系统"
+            log_msg = self.browser.find_element_by_css_selector(ele_css_load).text.strip()
+
+            #python在字符串中进行拼接只需要一个加号
+            assert log_msg == "欢迎您: " + account + " ,登录连你生活管理系统", str + 'Login judgment'
+
+            print(str + "执行成功")
+
         except Exception as msg:
             self.writelog()
             print(str + "错误信息:%s" % msg)
 
-
-
-    def case_browesr(self,account,password,str,ele_css_load):
+    def case_browesr(self, account, password, str, ele_css_load):
         try:
             # 往元素中输入
             selenium_input.name_input('username', account)
@@ -136,13 +143,11 @@ class sign_input(unittest.TestCase):
             self.writelog()
             print("错误信息:%s" % msg)
 
-
-    #出现错误之后截图以及写入文档中
+    # 出现错误之后截图以及写入文档中
     def writelog(self):
-        #调用错误类吗，进行错误打印
+        # 调用错误类吗，进行错误打印
         de_error = definition_error()
-        de_error.erroe_get(self.basename,self.browser)
-
+        de_error.erroe_get(self.basename, self.browser)
 
 
 if __name__ == '__main__':
