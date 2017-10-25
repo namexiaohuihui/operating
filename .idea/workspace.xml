@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/web_discount.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/web_extract.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/test_suite.py" afterPath="$PROJECT_DIR$/demo/test_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py" afterPath="$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" afterPath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/constant/parameter/parameter_data.py" afterPath="$PROJECT_DIR$/practical/constant/parameter/parameter_data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/constant/url_website/url_data.py" afterPath="$PROJECT_DIR$/practical/constant/url_website/url_data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/file_introduce/日志打印logging_basicConfig" afterPath="$PROJECT_DIR$/practical/file_introduce/日志打印logging_basicConfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/operation/selenium_click.py" afterPath="$PROJECT_DIR$/practical/operation/selenium_click.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/operation/selenium_input.py" afterPath="$PROJECT_DIR$/practical/operation/selenium_input.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/operation/selenium_move.py" afterPath="$PROJECT_DIR$/practical/operation/selenium_move.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/result.html" afterPath="$PROJECT_DIR$/report/result.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" afterPath="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/py_mysql/pymysql_main.py" afterPath="$PROJECT_DIR$/practical/py_mysql/pymysql_main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_all.py" afterPath="$PROJECT_DIR$/run_all.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +17,18 @@
     <favorites_list name="operating" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="pymysql_main.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/practical/py_mysql/pymysql_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="89">
+              <caret line="50" column="8" lean-forward="false" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -83,7 +80,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web_page_switching/webpage_switch.py" />
         <option value="$PROJECT_DIR$/file_introduce/iframe内嵌切换" />
         <option value="$PROJECT_DIR$/file_introduce/iframe内嵌切换以及多窗口切换" />
         <option value="$PROJECT_DIR$/demo/异常" />
@@ -105,7 +101,6 @@
         <option value="$PROJECT_DIR$/demo/Example/__init__.py" />
         <option value="$PROJECT_DIR$/demo/__init__.py" />
         <option value="$PROJECT_DIR$/practical/Program_exit/exit_os_sys.py" />
-        <option value="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" />
         <option value="$PROJECT_DIR$/appium_app/app_shop/sign.py" />
         <option value="$PROJECT_DIR$/appium_app/app_shop/projects" />
         <option value="$PROJECT_DIR$/appium_app/app_shop/sign/sign_in.py" />
@@ -130,18 +125,20 @@
         <option value="$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py" />
         <option value="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
         <option value="$PROJECT_DIR$/practical/operation/selenium_input.py" />
-        <option value="$PROJECT_DIR$/run_all.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/web_extract.py" />
         <option value="$PROJECT_DIR$/practical/constant/url_website/url_data.py" />
         <option value="$PROJECT_DIR$/practical/constant/parameter/parameter_data.py" />
+        <option value="$PROJECT_DIR$/run_all.py" />
+        <option value="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" />
+        <option value="$PROJECT_DIR$/practical/py_mysql/pymysql_main.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="100" />
-    <option name="y" value="4" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="232" />
+    <option name="y" value="6" />
     <option name="width" value="1065" />
-    <option name="height" value="788" />
+    <option name="height" value="727" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -178,6 +175,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,28 +226,13 @@
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="practical" type="462c0819:PsiDirectoryNode" />
-              <item name="constant" type="462c0819:PsiDirectoryNode" />
+              <item name="CuttingOperation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="practical" type="462c0819:PsiDirectoryNode" />
-              <item name="constant" type="462c0819:PsiDirectoryNode" />
-              <item name="browser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="practical" type="462c0819:PsiDirectoryNode" />
-              <item name="constant" type="462c0819:PsiDirectoryNode" />
-              <item name="parameter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="practical" type="462c0819:PsiDirectoryNode" />
-              <item name="constant" type="462c0819:PsiDirectoryNode" />
-              <item name="url_website" type="462c0819:PsiDirectoryNode" />
+              <item name="py_mysql" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
@@ -259,8 +243,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -293,21 +275,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in web_extract.py">
-    <configuration name="Unittests in test_suite.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/demo/test_suite.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
+  <component name="RunManager" selected="Python.pymysql_main">
     <configuration name="Unittests in web_extract.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -400,6 +368,23 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
+    <configuration name="pymysql_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practical/py_mysql" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practical/py_mysql/pymysql_main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="run_all" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -436,18 +421,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in web_sign_in.py" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in test_suite.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python.run_all" />
-      <item index="3" class="java.lang.String" itemvalue="Python.test_suite" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in web_extract.py" />
+      <item index="1" class="java.lang.String" itemvalue="Python.run_all" />
+      <item index="2" class="java.lang.String" itemvalue="Python.test_suite" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in web_extract.py" />
+      <item index="4" class="java.lang.String" itemvalue="Python.pymysql_main" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in web_extract.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python.run_all" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test_suite" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in web_sign_in.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test_suite.py" />
+        <item index="0" class="java.lang.String" itemvalue="Python.pymysql_main" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in web_extract.py" />
+        <item index="2" class="java.lang.String" itemvalue="Python.run_all" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test_suite" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in web_sign_in.py" />
       </list>
     </recent_temporary>
   </component>
@@ -509,13 +494,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="232" y="6" width="1065" height="727" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23373677" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23681591" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32593855" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3651877" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4340949" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -528,6 +512,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32593855" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -553,14 +538,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/web_sh_sign_in-20170723 145639.log" />
-    <entry file="file://$PROJECT_DIR$/practical/Program_exit/exit_os_sys.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/web_sh_sign_in-20170723 151133.log-screenshot_error.png" />
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/web_sh_sign_in-20170723 151133.log" />
     <entry file="file://$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner.py" />
@@ -653,7 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
           <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -667,20 +643,12 @@
     <entry file="file://$PROJECT_DIR$/demo/lo1g.log" />
     <entry file="file://$PROJECT_DIR$/demo/log.log" />
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in-20171024 174836.log" />
-    <entry file="file://$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="39" column="19" lean-forward="false" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in-20171024 175944.log" />
     <entry file="file://$PROJECT_DIR$/web_sign_in-20171024 174155.log" />
     <entry file="file://$PROJECT_DIR$/practical/Exception_error/DefinitionError.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -688,7 +656,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="79" column="5" lean-forward="false" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -696,7 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -704,7 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-418">
           <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -712,7 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="695">
           <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,7 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,7 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -736,7 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,7 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-924">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,23 +712,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1386">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount.py" />
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/web_discount.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,19 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="39" column="40" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="40" />
-          <folding>
-            <element signature="e#100#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_all.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-          <folding>
-            <element signature="e#15#30#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -806,7 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
           <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,7 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1980">
           <caret line="97" column="19" lean-forward="true" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,14 +758,47 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_all.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="28" column="14" lean-forward="false" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding>
+            <element signature="e#15#30#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="818">
+        <state relative-caret-position="513">
           <caret line="62" column="23" lean-forward="true" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Program Files/Python36/Lib/site-packages/pymysql/cursors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="146" column="8" lean-forward="false" selection-start-line="146" selection-start-column="8" selection-end-line="146" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="121" column="33" lean-forward="false" selection-start-line="121" selection-start-column="33" selection-end-line="121" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/py_mysql/pymysql_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="50" column="8" lean-forward="false" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
           <folding />
         </state>
       </provider>

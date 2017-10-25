@@ -108,4 +108,19 @@ def OnlyCharNum(s):
             s = s.replace(c,'');
     return s;
 
+# len：返回字符串、列表、字典、元组等长度
+# 参数:要计算的字符串、列表、字典、元组等
+# list() 函数是对象迭代器，把对象转为一个列表。返回的变量类型为列表。
+def thleng(str):
+    kk = len(str)
+    return kk;
+
+# range(x):表示从0到x，不包括x
+# range() 函数返回的是一个可迭代对象（类型是对象），
+# 而不是列表类型， 所以打印的时候不会打印列表。
+# 2.x版本的就返回0到x之间的全部数据。
+# 3.x版本的就返回指定需要的数据，比如range（x）之后返回range(0, x)
+def range_range(msg=0,para=99):
+    range(msg,para)
+
 
