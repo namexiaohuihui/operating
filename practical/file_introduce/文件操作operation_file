@@ -50,6 +50,12 @@ python中对文件、文件夹（文件操作函数）的操作需要涉及到os
 文件操作：
 os.mknod("test.txt")        创建空文件
 fp = open("test.txt",w)     直接打开一个文件，如果文件不存在则创建文件
+例子:
+f = open(r'E:\getuidata.txt', 'w+')
+# 写数据
+f.write(result)
+# 关闭文件
+f.close()
 
 关于open 模式：
 

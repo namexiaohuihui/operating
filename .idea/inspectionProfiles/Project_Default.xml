@@ -5,6 +5,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="page_web.web_shop.target_parameter.parameter.web_extract.selenium_input" />
+          <option value="practical.py_mysql.pymysql_main.test_class" />
         </list>
       </option>
     </inspection_tool>
