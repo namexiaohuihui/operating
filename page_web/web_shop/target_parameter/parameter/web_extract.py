@@ -4,6 +4,7 @@
 @file: web_extract.py
 @time: 2017/10/24 21:57
 @项目名称:operating
+描述：提现界面的case
 """
 import unittest
 import os
@@ -15,7 +16,7 @@ from practical.constant.parameter.parameter_data import parameter_content
 from practical.operation import selenium_input, selenium_click
 
 
-class discount_input(unittest.TestCase):
+class extract_input(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -36,8 +37,9 @@ class discount_input(unittest.TestCase):
         self.browser = bc.url_opens()
 
         # 创建参数对象
-        self.parame = parameter_content()
+        #self.parame = parameter_content()
 
+    #验证手续费大于提现额的
     def test_case1(self):
         sleep(2)
         msg = '提现手续费应小于提现金额'

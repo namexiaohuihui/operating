@@ -57,7 +57,7 @@ class sign_input(unittest.TestCase):
             password = "---"
 
             # 调用公共函数进行数据执行
-            self.case_browesr(account, password, str, ele_css_load)
+            self.case_browesr(account, password)
 
             sleep(5)
 
@@ -85,7 +85,7 @@ class sign_input(unittest.TestCase):
             password = "---"
 
             # 调用公共函数进行数据执行
-            self.case_browesr(account, password, str, ele_css_load)
+            self.case_browesr(account, password)
 
             sleep(5)
 
@@ -113,7 +113,7 @@ class sign_input(unittest.TestCase):
             password = self.parame.return_password()
 
             # 调用公共函数进行数据执行
-            self.case_browesr(account, password, str, ele_css_load)
+            self.case_browesr(account, password)
 
             sleep(5)
 
@@ -129,13 +129,22 @@ class sign_input(unittest.TestCase):
             self.writelog()
             print(str + "错误信息:%s" % msg)
 
-    def case_browesr(self, account, password, str, ele_css_load):
+    def case_browesr(self, account, password):
         try:
             # 往元素中输入
+            # 调用公共函数，输入元素名称和需要输入的内容。进行输入
+            # 调用公共函数目的：是为了以后更好的排查问题
+            # self.browser为浏览器对象
+            # username为元素名称对象
+            # account为输入框要输入的内容对象
             selenium_input.name_input(self.browser,'username', account)
             selenium_input.name_input(self.browser,'password', password)
 
             # 点击某个元素
+            # 调用公共函数，对元素进行点击
+            # 调用公共函数目的：是为了以后更好的排查问题
+            # self.browser为浏览器对象
+            # #loginBtn为元素的id对象，井号代表id的意思
             selenium_click.css_click(self.browser,'#loginBtn')
 
         except Exception as msg:
