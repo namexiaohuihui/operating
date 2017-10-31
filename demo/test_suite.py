@@ -5,13 +5,18 @@
 @time: 2017/7/16 16:28
 @项目名称:operating
 """
+import inspect
 import logging
 
-class sys:
+import sys
+
+
+class sys111:
     hello = ''
     world = ''
+    def xxkk(self0):
+        print('1', sys._getframe().f_code.co_name)
+        print('2', inspect.stack()[0][3])
 if __name__ == '__main__':
-    sysl = sys()
-    print("脚本名：", sysl.argv[0])
-    for i in range(1, len(sysl.argv)):
-        print("参数", i, sysl.argv[i])
+    lll = sys111()
+    lll.xxkk()

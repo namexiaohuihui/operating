@@ -117,7 +117,8 @@ class browser_confirm(object):
         self.browser = self.chrome_browser()
 
         # 输入网址
-        self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
+        self.browser.get("C:\\Users\\70486\\Desktop\\shezhi.html")
+        #self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
 
         # 等待网页加载，加载时间为10s，加载完就跳过
         self.browser.implicitly_wait(30)
