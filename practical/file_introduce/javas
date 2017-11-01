@@ -1,0 +1,71 @@
+
+1、js点击
+
+profile = Selenium::WebDriver::Firefox::Profile.new
+$driver = Selenium::WebDriver.for :firefox, :profile=>profile
+$driver.execute_script("arguments[0].click()", element)
+
+
+2、js输入
+
+$driver.execute_script("return arguments[0].value='#{string_text}'", @@element)
+
+
+3、js输入后引起其他的参数变化
+
+$driver.execute_script("return arguments[0].value='#{string_text}'", @@element)
+$driver.execute_script("$(arguments[0]).change()", @@element)
+
+4、js控制滚动条，这是一个非常实用的方法，可以确保你要操作的元素在可见的范围内
+
+$driver.execute_script("arguments[0].scrollIntoView(false);", @@element);
+$driver.execute_script("return arguments[0].scrollTop=#{new_scroll_top}", element)
+
+
+
+
+http://blog.csdn.net/stalwartwill/article/details/26498603
+
+
+摘自JavaScript权威指南（jQuery根据样式选择器查找元素的终极方式是 先用getElementsByTagName(*)获取所有DOM元素，然后根据样式选择器对所有DOM元素进行筛选）
+
+今天试了下各种选取元素的方法的速度，用原生的方法比jQuery要快差不多8倍，IE8是最慢的，IE9的速度差不多是IE8的3倍，Chrome的表现最好，其次是Firefox）
+
+选取文档元素的方法：
+1、通过ID选取元素（getElementById）
+   1）使用方法：document.getElementById("domId")
+        其中，domId为要选取元素的id属性值
+   2）兼容性：低于IE8版本的IE浏览器对getElementById方法的实现是不区分元素ID号的大小写的，并且会返回匹配name属性的元素。
+
+2、通过名称name选取元素（getElementsByName）
+    1）使用方法：document.getElementsByName("domName")
+        其中，domName为要选取元素的name属性值
+    2）说明：a. 返回值是一个nodeList集合（区别于Array）
+             b. 和ID属性不一样，name属性只在少数DOM元素中有效（form表单、表单元素、iframe、img）。这是因为name属性是为了方便提交表单数据而打造的。
+             c. 为form、img、iframe、applet、embed、object元素设置name属性时，会自动在Document对象中创建以该name属性值命名的属性。所以可以通过document.domName引用相应的dom对象
+    3）兼容性：IE中ID属性值匹配的元素也会一起返回
+
+3、通过标签名选取元素（getElementsByTagName）
+    1）使用方法：element.getElementsByTagName("tagName")
+        其中，element是有效的DOM元素（包括document）
+              tagName是DOM元素的标签名
+    2）说明：a. 返回值是一个nodeList集合（区别于Array）
+             b. 该方法只能选取调用该方法的元素的后代元素。
+             c. tagName不区分大小写
+             d. 当tagName为*时，表示选取所有元素（需遵从b.规则）
+             e. HTMLDocument会定义一些快捷属性来访问标签节点。如：document的images、forms、links属性指向<img>、<form>、<a>标签元素集合，而document.body和document.head总是指向body和head标签（当未显示声明head标签时，浏览器也会创建document.head属性）
+
+4、通过CSS类选取元素（getElementsByClassName）
+    1）使用方法：element.getElementsByClassName("classNames")
+        其中，element是有效的DOM元素（包括document）
+              classNames是CSS类名称的组合（多个类名之间用空格，可以是多个空格隔开），
+              如element.getElementsByClassName("class2 class1")将选取elements后代元素中同时应用了class1和class2样式的元素（样式名称不区分先后顺序）
+    2）说明：a. 返回值是一个nodeList集合（区别于Array）
+             b. 该方法只能选取调用该方法的元素的后代元素。
+    3）兼容性：IE8及其以下版本的浏览器未实现getElementsByClassName方法
+
+5、通过CSS选择器选取元素
+    1）使用方法：document.querySelectorAll("selector")
+        其中，selector为合法的CSS选择器
+    2）说明：a. 返回值是一个nodeList集合（区别于Array）
+    3）兼容性：IE8及其以下版本的浏览器只支持CSS2标准的选择器语法

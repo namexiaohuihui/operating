@@ -16,7 +16,7 @@ from time import sleep
 import sys
 
 from practical.constant.browser.browser_establish import browser_confirm
-from practical.constant.parameter.parameter_data import parameter_content
+
 
 
 class discount_input(unittest.TestCase):
@@ -31,12 +31,17 @@ class discount_input(unittest.TestCase):
         print("%s   执行完毕" % cls.basename)
         #cls.browser.close()
 
+
     # 调用浏览器对象
     def url_op(self):
         bc = browser_confirm.__new__(browser_confirm)
 
         # 创建浏览器对象
         self.browser = bc.url_opens()
+
+        #bc.case_browesr('--','-/*--**-')
+
+        #bc.system_parameter_discount()
 
         # 创建参数对象
         #self.parame = parameter_content()
@@ -47,10 +52,9 @@ class discount_input(unittest.TestCase):
     def test_number(self):
         ele_div = self.browser.find_element_by_css_selector('.box-city')
         ele_a = ele_div.find_elements_by_tag_name('a')
-        submit = ele_div.find_element_by_css_selector('.btn.btn-primary.settingSave')
         #打印数量
         print(len(ele_a))
-
+        """
         # 通过id找到元素并进行输入:商品不参与数
         self.browser.execute_script("document.getElementById('goods_id').value='0.1';")
         # 通过id找到元素并进行输入:绑定打折数
@@ -59,6 +63,7 @@ class discount_input(unittest.TestCase):
         self.browser.execute_script("document.getElementById('watikis_id').value='0.1';")
         # 通过id找到元素并进行输入:绑定最高数
         self.browser.execute_script("document.getElementById('watikis_max').value='0.1';")
+        """
 
     '''
     验证商品打折数输入大于10的问题
@@ -66,6 +71,7 @@ class discount_input(unittest.TestCase):
     def test_goods_discount_one(self):
         #获取函数名
         function = inspect.stack()[0][3]
+        print(function)
 
         # 通过id找到元素并进行输入:商品打折数
         self.browser.execute_script("document.getElementById('goods_discount').value='111';")
@@ -73,14 +79,16 @@ class discount_input(unittest.TestCase):
         #输入错误出现的提示
         massegn = '请输入0.1~9.9之间的数'
 
-        self.verification(massegn,function)
+        self.verification(massegn,function,)
 
     '''
     验证商品打折数输入小于0的问题:即输入负数
     '''
     def test_goods_discount_two(self):
+
         # 获取函数名
         function = sys._getframe().f_code.co_name
+        print(function)
 
         # 传入名字和需要输入的参数
         self.format_goods_discount(function, '-1')
@@ -91,6 +99,7 @@ class discount_input(unittest.TestCase):
     def test_goods_discount_three(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
+        print(function)
 
         # 传入名字和需要输入的参数
         self.format_goods_discount(function, '2.333')
@@ -101,6 +110,7 @@ class discount_input(unittest.TestCase):
     def test_goods_discount_four(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
+        print(function)
 
         #传入名字和需要输入的参数
         self.format_goods_discount(function,'你好')
@@ -124,11 +134,17 @@ class discount_input(unittest.TestCase):
     点击提示框中的确认按钮表示已经查看了提示框，顺路读取提示框中的提示文字
     然后判断提示文字是否为程序设置的。
     """
-    def verification(self,massegn,function):
+    def verification(self,massegn,function,visi=None):
+        sleep(1)
+
         # 找到提交按钮
         submit = self.browser.find_element_by_css_selector('.btn.btn-primary.settingSave')
         # 点击提交按钮。
         self.browser.execute_script("arguments[0].click();", submit)
+
+        sleep(1)
+        # selenium跳过了鼠标移除输入框之后的正则判断，所以我们就直接点击提交
+        #self.browser.execute_script("document.getElementById('discountsave').click();")
 
         visible = self.browser.find_element_by_css_selector('.sweet-alert.showSweetAlert.visible >p').text
 
@@ -138,7 +154,13 @@ class discount_input(unittest.TestCase):
         # 点击提交按钮
         self.browser.execute_script("arguments[0].click();", confirm)
 
-        assert massegn == visible, function + '折扣数输入过大,提示你出现错误'
+        print("chuanru %s" %massegn)
+        print("huoqu %s" %visible)
+        if visi==None:
+            assert massegn == visible, function + '折扣数输入过大,提示你出现错误'
+        else:
+            assert massegn == visi, function + '折扣数输入过大,提示你出现错误'
+
 
 if __name__ == '__main__':
     unittest.main()

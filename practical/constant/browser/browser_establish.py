@@ -6,11 +6,9 @@
 """
 import os
 
-import sys
-from time import sleep
-
 from  selenium import webdriver
 from practical.constant.url_website.url_data import url_content
+from practical.constant.browser.browser_into import browser_get_info
 '''
                        _oo0oo_
                       o8888888o
@@ -38,7 +36,7 @@ from practical.constant.url_website.url_data import url_content
 '''
 
 #__new__创建一个对象，__init__实例化一个对象
-class browser_confirm(object):
+class browser_confirm(browser_get_info):
     # 定义一个全局变量
 
 
@@ -55,6 +53,7 @@ class browser_confirm(object):
         try:
             # 实现全局变量的引用
             self.browser = webdriver.Chrome("E:\drivers\Drivers\chromedriver59-61.exe")
+            self.browser.maximize_window()
             print("打开谷歌\n")
         except:
             self.writeLog(self)
@@ -117,33 +116,16 @@ class browser_confirm(object):
         self.browser = self.chrome_browser()
 
         # 输入网址
-        self.browser.get("C:\\Users\\70486\\Desktop\\shezhi.html")
-        #self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
+        #self.browser.get("C:\\Users\\70486\\Desktop\\shezhi.html")
+        self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
+        #self.browser.get("http://----")
 
         # 等待网页加载，加载时间为10s，加载完就跳过
         self.browser.implicitly_wait(30)
 
-        title = self.browser.title
-
-        #判断网址是否输入正确
-        '''
-        try:
-            title.index('登录')
-        except Exception :
-            self.writeLog()
-        '''
         return self.browser;
 
 
     #返回浏览器对象
     def bro_wser(self):
         return self.browser;
-
-    def writeLog(self):
-        basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("自己定义的_文件出现错误,名为名=%s" % basename, )
-        sleep(2)
-        #退出程序
-        sys.exit(0)
-        #发生异常之后，raise之后的都不执行
-        raise

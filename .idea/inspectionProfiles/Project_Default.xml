@@ -6,6 +6,11 @@
         <list>
           <option value="page_web.web_shop.target_parameter.parameter.web_extract.selenium_input" />
           <option value="practical.py_mysql.pymysql_main.test_class" />
+          <option value="page_web.web_shop.target_parameter.parameter.web_discount.selenium_input" />
+          <option value="page_web.web_shop.target_parameter.parameter.web_discount.selenium_click" />
+          <option value="practical.constant.browser.browser_establish.selenium_input" />
+          <option value="practical.constant.browser.browser_establish.selenium_click" />
+          <option value="practical.constant.browser.browser_establish.browser_into" />
         </list>
       </option>
     </inspection_tool>
