@@ -71,6 +71,20 @@ def css_click(browser,css):
     except:
         writeLog(browser)
 
+def css_confirm_prompt(browser,prompt):
+    try:
+        sleep(1)
+        confirm = browser.find_element_by_css_selector(prompt)
+        browser.execute_script("arguments[0].click();", confirm)
+    except:
+        writeLog(browser)
+
+def id_confirm_prompt(browser,prompt):
+    try:
+        sleep(1)
+        browser.execute_script("document.getElementById(\'"+prompt+"\').click();")
+    except:
+        writeLog(browser)
 
 def writeLog(browser):
     basename = os.path.splitext(os.path.basename(__file__))[0]

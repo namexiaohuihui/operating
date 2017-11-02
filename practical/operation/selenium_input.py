@@ -66,6 +66,12 @@ def xpath_input(browser,xpath, data):
     except:
         writeLog()
 
+def id_js_input(browser,ordinal, parameter):
+    try:
+        browser.execute_script("document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';")
+    except:
+        writeLog()
+
 def ele_clear_keys(ele,data):
     ele.clear()
     ele.send_keys(data)
