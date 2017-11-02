@@ -11,6 +11,7 @@
           <option value="practical.constant.browser.browser_establish.selenium_input" />
           <option value="practical.constant.browser.browser_establish.selenium_click" />
           <option value="practical.constant.browser.browser_establish.browser_into" />
+          <option value="page_web.web_shop.target_parameter.parameter.discount.web_goods_discount.discount_input" />
         </list>
       </option>
     </inspection_tool>

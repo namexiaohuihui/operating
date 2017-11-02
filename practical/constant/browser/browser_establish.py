@@ -9,6 +9,7 @@ import os
 from  selenium import webdriver
 from practical.constant.url_website.url_data import url_content
 from practical.constant.browser.browser_into import browser_get_info
+
 '''
                        _oo0oo_
                       o8888888o
@@ -35,7 +36,8 @@ from practical.constant.browser.browser_into import browser_get_info
                佛祖保佑         永无BUG
 '''
 
-#__new__创建一个对象，__init__实例化一个对象
+
+# __new__创建一个对象，__init__实例化一个对象
 class browser_confirm(browser_get_info):
     # 定义一个全局变量
 
@@ -47,13 +49,11 @@ class browser_confirm(browser_get_info):
             cls._instance = orig.__new__(cls, *args, **kw)
         return cls._instance
 
-
     # 调用函数，实现打开谷歌浏览器的步骤
     def chrome_browser(self):
         try:
             # 实现全局变量的引用
             self.browser = webdriver.Chrome("E:\drivers\Drivers\chromedriver59-61.exe")
-            self.browser.maximize_window()
             print("打开谷歌\n")
         except:
             self.writeLog(self)
@@ -71,21 +71,21 @@ class browser_confirm(browser_get_info):
 
     # 调用函数，实现打开火狐浏览器的步骤
     def firefox_browser(self):
-       try:
-           # 实现全局变量的引用
-           firefoxBin = os.path.abspath(r"E:\Program Files\Mozilla Firefox\firefox.exe")
-           os.environ["webdriver.firefox.bin"] = firefoxBin
-           # 代码加载火狐驱动
-           firefoxgeckobdriver = os.path.abspath(r"E:\drivers\geckodriver.exe")
-           os.environ["webdriver.path"] = firefoxgeckobdriver
-           self.browser = webdriver.Firefox()
-           print("打开火狐")
-       except:
-           self.writeLog(self)
+        try:
+            # 实现全局变量的引用
+            firefoxBin = os.path.abspath(r"E:\Program Files\Mozilla Firefox\firefox.exe")
+            os.environ["webdriver.firefox.bin"] = firefoxBin
+            # 代码加载火狐驱动
+            firefoxgeckobdriver = os.path.abspath(r"E:\drivers\geckodriver.exe")
+            os.environ["webdriver.path"] = firefoxgeckobdriver
+            self.browser = webdriver.Firefox()
+            print("打开火狐")
+        except:
+            self.writeLog(self)
 
-       return self.browser
+        return self.browser
 
-    def call_browser(self,bro='cm'):
+    def call_browser(self, bro='cm'):
         # 如果能正常获取标题说明浏览器对象已经创建成功，否则就通过判断来创建浏览器
         try:
             self.browser.title
@@ -102,9 +102,9 @@ class browser_confirm(browser_get_info):
                 self.browser = webdriver.Chrome()
             return self.browser
         else:
-            print ('如果没有异常执行这块代码')
+            print('如果没有异常执行这块代码')
 
-    #运行浏览器
+    # 运行浏览器
     def url_opens(self):
 
         print("浏览器开始执行初始化")
@@ -114,18 +114,18 @@ class browser_confirm(browser_get_info):
 
         # 创建浏览器对象
         self.browser = self.chrome_browser()
+        self.browser.maximize_window()
 
         # 输入网址
-        #self.browser.get("C:\\Users\\70486\\Desktop\\shezhi.html")
+        # self.browser.get("C:\\Users\\70486\\Desktop\\shezhi.html")
         self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
-        #self.browser.get("http://----")
+        # self.browser.get("http://----")
 
         # 等待网页加载，加载时间为10s，加载完就跳过
         self.browser.implicitly_wait(30)
 
         return self.browser;
 
-
-    #返回浏览器对象
+    # 返回浏览器对象
     def bro_wser(self):
         return self.browser;
