@@ -29,10 +29,10 @@ class letter_parameter_names(object):
     settingSave = '.btn.btn-primary.settingSave'
 
     # 提示框的标题
-    visible_h2 = '.sweet-alert.showSweetAlert.visible >h2'
+    visible_h4 = '.sweet-alert.showSweetAlert.visible>h4'
 
     # 提示框的内容
-    visible_p = '.sweet-alert.showSweetAlert.visible >p'
+    visible_p = '.sweet-alert.showSweetAlert.visible>p'
 
     # 提示框中的确认
     confirm = '.confirm'
@@ -43,8 +43,8 @@ class letter_parameter_names(object):
     # 二次确认中的侧面文字
     modal_body_p = '.modal-body>p'
 
-    # 二次确认中的取消按钮
-    btn_default = '.btn.btn-default'
+    # 二次确认中的取消按钮:分类class名为modal-footer，去找到子类中button的元素并且位置为第一个
+    btn_default = '.modal-footer button:nth-child(1)'
 
     # 二次确认中的确认按钮
     discountsave = 'discountsave'

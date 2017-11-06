@@ -10,7 +10,7 @@ __author__ = 'Administrator'
 @time: 2017/11/1 15:21
 """
 
-from practical.operation import selenium_input, selenium_click
+from practical.operation.selenium_input import element_input
 
 
 class browser_get_info(object):
@@ -23,8 +23,9 @@ class browser_get_info(object):
             # self.browser为浏览器对象
             # username为元素名称对象
             # account为输入框要输入的内容对象
-            selenium_input.name_input(self.browser, 'username', account)
-            selenium_input.name_input(self.browser, 'password', password)
+            ele_in = element_input()
+            ele_in.name_input(self.browser, 'username', account)
+            ele_in.name_input(self.browser, 'password', password)
 
             # 点击某个元素
             # 调用公共函数，对元素进行点击
@@ -39,11 +40,11 @@ class browser_get_info(object):
 
     # 进入的执行路径
     def system_parameter_discount(self):
-        self.browser.find_element_by_link_text('系统设置').click()
+        self.browser.find_elements_by_css_selector('.dropdown-toggle')[1].click()
         sleep(1)
-        self.browser.find_element_by_link_text('参数设置').click()
+        self.browser.find_elements_by_css_selector('.system-tooltip')[0].click()
         sleep(1)
-        self.browser.find_element_by_link_text('新用户优惠设置').click()
+        self.browser.find_elements_by_css_selector('.nav.nav-tabs>li')[4].click()
 
     def writeLog(self):
         basename = os.path.splitext(os.path.basename(__file__))[0]

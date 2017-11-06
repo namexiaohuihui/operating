@@ -35,51 +35,51 @@ from time import sleep
                佛祖保佑         永无BUG
 '''
 
-def id_input(browser,id, data):
-    try:
-        ele = browser.find_element_by_id(id)
-        ele_clear_keys(ele, data)
-    except:
-        writeLog()
 
+class element_input(object):
 
-def name_input(browser,name, data):
-    try:
-        ele = browser.find_element_by_name(name)
-        ele_clear_keys(ele, data)
-    except:
-        writeLog()
+    def id_input(self, browser, id, data):
+        try:
+            ele = browser.find_element_by_id(id)
+            self.ele_clear_keys(ele, data)
+        except:
+            self.writeLog()
 
+    def name_input(self, browser, name, data):
+        try:
+            ele = browser.find_element_by_name(name)
+            self.ele_clear_keys(ele, data)
+        except:
+            self.writeLog()
 
-def css_input(browser,css, data):
-    try:
-        ele = browser.find_element_by_css_selector(css)
-        ele_clear_keys(ele, data)
-    except:
-        writeLog()
+    def css_input(self, browser, css, data):
+        try:
+            ele = browser.find_element_by_css_selector(css)
+            self.ele_clear_keys(ele, data)
+        except:
+            self.writeLog()
 
+    def xpath_input(self, browser, xpath, data):
+        try:
+            ele = browser.find_element_by_xpath(xpath)
+            self.ele_clear_keys(ele, data)
+        except:
+            self.writeLog()
 
-def xpath_input(browser,xpath, data):
-    try:
-        ele = browser.find_element_by_xpath(xpath)
-        ele_clear_keys(ele,data)
-    except:
-        writeLog()
+    def id_js_input(self, browser, ordinal, parameter):
+        try:
+            browser.execute_script("document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';")
+        except:
+            self.writeLog()
 
-def id_js_input(browser,ordinal, parameter):
-    try:
-        browser.execute_script("document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';")
-    except:
-        writeLog()
+    def ele_clear_keys(self, ele, data):
+        ele.clear()
+        ele.send_keys(data)
+        sleep(1)
 
-def ele_clear_keys(ele,data):
-    ele.clear()
-    ele.send_keys(data)
-    sleep(1)
-
-def writeLog():
-    basename = os.path.splitext(os.path.basename(__file__))[0]
-    print("自己定义的_文件出现错误,名为名=%s"% \
-          basename,)
-    sys.exit(0)
-    raise
+    def writeLog(self):
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        print("自己定义的_文件出现错误,名为名=%s" % \
+              basename, )
+        sys.exit(0)
+        raise

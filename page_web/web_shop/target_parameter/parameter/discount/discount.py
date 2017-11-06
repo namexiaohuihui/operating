@@ -13,9 +13,10 @@ from time import sleep
 from page_web.web_shop.target_parameter.parameter.discount.name_bean import letter_parameter_names
 from practical.constant.browser.browser_establish import browser_confirm
 
-from practical.operation import selenium_input, selenium_click
+from practical.operation.selenium_input import element_input
+from practical.operation.selenium_click import element_click
 
-class discount_input(letter_parameter_names,selenium_input,selenium_click):
+class discount_input(letter_parameter_names,element_input,element_click):
 
     def setUpStart(cls,basename,ordinal):
         cls.basename = basename
@@ -41,15 +42,15 @@ class discount_input(letter_parameter_names,selenium_input,selenium_click):
         # 创建参数对象
         # self.parame = parameter_content()
 
-        # bc.case_browesr('---','****')
+        bc.case_browesr('----','****')
 
-        # bc.system_parameter_discount()
+        bc.system_parameter_discount()
 
 
 
     def js_input(self,parameter):
         # 通过id找到元素并进行输入:商品打折数
-        selenium_input.id_js_input(ordinal = self.ordinal,parameter = parameter)
+        self.id_js_input(browser=self.browser,ordinal = self.ordinal,parameter = parameter)
 
 
     # 错误提示框中的内容
@@ -81,9 +82,10 @@ class discount_input(letter_parameter_names,selenium_input,selenium_click):
 
         sleep(1)
         # 点击提示框中的确定按钮，表示已经查看
-        self.arguments_confirm_prompt( prompt = self.confirm)
+        #self.arguments_confirm_prompt( prompt = self.confirm)
 
-        visible = self.showSweetAlert_visible(process=self.visible_h2)
+        visible = self.showSweetAlert_visible(process=self.visible_h4)
+
         # 判断规划的提示跟实际的提示是否一致
         # massegn为规划的提示，visible为实际的提示
         # function 为调用这个不见函数的方法
@@ -91,21 +93,27 @@ class discount_input(letter_parameter_names,selenium_input,selenium_click):
 
     # 通过js的查找元素进行点击
     def arguments_confirm_prompt(self,prompt):
-        selenium_click.css_confirm_prompt(browser =self.browser, prompt=prompt)
+        sleep(1)
+        self.css_confirm_prompt(browser =self.browser, prompt=prompt)
+
 
 
     # 二次确认提示框中点击确认
     def btn_primary_click(self,prompt):
-        selenium_click.id_confirm_prompt(browser=self.browser, prompt=prompt)
+        sleep(1)
+        #self.id_confirm_prompt(browser=self.browser, prompt=prompt)
+        self.browser.execute_script("document.getElementById(\'" + prompt + "\').click();")
 
 
     # 集成点击和内容的判断
     def integration_confirm_prompt(self,function):
-        # 二次确认的：同意按钮点击
-        self.btn_primary_click(prompt =self.discountsave)
 
         # 二次确认之后的内容判断
-        self.confirm_showSweetAlert_visible(function=function)
+
+        self.modal_body(function=function)
+
+        # 二次确认的：同意按钮点击
+        self.btn_primary_click(prompt =self.discountsave)
 
 
     # 集成点击和输入的函数
@@ -149,5 +157,3 @@ class discount_input(letter_parameter_names,selenium_input,selenium_click):
     # 点击提交，然后让其弹出二次确认的提示框并判断提示框的内容是否一致
     def correct_function(self,parameter,function):
         self.integration_input_click(parameter)
-
-        self.modal_body(function=function);

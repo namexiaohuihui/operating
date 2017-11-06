@@ -34,61 +34,62 @@ from practical.Exception_error.DefinitionError import definition_error
 
                佛祖保佑         永无BUG
 '''
-def id_click(browser,id):
-    try:
-        browser.find_element_by_id(id).click()
-        sleep(2)
-    except:
-        writeLog(browser)
 
 
-def name_click(browser,name):
-    try:
-        browser.find_element_by_name(name).click()
-        sleep(2)
-    except:
-        writeLog(browser)
+class element_click(object):
+    def id_click(self, browser, id):
+        try:
+            browser.find_element_by_id(id).click()
+            sleep(2)
+        except:
+            self.writeLog(browser)
 
-def text_click(browser,text):
-    try:
-        browser.find_element_by_link_text(text).click()
-        sleep(2)
-    except:
-        writeLog(browser)
+    def name_click(self, browser, name):
+        try:
+            browser.find_element_by_name(name).click()
+            sleep(2)
+        except:
+            self.writeLog(browser)
 
+    def text_click(self, browser, text):
+        try:
+            browser.find_element_by_link_text(text).click()
+            sleep(2)
+        except:
+            self.writeLog(browser)
 
-def xpath_click(browser,xpath):
-    try:
-        browser.find_element_by_xpath(xpath).click()
-        sleep(2)
-    except:
-        writeLog(browser)
+    def xpath_click(self, browser, xpath):
+        try:
+            browser.find_element_by_xpath(xpath).click()
+            sleep(2)
+        except:
+            self.writeLog(browser)
 
-def css_click(browser,css):
-    try:
-        browser.find_element_by_css_selector(css).click()
-        sleep(2)
-    except:
-        writeLog(browser)
+    def css_click(self, browser, css):
+        try:
+            browser.find_element_by_css_selector(css).click()
+            sleep(2)
+        except:
+            self.writeLog(browser)
 
-def css_confirm_prompt(browser,prompt):
-    try:
-        sleep(1)
-        confirm = browser.find_element_by_css_selector(prompt)
-        browser.execute_script("arguments[0].click();", confirm)
-    except:
-        writeLog(browser)
+    def css_confirm_prompt(self, browser, prompt):
+        try:
+            sleep(1)
+            confirm = browser.find_element_by_css_selector(prompt)
+            browser.execute_script("arguments[0].click();", confirm)
+        except:
+            self.writeLog(browser)
 
-def id_confirm_prompt(browser,prompt):
-    try:
-        sleep(1)
-        browser.execute_script("document.getElementById(\'"+prompt+"\').click();")
-    except:
-        writeLog(browser)
+    def id_confirm_prompt(self, browser, prompt):
+        try:
+            sleep(1)
+            browser.execute_script("document.getElementById(\'" + prompt + "\').click();")
+        except:
+            self.writeLog(browser)
 
-def writeLog(browser):
-    basename = os.path.splitext(os.path.basename(__file__))[0]
-    # 组合日志文件名（当前文件名 + 当前时间）.比如：case_login_success_20150817192533
-    de_error = definition_error()
-    de_error.erroe_get(basename, browser)
-    #raise
+    def writeLog(self, browser):
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        # 组合日志文件名（当前文件名 + 当前时间）.比如：case_login_success_20150817192533
+        de_error = definition_error()
+        de_error.erroe_get(basename, browser)
+        # raise

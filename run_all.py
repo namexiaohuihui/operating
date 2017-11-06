@@ -16,7 +16,7 @@ if __name__ == '__main__':
     report_abspath = os.path.join(report_path, "result" + now + ".html")
 
     discover = unittest.defaultTestLoader.discover(case_path,
-                                                   pattern="*extract.py",
+                                                   pattern="*discount.py",
                                                    top_level_dir=None)
 
     fp = open(report_abspath, "wb")

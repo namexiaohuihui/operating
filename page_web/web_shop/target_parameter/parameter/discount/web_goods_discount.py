@@ -15,22 +15,20 @@ from page_web.web_shop.target_parameter.parameter.discount.discount import disco
 
 
 class goods_discount(discount_input, unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         basename = os.path.splitext(os.path.basename(__file__))[0]
-        cls.setUpStart(cls, basename =basename,ordinal=cls.goods_discount)
+        cls.setUpStart(cls, basename=basename, ordinal=cls.goods_discount)
 
     @classmethod
     def tearDownClass(cls):
-        print("%s   执行完毕" % cls.basename)
         cls.tearDownStop(cls)
 
     '''
     验证城市以及数量是否正确
     '''
 
-    def qwetest_number(self):
+    def test_number(self):
         ele_div = self.browser.find_element_by_css_selector('.box-city')
         ele_a = ele_div.find_elements_by_tag_name('a')
         # 打印数量
@@ -40,7 +38,7 @@ class goods_discount(discount_input, unittest.TestCase):
     验证商品打折数输入大于10的问题
     '''
 
-    def qwetest_goods_discount_one(self):
+    def test_goods_discount_one(self):
         # 获取函数名
         function = inspect.stack()[0][3]
         print(function)
@@ -56,7 +54,7 @@ class goods_discount(discount_input, unittest.TestCase):
     验证商品打折数输入小于0的问题:即输入负数
     '''
 
-    def qwetest_goods_discount_two(self):
+    def test_goods_discount_two(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
@@ -69,7 +67,7 @@ class goods_discount(discount_input, unittest.TestCase):
     验证商品打折数输入在符合范围内但小数点后有多位的情况
     '''
 
-    def qwetest_goods_discount_three(self):
+    def test_goods_discount_three(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
@@ -82,7 +80,7 @@ class goods_discount(discount_input, unittest.TestCase):
     验证商品打折数输入中文字符
     '''
 
-    def qwetest_goods_discount_four(self):
+    def test_goods_discount_four(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
@@ -99,10 +97,13 @@ class goods_discount(discount_input, unittest.TestCase):
 
         # 传入名字和需要输入的参数
         # 调用公告方法进行数据输入和判断
-        self.correct_function('2.7',function=function)
+        self.correct_function('0.2', function)
 
         # 二次确认的：同意按钮点击
-        self.integration_confirm_prompt(function=function)
+        self.integration_confirm_prompt(function)
+
+        # 操作成功的提示
+        self.arguments_confirm_prompt(prompt=self.confirm)
 
     # 输入符合条件的内容，在二次确认提交的时候取消。
     def test_goods_discount_six(self):
@@ -112,9 +113,10 @@ class goods_discount(discount_input, unittest.TestCase):
 
         # 传入名字和需要输入的参数
         # 调用公告方法进行数据输入和判断
-        self.correct_function('3.6',function=function)
-
-        self.arguments_confirm_prompt(self.btn_default)
+        self.correct_function('0.9', function=function)
+        sleep(3)
+        self.arguments_confirm_prompt(prompt=self.btn_default)
+        #self.browser.find_element_by_css_selector(".modal-footer button:nth-child(1)").click()
 
 
 if __name__ == '__main__':
