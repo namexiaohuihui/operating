@@ -6,7 +6,7 @@
 """
 import os
 
-from  selenium import webdriver
+from selenium import webdriver
 from practical.constant.url_website.url_data import url_content
 from practical.constant.browser.browser_into import browser_get_info
 
@@ -75,10 +75,13 @@ class browser_confirm(browser_get_info):
             # 实现全局变量的引用
             firefoxBin = os.path.abspath(r"E:\Program Files\Mozilla Firefox\firefox.exe")
             os.environ["webdriver.firefox.bin"] = firefoxBin
+
             # 代码加载火狐驱动
-            firefoxgeckobdriver = os.path.abspath(r"E:\drivers\geckodriver.exe")
-            os.environ["webdriver.path"] = firefoxgeckobdriver
-            self.browser = webdriver.Firefox()
+            firefoxgeckobdriver = os.path.abspath(r"E:\drivers\Drivers\geckodriver64.exe")
+            # os.environ["webdriver.path"] = firefoxgeckobdriver
+
+            self.browser = webdriver.Firefox(executable_path=firefoxgeckobdriver)
+
             print("打开火狐")
         except:
             self.writeLog(self)
