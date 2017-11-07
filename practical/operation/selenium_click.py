@@ -89,6 +89,9 @@ class element_click(object):
 
     def writeLog(self, browser):
         basename = os.path.splitext(os.path.basename(__file__))[0]
+        print("自己定义的_文件出现错误,名为名=%s" % \
+              basename, )
+        basename = os.path.splitext(os.path.basename(__file__))[0]
         # 组合日志文件名（当前文件名 + 当前时间）.比如：case_login_success_20150817192533
         de_error = definition_error()
         de_error.erroe_get(basename, browser)
