@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practical/operation/selenium_visible.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/test_class.py" afterPath="$PROJECT_DIR$/demo/test_class.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" afterPath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +21,7 @@
       <file leaf-file-name="discount.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/discount.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
+            <state relative-caret-position="0">
               <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="e#147#169#0" expanded="true" />
@@ -46,7 +45,7 @@
       <file leaf-file-name="browser_establish.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-632">
+            <state relative-caret-position="22">
               <caret line="72" column="23" lean-forward="false" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="23" />
               <folding>
                 <element signature="e#104#113#0" expanded="true" />
@@ -58,7 +57,7 @@
       <file leaf-file-name="web_goods_discount.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_goods_discount.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
+            <state relative-caret-position="506">
               <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
               <folding>
                 <element signature="e#24#33#0" expanded="true" />
@@ -149,7 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/constant/url_website/url_data.py" />
         <option value="$PROJECT_DIR$/constant/parameter/parameter_data.py" />
         <option value="$PROJECT_DIR$/constant/browser/browser_establish.py" />
         <option value="$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner2.py" />
@@ -200,12 +198,13 @@
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/discount.py" />
         <option value="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
         <option value="$PROJECT_DIR$/demo/test_class.py" />
+        <option value="$PROJECT_DIR$/practical/operation/selenium_visible.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="480" />
-    <option name="y" value="29" />
+    <option name="x" value="328" />
+    <option name="y" value="2" />
     <option name="width" value="1297" />
     <option name="height" value="1058" />
   </component>
@@ -244,6 +243,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -298,47 +298,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="file_introduce" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="practical" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="constant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="practical" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="constant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="browser" />
+              <option name="myItemId" value="operation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -469,7 +429,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -725,9 +684,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="480" y="29" width="1297" height="1058" extended-state="0" />
+    <frame x="328" y="2" width="1297" height="1058" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22473727" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2279709" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30194804" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -770,13 +729,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo/Example/simple_interest_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-924">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo/Example/login.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1386">
@@ -910,7 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="601" column="0" lean-forward="false" selection-start-line="601" selection-start-column="0" selection-end-line="601" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -918,15 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="470" column="8" lean-forward="false" selection-start-line="470" selection-start-column="8" selection-end-line="470" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_input.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -948,14 +890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="66" column="23" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_click.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="77" column="58" lean-forward="false" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,7 +973,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/discount.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
+        <state relative-caret-position="0">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="e#147#169#0" expanded="true" />
@@ -1051,7 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1285">
           <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1059,7 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="55" column="14" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1067,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1075,13 +1006,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="989" column="0" lean-forward="false" selection-start-line="989" selection-start-column="0" selection-end-line="989" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_goods_discount.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
+        <state relative-caret-position="506">
           <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
@@ -1093,7 +1023,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1101,7 +1030,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="54" column="3" lean-forward="true" selection-start-line="54" selection-start-column="3" selection-end-line="57" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1109,7 +1037,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-267">
           <caret line="722" column="4" lean-forward="false" selection-start-line="722" selection-start-column="4" selection-end-line="722" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1131,9 +1058,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_click.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1225">
+          <caret line="77" column="58" lean-forward="false" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_visible.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="57" column="95" lean-forward="false" selection-start-line="57" selection-start-column="95" selection-end-line="57" selection-end-column="95" />
+          <folding>
+            <element signature="e#112#167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-632">
+        <state relative-caret-position="22">
           <caret line="72" column="23" lean-forward="false" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="23" />
           <folding>
             <element signature="e#104#113#0" expanded="true" />
