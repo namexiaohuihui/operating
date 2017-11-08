@@ -23,10 +23,13 @@ class definition_error(Exception):
         logging.basicConfig(filename=logFile)
 
         # 获取错误日志并打印
-        s = traceback.format_exc()
+        error = traceback.format_exc()
 
         # 指定输出类型。。
-        logging.error(s)
+        logging.error(error)
 
         # 截图
         _browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
+
+        # 打印错误
+        print('调用错误类只会打印的数据 %s' % error)

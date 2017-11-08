@@ -84,7 +84,7 @@ class browser_confirm(browser_get_info):
 
             print("打开火狐")
         except:
-            self.writeLog(self)
+            self.writeLog()
 
         return self.browser
 

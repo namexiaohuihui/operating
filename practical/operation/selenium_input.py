@@ -9,6 +9,8 @@ import os
 import sys
 from time import sleep
 
+from practical.Exception_error.DefinitionError import definition_error
+
 '''
                        _oo0oo_
                       o8888888o
@@ -43,43 +45,47 @@ class element_input(object):
             ele = browser.find_element_by_id(id)
             self.ele_clear_keys(ele, data)
         except:
-            self.writeLog()
+            self.writeLog(browser)
 
     def name_input(self, browser, name, data):
         try:
             ele = browser.find_element_by_name(name)
             self.ele_clear_keys(ele, data)
         except:
-            self.writeLog()
+            self.writeLog(browser)
 
     def css_input(self, browser, css, data):
         try:
             ele = browser.find_element_by_css_selector(css)
             self.ele_clear_keys(ele, data)
         except:
-            self.writeLog()
+            self.writeLog(browser)
 
     def xpath_input(self, browser, xpath, data):
         try:
             ele = browser.find_element_by_xpath(xpath)
             self.ele_clear_keys(ele, data)
         except:
-            self.writeLog()
+            self.writeLog(browser)
 
     def id_js_input(self, browser, ordinal, parameter):
         try:
             browser.execute_script("document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';")
         except:
-            self.writeLog()
+            self.writeLog(browser)
 
     def ele_clear_keys(self, ele, data):
         ele.clear()
         ele.send_keys(data)
         sleep(1)
 
-    def writeLog(self):
+    def writeLog(self,browser):
         basename = os.path.splitext(os.path.basename(__file__))[0]
         print("自己定义的_文件出现错误,名为名=%s" % \
               basename, )
-        sys.exit(0)
-        raise
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        # 组合日志文件名（当前文件名 + 当前时间）.比如：case_login_success_20150817192533
+        de_error = definition_error()
+        de_error.erroe_get(basename, browser)
+        #sys.exit(0)
+        #raise
