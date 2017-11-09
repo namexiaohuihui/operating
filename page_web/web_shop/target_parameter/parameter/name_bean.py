@@ -10,6 +10,8 @@
 
 class letter_parameter_names(object):
 
+    """--------------------------------参数的获取路径------------------------------"""
+
     # 对象折扣
     goods_discount = 'goods_discount'
 
@@ -48,3 +50,27 @@ class letter_parameter_names(object):
 
     # 二次确认中的确认按钮
     discountsave = 'discountsave'
+
+    """--------------------------------提示参数------------------------------"""
+
+    # 商品折扣数的提示
+    gb_between = "请输入0.1~9.9之间的数" # 折扣数输入的数字符合格式范围内
+    gb_format = "请输入正确格式例如 0.1/0.5" # 折扣数输入的格式完全不符合
+
+    # 不参与折扣商品的提示
+    gp_non_existent = "没有该商品ID" #没有找到输入的数字
+    gp_separate = "请输入正整数多个用逗号分隔" # 输入的不为数字
+    gp_proper = "该商品为店铺商品" # 输入的数字不是共有的
+    gp_incorrect = "输入的不参与优惠商品不正确" # 输入完全不正确的提示
+
+
+    # 系统固定提示框的提示
+    system_preservation = "你确定要保存吗？" # 再次确认的标题
+    system_content = "保存后新产生的订单立即生效已产生的订单不受影响" # 再次确认的提示内容
+    system_successful  = "操作成功" # 再次确认的提示内容
+
+
+
+
+
+

@@ -8,6 +8,9 @@
 
 
 # 切割字符：str字符，op指定切割的元素，num切割的数量，ber获取的数量
+import re
+
+
 def specified_cut(str, op, num, ber):
     string = str.split(op, num)[ber]
     return string;
@@ -99,7 +102,7 @@ def string_join(str,ing):
     str = ing.join(str)
     return str
 
-#将s中的字符和数字筛选出
+#将s中的字符和数字在fomart中出现过的全部筛选出
 def OnlyCharNum(s):
     s2 = s.lower();
     fomart = 'abcdefghijklmnopqrstuvwxyz0123456789'
@@ -107,6 +110,7 @@ def OnlyCharNum(s):
         if not c in fomart:
             s = s.replace(c,'');
     return s;
+
 
 # len：返回字符串、列表、字典、元组等长度
 # 参数:要计算的字符串、列表、字典、元组等
@@ -123,4 +127,8 @@ def thleng(str):
 def range_range(msg=0,para=99):
     range(msg,para)
 
+# 传入需要提取的参数。正则将非数字的其他字符全部替换。然后将替换之后的数字返回
+def extract_number(visible,extract = ""):
+    matchObj = re.sub("\D", "", visible)
+    return matchObj;
 

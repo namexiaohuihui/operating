@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/web_goods_participate.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/test_class.py" afterPath="$PROJECT_DIR$/demo/test_class.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" afterPath="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" afterPath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/test_class.py" afterPath="$PROJECT_DIR$/demo/test_class.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/Exception_error/DefinitionError.py" afterPath="$PROJECT_DIR$/practical/Exception_error/DefinitionError.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" afterPath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/file_introduce/javas" afterPath="$PROJECT_DIR$/practical/file_introduce/javas" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/operation/selenium_click.py" afterPath="$PROJECT_DIR$/practical/operation/selenium_click.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/operation/selenium_input.py" afterPath="$PROJECT_DIR$/practical/operation/selenium_input.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/operation/selenium_visible.py" afterPath="$PROJECT_DIR$/practical/operation/selenium_visible.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/__init__.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_discount/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/discount.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/name_bean.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/name_bean.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_goods_discount.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_discount/web_goods_discount.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,66 +24,50 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="operating" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="discount.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/discount.py">
+        <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="112" column="8" lean-forward="false" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
               <folding>
-                <element signature="e#147#169#0" expanded="true" />
+                <element signature="e#147#161#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_class.py" pinned="false" current-in-tab="false">
-      <file leaf-file-name="test_class.py" pinned="false" current-in-tab="true">
-
-
-
-
-
-
-
-
-
-
-
-
-        <entry file="file://$PROJECT_DIR$/demo/test_class.py">
+      <file leaf-file-name="name_bean.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/name_bean.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="21" column="15" lean-forward="false" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-              <folding>
-                <element signature="e#24#33#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="51" column="4" lean-forward="false" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="browser_establish.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
+      <file leaf-file-name="web_goods_participate.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/web_goods_participate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-632">
-              <caret line="72" column="23" lean-forward="false" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="23" />
+            <state relative-caret-position="669">
+              <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
               <folding>
-                <element signature="e#104#113#0" expanded="true" />
+                <element signature="e#25#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="web_goods_discount.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_goods_discount.py">
+        <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_discount/web_goods_discount.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+            <state relative-caret-position="137">
+              <caret line="148" column="16" lean-forward="false" selection-start-line="148" selection-start-column="16" selection-end-line="148" selection-end-column="16" />
               <folding>
                 <element signature="e#24#33#0" expanded="true" />
               </folding>
@@ -85,60 +75,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="browser_into.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_into.py">
+      <file leaf-file-name="test_class.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/test_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="946">
-              <caret line="46" column="81" lean-forward="false" selection-start-line="46" selection-start-column="81" selection-end-line="46" selection-end-column="81" />
-            <state relative-caret-position="198">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="run_all.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run_all.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="269">
+              <caret line="63" column="16" lean-forward="true" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
+              <folding>
+                <element signature="e#24#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -154,8 +98,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>browser,</find>
-      <find>@项目名称:operating</find>
       <find>browser_confirm</find>
       <find>browser_establish</find>
       <find>print_log</find>
@@ -176,11 +118,16 @@
       <find>confirm_click</find>
       <find>confirm_click()</find>
       <find>btn_default_click</find>
-      <find>btn_primary_click</find>
       <find>format_goods_discount</find>
       <find>modal_body_h4</find>
       <find>arguments_confirm_prompt</find>
       <find>nth-child</find>
+      <find>data</find>
+      <find>verification</find>
+      <find>gd_verification</find>
+      <find>visible_massegn_assert</find>
+      <find>btn_primary_click</find>
+      <find>prompt</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -196,6 +143,10 @@
       <replace>browser</replace>
       <replace>5</replace>
       <replace>verification</replace>
+      <replace>parameter</replace>
+      <replace>gd_verification</replace>
+      <replace>arguments_confirm_prompt</replace>
+      <replace>implement_massegn</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -205,16 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/constant/url_website/url_data.py" />
-        <option value="$PROJECT_DIR$/constant/parameter/parameter_data.py" />
-        <option value="$PROJECT_DIR$/constant/browser/browser_establish.py" />
-        <option value="$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner2.py" />
-        <option value="$PROJECT_DIR$/practical/HTMLTestRunner/HTMLTestRunner.py" />
-        <option value="$PROJECT_DIR$/practical/file_introduce/框架.txt" />
-        <option value="$PROJECT_DIR$/practical/file_introduce/网址" />
-        <option value="$PROJECT_DIR$/demo/Example/__init__.py" />
-        <option value="$PROJECT_DIR$/demo/__init__.py" />
-        <option value="$PROJECT_DIR$/practical/Program_exit/exit_os_sys.py" />
         <option value="$PROJECT_DIR$/appium_app/app_shop/sign.py" />
         <option value="$PROJECT_DIR$/appium_app/app_shop/projects" />
         <option value="$PROJECT_DIR$/appium_app/app_shop/sign/sign_in.py" />
@@ -232,39 +173,43 @@
         <option value="$PROJECT_DIR$/practical/file_introduce/日志打印logging_basicConfig" />
         <option value="$PROJECT_DIR$/demo/log2.log" />
         <option value="$PROJECT_DIR$/demo/parser_result.log" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount.py" />
         <option value="$PROJECT_DIR$/practical/constant/url_website/url_data.py" />
         <option value="$PROJECT_DIR$/practical/constant/parameter/parameter_data.py" />
-        <option value="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" />
         <option value="$PROJECT_DIR$/demo/Example/test_class.py" />
         <option value="$PROJECT_DIR$/practical/file_introduce/文件操作operation_file" />
         <option value="$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py" />
         <option value="$PROJECT_DIR$/practical/py_mysql/pymysql_main.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/web_extract.py" />
         <option value="$PROJECT_DIR$/demo/test_suite.py" />
-        <option value="$PROJECT_DIR$/practical/file_introduce/javas" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/web_discount.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_discount.py" />
-        <option value="$PROJECT_DIR$/practical/operation/selenium_input.py" />
         <option value="$PROJECT_DIR$/demo/test_baidu.py" />
-        <option value="$PROJECT_DIR$/practical/operation/selenium_click.py" />
         <option value="$PROJECT_DIR$/practical/constant/browser/browser_into.py" />
         <option value="$PROJECT_DIR$/practical/file_introduce/selenium 定位" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/name_bean.py" />
         <option value="$PROJECT_DIR$/run_all.py" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_goods_discount.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/discount.py" />
-        <option value="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
         <option value="$PROJECT_DIR$/practical/Exception_error/DefinitionError.py" />
-        <option value="$PROJECT_DIR$/practical/operation/selenium_click.py" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_goods_discount.py" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_discount/discount.py" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate.py" />
+        <option value="$PROJECT_DIR$/practical/operation/selenium_visible.py" />
         <option value="$PROJECT_DIR$/practical/operation/selenium_input.py" />
+        <option value="$PROJECT_DIR$/practical/operation/selenium_input.py" />
+        <option value="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
+        <option value="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" />
+        <option value="$PROJECT_DIR$/practical/file_introduce/javas" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/web_goods_participate.py" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/name_bean.py" />
+        <option value="$PROJECT_DIR$/practical/operation/selenium_click.py" />
+        <option value="$PROJECT_DIR$/practical/operation/selenium_click.py" />
         <option value="$PROJECT_DIR$/demo/test_class.py" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount.py" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_discount/web_goods_discount.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="480" />
-    <option name="y" value="29" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="70" />
     <option name="y" value="-4" />
@@ -308,226 +253,6 @@
     <panes>
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="practical" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="practical" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="file_introduce" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="practical" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="constant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="practical" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="constant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="browser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="page_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="page_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web_shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="page_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web_shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="target_parameter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="page_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web_shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="target_parameter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parameter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="page_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web_shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="target_parameter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parameter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="discount" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="operating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <expand>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
@@ -537,6 +262,50 @@
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="page_web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="page_web" type="462c0819:PsiDirectoryNode" />
+              <item name="web_shop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="page_web" type="462c0819:PsiDirectoryNode" />
+              <item name="web_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="target_parameter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="page_web" type="462c0819:PsiDirectoryNode" />
+              <item name="web_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="target_parameter" type="462c0819:PsiDirectoryNode" />
+              <item name="parameter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="page_web" type="462c0819:PsiDirectoryNode" />
+              <item name="web_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="target_parameter" type="462c0819:PsiDirectoryNode" />
+              <item name="parameter" type="462c0819:PsiDirectoryNode" />
+              <item name="goods_discount" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="page_web" type="462c0819:PsiDirectoryNode" />
+              <item name="web_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="target_parameter" type="462c0819:PsiDirectoryNode" />
+              <item name="parameter" type="462c0819:PsiDirectoryNode" />
+              <item name="goods_participate" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
@@ -553,185 +322,97 @@
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="practical" type="462c0819:PsiDirectoryNode" />
+              <item name="Exception_error" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="practical" type="462c0819:PsiDirectoryNode" />
+              <item name="file_introduce" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="practical" type="462c0819:PsiDirectoryNode" />
               <item name="operation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="operating" type="cbb8eebc:String" user="operating" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="operating" type="cbb8eebc:String" user="operating" />
+              <item name=".idea" type="cbb8eebc:String" user=".idea" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="operating" type="cbb8eebc:String" user="operating" />
+              <item name="page_web" type="cbb8eebc:String" user="page_web" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="operating" type="cbb8eebc:String" user="operating" />
+              <item name="page_web" type="cbb8eebc:String" user="page_web" />
+              <item name="web_shop" type="cbb8eebc:String" user="web_shop" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="operating" type="cbb8eebc:String" user="operating" />
+              <item name="page_web" type="cbb8eebc:String" user="page_web" />
+              <item name="web_shop" type="cbb8eebc:String" user="web_shop" />
+              <item name="target_parameter" type="cbb8eebc:String" user="target_parameter" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="operating" type="cbb8eebc:String" user="operating" />
+              <item name="page_web" type="cbb8eebc:String" user="page_web" />
+              <item name="web_shop" type="cbb8eebc:String" user="web_shop" />
+              <item name="target_parameter" type="cbb8eebc:String" user="target_parameter" />
+              <item name="parameter" type="cbb8eebc:String" user="parameter" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="operating" type="cbb8eebc:String" user="operating" />
+              <item name="page_web" type="cbb8eebc:String" user="page_web" />
+              <item name="web_shop" type="cbb8eebc:String" user="web_shop" />
+              <item name="target_parameter" type="cbb8eebc:String" user="target_parameter" />
+              <item name="parameter" type="cbb8eebc:String" user="parameter" />
+              <item name="discount" type="cbb8eebc:String" user="discount" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="net.intellij.plugins.sexyeditor.SexyEditorConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\operating\page_web\web_shop\target_parameter\parameter\discount" />
-      <recent name="E:\operating\demo" />
-      <recent name="E:\operating\practical\file_introduce" />
-      <recent name="E:\operating\practical" />
-      <recent name="E:\operating\parameter\browser" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\operating\page_web\web_shop1\sign1" />
       <recent name="E:\operating" />
       <recent name="E:\operating\practical\HTMLTestRunner" />
       <recent name="E:\operating\parameter" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\operating\page_web\web_shop\target_parameter\parameter" />
+      <recent name="E:\operating\page_web\web_shop\target_parameter\parameter\discount" />
+      <recent name="E:\operating\demo" />
+      <recent name="E:\operating\practical\file_introduce" />
+      <recent name="E:\operating\practical" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -746,8 +427,6 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_class.py">
-    <configuration default="false" name="test_suite" type="PythonConfigurationType" factoryName="Python" temporary="true">
   <component name="RunManager" selected="Python.test_class">
     <configuration name="Unittests in discount.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -762,10 +441,30 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/test_suite.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_pattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_legacyInformationCopiedToNew" value="true" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/demo/test_suite.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="false" name="Unittests in discount.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -782,25 +481,20 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittests in web_goods_discount.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-    <configuration name="Unittests in test_class.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in web_goods_discount.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo" />
+      <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_goods_discount.py&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/demo/test_class.py&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method />
     </configuration>
-    <configuration default="false" name="Unittests in test_class.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
     <configuration name="Unittests in web_goods_discount.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -818,23 +512,33 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration default="false" name="run_all" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Unittests in web_goods_discount.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
+      <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_discount" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_discount/web_goods_discount.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration name="Unittests in web_goods_participate.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_all.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/web_goods_participate.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -917,6 +621,23 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="run_all" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_all.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="test_class" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -935,29 +656,19 @@
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.test_suite" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in discount.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_discount.py" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_class.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python.run_all" />
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in discount.py" />
       <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_discount.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_class.py" />
-      <item index="3" class="java.lang.String" itemvalue="Python.run_all" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test_class" />
+      <item index="2" class="java.lang.String" itemvalue="Python.run_all" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test_class" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_participate.py" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in test_class.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python.run_all" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_discount.py" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in discount.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python.test_suite" />
         <item index="0" class="java.lang.String" itemvalue="Python.test_class" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in test_class.py" />
-        <item index="2" class="java.lang.String" itemvalue="Python.run_all" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_discount.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in discount.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_participate.py" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_discount.py" />
+        <item index="3" class="java.lang.String" itemvalue="Python.run_all" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_discount.py" />
       </list>
     </recent_temporary>
   </component>
@@ -978,35 +689,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_class_py - 2017.11.06 at 16h 40m 21s.xml">
-      <configuration name="Unittests in test_class.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.11.08 at 22h 25m 09s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_class_py - 2017.11.06 at 16h 41m 01s.xml">
-      <configuration name="Unittests in test_class.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.11.08 at 22h 27m 40s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_class_py - 2017.11.06 at 16h 43m 45s.xml">
-      <configuration name="Unittests in test_class.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.11.08 at 22h 29m 12s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_class_py - 2017.11.06 at 16h 43m 48s.xml">
-      <configuration name="Unittests in test_class.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.11.08 at 22h 31m 03s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_class_py - 2017.11.06 at 16h 44m 44s.xml">
-      <configuration name="Unittests in test_class.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.11.08 at 22h 40m 11s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_class_py - 2017.11.06 at 16h 45m 20s.xml">
-      <configuration name="Unittests in test_class.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.11.08 at 22h 44m 17s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_class_py - 2017.11.06 at 16h 46m 29s.xml">
-      <configuration name="Unittests in test_class.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.11.08 at 22h 46m 23s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_class_py - 2017.11.06 at 16h 49m 02s.xml">
-      <configuration name="Unittests in test_class.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.11.08 at 22h 49m 32s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_class_py - 2017.11.06 at 16h 49m 43s.xml">
-      <configuration name="Unittests in test_class.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.11.08 at 22h 51m 09s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_class_py - 2017.11.06 at 16h 50m 39s.xml">
-      <configuration name="Unittests in test_class.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.11.08 at 22h 58m 57s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -1019,14 +730,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="480" y="29" width="1297" height="1058" extended-state="0" />
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22473727" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21331316" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22844176" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30194804" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3003413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1041,7 +749,7 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="412" y="168" width="1097" height="776" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32541567" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32423207" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1057,219 +765,16 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/demo/test_class.py</url>
-          <line>10</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/practical/operation/selenium_click.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo/Example/simple_interest_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-924">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/Example/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1386">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount.py" />
-    <entry file="file://E:/Program Files/Python36/Lib/site-packages/pymysql/cursors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="146" column="8" lean-forward="false" selection-start-line="146" selection-start-column="8" selection-end-line="146" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="121" column="33" lean-forward="false" selection-start-line="121" selection-start-column="33" selection-end-line="121" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <entry file="file://E:/Program Files/Python36/Lib/json/decoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="354" column="0" lean-forward="false" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/目录解释.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/Program_exit/exit_os_sys.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/py_mysql/pymysql_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-882">
-          <caret line="39" column="19" lean-forward="false" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/remote/webelement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="511" column="21" lean-forward="false" selection-start-line="511" selection-start-column="8" selection-end-line="511" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/Exception_error/DefinitionError.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-685">
-          <caret line="44" column="17" lean-forward="false" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/constant/url_website/url_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/constant/parameter/parameter_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/report/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/common/action_chains.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="277" column="8" lean-forward="false" selection-start-line="277" selection-start-column="8" selection-end-line="277" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/test_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="48" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_move.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="86" column="17" lean-forward="true" selection-start-line="85" selection-start-column="4" selection-end-line="86" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
-    <entry file="file://E:/Program Files/Python36/Lib/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="601" column="0" lean-forward="false" selection-start-line="601" selection-start-column="0" selection-end-line="601" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="470" column="8" lean-forward="false" selection-start-line="470" selection-start-column="8" selection-end-line="470" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_input.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-
-
-
-
-
-
-
-    <entry file="file://$PROJECT_DIR$/demo/test_baidu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/-1514532798/select.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-257">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/support/select.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
@@ -1281,7 +786,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="77" column="58" lean-forward="false" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="58" />
-          <folding />
+          <folding>
+            <element signature="e#98#107#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1299,13 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practical/file_introduce/日志打印logging_basicConfig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/practical/file_introduce/异常">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1317,13 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/file_introduce/javas">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1416">
-          <caret line="68" column="29" lean-forward="true" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1348,55 +841,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practical/file_introduce/selenium 定位" />
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/name_bean.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run_all.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/discount.py">
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#147#169#0" expanded="true" />
+            <element signature="e#147#161#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/web_extract.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1285">
-          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1404,7 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="55" column="14" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1412,7 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1420,7 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="989" column="0" lean-forward="false" selection-start-line="989" selection-start-column="0" selection-end-line="989" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1428,7 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="54" column="3" lean-forward="true" selection-start-line="54" selection-start-column="3" selection-end-line="57" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1443,38 +897,158 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/selenium_click-20171106 213410.log" />
+    <entry file="file://$PROJECT_DIR$/demo/geckodriver.log" />
+    <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/firefox/webdriver.py" />
+    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_into.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="54" column="3" lean-forward="true" selection-start-line="54" selection-start-column="3" selection-end-line="57" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Program Files/Python36/Lib/os.py" />
+    <entry file="file://$PROJECT_DIR$/demo/selenium_click-20171106 214712.log-screenshot_error.png" />
+    <entry file="file://$PROJECT_DIR$/demo/selenium_click-20171106 215325.log-screenshot_error.png" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1514532798/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-267">
+          <caret line="722" column="4" lean-forward="false" selection-start-line="722" selection-start-column="4" selection-end-line="722" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/test_class.py" />
+    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="15" lean-forward="false" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/selenium_click-20171106 220302.log" />
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web_goods_discount.py" />
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate.py" />
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/web_extract.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" lean-forward="true" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/selenium_input-20171108 222045.log-screenshot_error.png" />
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/selenium_input-20171108 222115.log-screenshot_error.png" />
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/selenium_input-20171108 222045.log" />
+    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_into.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_goods_discount.py">
+    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        <state relative-caret-position="44">
+          <caret line="119" column="10" lean-forward="false" selection-start-line="119" selection-start-column="10" selection-end-line="119" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_visible.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/Exception_error/DefinitionError.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/file_introduce/日志打印logging_basicConfig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="52" column="31" lean-forward="true" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="130" column="4" lean-forward="false" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="498" column="8" lean-forward="false" selection-start-line="498" selection-start-column="8" selection-end-line="498" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="80" column="8" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/test_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="63" column="16" lean-forward="true" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
           <folding>
-            <element signature="e#24#33#0" expanded="true" />
+            <element signature="e#24#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/discount.py">
+    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_click.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="127">
+          <caret line="92" column="8" lean-forward="false" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
+          <folding>
+            <element signature="e#98#107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/name_bean.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="51" column="4" lean-forward="false" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/selenium_click-20171106 213410.log">
+    <entry file="file://$PROJECT_DIR$/practical/file_introduce/javas">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="47" lean-forward="true" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+        <state relative-caret-position="66">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/geckodriver.log">
+    <entry file="file://$PROJECT_DIR$/practical/file_introduce/selenium 定位">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1482,132 +1056,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/firefox/webdriver.py">
-    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_into.py">
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="54" column="3" lean-forward="true" selection-start-line="54" selection-start-column="3" selection-end-line="57" selection-end-column="45" />
-        <state relative-caret-position="127">
-          <caret line="48" column="8" lean-forward="false" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="119">
+          <caret line="112" column="8" lean-forward="false" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
+          <folding>
+            <element signature="e#147#161#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/os.py">
-    <entry file="file://$PROJECT_DIR$/demo/selenium_click-20171106 214712.log-screenshot_error.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/selenium_click-20171106 215325.log-screenshot_error.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1514532798/builtins.py">
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_discount/web_goods_discount.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-267">
-          <caret line="722" column="4" lean-forward="false" selection-start-line="722" selection-start-column="4" selection-end-line="722" selection-end-column="4" />
-        <state relative-caret-position="-1391">
-          <caret line="4716" column="8" lean-forward="false" selection-start-line="4716" selection-start-column="8" selection-end-line="4716" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/test_class.py">
-    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="15" lean-forward="false" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+        <state relative-caret-position="137">
+          <caret line="148" column="16" lean-forward="false" selection-start-line="148" selection-start-column="16" selection-end-line="148" selection-end-column="16" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
           </folding>
-        <state relative-caret-position="193">
-          <caret line="55" column="41" lean-forward="false" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_into.py">
-    <entry file="file://$PROJECT_DIR$/demo/selenium_click-20171106 220302.log">
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/web_goods_participate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="46" column="81" lean-forward="false" selection-start-line="46" selection-start-column="81" selection-end-line="46" selection-end-column="81" />
-        <state relative-caret-position="264">
-          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
-    <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-632">
-          <caret line="72" column="23" lean-forward="false" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="23" />
-        <state relative-caret-position="127">
-          <caret line="426" column="8" lean-forward="false" selection-start-line="426" selection-start-column="8" selection-end-line="426" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/Exception_error/DefinitionError.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_input.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="51" column="29" lean-forward="false" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+        <state relative-caret-position="669">
+          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
           <folding>
-            <element signature="e#104#113#0" expanded="true" />
-            <element signature="e#100#109#0" expanded="true" />
+            <element signature="e#25#34#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_click.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="67" column="8" lean-forward="false" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/test_class.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

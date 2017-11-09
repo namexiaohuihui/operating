@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
+import logging
 import os
 from time import sleep
+
+import re
 
 __author__ = 'Administrator'
 """
@@ -13,9 +16,14 @@ from practical.constant.browser.browser_establish import browser_confirm
 from practical.operation.selenium_click import element_click
 
 class cc(object):
+
+
+
     def error(self):
 
         e = element_click()
+
+        self.prompt = ""
 
         try:
 
@@ -33,6 +41,24 @@ class cc(object):
 
             e.writeLog(self.browser)
 
+    # 将s中的字符和数字筛选出
+    def OnlyCharNum(self,s):
+        s2 = s.lower();
+        fomart = '0123456789'
+        for c in s2:
+            if not c in fomart:
+                s = s.replace(c, '');
+        return s;
+
+    def zhegnzhe(self):
+        line = "Cats are smarter than dogs"
+        # s = re.match(r'^[0-9]*$', "没有该123456商品D", re.M|re.I)
+        #matchObj = re.match("\d+", '没有该123456商品D', re.M | re.I)
+        matchObj = re.sub("\D", "", "没有该商品D")
+        print(self.prompt)
+        return matchObj;
+
 if __name__ == '__main__':
     c = cc()
-    c.error()
+    c.prompt = "你好"
+    c.zhegnzhe()

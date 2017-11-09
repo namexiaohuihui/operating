@@ -9,6 +9,7 @@ import os
 from time import sleep
 
 from practical.Exception_error.DefinitionError import definition_error
+from practical.operation.selenium_visible import element_visible
 
 '''
                        _oo0oo_
@@ -36,49 +37,75 @@ from practical.Exception_error.DefinitionError import definition_error
 '''
 
 
-class element_click(object):
-    def id_click(self, browser, id):
+class element_click(element_visible):
+
+    def id_click(self, browser, prompt):
+
+        if self.is_visible_id(browser,prompt):
+            browser.find_element_by_id(prompt).click()
+        else:
+            self.writeLog(browser)
+        '''
         try:
-            browser.find_element_by_id(id).click()
+            self.is_visible_id(browser,prompt)
+            browser.find_element_by_id(prompt).click()
+            sleep(2)
+        except:
+            self.writeLog(browser)
+        '''
+
+    def name_click(self, browser, prompt):
+        try:
+            browser.find_element_by_name(prompt).click()
             sleep(2)
         except:
             self.writeLog(browser)
 
-    def name_click(self, browser, name):
+    def text_click(self, browser, prompt):
         try:
-            browser.find_element_by_name(name).click()
+            browser.find_element_by_link_text(prompt).click()
             sleep(2)
         except:
             self.writeLog(browser)
 
-    def text_click(self, browser, text):
+    def xpath_click(self, browser, prompt):
         try:
-            browser.find_element_by_link_text(text).click()
+            browser.find_element_by_xpath(prompt).click()
             sleep(2)
         except:
             self.writeLog(browser)
 
-    def xpath_click(self, browser, xpath):
-        try:
-            browser.find_element_by_xpath(xpath).click()
-            sleep(2)
-        except:
+    def css_click(self, browser, prompt):
+
+        if self.is_visible_css_selectop(browser,prompt):
+            browser.find_element_by_id(prompt).click()
+        else:
             self.writeLog(browser)
 
-    def css_click(self, browser, css):
+        '''
         try:
-            browser.find_element_by_css_selector(css).click()
+            browser.find_element_by_css_selector(prompt).click()
             sleep(2)
         except:
             self.writeLog(browser)
+        '''
 
     def css_confirm_prompt(self, browser, prompt):
+
+        if self.is_visible_css_selectop(browser,prompt):
+            confirm = browser.find_element_by_css_selector(prompt)
+            browser.execute_script("arguments[0].click();", confirm)
+        else:
+            self.writeLog(browser)
+
+        '''
         try:
             sleep(1)
             confirm = browser.find_element_by_css_selector(prompt)
             browser.execute_script("arguments[0].click();", confirm)
         except:
             self.writeLog(browser)
+        '''
 
     def id_confirm_prompt(self, browser, prompt):
         try:

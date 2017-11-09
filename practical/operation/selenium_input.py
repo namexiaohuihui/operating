@@ -10,6 +10,7 @@ import sys
 from time import sleep
 
 from practical.Exception_error.DefinitionError import definition_error
+from practical.operation.selenium_visible import element_visible
 
 '''
                        _oo0oo_
@@ -38,33 +39,42 @@ from practical.Exception_error.DefinitionError import definition_error
 '''
 
 
-class element_input(object):
+class element_input(element_visible):
 
-    def id_input(self, browser, id, data):
+    def id_input(self, browser, id, parameter):
         try:
             ele = browser.find_element_by_id(id)
-            self.ele_clear_keys(ele, data)
+            self.ele_clear_keys(ele, parameter)
         except:
             self.writeLog(browser)
 
-    def name_input(self, browser, name, data):
+    def name_input(self, browser, name, parameter):
+        '''
+        numb = self.is_visible_name(browser,parameter)
+        print("fanhui panduanzhi " + numb)
+        if numb:
+            ele = browser.find_element_by_name(name)
+            self.ele_clear_keys(ele, parameter)
+        else:
+            self.writeLog(browser)
+        '''
         try:
             ele = browser.find_element_by_name(name)
-            self.ele_clear_keys(ele, data)
+            self.ele_clear_keys(ele, parameter)
         except:
             self.writeLog(browser)
 
-    def css_input(self, browser, css, data):
+    def css_input(self, browser, css, parameter):
         try:
             ele = browser.find_element_by_css_selector(css)
-            self.ele_clear_keys(ele, data)
+            self.ele_clear_keys(ele, parameter)
         except:
             self.writeLog(browser)
 
-    def xpath_input(self, browser, xpath, data):
+    def xpath_input(self, browser, xpath, parameter):
         try:
             ele = browser.find_element_by_xpath(xpath)
-            self.ele_clear_keys(ele, data)
+            self.ele_clear_keys(ele, parameter)
         except:
             self.writeLog(browser)
 
@@ -74,9 +84,9 @@ class element_input(object):
         except:
             self.writeLog(browser)
 
-    def ele_clear_keys(self, ele, data):
+    def ele_clear_keys(self, ele, parameter):
         ele.clear()
-        ele.send_keys(data)
+        ele.send_keys(parameter)
         sleep(1)
 
     def writeLog(self,browser):

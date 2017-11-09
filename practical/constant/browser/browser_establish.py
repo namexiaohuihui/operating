@@ -117,11 +117,11 @@ class browser_confirm(browser_get_info):
 
         # 创建浏览器对象
         self.browser = self.chrome_browser()
-        self.browser.maximize_window()
+        # self.browser.maximize_window()
 
         # 输入网址
-        # self.browser.get("C:\\Users\\70486\\Desktop\\shezhi.html")
-        self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
+        self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
+        # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
         # self.browser.get("http://baidu.com")
 
         # 等待网页加载，加载时间为10s，加载完就跳过
