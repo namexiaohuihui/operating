@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
-import logging
-import os
-from time import sleep
 
 import re
 
+from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import ui
+import selenium.webdriver.support.expected_conditions as EC
 __author__ = 'Administrator'
 """
 @file: test_class.py
@@ -58,7 +60,29 @@ class cc(object):
         print(self.prompt)
         return matchObj;
 
+    def is_visible_css_selectop(self, driver, locator, timeout=10):
+        try:
+            ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+            return True
+        except TimeoutException:
+            return False
+        except Exception:
+            return False
+
+    def liulanqi(self):
+        # 实现全局变量的引用
+        browser = webdriver.Chrome("E:\drivers\Drivers\chromedriver59-61.exe")
+        browser.get("http://baidu.com")
+        if c.is_visible_css_selectop(browser, "#kw"):
+            print("chuxian")
+        else:
+            print("meiyou")
+
+import time
 if __name__ == '__main__':
     c = cc()
     c.prompt = "你好"
-    c.zhegnzhe()
+    # 实现全局变量的引用
+    # c.liulanqi()
+    now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
+    print(now)

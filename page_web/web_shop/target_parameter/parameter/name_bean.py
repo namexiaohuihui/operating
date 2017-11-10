@@ -48,8 +48,8 @@ class letter_parameter_names(object):
     # 二次确认中的取消按钮:分类class名为modal-footer，去找到子类中button的元素并且位置为第一个
     btn_default = '.modal-footer button:nth-child(1)'
 
-    # 二次确认中的确认按钮
-    discountsave = 'discountsave'
+    # 二次确认中的确认按钮,通过id进行执行
+    discountsave = '#discountsave'
 
     """--------------------------------提示参数------------------------------"""
 

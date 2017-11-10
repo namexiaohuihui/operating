@@ -39,8 +39,6 @@ from practical.constant.browser.browser_into import browser_get_info
 
 # __new__创建一个对象，__init__实例化一个对象
 class browser_confirm(browser_get_info):
-    # 定义一个全局变量
-
 
     # 单例类判断。如果该类创建过就不需要重新创建了
     def __new__(cls, *args, **kw):
@@ -120,9 +118,9 @@ class browser_confirm(browser_get_info):
         # self.browser.maximize_window()
 
         # 输入网址
-        self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
+        # self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
         # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
-        # self.browser.get("http://baidu.com")
+        self.browser.get("http://baidu.com")
 
         # 等待网页加载，加载时间为10s，加载完就跳过
         self.browser.implicitly_wait(30)

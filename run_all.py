@@ -11,7 +11,9 @@ if __name__ == '__main__':
     # 报告存放路径
     report_path = os.path.join(os.getcwd(), "report")
 
-    now = time.strftime("%Y-%m-%M-%H_%M_%S", time.localtime(time.time()))
+    # 设置时间格式
+    now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
+
     # html报告文件
     report_abspath = os.path.join(report_path, "result" + now + ".html")
 

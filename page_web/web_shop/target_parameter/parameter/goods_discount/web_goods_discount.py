@@ -5,6 +5,7 @@ import inspect
 import unittest
 import sys
 from page_web.web_shop.target_parameter.parameter.discount import discount_input
+
 __author__ = 'Administrator'
 """
 @file: web_goods_discount.py
@@ -13,7 +14,6 @@ __author__ = 'Administrator'
 
 
 class goods_discount(discount_input, unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         basename = os.path.splitext(os.path.basename(__file__))[0]
@@ -50,7 +50,7 @@ class goods_discount(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter = list_parameter )
+        self.gd_verification(list_parameter=list_parameter)
 
     '''
     验证商品打折数输入小于0的问题:即输入负数
@@ -109,7 +109,6 @@ class goods_discount(discount_input, unittest.TestCase):
 
     # 输入符合条件的内容，并且成功提交
     def test_goods_discount_five(self):
-
         # 获取函数名
         function = sys._getframe().f_code.co_name
 
@@ -126,7 +125,6 @@ class goods_discount(discount_input, unittest.TestCase):
 
         # 提交参数之后，进行再次确认提示，并完成其后的全部工作
         self.integration_confirm_prompt()
-
 
     # 输入符合条件的内容，在二次确认提交的时候取消。
     def test_goods_discount_six(self):
@@ -148,7 +146,6 @@ class goods_discount(discount_input, unittest.TestCase):
         sleep(2)
         # 点击取消按钮
         self.arguments_confirm_prompt(prompt=self.btn_default)
-
 
 
 if __name__ == '__main__':

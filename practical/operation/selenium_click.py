@@ -55,25 +55,24 @@ class element_click(element_visible):
         '''
 
     def name_click(self, browser, prompt):
-        try:
+        if self.is_visible_id(browser,prompt):
             browser.find_element_by_name(prompt).click()
-            sleep(2)
-        except:
+        else:
             self.writeLog(browser)
 
     def text_click(self, browser, prompt):
-        try:
+        if self.is_visible_id(browser,prompt):
             browser.find_element_by_link_text(prompt).click()
-            sleep(2)
-        except:
+        else:
             self.writeLog(browser)
 
     def xpath_click(self, browser, prompt):
-        try:
+
+        if self.is_visible_id(browser,prompt):
             browser.find_element_by_xpath(prompt).click()
-            sleep(2)
-        except:
+        else:
             self.writeLog(browser)
+
 
     def css_click(self, browser, prompt):
 
@@ -108,10 +107,9 @@ class element_click(element_visible):
         '''
 
     def id_confirm_prompt(self, browser, prompt):
-        try:
-            sleep(1)
+        if self.is_visible_css_selectop(browser,prompt):
             browser.execute_script("document.getElementById(\'" + prompt + "\').click();")
-        except:
+        else:
             self.writeLog(browser)
 
     def writeLog(self, browser):

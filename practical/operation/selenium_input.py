@@ -40,43 +40,47 @@ from practical.operation.selenium_visible import element_visible
 
 
 class element_input(element_visible):
-
     def id_input(self, browser, id, parameter):
-        try:
-            ele = browser.find_element_by_id(id)
-            self.ele_clear_keys(ele, parameter)
-        except:
-            self.writeLog(browser)
 
-    def name_input(self, browser, name, parameter):
-        '''
-        numb = self.is_visible_name(browser,parameter)
-        print("fanhui panduanzhi " + numb)
-        if numb:
-            ele = browser.find_element_by_name(name)
+        if self.is_visible_id(browser, id): #判断是否出现
+            # 元素输入
+            ele = browser.find_element_by_id(id)
             self.ele_clear_keys(ele, parameter)
         else:
             self.writeLog(browser)
         '''
         try:
-            ele = browser.find_element_by_name(name)
+            ele = browser.find_element_by_id(id)
             self.ele_clear_keys(ele, parameter)
         except:
+            self.writeLog(browser)
+        '''
+
+    def name_input(self, browser, name, parameter):
+
+        if self.is_visible_name(browser, name): #判断是否出现
+            # 元素输入
+            ele = browser.find_element_by_name(name)
+            self.ele_clear_keys(ele, parameter)
+        else:
             self.writeLog(browser)
 
     def css_input(self, browser, css, parameter):
-        try:
+        if self.is_visible_css_selectop(browser, css): #判断是否出现
+            # 元素输入
             ele = browser.find_element_by_css_selector(css)
             self.ele_clear_keys(ele, parameter)
-        except:
+        else:
             self.writeLog(browser)
 
     def xpath_input(self, browser, xpath, parameter):
-        try:
+        if self.is_visible_xpath(browser, xpath): #判断是否出现
+            # 元素输入
             ele = browser.find_element_by_xpath(xpath)
             self.ele_clear_keys(ele, parameter)
-        except:
+        else:
             self.writeLog(browser)
+
 
     def id_js_input(self, browser, ordinal, parameter):
         try:
@@ -87,9 +91,8 @@ class element_input(element_visible):
     def ele_clear_keys(self, ele, parameter):
         ele.clear()
         ele.send_keys(parameter)
-        sleep(1)
 
-    def writeLog(self,browser):
+    def writeLog(self, browser):
         basename = os.path.splitext(os.path.basename(__file__))[0]
         print("自己定义的_文件出现错误,名为名=%s" % \
               basename, )
@@ -97,5 +100,5 @@ class element_input(element_visible):
         # 组合日志文件名（当前文件名 + 当前时间）.比如：case_login_success_20150817192533
         de_error = definition_error()
         de_error.erroe_get(basename, browser)
-        #sys.exit(0)
-        #raise
+        # sys.exit(0)
+        # raise

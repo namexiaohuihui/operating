@@ -28,15 +28,26 @@ class goods_participate(discount_input, unittest.TestCase):
     # 输入一串很长的数字，长度大于或者等于6
     def test_goods_participate_one(self):
         # 获取函数名
-        function = inspect.stack()[0][3]
-        print(function)
+        function = sys._getframe().f_code.co_name
 
-        parameter = "123456123"
-        # 运行的函数function，输入框需要输入的参数parameter
-        self.gp_verification(function=function,parameter=parameter)
+        # 提示框上输出的内容
+        massegn = self.gp_separate
+
+        parameter = "0.9"
+
+        # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
+        list_parameter = [function, massegn, parameter]
+
+        # self.gp_verification(list_parameter=list_parameter)
+        ele = self.browser.find_element_by_id(self.ordinal)
+        ele.send_keys(parameter)
+        # self.browser.execute_script("document.getElementById(\'" + self.ordinal + "\').blur();")
+        self.browser.execute_script("arguments[0].blur();", ele)
+
+
 
     # 输入数字,小于或者等于4
-    def test_goods_participate_two(self):
+    def qwetest_goods_participate_two(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
@@ -46,7 +57,7 @@ class goods_participate(discount_input, unittest.TestCase):
         self.gp_verification(function=function, parameter=parameter)
 
     # 输入负数
-    def test_goods_participate_three(self):
+    def qwetest_goods_participate_three(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
@@ -60,12 +71,12 @@ class goods_participate(discount_input, unittest.TestCase):
         visible = self.showSweetAlert_visible(process=self.visible_p)
 
         # 将提示框里面内容的数字提取出来
-        totalCount = stringCutting.extract_number(visible=visible)
+        # totalCount = stringCutting.extract_number(visible=visible)
 
-        self.visible_massegn_assert(function=function, massegn=totalCount, visible=visible)
+        # self.visible_massegn_assert(function=function, massegn=totalCount, visible=visible)
 
     # 输入多个商品，中间是中文形式下的逗号
-    def test_goods_participate_four(self):
+    def qwetest_goods_participate_four(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
@@ -76,7 +87,7 @@ class goods_participate(discount_input, unittest.TestCase):
         self.gp_verification(function=function, parameter=parameter)
 
     # 输入中文
-    def test_goods_participate_five(self):
+    def qwetest_goods_participate_five(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
@@ -87,7 +98,7 @@ class goods_participate(discount_input, unittest.TestCase):
         self.gp_verification(function=function, parameter=parameter)
 
      # 输入非统一商品
-    def test_goods_participate_six(self):
+    def qwetest_goods_participate_six(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
@@ -98,7 +109,7 @@ class goods_participate(discount_input, unittest.TestCase):
         self.gp_verification(function=function, parameter=parameter)
 
     # 输入长度=5的数字
-    def test_goods_participate_seven(self):
+    def qwetest_goods_participate_seven(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
@@ -109,7 +120,7 @@ class goods_participate(discount_input, unittest.TestCase):
         self.gp_verification(function=function, parameter=parameter)
 
     # 英文状态下的逗号连续输入
-    def test_goods_participate_eight(self):
+    def qwetest_goods_participate_eight(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
@@ -119,8 +130,8 @@ class goods_participate(discount_input, unittest.TestCase):
         # 运行的函数function，输入框需要输入的参数parameter
         self.gp_verification(function=function, parameter=parameter)
 
-    # 未知情况出现
-    def test_goods_participate_nine(self):
+    # 未知情况出现:出现错误之后强制提交
+    def qwetest_goods_participate_nine(self):
         # 获取函数名
         function = sys._getframe().f_code.co_name
         print(function)
