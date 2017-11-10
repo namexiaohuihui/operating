@@ -38,12 +38,7 @@ class goods_participate(discount_input, unittest.TestCase):
         # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
         list_parameter = [function, massegn, parameter]
 
-        # self.gp_verification(list_parameter=list_parameter)
-        ele = self.browser.find_element_by_id(self.ordinal)
-        ele.send_keys(parameter)
-        # self.browser.execute_script("document.getElementById(\'" + self.ordinal + "\').blur();")
-        self.browser.execute_script("arguments[0].blur();", ele)
-
+        self.gp_verification(list_parameter=list_parameter)
 
 
     # 输入数字,小于或者等于4
@@ -139,7 +134,8 @@ class goods_participate(discount_input, unittest.TestCase):
         parameter = "---，****，////"
         mess = self.gp_incorrect
         # 运行的函数function，输入框需要输入的参数parameter
-        self.gp_verification(function=function, parameter=parameter)
+        # self.gp_verification(function=function, parameter=parameter)
+
 
 
 

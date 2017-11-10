@@ -47,16 +47,19 @@ class discount_input(letter_parameter_names, element_input, element_click):
         # 创建参数对象
         # self.parame = parameter_content()
 
-        bc.case_browesr('---', '***')
+        bc.case_browesr('----', '*****')
 
         bc.system_parameter_discount()
 
     # js执行内容输入
     def js_input(self):
         # 通过id找到元素并进行输入:商品打折数
-        # 　self.id_js_input(browser=self.browser,ordinal = self.ordinal,parameter = self.implement_parameter)
+        # self.id_js_input(browser=self.browser, ordinal=self.ordinal, parameter=self.implement_parameter)
         # 　id：　为需要执行输入的id，parameter输入的参数
         self.id_input(browser=self.browser, id=self.ordinal, parameter=self.implement_parameter)
+
+        # 将光标从输入框中移出。
+        self.blur_id(browser=self.browser, ordinal=self.ordinal)
 
     # 传入对象来获取提示框中的内容
     def showSweetAlert_visible(self, process):
@@ -115,24 +118,19 @@ class discount_input(letter_parameter_names, element_input, element_click):
         # 上一步提示内容的点击
         self.arguments_confirm_prompt(prompt=self.confirm)
 
-    # 集成点击和输入的函数
-    def integration_input_click(self):
-        # 输入框输入
-        self.js_input()
-
-        # 该页面保存提交按钮的点击
-        self.arguments_confirm_prompt(prompt=self.settingSave)
-
     """
        输入之后，点击其他元素，焦点移除之后会验证输入的内容是否符合。
        如果不符合就进行提示。
        点击提示框中的确认按钮表示已经查看了提示框，顺路读取提示框中的提示文字
        然后判断提示文字是否为程序设置的。
-       """
+    """
 
     def prompt_box(self):
-        # 点击集成了输入和点击的函数
-        self.integration_input_click()
+        # 打印log
+        self.print_log_output()
+
+        # 元素输入
+        self.js_input()
 
         # 获取提示框的提示内容
         visible = self.showSweetAlert_visible(process=self.visible_p)
@@ -156,9 +154,6 @@ class discount_input(letter_parameter_names, element_input, element_click):
         # 需要输入的参数
         self.implement_parameter = list_parameter[2]
 
-        # 打印log
-        self.print_log_output()
-
         # 开始执行
         self.prompt_box()
 
@@ -177,22 +172,8 @@ class discount_input(letter_parameter_names, element_input, element_click):
         # 需要输入的参数
         self.implement_parameter = list_parameter[2]
 
-        # 点击集成了输入和点击的函数
-        self.integration_input_click()
-
-        # 获取提示框的提示内容
-        visible = self.showSweetAlert_visible(process=self.visible_p)
-
-        # 判断规划的提示跟实际的提示是否一致
-        # massegn为规划的提示，visible为实际的提示
-        # function 为调用这个不见函数的方法
-        self.visible_massegn_assert(visible=visible)
-
-        # 打印log
-        self.print_log_output()
-
-        # 点击提示框中的确定按钮，表示已经查看
-        # self.arguments_confirm_prompt(prompt=self.confirm)
+        # 开始执行
+        self.prompt_box()
 
     # 点击提交，然后让其弹出二次确认的提示框并判断提示框的内容是否一致
     def correct_function(self, list_parameter):
@@ -208,7 +189,7 @@ class discount_input(letter_parameter_names, element_input, element_click):
         # 打印log
         self.print_log_output()
 
-        self.integration_input_click()
+        self.js_input()
 
     # 打印log的地方
     def print_log_output(self):

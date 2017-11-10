@@ -38,10 +38,9 @@ from practical.operation.selenium_visible import element_visible
 
 
 class element_click(element_visible):
-
     def id_click(self, browser, prompt):
 
-        if self.is_visible_id(browser,prompt):
+        if self.is_visible_id(browser, prompt):
             browser.find_element_by_id(prompt).click()
         else:
             self.writeLog(browser)
@@ -55,29 +54,28 @@ class element_click(element_visible):
         '''
 
     def name_click(self, browser, prompt):
-        if self.is_visible_id(browser,prompt):
+        if self.is_visible_name(browser, prompt):
             browser.find_element_by_name(prompt).click()
         else:
             self.writeLog(browser)
 
     def text_click(self, browser, prompt):
-        if self.is_visible_id(browser,prompt):
+        try:
             browser.find_element_by_link_text(prompt).click()
-        else:
+        except:
             self.writeLog(browser)
 
     def xpath_click(self, browser, prompt):
 
-        if self.is_visible_id(browser,prompt):
+        if self.is_visible_xpath(browser, prompt):
             browser.find_element_by_xpath(prompt).click()
         else:
             self.writeLog(browser)
 
-
     def css_click(self, browser, prompt):
 
-        if self.is_visible_css_selectop(browser,prompt):
-            browser.find_element_by_id(prompt).click()
+        if self.is_visible_css_selectop(browser, prompt):
+            browser.find_element_by_css_selector(prompt).click()
         else:
             self.writeLog(browser)
 
@@ -91,7 +89,7 @@ class element_click(element_visible):
 
     def css_confirm_prompt(self, browser, prompt):
 
-        if self.is_visible_css_selectop(browser,prompt):
+        if self.is_visible_css_selectop(browser, prompt):
             confirm = browser.find_element_by_css_selector(prompt)
             browser.execute_script("arguments[0].click();", confirm)
         else:
@@ -107,7 +105,7 @@ class element_click(element_visible):
         '''
 
     def id_confirm_prompt(self, browser, prompt):
-        if self.is_visible_css_selectop(browser,prompt):
+        if self.is_visible_css_selectop(browser, prompt):
             browser.execute_script("document.getElementById(\'" + prompt + "\').click();")
         else:
             self.writeLog(browser)

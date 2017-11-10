@@ -73,6 +73,8 @@ class cc(object):
         # 实现全局变量的引用
         browser = webdriver.Chrome("E:\drivers\Drivers\chromedriver59-61.exe")
         browser.get("http://baidu.com")
+        size = browser.get_window_size()
+        print(size)
         if c.is_visible_css_selectop(browser, "#kw"):
             print("chuxian")
         else:
@@ -83,6 +85,5 @@ if __name__ == '__main__':
     c = cc()
     c.prompt = "你好"
     # 实现全局变量的引用
-    # c.liulanqi()
-    now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-    print(now)
+    c.liulanqi()
+

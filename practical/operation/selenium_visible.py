@@ -65,7 +65,7 @@ class element_visible(object):
                 return False
 
 
-                # 一直等待某元素可见，默认超时10秒
+   # 一直等待某元素可见，默认超时10秒
 
     def is_visible_name(self, driver, locator, timeout=10):
         try:
