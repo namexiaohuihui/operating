@@ -12,13 +12,14 @@ if __name__ == '__main__':
     report_path = os.path.join(os.getcwd(), "report")
 
     # 设置时间格式
-    now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
+    now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
 
     # html报告文件
-    report_abspath = os.path.join(report_path, "result" + now + ".html")
+    # report_abspath = os.path.join(report_path, "result" + now + ".html")
+    report_abspath = os.path.join(report_path, "result.html")
 
     discover = unittest.defaultTestLoader.discover(case_path,
-                                                   pattern="*discount.py",
+                                                   pattern="*participate.py",
                                                    top_level_dir=None)
 
     fp = open(report_abspath, "wb")

@@ -14,6 +14,9 @@ import traceback
 
 class definition_error(Exception):
 
+    def __init__(self,value):
+        print(value)
+
     def erroe_get(self,basename,_browser_):
 
         # 组合日志文件名（当前文件名+当前时间）.比如：case_login_success_20150817192533
@@ -33,3 +36,4 @@ class definition_error(Exception):
 
         # 打印错误
         print('调用错误类只会打印的数据 %s' % error)
+

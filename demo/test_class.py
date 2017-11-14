@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import re
-
+import unittest
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
@@ -17,7 +17,7 @@ from practical.constant.browser.browser_establish import browser_confirm
 
 from practical.operation.selenium_click import element_click
 
-class cc(object):
+class cc(unittest.TestCase):
 
 
 
@@ -52,13 +52,15 @@ class cc(object):
                 s = s.replace(c, '');
         return s;
 
-    def zhegnzhe(self):
+    def test_zhegnzhe(self):
+        """这是一个按时开放你看我"""
+        '''qwedfsdfgsd'''
         line = "Cats are smarter than dogs"
         # s = re.match(r'^[0-9]*$', "没有该123456商品D", re.M|re.I)
         #matchObj = re.match("\d+", '没有该123456商品D', re.M | re.I)
-        matchObj = re.sub("\D", "", "没有该商品D")
-        print(self.prompt)
-        return matchObj;
+        matchObj = re.sub("\D", "", "没有12345+698该商品D")
+        print("daye %s" %matchObj)
+        #return matchObj;
 
     def is_visible_css_selectop(self, driver, locator, timeout=10):
         try:
@@ -82,8 +84,6 @@ class cc(object):
 
 import time
 if __name__ == '__main__':
-    c = cc()
-    c.prompt = "你好"
-    # 实现全局变量的引用
-    c.liulanqi()
+
+    unittest.main
 

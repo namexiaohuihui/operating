@@ -15,7 +15,7 @@ from page_web.web_shop.target_parameter.parameter.name_bean import letter_parame
 from practical.constant.browser.browser_establish import browser_confirm
 from practical.operation.selenium_click import element_click
 from practical.operation.selenium_input import element_input
-from practical.CuttingOperation import stringCutting
+from practical.Exception_error.DefinitionError import definition_error
 
 
 class discount_input(letter_parameter_names, element_input, element_click):
@@ -27,6 +27,8 @@ class discount_input(letter_parameter_names, element_input, element_click):
         cls.ordinal = ordinal
 
         print("%s   开始执行" % cls.basename)
+        # 定义log
+        # cls.output_log()
         cls.url_op(cls)
 
     def tearDownStop(cls):
@@ -40,7 +42,7 @@ class discount_input(letter_parameter_names, element_input, element_click):
         # 创建浏览器对象
         self.browser = bc.url_opens()
 
-        self.user_pass(self, bc)
+        #self.user_pass(self, bc)
 
     # 账号密码输入框
     def user_pass(self, bc):
@@ -66,8 +68,8 @@ class discount_input(letter_parameter_names, element_input, element_click):
         if self.is_visible_css_selectop(self.browser, process):
             # 获取提示框的提示内容
             visible = self.browser.find_element_by_css_selector(process).text
-
-        return visible
+            self.prompt_box_visible(visible)
+        return visible;
 
     # 输入内容符合条件时，进行的二次确认判断
     def modal_body(self):
@@ -87,7 +89,10 @@ class discount_input(letter_parameter_names, element_input, element_click):
     # massegn为规划的提示，visible为实际的提示
     # function 为调用这个不见函数的方法
     def visible_massegn_assert(self, visible):
-        assert self.implement_massegn == visible, self.implement_function + '：该函数进行assert比较的时候出现了问题'
+        try:
+            assert self.implement_massegn == visible, self.implement_function + '：该函数进行assert比较的时候出现了问题'
+        except AssertionError as e:
+            definition_error(repr(e)).erroe_get("daye",self.browser)
 
     # 二次确认之后的提示内容判断
     def confirm_showSweetAlert_visible(self, function):
@@ -127,7 +132,7 @@ class discount_input(letter_parameter_names, element_input, element_click):
 
     def prompt_box(self):
         # 打印log
-        self.print_log_output()
+        self.parameter_log_output()
 
         # 元素输入
         self.js_input()
@@ -187,17 +192,28 @@ class discount_input(letter_parameter_names, element_input, element_click):
         self.implement_parameter = list_parameter[2]
 
         # 打印log
-        self.print_log_output()
+        self.parameter_log_output()
 
         self.js_input()
 
     # 打印log的地方
-    def print_log_output(self):
+    def parameter_log_output(self):
+        # 执行输出操作
+        print("执行者:  %s   假定： %s   输入：%s   "
+              %(self.implement_function , self.implement_massegn, self.implement_parameter))
+
+    def prompt_box_visible(self,visible):
+        print("提示框中的信息： %s  " % (visible))
+        size = self.browser.get_window_size()
+        print("屏幕大小 %s" % size)
+
+    # 定义log的属性
+    def output_log(self):
         # 定义执行者的名字
-        logger = logging.getLogger(self.implement_function)
+        self.logger = logging.getLogger(self.implement_function)
 
         # 定义等级
-        logger.setLevel(logging.ERROR)
+        self.logger.setLevel(logging.ERROR)
 
         # 输出到屏幕
         ch = logging.StreamHandler()
@@ -208,7 +224,7 @@ class discount_input(letter_parameter_names, element_input, element_click):
         ch.setFormatter(fomatter)
 
         # 将输出到屏幕的内容添加到log
-        logger.addHandler(ch)
+        self.logger.addHandler(ch)
 
-        # 执行输出操作
-        logger.error("提示框： %s   输入：: %s " % (self.implement_massegn, self.implement_parameter))
+        self.logger.error("假定： %s   输入：%s " % (self.implement_massegn, self.implement_parameter))
+

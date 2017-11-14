@@ -32,7 +32,7 @@ class element_visible(object):
     def is_visible_css_selectop(self, driver, locator, timeout=3):
         try:
             ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-            print("需要等待的元素出现了 %s" % locator)
+            # print("需要等待的元素出现了 %s" % locator)
             return True
         except TimeoutException:
             print("需要等待的元素没有展现 %s" % locator)
