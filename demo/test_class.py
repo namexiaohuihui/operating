@@ -19,7 +19,8 @@ from practical.operation.selenium_click import element_click
 
 class cc(unittest.TestCase):
 
-
+    def __init__(self):
+        print("你才是大佬")
 
     def error(self):
 
@@ -85,5 +86,6 @@ class cc(unittest.TestCase):
 import time
 if __name__ == '__main__':
 
-    unittest.main
+    c = cc()
+    c.test_zhegnzhe()
 

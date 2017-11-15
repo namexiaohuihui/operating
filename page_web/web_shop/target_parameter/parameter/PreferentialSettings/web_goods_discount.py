@@ -12,6 +12,7 @@ __author__ = 'Administrator'
 @time: 2017/11/2 9:53
 """
 
+# 商品折扣数
 
 class goods_discount(discount_input, unittest.TestCase):
     @classmethod
@@ -23,21 +24,16 @@ class goods_discount(discount_input, unittest.TestCase):
     def tearDownClass(cls):
         cls.tearDownStop(cls)
 
-    '''
-    验证城市以及数量是否正确
-    '''
-
     def test_number(self):
+        """验证城市以及数量是否正确"""
         ele_div = self.browser.find_element_by_css_selector('.box-city')
         ele_a = ele_div.find_elements_by_tag_name('a')
         # 打印数量
         print(len(ele_a))
 
-    '''
-    验证商品打折数输入大于10的问题
-    '''
 
     def test_goods_discount_one(self):
+        """验证商品打折数输入大于10的问题"""
         # 获取函数名
         function = inspect.stack()[0][3]
 
@@ -52,11 +48,9 @@ class goods_discount(discount_input, unittest.TestCase):
         # 传入名字和需要输入的参数
         self.gd_verification(list_parameter=list_parameter)
 
-    '''
-    验证商品打折数输入小于0的问题:即输入负数
-    '''
 
     def test_goods_discount_two(self):
+        """验证商品打折数输入小于0的问题:即输入负数"""
         # 获取函数名
         function = sys._getframe().f_code.co_name
 
@@ -71,11 +65,9 @@ class goods_discount(discount_input, unittest.TestCase):
         # 传入名字和需要输入的参数
         self.gd_verification(list_parameter=list_parameter)
 
-    '''
-    验证商品打折数输入在符合范围内但小数点后有多位的情况
-    '''
 
     def test_goods_discount_three(self):
+        """验证商品打折数输入在符合范围内但小数点后有多位的情况"""
         # 获取函数名
         function = sys._getframe().f_code.co_name
         # 输入错误出现的提示
@@ -89,11 +81,10 @@ class goods_discount(discount_input, unittest.TestCase):
         # 传入名字和需要输入的参数
         self.gd_verification(list_parameter=list_parameter)
 
-    '''
-    验证商品打折数输入中文字符
-    '''
 
     def test_goods_discount_four(self):
+        """验证商品打折数输入中文字符"""
+
         # 获取函数名
         function = sys._getframe().f_code.co_name
         # 输入错误出现的提示
@@ -107,8 +98,8 @@ class goods_discount(discount_input, unittest.TestCase):
         # 传入名字和需要输入的参数
         self.gd_verification(list_parameter=list_parameter)
 
-    # 输入符合条件的内容，并且成功提交
     def test_goods_discount_five(self):
+        """输入符合条件的内容，并且成功提交"""
         # 获取函数名
         function = sys._getframe().f_code.co_name
 
@@ -126,8 +117,8 @@ class goods_discount(discount_input, unittest.TestCase):
         # 提交参数之后，进行再次确认提示，并完成其后的全部工作
         self.integration_confirm_prompt()
 
-    # 输入符合条件的内容，在二次确认提交的时候取消。
     def test_goods_discount_six(self):
+        """输入符合条件的内容，在二次确认提交的时候取消"""
         # 获取函数名
         function = sys._getframe().f_code.co_name
 
@@ -143,7 +134,6 @@ class goods_discount(discount_input, unittest.TestCase):
         # 调用公告方法进行数据输入和判断
         self.correct_function(list_parameter=list_parameter)
 
-        sleep(2)
         # 点击取消按钮
         self.arguments_confirm_prompt(prompt=self.btn_default)
 

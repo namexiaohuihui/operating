@@ -3,8 +3,9 @@ import time
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import logger
+import logging
 import HTMLTestRunner
+from utils.file_reader import ExcelReader
 
 # http://www.cnblogs.com/guanfuchang/p/5970435.html
 class TestBaiDu(unittest.TestCase):
@@ -22,9 +23,10 @@ class TestBaiDu(unittest.TestCase):
         self.driver.quit()
 
     def test_search(self):
-        #datas = ExcelReader(self.excel).data
-        datas = {}
+        datas = ExcelReader(self.excel).data
+        print("Datas %s " % datas)
         for d in datas:
+            print("d %s " % d)
             with self.subTest(data=d):
                 self.sub_setUp()
                 self.driver.find_element(*self.locator_kw).send_keys(d['search'])

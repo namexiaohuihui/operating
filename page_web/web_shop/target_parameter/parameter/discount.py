@@ -88,11 +88,14 @@ class discount_input(letter_parameter_names, element_input, element_click):
     # 判断规划的提示跟实际的提示是否一致
     # massegn为规划的提示，visible为实际的提示
     # function 为调用这个不见函数的方法
-    def visible_massegn_assert(self, visible):
+    def visible_massegn_assert(self, visible ,massegn = None):
         try:
-            assert self.implement_massegn == visible, self.implement_function + '：该函数进行assert比较的时候出现了问题'
+            if massegn == None :
+                assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+            else:
+                assert massegn == visible, self.implement_function + '：错误时强制提交按钮'
         except AssertionError as e:
-            definition_error(repr(e)).erroe_get("daye",self.browser)
+            definition_error(repr(e)).erroe_get("error",self.browser)
 
     # 二次确认之后的提示内容判断
     def confirm_showSweetAlert_visible(self, function):
@@ -137,16 +140,24 @@ class discount_input(letter_parameter_names, element_input, element_click):
         # 元素输入
         self.js_input()
 
+        self.visible_massegn()
+
+    # 获取提示框的内容及点击操作
+    def visible_massegn(self,massegn = None):
         # 获取提示框的提示内容
         visible = self.showSweetAlert_visible(process=self.visible_p)
+
+        if massegn == None:
+            # 判断规划的提示跟实际的提示是否一致
+            # massegn为规划的提示，visible为实际的提示
+            # function 为调用这个不见函数的方法
+            self.visible_massegn_assert(visible=visible)
+        else:
+            self.visible_massegn_assert(visible=visible,massegn = massegn)
 
         # 点击提示框中的确定按钮，表示已经查看
         self.arguments_confirm_prompt(prompt=self.confirm)
 
-        # 判断规划的提示跟实际的提示是否一致
-        # massegn为规划的提示，visible为实际的提示
-        # function 为调用这个不见函数的方法
-        self.visible_massegn_assert(visible=visible)
 
     # 商品折扣的验证
     def gd_verification(self, list_parameter):
@@ -181,6 +192,7 @@ class discount_input(letter_parameter_names, element_input, element_click):
         self.prompt_box()
 
     # 点击提交，然后让其弹出二次确认的提示框并判断提示框的内容是否一致
+    # 提示内容为你是否要进行提交操作
     def correct_function(self, list_parameter):
         # 定义调用的函数名
         self.implement_function = list_parameter[0]
@@ -196,6 +208,13 @@ class discount_input(letter_parameter_names, element_input, element_click):
 
         self.js_input()
 
+    # 点击提交按钮，并判断提示语
+    def setting_save_click(self,massegn):
+
+        self.arguments_confirm_prompt(prompt=self.settingSave)
+
+        self.visible_massegn(massegn)
+
     # 打印log的地方
     def parameter_log_output(self):
         # 执行输出操作
@@ -208,6 +227,7 @@ class discount_input(letter_parameter_names, element_input, element_click):
         print("屏幕大小 %s" % size)
 
     # 定义log的属性
+    # 暂时没人用
     def output_log(self):
         # 定义执行者的名字
         self.logger = logging.getLogger(self.implement_function)
