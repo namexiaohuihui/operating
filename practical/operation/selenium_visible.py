@@ -76,11 +76,18 @@ class element_visible(object):
 
 
 
-            # 一直等待某个元素消失，默认超时10秒
-
     def is_not_visible__name(self, driver, locator, timeout=10):
+        # 一直等待某个元素消失，默认超时10秒
         try:
             ui.WebDriverWait(driver, timeout).until_not(EC.visibility_of_element_located((By.NAME, locator)))
             return True
         except TimeoutException:
             return False
+
+    def scrollBar_top(self):
+        # 将滚动条移动到顶部的意思
+        driver.execute_script("window.scrollTo(0,0)")
+
+    def scrollBar_buttom(self):
+        # 将滚动条移动到底部的意思
+        driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")

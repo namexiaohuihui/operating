@@ -113,6 +113,13 @@ class discount_input(letter_parameter_names, element_input, element_click):
     def arguments_confirm_prompt(self, prompt):
         # 需要浏览器对象以及执行点击的对象
         # self.css_confirm_prompt(browser=self.browser, prompt=prompt)
+        windowSize = browser.get_window_size()
+        print(size)
+        height = windowSize['height']
+        # 如果显示的高度过小，显示不够。此时要通过js移动浏览器页面的滚动条
+        if windowSize['height'] <= 750:
+            # 调用滚动条移动到底部的指令
+            self.scrollBar_buttom()
         self.css_click(browser=self.browser, prompt=prompt)
 
     # 集成点击和内容的判断
