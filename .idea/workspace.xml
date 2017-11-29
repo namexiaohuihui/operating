@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/appium_app/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/appium_app/app_shop/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/appium_app/app_shop/startSign/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/appium_app/app_shop/startSign/demo_start.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ServerPHP/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ServerPHP/pyfl/Testbaiduapi.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ServerPHP/pyfl/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ServerPHP/pyfl/hello.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ServerPHP/pyfl/hello2.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ServerPHP/pyfl/hello3.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ServerPHP/pyfl/hello4.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ServerPHP/pyfl/hello5.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/appium_app/app_shop/sign/app_ad_sign_in.py" afterPath="$PROJECT_DIR$/appium_app/app_shop/startSign/app_ad_sign_in.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/appium_app/app_shop/sign/app_sign_start_test.py" afterPath="$PROJECT_DIR$/appium_app/app_shop/startSign/app_sign_start_test.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/appium_app/app_shop/sign/wx_sign_start.py" afterPath="$PROJECT_DIR$/appium_app/app_shop/startSign/wx_sign_start.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,14 +23,34 @@
     <favorites_list name="operating" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="demo_start.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/appium_app/app_shop/startSign/demo_start.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="hello5.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/hello5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="31">
+              <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Testbaiduapi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/Testbaiduapi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hello3.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/hello3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
               <folding>
-                <element signature="e#115#140#0" expanded="true" />
+                <element signature="e#110#131#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -40,7 +61,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="XHTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -107,17 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/demo/Example/test_class.py" />
-        <option value="$PROJECT_DIR$/practical/file_introduce/文件操作operation_file" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py" />
-        <option value="$PROJECT_DIR$/practical/py_mysql/pymysql_main.py" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/web_extract.py" />
-        <option value="$PROJECT_DIR$/demo/test_suite.py" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/web_discount.py" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_discount.py" />
-        <option value="$PROJECT_DIR$/practical/constant/browser/browser_into.py" />
-        <option value="$PROJECT_DIR$/practical/file_introduce/selenium 定位" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/name_bean.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/discount.py" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount/web_goods_discount.py" />
@@ -158,10 +170,21 @@
         <option value="$PROJECT_DIR$/practical/utils/damo.py" />
         <option value="$PROJECT_DIR$/practical/utils/waltExcel2.py" />
         <option value="$PROJECT_DIR$/appium_app/app_shop/startSign/demo_start.py" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/templates.py" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/templates/index.html" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/templates/user.xhtml" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/templates/user.html" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/hello.py" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/hello2.py" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/hello4.py" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/hello5.py" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/s.html" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/Testbaiduapi.py" />
+        <option value="$PROJECT_DIR$/ServerPHP/pyfl/hello3.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="6" />
     <option name="width" value="1297" />
@@ -202,6 +225,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,26 +236,18 @@
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="appium_app" type="462c0819:PsiDirectoryNode" />
+              <item name="ServerPHP" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="appium_app" type="462c0819:PsiDirectoryNode" />
-              <item name="app_shop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="appium_app" type="462c0819:PsiDirectoryNode" />
-              <item name="app_shop" type="462c0819:PsiDirectoryNode" />
-              <item name="startSign" type="462c0819:PsiDirectoryNode" />
+              <item name="ServerPHP" type="462c0819:PsiDirectoryNode" />
+              <item name="pyfl" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -240,21 +256,22 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\operating\report\js" />
-      <recent name="E:\operating\page_web\web_shop1\sign1" />
-      <recent name="E:\operating" />
-      <recent name="E:\operating\practical\HTMLTestRunner" />
-      <recent name="E:\operating\parameter" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\operating\appium_app\app_shop\startSign" />
       <recent name="E:\operating\page_web\web_shop\target_parameter\parameter\ExtractSettings" />
       <recent name="E:\operating\page_web\web_shop\target_parameter\parameter\PreferentialSettings" />
       <recent name="E:\operating\page_web\web_shop\target_parameter\parameter" />
       <recent name="E:\operating\page_web\web_shop\target_parameter\parameter\discount" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\operating\ServerPHP\pyfl" />
+      <recent name="E:\operating\report\js" />
+      <recent name="E:\operating\page_web\web_shop1\sign1" />
+      <recent name="E:\operating" />
+      <recent name="E:\operating\practical\HTMLTestRunner" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -269,7 +286,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.demo_start">
+  <component name="RunManager" selected="Python tests.Unittests in Testbaiduapi.py">
+    <configuration name="Unittests in Testbaiduapi.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ServerPHP/pyfl" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/ServerPHP/pyfl/Testbaiduapi.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -334,105 +365,88 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration name="damo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="hello2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practical/utils" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ServerPHP/pyfl" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practical/utils/damo.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ServerPHP/pyfl/hello2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="demo_start" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="hello3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/appium_app/app_shop/startSign" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ServerPHP/pyfl" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/appium_app/app_shop/startSign/demo_start.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ServerPHP/pyfl/hello3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="file_reader" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="hello4" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practical/utils" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ServerPHP/pyfl" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practical/utils/file_reader.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ServerPHP/pyfl/hello4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="waltExcel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="hello5" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practical/utils" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ServerPHP/pyfl" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practical/utils/waltExcel.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="waltExcel2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practical/utils" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practical/utils/waltExcel2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ServerPHP/pyfl/hello5.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.file_reader" />
-      <item index="1" class="java.lang.String" itemvalue="Python.waltExcel" />
-      <item index="2" class="java.lang.String" itemvalue="Python.damo" />
-      <item index="3" class="java.lang.String" itemvalue="Python.waltExcel2" />
-      <item index="4" class="java.lang.String" itemvalue="Python.demo_start" />
+      <item index="0" class="java.lang.String" itemvalue="Python.hello2" />
+      <item index="1" class="java.lang.String" itemvalue="Python.hello3" />
+      <item index="2" class="java.lang.String" itemvalue="Python.hello4" />
+      <item index="3" class="java.lang.String" itemvalue="Python.hello5" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in Testbaiduapi.py" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.demo_start" />
-        <item index="1" class="java.lang.String" itemvalue="Python.file_reader" />
-        <item index="2" class="java.lang.String" itemvalue="Python.waltExcel2" />
-        <item index="3" class="java.lang.String" itemvalue="Python.damo" />
-        <item index="4" class="java.lang.String" itemvalue="Python.waltExcel" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in Testbaiduapi.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python.hello5" />
+        <item index="2" class="java.lang.String" itemvalue="Python.hello4" />
+        <item index="3" class="java.lang.String" itemvalue="Python.hello2" />
+        <item index="4" class="java.lang.String" itemvalue="Python.hello3" />
       </list>
     </recent_temporary>
   </component>
@@ -453,23 +467,23 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_nine - 2017.11.14 at 23h 12m 31s.xml">
-      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_nine" configurationId="tests" />
+    <history-entry file="Unittests_in_Testbaiduapi_py - 2017.11.29 at 22h 57m 04s.xml">
+      <configuration name="Unittests in Testbaiduapi.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_nine - 2017.11.14 at 23h 13m 41s.xml">
-      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_nine" configurationId="tests" />
+    <history-entry file="Unittests_in_Testbaiduapi_py - 2017.11.29 at 22h 57m 59s.xml">
+      <configuration name="Unittests in Testbaiduapi.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_nine - 2017.11.14 at 23h 13m 57s.xml">
-      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_nine" configurationId="tests" />
+    <history-entry file="Unittests_in_Testbaiduapi_py - 2017.11.29 at 22h 58m 53s.xml">
+      <configuration name="Unittests in Testbaiduapi.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_nine - 2017.11.14 at 23h 14m 43s.xml">
-      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_nine" configurationId="tests" />
+    <history-entry file="Unittests_in_Testbaiduapi_py - 2017.11.29 at 23h 00m 19s.xml">
+      <configuration name="Unittests in Testbaiduapi.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_nine - 2017.11.14 at 23h 15m 43s.xml">
-      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_nine" configurationId="tests" />
+    <history-entry file="Unittests_in_Testbaiduapi_py - 2017.11.29 at 23h 02m 41s.xml">
+      <configuration name="Unittests in Testbaiduapi.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_nine - 2017.11.14 at 23h 16m 47s.xml">
-      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_nine" configurationId="tests" />
+    <history-entry file="Unittests_in_Testbaiduapi_py - 2017.11.29 at 23h 03m 20s.xml">
+      <configuration name="Unittests in Testbaiduapi.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_test_baidu_py - 2017.11.15 at 23h 13m 11s.xml">
       <configuration name="Unittests in test_baidu.py" configurationId="tests" />
@@ -494,12 +508,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="6" width="1297" height="788" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19805983" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18835099" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31269842" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3225256" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3105802" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -513,7 +528,6 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="412" y="168" width="1097" height="776" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32359308" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -534,55 +548,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/report/js/echarts.common.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/file_introduce/javas" />
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_input.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="96" column="86" lean-forward="false" selection-start-line="96" selection-start-column="86" selection-end-line="96" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/report/js/echarts.common.min.js" />
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_visible.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="108" column="8" lean-forward="false" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/daye-20171114 230634.log-screenshot_error.png" />
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/daye-20171114 230634.log" />
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/daye-20171114 231647.log-screenshot_error.png" />
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/daye-20171114 231647.log" />
-    <entry file="file://$PROJECT_DIR$/practical/Exception_error/DefinitionError.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/unittest/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="258" column="0" lean-forward="false" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/daye-20171114 230634.log-screenshot_error.png" />
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/daye-20171114 230634.log" />
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/daye-20171114 231647.log-screenshot_error.png" />
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/goods_participate/daye-20171114 231647.log" />
@@ -590,13 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="801">
-          <caret line="501" column="11" lean-forward="true" selection-start-line="501" selection-start-column="11" selection-end-line="505" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -801,7 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-66">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -809,7 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-103">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -817,16 +773,131 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/appium_app/app_shop/startSign/demo_start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="484">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="e#115#140#0" expanded="true" />
+            <element signature="e#115#140#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/templates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/templates/user.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/templates/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Program Files/Python36/Lib/site-packages/requests/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Program Files/Python36/Lib/urllib/request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/hello.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/hello2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#110#131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/hello4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/hello5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Program Files/Python36/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/s.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/Testbaiduapi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServerPHP/pyfl/hello3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding>
+            <element signature="e#110#131#0" expanded="true" />
           </folding>
         </state>
       </provider>
