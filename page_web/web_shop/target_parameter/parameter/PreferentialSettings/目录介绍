@@ -1,4 +1,4 @@
 This page is a privilege setting page,
- where each py is a test case for the same element object.
- Each function in the PY file corresponds to each use case.
+where each py is a test case for the same element object.
+Each function in the PY file corresponds to each use case.
 

@@ -12,6 +12,11 @@ class letter_parameter_names(object):
 
     """--------------------------------参数的获取路径------------------------------"""
 
+    # 提取页面的
+    amount_load = ".form-control.intonum.amount"
+    fee_load = ".form-control.intoprice.fee"
+    '.btn.btn-primary.feeSave'
+
     # 对象折扣
     goods_discount = 'goods_discount'
 
@@ -52,6 +57,9 @@ class letter_parameter_names(object):
     discountsave = '#discountsave'
 
     """--------------------------------提示参数------------------------------"""
+
+    ex_less = '提现手续费应小于提现金额'
+    ex_format = '请输入整数最多7位,小数后两位的价格格式'
 
     # 商品折扣数的提示
     gb_between = "请输入0.1~9.9之间的数" # 折扣数输入的数字符合格式范围内

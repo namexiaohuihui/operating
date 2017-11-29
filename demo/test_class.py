@@ -20,7 +20,7 @@ from practical.operation.selenium_click import element_click
 class cc(unittest.TestCase):
 
     def __init__(self):
-        print("你才是大佬")
+        print("你才是大佬....我是定义这个类是默认调用的。。。")
 
     def error(self):
 
@@ -78,7 +78,11 @@ class cc(unittest.TestCase):
         browser.get("http://baidu.com")
         size = browser.get_window_size()
         print(size)
-        if c.is_visible_css_selectop(browser, "#kw"):
+        height = size['height']
+        if height <= 750:
+            print(750)
+        print(height)
+        if c.is_visible_css_selectop(browser, "#kw1"):
             print("chuxian")
         else:
             print("meiyou")
@@ -87,5 +91,5 @@ import time
 if __name__ == '__main__':
 
     c = cc()
-    c.test_zhegnzhe()
+    c.liulanqi()
 

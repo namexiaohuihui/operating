@@ -10,10 +10,12 @@ import unittest
 import os
 from time import sleep
 
+from page_web.web_shop.target_parameter.parameter.name_bean import letter_parameter_names
 from practical.Exception_error.DefinitionError import definition_error
 from practical.constant.browser.browser_establish import browser_confirm
 from practical.constant.parameter.parameter_data import parameter_content
-from practical.operation import selenium_input, selenium_click
+from practical.operation.selenium_input import element_input
+from practical.operation.selenium_click import element_click
 
 
 class extract_input(unittest.TestCase):
@@ -42,39 +44,39 @@ class extract_input(unittest.TestCase):
     #验证手续费大于提现额的
     def test_case1(self):
         sleep(2)
-        msg = '提现手续费应小于提现金额'
+        msg = letter_parameter_names.ex_less
         print(msg)
         self.case_browser('0.1', '2', msg )
 
     def test_case2(self):
-        msg = '请输入整数最多7位,小数后两位的价格格式'
+        msg = letter_parameter_names.ex_format
         print(msg)
         self.case_browser('-', '2', msg)
 
     def test_case3(self):
-        msg = '请输入整数最多7位,小数后两位的价格格式'
+        msg = letter_parameter_names.ex_format
         print(msg)
         self.case_browser('2', '-', msg)
 
     def case_browser(self,amount,fee,msg):
         try:
             # 输入框的内容
-            amount_load = ".form-control.intonum.amount"
+            amount_load = letter_parameter_names.amount_load
 
             # 输入执行
             selenium_input.css_input(self.browser, amount_load, amount)
 
             # 输入框的内容
-            fee_load = ".form-control.intoprice.fee"
+            fee_load = letter_parameter_names.fee_load
 
             # 输入执行
-            selenium_input.css_input(self.browser, fee_load, fee)
+            element_input.css_input(self.browser, fee_load, fee)
 
             #点击保存按钮
-            selenium_click.css_click(self.browser, '.btn.btn-primary.feeSave')
+            element_click.css_click(self.browser, '.btn.btn-primary.feeSave')
 
             #弹窗上的数据信息
-            sweet = self.browser.find_element_by_css_selector('.sweet-alert.showSweetAlert.visible >p').text
+            sweet = self.browser.find_element_by_css_selector(letter_parameter_names.visible_p).text
 
             sleep(2)
 
@@ -82,7 +84,7 @@ class extract_input(unittest.TestCase):
             assert sweet == msg , self.basename + 'Excessive Commission'
 
             #弹窗上的按钮
-            selenium_click.css_click(self.browser, '.confirm')
+            element_click.css_click(self.browser, letter_parameter_names.confirm)
 
             sleep(1)
 
