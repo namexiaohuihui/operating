@@ -5,7 +5,7 @@
 @time: 2017/11/29 22:15
 @项目名称:operating
 """
-
+# post请求
 import urllib.request
 
 import urllib.parse
@@ -23,4 +23,3 @@ html=urllib.request.urlopen(re)
 print(html.getcode(),html.msg)
 
 print(html.read())
-

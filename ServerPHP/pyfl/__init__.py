@@ -5,3 +5,7 @@
 @time: 2017/11/29 22:14
 @项目名称:operating
 """
+
+import time
+str =  time.time()
+print(int(str))
