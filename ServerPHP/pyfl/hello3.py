@@ -20,7 +20,7 @@ import urllib.parse
 """
 import requests
 import time
-
+from collections import namedtuple
 
 class user_class(object):
     args = {}
@@ -100,13 +100,32 @@ class kk ():
                 print("+++++++++++++++++")
             else:
                 print("/*-")
+
+    def douban(self):
+        url = "https://api.douban.com/v2/book/1220562"
+        response = urllib.request.Request(url=url)
+        html = urllib.request.urlopen(response)
+        date = json.loads(html.read())
+        print("read %s" % date["rating"])
+
+    def yijianzhuanhguan(self):
+        data = '{"name": "John Smith", "hometown": {"name": "New York", "id": 123}}'
+        kk = qu()
+        # Parse JSON into an object with attributes corresponding to dict keys.
+        x = json.loads(data, object_hook=lambda d: namedtuple('date', d.keys())(*d.values()))
+        print(x.name)
+        print(x.hometown)
+
+    def _json_object_hook(self,d):
+        return namedtuple('X', d.keys())(*d.values())
+
+    def json2obj(self,data):
+        return json.loads(data, object_hook=_json_object_hook)
 class qu():
-    key = ""
-    info = ""
+    name = ""
+    hometown = {}
 
 if __name__ == '__main__':
-    url  = "https://api.douban.com/v2/book/1220562"
-    response = urllib.request.Request(url=url)
-    html = urllib.request.urlopen(response)
-    date = json.loads(html.read())
-    print("read %s" % date["rating"])
+    data = '{"name": "John Smith", "hometown": {"name": "New York", "id": 123}}'
+    dalaoe = kk()
+    print(dalaoe.json2obj(data))
