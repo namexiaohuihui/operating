@@ -27,7 +27,7 @@ class watikis_participate(discount_input, unittest.TestCase):
     def tearDownClass(cls):
         cls.tearDownStop(cls)
 
-    def qwetest_goods_participate_one(self, function=None):
+    def test_goods_participate_one(self, function=None):
         """输入一串很长的数字，长度大于或者等于6"""
 
         # 获取函数名
@@ -44,7 +44,7 @@ class watikis_participate(discount_input, unittest.TestCase):
 
         self.gp_verification(list_parameter=list_parameter)
 
-    def qwetest_goods_participate_two(self, function=None):
+    def test_goods_participate_two(self, function=None):
         """输入数字,小于或者等于4"""
         # 获取函数名
         if function == None:
@@ -59,7 +59,7 @@ class watikis_participate(discount_input, unittest.TestCase):
 
         self.gp_verification(list_parameter=list_parameter)
 
-    def qwetest_goods_participate_three(self, function=None):
+    def test_goods_participate_three(self, function=None):
         """输入负数"""
         # 获取函数名
         if function == None:
@@ -74,7 +74,7 @@ class watikis_participate(discount_input, unittest.TestCase):
 
         self.gp_verification(list_parameter=list_parameter)
 
-    def qwetest_goods_participate_four(self, function=None):
+    def test_goods_participate_four(self, function=None):
         """输入多个商品，中间是中文形式下的逗号"""
         # 获取函数名
         if function == None:
@@ -90,7 +90,7 @@ class watikis_participate(discount_input, unittest.TestCase):
 
         self.gp_verification(list_parameter=list_parameter)
 
-    def qwetest_goods_participate_five(self, function=None):
+    def test_goods_participate_five(self, function=None):
         """ 输入中文 """
         # 获取函数名
         if function == None:
@@ -105,7 +105,7 @@ class watikis_participate(discount_input, unittest.TestCase):
 
         self.gp_verification(list_parameter=list_parameter)
 
-    def qwetest_goods_participate_six(self, function=None):
+    def test_goods_participate_six(self, function=None):
         """输入非统一商品"""
         # 获取函数名
         if function == None:
@@ -120,7 +120,7 @@ class watikis_participate(discount_input, unittest.TestCase):
 
         self.gp_verification(list_parameter=list_parameter)
 
-    def qwetest_goods_participate_seven(self, function=None):
+    def test_goods_participate_seven(self, function=None):
         """输入长度=5的数字"""
         # 获取函数名
         if function == None:
@@ -135,7 +135,7 @@ class watikis_participate(discount_input, unittest.TestCase):
 
         self.gp_verification(list_parameter=list_parameter)
 
-    def qwetest_goods_participate_eight(self, function=None):
+    def test_goods_participate_eight(self, function=None):
         """英文状态下的逗号连续输入"""
         # 获取函数名
         if function == None:
@@ -160,46 +160,46 @@ class watikis_participate(discount_input, unittest.TestCase):
         massegn = self.gp_incorrect
 
         """错误之后强制提交：方法一"""
-        self.qwetest_goods_participate_one(function)
+        self.test_goods_participate_one(function)
 
         self.setting_save_click(massegn=massegn)
 
         """错误之后强制提交：方法二"""
-        self.qwetest_goods_participate_two(function)
+        self.test_goods_participate_two(function)
 
         self.setting_save_click(massegn=massegn)
 
         """错误之后强制提交：方法三"""
-        self.qwetest_goods_participate_three(function)
+        self.test_goods_participate_three(function)
 
         self.setting_save_click(massegn=massegn)
 
         """错误之后强制提交：方法四"""
-        self.qwetest_goods_participate_four(function)
+        self.test_goods_participate_four(function)
 
         self.setting_save_click(massegn=massegn)
 
         """错误之后强制提交：方法五"""
-        self.qwetest_goods_participate_five(function)
+        self.test_goods_participate_five(function)
 
         self.setting_save_click(massegn=massegn)
 
         """错误之后强制提交：方法六"""
-        self.qwetest_goods_participate_six(function)
+        self.test_goods_participate_six(function)
 
         self.setting_save_click(massegn=massegn)
 
         """错误之后强制提交：方法七"""
-        self.qwetest_goods_participate_seven(function)
+        self.test_goods_participate_seven(function)
 
         self.setting_save_click(massegn=massegn)
 
         """错误之后强制提交：方法八"""
-        self.qwetest_goods_participate_eight(function)
+        self.test_goods_participate_eight(function)
 
         self.setting_save_click(massegn=massegn)
 
-    def qwetest_goods_participate_ten(self):
+    def test_goods_participate_ten(self):
         """输入正确的商品数量进行提交"""
         # 获取函数名
         function = sys._getframe().f_code.co_name
@@ -217,7 +217,7 @@ class watikis_participate(discount_input, unittest.TestCase):
         # 提交参数之后，进行再次确认提示，并完成其后的全部工作
         self.integration_confirm_prompt()
 
-    def qwetest_goods_participate_eleven(self):
+    def test_goods_participate_eleven(self):
         """输入正确的商品数量进行提交，并在二次确认中点击取消按钮"""
         # 获取函数名
         function = sys._getframe().f_code.co_name

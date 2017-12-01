@@ -42,14 +42,14 @@ class discount_input(letter_parameter_names, element_input, element_click):
         # 创建浏览器对象
         self.browser = bc.url_opens()
 
-        #self.user_pass(self, bc)
+        self.user_pass(self, bc)
 
     # 账号密码输入框
     def user_pass(self, bc):
         # 创建参数对象
         # self.parame = parameter_content()
 
-        bc.case_browesr('----', '*****')
+        bc.case_browesr('11', '22222')
 
         bc.system_parameter_discount()
 
@@ -60,6 +60,9 @@ class discount_input(letter_parameter_names, element_input, element_click):
         # 　id：　为需要执行输入的id，parameter输入的参数
         self.id_input(browser=self.browser, id=self.ordinal, parameter=self.implement_parameter)
 
+        # 延迟查看、
+        sleep(1)
+
         # 将光标从输入框中移出。
         self.blur_id(browser=self.browser, ordinal=self.ordinal)
 
@@ -68,6 +71,7 @@ class discount_input(letter_parameter_names, element_input, element_click):
         if self.is_visible_css_selectop(self.browser, process):
             # 获取提示框的提示内容
             visible = self.browser.find_element_by_css_selector(process).text
+            # 打印提示框的内容
             self.prompt_box_visible(visible)
         return visible;
 
@@ -111,19 +115,21 @@ class discount_input(letter_parameter_names, element_input, element_click):
 
     # 通过js的查找元素进行点击
     def arguments_confirm_prompt(self, prompt):
+
         # 需要浏览器对象以及执行点击的对象
         # self.css_confirm_prompt(browser=self.browser, prompt=prompt)
-        windowSize = browser.get_window_size()
-        print(size)
-        height = windowSize['height']
-        # 如果显示的高度过小，显示不够。此时要通过js移动浏览器页面的滚动条
-        if windowSize['height'] <= 750:
-            # 调用滚动条移动到底部的指令
-            self.scrollBar_buttom()
+        # 调用滚动条移动到底部的指令
+        # self.scrollBar_buttom()
+        # 延迟2s查看提示框
+        sleep(2)
         self.css_click(browser=self.browser, prompt=prompt)
 
     # 集成点击和内容的判断
     def integration_confirm_prompt(self):
+
+        # 点击提交按钮
+        self.arguments_confirm_prompt(self.settingSave)
+
         # 再次确认提示框中内容的判断
         self.modal_body()
 
@@ -153,7 +159,6 @@ class discount_input(letter_parameter_names, element_input, element_click):
     def visible_massegn(self,massegn = None):
         # 获取提示框的提示内容
         visible = self.showSweetAlert_visible(process=self.visible_p)
-
         if massegn == None:
             # 判断规划的提示跟实际的提示是否一致
             # massegn为规划的提示，visible为实际的提示
@@ -161,7 +166,6 @@ class discount_input(letter_parameter_names, element_input, element_click):
             self.visible_massegn_assert(visible=visible)
         else:
             self.visible_massegn_assert(visible=visible,massegn = massegn)
-
         # 点击提示框中的确定按钮，表示已经查看
         self.arguments_confirm_prompt(prompt=self.confirm)
 
@@ -230,8 +234,6 @@ class discount_input(letter_parameter_names, element_input, element_click):
 
     def prompt_box_visible(self,visible):
         print("提示框中的信息： %s  " % (visible))
-        size = self.browser.get_window_size()
-        print("屏幕大小 %s" % size)
 
     # 定义log的属性
     # 暂时没人用

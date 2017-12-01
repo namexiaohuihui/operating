@@ -125,6 +125,10 @@ class watiki_discount(discount_input, unittest.TestCase):
         # 调用公告方法进行数据输入和判断
         self.correct_function(list_parameter=list_parameter)
 
+        # 　－－－－－－－－－－－－－后续优化
+        # 点击提交按钮
+        self.arguments_confirm_prompt(prompt=self.settingSave)
+
         # 点击取消按钮
         self.arguments_confirm_prompt(prompt=self.btn_default)
 

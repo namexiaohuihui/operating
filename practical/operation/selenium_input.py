@@ -108,6 +108,7 @@ class element_input(element_visible):
     def ele_clear_keys(self, ele, parameter):
         ele.clear()
         ele.send_keys(parameter)
+        sleep(1)
 
     # 打印错误日志
     def writeLog(self, browser):

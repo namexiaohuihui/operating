@@ -7,7 +7,7 @@ import HTMLTestRunner
 import time
 
 if __name__ == '__main__':
-    case_path = os.path.join(os.getcwd(), "page_web")
+    case_path = os.path.join(os.getcwd(), "page_web\\web_shop\\target_parameter\\parameter\\PreferentialSettings")
     # 报告存放路径
     report_path = os.path.join(os.getcwd(), "report")
 
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     report_abspath = os.path.join(report_path, "result.html")
 
     discover = unittest.defaultTestLoader.discover(case_path,
-                                                   pattern="*participate.py",
+                                                   pattern="web_*.py",
                                                    top_level_dir=None)
 
     fp = open(report_abspath, "wb")

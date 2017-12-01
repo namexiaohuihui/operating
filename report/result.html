@@ -196,9 +196,9 @@
         
     <div class='page-header'>
         <h1>自动化测试报告,测试结果如下：</h1>
-    <p class='attribute'><strong>开始时间:</strong> 2017-11-14 22:15:43</p>
-<p class='attribute'><strong>运行时长:</strong> 0:00:09.384852</p>
-<p class='attribute'><strong>状态:</strong> 通过 1</p>
+    <p class='attribute'><strong>开始时间:</strong> 2017-12-01 16:50:51</p>
+<p class='attribute'><strong>运行时长:</strong> 0:09:48.723975</p>
+<p class='attribute'><strong>状态:</strong> 通过 33 错误 8</p>
 
     </div>
     <div style="float: left;width:50%;"><p class='description'>用例执行情况：</p></div>
@@ -230,16 +230,16 @@
         </tr>
         
     <tr class='passClass'>
-        <td>web_shop.target_parameter.parameter.goods_participate.web_goods_participate.goods_participate</td>
-        <td>1</td>
-        <td>1</td>
+        <td>web_goods_discount.goods_discount</td>
+        <td>7</td>
+        <td>7</td>
         <td>0</td>
         <td>0</td>
-        <td><a href="javascript:showClassDetail('c1',1)">详情</a></td>
+        <td><a href="javascript:showClassDetail('c1',7)">详情</a></td>
     </tr>
 
 <tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_goods_participate_five: 输入中文</div></td>
+    <td class='none'><div class='testcase'>test_goods_discount_five: 输入符合条件的内容，并且成功提交</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -248,8 +248,1154 @@
 
     <div id='div_pt1.1' class="popup_window">
         <pre>
-        pt1.1: 假定： 请输入正整数多个用逗号分隔   输入：你好吗? 
+        pt1.1: 执行者:  test_goods_discount_five   假定： 操作成功   输入：0.2   
+提示框中的信息： 你确定要保存吗？  
+提示框中的信息： 保存后新产生的订单立即生效已产生的订单不受影响  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_four: 验证商品打折数输入中文字符</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        通过</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <pre>
+        pt1.2: 执行者:  test_goods_discount_four   假定： 请输入正确格式例如 0.1/0.5   输入：你好   
+提示框中的信息： 请输入正确格式例如 0.1/0.5  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_one: 验证商品打折数输入大于10的问题</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        通过</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <pre>
+        pt1.3: 执行者:  test_goods_discount_one   假定： 请输入0.1~9.9之间的数   输入：111   
+提示框中的信息： 请输入0.1~9.9之间的数  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_six: 输入符合条件的内容，在二次确认提交的时候取消</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        通过</a>
+
+    <div id='div_pt1.4' class="popup_window">
+        <pre>
+        pt1.4: 执行者:  test_goods_discount_six   假定： 操作成功   输入：0.9   
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_three: 验证商品打折数输入在符合范围内但小数点后有多位的情况</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        通过</a>
+
+    <div id='div_pt1.5' class="popup_window">
+        <pre>
+        pt1.5: 执行者:  test_goods_discount_three   假定： 请输入正确格式例如 0.1/0.5   输入：2.33333   
+提示框中的信息： 请输入正确格式例如 0.1/0.5  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_two: 验证商品打折数输入小于0的问题:即输入负数</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        通过</a>
+
+    <div id='div_pt1.6' class="popup_window">
+        <pre>
+        pt1.6: 执行者:  test_goods_discount_two   假定： 请输入正确格式例如 0.1/0.5   输入：-1   
+提示框中的信息： 请输入正确格式例如 0.1/0.5  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_number: 验证城市以及数量是否正确</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.7')" >
+        通过</a>
+
+    <div id='div_pt1.7' class="popup_window">
+        <pre>
+        pt1.7: 7
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>web_goods_participate.goods_participate</td>
+        <td>11</td>
+        <td>9</td>
+        <td>0</td>
+        <td>2</td>
+        <td><a href="javascript:showClassDetail('c2',11)">详情</a></td>
+    </tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_eight: 英文状态下的逗号连续输入</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        通过</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <pre>
+        pt2.1: 执行者:  test_goods_participate_eight   假定： 没有该商品ID   输入：111,1111,2222   
+提示框中的信息： 没有该商品ID：111  
+AssertionError('test_goods_participate_eight：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_eight：操作提示语的提示
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_goods_participate_eleven: 输入正确的商品数量进行提交，并在二次确认中点击取消按钮</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.2')" >
+        错误</a>
+
+    <div id='div_ft2.2' class="popup_window">
+        <pre>
+        ft2.2: 执行者:  test_goods_participate_eleven   假定： 没有该商品ID   输入：222   
+Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\PreferentialSettings\web_goods_participate.py", line 239, in test_goods_participate_eleven
+    self.arguments_confirm_prompt(prompt=self.settingSave)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 128, in arguments_confirm_prompt
+    self.css_click(browser=self.browser, prompt=prompt)
+  File "E:\operating\practical\operation\selenium_click.py", line 78, in css_click
+    browser.find_element_by_css_selector(prompt).click()
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 501, in _execute
+    return self._parent.execute(command, params)
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Element &lt;button type="submit" class="btn btn-primary settingSave" data-city="450100"&gt;...&lt;/button&gt; is not clickable at point (263, 722). Other element would receive the click: &lt;div class="sweet-overlay" tabindex="-1" style="opacity: 1.02; display: block;"&gt;&lt;/div&gt;
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 10.0.15063 x86_64)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_five: 输入中文</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.3')" >
+        通过</a>
+
+    <div id='div_pt2.3' class="popup_window">
+        <pre>
+        pt2.3: 执行者:  test_goods_participate_five   假定： 请输入正整数多个用逗号分隔   输入：你好吗?   
 提示框中的信息： 请输入正整数多个用逗号分隔  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_four: 输入多个商品，中间是中文形式下的逗号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.4')" >
+        通过</a>
+
+    <div id='div_pt2.4' class="popup_window">
+        <pre>
+        pt2.4: 执行者:  test_goods_participate_four   假定： 请输入正整数多个用逗号分隔   输入：---，****，////   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_nine: 焦点移出出现错误提示之后，点击提交按钮进行提交</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.5')" >
+        通过</a>
+
+    <div id='div_pt2.5' class="popup_window">
+        <pre>
+        pt2.5: 执行者:  test_goods_participate_nine   假定： 请输入正整数多个用逗号分隔   输入：0.9   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+提示框中的信息： 输入的不参与优惠商品不正确  
+执行者:  test_goods_participate_nine   假定： 没有该商品ID   输入：1234   
+提示框中的信息： 没有该商品ID：1234  
+AssertionError('test_goods_participate_nine：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_nine：操作提示语的提示
+
+提示框中的信息： 输入的不参与优惠商品不正确  
+执行者:  test_goods_participate_nine   假定： 请输入正整数多个用逗号分隔   输入：-1   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+提示框中的信息： 输入的不参与优惠商品不正确  
+执行者:  test_goods_participate_nine   假定： 请输入正整数多个用逗号分隔   输入：---，****，////   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+提示框中的信息： 输入的不参与优惠商品不正确  
+执行者:  test_goods_participate_nine   假定： 请输入正整数多个用逗号分隔   输入：你好吗?   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+提示框中的信息： 输入的不参与优惠商品不正确  
+执行者:  test_goods_participate_nine   假定： 该商品为店铺商品   输入：-----   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+AssertionError('test_goods_participate_nine：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_nine：操作提示语的提示
+
+提示框中的信息： 输入的不参与优惠商品不正确  
+执行者:  test_goods_participate_nine   假定： 没有该商品ID   输入：98521   
+提示框中的信息： 没有该商品ID：98521  
+AssertionError('test_goods_participate_nine：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_nine：操作提示语的提示
+
+提示框中的信息： 没有该商品ID：98521  
+AssertionError('test_goods_participate_nine：错误时强制提交按钮',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 100, in visible_massegn_assert
+    assert massegn == visible, self.implement_function + '：错误时强制提交按钮'
+AssertionError: test_goods_participate_nine：错误时强制提交按钮
+
+执行者:  test_goods_participate_nine   假定： 没有该商品ID   输入：111,1111,2222   
+提示框中的信息： 没有该商品ID：111  
+AssertionError('test_goods_participate_nine：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_nine：操作提示语的提示
+
+提示框中的信息： 输入的不参与优惠商品不正确  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_one: 输入一串很长的数字，长度大于或者等于6</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.6')" >
+        通过</a>
+
+    <div id='div_pt2.6' class="popup_window">
+        <pre>
+        pt2.6: 执行者:  test_goods_participate_one   假定： 请输入正整数多个用逗号分隔   输入：0.9   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_seven: 输入长度=5的数字</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.7')" >
+        通过</a>
+
+    <div id='div_pt2.7' class="popup_window">
+        <pre>
+        pt2.7: 执行者:  test_goods_participate_seven   假定： 没有该商品ID   输入：98521   
+提示框中的信息： 没有该商品ID：98521  
+AssertionError('test_goods_participate_seven：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_seven：操作提示语的提示
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_six: 输入非统一商品</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.8')" >
+        通过</a>
+
+    <div id='div_pt2.8' class="popup_window">
+        <pre>
+        pt2.8: 执行者:  test_goods_participate_six   假定： 该商品为店铺商品   输入：-----   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+AssertionError('test_goods_participate_six：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_six：操作提示语的提示
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_goods_participate_ten: 输入正确的商品数量进行提交</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.9')" >
+        错误</a>
+
+    <div id='div_ft2.9' class="popup_window">
+        <pre>
+        ft2.9: 执行者:  test_goods_participate_ten   假定： 没有该商品ID   输入：222   
+Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\PreferentialSettings\web_goods_participate.py", line 220, in test_goods_participate_ten
+    self.integration_confirm_prompt()
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 134, in integration_confirm_prompt
+    self.arguments_confirm_prompt(self.settingSave)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 128, in arguments_confirm_prompt
+    self.css_click(browser=self.browser, prompt=prompt)
+  File "E:\operating\practical\operation\selenium_click.py", line 78, in css_click
+    browser.find_element_by_css_selector(prompt).click()
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 501, in _execute
+    return self._parent.execute(command, params)
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Element &lt;button type="submit" class="btn btn-primary settingSave" data-city="450100"&gt;...&lt;/button&gt; is not clickable at point (263, 722). Other element would receive the click: &lt;div class="sweet-overlay" tabindex="-1" style="opacity: 1; display: block;"&gt;&lt;/div&gt;
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 10.0.15063 x86_64)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_three: 输入负数</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.10')" >
+        通过</a>
+
+    <div id='div_pt2.10' class="popup_window">
+        <pre>
+        pt2.10: 执行者:  test_goods_participate_three   假定： 请输入正整数多个用逗号分隔   输入：-1   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_two: 输入数字,小于或者等于4</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.11')" >
+        通过</a>
+
+    <div id='div_pt2.11' class="popup_window">
+        <pre>
+        pt2.11: 执行者:  test_goods_participate_two   假定： 没有该商品ID   输入：1234   
+提示框中的信息： 没有该商品ID：1234  
+AssertionError('test_goods_participate_two：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_two：操作提示语的提示
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td>web_watiki_discount.watiki_discount</td>
+        <td>6</td>
+        <td>6</td>
+        <td>0</td>
+        <td>0</td>
+        <td><a href="javascript:showClassDetail('c3',6)">详情</a></td>
+    </tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_five: 输入符合条件的内容，并且成功提交</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        通过</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <pre>
+        pt3.1: 执行者:  test_goods_discount_five   假定： 操作成功   输入：0.2   
+提示框中的信息： 你确定要保存吗？  
+提示框中的信息： 保存后新产生的订单立即生效已产生的订单不受影响  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_four: 验证捆绑打折数输入中文字符</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.2')" >
+        通过</a>
+
+    <div id='div_pt3.2' class="popup_window">
+        <pre>
+        pt3.2: 执行者:  test_goods_discount_four   假定： 请输入正确格式例如 0.1/0.5   输入：你好   
+提示框中的信息： 请输入正确格式例如 0.1/0.5  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_one: 验证捆绑打折数输入大于10的问题</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.3')" >
+        通过</a>
+
+    <div id='div_pt3.3' class="popup_window">
+        <pre>
+        pt3.3: 执行者:  test_goods_discount_one   假定： 请输入0.1~9.9之间的数   输入：111   
+提示框中的信息： 请输入0.1~9.9之间的数  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_six: 输入符合条件的内容，在二次确认提交的时候取消</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.4')" >
+        通过</a>
+
+    <div id='div_pt3.4' class="popup_window">
+        <pre>
+        pt3.4: 执行者:  test_goods_discount_six   假定： 操作成功   输入：0.9   
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_three: 验证捆绑打折数输入在符合范围内但小数点后有多位的情况</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.5')" >
+        通过</a>
+
+    <div id='div_pt3.5' class="popup_window">
+        <pre>
+        pt3.5: 执行者:  test_goods_discount_three   假定： 请输入正确格式例如 0.1/0.5   输入：2.33333   
+提示框中的信息： 请输入正确格式例如 0.1/0.5  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_two: 验证捆绑打折数输入小于0的问题:即输入负数</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.6')" >
+        通过</a>
+
+    <div id='div_pt3.6' class="popup_window">
+        <pre>
+        pt3.6: 执行者:  test_goods_discount_two   假定： 请输入正确格式例如 0.1/0.5   输入：-1   
+提示框中的信息： 请输入正确格式例如 0.1/0.5  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>web_watikis_deductible.watikis_deductible</td>
+        <td>6</td>
+        <td>2</td>
+        <td>0</td>
+        <td>4</td>
+        <td><a href="javascript:showClassDetail('c4',6)">详情</a></td>
+    </tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_five: 输入符合条件的内容，并且成功提交</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        通过</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <pre>
+        pt4.1: 执行者:  test_goods_discount_five   假定： 操作成功   输入：0.2   
+提示框中的信息： 你确定要保存吗？  
+提示框中的信息： 保存后新产生的订单立即生效已产生的订单不受影响  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_goods_discount_four: 输入中文及其他特殊符号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.2')" >
+        错误</a>
+
+    <div id='div_ft4.2' class="popup_window">
+        <pre>
+        ft4.2: 执行者:  test_goods_discount_four   假定： 请输入正确格式例如 0.1/0.5   输入：你好   
+需要等待的元素没有展现 .sweet-alert.showSweetAlert.visible&gt;p
+Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\PreferentialSettings\web_watikis_deductible.py", line 96, in test_goods_discount_four
+    self.gd_verification(list_parameter=list_parameter)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 188, in gd_verification
+    self.prompt_box()
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 159, in prompt_box
+    self.visible_massegn()
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 164, in visible_massegn
+    visible = self.showSweetAlert_visible(process=self.visible_p)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 76, in showSweetAlert_visible
+    return visible;
+UnboundLocalError: local variable 'visible' referenced before assignment
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_goods_discount_one: 输入超于最大值的内容</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.3')" >
+        错误</a>
+
+    <div id='div_ft4.3' class="popup_window">
+        <pre>
+        ft4.3: 执行者:  test_goods_discount_one   假定： chaoguozuidazhile   输入：111   
+需要等待的元素没有展现 .sweet-alert.showSweetAlert.visible&gt;p
+Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\PreferentialSettings\web_watikis_deductible.py", line 47, in test_goods_discount_one
+    self.gd_verification(list_parameter=list_parameter)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 188, in gd_verification
+    self.prompt_box()
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 159, in prompt_box
+    self.visible_massegn()
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 164, in visible_massegn
+    visible = self.showSweetAlert_visible(process=self.visible_p)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 76, in showSweetAlert_visible
+    return visible;
+UnboundLocalError: local variable 'visible' referenced before assignment
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_discount_six: 输入符合条件的内容，在二次确认提交的时候取消</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.4')" >
+        通过</a>
+
+    <div id='div_pt4.4' class="popup_window">
+        <pre>
+        pt4.4: 执行者:  test_goods_discount_six   假定： 操作成功   输入：0.9   
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_goods_discount_three: 输入小数</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.5')" >
+        错误</a>
+
+    <div id='div_ft4.5' class="popup_window">
+        <pre>
+        ft4.5: 执行者:  test_goods_discount_three   假定： 请输入正确格式例如 0.1/0.5   输入：2.33333   
+需要等待的元素没有展现 .sweet-alert.showSweetAlert.visible&gt;p
+Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\PreferentialSettings\web_watikis_deductible.py", line 79, in test_goods_discount_three
+    self.gd_verification(list_parameter=list_parameter)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 188, in gd_verification
+    self.prompt_box()
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 159, in prompt_box
+    self.visible_massegn()
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 164, in visible_massegn
+    visible = self.showSweetAlert_visible(process=self.visible_p)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 76, in showSweetAlert_visible
+    return visible;
+UnboundLocalError: local variable 'visible' referenced before assignment
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_goods_discount_two: 输入小于最小值的内容</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.6')" >
+        错误</a>
+
+    <div id='div_ft4.6' class="popup_window">
+        <pre>
+        ft4.6: 执行者:  test_goods_discount_two   假定： 请输入正确格式例如 0.1/0.5   输入：-1   
+需要等待的元素没有展现 .sweet-alert.showSweetAlert.visible&gt;p
+Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\PreferentialSettings\web_watikis_deductible.py", line 63, in test_goods_discount_two
+    self.gd_verification(list_parameter=list_parameter)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 188, in gd_verification
+    self.prompt_box()
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 159, in prompt_box
+    self.visible_massegn()
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 164, in visible_massegn
+    visible = self.showSweetAlert_visible(process=self.visible_p)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 76, in showSweetAlert_visible
+    return visible;
+UnboundLocalError: local variable 'visible' referenced before assignment
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>web_watikis_participate.watikis_participate</td>
+        <td>11</td>
+        <td>9</td>
+        <td>0</td>
+        <td>2</td>
+        <td><a href="javascript:showClassDetail('c5',11)">详情</a></td>
+    </tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_eight: 英文状态下的逗号连续输入</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        通过</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <pre>
+        pt5.1: 执行者:  test_goods_participate_eight   假定： 没有该商品ID   输入：111,1111,2222   
+提示框中的信息： 没有该水票ID:111  
+AssertionError('test_goods_participate_eight：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_eight：操作提示语的提示
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_goods_participate_eleven: 输入正确的商品数量进行提交，并在二次确认中点击取消按钮</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.2')" >
+        错误</a>
+
+    <div id='div_ft5.2' class="popup_window">
+        <pre>
+        ft5.2: 执行者:  test_goods_participate_eleven   假定： 没有该商品ID   输入：222   
+需要等待的元素没有展现 .modal-footer button:nth-child(1)
+自己定义的_文件出现错误,名为名=selenium_input
+Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\PreferentialSettings\web_watikis_participate.py", line 236, in test_goods_participate_eleven
+    self.arguments_confirm_prompt(prompt=self.btn_default)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 128, in arguments_confirm_prompt
+    self.css_click(browser=self.browser, prompt=prompt)
+  File "E:\operating\practical\operation\selenium_click.py", line 80, in css_click
+    self.writeLog(browser)
+  File "E:\operating\practical\operation\selenium_input.py", line 120, in writeLog
+    de_error = definition_error()
+TypeError: __init__() missing 1 required positional argument: 'value'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_five: 输入中文</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.3')" >
+        通过</a>
+
+    <div id='div_pt5.3' class="popup_window">
+        <pre>
+        pt5.3: 执行者:  test_goods_participate_five   假定： 请输入正整数多个用逗号分隔   输入：你好吗?   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_four: 输入多个商品，中间是中文形式下的逗号</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.4')" >
+        通过</a>
+
+    <div id='div_pt5.4' class="popup_window">
+        <pre>
+        pt5.4: 执行者:  test_goods_participate_four   假定： 请输入正整数多个用逗号分隔   输入：---，****，////   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_nine: 焦点移出出现错误提示之后，点击提交按钮进行提交</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.5')" >
+        通过</a>
+
+    <div id='div_pt5.5' class="popup_window">
+        <pre>
+        pt5.5: 执行者:  test_goods_participate_nine   假定： 请输入正整数多个用逗号分隔   输入：0.9   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+提示框中的信息： 输入的不参与优惠水票不正确  
+AssertionError('test_goods_participate_nine：错误时强制提交按钮',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 100, in visible_massegn_assert
+    assert massegn == visible, self.implement_function + '：错误时强制提交按钮'
+AssertionError: test_goods_participate_nine：错误时强制提交按钮
+
+执行者:  test_goods_participate_nine   假定： 没有该商品ID   输入：1234   
+提示框中的信息： 没有该水票ID:1234  
+AssertionError('test_goods_participate_nine：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_nine：操作提示语的提示
+
+提示框中的信息： 输入的不参与优惠水票不正确  
+AssertionError('test_goods_participate_nine：错误时强制提交按钮',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 100, in visible_massegn_assert
+    assert massegn == visible, self.implement_function + '：错误时强制提交按钮'
+AssertionError: test_goods_participate_nine：错误时强制提交按钮
+
+执行者:  test_goods_participate_nine   假定： 请输入正整数多个用逗号分隔   输入：-1   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+提示框中的信息： 输入的不参与优惠水票不正确  
+AssertionError('test_goods_participate_nine：错误时强制提交按钮',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 100, in visible_massegn_assert
+    assert massegn == visible, self.implement_function + '：错误时强制提交按钮'
+AssertionError: test_goods_participate_nine：错误时强制提交按钮
+
+执行者:  test_goods_participate_nine   假定： 请输入正整数多个用逗号分隔   输入：---，****，////   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+提示框中的信息： 输入的不参与优惠水票不正确  
+AssertionError('test_goods_participate_nine：错误时强制提交按钮',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 100, in visible_massegn_assert
+    assert massegn == visible, self.implement_function + '：错误时强制提交按钮'
+AssertionError: test_goods_participate_nine：错误时强制提交按钮
+
+执行者:  test_goods_participate_nine   假定： 请输入正整数多个用逗号分隔   输入：你好吗?   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+提示框中的信息： 输入的不参与优惠水票不正确  
+AssertionError('test_goods_participate_nine：错误时强制提交按钮',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 100, in visible_massegn_assert
+    assert massegn == visible, self.implement_function + '：错误时强制提交按钮'
+AssertionError: test_goods_participate_nine：错误时强制提交按钮
+
+执行者:  test_goods_participate_nine   假定： 该商品为店铺商品   输入：-----   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+AssertionError('test_goods_participate_nine：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_nine：操作提示语的提示
+
+提示框中的信息： 输入的不参与优惠水票不正确  
+AssertionError('test_goods_participate_nine：错误时强制提交按钮',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 100, in visible_massegn_assert
+    assert massegn == visible, self.implement_function + '：错误时强制提交按钮'
+AssertionError: test_goods_participate_nine：错误时强制提交按钮
+
+执行者:  test_goods_participate_nine   假定： 没有该商品ID   输入：98521   
+提示框中的信息： 没有该水票ID:98521  
+AssertionError('test_goods_participate_nine：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_nine：操作提示语的提示
+
+提示框中的信息： 输入的不参与优惠水票不正确  
+AssertionError('test_goods_participate_nine：错误时强制提交按钮',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 100, in visible_massegn_assert
+    assert massegn == visible, self.implement_function + '：错误时强制提交按钮'
+AssertionError: test_goods_participate_nine：错误时强制提交按钮
+
+执行者:  test_goods_participate_nine   假定： 没有该商品ID   输入：111,1111,2222   
+提示框中的信息： 没有该水票ID:111  
+AssertionError('test_goods_participate_nine：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_nine：操作提示语的提示
+
+提示框中的信息： 输入的不参与优惠水票不正确  
+AssertionError('test_goods_participate_nine：错误时强制提交按钮',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 100, in visible_massegn_assert
+    assert massegn == visible, self.implement_function + '：错误时强制提交按钮'
+AssertionError: test_goods_participate_nine：错误时强制提交按钮
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_one: 输入一串很长的数字，长度大于或者等于6</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.6')" >
+        通过</a>
+
+    <div id='div_pt5.6' class="popup_window">
+        <pre>
+        pt5.6: 执行者:  test_goods_participate_one   假定： 请输入正整数多个用逗号分隔   输入：0.9   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_seven: 输入长度=5的数字</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.7')" >
+        通过</a>
+
+    <div id='div_pt5.7' class="popup_window">
+        <pre>
+        pt5.7: 执行者:  test_goods_participate_seven   假定： 没有该商品ID   输入：98521   
+提示框中的信息： 没有该水票ID:98521  
+AssertionError('test_goods_participate_seven：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_seven：操作提示语的提示
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_six: 输入非统一商品</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.8')" >
+        通过</a>
+
+    <div id='div_pt5.8' class="popup_window">
+        <pre>
+        pt5.8: 执行者:  test_goods_participate_six   假定： 该商品为店铺商品   输入：-----   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+AssertionError('test_goods_participate_six：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_six：操作提示语的提示
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_goods_participate_ten: 输入正确的商品数量进行提交</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.9')" >
+        错误</a>
+
+    <div id='div_ft5.9' class="popup_window">
+        <pre>
+        ft5.9: 执行者:  test_goods_participate_ten   假定： 没有该商品ID   输入：222   
+Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\PreferentialSettings\web_watikis_participate.py", line 218, in test_goods_participate_ten
+    self.integration_confirm_prompt()
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 134, in integration_confirm_prompt
+    self.arguments_confirm_prompt(self.settingSave)
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 128, in arguments_confirm_prompt
+    self.css_click(browser=self.browser, prompt=prompt)
+  File "E:\operating\practical\operation\selenium_click.py", line 78, in css_click
+    browser.find_element_by_css_selector(prompt).click()
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\webelement.py", line 501, in _execute
+    return self._parent.execute(command, params)
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 308, in execute
+    self.error_handler.check_response(response)
+  File "E:\Program Files\Python36\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Element &lt;button type="submit" class="btn btn-primary settingSave" data-city="450100"&gt;...&lt;/button&gt; is not clickable at point (263, 722). Other element would receive the click: &lt;div class="sweet-overlay" tabindex="-1" style="opacity: 1.01; display: block;"&gt;&lt;/div&gt;
+  (Session info: chrome=62.0.3202.94)
+  (Driver info: chromedriver=2.32.498550 (9dec58e66c31bcc53a9ce3c7226f0c1c5810906a),platform=Windows NT 10.0.15063 x86_64)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_three: 输入负数</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.10')" >
+        通过</a>
+
+    <div id='div_pt5.10' class="popup_window">
+        <pre>
+        pt5.10: 执行者:  test_goods_participate_three   假定： 请输入正整数多个用逗号分隔   输入：-1   
+提示框中的信息： 请输入正整数多个用逗号分隔  
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_goods_participate_two: 输入数字,小于或者等于4</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.11')" >
+        通过</a>
+
+    <div id='div_pt5.11' class="popup_window">
+        <pre>
+        pt5.11: 执行者:  test_goods_participate_two   假定： 没有该商品ID   输入：1234   
+提示框中的信息： 没有该水票ID:1234  
+AssertionError('test_goods_participate_two：操作提示语的提示',)
+调用错误类只会打印的数据 Traceback (most recent call last):
+  File "E:\operating\page_web\web_shop\target_parameter\parameter\discount.py", line 98, in visible_massegn_assert
+    assert self.implement_massegn == visible, self.implement_function + '：操作提示语的提示'
+AssertionError: test_goods_participate_two：操作提示语的提示
+
 
         </pre>
     </div>
@@ -260,10 +1406,10 @@
 
         <tr id='total_row'>
             <td>总计</td>
-            <td>1</td>
-            <td>1</td>
+            <td>41</td>
+            <td>33</td>
             <td>0</td>
-            <td>0</td>
+            <td>8</td>
             <td>&nbsp;</td>
         </tr>
     </table>
@@ -296,9 +1442,9 @@
                     radius : '60%',
                     center: ['50%', '60%'],
                     data:[
-                        {value:1, name:'通过'},
+                        {value:33, name:'通过'},
                         {value:0, name:'失败'},
-                        {value:0, name:'错误'}
+                        {value:8, name:'错误'}
                     ],
                     itemStyle: {
                         emphasis: {

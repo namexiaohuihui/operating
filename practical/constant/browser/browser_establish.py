@@ -52,7 +52,7 @@ class browser_confirm(browser_get_info):
         try:
             # 实现全局变量的引用
             self.browser = webdriver.Chrome("E:\drivers\Drivers\chromedriver59-61.exe")
-            print("打开谷歌\n")
+            print("打开谷歌")
         except:
             self.writeLog(self)
         return self.browser
@@ -118,9 +118,9 @@ class browser_confirm(browser_get_info):
         # self.browser.maximize_window()
 
         # 输入网址
-        self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
+        # self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
         # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
-        # self.browser.get("http://baidu.com")
+        self.browser.get("http://baidu.com")
 
         # 等待网页加载，加载时间为10s，加载完就跳过
         self.browser.implicitly_wait(30)
