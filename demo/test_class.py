@@ -15,9 +15,7 @@ __author__ = 'Administrator'
 
 from practical.constant.browser.browser_establish import browser_confirm
 
-from practical.operation.selenium_click import element_click
-
-class cc(unittest.TestCase):
+class cc():
 
     def __init__(self):
         print("你才是大佬....我是定义这个类是默认调用的。。。")
@@ -87,9 +85,58 @@ class cc(unittest.TestCase):
         else:
             print("meiyou")
 
-import time
-if __name__ == '__main__':
+    def taobaomoshi(self):
+        url = "https://login.m.taobao.com/msg_login.htm?spm=0.0.0.0"
+        paths=  "E:\drivers\Drivers\chromedriver60-62.exe"
+        mobile_emulation = {"deviceName": "iPhone 6"}
+        from selenium.webdriver.chrome.options import Options
+        options = Options()
+        options.add_experimental_option("mobileEmulation", mobile_emulation)
+        driver = webdriver.Chrome(executable_path = paths,chrome_options=options)
 
+        driver.get(url)
+    name = ""
+    key = ""
+if __name__ == '__main__':
+    """
+    a = cc()
+    a.name = "aname"
+    a.key = "akey"
+    b = cc()
+    b.name = "bname"
+    b.key = "bkey"
     c = cc()
-    c.liulanqi()
+    c.name = "cname"
+    c.key = "ckey"
+    d = cc()
+    d.name = "dname"
+    d.key = "dkey"
+    dictlist = []
+    dictlist.append(a)
+    dictlist.append(b)
+    dictlist.append(c)
+    dictlist.append(d)
+    dictnum = {}
+    for num in range(len(dictlist)):
+        dictnum[num] = dictlist[num]
+    for k,y in dictnum.items():
+        #print('{k}:{v}:{kv}'.format(k=k, v= y.name,kv=y.key))
+        #print('{k}:'.format(k=k),'\n'.join(['%s:%s' % item for item in y.__dict__.items()]))
+        print('\n'.join(['{k}:%s %s'.format(k=k)% item for item in y.__dict__.items()]))
+        print("**************")
+    print("-----------------")
+    dic2 = dict.fromkeys(dictlist)
+    print(dic2)
+    for key,value in dic2.items():
+        print(key.name)
+    
+        for dic in dictlist:
+        print(dic.name)
+        #print('\n'.join(["%s" %  item for  item in dic.__dict__.items()]))
+    """
+    dict1 = {"parameter": ".form-control.hour", "content": "1"}
+    print(dict1["parameter"])
+    print(dict1["content"])
+    for k, y in dict1.items():
+        print('{k}:{v}'.format(k=k, v=y))
 

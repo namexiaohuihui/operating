@@ -4,7 +4,7 @@ from time import sleep
 import inspect
 import unittest
 import sys
-from page_web.web_shop.target_parameter.parameter.discount import discount_input
+from page_web.web_shop.target_parameter.parameter.SingleVerification import discount_input
 
 __author__ = 'Administrator'
 """
@@ -46,7 +46,7 @@ class goods_discount(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
 
     def test_goods_discount_two(self):
@@ -63,7 +63,7 @@ class goods_discount(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
 
     def test_goods_discount_three(self):
@@ -79,7 +79,7 @@ class goods_discount(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
 
     def test_goods_discount_four(self):
@@ -96,7 +96,7 @@ class goods_discount(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_discount_five(self):
         """输入符合条件的内容，并且成功提交"""

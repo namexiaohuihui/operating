@@ -5,7 +5,7 @@ from time import sleep
 import inspect
 import unittest
 import sys
-from page_web.web_shop.target_parameter.parameter.discount import discount_input
+from page_web.web_shop.target_parameter.parameter.SingleVerification import discount_input
 
 """
 @__author__ :70486 
@@ -152,7 +152,7 @@ class goods_participate(discount_input, unittest.TestCase):
 
         self.gp_verification(list_parameter=list_parameter)
 
-    def test_goods_participate_nine(self):
+    def qwetest_goods_participate_nine(self):
         """焦点移出出现错误提示之后，点击提交按钮进行提交"""
         # 获取函数名
         function = sys._getframe().f_code.co_name
@@ -201,7 +201,7 @@ class goods_participate(discount_input, unittest.TestCase):
         self.setting_save_click(massegn=massegn)
 
 
-    def test_goods_participate_ten(self):
+    def qwetest_goods_participate_ten(self):
         """输入正确的商品数量进行提交"""
         # 获取函数名
         function = sys._getframe().f_code.co_name
@@ -233,7 +233,6 @@ class goods_participate(discount_input, unittest.TestCase):
 
         # 传入名字和需要输入的参数
         self.correct_function(list_parameter=list_parameter)
-
         # 　－－－－－－－－－－－－－后续优化
         # 点击提交按钮
         self.arguments_confirm_prompt(prompt=self.settingSave)

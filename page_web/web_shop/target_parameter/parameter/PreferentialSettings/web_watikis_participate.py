@@ -5,7 +5,7 @@ from time import sleep
 import inspect
 import unittest
 import sys
-from page_web.web_shop.target_parameter.parameter.discount import discount_input
+from page_web.web_shop.target_parameter.parameter.SingleVerification import discount_input
 
 
 """
@@ -231,6 +231,10 @@ class watikis_participate(discount_input, unittest.TestCase):
 
         # 传入名字和需要输入的参数
         self.correct_function(list_parameter=list_parameter)
+
+        # 　－－－－－－－－－－－－－后续优化
+        # 点击提交按钮
+        self.arguments_confirm_prompt(prompt=self.settingSave)
 
         # 点击取消按钮
         self.arguments_confirm_prompt(prompt=self.btn_default)

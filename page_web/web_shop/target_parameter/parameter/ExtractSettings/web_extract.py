@@ -73,7 +73,7 @@ class extract_input(unittest.TestCase):
             element_input.css_input(self.browser, fee_load, fee)
 
             #点击保存按钮
-            element_click.css_click(self.browser, '.btn.btn-primary.feeSave')
+            element_click.css_click(self.browser, letter_parameter_names.extractSave)
 
             #弹窗上的数据信息
             sweet = self.browser.find_element_by_css_selector(letter_parameter_names.visible_p).text

@@ -84,10 +84,14 @@ class element_visible(object):
         except TimeoutException:
             return False
 
-    def scrollBar_top(self):
+    def scrollBar_top(self,browser):
+        import time
+        time.sleep(1)
         # 将滚动条移动到顶部的意思
-        driver.execute_script("window.scrollTo(0,0)")
+        browser.execute_script("window.scrollTo(0,0)")
 
-    def scrollBar_buttom(self):
+    def scrollBar_buttom(self,browser):
+        import time
+        time.sleep(1)
         # 将滚动条移动到底部的意思
-        driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+        browser.execute_script("window.scrollTo(0,document.body.scrollHeight)")

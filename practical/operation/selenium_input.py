@@ -81,6 +81,15 @@ class element_input(element_visible):
         else:
             self.writeLog(browser)
 
+    def transmitList(self,browser, combination):
+        for num in range(len(combination)):
+            meter = combination[num]
+            self.css_input(browser,meter.parameter,meter.content)
+
+    def transmitDictionaries(self,browser, combination):
+        for k, y in combination.items():
+            self.css_input(browser, y, k)
+
     def id_js_input(self, browser, ordinal, parameter):
         try:
             browser.execute_script("document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';")
@@ -108,7 +117,7 @@ class element_input(element_visible):
     def ele_clear_keys(self, ele, parameter):
         ele.clear()
         ele.send_keys(parameter)
-        sleep(1)
+        sleep(2)
 
     # 打印错误日志
     def writeLog(self, browser):

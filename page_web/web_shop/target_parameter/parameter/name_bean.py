@@ -12,11 +12,15 @@ class letter_parameter_names(object):
 
     """--------------------------------参数的获取路径------------------------------"""
 
-    # 提取页面的
+    # 提取页面的----------------------
+    # 提取值的设置
     amount_load = ".form-control.intonum.amount"
+    #　手续的设置
     fee_load = ".form-control.intoprice.fee"
-    '.btn.btn-primary.feeSave'
+    # 提交按钮
+    extractSave = '.btn.btn-primary.feeSave'
 
+    # 优惠页面的-------------
     # 对象折扣
     goods_discount = 'goods_discount'
 
@@ -35,6 +39,14 @@ class letter_parameter_names(object):
     # 页面提交按钮
     settingSave = '.btn.btn-primary.settingSave'
 
+    # 邀请页面-----------------------------------
+    hourTime = ".form-control.hour"
+    timeTime = ".form-control.time"
+    real_payTime = ".form-control.real_pay"
+    moneyTime = ".form-control.money"
+    saveTime = ".btn.btn-primary.save"
+
+    # 弹窗的设置-------------------
     # 提示框的标题
     visible_h4 = '.sweet-alert.showSweetAlert.visible>h4'
 
@@ -58,9 +70,11 @@ class letter_parameter_names(object):
 
     """--------------------------------提示参数------------------------------"""
 
+    # 提取页面----------------
     ex_less = '提现手续费应小于提现金额'
     ex_format = '请输入整数最多7位,小数后两位的价格格式'
 
+    # 优惠设置---------------
     # 商品折扣数的提示
     gb_between = "请输入0.1~9.9之间的数" # 折扣数输入的数字符合格式范围内
     gb_format = "请输入正确格式例如 0.1/0.5" # 折扣数输入的格式完全不符合
@@ -71,6 +85,7 @@ class letter_parameter_names(object):
     gp_proper = "该商品为店铺商品" # 输入的数字不是共有的
     gp_incorrect = "输入的不参与优惠商品不正确" # 输入完全不正确的提示
 
+    # 邀请页面设置---------------
 
     # 系统固定提示框的提示
     system_preservation = "你确定要保存吗？" # 再次确认的标题

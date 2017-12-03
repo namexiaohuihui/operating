@@ -5,7 +5,7 @@ from time import sleep
 import inspect
 import unittest
 import sys
-from page_web.web_shop.target_parameter.parameter.discount import discount_input
+from page_web.web_shop.target_parameter.parameter.SingleVerification import discount_input
 
 """
 @__author__ :70486 
