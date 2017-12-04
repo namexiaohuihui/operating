@@ -28,7 +28,7 @@ class discount_input(verification_repeat):
         # 1.赋值输入框函数名
         cls.ordinal = ordinal
         # 2.执行case的类名，赋值给父类
-        verification_repeat.setUpStart(basename)
+        cls.InitializationExecution(cls,basename = basename)
 
     """
     js_input : 集成输入框和移动鼠标的函数
@@ -123,8 +123,8 @@ class discount_input(verification_repeat):
 
     # 打印log的地方
     def parameter_log_output(self):
-        self.logger.error("执行者:  %s   假定： %s   输入：%s "
+        logger = logging.getLogger("123")
+        logger.error("执行者:  %s   假定： %s   输入：%s "
                           % (self.implement_function ,self.implement_massegn, self.implement_parameter))
-        # 执行输出操作
 
 

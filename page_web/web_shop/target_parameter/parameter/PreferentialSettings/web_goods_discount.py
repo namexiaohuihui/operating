@@ -18,11 +18,11 @@ class goods_discount(discount_input, unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         basename = os.path.splitext(os.path.basename(__file__))[0]
-        cls.setUpStart(cls, basename=basename, ordinal=cls.goods_discount)
+        cls.setUpStart(cls,basename=basename, ordinal=cls.goods_discount)
 
     @classmethod
     def tearDownClass(cls):
-        cls.tearDownStop(cls)
+        cls.ResultFeedback(cls)
 
     def test_number(self):
         """验证城市以及数量是否正确"""

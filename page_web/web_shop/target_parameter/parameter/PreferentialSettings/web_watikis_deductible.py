@@ -26,7 +26,7 @@ class watikis_deductible(discount_input, unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        cls.tearDownStop(cls)
+        cls.ResultFeedback(cls)
 
     def test_goods_discount_one(self):
         """输入超于最大值的内容"""
@@ -44,7 +44,7 @@ class watikis_deductible(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_discount_two(self):
         """输入小于最小值的内容"""
@@ -60,7 +60,7 @@ class watikis_deductible(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
 
     def test_goods_discount_three(self):
@@ -76,7 +76,7 @@ class watikis_deductible(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
 
     def test_goods_discount_four(self):
@@ -93,7 +93,7 @@ class watikis_deductible(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_discount_five(self):
         """输入符合条件的内容，并且成功提交"""

@@ -24,7 +24,7 @@ class watiki_discount(discount_input, unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        cls.tearDownStop(cls)
+        cls.ResultFeedback(cls)
 
     def test_goods_discount_one(self):
         """验证捆绑打折数输入大于10的问题"""
@@ -40,7 +40,7 @@ class watiki_discount(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_discount_two(self):
         """验证捆绑打折数输入小于0的问题:即输入负数"""
@@ -56,7 +56,7 @@ class watiki_discount(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_discount_three(self):
         """验证捆绑打折数输入在符合范围内但小数点后有多位的情况"""
@@ -71,7 +71,7 @@ class watiki_discount(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_discount_four(self):
         """验证捆绑打折数输入中文字符"""
@@ -87,7 +87,7 @@ class watiki_discount(discount_input, unittest.TestCase):
         list_parameter = [function, massegn, parameter]
 
         # 传入名字和需要输入的参数
-        self.gd_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_discount_five(self):
         """输入符合条件的内容，并且成功提交"""

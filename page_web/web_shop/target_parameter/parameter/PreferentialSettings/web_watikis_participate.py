@@ -25,7 +25,7 @@ class watikis_participate(discount_input, unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        cls.tearDownStop(cls)
+        cls.ResultFeedback(cls)
 
     def test_goods_participate_one(self, function=None):
         """输入一串很长的数字，长度大于或者等于6"""
@@ -42,7 +42,7 @@ class watikis_participate(discount_input, unittest.TestCase):
         # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
         list_parameter = [function, massegn, parameter]
 
-        self.gp_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_participate_two(self, function=None):
         """输入数字,小于或者等于4"""
@@ -57,7 +57,7 @@ class watikis_participate(discount_input, unittest.TestCase):
         # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
         list_parameter = [function, massegn, parameter]
 
-        self.gp_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_participate_three(self, function=None):
         """输入负数"""
@@ -72,7 +72,7 @@ class watikis_participate(discount_input, unittest.TestCase):
         # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
         list_parameter = [function, massegn, parameter]
 
-        self.gp_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_participate_four(self, function=None):
         """输入多个商品，中间是中文形式下的逗号"""
@@ -88,7 +88,7 @@ class watikis_participate(discount_input, unittest.TestCase):
         # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
         list_parameter = [function, massegn, parameter]
 
-        self.gp_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_participate_five(self, function=None):
         """ 输入中文 """
@@ -103,7 +103,7 @@ class watikis_participate(discount_input, unittest.TestCase):
         # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
         list_parameter = [function, massegn, parameter]
 
-        self.gp_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_participate_six(self, function=None):
         """输入非统一商品"""
@@ -118,7 +118,7 @@ class watikis_participate(discount_input, unittest.TestCase):
         # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
         list_parameter = [function, massegn, parameter]
 
-        self.gp_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_participate_seven(self, function=None):
         """输入长度=5的数字"""
@@ -133,7 +133,7 @@ class watikis_participate(discount_input, unittest.TestCase):
         # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
         list_parameter = [function, massegn, parameter]
 
-        self.gp_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_participate_eight(self, function=None):
         """英文状态下的逗号连续输入"""
@@ -149,7 +149,7 @@ class watikis_participate(discount_input, unittest.TestCase):
         # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
         list_parameter = [function, massegn, parameter]
 
-        self.gp_verification(list_parameter=list_parameter)
+        self.PreferentialVerification(list_parameter=list_parameter)
 
     def test_goods_participate_nine(self):
         """焦点移出出现错误提示之后，点击提交按钮进行提交"""

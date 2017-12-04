@@ -119,7 +119,7 @@ class browser_confirm(browser_get_info):
 
         # 输入网址
         # self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
-        self.browser.get("C:\\Users\\70486\\Desktop\\连你生活管理后台 _ LIANNI.COM.html")
+        #　self.browser.get("C:\\Users\\70486\\Desktop\\－－ _ LIANNI.COM.html")
         # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
         #　self.browser.get("http://baidu.com")
 

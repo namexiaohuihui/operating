@@ -14,14 +14,15 @@ from practical.Exception_error.DefinitionError import definition_error
 
 
 class verification_repeat(letter_parameter_names, element_input, element_click):
-    def setUpStart(cls, basename):
+
+    def InitializationExecution(cls, basename):
         # 执行程序类的名字
         cls.basename = basename
         print("%s   开始执行" % cls.basename)
 
         cls.url_op(cls)
 
-    def tearDownStop(cls):
+    def ResultFeedback(cls):
         print("%s   执行完毕" % cls.basename)
         # cls.browser.close()
 
@@ -39,7 +40,7 @@ class verification_repeat(letter_parameter_names, element_input, element_click):
         # 2.调用已经规划好的浏览器函数
         self.browser = bc.url_opens()
 
-        # self.user_pass(self, bc)
+        self.user_pass(self, bc)
 
     """
     user_pass :调用登陆密码集成函数
@@ -54,7 +55,7 @@ class verification_repeat(letter_parameter_names, element_input, element_click):
         # self.parame = parameter_content()
 
         # 2.调用集成的函数
-        bc.case_browesr('11', '22222')
+        bc.case_browesr('12', '34')
 
         # 执行需要跑case的路径
         bc.system_parameter_discount()
