@@ -10,6 +10,15 @@ import os
 import json
 from page_web.web_shop.target_parameter.parameter.UnifiedVerification import unified_verification
 
+"""
+给予奖励设置:主要验证下面的问题:
+1.小数
+2.符合要求的数值
+3.负数
+4.特殊字符
+5.中文
+6.满足数值要求但符合要求
+"""
 class ParameterContent:
     def __init__(self, parameter, content, *args, **kwargs):
         self.parameter = parameter

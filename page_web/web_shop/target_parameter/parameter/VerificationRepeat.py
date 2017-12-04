@@ -40,7 +40,7 @@ class verification_repeat(letter_parameter_names, element_input, element_click):
         # 2.调用已经规划好的浏览器函数
         self.browser = bc.url_opens()
 
-        self.user_pass(self, bc)
+        # self.user_pass(self, bc)
 
     """
     user_pass :调用登陆密码集成函数
@@ -79,15 +79,16 @@ class verification_repeat(letter_parameter_names, element_input, element_click):
     process ： 需要获取元素的函数名（css_selector）
     思路：
         1.先判断需要获取的元素是否存在（其实可以省略这步，因为必须要出现的。不出现就是错误）
-        2.返回获取的内容
+        2.返回获取的内容(如果提示框没有出来就返回一个空值)
     """
     def showSweetAlert_visible(self, process):
         if self.is_visible_css_selectop(self.browser, process):
             # 1.先判断需要获取的元素是否存在
             visible = self.browser.find_element_by_css_selector(process).text
-            print("提示框中的信息： %s  " % (visible)) # 为了调试，之后删除
-        # 2.返回获取的内容
-        return visible;
+            # 2.返回获取的内容
+            return visible;
+        else:
+            return "提示框没有出来，返回一个空值"
 
     """
     setting_save_click : 集成点击和调用判断的功能

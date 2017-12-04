@@ -12,7 +12,15 @@ __author__ = 'Administrator'
 @time: 2017/11/2 9:53
 """
 
-# 商品折扣数
+"""
+商品折扣数:主要验证下面的问题:
+1.小数
+2.符合要求的数值
+3.负数
+4.特殊字符
+5.中文
+6.满足数值要求但符合要求
+"""
 
 class goods_discount(discount_input, unittest.TestCase):
     @classmethod

@@ -15,8 +15,15 @@ from page_web.web_shop.target_parameter.parameter.SingleVerification import disc
 @项目名称:operating
 """
 
-# 捆绑的折扣的数量
-
+"""
+捆绑的折扣的数量:主要验证下面的问题:
+1.小数
+2.符合要求的数值
+3.负数
+4.特殊字符
+5.中文
+6.满足数值要求但符合要求
+"""
 class watikis_deductible(discount_input, unittest.TestCase):
 
     @classmethod

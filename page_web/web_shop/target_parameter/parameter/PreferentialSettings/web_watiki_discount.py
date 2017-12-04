@@ -13,7 +13,17 @@ from page_web.web_shop.target_parameter.parameter.SingleVerification import disc
 @time: 2017/11/15 22:42
 @项目名称:operating
 """
-# 捆绑的折扣
+
+
+"""
+捆绑的折扣:主要验证下面的问题:
+1.小数
+2.符合要求的数值
+3.负数
+4.特殊字符
+5.中文
+6.满足数值要求但符合要求
+"""
 
 class watiki_discount(discount_input, unittest.TestCase):
 

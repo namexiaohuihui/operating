@@ -17,7 +17,14 @@ from practical.constant.parameter.parameter_data import parameter_content
 from practical.operation.selenium_input import element_input
 from practical.operation.selenium_click import element_click
 
-
+"""
+主要验证输入框输入的内容：
+1.小数
+2.在范围内容的数值
+3.特殊符号
+4.负数
+5.不在范围内的数值
+"""
 class extract_input(unittest.TestCase):
 
     @classmethod

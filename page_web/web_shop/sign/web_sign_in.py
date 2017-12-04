@@ -53,7 +53,7 @@ class sign_input(unittest.TestCase):
             ele_css_load = '.login-box-msg'
 
             # 定义需要输入的参数
-            account = "panhui"
+            account = "***"
             password = "---"
 
             # 调用公共函数进行数据执行

@@ -7,7 +7,6 @@
 import os
 
 from selenium import webdriver
-from practical.constant.url_website.url_data import url_content
 from practical.constant.browser.browser_into import browser_get_info
 
 '''
@@ -106,12 +105,9 @@ class browser_confirm(browser_get_info):
             print('如果没有异常执行这块代码')
 
     # 运行浏览器
-    def url_opens(self):
+    def url_opens(self,url = None):
 
         print("浏览器开始执行初始化")
-
-        # 创建网址对象
-        url = url_content()
 
         # 创建浏览器对象
         self.browser = self.chrome_browser()
@@ -121,7 +117,7 @@ class browser_confirm(browser_get_info):
         # self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
         #　self.browser.get("C:\\Users\\70486\\Desktop\\－－ _ LIANNI.COM.html")
         # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
-        #　self.browser.get("http://baidu.com")
+        self.browser.get("http://---")
 
         # 等待网页加载，加载时间为10s，加载完就跳过
         self.browser.implicitly_wait(30)
