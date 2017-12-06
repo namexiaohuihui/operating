@@ -202,7 +202,7 @@ class goods_participate(discount_input, unittest.TestCase):
 
 
     def test_goods_participate_ten(self):
-        """输入正确的商品数量进行提交"""
+        """输入正确的商品数量进行提交:输入的参数暂时有误不影响流程"""
         # 获取函数名
         function = sys._getframe().f_code.co_name
         # 提示框上输出的内容
@@ -217,16 +217,17 @@ class goods_participate(discount_input, unittest.TestCase):
         self.correct_function(list_parameter=list_parameter)
 
         # 提交参数之后，进行再次确认提示，并完成其后的全部工作
-        self.integration_confirm_prompt()
+        self.integration_confirm_prompt(Situation =True)
 
     def test_goods_participate_eleven(self):
-        """输入正确的商品数量进行提交，并在二次确认中点击取消按钮"""
+        """输入正确的商品数量进行提交，并在二次确认中点击取消按钮:输入的参数暂时有误不影响流程"""
         # 获取函数名
         function = sys._getframe().f_code.co_name
-        # 提示框上输出的内容
-        massegn = self.gp_non_existent
 
         parameter = "222"
+
+        # 提示框上输出的内容:没有找到商品时会将商品id返回
+        massegn = self.gp_non_existent
 
         # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
         list_parameter = [function, massegn, parameter]
@@ -234,11 +235,7 @@ class goods_participate(discount_input, unittest.TestCase):
         # 传入名字和需要输入的参数
         self.correct_function(list_parameter=list_parameter)
         # 　－－－－－－－－－－－－－后续优化
-        # 点击提交按钮
-        self.arguments_confirm_prompt(prompt=self.settingSave)
-
-        # 点击取消按钮
-        self.arguments_confirm_prompt(prompt=self.btn_default)
+        self.integration_confirm_prompt()
 
 
 

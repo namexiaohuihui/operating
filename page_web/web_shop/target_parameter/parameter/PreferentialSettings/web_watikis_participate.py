@@ -223,7 +223,7 @@ class watikis_participate(discount_input, unittest.TestCase):
         self.correct_function(list_parameter=list_parameter)
 
         # 提交参数之后，进行再次确认提示，并完成其后的全部工作
-        self.integration_confirm_prompt()
+        self.integration_confirm_prompt(Situation=True)
 
     def test_goods_participate_eleven(self):
         """输入正确的商品数量进行提交，并在二次确认中点击取消按钮"""
@@ -242,10 +242,7 @@ class watikis_participate(discount_input, unittest.TestCase):
 
         # 　－－－－－－－－－－－－－后续优化
         # 点击提交按钮
-        self.arguments_confirm_prompt(prompt=self.settingSave)
-
-        # 点击取消按钮
-        self.arguments_confirm_prompt(prompt=self.btn_default)
+        self.integration_confirm_prompt()
 
 if __name__ == '__main__':
     unittest.main

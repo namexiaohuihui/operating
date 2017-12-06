@@ -35,7 +35,7 @@ class element_visible(object):
             # print("需要等待的元素出现了 %s" % locator)
             return True
         except TimeoutException:
-            print("需要等待的元素没有展现 %s" % locator)
+            print("元素未出现：   %s" % locator)
             return False
 
         # 一直等待某个元素消失，默认超时10秒

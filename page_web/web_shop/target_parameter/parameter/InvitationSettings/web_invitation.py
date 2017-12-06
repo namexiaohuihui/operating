@@ -69,7 +69,7 @@ class invitation_input(unittest.TestCase,unified_verification):
         self.arguments_confirm_prompt(self.saveTime)
 
         # 提交参数之后，进行再次确认提示，并完成其后的全部工作
-        self.integration_confirm_prompt()
+        self.integration_confirm_prompt(Situation=True)
 
     def test_invitation_two(self,parameter = None):
         #　取消提交
@@ -84,11 +84,7 @@ class invitation_input(unittest.TestCase,unified_verification):
 
         self.transmitDictionaries(self.browser, dic) # 让另一个函数进行使用
 
-        # 点击提交按钮
-        self.arguments_confirm_prompt(prompt=self.settingSave)
-
-        # 点击取消按钮
-        self.arguments_confirm_prompt(prompt=self.btn_default)
+        self.integration_confirm_prompt()
 
     def test_invitation_there(self,parameter = None):
         # 定义好kye和value

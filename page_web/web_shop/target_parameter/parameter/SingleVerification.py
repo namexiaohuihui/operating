@@ -55,10 +55,12 @@ class discount_input(verification_repeat):
         # 设置提示框中需要进行对比的参数，并进行比较
         center = self.showSweetAlert_visible(self.modal_body_p)
         self.implement_massegn = self.system_content
-        self.visible_massegn_assert(visible=center,massegn=self.implement_massegn)
+        self.visible_massegn_assert(visible=center, massegn=self.implement_massegn)
+
 
     # 集成点击和内容的判断
-    def integration_confirm_prompt(self):
+    # 默认是点击取消
+    def integration_confirm_prompt(self,Situation = False):
 
         # 点击提交按钮
         self.arguments_confirm_prompt(self.settingSave)
@@ -66,11 +68,15 @@ class discount_input(verification_repeat):
         # 再次确认提示框中内容的判断
         self.modal_body()
 
-        # 再次确认提示框中：同意按钮点击。点击之后进行操作提示。判断提示内容是否正确
-        self.arguments_confirm_prompt(prompt=self.discountsave)
+        if Situation:
+            # 再次确认提示框中：同意按钮点击。点击之后进行操作提示。判断提示内容是否正确
+            self.arguments_confirm_prompt(prompt=self.discountsave)
 
-        # 上一步提示内容的点击
-        self.arguments_confirm_prompt(prompt=self.confirm)
+            # 上一步提示内容的点击
+            self.arguments_confirm_prompt(prompt=self.confirm)
+        else:
+            # 点击取消按钮
+            self.arguments_confirm_prompt(prompt=self.btn_default)
 
 
     def prompt_box(self):
@@ -80,6 +86,7 @@ class discount_input(verification_repeat):
         # 元素输入
         self.js_input()
 
+        # 对比信息
         self.visible_massegn(self.implement_massegn)
 
 

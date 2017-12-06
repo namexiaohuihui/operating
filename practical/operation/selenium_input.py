@@ -126,7 +126,6 @@ class element_input(element_visible):
               basename, )
         basename = os.path.splitext(os.path.basename(__file__))[0]
         # 组合日志文件名（当前文件名 + 当前时间）.比如：case_login_success_20150817192533
-        de_error = definition_error()
-        de_error.erroe_get(basename, browser)
+        definition_error.erroe_get(definition_error,basename, browser)
         # sys.exit(0)
         # raise

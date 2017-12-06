@@ -80,7 +80,7 @@ class letter_parameter_names(object):
     gb_format = "请输入正确格式例如 0.1/0.5" # 折扣数输入的格式完全不符合
 
     # 不参与折扣商品的提示
-    gp_non_existent = "没有该商品ID" #没有找到输入的数字
+    gp_non_existent = "没有该商品ID:" #没有找到输入的数字
     gp_separate = "请输入正整数多个用逗号分隔" # 输入的不为数字
     gp_proper = "该商品为店铺商品" # 输入的数字不是共有的
     gp_incorrect = "输入的不参与优惠商品不正确" # 输入完全不正确的提示

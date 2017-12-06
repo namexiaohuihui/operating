@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page_web/WebEven/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/test_suite.py" afterPath="$PROJECT_DIR$/demo/test_suite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py" afterPath="$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/ExtractSettings/web_extract.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/ExtractSettings/web_extract.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/InvitationSettings/web_invitation.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/InvitationSettings/web_invitation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_discount.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_discount.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_participate.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_participate.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watiki_discount.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watiki_discount.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_deductible.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_deductible.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_participate.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_participate.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/VerificationRepeat.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/VerificationRepeat.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" afterPath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/SingleVerification.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/SingleVerification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/name_bean.py" afterPath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/name_bean.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/operation/selenium_input.py" afterPath="$PROJECT_DIR$/practical/operation/selenium_input.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/operation/selenium_visible.py" afterPath="$PROJECT_DIR$/practical/operation/selenium_visible.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,66 +21,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="operating" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/page_web/WebEven/PersonalCenter/__init__.py">
+      <file leaf-file-name="web_watikis_deductible.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_deductible.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="229">
+              <caret line="102" column="28" lean-forward="true" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_suite.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo/test_suite.py">
+      <file leaf-file-name="SingleVerification.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/SingleVerification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selenium_click.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practical/operation/selenium_click.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="78" column="64" lean-forward="false" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selenium_visible.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practical/operation/selenium_visible.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VerificationRepeat.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/VerificationRepeat.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="browser_establish.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2002">
-              <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+            <state relative-caret-position="263">
+              <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -102,9 +60,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>verification</find>
-      <find>visible_massegn_assert</find>
-      <find>btn_primary_click</find>
       <find>prompt</find>
       <find>parameter</find>
       <find>123456</find>
@@ -132,6 +87,9 @@
       <find>visible_h4</find>
       <find>gd_verification</find>
       <find>gp_verification</find>
+      <find>integration_confirm_prompt</find>
+      <find>self.integration_confirm_prompt()</find>
+      <find>self.integration_confirm_prompt()</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -158,6 +116,7 @@
       <replace>ParameterContent</replace>
       <replace>parameter</replace>
       <replace>PreferentialVerification</replace>
+      <replace>self.integration_confirm_prompt(Situation=True)</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -193,37 +152,37 @@
         <option value="$PROJECT_DIR$/run_all.py" />
         <option value="$PROJECT_DIR$/error-20171201 161943.log" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount.py" />
-        <option value="$PROJECT_DIR$/practical/operation/selenium_visible.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/InvitationSettings/web_Invitation.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/UnifiedVerification.py" />
         <option value="$PROJECT_DIR$/practical/backups.py" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/name_bean.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/UnifiedVerification.py" />
-        <option value="$PROJECT_DIR$/practical/operation/selenium_input.py" />
         <option value="$PROJECT_DIR$/demo/test_class.py" />
         <option value="$PROJECT_DIR$/ServerPHP/pyfl/jsonChuli.py" />
         <option value="$PROJECT_DIR$/practical/operation/selenium_click.py" />
-        <option value="$PROJECT_DIR$/practical/operation/selenium_input.py" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/SingleVerification.py" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_participate.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/ExtractSettings/web_extract.py" />
+        <option value="$PROJECT_DIR$/page_web/WebEven.py" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py" />
+        <option value="$PROJECT_DIR$/demo/test_suite.py" />
+        <option value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/__init__.py" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/name_bean.py" />
+        <option value="$PROJECT_DIR$/practical/operation/selenium_visible.py" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/InvitationSettings/web_invitation.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_discount.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watiki_discount.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_deductible.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_participate.py" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/InvitationSettings/web_invitation.py" />
-        <option value="$PROJECT_DIR$/page_web/WebEven.py" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_participate.py" />
+        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/SingleVerification.py" />
+        <option value="$PROJECT_DIR$/practical/operation/selenium_input.py" />
+        <option value="$PROJECT_DIR$/practical/operation/selenium_input.py" />
         <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/VerificationRepeat.py" />
         <option value="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
-        <option value="$PROJECT_DIR$/demo/test_suite.py" />
-        <option value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/__init__.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="161" />
-    <option name="y" value="63" />
+    <option name="x" value="690" />
+    <option name="y" value="207" />
     <option name="width" value="1099" />
     <option name="height" value="761" />
   </component>
@@ -262,74 +221,192 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <expand>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="page_web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="page_web" type="462c0819:PsiDirectoryNode" />
-              <item name="web_shop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="page_web" type="462c0819:PsiDirectoryNode" />
-              <item name="web_shop" type="462c0819:PsiDirectoryNode" />
-              <item name="target_parameter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="page_web" type="462c0819:PsiDirectoryNode" />
-              <item name="web_shop" type="462c0819:PsiDirectoryNode" />
-              <item name="target_parameter" type="462c0819:PsiDirectoryNode" />
-              <item name="parameter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="page_web" type="462c0819:PsiDirectoryNode" />
-              <item name="WebEven" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="page_web" type="462c0819:PsiDirectoryNode" />
-              <item name="WebEven" type="462c0819:PsiDirectoryNode" />
-              <item name="PersonalCenter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="practical" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="practical" type="462c0819:PsiDirectoryNode" />
-              <item name="operation" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web_shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web_shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target_parameter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web_shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target_parameter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parameter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web_shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target_parameter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parameter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PreferentialSettings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web_shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target_parameter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parameter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InvitationSettings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web_shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target_parameter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parameter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExtractSettings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,22 +444,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.__init__">
-    <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_eight" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;web_goods_participate.goods_participate.test_goods_participate_eight&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
-    <configuration name="Unittests in web_goods_participate.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Unittests for web_watikis_deductible.watikis_deductible.test_goods_discount_four">
+    <configuration default="false" name="Unittests in web_goods_participate.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -395,22 +458,9 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_participate.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
     </configuration>
-    <configuration name="Unittests in web_watikis_deductible.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_deductible.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -426,6 +476,55 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_suite" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/test_suite.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests for web_goods_participate.goods_participate.test_goods_participate_eleven" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;web_goods_participate.goods_participate.test_goods_participate_eleven&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests for web_watikis_deductible.watikis_deductible.test_goods_discount_four" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;web_watikis_deductible.watikis_deductible.test_goods_discount_four&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -491,37 +590,20 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration name="test_suite" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/test_suite.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_participate.py" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in web_watikis_deductible.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for web_goods_participate.goods_participate.test_goods_participate_eight" />
-      <item index="3" class="java.lang.String" itemvalue="Python.__init__" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test_suite" />
+      <item index="1" class="java.lang.String" itemvalue="Python.__init__" />
+      <item index="2" class="java.lang.String" itemvalue="Python.test_suite" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for web_goods_participate.goods_participate.test_goods_participate_eleven" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for web_watikis_deductible.watikis_deductible.test_goods_discount_four" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.__init__" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test_suite" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for web_goods_participate.goods_participate.test_goods_participate_eight" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_participate.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in web_watikis_deductible.py" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests for web_watikis_deductible.watikis_deductible.test_goods_discount_four" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for web_goods_participate.goods_participate.test_goods_participate_eleven" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in web_goods_participate.py" />
+        <item index="3" class="java.lang.String" itemvalue="Python.__init__" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test_suite" />
       </list>
     </recent_temporary>
   </component>
@@ -542,28 +624,28 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_eight - 2017.12.04 at 21h 58m 43s.xml">
-      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_eight" configurationId="tests" />
+    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_eleven - 2017.12.06 at 17h 16m 59s.xml">
+      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_eleven" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_goods_discount_py - 2017.12.04 at 14h 06m 32s.xml">
-      <configuration name="Unittests in web_goods_discount.py" configurationId="tests" />
+    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_eleven - 2017.12.06 at 17h 25m 44s.xml">
+      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_eleven" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_goods_discount_py - 2017.12.04 at 14h 06m 48s.xml">
-      <configuration name="Unittests in web_goods_discount.py" configurationId="tests" />
+    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_eleven - 2017.12.06 at 17h 36m 29s.xml">
+      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_eleven" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_goods_discount_py - 2017.12.04 at 14h 08m 32s.xml">
-      <configuration name="Unittests in web_goods_discount.py" configurationId="tests" />
+    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_eleven - 2017.12.06 at 17h 54m 06s.xml">
+      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_eleven" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_goods_discount_py - 2017.12.04 at 14h 16m 20s.xml">
-      <configuration name="Unittests in web_goods_discount.py" configurationId="tests" />
+    <history-entry file="Unittests_for_web_goods_participate_goods_participate_test_goods_participate_eleven - 2017.12.06 at 17h 58m 50s.xml">
+      <configuration name="Unittests for web_goods_participate.goods_participate.test_goods_participate_eleven" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_goods_participate_py - 2017.12.04 at 14h 18m 09s.xml">
-      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_web_goods_participate_py - 2017.12.04 at 14h 21m 05s.xml">
-      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
+    <history-entry file="Unittests_for_web_watikis_deductible_watikis_deductible_test_goods_discount_four - 2017.12.06 at 18h 01m 57s.xml">
+      <configuration name="Unittests for web_watikis_deductible.watikis_deductible.test_goods_discount_four" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_web_goods_participate_py - 2017.12.04 at 21h 57m 11s.xml">
+      <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_web_goods_participate_py - 2017.12.06 at 17h 15m 57s.xml">
       <configuration name="Unittests in web_goods_participate.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_web_watiki_discount_py - 2017.12.04 at 14h 26m 06s.xml">
@@ -583,18 +665,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="161" y="63" width="1099" height="761" extended-state="0" />
+    <frame x="690" y="207" width="1099" height="761" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20211741" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20596728" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38142622" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38118023" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3927178" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21180275" sideWeight="0.5047506" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3927178" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983023" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -630,14 +712,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="972" column="8" lean-forward="false" selection-start-line="972" selection-start-column="8" selection-end-line="972" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/error-20171201 161636.log-screenshot_error.png" />
     <entry file="file://$PROJECT_DIR$/error-20171201 161450.log" />
     <entry file="file://$PROJECT_DIR$/error-20171201 161943.log-screenshot_error.png" />
@@ -674,13 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/unittest/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -758,14 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/name_bean.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="92" column="4" lean-forward="false" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/practical/file_introduce/框架.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -795,72 +854,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_participate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/SingleVerification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/ExtractSettings/web_extract.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watiki_discount.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_participate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="7" column="90" lean-forward="true" selection-start-line="7" selection-start-column="90" selection-end-line="7" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_deductible.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="25" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_discount.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="22" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/InvitationSettings/web_invitation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding>
-            <element signature="e#117#132#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1078">
@@ -869,74 +862,156 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/WebEven.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/WebEven.py" />
     <entry file="file://$PROJECT_DIR$/practical/constant/url_website/url_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2002">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_input.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="68" column="27" lean-forward="true" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_visible.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_click.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="78" column="64" lean-forward="false" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/test_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="440">
           <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/VerificationRepeat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page_web/WebEven/PersonalCenter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
+        <state relative-caret-position="176">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Program Files/Python36/Lib/unittest/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="258" column="0" lean-forward="false" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_visible.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_click.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="76" column="19" lean-forward="true" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/name_bean.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/ExtractSettings/web_extract.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/InvitationSettings/web_invitation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1039">
+          <caret line="86" column="41" lean-forward="false" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_discount.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="145" column="8" lean-forward="false" selection-start-line="145" selection-start-column="8" selection-end-line="145" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watiki_discount.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="129" column="0" lean-forward="true" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_participate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="210" column="24" lean-forward="false" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_participate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="244" column="31" lean-forward="false" selection-start-line="244" selection-start-column="31" selection-end-line="244" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_deductible.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="102" column="28" lean-forward="true" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/operation/selenium_input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="128" column="51" lean-forward="false" selection-start-line="128" selection-start-column="51" selection-end-line="128" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/VerificationRepeat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="40" column="27" lean-forward="true" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-145">
+          <caret line="107" column="8" lean-forward="false" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
+          <folding>
+            <element signature="e#104#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/Exception_error/DefinitionError.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-79">
+          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/SingleVerification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
           <folding />
         </state>
       </provider>
