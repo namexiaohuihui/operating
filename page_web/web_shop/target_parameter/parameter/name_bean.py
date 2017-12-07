@@ -84,6 +84,9 @@ class letter_parameter_names(object):
     gp_separate = "请输入正整数多个用逗号分隔" # 输入的不为数字
     gp_proper = "该商品为店铺商品" # 输入的数字不是共有的
     gp_incorrect = "输入的不参与优惠商品不正确" # 输入完全不正确的提示
+	
+	# 上限数量的提示:
+	number_max = "请输入金额格式"
 
     # 邀请页面设置---------------
 
