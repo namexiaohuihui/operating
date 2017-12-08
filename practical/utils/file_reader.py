@@ -7,6 +7,8 @@
 """
 """
 文件读取。YamlReader读取yaml文件，ExcelReader读取excel。
+
+https://www.cnblogs.com/linyfeng/p/7123423.html
 """
 import yaml
 import os
