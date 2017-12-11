@@ -14,10 +14,10 @@ PATH = lambda p: os.path.abspath(
 )
 
 desired_caps = {}
-desired_caps['device'] = 'Android'
-desired_caps['browserName'] = '64535188:5555'
-desired_caps['version'] = '7.1.1'
-desired_caps['app'] = PATH('E:\drivers\weixin6510android1080.apk')
+desired_caps['platformName'] = 'Android'
+desired_caps['deviceName'] = '64535188:5555'
+desired_caps['platformVersion'] = '23'
+desired_caps['app'] = PATH('E:\drivers\mobileqq_android.apk')
 desired_caps['app-package'] = 'com.tencent.mobileqq'
 desired_caps['app-activity'] = '.activity.SplashActivity'
 

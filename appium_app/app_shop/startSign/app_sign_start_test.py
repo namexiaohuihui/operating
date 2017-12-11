@@ -5,18 +5,22 @@ __author__ = 'Administrator'
 """
 @file: app_sign_start_test.py
 @time: 2017/8/30 5:39
+
+http://blog.csdn.net/zhenzhendexiaoer/article/details/77162513
 """
 
 from appium import webdriver
 
 desired_caps={
     'platformName':'Android',
-    'deviceName':'72836533:5555',
-    'platfrormVersion':'5.1.1',
+    'deviceName':'64535188:5555',
+    'browserVersion':'7.1.1',
+    'platfrormVersion':'23',
+    'app':'E:\\drivers\\mobileqq_android.apk',
     #包名
-    'appPackage':'com.tencent.mm',
+    'appPackage':'com.tencent.mobileqq',
     #启动页
-    'appActivity':'com.tencent.mm.ui.LauncherUI',
+    'appActivity':'com.tencent.mobileqq.activity.SplashActivity',
     #com.tencent.mm:id/adj
     'unicodeKeyboard':'True',
     #将键盘隐藏起来
