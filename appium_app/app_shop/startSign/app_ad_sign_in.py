@@ -15,11 +15,11 @@ PATH = lambda p: os.path.abspath(
 
 desired_caps = {}
 desired_caps['device'] = 'Android'
-desired_caps['browserName'] = '72836533:5555'
-desired_caps['version'] = '5.1.1'
+desired_caps['browserName'] = '64535188:5555'
+desired_caps['version'] = '7.1.1'
 desired_caps['app'] = PATH('E:\drivers\weixin6510android1080.apk')
-desired_caps['app-package'] = 'com.tencent.mm'
-desired_caps['app-activity'] = '.ui.LauncherUI'
+desired_caps['app-package'] = 'com.tencent.mobileqq'
+desired_caps['app-activity'] = '.activity.SplashActivity'
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 

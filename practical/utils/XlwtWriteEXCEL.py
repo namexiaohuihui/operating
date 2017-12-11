@@ -21,7 +21,7 @@ class EXCELXLWT:
         self.workbook = xlwt.Workbook(encoding='utf8')  # 创建工作簿
 
         #  创建sheet，并指定可以重复写入数据的情况.设置行高度
-        self.sheet = f.add_sheet(name, cell_overwrite_ok=False)
+        self.sheet = self.workbook.add_sheet(name, cell_overwrite_ok=False)
 
         # 初始化样式
         self.style = xlwt.XFStyle()
@@ -38,7 +38,7 @@ class EXCELXLWT:
     bold:粗体（是否）/italic:斜体（是否）/struck_out:字体中横线(是否)
     underline:下划线（大小）
     """
-    def FontStyle(self,name, height,color, bold=False):
+    def FontStyle(self,name = 'Times New Roman', height = 220,color = 32, bold=False):
         font = xlwt.Font()  # 为样式创建字体
         # 字体类型：比如宋体、仿宋
         font.name = name
@@ -183,4 +183,9 @@ class demoTest:
 if __name__ == '__main__':
     # generate_workbook()
     # read_excel()
-    demoTest.write_excel(demoTest)
+    #　demoTest.write_excel(demoTest)
+    ex = EXCELXLWT(name = 'name')
+    ex.FontStyle()
+    for i in range(5):
+        ex.sheet.write(i, 5, i, ex.style)
+    ex.workbook.save('nihao.xls')
