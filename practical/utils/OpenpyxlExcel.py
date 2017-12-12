@@ -42,7 +42,7 @@ def read():
 
 def load():
     # 要操作的表格
-    wb = load_workbook(filename='empty_book2.xlsx')
+    wb = load_workbook(filename='empty_book.xlsx')
     # 获取指定工作簿
     ws = wb['range names']
     # 打印指定的内容:ws['A4']返回的是一个cell，通过value来获取值
@@ -100,9 +100,11 @@ def load():
     wb.save('nihaoma.xlsx')
     wb.save('nihaoma.xls')
     '''
-    print(wb.sheetnames)
-    print(wb.get_sheet_names)
 
+    from openpyxl.utils.dataframe import  dataframe_to_rows
+    from openpyxl.utils import  dataframe
+    df = dataframe()
+    print(dataframe_to_rows(df,index=True,header=True))
 
 
 
@@ -167,4 +169,16 @@ def date():
 
 if __name__ == '__main__':
     #　date()
-    load()
+    # load()
+    from openpyxl.utils import dataframe
+    from openpyxl.utils.dataframe import dataframe_to_rows
+    import pandas as pd
+    # http://blog.csdn.net/tanzuozhev/article/details/76713387
+    #http://www.cnblogs.com/chaosimple/p/4153083.html
+    inp = [{'c1': 10, 'c2': 100}, {'c1': 11, 'c2': 110}, {'c1': 12, 'c2': 120}]
+    df = pd.DataFrame(inp)
+    print(dataframe_to_rows(df, index=True, header=True))
+    for r in dataframe_to_rows(df, index=True, header=True):
+        print(r)
+
+
