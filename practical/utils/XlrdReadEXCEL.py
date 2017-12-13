@@ -27,8 +27,12 @@ class EXCELXLRD:
             # 根据索引获取sheet表
             self.sheetbook = self.workbook.sheet_by_index(sheet)
         else:
-            # 根据索引获取sheet表
-            self.sheetbook = self.workbook.sheet_by_name(sheet)
+            try:
+                # 根据索引获取sheet表
+                self.sheetbook = self.workbook.sheet_by_name(sheet)
+            except ValueError:
+                from practical.Exception_error import DefinitionError
+                raise DefinitionError('No sheet named <%r>' % sheet)
 
     # 返回该表总行数
     def rows_size(self):

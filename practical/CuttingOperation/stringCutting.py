@@ -7,10 +7,9 @@
 """
 
 
-# 切割字符：str字符，op指定切割的元素，num切割的数量，ber获取的数量
 import re
 
-
+# 切割字符：str字符，op指定切割的元素，num切割的数量，ber获取的数量
 def specified_cut(str, op, num, ber):
     string = str.split(op, num)[ber]
     return string;
@@ -44,7 +43,7 @@ def spaces_sides(str):
     return str;
 
 
-# Replaces the default substitution space by the specified string
+# 用指定的字符代替现有的字符
 def spaces_replace(str, op=' ', oa=''):
     str = str.replace(op, oa)
     return str;
