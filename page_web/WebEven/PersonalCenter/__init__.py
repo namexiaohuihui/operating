@@ -20,7 +20,7 @@ def url_op():
     options = bc.mobile_phone_mode()
 
     # 2.调用已经规划好的浏览器函数
-    driver = bc.url_opens('http://wechat4.t-lianni.com/', options)
+    driver = bc.url_opens('http', options)
     driver.implicitly_wait(10)
     tt = driver.find_element_by_css_selector('.am-dialog-button')
 
