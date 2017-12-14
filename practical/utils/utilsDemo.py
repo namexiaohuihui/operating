@@ -15,7 +15,7 @@ def read():
     # 创建工作表
     wb = Workbook()
     # 定义文件名
-    dest_filename = 'empty_book.xlsx'
+    dest_filename = 'E://empty_book.xlsx'
     # 打开工作薄，默认第一个
     ws1 = wb.active
     # 设置工作薄的名称
@@ -172,46 +172,10 @@ def pandsaaa():
         print(row)
 
 
-def load():
-    # 要操作的表格
-    wb = load_workbook(filename='SampleChart.xlsx')
-    # 获取指定工作簿
-    ws = wb['range names']
-
-    # 获取整行或者整列的内容
-    '''
-    colC = ws['C']
-    col_range = ws['C:D']
-    row10 = ws[10]
-    row_range = ws['5:10']
-
-    for row in ws.iter_rows(min_row=1,max_row=2,max_col=3):
-        print(row)
-
-    for row in ws.iter_cols(min_row=1,max_row=2,max_col=3):
-        print(row)
-
-    '''
-    '''
-    # 将现有的表进行复制并保存为模板。。并后缀名为xltx，如果为xls和xlsx在打开的时候出现问题
-    wb = load_workbook('document.xlsx')
-    wb.template = True
-    wb.save('document_template.xltx')
-    wb.save('document_template2.xls')
-
-
-    # 将现有的模板还原成文档或直接将现有的wb另存为。
-    # 保存为xls文件打开的时候会提示错误
-    wb = load_workbook('document_template.xltx')
-    wb.template = False
-    wb.save('nihaoma.xlsx')
-    wb.save('nihaoma.xls')
-    '''
-
 
 
 if __name__ == '__main__':
-    date()
+    read()
     # 　load()
 
 
