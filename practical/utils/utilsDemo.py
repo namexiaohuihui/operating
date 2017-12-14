@@ -177,28 +177,6 @@ def load():
     wb = load_workbook(filename='SampleChart.xlsx')
     # 获取指定工作簿
     ws = wb['range names']
-    # 打印指定的内容:ws['A4']返回的是一个cell，通过value来获取值
-    # print(ws['A4'].value)
-    # print(ws['A4'])
-    '''
-    打印工作薄名称
-    print(wb.sheetnames)
-    for sheet in wb :
-        print(sheet.title)
-    '''
-    # 复制工作薄，并且不会新建一个工作薄，只是暂时的
-    # 如果本体是只读或者只写的情况就不能复制
-    # 　wb.copy_worksheet(sheet_ranges)
-
-    # 返回指定的行列对象。。注意有双层的lit
-    '''
-    cell_range = sheet_ranges['A1':'C2']
-    print(cell_range)
-    for va in cell_range:
-        print(va)
-        for v in va:
-            print(v.value)
-    '''
 
     # 获取整行或者整列的内容
     '''
@@ -213,9 +191,6 @@ def load():
     for row in ws.iter_cols(min_row=1,max_row=2,max_col=3):
         print(row)
 
-    # 打印所有的行和列
-    print(tuple(ws.rows)) #单行中，列的长度
-    print(tuple(ws.columns))　＃单列中，行的长度
     '''
     '''
     # 将现有的表进行复制并保存为模板。。并后缀名为xltx，如果为xls和xlsx在打开的时候出现问题
