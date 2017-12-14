@@ -1,0 +1,6 @@
+selenium.common.exceptions.WebDriverException: Message: unknown error: Element is not clickable at point (456, -17)
+场景：打开微信公众号的链接之后，有个xxx。通过click去点击的时候提示不可点击
+办法：浏览器最大化就可点击了
+
+selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+定位方式写错了

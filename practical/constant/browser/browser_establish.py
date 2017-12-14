@@ -38,7 +38,6 @@ from practical.constant.browser.browser_into import browser_get_info
 
 # __new__创建一个对象，__init__实例化一个对象
 class browser_confirm(browser_get_info):
-
     # 单例类判断。如果该类创建过就不需要重新创建了
     def __new__(cls, *args, **kw):
         if not hasattr(cls, '_instance'):
@@ -47,10 +46,11 @@ class browser_confirm(browser_get_info):
         return cls._instance
 
     # 调用函数，实现打开谷歌浏览器的步骤
-    def chrome_browser(self):
+    def chrome_browser(self, options=None):
         try:
             # 实现全局变量的引用
-            self.browser = webdriver.Chrome("E:\drivers\Drivers\chromedriver60-62.exe")
+            self.browser = webdriver.Chrome(executable_path="E:\drivers\Drivers\chromedriver61-63.exe",
+                                            chrome_options=options)
             print("打开谷歌")
         except:
             self.writeLog(self)
@@ -105,24 +105,39 @@ class browser_confirm(browser_get_info):
             print('如果没有异常执行这块代码')
 
     # 运行浏览器
-    def url_opens(self,url = None):
+    def url_opens(self, url=None, options=None):
 
         print("浏览器开始执行初始化")
 
         # 创建浏览器对象
-        self.browser = self.chrome_browser()
-        # self.browser.maximize_window()
+        self.browser = self.chrome_browser(options=options)
+        #   self.browser.maximize_window()
 
-        # 输入网址
-        # self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
-        #　self.browser.get("C:\\Users\\70486\\Desktop\\－－ _ LIANNI.COM.html")
-        # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
-        self.browser.get("http://---")
+        if url == None:
+            # 输入网址
+            # self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
+            # 　self.browser.get("C:\\Users\\70486\\Desktop\\－－ _ LIANNI.COM.html")
+            # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
+            self.browser.get("http://---")
+        else:
+            # 输入网址
+            # self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
+            # 　self.browser.get("C:\\Users\\70486\\Desktop\\－－ _ LIANNI.COM.html")
+            # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
+            self.browser.get(url)
 
         # 等待网页加载，加载时间为10s，加载完就跳过
         self.browser.implicitly_wait(30)
 
         return self.browser;
+
+    #   设置手机模式
+    def mobile_phone_mode(self):
+        from selenium.webdriver.chrome.options import Options
+        mobile_emulation = {"deviceName": "iPhone 6"}
+        options = Options()
+        options.add_experimental_option("mobileEmulation", mobile_emulation)
+        return options
 
     # 返回浏览器对象
     def bro_wser(self):

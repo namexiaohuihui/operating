@@ -8,8 +8,6 @@
 import os
 import time
 
-from selenium.webdriver import ActionChains
-
 #这是鼠标移动类，传入相应的id，name，text，xpath，css就可以执行鼠标移动的指令
 '''
                        _oo0oo_
@@ -83,6 +81,7 @@ def css_move(browser,css):
         writeLog()
 
 def auto_move(browser,br_ele):
+    from selenium.webdriver import ActionChains
     ActionChains(browser).move_to_element(br_ele).perform()
     time.sleep(2)
 
