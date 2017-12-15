@@ -87,7 +87,7 @@ class cc():
 
     def taobaomoshi(self):
         url = "https://login.m.taobao.com/msg_login.htm?spm=0.0.0.0"
-        paths=  "E:\drivers\Drivers\chromedriver60-62.exe"
+        paths=  "E:\drivers\Drivers\chromedriver61-63.exe"
         mobile_emulation = {"deviceName": "iPhone 6"}
         from selenium.webdriver.chrome.options import Options
         options = Options()
@@ -139,4 +139,7 @@ if __name__ == '__main__':
     print(dict1["content"])
     for k, y in dict1.items():
         print('{k}:{v}'.format(k=k, v=y))
+
+    qq = cc()
+    qq.taobaomoshi()
 

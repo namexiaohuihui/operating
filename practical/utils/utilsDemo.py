@@ -8,37 +8,28 @@ from openpyxl import Workbook
 from openpyxl import load_workbook
 from openpyxl.compat import range
 from openpyxl.utils import get_column_letter
-import datetime
 
 
 def read():
     # 创建工作表
     wb = Workbook()
     # 定义文件名
-    dest_filename = 'E://empty_book.xlsx'
-    # 打开工作薄，默认第一个
-    ws1 = wb.active
-    # 设置工作薄的名称
-    ws1.title = 'range names'
+    dest_filename = 'empty_book.xlsx'
+    ws = wb.active
+    ws.title = 'range names'
 
-    for row in range(1, 40):
-        ws1.append(range(600))
-    ws1['A43'] = '傻逼'
-    # 设置指定位置的工作薄的名称
-    ws2 = wb.create_sheet(title='Pi', index=3)
-    # 复制给单元格
-    ws2['F5'] = 3.14
-    # 设置工作破名称，在现有工作薄的后面增加
-    ws3 = wb.create_sheet(title='Data')
-    for row in range(10, 20):
-        for col in range(27, 54):
-            # 指定位置并写入内容
-            _ = ws3.cell(column=col, row=row, value="{0}".format(get_column_letter(col)))
-
-    print(ws3['AA10'].value)
+    # 将现有的数据进行表格显示
+    from openpyxl.chart import BarChart, Reference, Series
+    for i in range(2,12):
+        ws.append(range(1,5))
+    # 制作表格的数据范围
+    values = Reference(ws, min_col=1, min_row=1, max_col=6, max_row=4)
+    chart = BarChart()  # 指定表格对象
+    # from_rows控制以行为单位显示还是以列为单位显示，titles_from_data控制标题
+    chart.add_data(values, from_rows = True)
+    ws.add_chart(chart, 'E12')
 
     wb.save(filename=dest_filename)
-
 
 def date():
     wb = Workbook()
@@ -48,56 +39,7 @@ def date():
     ws = wb.active
     ws.title = 'range names'
 
-    # dt = datetime.datetime.now()
-    # 时间转时间戳print(dt.timestamp())
-    # 时间戳转时间print(dt.fromtimestamp())
-    # ws['A1'] = dt #　写入时间
-    # print(ws['A1'].number_format)
 
-    # You can enable type inference on a case-by-case basis
-    # 　还可以启用类型和格式推断：
-    '''
-    wb.guess_types = True
-    ws['B1'] = '3.14%'
-    print(ws['B1'].value)
-    print(ws['B1'].number_format)
-    # set percentage using a string followed by the percent sign
-    wb.guess_types = True
-    print(ws['B1'].value)
-    print(ws['B1'].number_format)
-    '''
-
-    '''
-    #　写入求和内容
-    ws['C1'] = "=SUM(1,1)"
-    print(ws['C1'].value)
-    print(ws['C1'].number_format)
-
-    # 判断是否使用公式
-    from openpyxl.utils import  FORMULAE
-    kk = "HEX2DEC" in FORMULAE
-    print(kk)
-    '''
-
-    # 单元格合并以及删除
-    '''
-        for row in range(2, 6):
-        ws.append(range(5))
-    ws.merge_cells('A2:D2')
-    ws.unmerge_cells('A2:D2')
-    # 等价于上面的
-    ws.merge_cells(start_row=4, start_column=1, end_row=4, end_column=4)
-    ws.unmerge_cells(start_row=4, start_column=1, end_row=4, end_column=4)
-
-    '''
-
-    """
-    # 保存图片,影响运行屏蔽先
-    from openpyxl.drawing.image import Image
-    ws['A6'] = "You should see three logos below"
-    img = Image("F:\\图片\\22.jpg")
-    ws.add_image(img,'A6')
-    """
 
     '''
     # 将现有的数据进行表格显示

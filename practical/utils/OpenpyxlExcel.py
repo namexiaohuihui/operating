@@ -180,27 +180,7 @@ class READEXCEL:
 
 
 class WRITEEXCEL:
-    """
-    这个class负责写入数据：将信息从电脑写到excel
-    """
-    def __init__(self,FILEPATH, SHEETTITLE='title'):
-        """
-                :param FILEPATH:  需要操作的文件路径
-                :param SHEETNAME: 工作薄名称，默认为title
-         """
-        # 判断保存文件的位置是否存在
-        path = os.path.split(FILEPATH)
-        if os.path.exists(path[0]) or path[0] == '':  # 检验文件是指定存储路径还是存储在本路径下
-            if os.path.splitext(path[1])[1] == '.xlsx':  # 检验文件是否为xlsx格式的文件
-                print('123456')
-                self.excel = FILEPATH  # 存储文件的路径保存
-                self.data(SHEETTITLE)  # 调用初始化函数，赋值标题
-            else:
-                print(os.path.splitext(path[1])[1] + ' : 读取文件的格式不对')
-        else:
-            raise FileNotFoundError('文件不存在！')
-
-    def __init__(self, FILEPATH, SHEETTITLE='title',_INDEX = 0):
+    def __init__(self, FILEPATH, SHEETTITLE='title', _INDEX=None):
         """
         :param FILEPATH:  需要操作的文件路径
         :param SHEETNAME: 工作薄名称，默认为title
@@ -209,27 +189,162 @@ class WRITEEXCEL:
         path = os.path.split(FILEPATH)
         if os.path.exists(path[0]) or path[0] == '':  # 检验文件是指定存储路径还是存储在本路径下
             if os.path.splitext(path[1])[1] == '.xlsx':  # 检验文件是否为xlsx格式的文件
-                print('234554235')
+
                 self.excel = FILEPATH  # 存储文件的路径保存
                 self.data(_TITLE=SHEETTITLE, _INDEX=_INDEX)  # 调用初始化函数，赋值标题
+
             else:
                 print(os.path.splitext(path[1])[1] + ' : 读取文件的格式不对')
         else:
             raise FileNotFoundError('文件不存在！')
 
-    def data(self, _TITLE,_INDEX =None):  # 此处不严谨：如果输入的字符串都为数字那么就会出错
+    def data(self, _TITLE, _INDEX):  # 此处不严谨：如果输入的字符串都为数字那么就会出错
 
         # 创建需要操作的文档
         self.workbook = Workbook()
+
+        if type(_INDEX) in [int]:
+            self.create_sheet(_TITLE, _INDEX)
+        else:
+            self.active_sheet(_TITLE)
+
+        print('333')
+
+    def create_sheet(self, _TITLE, _INDEX):
+        """
+           如果只创建一个工作薄的话不建议这个方式
+           例：
+           index设置为0时，会自动生成一个名为sheet的工作薄内容为空
+           设置为10时，自动生成9个空内容的工作薄，内存消耗大
+         """
+        self.work_sheet = self.workbook.create_sheet(title=_TITLE, index=_INDEX)
+
+    def active_sheet(self, _TITLE):
+        #   单独创建一个工作薄
         self.work_sheet = self.workbook.active
         self.work_sheet.title = _TITLE
 
-        #self.work_sheet = self.workbook.create_sheet(title=sheet)  # 设置工作薄的名字
-        #self.work_sheet2 = self.workbook.create_sheet(title='qweasd11')  # 设置工作薄的名字
-
+    def save_woek_sheet(self):
+        #   保存工作薄
         self.workbook.save(filename=self.excel)
 
-        print('333')
+    def content_cell_single(self, single, content):
+        """
+        根据单个cell进行赋值
+        :param single:  位置
+        :param content:  内容
+        :return:
+        """
+        self.work_sheet[single] = content
+
+    def content_cell_row_col(self, col, row, value):
+        """
+            该语句返回当前设置单元格的内容value
+           :param col:
+           :param row:
+           :param value:
+           :return:
+       """
+        _ = self.work_sheet.cell(column=col, row=row, value=value)
+
+    def content_row_append(self,content):
+        """
+        对一整行直接写入.
+        如果文件已经写入内容时，那么就在下一行写入内容
+        :param content:  可以为list也可以是单个内容
+        :return:
+        """
+        self.work_sheet.append(content)
+
+    #   返回某个列的标题位置名称
+    def get_column_letter(self, Number=1):
+        from openpyxl.utils import get_column_letter
+        return "{0}".format(get_column_letter(Number))
+
+    def time_transformation_timeStamp(self, dt):
+        # 时间转时间戳
+        if dt == None:
+            import datetime
+            dt = datetime.datetime.now()
+        return dt.timestamp()
+
+    def datetime_transformation(self, dt):
+        # 时间戳转时间
+        return dt.fromtimestamp()
+
+    def datetime_format(self,format = "%Y-%m-%d %H:%M:%S"):
+        import datetime
+        #   打印当前时间，并按照格式显示
+        return datetime.datetime.now().strftime(format)
+
+    def merge_excel(self, range):
+        """
+        合并单元格
+        :param range:
+        :return:
+        """
+        try:
+            self.work_sheet.merge_cells(range)
+            pass
+        except InsufficientCoordinatesException:
+            print('Merge error')
+
+    def ummerge_excel(self, range):
+        """
+        拆除单元格
+        :param range:
+        :return:
+        """
+        try:
+            self.work_sheet.unmerge_cells(range)
+            pass
+        except InsufficientCoordinatesException:
+            print('Break the merge error')
+
+
+    def row_col_merge_excel(self, start_row=1, start_column=1, end_row=1, end_column=1):
+        """
+        指定行列之后进行合并
+        :param start_row:
+        :param start_column:
+        :param end_row:
+        :param end_column:
+        :return:
+        """
+        try:
+            self.work_sheet.merge_cells(start_row=start_row, start_column=start_column, end_row=end_row, end_column=end_column)
+            pass
+        except InsufficientCoordinatesException:
+            print('Merge error')
+
+    def row_col_ummerge_excel(self, start_row=1, start_column=1, end_row=1, end_column=1):
+        """
+        指定行列之后进行合并
+        :param start_row:
+        :param start_column:
+        :param end_row:
+        :param end_column:
+        :return:
+        """
+        try:
+            self.work_sheet.unmerge_cells(start_row=start_row, start_column=start_column, end_row=end_row,
+                                        end_column=end_column)
+            pass
+        except InsufficientCoordinatesException:
+            print('Break the merge error')
+
+    def insert_picture(self,range,image):
+        """
+        插入图片
+        :param range: 需要插入图片的位置
+        :param image: 插入的图片
+        :return:
+        """
+        from openpyxl.drawing.image import Image
+        ws[range] = "You should see three logos below"
+        img = Image(image)
+        ws.add_image(img,range)
+
 
     def sfewjq(self):
         # 设置标题的2种方式
@@ -237,7 +352,9 @@ class WRITEEXCEL:
         ws1.title = 'range names'
 
         ws2 = wb.create_sheet(title='Pi', index=3)  # 设置标题并指定sheet的位置
-        print()
+        #如果单元格内容为时间，那么可以查看设置时间的格式
+        # 为数字时，打印数字格式
+        ws['A1'].number_format
 
 
 if __name__ == '__main__':
@@ -245,5 +362,5 @@ if __name__ == '__main__':
     # print(read_excel.get_sheet_value('1'))
     # 　print(read_excel.attribute_document('copy_empty_book.xlsx.xltx','E://operating//practical//utils//xyy.xlsx'))
     print(datetime.datetime.now())
-    write_excel = WRITEEXCEL('xxx.xlsx')
-    print(datetime.datetime.now())
+    # write_excel = WRITEEXCEL('xxx.xlsx',_INDEX = 0)
+    print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
