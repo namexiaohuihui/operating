@@ -10,7 +10,7 @@ http://blog.csdn.net/tanzuozhev/article/details/76713387
 http://www.cnblogs.com/chaosimple/p/4153083.html
 """
 
-from openpyxl import Workbook,load_workbook
+from openpyxl import Workbook, load_workbook
 import datetime
 import os
 
@@ -34,7 +34,7 @@ class READEXCEL:
         else:
             raise FileNotFoundError('文件不存在！')
 
-    def data(self, sheet):#　此处不严谨：如果输入的字符串都为数字那么就会出错
+    def data(self, sheet):  # 此处不严谨：如果输入的字符串都为数字那么就会出错
 
         # 创建需要操作的文档
         self.workbook = load_workbook(filename=self.excel)  # 打开文档
@@ -55,7 +55,7 @@ class READEXCEL:
         else:
             print("你输入啥咯.")
 
-    #  返回读取到单元格的内容，并已cell形式返回
+    # 返回读取到单元格的内容，并已cell形式返回
     def get_sheet_value(self, _value):
         # 先判断需要寻找的cell位置。如果为空或者其他类型的就提示
         if type(_value) in [int, str]:
@@ -66,8 +66,8 @@ class READEXCEL:
         else:
             print('1级错误')
 
-    #   指定行和列来读取数据信息
-    def position_sheet_value(self,min_row=1, max_row=1, max_col=1 ):
+    # 指定行和列来读取数据信息
+    def position_sheet_value(self, min_row=1, max_row=1, max_col=1):
         content = self.sheetbook.iter_rows(min_row=min_row, max_row=max_row, max_col=max_col)
         return content
 
@@ -76,7 +76,7 @@ class READEXCEL:
         return self.sheetbook.title
 
     #   返回某个列的标题位置名称
-    def get_column_letter(self,Number = 1):
+    def get_column_letter(self, Number=1):
         from openpyxl.utils import get_column_letter
         return get_column_letter(Number)
 
@@ -87,38 +87,39 @@ class READEXCEL:
 
     #   为真时，以行为一体，每行的数据信息
     #   为假时，以列为一体，每列的数据信息
-    def total_row_columns(self,total = True):
+    def total_row_columns(self, total=True):
         if total:
-            content = tuple(read_excel.sheetbook.rows)# 单行中，列的长度
+            content = tuple(read_excel.sheetbook.rows)  # 单行中，列的长度
         else:
-            content = tuple(read_excel.sheetbook.columns)# 单列中，行的长度
+            content = tuple(read_excel.sheetbook.columns)  # 单列中，行的长度
         return content;
 
     """
     将现有xlsx文档保存为xltx模板
     """
-    def attribute_template(self,emplate = None):
+
+    def attribute_template(self, emplate=None):
         # 将现有的表进行复制并保存为模板。。并后缀名为xltx，如果为xls和xlsx在打开的时候出现问题
-        if type(emplate) in [str] :#  判断输入的内容是否为字符串
+        if type(emplate) in [str]:  # 判断输入的内容是否为字符串
 
-            genericpath = os.path.splitext(emplate)[1] #    切割文件后缀名
+            genericpath = os.path.splitext(emplate)[1]  # 切割文件后缀名
 
-            if genericpath =='.xltx':
+            if genericpath == '.xltx':
 
-                attribute = os.path.split(emplate)[1] # 切割最后一个文件的名字
-                self.workbook.template = True   # 属性设置
-                self.workbook.save(attribute)   # 保存后缀名为xltx的文件
+                attribute = os.path.split(emplate)[1]  # 切割最后一个文件的名字
+                self.workbook.template = True  # 属性设置
+                self.workbook.save(attribute)  # 保存后缀名为xltx的文件
                 print('The xlsx document is completed by turning the xitx template.')
-                return attribute;   # 返回文件名
+                return attribute;  # 返回文件名
 
             elif genericpath == '':
-                attribute = os.path.split(emplate)[1] + '.xltx'# 切割最后一个文件的名字
-                self.workbook.template = True# 属性设置
-                self.workbook.save(attribute)# 保存后缀名为xltx的文件
+                attribute = os.path.split(emplate)[1] + '.xltx'  # 切割最后一个文件的名字
+                self.workbook.template = True  # 属性设置
+                self.workbook.save(attribute)  # 保存后缀名为xltx的文件
                 print('The xlsx document is completed by turning the xitx template.')
-                return attribute; # 返回文件名
+                return attribute;  # 返回文件名
 
-            elif genericpath in ['xls','xlsx','txt']:
+            elif genericpath in ['xls', 'xlsx', 'txt']:
                 print('Files that do not support suffixes such as XLS xlsx text')
 
             else:
@@ -138,24 +139,25 @@ class READEXCEL:
     """
     将现有xltx模板转成xlsx文档进行保存
     """
-    def attribute_document(self,template,document):
+
+    def attribute_document(self, template, document):
         # 将现有的模板还原成文档或直接将现有的wb另存为。
         # 保存为xls文件打开的时候会提示错误
-        if os.path.exists(template): # 判断文件是否存在
+        if os.path.exists(template):  # 判断文件是否存在
 
-            if os.path.splitext(template)[1] == '.xltx' : # 判断模板是不是xltx文件
+            if os.path.splitext(template)[1] == '.xltx':  # 判断模板是不是xltx文件
                 attribute = os.path.split(document)  # 将文档切割。切成路径和文件两部分
 
-                if attribute[0] == '': # 判断路径是否为空，为空说明保存跟模板同一个位置
+                if attribute[0] == '':  # 判断路径是否为空，为空说明保存跟模板同一个位置
 
-                    if os.path.splitext(attribute[1])[1] == '.xlsx': # 判断是否文档保存是否为xlsx文件
+                    if os.path.splitext(attribute[1])[1] == '.xlsx':  # 判断是否文档保存是否为xlsx文件
                         self.workbook.template = False
                         self.workbook.save(document)
                         print('The xitx template turns to the xlsx document.')
                         return document  # 返回文件名
                     else:
                         print(document + ' : Not a File with a suffix xlsx')
-                elif os.path.exists(attribute[0]): #　有路径说明要保存在指定路径下面
+                elif os.path.exists(attribute[0]):  # 有路径说明要保存在指定路径下面
 
                     if os.path.splitext(attribute[1])[1] == '.xlsx':
 
@@ -167,57 +169,81 @@ class READEXCEL:
                         print(document + ' : Not a File with a suffix xlsx')
                 else:
                     print(document + ' : File path does not exist, please try again.')
-            else :
+            else:
                 print(template + ' : Not a File with a suffix xltx')
         else:
             print(template + ' : File does not exist')
 
     def qisahife(self):
-        #　打印工作薄名称
+        # 　打印工作薄名称
         print(wb.sheetnames)
 
 
-"""
-这个class负责写入数据：将信息从电脑写到excel
-"""
-
-
 class WRITEEXCEL:
-    def __init__(self, FILEPATH, SHEETTITLE='title'):
+    """
+    这个class负责写入数据：将信息从电脑写到excel
+    """
+    def __init__(self,FILEPATH, SHEETTITLE='title'):
         """
-        :param FILEPATH:  需要操作的文件路径
-        :param SHEETNAME: 工作薄名称
-        """
+                :param FILEPATH:  需要操作的文件路径
+                :param SHEETNAME: 工作薄名称，默认为title
+         """
         # 判断保存文件的位置是否存在
         path = os.path.split(FILEPATH)
-        if os.path.exists(path[0]) or path[0] =='' :
-            if os.path.splitext(path[1])[1] == '.xlsx':
-                self.excel = FILEPATH  # 存储文件
-
-                self.data(SHEETTITLE)
+        if os.path.exists(path[0]) or path[0] == '':  # 检验文件是指定存储路径还是存储在本路径下
+            if os.path.splitext(path[1])[1] == '.xlsx':  # 检验文件是否为xlsx格式的文件
+                print('123456')
+                self.excel = FILEPATH  # 存储文件的路径保存
+                self.data(SHEETTITLE)  # 调用初始化函数，赋值标题
             else:
                 print(os.path.splitext(path[1])[1] + ' : 读取文件的格式不对')
         else:
             raise FileNotFoundError('文件不存在！')
 
-    def data(self, sheet):#　此处不严谨：如果输入的字符串都为数字那么就会出错
+    def __init__(self, FILEPATH, SHEETTITLE='title',_INDEX = 0):
+        """
+        :param FILEPATH:  需要操作的文件路径
+        :param SHEETNAME: 工作薄名称，默认为title
+        """
+        # 判断保存文件的位置是否存在
+        path = os.path.split(FILEPATH)
+        if os.path.exists(path[0]) or path[0] == '':  # 检验文件是指定存储路径还是存储在本路径下
+            if os.path.splitext(path[1])[1] == '.xlsx':  # 检验文件是否为xlsx格式的文件
+                print('234554235')
+                self.excel = FILEPATH  # 存储文件的路径保存
+                self.data(_TITLE=SHEETTITLE, _INDEX=_INDEX)  # 调用初始化函数，赋值标题
+            else:
+                print(os.path.splitext(path[1])[1] + ' : 读取文件的格式不对')
+        else:
+            raise FileNotFoundError('文件不存在！')
+
+    def data(self, _TITLE,_INDEX =None):  # 此处不严谨：如果输入的字符串都为数字那么就会出错
 
         # 创建需要操作的文档
         self.workbook = Workbook()
-        self.work_sheet  = self.workbook.active # 打开工作薄
-        self.work_sheet.title = sheet # 设置工作薄的名字
-        self.work_sheet['A1'] = '大爷'
+        self.work_sheet = self.workbook.active
+        self.work_sheet.title = _TITLE
+
+        #self.work_sheet = self.workbook.create_sheet(title=sheet)  # 设置工作薄的名字
+        #self.work_sheet2 = self.workbook.create_sheet(title='qweasd11')  # 设置工作薄的名字
+
         self.workbook.save(filename=self.excel)
+
         print('333')
 
+    def sfewjq(self):
+        # 设置标题的2种方式
+        ws1 = wb.active
+        ws1.title = 'range names'
+
+        ws2 = wb.create_sheet(title='Pi', index=3)  # 设置标题并指定sheet的位置
+        print()
 
 
 if __name__ == '__main__':
     # read_excel = READEXCEL('empty_book.xlsx')
     # print(read_excel.get_sheet_value('1'))
-    #　print(read_excel.attribute_document('copy_empty_book.xlsx.xltx','E://operating//practical//utils//xyy.xlsx'))
+    # 　print(read_excel.attribute_document('copy_empty_book.xlsx.xltx','E://operating//practical//utils//xyy.xlsx'))
     print(datetime.datetime.now())
-    write_excel = WRITEEXCEL('E://drivers//xxx.xlsx')
+    write_excel = WRITEEXCEL('xxx.xlsx')
     print(datetime.datetime.now())
-
-
