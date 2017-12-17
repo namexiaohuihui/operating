@@ -4,3 +4,6 @@ selenium.common.exceptions.WebDriverException: Message: unknown error: Element i
 
 selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
 定位方式写错了
+
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
+输入路径或者网址时用的是反斜杠‘\’导致错误，如果用双正斜杠就好了'//'
