@@ -38,14 +38,6 @@ class browser_get_info(object):
             self.writelog()
             print("错误信息:%s" % msg)
 
-    # 进入的执行路径
-    def system_parameter_discount(self):
-        self.browser.find_elements_by_css_selector('.dropdown-toggle')[1].click()
-        sleep(1)
-        self.browser.find_elements_by_css_selector('.system-tooltip')[0].click()
-        sleep(1)
-        self.browser.find_elements_by_css_selector('.nav.nav-tabs>li')[4].click()
-
     def writeLog(self):
         basename = os.path.splitext(os.path.basename(__file__))[0]
         print("自己定义的_文件出现错误,名为名=%s" % basename, )

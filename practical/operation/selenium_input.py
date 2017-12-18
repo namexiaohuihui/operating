@@ -87,8 +87,8 @@ class element_input(element_visible):
             self.css_input(browser,meter.parameter,meter.content)
 
     def transmitDictionaries(self,browser, combination):
-        for k, y in combination.items():
-            self.css_input(browser, y, k)
+        for _key, _value in combination.items():
+            self.css_input(browser, _value, _key)
 
     def id_js_input(self, browser, ordinal, parameter):
         try:

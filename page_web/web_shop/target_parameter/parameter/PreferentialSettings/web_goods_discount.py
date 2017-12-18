@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-import os
-from time import sleep
 import inspect
-import unittest
+import os
 import sys
-from page_web.web_shop.target_parameter.parameter.SingleVerification import discount_input
+import unittest
+
+from page_web.web_shop.target_parameter.SingleVerification import discount_input
 
 __author__ = 'Administrator'
 """
@@ -33,11 +33,7 @@ class goods_discount(discount_input, unittest.TestCase):
         cls.ResultFeedback(cls)
 
     def test_number(self):
-        """验证城市以及数量是否正确"""
-        ele_div = self.browser.find_element_by_css_selector('.box-city')
-        ele_a = ele_div.find_elements_by_tag_name('a')
-        # 打印数量
-        print(len(ele_a))
+        self.city_number()
 
 
     def test_goods_discount_one(self):

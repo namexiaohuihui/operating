@@ -74,11 +74,15 @@ class element_click(element_visible):
 
     def css_click(self, browser, prompt):
 
-        if self.is_visible_css_selectop(browser, prompt):
+        if self.is_visible_css_selectop(self=self, browser=browser, locator=prompt):
             sleep(2)
             browser.find_element_by_css_selector(prompt).click()
         else:
             self.writeLog(browser)
+
+    def element_click(self, element):
+        element.click()
+        sleep(1)
 
         '''
         try:

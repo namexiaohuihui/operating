@@ -6,11 +6,11 @@
 @项目名称:operating
 """
 
-from page_web.web_shop.target_parameter.parameter.name_bean import letter_parameter_names
+from page_web.web_shop.target_parameter.name_bean import letter_parameter_names
+from practical.Exception_error.DefinitionError import definition_error
 from practical.constant.browser.browser_establish import browser_confirm
 from practical.operation.selenium_click import element_click
 from practical.operation.selenium_input import element_input
-from practical.Exception_error.DefinitionError import definition_error
 
 
 class verification_repeat(letter_parameter_names, element_input, element_click):
@@ -55,10 +55,7 @@ class verification_repeat(letter_parameter_names, element_input, element_click):
         # self.parame = parameter_content()
 
         # 2.调用集成的函数
-        bc.case_browesr('11', '222')
-
-        # 执行需要跑case的路径
-        bc.system_parameter_discount()
+        bc.case_browesr('admin', '123456')
 
     """
    arguments_confirm_prompt : 元素点击函数
@@ -137,7 +134,12 @@ class verification_repeat(letter_parameter_names, element_input, element_click):
             # 2.扑捉异常并打印
             definition_error(repr(e)).erroe_get("verification_repeat", self.browser)
 
-
+    def city_number(self):
+        """验证城市以及数量是否正确"""
+        ele_div = self.browser.find_element_by_css_selector('.box-city')
+        ele_a = ele_div.find_elements_by_tag_name('a')
+        # 打印数量
+        print(len(ele_a))
 
 
 

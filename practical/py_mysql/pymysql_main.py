@@ -2,7 +2,6 @@
 
 import json
 import pymysql
-from demo.test_class import user_class
 
 __author__ = 'Administrator'
 """

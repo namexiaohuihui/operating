@@ -11,11 +11,10 @@
 import logging
 from time import sleep
 
+from page_web.web_shop.target_parameter.VerificationRepeat import verification_repeat
 
-from page_web.web_shop.target_parameter.parameter.VerificationRepeat import verification_repeat
 
 class discount_input(verification_repeat):
-
     """
     setUpStart :　开始执行的函数
     basename : 输入框函数名
@@ -24,11 +23,16 @@ class discount_input(verification_repeat):
         1.赋值输入框函数名
         2.执行case的类名，赋值给父类
     """
+
     def setUpStart(cls, basename, ordinal):
         # 1.赋值输入框函数名
         cls.ordinal = ordinal
+
         # 2.执行case的类名，赋值给父类
-        cls.InitializationExecution(cls,basename = basename)
+        cls.InitializationExecution(cls, basename=basename)
+
+        # 3.执行需要跑case的路径
+        cls.system_parameter_discount()
 
     """
     js_input : 集成输入框和移动鼠标的函数
@@ -36,6 +40,7 @@ class discount_input(verification_repeat):
         1.输入内容
         2.转移光标的焦点
     """
+
     def js_input(self):
         # 　1.输入内容 id：　为需要执行输入的id，parameter输入的参数
         self.id_input(browser=self.browser, id=self.ordinal, parameter=self.implement_parameter)
@@ -49,7 +54,7 @@ class discount_input(verification_repeat):
         # 设置提示框中需要进行对比的参数，并进行比较
         pop_text = self.showSweetAlert_visible(self.modal_body_h4)
         self.implement_massegn = self.system_preservation
-        self.visible_massegn_assert(visible=pop_text,massegn=self.implement_massegn)
+        self.visible_massegn_assert(visible=pop_text, massegn=self.implement_massegn)
 
         # 再次确认框中的普通显示的文字
         # 设置提示框中需要进行对比的参数，并进行比较
@@ -57,10 +62,9 @@ class discount_input(verification_repeat):
         self.implement_massegn = self.system_content
         self.visible_massegn_assert(visible=center, massegn=self.implement_massegn)
 
-
     # 集成点击和内容的判断
     # 默认是点击取消
-    def integration_confirm_prompt(self,Situation = False):
+    def integration_confirm_prompt(self, Situation=False):
 
         # 点击提交按钮
         self.arguments_confirm_prompt(self.settingSave)
@@ -78,7 +82,6 @@ class discount_input(verification_repeat):
             # 点击取消按钮
             self.arguments_confirm_prompt(prompt=self.btn_default)
 
-
     def prompt_box(self):
         # 打印log
         self.parameter_log_output()
@@ -89,7 +92,6 @@ class discount_input(verification_repeat):
         # 对比信息
         self.visible_massegn(self.implement_massegn)
 
-
     """
     PreferentialVerification : 获取内容并执行cese
     list_parameter ： 列表中有cese名、提示内容、输入内容
@@ -97,6 +99,7 @@ class discount_input(verification_repeat):
         1.将列表的数据提取
         2.执行case
     """
+
     def PreferentialVerification(self, list_parameter):
         # 1.将列表的数据提取
         # 定义调用的函数名
@@ -128,10 +131,16 @@ class discount_input(verification_repeat):
 
         self.js_input()
 
+    # 进入的执行路径
+    def system_parameter_discount(self):
+        self.browser.find_elements_by_css_selector('.dropdown-toggle')[1].click()
+        sleep(1)
+        self.browser.find_elements_by_css_selector('.system-tooltip')[0].click()
+        sleep(1)
+        self.browser.find_elements_by_css_selector('.nav.nav-tabs>li')[4].click()
+
     # 打印log的地方
     def parameter_log_output(self):
         logger = logging.getLogger("123")
         logger.error("执行者:  %s   假定： %s   输入：%s "
-                          % (self.implement_function ,self.implement_massegn, self.implement_parameter))
-
-
+                     % (self.implement_function, self.implement_massegn, self.implement_parameter))

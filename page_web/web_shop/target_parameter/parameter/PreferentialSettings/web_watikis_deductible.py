@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import os
-from time import sleep
 import inspect
-import unittest
+import os
 import sys
-from page_web.web_shop.target_parameter.parameter.SingleVerification import discount_input
+import unittest
 
+from page_web.web_shop.target_parameter.SingleVerification import discount_input
 
 """
 @__author__ :70486 

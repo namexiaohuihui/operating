@@ -118,12 +118,9 @@ class browser_confirm(browser_get_info):
             # self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
             # 　self.browser.get("C:\\Users\\70486\\Desktop\\－－ _ LIANNI.COM.html")
             # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
-            self.browser.get("http://---")
+            self.browser.get("http://admin.t-lianni.com")
         else:
             # 输入网址
-            # self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
-            # 　self.browser.get("C:\\Users\\70486\\Desktop\\－－ _ LIANNI.COM.html")
-            # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
             self.browser.get(url)
 
         # 等待网页加载，加载时间为10s，加载完就跳过
@@ -138,7 +135,3 @@ class browser_confirm(browser_get_info):
         options = Options()
         options.add_experimental_option("mobileEmulation", mobile_emulation)
         return options
-
-    # 返回浏览器对象
-    def bro_wser(self):
-        return self.browser;

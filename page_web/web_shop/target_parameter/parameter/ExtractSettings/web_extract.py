@@ -6,16 +6,15 @@
 @项目名称:operating
 描述：提现界面的case
 """
-import unittest
 import os
+import unittest
 from time import sleep
 
-from page_web.web_shop.target_parameter.parameter.name_bean import letter_parameter_names
+from page_web.web_shop.target_parameter.name_bean import letter_parameter_names
 from practical.Exception_error.DefinitionError import definition_error
 from practical.constant.browser.browser_establish import browser_confirm
-from practical.constant.parameter.parameter_data import parameter_content
-from practical.operation.selenium_input import element_input
 from practical.operation.selenium_click import element_click
+from practical.operation.selenium_input import element_input
 
 """
 主要验证输入框输入的内容：
