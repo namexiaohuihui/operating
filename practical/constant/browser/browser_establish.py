@@ -118,7 +118,7 @@ class browser_confirm(browser_get_info):
             # self.browser.get("C:\\Users\\70486\\Desktop\\youhui.html")
             # 　self.browser.get("C:\\Users\\70486\\Desktop\\－－ _ LIANNI.COM.html")
             # self.browser.get("C:\\Users\\Administrator\\Desktop\\youhui.html")
-            self.browser.get("http://admin.t-lianni.com")
+            self.browser.get("http://--")
         else:
             # 输入网址
             self.browser.get(url)

@@ -55,7 +55,7 @@ class verification_repeat(letter_parameter_names, element_input, element_click):
         # self.parame = parameter_content()
 
         # 2.调用集成的函数
-        bc.case_browesr('admin', '123456')
+        bc.case_browesr('*', '//')
 
     """
    arguments_confirm_prompt : 元素点击函数
