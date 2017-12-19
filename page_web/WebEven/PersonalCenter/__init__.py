@@ -36,7 +36,6 @@ def url_op():
     x1 = screen[0]*0.5
     y1 = screen[1]*0.75
     y2 = screen[1]*0.25
-    #driver.swipe(driver,x1,y1,x1, y2,100)
 
     qq = driver.find_element_by_css_selector('.m-cart-cont')
     ww = driver.find_element_by_css_selector('.filter-recommend.cur')

@@ -38,9 +38,10 @@ class browser_get_info(object):
             self.writelog()
             print("错误信息:%s" % msg)
 
-    def writeLog(self):
+    def writeLog(self,msg=None):
         basename = os.path.splitext(os.path.basename(__file__))[0]
         print("自己定义的_文件出现错误,名为名=%s" % basename, )
+        print(msg)
         sleep(2)
         # 退出程序
         sys.exit(0)

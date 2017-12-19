@@ -47,13 +47,13 @@ class browser_confirm(browser_get_info):
 
     # 调用函数，实现打开谷歌浏览器的步骤
     def chrome_browser(self, options=None):
+        print("打开谷歌")
         try:
             # 实现全局变量的引用
             self.browser = webdriver.Chrome(executable_path="E:\drivers\Drivers\chromedriver61-63.exe",
                                             chrome_options=options)
-            print("打开谷歌")
-        except:
-            self.writeLog(self)
+        except Exception as msg:
+            self.writeLog(msg)
         return self.browser
 
     # 调用函数，实现打开ie浏览器的步骤
@@ -80,38 +80,19 @@ class browser_confirm(browser_get_info):
             self.browser = webdriver.Firefox(executable_path=firefoxgeckobdriver)
 
             print("打开火狐")
-        except:
-            self.writeLog()
+        except Exception as msg:
+            self.writeLog(msg)
 
         return self.browser
 
-    def call_browser(self, bro='cm'):
-        # 如果能正常获取标题说明浏览器对象已经创建成功，否则就通过判断来创建浏览器
-        try:
-            self.browser.title
-            return self.browser
-        except:
-            if bro == 'cm':
-                self.browser = webdriver.Chrome()
-            elif bro == 'ie':
-                self.browser = webdriver.Ie()
-            elif bro == 'fox':
-                self.browser = webdriver.Firefox()
-            else:
-                print("你输入的不是浏览器的简写,cm = Chrome,ie = Ie,fox = Firefox", str)
-                self.browser = webdriver.Chrome()
-            return self.browser
-        else:
-            print('如果没有异常执行这块代码')
-
     # 运行浏览器
-    def url_opens(self, url=None, options=None):
+    def url_opens(self, url=None,options=None):
 
         print("浏览器开始执行初始化")
 
         # 创建浏览器对象
         self.browser = self.chrome_browser(options=options)
-        #   self.browser.maximize_window()
+        self.browser.maximize_window()
 
         if url == None:
             # 输入网址
@@ -124,7 +105,7 @@ class browser_confirm(browser_get_info):
             self.browser.get(url)
 
         # 等待网页加载，加载时间为10s，加载完就跳过
-        self.browser.implicitly_wait(30)
+        self.browser.implicitly_wait(5)
 
         return self.browser;
 
