@@ -7,3 +7,13 @@ selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: 
 
 SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
 输入路径或者网址时用的是反斜杠‘\’导致错误，如果用双正斜杠就好了'//'
+
+
+******************************************
+map:{'buyer_watiki_id': 12452, 'incr': 1962, 'id': 1712190438126760, 'uid': 10478, 'type': 2, 'business_number': 12452, 'business_type': 2, 'utype': 1, 'amount': Decimal('1.00'), 'receipt': '', 'status': 2, 'status_code': '', 'status_msg': '', 'add_time': 1513672691}
+******************************************
+map:{'buyer_watiki_id': 12449, 'incr': 1960, 'id': 1712190405422707, 'uid': 10478, 'type': 2, 'business_number': 12449, 'business_type': 2, 'utype': 1, 'amount': Decimal('9.00'), 'receipt': '', 'status': 2, 'status_code': '', 'status_msg': '', 'add_time': 1513670741}
+******************************************
+map:{'buyer_watiki_id': 12437, 'incr': 1958, 'id': 1712191132562435, 'uid': 11011, 'type': 2, 'business_number': 12437, 'business_type': 2, 'utype': 1, 'amount': Decimal('0.10'), 'receipt': '2017121921001004280293975094', 'status': 2, 'status_code': '', 'status_msg': '', 'add_time': 1513654375}
+******************************************
+map:{'buyer_watiki_id': 12436, 'incr': 1957, 'id': 1712191049094269, 'uid': 10478, 'type': 1, 'business_number': 12436, 'business_type': 2, 'utype': 1, 'amount': Decimal('0.01'), 'receipt': '50000105162017121902760862413', 'status': 2, 'status_code': '', 'status_msg': '', 'add_time': 1513651739}
