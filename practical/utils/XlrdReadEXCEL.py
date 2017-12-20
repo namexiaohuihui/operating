@@ -5,8 +5,11 @@
 @time: 2017/12/10 16:13
 @项目名称:operating
 """
-import xlrd
 import os
+
+import xlrd
+
+
 class EXCELXLRD:
     def __init__(self,_PATNNAME, sheet=0):
         # 判断文件是否存在
@@ -31,7 +34,7 @@ class EXCELXLRD:
                 # 根据索引获取sheet表
                 self.sheetbook = self.workbook.sheet_by_name(sheet)
             except ValueError:
-                from practical.Exception_error import DefinitionError
+                from practical.utils import DefinitionError
                 raise DefinitionError('No sheet named <%r>' % sheet)
 
     # 返回该表总行数

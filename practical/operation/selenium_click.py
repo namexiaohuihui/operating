@@ -8,8 +8,8 @@ import os
 # 这是元素点击类，传入相应的id，name，text，xpath，css就可以执行的点击事件
 from time import sleep
 
-from practical.Exception_error.DefinitionError import definition_error
 from practical.operation.selenium_visible import element_visible
+from practical.utils.DefinitionError import definition_error
 
 '''
                        _oo0oo_
