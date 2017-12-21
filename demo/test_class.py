@@ -1,19 +1,20 @@
 # -*- coding: utf-8 -*-
 
 import re
-import unittest
+
+import selenium.webdriver.support.expected_conditions as EC
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import ui
-import selenium.webdriver.support.expected_conditions as EC
+
 __author__ = 'Administrator'
 """
 @file: test_class.py
 @time: 2017/10/26 11:58
 """
 
-from practical.constant.browser.browser_establish import browser_confirm
+from practical.constant.browser_establish import browser_confirm
 
 class cc():
 

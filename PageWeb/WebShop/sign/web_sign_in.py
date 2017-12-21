@@ -10,8 +10,9 @@ import os
 import unittest
 from time import sleep
 
-from practical.constant.browser.browser_establish import browser_confirm
 from practical.constant.parameter.parameter_data import parameter_content
+
+from practical.constant.browser_establish import browser_confirm
 from practical.operation import selenium_input, selenium_click
 from practical.utils.DefinitionError import definition_error
 
