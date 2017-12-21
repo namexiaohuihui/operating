@@ -116,11 +116,13 @@ class browser_confirm(browser_get_info):
             from selenium.webdriver.chrome.options import Options
             # 有效的移动设备Galaxy S5.Nexus 5X.Nexus 6P
 
-            # mobile_emulation = {"deviceName": "iPhone"}
-
+            mobile_emulation = {"deviceName": "iPhone 7"}
+            """
             mobile_emulation = {
                 "deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},
                 "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1"}
+            
+            """
             # mobile_emulation = {"browserName": "IE"}
             options = Options()
             options.add_experimental_option("mobileEmulation", mobile_emulation)

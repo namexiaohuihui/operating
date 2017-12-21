@@ -28,9 +28,9 @@ class signtoyou(unittest.TestCase,exclusiveoperation):
     def url_op(self):
         # 1.创建浏览器所在函数的对象
         bc = browser_confirm.__new__(browser_confirm)
-        # options = bc.mobile_phone_mode()
+        options = bc.mobile_phone_mode()
         # 2.调用已经规划好的浏览器函数
-        self.driver = bc.url_opens('---')
+        self.driver = bc.url_opens('http://www.baidu.com',options)
 
         if self.is_visible_css_selectop('.am-dialog-button') is not False:
             # 城市选择框.上线版本是不虚言进行选择的

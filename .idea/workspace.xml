@@ -2,65 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practical/config/__init__.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ExclusiveService/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/sign/web_sign_in.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/FocusVerification.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/SingleVerification.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/UnifiedVerification.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/VerificationRepeat.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/demo.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/focus/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/focus/homefocus.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/name_bean.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/ExtractSettings/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/ExtractSettings/web_extract.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/ExtractSettings/目录介绍" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/InvitationSettings/web_invitation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/InvitationSettings/目录介绍" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_discount.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_goods_participate.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watiki_discount.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_deductible.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/web_watikis_participate.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/PreferentialSettings/目录介绍" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/__init__.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" afterPath="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/operation/selenium_click.py" afterPath="$PROJECT_DIR$/practical/operation/selenium_click.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/operation/selenium_input.py" afterPath="$PROJECT_DIR$/practical/operation/selenium_input.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/utils/XlrdReadEXCEL.py" afterPath="$PROJECT_DIR$/practical/utils/XlrdReadEXCEL.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/MicroPurchase/__init__.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/MicroPurchase/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/Recommend/__init__.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/Recommend/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/Selected/__init__.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/Selected/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ShoppingCart/__init__.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ShoppingCart/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/WebEven/__init__.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/web_shop/__init__.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/web_shop/sign/__init__.py" afterPath="$PROJECT_DIR$/PageWeb/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/__init__.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/InvitationSettings/__init__.py" afterPath="$PROJECT_DIR$/practical/config/readModel.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/CuttingOperation/stringCutting.py" afterPath="$PROJECT_DIR$/practical/utils/stringCutting.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/Exception_error/DefinitionError.py" afterPath="$PROJECT_DIR$/practical/utils/DefinitionError.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/Program_exit/exit_os_sys.py" afterPath="$PROJECT_DIR$/practical/utils/exit_os_sys.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/JavaScript" afterPath="$PROJECT_DIR$/practical/FileIntroduce/JavaScript" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/git删除本地库.txt" afterPath="$PROJECT_DIR$/practical/FileIntroduce/git删除本地库.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/iframe内嵌切换以及多窗口切换" afterPath="$PROJECT_DIR$/practical/FileIntroduce/iframe内嵌切换以及多窗口切换" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/selenium 定位" afterPath="$PROJECT_DIR$/practical/FileIntroduce/selenium 定位" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/字符操作pring_string" afterPath="$PROJECT_DIR$/practical/FileIntroduce/字符操作pring_string" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/异常" afterPath="$PROJECT_DIR$/practical/FileIntroduce/异常" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/文件操作operation_file" afterPath="$PROJECT_DIR$/practical/FileIntroduce/文件操作operation_file" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/日志打印logging_basicConfig" afterPath="$PROJECT_DIR$/practical/FileIntroduce/日志打印logging_basicConfig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/框架.txt" afterPath="$PROJECT_DIR$/practical/FileIntroduce/框架.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/浏览器截图screenshot" afterPath="$PROJECT_DIR$/practical/FileIntroduce/浏览器截图screenshot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/网址" afterPath="$PROJECT_DIR$/practical/FileIntroduce/网址" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/file_introduce/错误继承" afterPath="$PROJECT_DIR$/practical/FileIntroduce/错误继承" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/practical/py_mysql/pymysql_main.py" afterPath="$PROJECT_DIR$/practical/utils/pymysql_main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -69,6 +12,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="operating" />
   </component>
@@ -84,10 +28,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="readModel.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="web_ToSign.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="browser_establish.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="118" column="55" lean-forward="false" selection-start-line="118" selection-start-column="55" selection-end-line="118" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExclusiveOperation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readModel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/practical/config/readModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
+            <state relative-caret-position="440">
               <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
               <folding>
                 <element signature="e#113#122#0" expanded="true" />
@@ -220,23 +194,23 @@
         <option value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/__init__.py" />
         <option value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ExclusiveService/LogToSign.py" />
         <option value="$PROJECT_DIR$/practical/constant/browser/browser_into.py" />
-        <option value="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
         <option value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py" />
         <option value="$PROJECT_DIR$/run_all.py" />
         <option value="$PROJECT_DIR$/page_web/WebShop/target_parameter/VerificationRepeat.py" />
         <option value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" />
         <option value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/web_ToSign.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" />
         <option value="$PROJECT_DIR$/practical/config/cfg.ini" />
         <option value="$PROJECT_DIR$/practical/config/readModel.py" />
+        <option value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" />
+        <option value="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="323" />
-    <option name="y" value="15" />
-    <option name="width" value="846" />
-    <option name="height" value="730" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -273,30 +247,120 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <expand>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="practical" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="practical" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebShop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebEven" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebEven" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PersonalCenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebEven" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PersonalCenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExclusiveService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -335,8 +399,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.readModel">
-    <configuration name="Unittests in LogToSign.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Unittests in web_ToSign.py">
+    <configuration default="false" name="Unittests in LogToSign.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -349,22 +413,9 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ExclusiveService/LogToSign.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
     </configuration>
-    <configuration name="Unittests in web_ToSign.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -380,6 +431,58 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="web_ToSign" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ExclusiveService" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="SCRIPT_NAME" value="E:\operating\PageWeb\WebEven\PersonalCenter\ExclusiveService\web_ToSign.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in web_ToSign.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="readModel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practical/config" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practical/config/readModel.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -445,40 +548,6 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration name="readModel" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practical/config" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practical/config/readModel.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="web_ToSign" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ExclusiveService" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="SCRIPT_NAME" value="E:\operating\PageWeb\WebEven\PersonalCenter\ExclusiveService\web_ToSign.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in LogToSign.py" />
       <item index="1" class="java.lang.String" itemvalue="Python.__init__" />
@@ -488,8 +557,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.readModel" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in web_ToSign.py" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in web_ToSign.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python.readModel" />
         <item index="2" class="java.lang.String" itemvalue="Python.web_ToSign" />
         <item index="3" class="java.lang.String" itemvalue="Python.__init__" />
         <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in LogToSign.py" />
@@ -513,22 +582,22 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_web_watikis_deductible_watikis_deductible_test_goods_discount_four - 2017.12.06 at 18h 01m 57s.xml">
-      <configuration name="Unittests for web_watikis_deductible.watikis_deductible.test_goods_discount_four" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_LogToSign_py - 2017.12.19 at 21h 05m 44s.xml">
-      <configuration name="Unittests in LogToSign.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_LogToSign_py - 2017.12.19 at 21h 05m 59s.xml">
-      <configuration name="Unittests in LogToSign.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.20 at 23h 07m 27s.xml">
+    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.21 at 09h 45m 08s.xml">
       <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.20 at 23h 09m 29s.xml">
+    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.21 at 09h 45m 42s.xml">
       <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.20 at 23h 12m 29s.xml">
+    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.21 at 09h 53m 42s.xml">
+      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.21 at 09h 54m 50s.xml">
+      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.21 at 10h 09m 50s.xml">
+      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.21 at 10h 10m 11s.xml">
       <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_web_goods_participate_py - 2017.12.04 at 21h 57m 11s.xml">
@@ -554,14 +623,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="323" y="15" width="846" height="730" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30025446" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17697228" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282572" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3041958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22993493" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21180275" sideWeight="0.5047506" order="2" side_tool="true" content_ui="tabs" />
@@ -635,13 +704,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1514532798/_csv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="117" column="57" lean-forward="false" selection-start-line="117" selection-start-column="52" selection-end-line="117" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1514532798/_csv.py" />
     <entry file="file://E:/Program Files/Python36/Lib/csv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
@@ -649,13 +712,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1514532798/_io.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="1370" column="8" lean-forward="false" selection-start-line="1370" selection-start-column="8" selection-end-line="1370" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1514532798/_io.py" />
     <entry file="file://$PROJECT_DIR$/practical/utils/CSVFileReadingWriting.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1894">
@@ -758,13 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2596">
-          <caret line="121" column="60" lean-forward="false" selection-start-line="121" selection-start-column="58" selection-end-line="121" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/common/touch_actions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -859,20 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/practical/utils/pymysql_main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -902,19 +938,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practical/config/mode.ini" />
-    <entry file="file://$PROJECT_DIR$/practical/config/qq.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/config/qq.ini" />
     <entry file="file://$PROJECT_DIR$/practical/config/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/config/readModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding>
+            <element signature="e#113#122#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -926,13 +964,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practical/config/readModel.py">
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-          <folding>
-            <element signature="e#113#122#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="462">
+          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/constant/browser/browser_establish.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="118" column="55" lean-forward="false" selection-start-line="118" selection-start-column="55" selection-end-line="118" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
