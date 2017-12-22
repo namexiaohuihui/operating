@@ -7,18 +7,21 @@
 """
 import logging, time
 import os
+
 # log_path是存放日志的路径
 cur_path = os.path.dirname(os.path.realpath(__file__))
 log_path = os.path.join(os.path.dirname(cur_path), 'logs')
+
 # 如果不存在这个logs文件夹，就自动创建一个
-if not os.path.exists(log_path):os.mkdir(log_path)
+if not os.path.exists(log_path): os.mkdir(log_path)
+
 
 class Log():
-    def __init__(self,executor ="Root"):
+    def __init__(self, executor="Root", classification='Journal'):
         # 文件的命名
-        self.logname = os.path.join(log_path, '%s.log'%time.strftime('%Y_%m_%d'))
-        self.logger = logging.getLogger(executor) # 定义执行者的名字
-        self.logger.setLevel(logging.DEBUG) #设置输入语句的等级
+        self.logname = os.path.join(log_path, classification + '-%s.log' % time.strftime('%Y_%m_%d'))
+        self.logger = logging.getLogger(executor)  # 定义执行者的名字
+        self.logger.setLevel(logging.DEBUG)  # 设置输入语句的等级
         # 日志输出格式
         # self.formatter = logging.Formatter('[%(asctime)s] - %(name)s - %(filename)s] - %(levelname)s: %(message)s')
         self.formatter = logging.Formatter('[%(asctime)s] - %(name)s] - %(levelname)s: %(message)s')
@@ -63,8 +66,9 @@ class Log():
     def error(self, message):
         self.__console('error', message)
 
+
 if __name__ == "__main__":
-   log = Log("executorexecutor")
-   log.info("---测试开始----")
-   log.info("操作步骤1,2,3")
-   log.warning("----测试结束----")
+    log = Log("executorexecutor", "ERROR")
+    log.info("---测试开始----")
+    log.info("操作步骤1,2,3")
+    log.warning("----测试结束----")

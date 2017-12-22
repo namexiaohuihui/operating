@@ -741,16 +741,14 @@ class PANDASDATA:
             print('bus')
 
 if __name__ == '__main__':
-    index = True
-    header = False
-    if index and header:
-        print("quan zhen")
-    elif index is True and header is False:
-        print('index zhen')
-    elif index is False and header:
-        print('index jia')
-    elif index is False and header is False:
-        print('quan jia')
-    else:
-        print('bus')
+    read = READEXCEL(r'E:\drivers\CasePlan\CasrScene\BuyersWechat\买家微信信息管理场景.xlsx')
+    max_row = read.total_row_columns()
+    print("行有 %s" % len(max_row))
+    for kk in max_row:
+        print(kk)
+    print("列有 %s" % len(max_row[0]))
+    celll = read.position_sheet_row_value(max_row=len(max_row))
+    for cel in celll:
+        print(cel.value)
+
 

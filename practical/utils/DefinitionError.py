@@ -13,27 +13,21 @@ import traceback
 
 
 class definition_error(Exception):
-
-    def __init__(self,value):
+    def __init__(self, value):
         print(value)
 
-    def erroe_get(self,basename,_browser_):
-
+    def erroe_get(self, basename, _browser_):
         # 组合日志文件名（当前文件名+当前时间）.比如：case_login_success_20150817192533
-        logFile =  basename + "-" + datetime.datetime.now().strftime("%Y%m%d %H%M%S") + ".log"
-
-        # 创建文件
-        logging.basicConfig(filename=logFile)
+        logFile = basename + "-" + datetime.datetime.now().strftime("%Y%m%d %H%M%S")
 
         # 获取错误日志并打印
         error = traceback.format_exc()
-
-        # 指定输出类型。。
-        logging.error(error)
+        from practical.utils.logger import Log
+        log = Log(basename, "ERROR")
+        log.info(error)
 
         # 截图
-        _browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
-
-        # 打印错误
-        print('调用错误类只会打印的数据 %s' % error)
-
+        # _browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
+        cur_path = os.path.dirname(os.path.realpath(__file__))
+        log_path = os.path.join(os.path.dirname(cur_path), 'logs')
+        _browser_.get_screenshot_as_file(os.path.join(log_path, logFile + "-screenshot_error.png"))

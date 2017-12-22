@@ -10,9 +10,10 @@ import unittest
 
 from PageWeb.WebEven.PersonalCenter.ExclusiveService.ExclusiveOperation import exclusiveoperation
 from practical.utils.logger import Log
+from practical.utils.OpenpyxlExcel import READEXCEL
 
 
-class signtoyou(unittest.TestCase,exclusiveoperation):
+class signtoyou(unittest.TestCase, exclusiveoperation):
     @classmethod
     def setUpClass(cls):
         # 该类运行时优先调用的函数
@@ -33,31 +34,28 @@ class signtoyou(unittest.TestCase,exclusiveoperation):
             tt = self.driver.find_element_by_css_selector('.am-dialog-button')
             self.touchActions_tap(tt)
 
-        else:# 即使发生错误也要继续执行
+        else:  # 即使发生错误也要继续执行
             self.Interface_sliding()
 
             size = self.driver.find_elements_by_css_selector(".J_add.shop-goods-add.icon-font.icon-plus-str")
-            self.driver.execute_script("arguments[0].click();", size[0]) #　找到商品并进行点击
+            self.driver.execute_script("arguments[0].click();", size[0])  # 找到商品并进行点击
             self.sleep_Rest(2)
-            cart = self.is_visible_css_selectop(locator ='.J_goBuy.m-cart-by') # 去结算按钮转变为可点击时
-            self.touchActions_tap(cart) # 找到商品并进行点击
+            cart = self.is_visible_css_selectop(locator='.J_goBuy.m-cart-by')  # 去结算按钮转变为可点击时
+            self.touchActions_tap(cart)  # 找到商品并进行点击
 
             # 登陆
             btn = self.is_visible_css_selectop('.btn>a:nth-child(1)')
             self.touchActions_tap(btn)
 
-            login = self.is_visible_css_selectop('.login-type>a:nth-child(1)') # 切换登陆方式
+            login = self.is_visible_css_selectop('.login-type>a:nth-child(1)')  # 切换登陆方式
             self.touchActions_tap(login)
 
-            self.driver.execute_script("document.getElementById('J_tel').value="+'123'+";")
-            self.driver.execute_script("document.getElementById('J_pwd').value="+'123'+";")
+            self.driver.execute_script("document.getElementById('J_tel').value=" + '123' + ";")
+            self.driver.execute_script("document.getElementById('J_pwd').value=" + '123' + ";")
 
-            morange = self.driver.find_element_by_css_selector(".u-btn.u-btn-morange")#输入内容
+            morange = self.driver.find_element_by_css_selector(".u-btn.u-btn-morange")  # 输入内容
             self.driver.execute_script("arguments[0].click();", morange)
-            self.log.info(self.is_visible_css_selectop('.toast-cont').text)# 错误错误的原因
-
-
-
+            self.log.info(self.is_visible_css_selectop('.toast-cont').text)  # 错误错误的原因
 
     def test_ShoppingCart_login(self):
         """
@@ -65,9 +63,14 @@ class signtoyou(unittest.TestCase,exclusiveoperation):
         2.去结算
         :return:
         """
-        self.log.info("kaishidnegl")
-        self.sign_one()
-        self.log.info("执行wnag")
+        self.read = READEXCEL(r'E:\drivers\CasePlan\CasrScene\BuyersWechat\买家微信信息管理场景.xlsx')
+        max_row = self.read.total_row_columns()
+        self.read.position_sheet_cols_value(max_row=max_row)
+
+        self.log.info("行有 %s" % max_row)
+        # self.sign_one()
+        self.log.info("列有 %s" % max_row[0])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -8,6 +8,7 @@
 import os
 import configparser
 
+
 def establish_con():
     from practical.utils.logger import Log
     log = Log("conf")
@@ -17,6 +18,7 @@ def establish_con():
     conf = configparser.ConfigParser()
     conf.read(configPath)
     return conf
+
 
 def obtain_con(conf):
     email_smtp_server = conf.get("email", "smtp_server")

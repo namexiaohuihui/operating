@@ -11,7 +11,7 @@ from time import sleep
 from practical.operation.selenium_visible import element_visible
 from practical.utils.DefinitionError import definition_error
 
-'''
+r'''
                        _oo0oo_
                       o8888888o
                       88" . "88
