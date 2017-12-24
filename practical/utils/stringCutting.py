@@ -143,3 +143,9 @@ def sys_direct():
 def os_direct():
     os._exit(0)
 
+if __name__ == '__main__':
+    str = "账号:-----,密码:*****"
+    string = str.split(',')
+    print(string[0].split(':')[1])
+    print(string[1].split(':')[1])
+

@@ -13,6 +13,8 @@ http://www.cnblogs.com/chaosimple/p/4153083.html
 from openpyxl import Workbook, load_workbook
 import datetime
 import os
+import pandas as pd
+import numpy
 
 """
 这个class负责读取数据：从excel中读取数据到电脑
@@ -20,7 +22,7 @@ import os
 
 
 class READEXCEL:
-    def __init__(self, FILEPATH, SHEETNAME=0):
+    def __init__(self, FILEPATH, SHEETNAME=1):
         """
             FILEPATH :需要文件的位置
             SHEETNAME　：读取工作薄的页面或者工作薄名
@@ -75,26 +77,63 @@ class READEXCEL:
         else:
             print('1级错误')
 
-    def position_sheet_row_value(self, min_row=1, max_row=1, max_col=1):
+
+
+    def position_sheet_row_value(self, min_row=1, max_row=None, max_col=None):
         """
-        指定行读取整行的数据数据信息
+        指定行读取整行的数据数据信息，数据已经通过value转换了
         :param min_row:  最小的行
         :param max_row:  最大的行
         :param max_col:  最大的列
         :return:
         """
+        content = self.sheetbook.iter_rows(min_row=min_row, max_row=max_row, max_col=max_col)
+        row_col_data = []  # 存储除了标题以外的内容
+        title_data = []  # 只存储标题内容
+        _data = True
+        for row in content:
+            row_data = []
+            for single in row:
+                if _data:
+                    title_data.append(single.value)
+                else:
+                    row_data.append(single.value)
+            _data = False
+            if len(row_data) >= 9: # 过滤一些不要的数据
+                row_col_data.append(row_data)
+        return row_col_data, title_data
+
+    def position_sheet_cols_value(self, min_row=1, max_row=None, max_col=None):
+        '''
+        指定列来读取整列的数据，数据已经通过value转换了
+        :param min_row:  最小的行
+        :param max_row:  最大的行
+        :param max_col:  最大的列
+        :return:
+        '''
         content = self.sheetbook.iter_cols(min_row=min_row, max_row=max_row, max_col=max_col)
         return content
 
-    def position_sheet_cols_value(self, min_row=1, max_row=1, max_col=1):
+    def position_sheet_row(self, min_row=1, max_row=None, max_col=None):
+        """
+        指定行读取整行的数据数据信息，数据类型为cell
+        :param min_row:  最小的行
+        :param max_row:  最大的行
+        :param max_col:  最大的列
+        :return:
+        """
+        content = self.sheetbook.iter_rows(min_row=min_row, max_row=max_row, max_col=max_col)
+        return content
+
+    def position_sheet_cols(self, min_row=1, max_row=None, max_col=None):
         '''
-        指定列来读取整列的数据
+        指定列来读取整列的数据，数据类型为cell
         :param min_row:  最小的行
         :param max_row:  最大的行
         :param max_col:  最大的列
         :return:
         '''
-        content = self.sheetbook.iter_rows(min_row=min_row, max_row=max_row, max_col=max_col)
+        content = self.sheetbook.iter_cols(min_row=min_row, max_row=max_row, max_col=max_col)
         return content
 
     def get_sheet_title(self):
@@ -556,7 +595,6 @@ class WRITEEXCEL:
 
 
 class PANDASDATA:
-    import pandas as pd
     """
     将读取excle中的数据进行转换
     """
@@ -571,7 +609,7 @@ class PANDASDATA:
         series = pd.Series(self._data)
         return series
 
-    def definition_DataFrame(self,index,columns):
+    def definition_DataFrame(self,index,periods,columns=None):
         '''
         将字典的业内容进行系列化。
         :param index:  字典中的排列
@@ -582,9 +620,14 @@ class PANDASDATA:
         index1   1     1
         index2   2     2
         '''
-        dates = pd.date_range(index, periods=row_max_row)
+        dates = pd.date_range(index,periods=periods)
         # 转换
-        df = pd.DataFrame(self._data, index=dates, columns=columns)
+        return self.dataFrame(dates,columns)
+
+    def dataFrame(self,index=None,columns=None):
+        # 转换
+        df = pd.DataFrame(self._data, index=index,columns=columns)
+        return df
 
     def df_conversion(self,df,data_type = 'itertuples'):
         '''
@@ -604,6 +647,7 @@ class PANDASDATA:
                 for r in row:
                     list_data.append(r.value)
                 list_max.append(list_data)
+                return list_max
         elif data_type == 'iterrows':
             list_max = []
             for i, row in df.iterrows():
@@ -611,6 +655,7 @@ class PANDASDATA:
                 for r in row:
                     list_data.append(r.value)
                 list_max.append(list_data)
+                return list_max
         elif data_type == 'itertuples':
             list_max = []
             for row in df.itertuples():
@@ -618,6 +663,7 @@ class PANDASDATA:
                 for r in range(1, len(row)):
                     list_data.append(row[r].value)
                 list_max.append(list_data)
+                return list_max
         elif data_type == 'iloc':
             list_max = []
             for number in range(len(df)):
@@ -626,6 +672,7 @@ class PANDASDATA:
                 for r in range(len(row)):
                     list_data.append(row[r].value)
                 list_max.append(list_data)
+                return list_max
         else:
             print('你确定自己输入正确了?、、、')
 
@@ -667,6 +714,7 @@ class PANDASDATA:
             print('长度大于了。。。。。')
 
     def row_index_header(self,df,index=False,header=False):
+        from openpyxl.utils.dataframe import dataframe_to_rows
         '''
         建议都为假。。。
                 header1    header2
@@ -732,6 +780,7 @@ class PANDASDATA:
             都为假时，说明首行header和标签index都没有返回这时不需要进行处理操作直接使用
             """
             list_max = []
+            import numpy as np
             for row in dataframe_to_rows(df, index=index, header=header):
                 list_data = []
                 for r in range(len(row)):
@@ -740,15 +789,79 @@ class PANDASDATA:
         else:
             print('bus')
 
+    def qwjfqajf(self):
+        df.to_csv("foo.csv", index=False, encoding="gbk")
+        print(pd.read_csv("foo.csv", encoding="gbk"))
+
+        df.to_excel("foo.csv", index=False, encoding="gbk")
+        print(pd.read_excel("foo.csv", encoding="gbk"))
+
+        read = READEXCEL(r'E:\drivers\CasePlan\CasrScene\BuyersWechat\买家微信信息管理场景.xlsx')
+        max_row = read.total_row_columns()
+        listdata = []
+        for kk in range(1, len(max_row)):
+            num = 0
+            dictdata = {}
+            for kl in max_row[kk]:
+                print(max_row[0][num].value, kl.value)
+                dictdata[max_row[0][num].value] = kl
+                num = num + 1
+            listdata.append(dictdata)
+        data = []
+        for kk in range(0, len(max_row[0])):
+            data.append(max_row[0][kk].value)
+
+        print(listdata[0]["场景"].value)
+        pan = PANDASDATA(listdata)
+        df = pan.definition_DataFrame('20130101', 2)
+        content = df.iloc[0]
+        print(content["场景"].value)
+
+        print("**********")
+        content = read.position_sheet_row_value(min_row=2)
+        content1 = read.position_sheet_row_value(min_row=2)
+        print("**********", len(tuple(content1)))
+        df = pd.DataFrame(content, columns=data)
+        df["序号"][0] = "66"
+        print(df)
+        lll = df.iloc[0]
+        print(lll[1].value)
+        df.to_csv("qwe.xlsx")
+
+        print("*-**-*-*-*")
+        from openpyxl.utils.dataframe import dataframe_to_rows
+        ddf = df.copy()
+        list_max = []
+        print(ddf)
+        for row in dataframe_to_rows(ddf, index=False):
+            list_data = []
+            print(row)
+            for r in range(len(row)):
+                print(row[r])
+                list_data.append(row[r])
+            list_max.append(list_data)
+
 if __name__ == '__main__':
     read = READEXCEL(r'E:\drivers\CasePlan\CasrScene\BuyersWechat\买家微信信息管理场景.xlsx')
-    max_row = read.total_row_columns()
-    print("行有 %s" % len(max_row))
-    for kk in max_row:
-        print(kk)
-    print("列有 %s" % len(max_row[0]))
-    celll = read.position_sheet_row_value(max_row=len(max_row))
-    for cel in celll:
-        print(cel.value)
+    max_row = read.position_sheet_row_value()
+    """
+    pan = PANDASDATA(max_row)
+    df = pan.definition_DataFrame('2013-01-01 12:13:52',2,data)
+    content = df.iloc[0]
+    print(df)
+    
+    """
+    dates = pd.date_range("2013-01-01", periods=len(tuple(max_row[0])))
+    df = pd.DataFrame(max_row[0], index=dates,columns=max_row[1])
+    print(df)
+    print(len(tuple(max_row[0])))
+    print( df.iloc[0]['场景'])
+
+
+
+
+
+
+
 
 

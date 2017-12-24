@@ -11,6 +11,9 @@ from selenium import  webdriver
 
 class demo:
     def __init__(self):
+        print("开始呢？、、")
+
+    def browser(self):
         import os
         # 实现全局变量的引用
         firefoxBin = os.path.abspath(r"E:\Program Files\Mozilla Firefox\firefox.exe")
@@ -24,8 +27,11 @@ class demo:
         self.browser.implicitly_wait(10)
 
         self.browser.get("file:///C:/Users/70486/Desktop/demo.html")
+    def nihaoma(self):
+        print("我不好")
 
 if __name__ == '__main__':
+    lla = "nihaoma"
+    lla = lla + "()"
     case = demo()
-    user = case.browser.find_elements_by_css_selector('#username')
-    user[1].send_keys('username')
+    user = case.lla
