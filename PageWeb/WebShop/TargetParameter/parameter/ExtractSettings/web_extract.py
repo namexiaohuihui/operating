@@ -101,7 +101,7 @@ class extract_input(unittest.TestCase):
     def writelog(self):
          # 调用错误类吗，进行错误打印
         de_error = definition_error()
-        de_error.erroe_get(self.basename, self.browser)
+        de_error.error_get(self.basename, self.browser)
 
 
 if __name__ == '__main__':
