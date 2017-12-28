@@ -20,12 +20,20 @@ class temporarystorage(object):
         return cls._instance
     def set_remarks(self,remarks):
         self.remarks = remarks
-        return self.remarks
 
     def get_remarks(self):
-        return self.remarks
+        try:
+            self.remarks = self.remarks
+            return self.remarks
+        except :
+            return "执行失败"
+
 if __name__ == '__main__':
     print(temporarystorage().set_remarks("nihao"))
     print(temporarystorage().get_remarks())
     print(temporarystorage().set_remarks("buhoa"))
     print(temporarystorage().get_remarks())
+
+    from practical.config import readModel
+    file_path = readModel.establish_con().get("excel", "file")
+    print(file_path)
