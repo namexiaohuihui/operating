@@ -41,8 +41,20 @@ class signtoyou(unittest.TestCase, exclusiveoperation):
             elif function == "shoppingCart":
                 self.click_shopping_cart(account=account, password=password)
 
-            elif function == "details":
+            elif function == "detailsGoods":
                 self.click_details(account=account, password=password)
+
+            elif function == "waterTicket":
+                self.click_water_ticket(account=account, password=password)
+
+            elif function == "detailsWaterTicket":
+                self.click_details_water_ticket(account=account, password=password)
+
+            elif function == "detailsIntroduce":
+                self.click_details_introduce(account=account, password=password)
+
+            elif function == "detailsEvaluate":
+                self.click_details_evaluate(account=account, password=password)
 
             else:
                 self.log.info("The functions carried by the use case have not been found...")
@@ -63,7 +75,7 @@ class signtoyou(unittest.TestCase, exclusiveoperation):
 
         self.sleep_Rest()
 
-        btn = self.is_visible_css_selectop('.J_btn.u-btn')  # 点击去买账
+        btn = self.is_visible_css_selectop('.J_btn.u-btn')  # 点击去结算
 
         if btn != False:
             self.sign_switching_logon(account, password)
@@ -74,19 +86,42 @@ class signtoyou(unittest.TestCase, exclusiveoperation):
 
         self.is_visible_css_selectop('.shop-goods.shop-goods-cur>li:nth-child(1)')  # 点击去详情
 
-        self.is_visible_css_selectop('.add-cart')  # 添加购物车
+        self.details_add_goods(account, password)
 
-        self.sleep_Rest()
+    def click_water_ticket(self, account=None, password=None):
 
-        self.is_visible_css_selectop('.buy-tiket-btn.cart')  # 添加购物车
+        self.is_visible_css_selectop(".shop-tiket-items.J_buyTiket>a:nth-of-type(1)")
 
-        self.log.info("添加商品的提示： %s" % self.is_visible_css_selectop_text('.toast-cont'))  # 错误错误的原因
+        detailLst = self.is_visible_css_selectop("#J_detailLst>p:last-child")
 
-        self.sleep_Rest()
+        if detailLst != False:
+            self.sign_switching_logon(account, password)
+        else:
+            self.log.info("水票弹窗错误")
 
-        self.is_visible_css_selectop('.buy.cur')  # 去结算
+    def click_details_water_ticket(self, account=None, password=None):
+        self.is_visible_css_selectop('.shop-goods.shop-goods-cur>li:nth-child(1)')  # 点击去详情
 
-        self.sign_switching_logon(account, password)
+        detail = self.is_visible_css_selectop(".shop-tiket-items.detail-add>a:last-child")
+
+        if detail != False:
+            self.sign_switching_logon(account, password)
+        else:
+            self.log.info("商品详情水票弹窗错误")
+
+    def click_details_introduce(self, account=None, password=None):
+        self.is_visible_css_selectop('.shop-goods.shop-goods-cur>li:nth-child(1)')  # 点击进详情页
+
+        self.is_visible_css_selectop('.goods-nav>a:nth-child(3)')  # 查看商品详情页
+
+        self.details_add_goods(account,password)
+
+    def click_details_evaluate(self, account=None, password=None):
+        self.is_visible_css_selectop('.shop-goods.shop-goods-cur>li:nth-child(1)')  # 点击进详情页
+
+        self.is_visible_css_selectop('.goods-nav>a:last-child')  # 查看商品详情页
+
+        self.details_add_goods(account, password)
 
     def test_ShoppingCart_login(self):
         """
@@ -99,7 +134,7 @@ class signtoyou(unittest.TestCase, exclusiveoperation):
         row_col_data = excel[1]
 
         for number in range(len(row_col_data)):
-            if number == 2:
+            if number >= 5:
                 self.log.info("%s 开始执行" % df.iloc[number]["场景"])
 
                 string = df.iloc[number]["输入"].split(',')
@@ -110,11 +145,11 @@ class signtoyou(unittest.TestCase, exclusiveoperation):
                 from PageWeb.WebEven.PersonalCenter.ExclusiveService.TemporaryData import temporarystorage
                 df.iloc[number]["场景"] = temporarystorage().get_remarks()
 
-                self.log.info("%s 执行完毕" % df.iloc[number]["场景"])
+                self.log.info("%s ： 执行完毕" % df.iloc[number]["场景"])
             else:
                 self.log.info("跳过")
 
-        self.save_csv(df)  # 将数据进行保存
+        # self.save_csv(df)  # 将数据进行保存
 
 
 if __name__ == '__main__':

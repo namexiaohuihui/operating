@@ -69,7 +69,7 @@ class exclusiveoperation(object):
             self.driver.find_element_by_css_selector("#J_pwd").send_keys(password)
 
             # 登陆按钮
-            self.driver.find_element_by_css_selector(".u-btn.u-btn-morange").click()
+            self.is_visible_css_selectop(".u-btn.u-btn-morange")
 
             # 获取登录的提示语
             text = self.is_visible_css_selectop_text('.toast-cont')
@@ -91,6 +91,21 @@ class exclusiveoperation(object):
         """
         self.is_visible_css_selectop('.J_add.shop-goods-add.icon-font.icon-plus-str')
         self.sleep_Rest(2)
+
+    def details_add_goods(self, account=None, password=None):
+        """
+        商品详情页点击购买商品
+        :return:
+        """
+        self.is_visible_css_selectop('.add-cart')  # 添加购物车
+
+        self.is_visible_css_selectop('.buy-tiket-btn.cart')  # 添加购物车
+
+        self.log.info("添加商品的提示： %s" % self.is_visible_css_selectop_text('.toast-cont'))  # 错误错误的原因
+        self.sleep_Rest()
+        self.is_visible_css_selectop('.buy.cur')  # 去结算
+
+        self.sign_switching_logon(account, password)
 
     def excel_Data(self, file_path=None):
         """
@@ -121,7 +136,7 @@ class exclusiveoperation(object):
         # 保存df的数据
         df.to_csv(file_path, index=False, encoding="gbk")
 
-    def sleep_Rest(self, ti=2):  # 延迟
+    def sleep_Rest(self, ti=1):  # 延迟
         import time
         time.sleep(ti)
 
@@ -139,22 +154,20 @@ class exclusiveoperation(object):
         x1 = screen[0] * 0.5
         y1 = screen[1] * 0.75
 
-        cart_cont = self.driver.find_element_by_css_selector('.m-cart-cont')
-
-        # 从指定的元素开始滑动
-        # TouchActions(self.driver).scroll_from_element(cart_cont, x1, y1).perform()
         TouchActions(self.driver).scroll(x1, y1).perform()
 
     def touchActions_tap(self, element):
         # 点击元素
         TouchActions(self.driver).tap(element).perform()
+        self.sleep_Rest()
 
-    def is_visible_css_selectop(self, locator, timeout=10):
+    def is_visible_css_selectop(self, locator, timeout=5):
         # 一直等待某元素可见，默认超时10秒
         try:
             import datetime
-            ui.WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-            element = self.driver.find_element_by_css_selector(locator)  # 创建元素对象
+            # ui.WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+            element = ui.WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.CSS_SELECTOR, locator)))
+            # element = self.driver.find_element_by_css_selector(locator)  # 创建元素对象
             self.touchActions_tap(element)
             return element
         except TimeoutException:
@@ -165,8 +178,8 @@ class exclusiveoperation(object):
         # 一直等待某元素可见，默认超时10秒
         try:
             import datetime
-            ui.WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-            text = self.driver.find_element_by_css_selector(locator).text  # 创建元素对象
+            _ele = ui.WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+            text = _ele.text  # 创建元素对象
             return text
         except TimeoutException:
             print("元素未出现：   %s" % locator)
