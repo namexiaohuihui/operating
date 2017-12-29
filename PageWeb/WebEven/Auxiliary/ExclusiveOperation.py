@@ -10,46 +10,32 @@ import selenium.webdriver.support.ui as ui
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.touch_actions import TouchActions
-from practical.config import readModel
-from practical.utils.OpenpyxlExcel import READEXCEL, PANDASDATA
-
 
 class exclusiveoperation(object):
-    def setStart(self):
-        self.sign_browser()  # 打开浏览器
 
-    def setStop(self):
-        pass
+    def sign_user_login(self, account, password):
+        try:
+            self.is_visible_css_selectop('.login-type>a:nth-child(1)')  # 切换登陆方式
 
-    def sign_browser(self):
-        """
-        打开浏览器的步骤
-        :return:
-        """
-        from practical.constant.browser_establish import browser_confirm
-        # 1.创建浏览器所在函数的对象
-        bc = browser_confirm.__new__(browser_confirm)
-        options = bc.mobile_phone_mode()
+            # 账号密码的输入
+            self.driver.find_element_by_css_selector("#J_tel").send_keys(account)
+            self.driver.find_element_by_css_selector("#J_pwd").send_keys(password)
 
-        conf = readModel.establish_con()
-        url = conf.get("wap", "url")
-        # 2.调用已经规划好的浏览器函数
-        self.driver = bc.url_opens(url, options)
+            # 登陆按钮
+            self.is_visible_css_selectop(".u-btn.u-btn-morange")
 
-        # 账号密码输入
-        # self.sign_username(bc)
+            # 获取登录的提示语
+            text = self.is_visible_css_selectop_text('.toast-cont')
 
-    def sign_username(self, bc, conf=None):
-        """
-        从配置文件中读取登陆名和密码
-        :param bc:
-        :param conf:
-        :return:
-        """
-        if not conf: conf = readModel.establish_con()
-        account = conf.get("username", "account")
-        password = conf.get("username", "assword")
-        bc.case_browesr(account, password)
+            # 储存登陆之后的提示
+            from PageWeb.WebEven.Auxiliary.TemporaryData import temporarystorage
+            temporarystorage().set_remarks(text)
+
+        except Exception as message:
+            function = inspect.stack()[0][3]  # 执行函数的函数名
+            self.error_log(function, message)
+            raise
+
 
     def sign_switching_logon(self, account, password):
         """
@@ -62,22 +48,7 @@ class exclusiveoperation(object):
             # 点击登陆按钮
             self.is_visible_css_selectop('.btn>a:nth-child(1)')
 
-            self.is_visible_css_selectop('.login-type>a:nth-child(1)')  # 切换登陆方式
-
-            # 账号密码的输入
-            self.driver.execute_script("document.getElementById('J_tel').value=" + account + ";")
-            self.driver.find_element_by_css_selector("#J_pwd").send_keys(password)
-
-            # 登陆按钮
-            self.is_visible_css_selectop(".u-btn.u-btn-morange")
-
-            # 获取登录的提示语
-            text = self.is_visible_css_selectop_text('.toast-cont')
-            self.log.info("登陆时提示内容： %s" % text)
-
-            # 储存登陆之后的提示
-            from PageWeb.WebEven.PersonalCenter.ExclusiveService.TemporaryData import temporarystorage
-            temporarystorage().set_remarks(text)
+            self.sign_user_login(account,password)
 
         except Exception as message:
             function = inspect.stack()[0][3]  # 执行函数的函数名
@@ -107,35 +78,6 @@ class exclusiveoperation(object):
 
         self.sign_switching_logon(account, password)
 
-    def excel_Data(self, file_path=None):
-        """
-        从excel表格中获取数据并进行点击
-        :param file_path:
-        :return:
-        """
-        # 获取excel路径
-        if file_path == None: file_path = readModel.establish_con().get("excel", "file")
-
-        # 读取相应路径中的数据
-        read = READEXCEL(file_path)
-
-        # 获取case
-        whole = read.position_sheet_row_value()
-        # 获取内容
-        row_col_data = whole[0]  #
-        # 获取标题
-        title_data = whole[1]
-
-        # 数据转换
-        pan = PANDASDATA(row_col_data)
-        df = pan.definition_DataFrame(index="2017-12-24", periods=len(tuple(row_col_data)), columns=title_data)
-
-        return df, row_col_data
-
-    def save_csv(self, df, file_path="wenhao.csv"):
-        # 保存df的数据
-        df.to_csv(file_path, index=False, encoding="gbk")
-
     def sleep_Rest(self, ti=1):  # 延迟
         import time
         time.sleep(ti)
@@ -161,24 +103,26 @@ class exclusiveoperation(object):
         TouchActions(self.driver).tap(element).perform()
         self.sleep_Rest()
 
-    def is_visible_css_selectop(self, locator, timeout=5):
+    def is_visible_css_selectop(self, locator, timeout=3):
         # 一直等待某元素可见，默认超时10秒
         try:
             import datetime
             # ui.WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-            element = ui.WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.CSS_SELECTOR, locator)))
-            # element = self.driver.find_element_by_css_selector(locator)  # 创建元素对象
+            element = ui.WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             self.touchActions_tap(element)
             return element
         except TimeoutException:
             print("元素未出现：   %s" % locator)
             return False
 
-    def is_visible_css_selectop_text(self, locator, timeout=10):
+
+    def is_visible_css_selectop_text(self, locator, timeout=5):
         # 一直等待某元素可见，默认超时10秒
         try:
             import datetime
-            _ele = ui.WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+            _ele = ui.WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             text = _ele.text  # 创建元素对象
             return text
         except TimeoutException:
