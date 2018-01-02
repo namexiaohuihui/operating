@@ -1,21 +1,57 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Administrator'
 """
-@file: OtherSign.py
-@time: 2017/12/29 17:18
+@file: web_SignToUse.py
+@time: 2018/1/2 17:40
 """
+
+import os
+import unittest
 from PageWeb.WebEven.Auxiliary.ExclusiveOperation import exclusiveoperation
+from practical.utils.logger import Log
+class singn_to_use(unittest.TestCase,exclusiveoperation):
+
+    @classmethod
+    def setUpClass(self):
+        # 该类运行时优先调用的函数
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        self.log = Log(basename)
+        self.log.info("The program begins to execute. Don't stop me when you start.")
+
+        self.sign_browser(self)
+
+    @classmethod
+    def tearDownClass(self):
+        # 该类结束时最后调用的函数
+        self.log.info("Make it complete and continue to press it next time...")
+        self.driver.close()
 
 
-class user_sign(exclusiveoperation):
-    def __init__(self, driver):
-        self.driver = driver
+    def test_ShoppingCart_login(self):
+        """
+        1.选择商品
+        2.去结算
+        :return:
+        """
+        excel = self.excel_Data()
+        df = excel[0]
+        row_col_data = excel[1]
 
-    def sign_in(self, function, account=None, password=None):
+        for number in range(len(row_col_data) - 1, len(row_col_data)):
+            string = df.iloc[number]["输入"].split(',')
+            account = string[0].split(':')[1]
+            password = string[1].split(':')[1]
 
+            self.sign_one(df.iloc[number]["函数"], account=account, password=password)
+
+            from PageWeb.WebEven.Auxiliary.TemporaryData import temporarystorage
+            df.iloc[number]["场景"] = temporarystorage().get_remarks()
+
+            # self.save_csv(df)  # 将数据进行保存
+
+    def sign_one(self, function, account=None, password=None):
+        self.log.info("%s 开始执行" % function)
         self.is_visible_css_selectop(".am-dialog-button")
-        import datetime
-        print(datetime.datetime.now())
         if function == "homepage":  # 首页登录
             self.Interface_sliding()
             self.click_homepage(account=account, password=password)
@@ -60,9 +96,7 @@ class user_sign(exclusiveoperation):
             self.click_order(account=account, password=password)
 
         elif function == "userSign":  # 用户dingdan
-            print("sign%s"%datetime.datetime.now())
             self.click_user_sign_in(account=account, password=password)
-            print("nima %s" %datetime.datetime.now())
         else:
             print("The functions carried by the use case have not been found...")
 
@@ -166,7 +200,9 @@ class user_sign(exclusiveoperation):
     def click_user_sign_in(self, account=None, password=None):
         self.is_visible_css_selectop(".nav-user")
         import datetime
-        print("user %s" %datetime.datetime.now())
         self.is_visible_css_selectop(".user-head")
-        print("head %s" %datetime.datetime.now())
         self.sign_user_login(account, password)
+
+if __name__ == '__main__':
+    unittest.main()
+

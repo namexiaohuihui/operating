@@ -13,7 +13,51 @@ from selenium.webdriver.common.touch_actions import TouchActions
 
 class exclusiveoperation(object):
 
+    """
+#------------------获取浏览器部分------------------------------------
+    """
+    def sign_browser(self):
+        from practical.constant.browser_establish import browser_confirm
+        # 1.创建浏览器所在函数的对象
+        bc = browser_confirm.__new__(browser_confirm)
+        options = bc.mobile_phone_mode()
+
+        from practical.config import readModel
+        conf = readModel.establish_con()
+        url = conf.get("wap", "url")
+
+        # 2.调用已经规划好的浏览器函数
+        self.driver = bc.url_opens(url, options)
+
+    """
+#--------------------用户登录部分-----------------------------------------
+    """
+
+    def sign_switching_logon(self, account, password):
+        """
+        点击登陆之后，进行输入账号密码及切换登陆页面的事务
+        :param account:
+        :param password:
+        :return:
+        """
+        try:
+            # 点击登陆按钮
+            self.is_visible_css_selectop('.btn>a:nth-child(1)')
+
+            self.sign_user_login(account,password)
+
+        except Exception as message:
+            function = inspect.stack()[0][3]  # 执行函数的函数名
+            self.error_log(function, message)
+            raise
+
     def sign_user_login(self, account, password):
+        """
+        不需要点击登录就可以直接进入登陆页面
+        :param account:
+        :param password:
+        :return:
+        """
         try:
             self.is_visible_css_selectop('.login-type>a:nth-child(1)')  # 切换登陆方式
 
@@ -36,25 +80,9 @@ class exclusiveoperation(object):
             self.error_log(function, message)
             raise
 
-
-    def sign_switching_logon(self, account, password):
         """
-        点击登陆之后，进行输入账号密码及切换登陆页面的事务
-        :param account:
-        :param password:
-        :return:
+#--------------------添加商品部分-----------------------------------------
         """
-        try:
-            # 点击登陆按钮
-            self.is_visible_css_selectop('.btn>a:nth-child(1)')
-
-            self.sign_user_login(account,password)
-
-        except Exception as message:
-            function = inspect.stack()[0][3]  # 执行函数的函数名
-            self.error_log(function, message)
-            raise
-
     def add_goods(self):
         """
         选择商品并进行点击
@@ -78,10 +106,39 @@ class exclusiveoperation(object):
 
         self.sign_switching_logon(account, password)
 
-    def sleep_Rest(self, ti=1):  # 延迟
-        import time
-        time.sleep(ti)
+        """
+#--------------------读取excel表格数据部分-----------------------------------------
+        """
+    def excel_Data(self, file_path=None):
+        """
+        从excel表格中获取数据并进行转换
+        :param file_path:
+        :return:
+        """
+        # 获取excel路径
+        from practical.config import readModel
+        if file_path == None: file_path = readModel.establish_con().get("excel", "file")
 
+        # 读取相应路径中的数据
+        from practical.utils.OpenpyxlExcel import READEXCEL, PANDASDATA
+        read = READEXCEL(file_path)
+
+        # 获取case
+        whole = read.position_sheet_row_value()
+        # 获取内容
+        row_col_data = whole[0]  #
+        # 获取标题
+        title_data = whole[1]
+
+        # 数据转换
+        pan = PANDASDATA(row_col_data)
+        df = pan.definition_DataFrame(index="2017-12-24", periods=len(tuple(row_col_data)), columns=title_data)
+
+        return df, row_col_data
+
+        """
+#--------------------浏览器操作部分-----------------------------------------
+        """
     def get_size(self):
         # 获取浏览器的大小
         x = self.driver.get_window_size()['width']
@@ -103,7 +160,10 @@ class exclusiveoperation(object):
         TouchActions(self.driver).tap(element).perform()
         self.sleep_Rest()
 
-    def is_visible_css_selectop(self, locator, timeout=3):
+        """
+#--------------------元素判断部分-----------------------------------------
+        """
+    def is_visible_css_selectop(self, locator, timeout=5):
         # 一直等待某元素可见，默认超时10秒
         try:
             import datetime
@@ -128,6 +188,15 @@ class exclusiveoperation(object):
         except TimeoutException:
             print("元素未出现：   %s" % locator)
             return False
+
+
+
+        """
+#--------------------其他一些配置部分-----------------------------------------
+        """
+    def sleep_Rest(self, ti=1):  # 延迟
+        import time
+        time.sleep(ti)
 
     def error_log(self, function, message):
         # 执行文件的文件名
