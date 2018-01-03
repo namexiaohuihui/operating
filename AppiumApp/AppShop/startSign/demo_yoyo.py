@@ -7,13 +7,12 @@ __author__ = 'Administrator'
 from appium import webdriver
 
 desired_caps = {
-    'platformName': 'Android',
-    'deviceName': '64535188',
-    'platformVersion': '7.1.1',
-    # apk包名
-    'appPackage': 'com.tencent.mm',
-    # apk的launcherActivity
-    'appActivity': 'com.tencent.mm.ui.LauncherUI'
+  "platformName": "Android",
+  "platformVersion": "7.1.1",
+  "deviceName": "64535188",
+  "appPackage": "com.lianni.delivery",
+  "appActivity": ".StartActivity",
+  "noReset": 'True'
 }
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)

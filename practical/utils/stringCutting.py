@@ -145,7 +145,10 @@ def os_direct():
 
 if __name__ == '__main__':
     str = "账号:-----,密码:*****"
-    string = str.split(',')
-    print(string[0].split(':')[1])
-    print(string[1].split(':')[1])
+    str11 = "什么呢翻就开始登陆功能"
+    if str.find(",") and str.find(":") != -1:
+
+        print(str11)
+    else:
+        print(str)
 

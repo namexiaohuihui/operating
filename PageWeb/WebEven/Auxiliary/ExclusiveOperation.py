@@ -72,8 +72,8 @@ class exclusiveoperation(object):
             text = self.is_visible_css_selectop_text('.toast-cont')
 
             # 储存登陆之后的提示
-            from PageWeb.WebEven.Auxiliary.TemporaryData import temporarystorage
-            temporarystorage().set_remarks(text)
+            from PageWeb.WebEven.Auxiliary.ConversionStorage import conversionstorage
+            conversionstorage().set_remarks(text)
 
         except Exception as message:
             function = inspect.stack()[0][3]  # 执行函数的函数名
@@ -163,7 +163,7 @@ class exclusiveoperation(object):
         """
 #--------------------元素判断部分-----------------------------------------
         """
-    def is_visible_css_selectop(self, locator, timeout=5):
+    def is_visible_css_selectop(self, locator, timeout=3):
         # 一直等待某元素可见，默认超时10秒
         try:
             import datetime
@@ -177,7 +177,7 @@ class exclusiveoperation(object):
             return False
 
 
-    def is_visible_css_selectop_text(self, locator, timeout=5):
+    def is_visible_css_selectop_text(self, locator, timeout=3):
         # 一直等待某元素可见，默认超时10秒
         try:
             import datetime
