@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/TemporaryData.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PageWeb/WebEven/ExclusiveService/AccountPrivacy.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PageWeb/WebEven/ExclusiveService/Web_PersonalData.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/geckodriver.log" afterPath="$PROJECT_DIR$/demo/geckodriver.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/test_suite.py" afterPath="$PROJECT_DIR$/demo/test_suite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/ExclusiveOperation.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/ExclusiveOperation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/web_SignToUse.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/web_SignToUse.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/test_class.py" afterPath="$PROJECT_DIR$/demo/test_class.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/config/model.ini" afterPath="$PROJECT_DIR$/practical/config/model.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/config/readModel.py" afterPath="$PROJECT_DIR$/practical/config/readModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/utils/OpenpyxlExcel.py" afterPath="$PROJECT_DIR$/practical/utils/OpenpyxlExcel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/utils/stringCutting.py" afterPath="$PROJECT_DIR$/practical/utils/stringCutting.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practical/constant/browser_establish.py" afterPath="$PROJECT_DIR$/practical/constant/browser_establish.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_all.py" afterPath="$PROJECT_DIR$/run_all.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/ConversionStorage.py" afterPath="$PROJECT_DIR$/PageWeb/WebEven/ConversionStorage.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,66 +25,12 @@
     <favorites_list name="operating" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="web_ToSign.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="test_class.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/demo/test_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="73" column="7" lean-forward="false" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
-              <folding>
-                <element signature="e#114#123#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpenpyxlExcel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practical/utils/OpenpyxlExcel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-461">
-              <caret line="624" column="44" lean-forward="false" selection-start-line="624" selection-start-column="44" selection-end-line="624" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TemporaryData.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/TemporaryData.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="23" column="47" lean-forward="false" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExclusiveOperation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
-              <folding>
-                <element signature="e#122#181#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logger.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practical/utils/logger.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="19" column="54" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.ini" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/practical/config/model.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            <state relative-caret-position="51">
+              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,7 +49,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>qwe</find>
       <find>错误时强制提交按钮</find>
       <find>User</find>
       <find>diclist</find>
@@ -133,6 +78,7 @@
       <find>Make it complete and continue to press it next time...</find>
       <find>cell</find>
       <find>.value</find>
+      <find>找打位置</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -172,13 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="E:/Program Files/Python36/Lib/site-packages/openpyxl/chart/series_factory.py" />
-        <option value="$PROJECT_DIR$/practical/utils/HexColor.py" />
-        <option value="$PROJECT_DIR$/practical/utils/utilsDemo.py" />
-        <option value="$PROJECT_DIR$/demo/geckodriver.log" />
-        <option value="$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1514532798/_csv.py" />
-        <option value="$PROJECT_DIR$/practical/utils/CSVFileReadingWriting.py" />
-        <option value="$PROJECT_DIR$/page_web/web_shop/target_parameter/VerificationRepeat.py" />
         <option value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ShoppingCart.py" />
         <option value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/ShoppingCart/__init__.py" />
         <option value="$PROJECT_DIR$/page_web/WebEven/PersonalCenter/MicroPurchase/__init__.py" />
@@ -209,27 +148,35 @@
         <option value="$PROJECT_DIR$/practical/constant/browser/browser_establish.py" />
         <option value="$PROJECT_DIR$/PageWeb/WebShop/TargetParameter/VerificationRepeat.py" />
         <option value="$PROJECT_DIR$/practical/operation/selenium_click.py" />
-        <option value="$PROJECT_DIR$/practical/constant/browser_establish.py" />
-        <option value="$PROJECT_DIR$/run_all.py" />
         <option value="$PROJECT_DIR$/practical/config/readModel.py" />
         <option value="$PROJECT_DIR$/practical/logs/Journal-2017_12_23.log" />
         <option value="$PROJECT_DIR$/practical/utils/logger.py" />
         <option value="$PROJECT_DIR$/demo/test_suite.py" />
-        <option value="$PROJECT_DIR$/practical/utils/stringCutting.py" />
         <option value="$PROJECT_DIR$/practical/logs/Journal-2017_12_24.log" />
         <option value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/TemporaryData.py" />
         <option value="$PROJECT_DIR$/practical/utils/OpenpyxlExcel.py" />
         <option value="$PROJECT_DIR$/practical/logs/ERROR-2017_12_24.log" />
         <option value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py" />
         <option value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" />
+        <option value="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/ConversionStorage.py" />
+        <option value="$PROJECT_DIR$/practical/utils/stringCutting.py" />
+        <option value="$PROJECT_DIR$/practical/logs/Journal-2018_01_04.log" />
+        <option value="$PROJECT_DIR$/run_all.py" />
+        <option value="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/web_SignToUse.py" />
+        <option value="$PROJECT_DIR$/practical/constant/browser_establish.py" />
+        <option value="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/ExclusiveOperation.py" />
         <option value="$PROJECT_DIR$/practical/config/model.ini" />
+        <option value="$PROJECT_DIR$/PageWeb/WebEven/ExclusiveService/Web_PersonalData.py" />
+        <option value="$PROJECT_DIR$/PageWeb/WebEven/ExclusiveService/AccountPrivacy.py" />
+        <option value="$PROJECT_DIR$/demo/test_class.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="204" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-65" />
+    <option name="y" value="44" />
     <option name="width" value="916" />
-    <option name="height" value="773" />
+    <option name="height" value="741" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -266,7 +213,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,53 +241,14 @@
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
               <item name="WebEven" type="462c0819:PsiDirectoryNode" />
-              <item name="PersonalCenter" type="462c0819:PsiDirectoryNode" />
+              <item name="Auxiliary" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
               <item name="WebEven" type="462c0819:PsiDirectoryNode" />
-              <item name="PersonalCenter" type="462c0819:PsiDirectoryNode" />
               <item name="ExclusiveService" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="WebEven" type="462c0819:PsiDirectoryNode" />
-              <item name="PersonalCenter" type="462c0819:PsiDirectoryNode" />
-              <item name="ShoppingCart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="WebShop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="WebShop" type="462c0819:PsiDirectoryNode" />
-              <item name="TargetParameter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="WebShop" type="462c0819:PsiDirectoryNode" />
-              <item name="TargetParameter" type="462c0819:PsiDirectoryNode" />
-              <item name="parameter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="WebShop" type="462c0819:PsiDirectoryNode" />
-              <item name="TargetParameter" type="462c0819:PsiDirectoryNode" />
-              <item name="parameter" type="462c0819:PsiDirectoryNode" />
-              <item name="PreferentialSettings" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
@@ -384,11 +291,17 @@
               <item name="practical" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -401,11 +314,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\operating\PageWeb\WebEven" />
       <recent name="E:\operating\practical\constant" />
       <recent name="E:\operating\practical\utils" />
       <recent name="E:\operating\PageWeb\WebEven\PersonalCenter" />
       <recent name="E:\operating\PageWeb\WebEven\PersonalCenter\ExclusiveService" />
-      <recent name="E:\operating\PageWeb" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\operating\ServerPHP\pyfl" />
@@ -427,53 +340,36 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in web_ToSign.py">
-    <configuration name="OpenpyxlExcel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.test_class">
+    <configuration name="ConversionStorage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practical/utils" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practical/utils/OpenpyxlExcel.py" />
+      <option name="SCRIPT_NAME" value="E:\operating\PageWeb\WebEven\ConversionStorage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="TemporaryData" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/TemporaryData.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="Unittests in web_ToSign.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in web_SignToUse.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/web_SignToUse.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -540,7 +436,24 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration name="logger" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="run_all" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="operating" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_all.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="stringCutting" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -552,12 +465,12 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practical/utils/logger.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practical/utils/stringCutting.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="test_suite" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_class" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -569,25 +482,25 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="operating" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/test_suite.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/test_class.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in web_ToSign.py" />
-      <item index="1" class="java.lang.String" itemvalue="Python.OpenpyxlExcel" />
-      <item index="2" class="java.lang.String" itemvalue="Python.logger" />
-      <item index="3" class="java.lang.String" itemvalue="Python.test_suite" />
-      <item index="4" class="java.lang.String" itemvalue="Python.TemporaryData" />
+      <item index="0" class="java.lang.String" itemvalue="Python.ConversionStorage" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in web_SignToUse.py" />
+      <item index="2" class="java.lang.String" itemvalue="Python.stringCutting" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test_class" />
+      <item index="4" class="java.lang.String" itemvalue="Python.run_all" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in web_ToSign.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python.OpenpyxlExcel" />
-        <item index="2" class="java.lang.String" itemvalue="Python.TemporaryData" />
-        <item index="3" class="java.lang.String" itemvalue="Python.test_suite" />
-        <item index="4" class="java.lang.String" itemvalue="Python.logger" />
+        <item index="0" class="java.lang.String" itemvalue="Python.test_class" />
+        <item index="1" class="java.lang.String" itemvalue="Python.run_all" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in web_SignToUse.py" />
+        <item index="3" class="java.lang.String" itemvalue="Python.stringCutting" />
+        <item index="4" class="java.lang.String" itemvalue="Python.ConversionStorage" />
       </list>
     </recent_temporary>
   </component>
@@ -608,35 +521,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.24 at 22h 08m 09s.xml">
-      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_SignToUse_py - 2018.01.03 at 23h 18m 05s.xml">
+      <configuration name="Unittests in web_SignToUse.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.24 at 22h 08m 33s.xml">
-      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_SignToUse_py - 2018.01.03 at 23h 21m 17s.xml">
+      <configuration name="Unittests in web_SignToUse.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.24 at 22h 10m 23s.xml">
-      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_SignToUse_py - 2018.01.03 at 23h 27m 38s.xml">
+      <configuration name="Unittests in web_SignToUse.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.24 at 22h 10m 46s.xml">
-      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_SignToUse_py - 2018.01.03 at 23h 41m 17s.xml">
+      <configuration name="Unittests in web_SignToUse.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.24 at 22h 12m 39s.xml">
-      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_SignToUse_py - 2018.01.03 at 23h 43m 15s.xml">
+      <configuration name="Unittests in web_SignToUse.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.24 at 22h 15m 49s.xml">
-      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_SignToUse_py - 2018.01.03 at 23h 44m 26s.xml">
+      <configuration name="Unittests in web_SignToUse.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.24 at 22h 20m 20s.xml">
-      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_SignToUse_py - 2018.01.03 at 23h 46m 48s.xml">
+      <configuration name="Unittests in web_SignToUse.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.24 at 22h 22m 36s.xml">
-      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_SignToUse_py - 2018.01.03 at 23h 48m 14s.xml">
+      <configuration name="Unittests in web_SignToUse.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.24 at 22h 25m 26s.xml">
-      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_SignToUse_py - 2018.01.04 at 21h 16m 43s.xml">
+      <configuration name="Unittests in web_SignToUse.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_web_ToSign_py - 2017.12.24 at 22h 29m 38s.xml">
-      <configuration name="Unittests in web_ToSign.py" configurationId="tests" />
+    <history-entry file="Unittests_in_web_SignToUse_py - 2018.01.04 at 21h 30m 19s.xml">
+      <configuration name="Unittests in web_SignToUse.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -649,12 +562,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-65" y="44" width="916" height="741" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1429652" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24883178" sideWeight="0.49524942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282572" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34129694" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30360207" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -668,7 +581,7 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="858" y="284" width="467" height="374" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31911263" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31903946" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -721,73 +634,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/TargetParameter/focus/homefocus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/TargetParameter/parameter/ExtractSettings/web_extract.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/TargetParameter/FocusVerification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/selenium_input-20171221 215757.log" />
-    <entry file="file://E:/Program Files/Python36/Lib/logging/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="469" column="8" lean-forward="false" selection-start-line="469" selection-start-column="8" selection-end-line="469" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/utils/exit_os_sys.py" />
-    <entry file="file://$PROJECT_DIR$/practical/FileIntroduce/日志打印logging_basicConfig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/TargetParameter/SingleVerification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/constant/parameter/parameter_data.py" />
-    <entry file="file://$PROJECT_DIR$/practical/constant/url_website/url_data.py" />
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/TargetParameter/VerificationRepeat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/config/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/namebean.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/namebean.py" />
     <entry file="file://E:/Program Files/Python36/Lib/unittest/suite.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -813,7 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="2020" column="4" lean-forward="false" selection-start-line="2020" selection-start-column="4" selection-end-line="2020" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -860,66 +706,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practical/config/readModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/MicroPurchase/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/Recommend/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ShoppingCart/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/test_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1514532798/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="5153" column="8" lean-forward="false" selection-start-line="5153" selection-start-column="8" selection-end-line="5153" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/MicroPurchase/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/Recommend/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ShoppingCart/__init__.py" />
     <entry file="file://$PROJECT_DIR$/practical/utils/DefinitionError.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practical/utils/stringCutting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="143" column="12" lean-forward="false" selection-start-line="143" selection-start-column="7" selection-end-line="143" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-132">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -943,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -961,7 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1672">
           <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -969,7 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="108" column="34" lean-forward="true" selection-start-line="108" selection-start-column="34" selection-end-line="108" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -985,7 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
           <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,15 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
           <caret line="257" column="38" lean-forward="false" selection-start-line="257" selection-start-column="38" selection-end-line="257" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_all.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="59" column="44" lean-forward="true" selection-start-line="58" selection-start-column="4" selection-end-line="59" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1017,7 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1033,38 +810,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="19" column="54" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/TemporaryData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="23" column="47" lean-forward="false" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
-          <folding>
-            <element signature="e#122#181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="73" column="7" lean-forward="false" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
-          <folding>
-            <element signature="e#114#123#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/TemporaryData.py" />
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/ExclusiveOperation.py" />
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/PersonalCenter/ExclusiveService/web_ToSign.py" />
     <entry file="file://$PROJECT_DIR$/practical/constant/browser_into.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -1073,18 +824,150 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/demo/geckodriver.log" />
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/TemporaryData.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1514532798/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="4716" column="29" lean-forward="true" selection-start-line="4716" selection-start-column="29" selection-end-line="4716" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/utils/stringCutting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="142" column="16" lean-forward="true" selection-start-line="142" selection-start-column="15" selection-end-line="142" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/test_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/test_baidu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-611">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/FileIntroduce/selenium 定位">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1452">
+          <caret line="66" column="47" lean-forward="false" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_all.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="50" column="22" lean-forward="false" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/logs/Journal-2018_01_04.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-396">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/practical/constant/browser_establish.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+        <state relative-caret-position="176">
+          <caret line="92" column="18" lean-forward="false" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/ConversionStorage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/ExclusiveOperation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="140" selection-end-column="31" />
+          <folding>
+            <element signature="e#122#181#0" expanded="true" />
+            <marker date="1515075133183" expanded="true" signature="5996:6430" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practical/config/readModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practical/config/model.ini">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/ExclusiveService/Web_PersonalData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="e#118#133#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/web_SignToUse.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="33" />
+          <folding>
+            <element signature="e#108#117#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PageWeb/WebEven/ExclusiveService/AccountPrivacy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding>
+            <element signature="e#116#175#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Program Files/Python36/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="863" column="0" lean-forward="false" selection-start-line="863" selection-start-column="0" selection-end-line="863" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/test_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
