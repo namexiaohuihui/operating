@@ -10,12 +10,14 @@ import selenium.webdriver.support.ui as ui
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.touch_actions import TouchActions
+from PageWeb.WebEven.Auxiliary.ConversionStorage import conversionstorage
+
 
 class exclusiveoperation(object):
-
     """
 #------------------获取浏览器部分------------------------------------
     """
+
     def sign_browser(self):
         from practical.constant.browser_establish import browser_confirm
         # 1.创建浏览器所在函数的对象
@@ -44,7 +46,7 @@ class exclusiveoperation(object):
             # 点击登陆按钮
             self.is_visible_css_selectop('.btn>a:nth-child(1)')
 
-            self.sign_user_login(account,password)
+            self.sign_user_login(account, password)
 
         except Exception as message:
             function = inspect.stack()[0][3]  # 执行函数的函数名
@@ -70,9 +72,8 @@ class exclusiveoperation(object):
 
             # 获取登录的提示语
             text = self.is_visible_css_selectop_text('.toast-cont')
-
+            print("登陆提示信息 %s " % text)
             # 储存登陆之后的提示
-            from PageWeb.WebEven.Auxiliary.ConversionStorage import conversionstorage
             conversionstorage().set_remarks(text)
 
         except Exception as message:
@@ -83,6 +84,7 @@ class exclusiveoperation(object):
         """
 #--------------------添加商品部分-----------------------------------------
         """
+
     def add_goods(self):
         """
         选择商品并进行点击
@@ -109,6 +111,7 @@ class exclusiveoperation(object):
         """
 #--------------------读取excel表格数据部分-----------------------------------------
         """
+
     def excel_Data(self, file_path=None):
         """
         从excel表格中获取数据并进行转换
@@ -139,6 +142,7 @@ class exclusiveoperation(object):
         """
 #--------------------浏览器操作部分-----------------------------------------
         """
+
     def get_size(self):
         # 获取浏览器的大小
         x = self.driver.get_window_size()['width']
@@ -163,6 +167,7 @@ class exclusiveoperation(object):
         """
 #--------------------元素判断部分-----------------------------------------
         """
+
     def is_visible_css_selectop(self, locator, timeout=3):
         # 一直等待某元素可见，默认超时10秒
         try:
@@ -170,12 +175,12 @@ class exclusiveoperation(object):
             # ui.WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             element = ui.WebDriverWait(self.driver, timeout).until(
                 EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+            self.sleep_Rest(1)
             self.touchActions_tap(element)
             return element
         except TimeoutException:
             print("元素未出现：   %s" % locator)
             return False
-
 
     def is_visible_css_selectop_text(self, locator, timeout=3):
         # 一直等待某元素可见，默认超时10秒
@@ -189,11 +194,10 @@ class exclusiveoperation(object):
             print("元素未出现：   %s" % locator)
             return False
 
-
-
         """
 #--------------------其他一些配置部分-----------------------------------------
         """
+
     def sleep_Rest(self, ti=1):  # 延迟
         import time
         time.sleep(ti)

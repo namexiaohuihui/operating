@@ -9,11 +9,11 @@ import os
 import unittest
 
 from PageWeb.WebEven.Auxiliary.ExclusiveOperation import exclusiveoperation
+from PageWeb.WebEven.Auxiliary.ConversionStorage import conversionstorage
 from practical.utils.logger import Log
 
 
-class singn_to_use(unittest.TestCase,exclusiveoperation):
-
+class singn_to_use(unittest.TestCase, exclusiveoperation):
     @classmethod
     def setUpClass(self):
         # 该类运行时优先调用的函数
@@ -21,14 +21,11 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
         self.log = Log(basename)
         self.log.info("The program begins to execute. Don't stop me when you start.")
 
-        self.sign_browser(self)
-
     @classmethod
     def tearDownClass(self):
         # 该类结束时最后调用的函数
         self.log.info("Make it complete and continue to press it next time...")
-        self.driver.close()
-
+        # self.driver.close()
 
     def test_ShoppingCart_login(self):
         """
@@ -40,10 +37,10 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
         df = excel[0]
         row_col_data = excel[1]
 
-        #for number in range(len(row_col_data) - 1, len(row_col_data)):
-        for number in range(23, 24):
+        for number in range(len(row_col_data)):
+            # for number in range(23, 24):
             STR_INPUT = df.iloc[number]["输入"]
-            if STR_INPUT.find(",") and  STR_INPUT.find(":") != -1:
+            if STR_INPUT.find(",") and STR_INPUT.find(":") != -1:
                 string = df.iloc[number]["输入"].split(',')
                 account = string[0].split(':')[1]
                 password = string[1].split(':')[1]
@@ -52,15 +49,19 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
             else:
                 self.sign_one(df.iloc[number]["函数"])
 
-            from PageWeb.WebEven.Auxiliary.ConversionStorage import conversionstorage
-            df.iloc[number]["场景"] = conversionstorage().get_remarks()
+            df.iloc[number]["备注"] = conversionstorage().get_remarks()
 
-            # self.save_csv(df)  # 将数据进行保存
+            self.driver.close()
+
+        df.to_excel("nihao.xlsx", index=False, encoding="gbk")  # 将数据进行保存
+
+    """
+       #-----------------程序判断函数---------------------
+   """
 
     def sign_one(self, function, account=None, password=None):
-        import datetime
-        print(datetime.datetime.now())
         self.log.info("%s 开始执行" % function)
+        self.sign_browser()
         # self.is_visible_css_selectop(".am-dialog-button")
 
         if function == "homepage":  # 首页登录
@@ -140,12 +141,15 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
             self.click_privacy()
 
         elif function == "MessageTip":  # 注册页面点击内容
-            print("找打位置 %s" % datetime.datetime.now())
             self.click_message_tip()
 
 
         else:
-            print("The functions carried by the use case have not been found...")
+            self.log.info("The functions carried by the use case have not been found..." + function)
+
+    """
+    #-----------------程序执行函数---------------------
+    """
 
     def click_homepage(self, account=None, password=None):  # 首页直接购买
 
@@ -170,13 +174,13 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
         else:
             self.log.info("购物车页面出错")
 
-    def click_details(self, account=None, password=None): #　详情页面登陆
+    def click_details(self, account=None, password=None):  # 详情添加商品登陆
 
         self.is_visible_css_selectop('.shop-goods.shop-goods-cur>li:nth-child(1)')  # 点击去详情
 
         self.details_add_goods(account, password)
 
-    def click_home_water_ticket(self, account=None, password=None): # 首页水票登录
+    def click_home_water_ticket(self, account=None, password=None):  # 首页选择水票登录
 
         self.is_visible_css_selectop(".shop-tiket-items.J_buyTiket>a:nth-of-type(1)")
 
@@ -187,17 +191,18 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
         else:
             self.log.info("水票弹窗错误")
 
-    def click_details_water_ticket(self, account=None, password=None): # 详情水票登录
+    def click_details_water_ticket(self, account=None, password=None):  # 详情选择水票登录
         self.is_visible_css_selectop('.shop-goods.shop-goods-cur>li:nth-child(1)')  # 点击去详情
 
-        detail = self.is_visible_css_selectop(".shop-tiket-items.detail-add>a:last-child")
+        self.is_visible_css_selectop(".shop-tiket-items.detail-add>a:last-child")  # 添加购物车
+        tiketBtn = self.is_visible_css_selectop(".buy-tiket-btn")  # 添加购物车之后进行
 
-        if detail != False:
+        if tiketBtn != False:
             self.sign_switching_logon(account, password)
         else:
             self.log.info("商品详情水票弹窗错误")
 
-    def click_details_introduce(self, account=None, password=None): # 详情介绍登录
+    def click_details_introduce(self, account=None, password=None):  # 详情介绍登录
         self.is_visible_css_selectop('.shop-goods.shop-goods-cur>li:nth-child(1)')  # 点击进详情页
 
         self.is_visible_css_selectop('.goods-nav>a:nth-child(3)')  # 查看商品评价
@@ -211,7 +216,7 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
 
         self.details_add_goods(account, password)
 
-    def click_water_page(self, account=None, password=None): # 水票页面登录
+    def click_water_page(self, account=None, password=None):  # 水票页面登录
         self.is_visible_css_selectop('.nav-watikis')  # 水票页面
         self.is_visible_css_selectop(".am-dialog-button")
         self.sleep_Rest()
@@ -219,7 +224,7 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
         self.is_visible_css_selectop('.buy-tiket-btn')  # 弹窗
         self.sign_switching_logon(account, password)
 
-    def click_water_details(self, account=None, password=None): # 水票详情页面登录
+    def click_water_details(self, account=None, password=None):  # 水票详情页面登录
         self.is_visible_css_selectop('.nav-watikis')  # 水票页面
         self.is_visible_css_selectop(".am-dialog-button")
         self.sleep_Rest()
@@ -235,12 +240,12 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
         self.is_visible_css_selectop(".select-watikis>a:nth-child(2)")
         self.sign_switching_logon(account, password)
 
-    def click_deliver_water(self, account=None, password=None): # 一键登录
+    def click_deliver_water(self, account=None, password=None):  # 一键登录
         self.is_visible_css_selectop('.nav-onekey')  # 一键送水
         self.is_visible_css_selectop('.onekey-btn.dis')
         self.sign_switching_logon(account, password)
 
-    def click_order(self, account=None, password=None): # 用户dingdan
+    def click_order(self, account=None, password=None):  # 用户dingdan
         self.is_visible_css_selectop(".nav-order")
         self.sign_switching_logon(account, password)
 
@@ -254,7 +259,7 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
         self.is_visible_css_selectop(".msg-nav>a:nth-child(1)")
         self.sign_switching_logon(account, password)
 
-    def click_pending_delivery(self, account=None, password=None): # 待发货跳转
+    def click_pending_delivery(self, account=None, password=None):  # 待发货跳转
         self.is_visible_css_selectop(".nav-user")
         self.is_visible_css_selectop(".msg-nav>a:nth-child(2)")
         self.sign_switching_logon(account, password)
@@ -264,32 +269,32 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
         self.is_visible_css_selectop(".msg-nav>a:nth-child(3)")
         self.sign_switching_logon(account, password)
 
-    def click_be_evaluated(self, account=None, password=None): # 待评价跳转
+    def click_be_evaluated(self, account=None, password=None):  # 待评价跳转
         self.is_visible_css_selectop(".nav-user")
         self.is_visible_css_selectop(".msg-nav>a:nth-child(4)")
         self.sign_switching_logon(account, password)
 
-    def click_red_envelopes(self, account=None, password=None): # 红包跳转
+    def click_red_envelopes(self, account=None, password=None):  # 红包跳转
         self.is_visible_css_selectop(".nav-user")
         self.is_visible_css_selectop(".user-sidebar>li:nth-child(1)")
         self.sign_switching_logon(account, password)
 
-    def click_card_coupons(self, account=None, password=None): # 卡券跳转
+    def click_card_coupons(self, account=None, password=None):  # 卡券跳转
         self.is_visible_css_selectop(".nav-user")
         self.is_visible_css_selectop(".user-sidebar>li:nth-child(2)")
         self.sign_switching_logon(account, password)
 
-    def click_use_water_ticket(self, account=None, password=None): # 水票跳转
+    def click_use_water_ticket(self, account=None, password=None):  # 水票跳转
         self.is_visible_css_selectop(".nav-user")
         self.is_visible_css_selectop(".user-sidebar>li:nth-child(3)")
         self.sign_switching_logon(account, password)
 
-    def click_address(self, account=None, password=None): # 地址跳转
+    def click_address(self, account=None, password=None):  # 地址跳转
         self.is_visible_css_selectop(".nav-user")
         self.is_visible_css_selectop(".user-sidebar>li:nth-child(4)")
         self.sign_switching_logon(account, password)
 
-    def click_protocol(self): # 注册页面点击内容
+    def click_protocol(self):  # 注册页面点击内容
         self.is_visible_css_selectop(".nav-user")
         self.is_visible_css_selectop(".user-head")
         self.is_visible_css_selectop('.login-type>a:nth-child(2)')  # 切换注册
@@ -299,7 +304,7 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
         print(overBox)
         self.is_visible_css_selectop('.close')
 
-    def click_privacy(self): # 注册页面点击内容
+    def click_privacy(self):  # 注册页面点击内容
         self.is_visible_css_selectop(".nav-user")
         self.is_visible_css_selectop(".user-head")
         self.is_visible_css_selectop('.login-type>a:nth-child(2)')  # 切换注册
@@ -309,16 +314,14 @@ class singn_to_use(unittest.TestCase,exclusiveoperation):
         print(overBox)
         self.is_visible_css_selectop('.close')
 
-    def click_message_tip(self): # 注册页面点击内容
+    def click_message_tip(self):  # 注册页面点击内容
         self.is_visible_css_selectop(".nav-user")
         self.is_visible_css_selectop(".user-head")
         self.is_visible_css_selectop('.login-type>a:nth-child(2)')  # 切换注册
         message = self.driver.find_element_by_css_selector(".message-tip").text
         # 储存登陆之后的提示
-        from PageWeb.WebEven.Auxiliary.ConversionStorage import conversionstorage
         conversionstorage().set_remarks(message)
 
 
 if __name__ == '__main__':
     unittest.main()
-
