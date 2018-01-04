@@ -9,7 +9,7 @@ import os
 import unittest
 
 from PageWeb.WebEven.Auxiliary.ExclusiveOperation import exclusiveoperation
-from PageWeb.WebEven.Auxiliary.ConversionStorage import conversionstorage
+from PageWeb.WebEven.ConversionStorage import conversionstorage
 from practical.utils.logger import Log
 
 
@@ -37,7 +37,7 @@ class singn_to_use(unittest.TestCase, exclusiveoperation):
         df = excel[0]
         row_col_data = excel[1]
 
-        for number in range(len(row_col_data)):
+        for number in range(0,3):
             # for number in range(23, 24):
             STR_INPUT = df.iloc[number]["输入"]
             if STR_INPUT.find(",") and STR_INPUT.find(":") != -1:

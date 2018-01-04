@@ -46,11 +46,10 @@ class browser_confirm(browser_get_info):
 
     # 调用函数，实现打开谷歌浏览器的步骤
     def chrome_browser(self, options=None):
-        print("打开谷歌")
-        self.browser = webdriver.Chrome(executable_path=r"E:\drivers\Drivers\chromedriver61-63.exe",
-                                        chrome_options=options)
         try:
-            print("")
+            self.browser = webdriver.Chrome(executable_path=r"E:\drivers\Drivers\chromedriver61-63.exe",
+                                        chrome_options=options)
+            print("打开谷歌")
             # 实现全局变量的引用
         except Exception as msg:
             self.writeLog(msg)

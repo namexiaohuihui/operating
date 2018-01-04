@@ -79,10 +79,10 @@ if __name__ == '__main__':
     # shangyigebanben()
 
     # 加载用例
-    all_case = add_case("PageWeb\\WebShop\\TargetParameter\\parameter\\PreferentialSettings")
+    all_case = add_case("PageWeb\\WebEven\\Auxiliary")
 
    # 生成测试报告的路径
     run_case(all_case)
     # 获取最新的而测试报告文件
-    report_path = os.path.join(cur_path,"result")# 报告文件夹
+    report_path = os.path.join(cur_path,"report")# 报告文件夹
     report_file = get_report_file(report_path)

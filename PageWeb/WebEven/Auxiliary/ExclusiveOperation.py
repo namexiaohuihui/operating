@@ -10,7 +10,8 @@ import selenium.webdriver.support.ui as ui
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.touch_actions import TouchActions
-from PageWeb.WebEven.Auxiliary.ConversionStorage import conversionstorage
+
+from PageWeb.WebEven.ConversionStorage import conversionstorage
 
 
 class exclusiveoperation(object):
@@ -72,7 +73,7 @@ class exclusiveoperation(object):
 
             # 获取登录的提示语
             text = self.is_visible_css_selectop_text('.toast-cont')
-            print("登陆提示信息 %s " % text)
+            print("登陆提示信息-----> %s " % text)
             # 储存登陆之后的提示
             conversionstorage().set_remarks(text)
 
@@ -102,7 +103,7 @@ class exclusiveoperation(object):
 
         self.is_visible_css_selectop('.buy-tiket-btn.cart')  # 添加购物车
 
-        self.log.info("添加商品的提示： %s" % self.is_visible_css_selectop_text('.toast-cont'))  # 错误错误的原因
+        self.log.info("添加商品的提示-----> %s" % self.is_visible_css_selectop_text('.toast-cont'))  # 错误错误的原因
         self.sleep_Rest()
         self.is_visible_css_selectop('.buy.cur')  # 去结算
 
@@ -120,7 +121,7 @@ class exclusiveoperation(object):
         """
         # 获取excel路径
         from practical.config import readModel
-        if file_path == None: file_path = readModel.establish_con().get("excel", "file")
+        if file_path == None: file_path = readModel.establish_con().get("excel", "auxiliaryFile")
 
         # 读取相应路径中的数据
         from practical.utils.OpenpyxlExcel import READEXCEL, PANDASDATA
