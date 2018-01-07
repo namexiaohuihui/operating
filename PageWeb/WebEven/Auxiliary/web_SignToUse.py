@@ -12,6 +12,48 @@ from PageWeb.WebEven.Auxiliary.ExclusiveOperation import exclusiveoperation
 from PageWeb.WebEven.ConversionStorage import conversionstorage
 from practical.utils.logger import Log
 
+"""
+#--------------------读取excel表格数据部分-----------------------------------------
+"""
+def excel_Data(file_path=None):
+    """
+    从excel表格中获取数据并进行转换
+    :param file_path:
+    :return:
+    """
+    # 获取excel路径
+    from practical.config import readModel
+    if file_path == None: file_path = readModel.establish_con().get("excel", "auxiliaryFile")
+
+    # 读取相应路径中的数据
+    from practical.utils.OpenpyxlExcel import READEXCEL, PANDASDATA
+    read = READEXCEL(file_path)
+
+    # 获取case
+    whole = read.position_sheet_row_value()
+    # 获取内容
+    row_col_data = whole[0]  #
+    # 获取标题
+    title_data = whole[1]
+
+    # 数据转换
+    pan = PANDASDATA(row_col_data)
+    df = pan.definition_DataFrame(index="2017-12-24", periods=len(tuple(row_col_data)), columns=title_data)
+
+    return df, row_col_data
+
+"""
+#-----------------程序执行函数---------------------
+"""
+def modifier_Interface_sliding(func):
+    #Interface_sliding()
+
+    def modifier(*s, **gs):
+        from time import ctime
+        print("[%s] %s() called" % (ctime(), func.__name__))
+        return func(*s, **gs)
+
+    return modifier
 
 class singn_to_use(unittest.TestCase, exclusiveoperation):
     @classmethod
@@ -33,11 +75,11 @@ class singn_to_use(unittest.TestCase, exclusiveoperation):
         2.去结算
         :return:
         """
-        excel = self.excel_Data()
+        excel = excel_Data()
         df = excel[0]
         row_col_data = excel[1]
 
-        for number in range(0,3):
+        for number in range(1):
             # for number in range(23, 24):
             STR_INPUT = df.iloc[number]["输入"]
             if STR_INPUT.find(",") and STR_INPUT.find(":") != -1:
@@ -65,7 +107,7 @@ class singn_to_use(unittest.TestCase, exclusiveoperation):
         # self.is_visible_css_selectop(".am-dialog-button")
 
         if function == "homepage":  # 首页登录
-            self.Interface_sliding()
+            # self.Interface_sliding()
             self.click_homepage(account=account, password=password)
 
         elif function == "shoppingCart":  # 购物车登录
@@ -147,10 +189,7 @@ class singn_to_use(unittest.TestCase, exclusiveoperation):
         else:
             self.log.info("The functions carried by the use case have not been found..." + function)
 
-    """
-    #-----------------程序执行函数---------------------
-    """
-
+    @modifier_Interface_sliding
     def click_homepage(self, account=None, password=None):  # 首页直接购买
 
         self.add_goods()  # 添加商品的操作

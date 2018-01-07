@@ -109,36 +109,6 @@ class exclusiveoperation(object):
 
         self.sign_switching_logon(account, password)
 
-        """
-#--------------------读取excel表格数据部分-----------------------------------------
-        """
-
-    def excel_Data(self, file_path=None):
-        """
-        从excel表格中获取数据并进行转换
-        :param file_path:
-        :return:
-        """
-        # 获取excel路径
-        from practical.config import readModel
-        if file_path == None: file_path = readModel.establish_con().get("excel", "auxiliaryFile")
-
-        # 读取相应路径中的数据
-        from practical.utils.OpenpyxlExcel import READEXCEL, PANDASDATA
-        read = READEXCEL(file_path)
-
-        # 获取case
-        whole = read.position_sheet_row_value()
-        # 获取内容
-        row_col_data = whole[0]  #
-        # 获取标题
-        title_data = whole[1]
-
-        # 数据转换
-        pan = PANDASDATA(row_col_data)
-        df = pan.definition_DataFrame(index="2017-12-24", periods=len(tuple(row_col_data)), columns=title_data)
-
-        return df, row_col_data
 
         """
 #--------------------浏览器操作部分-----------------------------------------
@@ -159,6 +129,7 @@ class exclusiveoperation(object):
         y1 = screen[1] * 0.75
 
         TouchActions(self.driver).scroll(x1, y1).perform()
+
 
     def touchActions_tap(self, element):
         # 点击元素

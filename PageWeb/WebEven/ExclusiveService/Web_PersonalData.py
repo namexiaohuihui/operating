@@ -13,7 +13,7 @@ class personal_Privacy(unittest.TestCase,account_privacy):
     @classmethod
     def setUp(cls):
         basename = os.path.splitext(os.path.basename(__file__))[0]
-        account_privacy.start_program(basename)
+        account_privacy.start_program(cls,basename)
 
 
     @classmethod
@@ -27,4 +27,4 @@ class personal_Privacy(unittest.TestCase,account_privacy):
 
 
 if __name__ == '__main__':
-    pass
+    unittest.main

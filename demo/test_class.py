@@ -22,26 +22,22 @@ class cc():
         print("你才是大佬....我是定义这个类是默认调用的。。。")
 
 
-
-from time import ctime
-from time import sleep
-
 def ftfunc(func):
-    def timef(*s,**gs):
-        print ("[%s] %s() called" % (ctime(),func.__name__))
-        return func(*s,**gs)
+    def timef(*s, **gs):
+        from time import ctime
+        from time import sleep
+        print("[%s] %s() called" % (ctime(),func.__name__))
+        return func(*s, **gs)
+
     return timef
 
 @ftfunc
-def foo(*s,**gs):
+def foo(*s, **gs):
     print(s)
     print(gs)
-    foo()
-    foo(1)
-    foo(1, 2)
-    foo(1, 2, 3)
-    stu = {'name': 'alam', 'age': 12}
-    foo(1, 2,)
+
+
+
 from threading import Thread
 import time
 class Sayhi(Thread):
@@ -59,6 +55,21 @@ class Sayhi(Thread):
 if __name__ == '__main__':
     # 创建两个线程
     # https://www.cnblogs.com/smallmars/p/7149507.html
+    """
+    c = cc()
+    c.foo()
+    c.foo(1)
+    c.foo(1, 2)
+    c.foo(1, 2, 3)
+     stu = {'name': 'alam', 'age': 12}
+    c.foo(1, 2, )
+    """
+    foo()
+    foo(1)
+    foo(1, 2)
+    foo(1, 2, 3)
+    stu = {'name': 'alam', 'age': 12}
+    foo(1, 2, )
     try:
         t1 = Sayhi("Thread-1", 2,)
         t2 = Sayhi("Thread-2", 1,)
