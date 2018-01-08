@@ -31,7 +31,6 @@ class demo:
         print("我不好")
 
 if __name__ == '__main__':
-    lla = "nihaoma"
-    lla = lla + "()"
-    case = demo()
-    user = case.lla
+    a = 1
+    b = 1
+    assert  a != b , "1"

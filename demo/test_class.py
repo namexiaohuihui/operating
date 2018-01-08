@@ -52,6 +52,12 @@ class Sayhi(Thread):
         time.sleep(self.delay)
         print("%s: %s" % (self.threadName, time.ctime(time.time())))
 
+def doWaiting():
+    print('start waiting:', time.strftime('%H:%M:%S'))
+    time.sleep(3)
+    print('stop waiting', time.strftime('%H:%M:%S'))
+
+
 if __name__ == '__main__':
     # 创建两个线程
     # https://www.cnblogs.com/smallmars/p/7149507.html
@@ -78,5 +84,12 @@ if __name__ == '__main__':
         print("zhu")
     except:
         print("Error: unable to start thread")
+    print("13")
+    thread1 = Thread(target=doWaiting)
+    thread1.start()
+    time.sleep(1)  # 确保线程thread1已经启动
+    print('start join')
+    thread1.join()  # 将一直堵塞，直到thread1运行结束。
+    print('end join')
 
 

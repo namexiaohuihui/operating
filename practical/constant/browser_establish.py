@@ -49,7 +49,6 @@ class browser_confirm(browser_get_info):
         try:
             self.browser = webdriver.Chrome(executable_path=r"E:\drivers\Drivers\chromedriver61-63.exe",
                                         chrome_options=options)
-            print("打开谷歌")
             # 实现全局变量的引用
         except Exception as msg:
             self.writeLog(msg)
@@ -105,7 +104,7 @@ class browser_confirm(browser_get_info):
 
         # 等待网页加载，加载时间为10s，加载完就跳过
         self.browser.implicitly_wait(5)
-
+        print("浏览器打开完毕..........")
         return self.browser;
 
     #   设置手机模式
