@@ -3,6 +3,7 @@ __author__ = 'Administrator'
 """
 @file: FocusVerification.py
 @time: 2017/12/19 17:25
+好像是获取map的数据
 """
 class verification_focus(object):
     def __init__(self, map):

@@ -44,6 +44,10 @@ class browser_confirm(browser_get_info):
             cls._instance = orig.__new__(cls, *args, **kw)
         return cls._instance
 
+    def single_browser(self):
+        # 返回已经创建了的浏览器对象
+        return self.browser
+
     # 调用函数，实现打开谷歌浏览器的步骤
     def chrome_browser(self, options=None):
         try:

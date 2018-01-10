@@ -6,41 +6,43 @@
 @项目名称:operating
 """
 
-class definition_error(Exception):
-    def __init__(self, value=None):
-        if not value:print(value)
 
-    def error_get(self, basename, _browser_):
-        import datetime
-        import os
-        import logging
-        import traceback
+def error_get(self, basename, _browser_):
 
-        # 组合日志文件名（当前文件名+当前时间）.比如：case_login_success_20150817192533
-        logFile = basename + "-" + datetime.datetime.now().strftime("%Y%m%d %H%M%S")
+    import datetime
+    import os
+    import traceback
+    from practical.utils.logger import Log
 
-        # 获取错误日志并打印
-        error = traceback.format_exc()
-        from practical.utils.logger import Log
-        log = Log(basename, "ERROR")
-        log.info(error)
+    # 组合日志文件名（当前文件名+当前时间）.比如：case_login_success_20150817192533
+    logFile = basename + "-" + datetime.datetime.now().strftime("%Y%m%d %H%M%S")
 
-        # 截图
-        # _browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
-        cur_path = os.path.dirname(os.path.realpath(__file__))
-        log_path = os.path.join(os.path.dirname(cur_path), 'logs')
-        _browser_.get_screenshot_as_file(os.path.join(log_path, logFile + "-screenshot_error.png"))
+    # 获取错误日志并打印
+    error = traceback.format_exc()
+    log = Log(basename, "ERROR")
+    log.info(error)
 
-    def error_output(self,basename,message, _browser_):
-        from practical.utils.logger import Log
-        import os
-        import inspect
+    # 截图
+    # _browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
+    cur_path = os.path.dirname(os.path.realpath(__file__))
+    log_path = os.path.join(os.path.dirname(cur_path), 'logs')
+    _browser_.get_screenshot_as_file(os.path.join(log_path, logFile + "-screenshot_error.png"))
 
-        self.log = Log(name_tion, classification='ERROR')
-        self.log.info("sign_switching_logon 出现错误.. %s" % message)
 
-        # 截图
-        # _browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
-        cur_path = os.path.dirname(os.path.realpath(__file__))
-        log_path = os.path.join(os.path.dirname(cur_path), 'logs')
-        _browser_.get_screenshot_as_file(os.path.join(log_path, name_tion + "-screenshot_error.png"))
+def error_output(self,basename, _browser_):
+
+    from practical.utils.logger import Log
+    import os
+    import traceback
+
+    log = Log(basename, classification='ERROR')
+    error = traceback.format_exc()
+    log.info("Cause of error.. %s" % error)
+
+    # 截图
+    # _browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
+    cur_path = os.path.dirname(os.path.realpath(__file__))
+
+    log_path = os.path.join(os.path.dirname(cur_path), 'logs')
+
+    _browser_.get_screenshot_as_file(os.path.join(log_path, basename + "-screenshot_error.png"))

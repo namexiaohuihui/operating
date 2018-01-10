@@ -70,7 +70,7 @@ class invitation_input(unittest.TestCase, unified_verification):
         # 执行:输入/提交/验证
         self.dic_verification(parameter, massegn='请输入价格,仅支持输入正整数')
 
-    def test_invitation_five(self, parameter=None):
+    def test_invitation_six(self, parameter=None):
         # 输入不符合规矩的内容，点击提交出现提示信息
         if parameter is None:
             parameter = ["1", "2", "3", "4"]  # 需要输入的内容

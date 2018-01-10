@@ -27,10 +27,16 @@ class demo:
         self.browser.implicitly_wait(10)
 
         self.browser.get("file:///C:/Users/70486/Desktop/demo.html")
+    def qweasd(self):
+        return self.qwe
     def nihaoma(self):
+        self.qwe = 33
         print("我不好")
 
 if __name__ == '__main__':
-    a = 1
+    a = 13
     b = 1
     assert  a != b , "1"
+    demo = demo()
+    demo.nihaoma()
+    print(demo.qweasd())

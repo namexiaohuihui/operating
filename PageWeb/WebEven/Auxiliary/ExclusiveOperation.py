@@ -49,9 +49,9 @@ class exclusiveoperation(object):
 
             self.sign_user_login(account, password)
 
-        except Exception as message:
+        except Exception :
             function = inspect.stack()[0][3]  # 执行函数的函数名
-            self.error_log(function, message)
+            self.error_log(function)
             raise
 
     def sign_user_login(self, account, password):
@@ -77,9 +77,9 @@ class exclusiveoperation(object):
             # 储存登陆之后的提示
             conversionstorage().set_remarks(text)
 
-        except Exception as message:
+        except Exception :
             function = inspect.stack()[0][3]  # 执行函数的函数名
-            self.error_log(function, message)
+            self.error_log(function)
             raise
 
         """
@@ -174,7 +174,7 @@ class exclusiveoperation(object):
         import time
         time.sleep(ti)
 
-    def error_log(self, function, message):
+    def error_log(self, function):
         # 执行文件的文件名
         basename = os.path.splitext(os.path.basename(__file__))[0]
 
@@ -182,5 +182,5 @@ class exclusiveoperation(object):
         name_tion = basename + ":" + function
 
         # 调用错误类
-        from practical.utils.DefinitionError import definition_error
-        definition_error().error_output(name_tion, message, self.browser)
+        from practical.utils import DefinitionError
+        DefinitionError.error_output(name_tion, browser)
