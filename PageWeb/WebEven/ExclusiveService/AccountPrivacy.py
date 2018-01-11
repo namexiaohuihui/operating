@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 """
 @__author__ :70486 
-@file: AccountPrivacy.py
+@file: ap.py
 @time: 2018/1/4 22:13
 @项目名称:operating
 """
@@ -21,7 +21,7 @@ def start_program(driver): # 暂时不用
            开启线程用于执行打开浏览器和读取表格的数据。
            当数据执行完毕之后，开始执行动作
     """
-    browser = Thread(args=accountPrivacy_user_login(driver))
+    browser = Thread(args=user_login(driver))
 
     browser.start()
 
@@ -33,7 +33,7 @@ def start_program(driver): # 暂时不用
 """
 #------------------获取浏览器部分------------------------------------
 """
-def accountPrivacy_browser():
+def _browser():
     # 1.创建浏览器所在函数的对象
     bc = browser_confirm.__new__(browser_confirm)
     options = bc.mobile_phone_mode()
@@ -49,29 +49,29 @@ def accountPrivacy_browser():
 #------------------- 用户登录-------------------
 """
 
-def accountPrivacy_Route(driver):
+def _route(driver):
     # 点击信息页面
-    accountPrivacy_visible_css_selectop(driver,".nav-user")
+    _visible_css_selectop(driver,".nav-user")
     sleep_Rest()
     # 点击页面中的登录按钮
-    accountPrivacy_visible_css_selectop(driver,".user-head")
+    _visible_css_selectop(driver,".user-head")
 
 
-def accountPrivacy_user_login(driver):
+def user_login(driver):
     try:
         conf = readModel.establish_con()
         account = conf.get("username", "account")
         password = conf.get("username", "password")
-        accountPrivacy_Route(driver)
+        _route(driver)
 
-        accountPrivacy_visible_css_selectop(driver,'.login-type>a:nth-child(1)')  # 切换登陆方式
+        _visible_css_selectop(driver,'.login-type>a:nth-child(1)')  # 切换登陆方式
 
         # 账号密码的输入
         driver.find_element_by_css_selector("#J_tel").send_keys(account)
         driver.find_element_by_css_selector("#J_pwd").send_keys(password)
 
         # 登陆按钮
-        accountPrivacy_visible_css_selectop(driver,".u-btn.u-btn-morange")
+        _visible_css_selectop(driver,".u-btn.u-btn-morange")
 
 
     except Exception:
@@ -84,7 +84,7 @@ def accountPrivacy_user_login(driver):
 #--------------------读取excel表格数据部分-----------------------------------------
 """
 
-def accountPrivacy_excel_Data(file_path=None):
+def _excel_Data(file_path=None):
 
     """
     从excel表格中获取数据并进行转换
@@ -115,7 +115,7 @@ def accountPrivacy_excel_Data(file_path=None):
 #--------------------元素判断部分-----------------------------------------
 """
 
-def accountPrivacy_visible_css_selectop(driver, locator, timeout=3):
+def _visible_css_selectop(driver, locator, timeout=3):
     # 判断元素是否存在，如果存在就进行点击并返回对象
     try:
 
@@ -136,7 +136,7 @@ def accountPrivacy_visible_css_selectop(driver, locator, timeout=3):
         return False
 
 
-def accountPrivacy_visible_css_selectop_text(driver, locator, timeout=3):
+def _visible_css_selectop_text(driver, locator, timeout=3):
     # 判断元素是否存在，如果存在就进行获取元素的text属性
     try:
 
@@ -155,7 +155,7 @@ def accountPrivacy_visible_css_selectop_text(driver, locator, timeout=3):
 
         return False
 
-def accountPrivacy_visible_css_selectop_attribute(driver, locator, timeout=3):
+def _visible_css_selectop_attribute(driver, locator, timeout=3):
     # 判断元素是否存在，如果存在就获取元素的value属性内容
     try:
         import datetime
@@ -170,7 +170,7 @@ def accountPrivacy_visible_css_selectop_attribute(driver, locator, timeout=3):
         error_log(driver, function)
         return False
 
-def accountPrivacy_sendKeys_css_selectop(driver, locator,content, timeout=3):
+def _sendKeys_css_selectop(driver, locator,content, timeout=3):
     # 判断元素是否存在，如果存在就进行输入
     try:
 
