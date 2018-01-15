@@ -1,21 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import re
-
-import selenium.webdriver.support.expected_conditions as EC
-from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import ui
-
 __author__ = 'Administrator'
 """
 @file: test_class.py
 @time: 2017/10/26 11:58
 """
-
-from practical.constant.browser_establish import browser_confirm
-
 class cc():
 
     def __init__(self):
@@ -58,38 +47,42 @@ def doWaiting():
     print('stop waiting', time.strftime('%H:%M:%S'))
 
 
+class MyThread(Thread):
+
+    def __init__(self,func,args=()):
+        super(MyThread,self).__init__()
+        self.func = func
+        self.args = args
+
+    def run(self):
+        self.result = self.func(*self.args)
+
+    def get_result(self):
+        try:
+            return self.result  # 如果子线程不使用join方法，此处可能会报没有self.result的错误
+        except Exception:
+            return None
+
+def foo(a,b,c):
+    time.sleep(1)
+    return a*2,b*2,c*2
+
 if __name__ == '__main__':
     # 创建两个线程
     # https://www.cnblogs.com/smallmars/p/7149507.html
-    """
-    c = cc()
-    c.foo()
-    c.foo(1)
-    c.foo(1, 2)
-    c.foo(1, 2, 3)
-     stu = {'name': 'alam', 'age': 12}
-    c.foo(1, 2, )
-    """
-    foo()
-    foo(1)
-    foo(1, 2)
-    foo(1, 2, 3)
-    stu = {'name': 'alam', 'age': 12}
-    foo(1, 2, )
-    try:
-        t1 = Sayhi("Thread-1", 2,)
-        t2 = Sayhi("Thread-2", 1,)
-        t1.start()
-        t2.start()
-        print("zhu")
-    except:
-        print("Error: unable to start thread")
-    print("13")
-    thread1 = Thread(target=doWaiting)
-    thread1.start()
-    time.sleep(1)  # 确保线程thread1已经启动
-    print('start join')
-    thread1.join()  # 将一直堵塞，直到thread1运行结束。
-    print('end join')
+    st = time.time()
+    li = []
+    for i in xrange(4):
+        t = MyThread(foo(), args=(i, i + 1, i + 2))
+        li.append(t)
+        t.start()
+
+    for t in li:
+        t.join()  # 一定要join，不然主线程比子线程跑的快，会拿不到结果
+        print(t.get_result())
+
+    et = time.time()
+    print(et - st)
+
 
 

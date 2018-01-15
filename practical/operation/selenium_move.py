@@ -87,6 +87,6 @@ def auto_move(browser,br_ele):
 
 def writeLog():
     basename = os.path.splitext(os.path.basename(__file__))[0]
-    print("文件出现错误,名为名=%s"% \
+    print("selenium_move,名为名=%s"% \
           basename,)
     raise

@@ -78,7 +78,8 @@ class singn_to_use(unittest.TestCase, exclusiveoperation):
         excel = excel_Data()
         df = excel[0]
         row_col_data = excel[1]
-
+        print(df)
+        print(row_col_data)
         for number in range(1):
             # for number in range(23, 24):
             STR_INPUT = df.iloc[number]["输入"]

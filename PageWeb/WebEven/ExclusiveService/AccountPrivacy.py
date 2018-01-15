@@ -14,6 +14,7 @@ import selenium.webdriver.support.ui as ui
 
 from practical.config import readModel
 import time
+from threading import Thread
 
 
 def start_program(driver): # 暂时不用

@@ -42,6 +42,6 @@ if __name__ == '__main__':
     report_path = os.path.join(os.getcwd(), "report")
     report_abspath = os.path.join(report_path, "result.html")
     with open(report_abspath, 'wb') as f:
-        runner = HTMLTestRunner(f, verbosity=2, title='从0搭建测试框架 灰蓝', description='修改html报告')
+        runner = HTMLTestRunner(f, verbosity=2, title='qweasd', description='修改html报告')
         runner.run(TestBaiDu('test_search'))
         print(report_abspath)
