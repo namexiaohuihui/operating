@@ -8,6 +8,7 @@ http://openpyxl.readthedocs.io/en/latest/
 http://openpyxl.readthedocs.io/en/default/usage.html#write-a-workbook
 http://blog.csdn.net/tanzuozhev/article/details/76713387
 http://www.cnblogs.com/chaosimple/p/4153083.html
+http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.set_index.html 官网
 """
 
 from openpyxl import Workbook, load_workbook
@@ -90,7 +91,7 @@ class READEXCEL:
         content = self.sheetbook.iter_rows(min_row=min_row, max_row=max_row, max_col=max_col)
         row_col_data = []  # 存储除了标题以外的内容
         title_data = []  # 只存储标题内容
-        _data = True
+        _data = True #用来控制第一行打印的数据为用例标题
         for row in content:
             row_data = []
             for single in row:
@@ -99,9 +100,27 @@ class READEXCEL:
                 else:
                     row_data.append(single.value)
             _data = False
+
             if len(row_data) >= 9: # 过滤一些不要的数据
                 row_col_data.append(row_data)
+
         return row_col_data, title_data
+
+    def die_angegebene_keys(self,row_col_data,title_data,keys = "函数"):
+        """
+        # 根据指定的keys值执行读取
+        :param row_col_data: 从case中单独分离出的数据信息
+        :param title_data:  从case中单独获取的title信息
+        :param keys:  根据title_data中某个key值进行读取数据
+        :return:
+        """
+        columnLabel = []  # 获取指定key的内容用于做序列名
+        for title in range(len(title_data)):
+            if title_data[title] == keys :
+                for rowColExcel in row_col_data:
+                    columnLabel.append(rowColExcel[title])
+                break
+        return columnLabel
 
     def position_sheet_cols_value(self, min_row=1, max_row=None, max_col=None):
         '''
@@ -796,7 +815,7 @@ class PANDASDATA:
         df.to_excel("foo.csv", index=False, encoding="gbk")
         print(pd.read_excel("foo.csv", encoding="gbk"))
 
-        read = READEXCEL(r'E:\drivers\CasePlan\CasrScene\BuyersWechat\买家微信信息管理场景.xlsx')
+        read = READEXCEL(r'E:\drivers\CasePlan\CasrScene\BuyersWechat\-----.xlsx')
         max_row = read.total_row_columns()
         listdata = []
         for kk in range(1, len(max_row)):
@@ -840,6 +859,11 @@ class PANDASDATA:
                 print(row[r])
                 list_data.append(row[r])
             list_max.append(list_data)
+
+        excelData.index # 打印所有序列名
+        excelData.columns # 打印标题
+        excelData.iloc[0] # 获取第0行的数据
+        excelData.loc["22"] # 获取标签为”22“的内容数据
 
 if __name__ == '__main__':
     read = READEXCEL(r'E:\drivers\CasePlan\CasrScene\BuyersWechat\买家微信信息管理场景.xlsx')

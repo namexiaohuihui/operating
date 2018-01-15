@@ -29,7 +29,22 @@ def start_program(driver): # 暂时不用
     sleep_Rest()  # 确保线程thread1已经启动
     browser.join()  # 将一直堵塞，直到thread1运行结束。
 
+"""
+# ------------------内容参数的比较------------------------
+"""
+def function_content_comparison(*parameter):
+    # 单※的数据类型为一个数组
+    try:
+        print(parameter, type(parameter))
+        assert parameter[0] == parameter[1], parameter[2]
+    except :
+        print(parameter[2] % " %s BEI Einem Vergleich der Fehler")
 
+
+
+def function_content_verification(**parameter):
+    # 双※的数据类型为一个列表
+    print(parameter, type(parameter))
 
 """
 #------------------获取浏览器部分------------------------------------
@@ -47,7 +62,7 @@ def _browser():
     return driver
 
 """
-#------------------- 用户登录-------------------
+#------------------- 用户登录--------------------------------
 """
 
 def _route(driver):
@@ -101,16 +116,24 @@ def _excel_Data(file_path=None):
 
     # 获取case
     whole = read.position_sheet_row_value()
-    # 获取内容
+
+    # 将case中内容的数据读出
     row_col_data = whole[0]
-    # 获取标题
+
+    # 将case中标题的内容读出
     title_data = whole[1]
+
+    # 获取case中某个指定key的内容读出
+    columnLabel = read.die_angegebene_keys(row_col_data = row_col_data,title_data = title_data)
 
     # 数据转换
     pan = PANDASDATA(row_col_data)
-    df = pan.definition_DataFrame(index="2017-12-24", periods=len(tuple(row_col_data)), columns=title_data)
-    print("wanbisgsdg %s" % time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))
-    return df, row_col_data
+
+    df = pan.dataFrame(columns=title_data)
+
+    excelData = df.set_index([columnLabel])
+
+    return excelData
 
 """
 #--------------------元素判断部分-----------------------------------------
@@ -224,4 +247,32 @@ def error_log(browser,function):
     from practical.utils import DefinitionError
     DefinitionError.error_output(name_tion, browser)
 
+def xx(): # 不要的线程
+    basename = os.path.splitext(os.path.basename(__file__))[0]
+    log = Log(basename)
+
+
+    funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
+
+    faden = []  # 该列表存放已经开启的线程
+
+    inhalt = []  # 该列表存放线程中所执行的函数返回值内容
+
+    for para in funktion:  # 遍历函数开启线程
+        threads = th(para)
+        faden.append(threads)
+        threads.start()
+
+    for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
+        argu.join()
+        inhalt.append(argu.get_result())
+
+    overall_ExcelData = inhalt[0]  # df转换的数据，方便对excel进行操作
+
+if __name__ == '__main__':
+    excelData = _excel_Data() # 只获取用例内容
+    # print(excelData)
+    obs = excelData.loc["test_look_nickname"]
+    print(obs)
+    print(obs["场景"])
 

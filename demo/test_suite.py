@@ -33,10 +33,17 @@ class demo:
         self.qwe = 33
         print("我不好")
 
+
+def function_with_one_star(*parameter):
+    print(t, type(t))
+    assert t[0] != t[1] ,t[2]
+
+
+def function_with_two_stars(**d):
+    print(d, type(d))
+
 if __name__ == '__main__':
-    a = 13
-    b = 1
-    assert  a != b , "1"
-    demo = demo()
-    demo.nihaoma()
-    print(demo.qweasd())
+
+    function_with_one_star(1, "11", 3,4)
+    function_with_two_stars(a=1, b=2, c=3)
+

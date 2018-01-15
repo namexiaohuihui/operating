@@ -5,33 +5,33 @@
 @time: 2018/1/4 22:03
 @项目名称:operating
 """
-import unittest
 from PageWeb.WebEven.ExclusiveService import AccountPrivacy as ap
-import os
+from practical.utils.RewriteThread import inherit_thread as th
 from practical.utils.logger import Log
 from threading import Thread
+import os
 import time
 import inspect
+import unittest
 
-print("你好。我开始获取数据了 %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-overall_ExcelData = ap._excel_Data()  # 获取用例数据
+print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+basename = os.path.splitext(os.path.basename(__file__))[0]
+log = Log(basename)
+overall_ExcelData = ap._excel_Data()
+
+
+print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 
 class personal_Privacy(unittest.TestCase):
     @classmethod
     def setUp(cls):
-        basename = os.path.splitext(os.path.basename(__file__))[0]
 
-        cls.log = Log(basename)
-        cls.log.info("The program begins to execute. Don't stop me when you start.")
+        log.info("The program begins to execute. Don't stop me when you start.")
 
         cls.driver = ap._browser()  # 打开浏览器
 
-        cls.excelData = overall_ExcelData  # 获取数据
-
-        ap._user_login(cls.driver)  # 用户登录
-
-        cls.log.info("open driver time")
+        ap.user_login(cls.driver)  # 用户登录
 
         # 1. 登录完成之后进入个人资料页面
         ap._visible_css_selectop(cls.driver, ".user-head")
@@ -44,25 +44,27 @@ class personal_Privacy(unittest.TestCase):
     def qwetest_look_nickname(self):
         # 实现查看昵称之后，点击昵称元素并点击取消昵称弹窗
         function = inspect.stack()[0][3]  # 执行函数的函数名
-        self.log.info("%s Function starts to execute " % function)
+        overall = overall_ExcelData.loc[function]
+        overall["场景"]
+        log.info("%s Function starts to execute " % function)
 
         # 2.获取页面上昵称的数据并进行比较
         sidebarMsg = ap._visible_css_selectop(self.driver, ".sidebar-msg")
-        assert "。。" != sidebarMsg.text, function
+        ap.function_content_comparison(overall["验证条件"],sidebarMsg.text,function)
 
         # 3.点击弹窗并获取弹窗中的数据
         uText = ap._visible_css_selectop_attribute(self.driver, ".u-txt.u-txt-l")
-        assert "..." != uText, function
+        ap.function_content_comparison(overall["验证条件"], uText, function)
 
         # 4.点击弹窗中的取消按钮
         ap._visible_css_selectop(self.driver, ".am-dialog-footer>button:nth-child(1)")
 
-        self.log.info("%s Complete function execution " % function)
+        log.info("%s Complete function execution " % function)
 
     def qwetest_modify_nickname(self):
         # 实现修改昵称
         function = inspect.stack()[0][3]  # 执行函数的函数名
-        self.log.info("%s Function starts to execute " % function)
+        log.info("%s Function starts to execute " % function)
 
         # 2.点击昵称
         ap._visible_css_selectop(self.driver, ".sidebar-msg")
@@ -79,12 +81,12 @@ class personal_Privacy(unittest.TestCase):
 
         assert sidebarMsg == content_sendKeys, function
 
-        self.log.info("%s Complete function execution " % function)
+        log.info("%s Complete function execution " % function)
 
     def qwetest_look_phone(self):
         # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
-        self.log.info("%s Function starts to execute " % function)
+        log.info("%s Function starts to execute " % function)
 
         # 2.点击昵称对象
         phone = ap._visible_css_selectop(self.driver, ".user-sidebar>li:nth-child(4)>a>span")
@@ -97,12 +99,12 @@ class personal_Privacy(unittest.TestCase):
         # 4.点击返回回到个人资料页面
         self.driver.back()
 
-        self.log.info("%s Complete function execution " % function)
+        log.info("%s Complete function execution " % function)
 
     def qwetest_cancel_exit(self):
         # 实现点击退出之后点击取消弹窗
         function = inspect.stack()[0][3]  # 执行函数的函数名
-        self.log.info("%s Function starts to execute " % function)
+        log.info("%s Function starts to execute " % function)
 
         # 2.点击退出按钮
         ap._visible_css_selectop(self.driver, ".user-sidebar>li:last-child")
@@ -113,12 +115,12 @@ class personal_Privacy(unittest.TestCase):
         # 4.点取消退出
         ap._visible_css_selectop(self.driver, ".am-dialog-footer>button:nth-child(1)")
 
-        self.log.info("%s Complete function execution " % function)
+        log.info("%s Complete function execution " % function)
 
     def qwetest_decide_exit(self):
         # 实现点击退出之后，确定提出
         function = inspect.stack()[0][3]  # 执行函数的函数名
-        self.log.info("%s Function starts to execute " % function)
+        log.info("%s Function starts to execute " % function)
 
         # 2.点击退出按钮
         ap._visible_css_selectop(self.driver, ".user-sidebar>li:last-child")
@@ -132,12 +134,12 @@ class personal_Privacy(unittest.TestCase):
         # 获取退出之后的判断
         ap._visible_css_selectop_text(self.driver, ".u-btn.u-btn-morange")
 
-        self.log.info("%s Complete function execution " % function)
+        log.info("%s Complete function execution " % function)
 
     def qwetest_enter_same_password(self):
         # 实现修改密码时，输入相同的密码，提示框的提示
         function = inspect.stack()[0][3]  # 执行函数的函数名
-        self.log.info("%s Function starts to execute " % function)
+        log.info("%s Function starts to execute " % function)
 
         # 2.点击修改密码
         ap._visible_css_selectop(self.driver, ".user-sidebar>li:nth-child(6)")
@@ -153,13 +155,13 @@ class personal_Privacy(unittest.TestCase):
         # 5.获取提示信息
         ap._visible_css_selectop_text(self.driver, ".error-msg")
 
-        self.log.info("%s Complete function execution " % function)
+        log.info("%s Complete function execution " % function)
 
     def test_password_page(self):
         # 实现从修改密码页面返回到个人资料页面
 
         function = inspect.stack()[0][3]  # 执行函数的函数名
-        self.log.info("%s Function starts to execute " % function)
+        log.info("%s Function starts to execute " % function)
 
         # 2.点击修改密码
         ap._visible_css_selectop(self.driver, ".user-sidebar>li:nth-child(6)")
@@ -170,7 +172,7 @@ class personal_Privacy(unittest.TestCase):
         # 4.获取验证信息
         ap._visible_css_selectop_text(self.driver, ".user-sidebar>li:nth-child(6)")
 
-        self.log.info("%s Complete function execution " % function)
+        log.info("%s Complete function execution " % function)
 
 
 if __name__ == '__main__':

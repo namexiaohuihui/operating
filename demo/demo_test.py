@@ -24,6 +24,8 @@ class MyThread(Thread):
 def foo(a,b,c):
     time.sleep(1)
     return a*2,b*2,c*2
+def fii():
+    print("qqq")
 
 def ding():
     return "qawe"
@@ -31,27 +33,38 @@ def ding():
 def dong():
     return "asd"
 
+def get_basename():
+    from practical.utils.logger import Log
+    import os
+    basename = os.path.splitext(os.path.basename(__file__))[0]
+    log = Log(basename)
+    return log
 if __name__ == '__main__':
-    # 创建两个线程
-    # https://www.cnblogs.com/smallmars/p/7149507.html
     st = time.time()
-    li = []
-    for i in range(4):
-        t = MyThread(foo, args=(i, i + 1, i + 2))
-        li.append(t)
-        t.start()
+    from PageWeb.WebEven.ExclusiveService import AccountPrivacy as ap
+    from practical.utils.RewriteThread import inherit_thread as th
+    funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
 
-    for t in li:
-        t.join()  # 一定要join，不然主线程比子线程跑的快，会拿不到结果
-        print(t.get_result())
+    faden = []  # 该列表存放已经开启的线程
 
-    et = time.time()
-    print(et - st)
-    ding = MyThread(func=ding)
-    dong = MyThread(dong)
-    ding.start()
-    dong.start()
-    ding.join()
-    dong.join()
-    print(ding.get_result())
-    print(dong.get_result())
+    inhalt = []  # 该列表存放线程中所执行的函数返回值内容
+
+    for para in funktion:  # 遍历函数开启线程
+        threads = th(para)
+        faden.append(threads)
+        threads.start()
+
+    for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
+        argu.join()
+        inhalt.append(argu.get_result())
+
+    overall_ExcelData = inhalt[0]  # df转换的数据，方便对excel进行操作
+    et = time.time() - st
+    print(et)
+    print("**************")
+    st = time.time()
+    get_basename()
+    neir = ap._excel_Data()
+    print(neir)
+    et = time.time() - st
+    print(et)
