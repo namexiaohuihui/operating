@@ -33,38 +33,46 @@ def ding():
 def dong():
     return "asd"
 
+def dingdong():
+    aa = abdq + 3
+    return aa
 def get_basename():
     from practical.utils.logger import Log
     import os
     basename = os.path.splitext(os.path.basename(__file__))[0]
     log = Log(basename)
     return log
+
+abdq = 1
 if __name__ == '__main__':
-    st = time.time()
-    from PageWeb.WebEven.ExclusiveService import AccountPrivacy as ap
-    from practical.utils.RewriteThread import inherit_thread as th
-    funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
-
-    faden = []  # 该列表存放已经开启的线程
-
-    inhalt = []  # 该列表存放线程中所执行的函数返回值内容
-
-    for para in funktion:  # 遍历函数开启线程
-        threads = th(para)
-        faden.append(threads)
-        threads.start()
-
-    for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
-        argu.join()
-        inhalt.append(argu.get_result())
-
-    overall_ExcelData = inhalt[0]  # df转换的数据，方便对excel进行操作
-    et = time.time() - st
-    print(et)
-    print("**************")
-    st = time.time()
-    get_basename()
-    neir = ap._excel_Data()
-    print(neir)
-    et = time.time() - st
-    print(et)
+    function = "1"
+    locator = "locator"
+    print("%s : The element does not appear ：   %s" % (function, locator))
+    # st = time.time()
+    # from PageWeb.WebEven.ExclusiveService import AccountPrivacy as ap
+    # from practical.utils.RewriteThread import inherit_thread as th
+    # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
+    #
+    # faden = []  # 该列表存放已经开启的线程
+    #
+    # inhalt = []  # 该列表存放线程中所执行的函数返回值内容
+    #
+    # for para in funktion:  # 遍历函数开启线程
+    #     threads = th(para)
+    #     faden.append(threads)
+    #     threads.start()
+    #
+    # for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
+    #     argu.join()
+    #     inhalt.append(argu.get_result())
+    #
+    # overall_ExcelData = inhalt[0]  # df转换的数据，方便对excel进行操作
+    # et = time.time() - st
+    # print(et)
+    # print("**************")
+    # st = time.time()
+    # get_basename()
+    # neir = ap._excel_Data()
+    # print(neir)
+    # et = time.time() - st
+    # print(et)

@@ -5,20 +5,19 @@
 @time: 2018/1/4 22:03
 @项目名称:operating
 """
-from PageWeb.WebEven.ExclusiveService import AccountPrivacy as ap
-from practical.utils.RewriteThread import inherit_thread as th
-from practical.utils.logger import Log
-from threading import Thread
-import os
-import time
-import inspect
 import unittest
+import inspect
+import time
+import os
+
+from PageWeb.WebEven import AccountPrivacy as ap
+from practical.utils.logger import Log
 
 print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
-overall_ExcelData = ap._excel_Data()
-
+overall_ExcelData = ap._excel_Data(filename="exclusiveServiceFile")
 
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
@@ -26,20 +25,21 @@ print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S'
 class personal_Privacy(unittest.TestCase):
     @classmethod
     def setUp(cls):
-
         log.info("The program begins to execute. Don't stop me when you start.")
 
-        cls.driver = ap._browser()  # 打开浏览器
+        ap.driver = ap._browser()  # 打开浏览器
 
-        ap.user_login(cls.driver)  # 用户登录
+        ap.user_login()  # 用户登录
 
         # 1. 登录完成之后进入个人资料页面
-        ap._visible_css_selectop(cls.driver, ".user-head")
+        if ap._visible_css_selectop(".user-head") == False:
+            log.info("的呢过了啊哈私房钱微博")
+            os._exit(0)
 
     @classmethod
     def tearDown(self):
-        self.log.info("Make it complete and continue to press it next time...")
-        self.driver.close()
+        log.info("Make it complete and continue to press it next time...")
+        ap.driver.close()
 
     def qwetest_look_nickname(self):
         # 实现查看昵称之后，点击昵称元素并点击取消昵称弹窗
@@ -50,7 +50,7 @@ class personal_Privacy(unittest.TestCase):
 
         # 2.获取页面上昵称的数据并进行比较
         sidebarMsg = ap._visible_css_selectop(self.driver, ".sidebar-msg")
-        ap.function_content_comparison(overall["验证条件"],sidebarMsg.text,function)
+        ap.function_content_comparison(overall["验证条件"], sidebarMsg.text, function)
 
         # 3.点击弹窗并获取弹窗中的数据
         uText = ap._visible_css_selectop_attribute(self.driver, ".u-txt.u-txt-l")
@@ -164,13 +164,13 @@ class personal_Privacy(unittest.TestCase):
         log.info("%s Function starts to execute " % function)
 
         # 2.点击修改密码
-        ap._visible_css_selectop(self.driver, ".user-sidebar>li:nth-child(6)")
+        ap._visible_css_selectop(".user-sidebar>li:nth-child(6)")
 
         # 3.点击返回
-        self.driver.back()
+        ap.driver.back()
 
         # 4.获取验证信息
-        ap._visible_css_selectop_text(self.driver, ".user-sidebar>li:nth-child(6)")
+        ap._visible_css_selectop_text(".user-sidebar>li:nth-child(6)")
 
         log.info("%s Complete function execution " % function)
 

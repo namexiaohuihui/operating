@@ -7,7 +7,7 @@
 """
 
 
-def error_get(self, basename, _browser_):
+def error_get(basename, _browser_):
 
     import datetime
     import os
@@ -29,7 +29,7 @@ def error_get(self, basename, _browser_):
     _browser_.get_screenshot_as_file(os.path.join(log_path, logFile + "-screenshot_error.png"))
 
 
-def error_output(self,basename, _browser_):
+def error_output(basename, _browser_):
 
     from practical.utils.logger import Log
     import os

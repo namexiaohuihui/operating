@@ -20,6 +20,7 @@ def url():
     conf = establish_con()
     url = conf.get("wap", "url")
     print(url)
+
 def obtain_con(conf):
     email_smtp_server = conf.get("email", "smtp_server")
     email_port = conf.get("email", "port")
