@@ -10,6 +10,7 @@ from practical.constant.browser_establish import browser_confirm
 from PageWeb.WebEven.ConversionStorage import conversionstorage
 from practical.utils.RewriteThread import inherit_thread as th
 from selenium.common.exceptions import TimeoutException
+from practical.utils import DefinitionErrors as dError
 from selenium.webdriver.common.by import By
 from practical.config import readModel
 from threading import Thread
@@ -18,6 +19,7 @@ import selenium.webdriver.support.expected_conditions as EC
 import selenium.webdriver.support.ui as ui
 import inspect
 import time
+import os
 
 """
 # ------------------内容参数的比较------------------------
@@ -25,6 +27,13 @@ import time
 # 定义浏览器对象，方便进行使用
 driver = 1
 
+# 在字符串str查找ing出现的位置.从number下标开始找,返回-1表示找不到
+def string_lookup_find(str, ing, number=0):
+    nPos = str.find(ing, number)
+    if nPos != -1 :
+        return True
+    else:
+        return False
 
 def function_content_comparison(*parameter):
     # 单※的数据类型为一个数组
@@ -98,9 +107,12 @@ def sign_switching_logon(account, password):
     """
     try:
         # 点击登陆按钮
-        _visible_css_selectop('.btn>a:nth-child(1)')
-
-        sign_user_login(account, password)
+        btn = _visible_css_selectop('.btn>a:nth-child(1)')
+        if btn != False:
+            sign_user_login(account, password)
+        else:
+            function = inspect.stack()[0][3]  # 执行函数的函数名
+            error_log(function)
 
     except Exception:
         function = inspect.stack()[0][3]  # 执行函数的函数名
@@ -330,7 +342,6 @@ def sleep_Rest(ti=1):  # 延迟
 
 
 def error_log(function):
-    import os
     # 执行文件的文件名
     basename = os.path.splitext(os.path.basename(__file__))[0]
 
@@ -338,8 +349,7 @@ def error_log(function):
     name_tion = basename + ":" + function
 
     # 调用错误类
-    from practical.utils import DefinitionError
-    DefinitionError.error_output(name_tion, driver)
+    dError.error_output(name_tion, driver)
 
 
 def _start_thread_pool(funktion):  # 开启线程池

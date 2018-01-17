@@ -14,7 +14,7 @@ from practical.constant.parameter.parameter_data import parameter_content
 
 from practical.constant.browser_establish import browser_confirm
 from practical.operation import selenium_input, selenium_click
-from practical.utils.DefinitionError import definition_error
+from practical.utils.DefinitionErrors import dError
 
 '''
 笔记：
@@ -156,7 +156,7 @@ class sign_input(unittest.TestCase):
     # 出现错误之后截图以及写入文档中
     def writelog(self):
         # 调用错误类吗，进行错误打印
-        de_error = definition_error()
+        de_error = dError()
         de_error.error_get(self.basename, self.browser)
 
 

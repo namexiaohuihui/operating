@@ -43,11 +43,15 @@ def get_basename():
     log = Log(basename)
     return log
 
-abdq = 1
+def homepage(a,b):
+    return a+b+3
 if __name__ == '__main__':
-    function = "1"
-    locator = "locator"
-    print("%s : The element does not appear ：   %s" % (function, locator))
+    import os
+    cur_path = os.path.dirname(os.path.realpath(__file__))
+
+    log_path = os.path.join(os.path.dirname(cur_path), 'logs')
+    path = os.path.join(log_path, "qweassdd" + "-screenshot_error.png")
+    print(path)
     # st = time.time()
     # from PageWeb.WebEven.ExclusiveService import AccountPrivacy as ap
     # from practical.utils.RewriteThread import inherit_thread as th

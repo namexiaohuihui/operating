@@ -38,6 +38,7 @@ def modifier_Interface_sliding(func):
     def modifier(*s, **gs):
         from time import ctime
         print("[%s] %s() called" % (ctime(), func.__name__))
+        print("自动滚动的开始自行")
         return func(*s, **gs)
 
     return modifier
@@ -70,14 +71,15 @@ class singn_to_use(unittest.TestCase):
             STR_INPUT = STR_ILOC["输入"]
 
             # -1表示在这个方法体里面没有找到相应的字符；也同时说明不需要输入内容
-            if  not STR_INPUT and (STR_INPUT.find(",") and STR_INPUT.find(":")) != -1:
+            comma = ap.string_lookup_find(STR_INPUT,",")
+            colon = ap.string_lookup_find(STR_INPUT,":")
+            if comma and colon:
 
                 string = STR_ILOC["输入"].split(',')  # 获取登录账号密码
-                account = string[0].split(':')[1]
-                password = string[1].split(':')[1]
-                log.info( STR_ILOC["函数"] + "aaa")
-                self.click_homepage(account=account, password=password)
-                # self._verify_login(STR_ILOC["函数"], account=account, password=password)
+                account = string[0].split(':')[1].strip() #  切割字符并获取第二份的内容，将数据里面的空格清空
+                password = string[1].split(':')[1].strip() #  切割字符并获取第二份的内容，将数据里面的空格清空
+
+                self._verify_login(STR_ILOC["函数"], account=account, password=password)
             else:
                 self._verifying_reading(STR_ILOC["函数"])
 
@@ -85,41 +87,42 @@ class singn_to_use(unittest.TestCase):
 
             ap.driver.close()
 
-        overall_ExcelData.to_excel("nihao.xlsx", index=False, encoding="gbk")  # 将数据进行保存
+        # overall_ExcelData.to_excel("nihao.xlsx", index=False, encoding="gbk")  # 将数据进行保存
 
     """
        #-----------------程序判断函数---------------------
    """
 
     def _verify_login(self, function, account=None, password=None):
+        log.info("%s _verify_login 开始执行" % function)
         # self._visible_css_selectop(".am-dialog-button")
 
         if function == "homepage":  # 首页登录
-            # self.Interface_sliding()
+            # ap.Interface_sliding()
             self.click_homepage(account=account, password=password)
 
         elif function == "shoppingCart":  # 购物车登录
-            self.Interface_sliding()
+            ap.Interface_sliding()
             self.click_shopping_cart(account=account, password=password)
 
         elif function == "detailsGoods":  # 详情登录
-            self.Interface_sliding()
+            ap.Interface_sliding()
             self.click_details(account=account, password=password)
 
         elif function == "HomeWaterTicket":  # 首页水票登录
-            self.Interface_sliding()
+            ap.Interface_sliding()
             self.click_home_water_ticket(account=account, password=password)
 
         elif function == "detailsWaterTicket":  # 详情水票登录
-            self.Interface_sliding()
+            ap.Interface_sliding()
             self.click_details_water_ticket(account=account, password=password)
 
         elif function == "detailsIntroduce":  # 详情介绍登录
-            self.Interface_sliding()
+            ap.Interface_sliding()
             self.click_details_introduce(account=account, password=password)
 
         elif function == "detailsEvaluate":  # 详情评价登录
-            self.Interface_sliding()
+            ap.Interface_sliding()
             self.click_details_evaluate(account=account, password=password)
 
         elif function == "waterPage":  # 水票页面登录
@@ -169,7 +172,7 @@ class singn_to_use(unittest.TestCase):
             log.info("The functions carried by the use case have not been found..." + function)
 
     def _verifying_reading(self, function):
-        log.info("%s 开始执行" % function)
+        log.info("%s _verifying_reading 开始执行" % function)
         # self._visible_css_selectop(".am-dialog-button")
 
         if function == "Protocol":  # 注册页面点击内容
@@ -184,7 +187,7 @@ class singn_to_use(unittest.TestCase):
         else:
             log.info("The functions carried by the use case have not been found..." + function)
 
-    # @modifier_Interface_sliding
+    @modifier_Interface_sliding
     def click_homepage(self, account=None, password=None):  # 首页直接购买
 
         ap.add_goods()  # 添加商品的操作

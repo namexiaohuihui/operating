@@ -9,7 +9,7 @@ import os
 from time import sleep
 
 from practical.operation.selenium_visible import element_visible
-from practical.utils import DefinitionError
+from practical.utils import DefinitionErrors as dError
 
 r'''
                        _oo0oo_
@@ -125,6 +125,6 @@ class element_input(element_visible):
               basename, )
         basename = os.path.splitext(os.path.basename(__file__))[0]
         # 组合日志文件名（当前文件名 + 当前时间）.比如：case_login_success_20150817192533
-        DefinitionError.error_get(definition_error,basename, browser)
+        dError.error_get(definition_error,basename, browser)
         # sys.exit(0)
         # raise

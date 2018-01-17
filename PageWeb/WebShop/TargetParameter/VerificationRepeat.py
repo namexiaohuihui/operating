@@ -8,7 +8,7 @@
 
 
 from PageWeb.WebShop.TargetParameter.namebean import letter_parameter_names
-
+from practical.utils import DefinitionErrors as dError
 from practical.constant.browser_establish import browser_confirm
 from practical.operation.selenium_click import element_click
 from practical.operation.selenium_input import element_input
@@ -130,9 +130,8 @@ class verification_repeat(letter_parameter_names, element_input, element_click):
             # 1.通过断言直接判断
             assert massegn == visible, 'visible_massegn_assert 断言判断出错'
         except AssertionError as e:
-            from practical.utils.DefinitionError import definition_error
             # 2.扑捉异常并打印
-            definition_error(repr(e)).error_get("verification_repeat", self.browser)
+            dError.error_get("verification_repeat", self.browser)
 
     def city_number(self):
         """验证城市以及数量是否正确"""

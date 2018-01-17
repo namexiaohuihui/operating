@@ -14,7 +14,7 @@ from PageWeb.WebShop.TargetParameter.namebean import letter_parameter_names
 from practical.constant.browser_establish import browser_confirm
 from practical.operation.selenium_click import element_click
 from practical.operation.selenium_input import element_input
-from practical.utils.DefinitionError import definition_error
+from practical.utils.DefinitionErrors import definition_error
 
 """
 主要验证输入框输入的内容：
