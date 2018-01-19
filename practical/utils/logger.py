@@ -68,7 +68,7 @@ class Log():
 
 
 if __name__ == "__main__":
-    log = Log("executorexecutor", "ERROR")
-    log.info("---测试开始----")
-    log.info("操作步骤1,2,3")
-    log.warning("----测试结束----")
+    cur_path = os.path.dirname(os.path.realpath(__file__))
+    print(cur_path)
+    log_path = os.path.join(os.path.dirname(cur_path), 'logs')
+    print(log_path)

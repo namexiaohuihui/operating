@@ -5,14 +5,19 @@
 @time: 2017/7/16 17:41
 @项目名称:operating
 """
+import datetime
+import os
+import traceback
+from practical.utils.logger import Log
 
+# 错误截图的存放路径
+cur_path = os.path.dirname(os.path.realpath(__file__))
+log_path = os.path.join(os.path.dirname(cur_path), 'imgs')
+
+# 如果不存在这个logs文件夹，就自动创建一个
+if not os.path.exists(log_path): os.mkdir(log_path)
 
 def error_get(basename, _browser_):
-
-    import datetime
-    import os
-    import traceback
-    from practical.utils.logger import Log
 
     # 组合日志文件名（当前文件名+当前时间）.比如：case_login_success_20150817192533
     logFile = basename + "-" + datetime.datetime.now().strftime("%Y%m%d %H%M%S")
@@ -24,25 +29,20 @@ def error_get(basename, _browser_):
 
     # 截图
     # _browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
-    cur_path = os.path.dirname(os.path.realpath(__file__))
-    log_path = os.path.join(os.path.dirname(cur_path), 'logs')
-    _browser_.get_screenshot_as_file(os.path.join(log_path, logFile + "-screenshot_error.png"))
+    _browser_.get_screenshot_as_file(os.path.join(log_path, logFile + ".png"))
 
 
 def error_output(basename, _browser_):
 
-    from practical.utils.logger import Log
-    import traceback
-    import os
-
     log = Log(basename, classification='ERROR')
     error = traceback.format_exc()
-    log.info("Cause of error.. %s" % error)
+    log.info("发生错误时打印的错误数据信息: %s" % error)
 
     # 截图
-    _browser_.get_screenshot_as_file("./-screenshot_error.png")
+    # _browser_.get_screenshot_as_file("./-screenshot_error.png")
     # cur_path = os.path.dirname(os.path.realpath(__file__))
     #
     # log_path = os.path.join(os.path.dirname(cur_path), 'logs')
     #
-    # _browser_.get_screenshot_as_file(os.path.join(log_path, basename + "-screenshot_error.png"))
+    basename = basename + ".png"
+    _browser_.get_screenshot_as_file(os.path.join(log_path, basename))

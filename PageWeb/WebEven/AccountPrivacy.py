@@ -27,20 +27,22 @@ import os
 # 定义浏览器对象，方便进行使用
 driver = 1
 
+
 # 在字符串str查找ing出现的位置.从number下标开始找,返回-1表示找不到
 def string_lookup_find(str, ing, number=0):
     nPos = str.find(ing, number)
-    if nPos != -1 :
+    if nPos != -1:
         return True
     else:
         return False
 
+
 def function_content_comparison(*parameter):
     # 单※的数据类型为一个数组
     try:
-        assert parameter[0] is parameter[1], parameter[2]
+        assert parameter[0] != parameter[1], parameter[2]
     except:
-        print(parameter[2] % " %s BEI Einem Vergleich der Fehler")
+        print(" %s BEI Einem Vergleich der Fehler" % parameter[2])
 
 
 def function_content_verification(**parameter):
@@ -128,17 +130,17 @@ def sign_user_login(account, password):
     """
     try:
         _visible_css_selectop('.login-type>a:nth-child(1)')  # 切换登陆方式：切换到账号密码登录页面
-
+        sleep_Rest()
         # 账号密码的输入
         driver.find_element_by_css_selector("#J_tel").send_keys(account)
         driver.find_element_by_css_selector("#J_pwd").send_keys(password)
-
+        sleep_Rest()
         # 登陆按钮
         _visible_css_selectop(".u-btn.u-btn-morange")
-
         # 获取登录的提示语
         text = _visible_css_selectop_text('.toast-cont')
         print("登陆提示信息-----> %s " % text)
+
         # 储存登陆之后的提示
         conversionstorage().set_remarks(text)
 
@@ -171,7 +173,7 @@ def details_add_goods(account=None, password=None):
 
     _visible_css_selectop('.buy-tiket-btn.cart')  # 点击加入购物车，将商品正式加入购物车
 
-    log.info("添加商品的提示-----> %s" % is_visible_css_selectop_text('.toast-cont'))  # 错误的原因
+    print("添加商品的提示-----> %s" % _visible_css_selectop_text('.toast-cont'))  # 错误的原因
     sleep_Rest()
     _visible_css_selectop('.buy.cur')  # 去结算
 
@@ -183,18 +185,18 @@ def details_add_goods(account=None, password=None):
 """
 
 
-def _excel_Data(file_path=None, filename=None):
+def _excel_Data(filename=None, SHEETNAME=1):
     """
     从excel表格中获取数据并进行转换
     :param file_path:
     :return:
     """
     # 获取excel路径
-    if file_path == None: file_path = readModel.establish_con().get("excel", filename)
+    file_path = readModel.establish_con().get("excel", filename)
 
     # 读取相应路径中的数据
     from practical.utils.OpenpyxlExcel import READEXCEL, PANDASDATA
-    read = READEXCEL(file_path)
+    read = READEXCEL(file_path, SHEETNAME=SHEETNAME)
 
     # 获取case
     whole = read.position_sheet_row_value()
@@ -223,7 +225,7 @@ def _excel_Data(file_path=None, filename=None):
 """
 
 
-def _visible_css_selectop(locator, timeout=3):
+def _visible_css_selectop(locator, timeout=5):
     # 判断元素是否存在，如果存在就进行点击并返回对象
     try:
         # ui.WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
@@ -242,12 +244,12 @@ def _visible_css_selectop(locator, timeout=3):
         return False
 
 
-def _visible_css_selectop_text(locator, timeout=3):
+def _visible_css_selectop_text(locator, timeout=5, poll_frequency=0.5):
     # 判断元素是否存在，如果存在就进行获取元素的text属性
     try:
-
-        _ele = ui.WebDriverWait(driver, timeout).until(
+        _ele = ui.WebDriverWait(driver, timeout, poll_frequency).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+
         text = _ele.text
         return text
 
@@ -260,7 +262,7 @@ def _visible_css_selectop_text(locator, timeout=3):
         return False
 
 
-def _visible_css_selectop_attribute(locator, timeout=3):
+def _visible_css_selectop_attribute(locator, timeout=5):
     # 判断元素是否存在，如果存在就获取元素的value属性内容
     try:
         import datetime
@@ -277,7 +279,7 @@ def _visible_css_selectop_attribute(locator, timeout=3):
         return False
 
 
-def _sendKeys_css_selectop(locator, content, timeout=3):
+def _sendKeys_css_selectop(locator, content, timeout=5):
     # 判断元素是否存在，如果存在就进行输入
     try:
 
@@ -303,14 +305,14 @@ def _sendKeys_css_selectop(locator, content, timeout=3):
 """
 
 
-def get_size(self):
+def get_size():
     # 获取浏览器的大小
     x = driver.get_window_size()['width']
     y = driver.get_window_size()['height']
     return (x, y)
 
 
-def Interface_sliding(self):
+def Interface_sliding():
     # 实行上下滑动的效果
     screen = get_size()
 
@@ -345,7 +347,7 @@ def error_log(function):
     basename = os.path.splitext(os.path.basename(__file__))[0]
 
     # 拼接名字
-    name_tion = basename + ":" + function
+    name_tion = basename + "_" + function
 
     # 调用错误类
     dError.error_output(name_tion, driver)
