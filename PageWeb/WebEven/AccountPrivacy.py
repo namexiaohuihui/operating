@@ -38,8 +38,7 @@ def string_lookup_find(str, ing, number=0):
 def function_content_comparison(*parameter):
     # 单※的数据类型为一个数组
     try:
-        print(parameter, type(parameter))
-        assert parameter[0] == parameter[1], parameter[2]
+        assert parameter[0] is parameter[1], parameter[2]
     except:
         print(parameter[2] % " %s BEI Einem Vergleich der Fehler")
 
