@@ -3,12 +3,13 @@
 @__author__ :70486 
 @file: selenium_click
 @time: 2017/6/20 22:07
+# 这是元素点击类，传入相应的id，name，text，xpath，css就可以执行的点击事件
 """
 import os
-# 这是元素点击类，传入相应的id，name，text，xpath，css就可以执行的点击事件
 from time import sleep
 
-from practical.operation.selenium_visible import element_visible
+from selenium.webdriver.common.touch_actions import TouchActions
+from practical.operation.selenium_visible import action_visible
 from practical.utils import DefinitionErrors as dError
 
 '''
@@ -37,89 +38,86 @@ from practical.utils import DefinitionErrors as dError
 '''
 
 
-class element_click(element_visible):
+class action_click(action_visible):
     def id_click(self, browser, prompt):
-
-        if self.is_visible_id(browser, prompt):
-            browser.find_element_by_id(prompt).click()
+        ele = self.is_visible_id(browser, prompt)
+        if ele != False:  # 判断是否出现
+            ele.click()
         else:
-            self.writeLog(browser)
-        '''
-        try:
-            self.is_visible_id(browser,prompt)
-            browser.find_element_by_id(prompt).click()
-            sleep(2)
-        except:
-            self.writeLog(browser)
-        '''
+            self.error_log(browser)
+
 
     def name_click(self, browser, prompt):
-        if self.is_visible_name(browser, prompt):
-            browser.find_element_by_name(prompt).click()
+        ele = self.is_visible_name(browser, prompt)
+        if ele != False:  # 判断是否出现
+            ele.click()
         else:
-            self.writeLog(browser)
+            self.error_log(browser)
 
-    def text_click(self, browser, prompt):
-        try:
-            browser.find_element_by_link_text(prompt).click()
-        except:
-            self.writeLog(browser)
 
     def xpath_click(self, browser, prompt):
-
-        if self.is_visible_xpath(browser, prompt):
-            browser.find_element_by_xpath(prompt).click()
+        ele = self.is_visible_xpath(browser, prompt)
+        if ele != False:  # 判断是否出现
+            ele.click()
         else:
-            self.writeLog(browser)
+            self.error_log(browser)
 
     def css_click(self, browser, prompt):
-
-        if self.is_visible_css_selectop(self=self, browser=browser, locator=prompt):
-            sleep(2)
-            browser.find_element_by_css_selector(prompt).click()
+        ele = self.is_visible_css_selectop(browser, prompt)
+        if ele != False:  # 判断是否出现
+            ele.click()
         else:
-            self.writeLog(browser)
+            self.error_log(browser)
 
     def element_click(self, element):
         element.click()
-        sleep(1)
+        self.sleep_Rest()
 
-        '''
-        try:
-            browser.find_element_by_css_selector(prompt).click()
-            sleep(2)
-        except:
-            self.writeLog(browser)
-        '''
 
     def css_confirm_prompt(self, browser, prompt):
-
-        if self.is_visible_css_selectop(browser, prompt):
-            confirm = browser.find_element_by_css_selector(prompt)
-            browser.execute_script("arguments[0].click();", confirm)
+        ele = self.is_visible_css_selectop(browser, prompt)
+        if ele != False:  # 判断是否出现
+            browser.execute_script("arguments[0].click();", ele)
         else:
-            self.writeLog(browser)
+            self.error_log(browser)
 
-        '''
-        try:
-            sleep(1)
-            confirm = browser.find_element_by_css_selector(prompt)
-            browser.execute_script("arguments[0].click();", confirm)
-        except:
-            self.writeLog(browser)
-        '''
 
     def id_confirm_prompt(self, browser, prompt):
-        if self.is_visible_css_selectop(browser, prompt):
+        if self.is_visible_css_selectop(browser, prompt)!=False:
             browser.execute_script("document.getElementById(\'" + prompt + "\').click();")
         else:
-            self.writeLog(browser)
+            self.error_log(browser)
 
-    def writeLog(self, browser):
-        basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("自己定义的_文件出现错误,名为名=%s" % \
-              basename, )
-        basename = os.path.splitext(os.path.basename(__file__))[0]
-        # 组合日志文件名（当前文件名 + 当前时间）.比如：case_login_success_20150817192533
-        dError.error_get(basename, browser)
-        # raise
+
+    def touchActions_selectop_prompt(self, browser, prompt):
+        ele = self.is_visible_css_selectop(browser, prompt)
+        if ele != False:
+            self.touchActions_tap(browser,ele)
+        else:
+            self.error_log(browser)
+
+
+    """
+    # 通过TouchActions来进行点击的。模拟手机来进行
+    """
+    def get_size(self,driver):
+        # 获取浏览器的大小
+        x = driver.get_window_size()['width']
+        y = driver.get_window_size()['height']
+        return (x, y)
+
+
+    def Interface_sliding(self,driver):
+        # 实行上下滑动的效果
+        screen = self.get_size()
+
+        x1 = screen[0] * 0.5
+        y1 = screen[1] * 0.75
+
+        TouchActions(driver).scroll(x1, y1).perform()
+
+
+    def touchActions_tap(self,driver,element):
+        # 点击元素
+        TouchActions(driver).tap(element).perform()
+        self.sleep_Rest()

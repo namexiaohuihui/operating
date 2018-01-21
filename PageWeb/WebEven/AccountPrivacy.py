@@ -5,20 +5,17 @@
 @time: 2018/1/4 22:13
 @项目名称:operating
 """
-from selenium.webdriver.common.touch_actions import TouchActions
 from practical.constant.browser_establish import browser_confirm
 from PageWeb.WebEven.ConversionStorage import conversionstorage
 from practical.utils.RewriteThread import inherit_thread as th
 from selenium.common.exceptions import TimeoutException
+from practical.operation.selenium_input import action_input as vai
+from practical.operation.selenium_click import action_click as vac
 from practical.utils import DefinitionErrors as dError
-from selenium.webdriver.common.by import By
 from practical.config import readModel
 from threading import Thread
 
-import selenium.webdriver.support.expected_conditions as EC
-import selenium.webdriver.support.ui as ui
 import inspect
-import time
 import os
 
 """
@@ -61,7 +58,7 @@ def _browser():
     options = bc.mobile_phone_mode()
 
     conf = readModel.establish_con()
-    url = conf.get("wap", "url")
+    url = conf.get("wap", "buyer_url")
 
     # 2.调用已经规划好的浏览器函数
     driver = bc.url_opens(url, options)
@@ -83,7 +80,7 @@ def get_account_account_password():
 def _route():
     # 点击信息页面
     _visible_css_selectop(".nav-user")
-    sleep_Rest()
+    vai.sleep_Rest()
     # 点击页面中的登录按钮
     _visible_css_selectop(".user-head")
 
@@ -129,12 +126,14 @@ def sign_user_login(account, password):
     :return:
     """
     try:
-        _visible_css_selectop('.login-type>a:nth-child(1)')  # 切换登陆方式：切换到账号密码登录页面
-        sleep_Rest()
+        # 切换登陆方式：切换到账号密码登录页面
+        _visible_css_selectop('.login-type>a:nth-child(1)')
+
+        vai.sleep_Rest()
         # 账号密码的输入
         driver.find_element_by_css_selector("#J_tel").send_keys(account)
         driver.find_element_by_css_selector("#J_pwd").send_keys(password)
-        sleep_Rest()
+        vai.sleep_Rest()
         # 登陆按钮
         _visible_css_selectop(".u-btn.u-btn-morange")
         # 获取登录的提示语
@@ -161,7 +160,7 @@ def add_goods():
     :return:
     """
     _visible_css_selectop('.J_add.shop-goods-add.icon-font.icon-plus-str')
-    sleep_Rest(2)
+    vai.sleep_Rest(2)
 
 
 def details_add_goods(account=None, password=None):
@@ -174,7 +173,7 @@ def details_add_goods(account=None, password=None):
     _visible_css_selectop('.buy-tiket-btn.cart')  # 点击加入购物车，将商品正式加入购物车
 
     print("添加商品的提示-----> %s" % _visible_css_selectop_text('.toast-cont'))  # 错误的原因
-    sleep_Rest()
+    vai.sleep_Rest()
     _visible_css_selectop('.buy.cur')  # 去结算
 
     sign_switching_logon(account, password)
@@ -185,7 +184,7 @@ def details_add_goods(account=None, password=None):
 """
 
 
-def _excel_Data(filename=None, SHEETNAME=1):
+def _excel_Data(filename, SHEETNAME=1):
     """
     从excel表格中获取数据并进行转换
     :param file_path:
@@ -227,119 +226,36 @@ def _excel_Data(filename=None, SHEETNAME=1):
 
 def _visible_css_selectop(locator, timeout=5):
     # 判断元素是否存在，如果存在就进行点击并返回对象
-    try:
-        # ui.WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-        element = ui.WebDriverWait(driver, timeout).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-        sleep_Rest()
-        touchActions_tap(element)
-        return element
-
-    except TimeoutException:
-
-        function = inspect.stack()[0][3]  # 执行函数的函数名
-        print("%s : The element does not appear ：   %s" % (function, locator))
-        error_log(function)
-
-        return False
+    vac.touchActions_selectop_prompt(driver,locator)
 
 
-def _visible_css_selectop_text(locator, timeout=5, poll_frequency=0.5):
+def _visible_css_selectop_text(locator):
     # 判断元素是否存在，如果存在就进行获取元素的text属性
-    try:
-        _ele = ui.WebDriverWait(driver, timeout, poll_frequency).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-
-        text = _ele.text
-        return text
-
-    except TimeoutException:
-
-        print("The element does not appear：   %s" % locator)
-        function = inspect.stack()[0][3]  # 执行函数的函数名
-        error_log(function)
-
-        return False
+    vai._visible_selectop_text(driver,locator)
 
 
-def _visible_css_selectop_attribute(locator, timeout=5):
+def _visible_css_selectop_attribute(locator):
     # 判断元素是否存在，如果存在就获取元素的value属性内容
-    try:
-        import datetime
-        _ele = ui.WebDriverWait(driver, timeout).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-        text = _ele.get_attribute("value")  # 创建元素对象
-        return text
-    except TimeoutException:
-
-        print("The element does not appear：   %s" % locator)
-        function = inspect.stack()[0][3]  # 执行函数的函数名
-        error_log(function)
-
-        return False
+    vai._visible_selectop_attribute(driver,locator)
 
 
-def _sendKeys_css_selectop(locator, content, timeout=5):
+def _sendKeys_css_selectop(locator, content):
     # 判断元素是否存在，如果存在就进行输入
-    try:
+    vai.css_input(driver, locator, content)
 
-        import datetime
-        # ui.WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-        element = ui.WebDriverWait(driver, timeout).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-        sleep_Rest()
-        accountPrivacy_sendKeys_content(element, content)
-        return element
+def _visible_json_click(locator):
+    vac.id_confirm_prompt(driver,locator)
 
-    except TimeoutException:
-
-        print("The element does not appear：   %s" % locator)
-        function = inspect.stack()[0][3]  # 执行函数的函数名
-        error_log(function)
-
-        return False
+def _visible_json_input(ordinal, parameter):
+    vai.id_js_input(driver, ordinal, parameter)
 
 
-"""
-#--------------------浏览器操作部分-----------------------------------------
-"""
-
-
-def get_size():
-    # 获取浏览器的大小
-    x = driver.get_window_size()['width']
-    y = driver.get_window_size()['height']
-    return (x, y)
-
-
-def Interface_sliding():
-    # 实行上下滑动的效果
-    screen = get_size()
-
-    x1 = screen[0] * 0.5
-    y1 = screen[1] * 0.75
-
-    TouchActions(driver).scroll(x1, y1).perform()
-
-
-def touchActions_tap(element):
-    # 点击元素
-    TouchActions(driver).tap(element).perform()
-    sleep_Rest()
-
-
-def accountPrivacy_sendKeys_content(element, content):
-    element.clear()
-    element.send_keys(content)
 
 
 """
 #--------------------其他一些配置部分-----------------------------------------
 """
 
-
-def sleep_Rest(ti=1):  # 延迟
-    time.sleep(ti)
 
 
 def error_log(function):

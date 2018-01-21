@@ -10,12 +10,12 @@
 import re
 
 # 切割字符：str字符，op指定切割的元素，num切割的数量，ber获取的数量
-def specified_cut(str, op, num, ber):
+def specified_cut_ber(str, op, num, ber):
     string = str.split(op, num)[ber]
     return string;
 
 
-def specified_cut(str, op, num):
+def specified_cut_num(str, op, num):
     string = str.split(op, num)
     return string;
 
