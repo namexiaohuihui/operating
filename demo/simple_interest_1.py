@@ -131,6 +131,7 @@ def singleton(cls, *args, **kw):
     instances = {}
 
     def _singleton(*args, **kw):
+
         if cls not in instances:
             instances[cls] = cls(*args, **kw)
         return instances[cls]
@@ -148,7 +149,9 @@ class MyClass4(object):
 
 one = MyClass4("MyClass4 @singleton")
 two = MyClass4()
-
+one.bbbb = 7
+print(one.bbbb)
+print(two.bbbb)
 print(one.a)
 print(one.x)
 
@@ -156,4 +159,5 @@ one.a = "4"
 
 print(two.a)
 print(two.x)
+
 

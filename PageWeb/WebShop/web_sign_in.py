@@ -122,7 +122,7 @@ class sign_input(unittest.TestCase):
             # 这一块先不判断，制作程序是否可以运行的结果
             log_msg = self.browser.find_element_by_css_selector(ele_css_load).text.strip()
 
-            #python在字符串中进行拼接只需要一个加号
+            # python在字符串中进行拼接只需要一个加号
             assert log_msg == "欢迎您: " + account + " ,登录连你生活管理系统", str + 'Login judgment'
 
             print(str + "执行成功")
@@ -139,15 +139,15 @@ class sign_input(unittest.TestCase):
             # self.browser为浏览器对象
             # username为元素名称对象
             # account为输入框要输入的内容对象
-            selenium_input.name_input(self.browser,'username', account)
-            selenium_input.name_input(self.browser,'password', password)
+            selenium_input.name_input(self.browser, 'username', account)
+            selenium_input.name_input(self.browser, 'password', password)
 
             # 点击某个元素
             # 调用公共函数，对元素进行点击
             # 调用公共函数目的：是为了以后更好的排查问题
             # self.browser为浏览器对象
             # #loginBtn为元素的id对象，井号代表id的意思
-            selenium_click.css_click(self.browser,'#loginBtn')
+            selenium_click.css_click(self.browser, '#loginBtn')
 
         except Exception as msg:
             self.writelog()

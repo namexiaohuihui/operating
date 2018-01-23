@@ -8,6 +8,7 @@ __author__ = 'Administrator'
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from time import sleep
+import os
 
 import selenium.webdriver.support.expected_conditions as EC
 import selenium.webdriver.support.ui as ui
@@ -150,7 +151,7 @@ class action_visible(object):
     def sleep_Rest(self,ti=1):  # 延迟
         sleep(ti)
 
-    def error_log(function):
+    def error_log(self,driver,function):
         # 执行文件的文件名
         basename = os.path.splitext(os.path.basename(__file__))[0]
 

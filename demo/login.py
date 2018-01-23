@@ -30,12 +30,13 @@
                佛祖保佑         永无BUG
 '''
 
-from selenium import webdriver
-import time
 import datetime
-import traceback
 import logging
 import os
+import time
+import traceback
+
+from selenium import webdriver
 
 
 # 测试用例执行函数
