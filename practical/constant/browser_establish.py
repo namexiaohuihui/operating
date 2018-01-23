@@ -8,7 +8,6 @@ import os
 
 from selenium import webdriver
 
-from practical.constant.browser_into import browser_get_info
 r'''
                        _oo0oo_
                       o8888888o
@@ -36,7 +35,7 @@ r'''
 '''
 
 # __new__创建一个对象，__init__实例化一个对象
-class browser_confirm(browser_get_info):
+class browser_confirm(object):
     # 单例类判断。如果该类创建过就不需要重新创建了
     def __new__(cls, *args, **kw):
         if not hasattr(cls, '_instance'):
@@ -107,7 +106,7 @@ class browser_confirm(browser_get_info):
             self.browser.get(url)
 
         # 等待网页加载，加载时间为10s，加载完就跳过
-        self.browser.implicitly_wait(5)
+        self.browser.implicitly_wait(15)
         print("浏览器打开完毕..........")
         return self.browser;
 

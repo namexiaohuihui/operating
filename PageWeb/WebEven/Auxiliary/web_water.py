@@ -32,6 +32,7 @@ print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S'
 class verify_water(unittest.TestCase):
     @classmethod
     def setUpClass(self):
+        ap.driver = ap._browser()  # 打开浏览器
         # 该类运行时优先调用的函数
         log.info("The program begins to execute. Don't stop me when you start.")
 

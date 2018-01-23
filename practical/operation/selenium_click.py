@@ -7,6 +7,7 @@
 """
 import os
 from time import sleep
+import inspect
 
 from selenium.webdriver.common.touch_actions import TouchActions
 from practical.operation.selenium_visible import action_visible
@@ -46,14 +47,12 @@ class action_click(action_visible):
         else:
             self.error_log(browser)
 
-
     def name_click(self, browser, prompt):
         ele = self.is_visible_name(browser, prompt)
         if ele != False:  # 判断是否出现
             ele.click()
         else:
             self.error_log(browser)
-
 
     def xpath_click(self, browser, prompt):
         ele = self.is_visible_xpath(browser, prompt)
@@ -73,7 +72,6 @@ class action_click(action_visible):
         element.click()
         self.sleep_Rest()
 
-
     def css_confirm_prompt(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
         if ele != False:  # 判断是否出现
@@ -81,33 +79,31 @@ class action_click(action_visible):
         else:
             self.error_log(browser)
 
-
     def id_confirm_prompt(self, browser, prompt):
-        if self.is_visible_css_selectop(browser, prompt)!=False:
+        if self.is_visible_id(browser, prompt) != False:
             browser.execute_script("document.getElementById(\'" + prompt + "\').click();")
         else:
-            self.error_log(browser)
-
+            function = inspect.stack()[0][3]  # 执行函数的函数名
+            print("%s :没有找到这个元素: %s" % (function, prompt))
 
     def touchActions_selectop_prompt(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
         if ele != False:
-            self.touchActions_tap(browser,ele)
+            self.touchActions_tap(browser, ele)
         else:
             self.error_log(browser)
-
 
     """
     # 通过TouchActions来进行点击的。模拟手机来进行
     """
-    def get_size(self,driver):
+
+    def get_size(self, driver):
         # 获取浏览器的大小
         x = driver.get_window_size()['width']
         y = driver.get_window_size()['height']
         return (x, y)
 
-
-    def Interface_sliding(self,driver):
+    def Interface_sliding(self, driver):
         # 实行上下滑动的效果
         screen = self.get_size()
 
@@ -116,8 +112,19 @@ class action_click(action_visible):
 
         TouchActions(driver).scroll(x1, y1).perform()
 
-
-    def touchActions_tap(self,driver,element):
+    def touchActions_tap(self, driver, element):
         # 点击元素
         TouchActions(driver).tap(element).perform()
         self.sleep_Rest()
+
+    """
+    点击之后将element对象进行返回
+    """
+
+    def return_css_click(self, browser, prompt):
+        ele = self.is_visible_css_selectop(browser, prompt)
+        if ele != False:  # 判断是否出现
+            ele.click()
+        else:
+            self.error_log(browser)
+        return ele

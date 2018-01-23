@@ -55,7 +55,7 @@ class action_input(action_visible):
         '''
 
     def name_input(self, browser, name, parameter):
-        ele = self.is_visible_name(browser, id)
+        ele = self.is_visible_name(browser, name)
         if ele != False:  # 判断是否出现
             # 元素输入
             self.ele_clear_keys(ele, parameter)
@@ -71,7 +71,7 @@ class action_input(action_visible):
             self.error_log(browser)
 
     def xpath_input(self, browser, xpath, parameter):
-        ele = self.is_visible_xpath(browser, css)
+        ele = self.is_visible_xpath(browser, xpath)
         if ele != False:  # 判断是否出现
             # 元素输入
             self.ele_clear_keys(ele, parameter)

@@ -16,7 +16,6 @@ from practical.utils import stringCutting  as sc
 from PageWeb.WebEven import AccountPrivacy as ap
 from practical.utils.logger import Log
 
-
 """
 #--------------------读取excel表格数据部分-----------------------------------------
 """
@@ -24,22 +23,24 @@ print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.l
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
-overall_ExcelData = ap._excel_Data(filename="auxiliaryFile",SHEETNAME=4)
+overall_ExcelData = ap._excel_Data(filename="auxiliaryFile", SHEETNAME=4)
 # print(overall_ExcelData)
 
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+
 
 class verify_order(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         # 该类运行时优先调用的函数
         log.info("The program begins to execute. Don't stop me when you start.")
+        ap.driver = ap._browser()  # 打开浏览器
 
     @classmethod
     def tearDownClass(self):
         # 该类结束时最后调用的函数
         log.info("Make it complete and continue to press it next time...")
-        ap.driver.close()
+        ap.driver.quit()
 
     def function_overall(self, function):
         self.overall = overall_ExcelData.loc[function]
@@ -54,7 +55,6 @@ class verify_order(unittest.TestCase):
         password = sc.specified_cut(string[1], ":")[1].strip()
 
         return account, password
-
 
     def test_order(self, account=None, password=None):  # 用户dingdan
         # 实现进入修改手机页面之后返回

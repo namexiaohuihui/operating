@@ -6,16 +6,14 @@
 @Entry Name:operating
 https://foofish.net/python-decorator.html 装饰器的使用
 """
-import unittest
 import inspect
-import time
 import os
+import time
+import unittest
 
-from PageWeb.WebEven.ConversionStorage import conversionstorage
-from practical.utils import stringCutting  as sc
 from PageWeb.WebEven import AccountPrivacy as ap
+from practical.utils import stringCutting  as sc
 from practical.utils.logger import Log
-
 
 """
 #--------------------读取excel表格数据部分-----------------------------------------
@@ -24,7 +22,7 @@ print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.l
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
-overall_ExcelData = ap._excel_Data(filename="auxiliaryFile",SHEETNAME=1)
+overall_ExcelData = ap._excel_Data(filename="auxiliaryFile", SHEETNAME=1)
 # print(overall_ExcelData)
 
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
@@ -34,7 +32,7 @@ print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S'
 """
 
 
-def modifier_Interface_sliding(func): # 装饰器中调用浏览器和界面滚动
+def modifier_Interface_sliding(func):  # 装饰器中调用浏览器和界面滚动
     # Interface_sliding()
 
     def modifier(*s, **gs):
@@ -45,6 +43,7 @@ def modifier_Interface_sliding(func): # 装饰器中调用浏览器和界面滚�
         return func(*s, **gs)
 
     return modifier
+
 
 class verify_home(unittest.TestCase):
     @classmethod
@@ -70,7 +69,7 @@ class verify_home(unittest.TestCase):
         # 切割字符并获取第二份的内容，将数据里面的空格清空
         password = sc.specified_cut(string[1], ":")[1].strip()
 
-        return account,password
+        return account, password
 
     @modifier_Interface_sliding
     def test_homepage(self, account=None, password=None):  # 首页直接购买
@@ -158,4 +157,3 @@ class verify_home(unittest.TestCase):
         ap._visible_css_selectop('.goods-nav>a:last-child')  # 查看商品详情页
 
         ap.sign_switching_logon(funs[0], funs[1])
-

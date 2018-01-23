@@ -12,7 +12,6 @@ class inherit_thread(Thread):
         super(inherit_thread,self).__init__()
         self.func = func
         self.args = args
-        print("jinali l ")
 
     def run(self):
         self.result = self.func(*self.args)

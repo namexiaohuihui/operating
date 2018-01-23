@@ -845,7 +845,7 @@ class PANDASDATA:
         print(df)
         lll = df.iloc[0]
         print(lll[1].value)
-        df.to_csv("qwe.xlsx")
+        df.to_csv("qwe.xlsx",index=False,encoding="gbk")
 
         print("*-**-*-*-*")
         from openpyxl.utils.dataframe import dataframe_to_rows

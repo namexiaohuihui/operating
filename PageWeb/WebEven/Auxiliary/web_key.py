@@ -5,16 +5,14 @@
 @time: 2018/1/21 17:18
 @Entry Name:operating
 """
-import unittest
 import inspect
-import time
 import os
+import time
+import unittest
 
-from PageWeb.WebEven.ConversionStorage import conversionstorage
-from practical.utils import stringCutting  as sc
 from PageWeb.WebEven import AccountPrivacy as ap
+from practical.utils import stringCutting  as sc
 from practical.utils.logger import Log
-
 
 """
 #--------------------读取excel表格数据部分-----------------------------------------
@@ -23,7 +21,7 @@ print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.l
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
-overall_ExcelData = ap._excel_Data(filename="auxiliaryFile",SHEETNAME=3)
+overall_ExcelData = ap._excel_Data(filename="auxiliaryFile", SHEETNAME=3)
 # print(overall_ExcelData)
 
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
@@ -34,6 +32,7 @@ class verify_key(unittest.TestCase):
     def setUpClass(self):
         # 该类运行时优先调用的函数
         log.info("The program begins to execute. Don't stop me when you start.")
+        ap.driver = ap._browser()  # 打开浏览器
 
     @classmethod
     def tearDownClass(self):

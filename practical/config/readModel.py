@@ -5,21 +5,23 @@
 @time: 2017/12/20 23:30
 @项目名称:operating
 """
-import os
 import configparser
+import os
 
 
-def establish_con():
+def establish_con(model="model"):
     cur_path = os.path.dirname(os.path.realpath(__file__))
-    configPath = os.path.join(cur_path, 'model.ini')
+    configPath = os.path.join(cur_path, model + ".ini")
     conf = configparser.ConfigParser()
     conf.read(configPath)
     return conf
 
+
 def url():
-    conf = establish_con()
-    url = conf.get("wap", "url")
+    conf = establish_con("excel")
+    url = conf.get("excel", "parameterSetting")
     print(url)
+
 
 def obtain_con(conf):
     email_smtp_server = conf.get("email", "smtp_server")
@@ -28,6 +30,7 @@ def obtain_con(conf):
     email_psw = conf.get("email", "psw")
     email_receiver = conf.get("email", "receiver")
     print(conf)
+
 
 if __name__ == '__main__':
     url()
