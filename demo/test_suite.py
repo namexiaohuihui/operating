@@ -7,6 +7,7 @@
 """
 
 from selenium import  webdriver
+from selenium.webdriver.support import expected_conditions
 
 
 class demo:
@@ -62,7 +63,10 @@ def function_with_two_stars(**d):
     print(d, type(d))
 
 if __name__ == '__main__':
-
-    function_with_one_star(1, "11", 3,4)
-    function_with_two_stars(a=1, b=2, c=3)
+    foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]
+    print([x * 2 + 10 for x in foo])
+    ttt = [x for x in foo if x % 3 == 0]
+    print(ttt)
+    # function_with_one_star(1, "11", 3,4)
+    # function_with_two_stars(a=1, b=2, c=3)
 

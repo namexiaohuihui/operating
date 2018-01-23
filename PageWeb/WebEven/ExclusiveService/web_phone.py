@@ -36,7 +36,10 @@ class verify_phone(unittest.TestCase):
 
     @classmethod
     def tearDown(self):
-        ap.driver.close()
+        # 关闭当前浏览器
+        # ap.driver.close()
+        # 退出当前driver并且关闭所有的相关窗口
+        ap.driver.quit()
 
     def function_overall(self, function):
         self.overall = overall_ExcelData.loc[function]
@@ -57,7 +60,7 @@ class verify_phone(unittest.TestCase):
         ap._visible_css_selectop(".J_btn.u-btn")
         ap.sleep_Rest()
         content = ap._visible_css_selectop_text(".toast-cont")
-        assert self.overall["输出"] >= content, self.overall["场景"]
+        self.assertNotEqual(self.overall["输出"], content, self.overall["场景"])
 
         # 4.点击返回回到个人资料页面
         ap.driver.back()
@@ -71,10 +74,9 @@ class verify_phone(unittest.TestCase):
         # 统一路径
         self.phone_entrance()
 
-        # 3.验收修改号码页面的数据
+        # 3.验收修改号码页面倒计时
         content = ap._visible_css_selectop_text(".verify-form-itme>span:nth-child(2)")
-
-        assert phone.text == content, self.overall["场景"]
+        self.assertGreaterEqual(self.overall["输出"],int(content),self.overall["场景"])
 
         # 4.点击返回回到个人资料页面
         ap.driver.back()

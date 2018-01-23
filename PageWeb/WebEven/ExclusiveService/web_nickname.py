@@ -37,8 +37,11 @@ class verify_nickname(unittest.TestCase):
 
     @classmethod
     def tearDown(self):
-        ap.driver.close()
         log.info("Make it complete and continue to press it next time...")
+        # 关闭当前浏览器
+        # ap.driver.close()
+        # 退出当前driver并且关闭所有的相关窗口
+        ap.driver.quit()
 
     def function_overall(self, function):
         self.overall = overall_ExcelData.loc[function]
@@ -52,11 +55,11 @@ class verify_nickname(unittest.TestCase):
 
         # 2.获取页面上昵称的数据并进行比较
         sidebarMsg = ap._visible_css_selectop(".sidebar-msg")
-        ap.function_content_comparison(self.overall["验证条件"], sidebarMsg.text, self.overall["场景"])
+        self.assertNotEqual(self.overall["验证条件"], sidebarMsg.text, self.overall["场景"])
 
         # 3.点击弹窗并获取弹窗中的数据
         uText = ap._visible_css_selectop_attribute(".u-txt.u-txt-l")
-        ap.function_content_comparison(self.overall["验证条件"], uText, self.overall["场景"])
+        self.assertNotEqual(self.overall["验证条件"], uText, self.overall["场景"])
 
         # 4.点击弹窗中的取消按钮
         ap._visible_css_selectop(".am-dialog-footer>button:nth-child(1)")

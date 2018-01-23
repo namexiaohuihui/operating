@@ -80,7 +80,9 @@ class action_visible(object):
         # 一直等待某个元素消失，默认超时10秒
     def is_not_visible_css_selectop(self, driver, locator, timeout=10):
         try:
-            ui.WebDriverWait(driver, timeout).until_not(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+            # element_to_be_clickable元素存在并且可用，以便确定元素是可点击的
+
+            ui.WebDriverWait(driver, timeout).until_not(EC.element_to_be_clickable((By.CSS_SELECTOR, locator)))
             return True
         except TimeoutException:
             return False

@@ -37,7 +37,10 @@ class verify_user(unittest.TestCase):
     def tearDownClass(self):
         # 该类结束时最后调用的函数
         log.info("Make it complete and continue to press it next time...")
-        ap.driver.close()
+        # 关闭当前浏览器
+        # ap.driver.close()
+        # 退出当前driver并且关闭所有的相关窗口
+        ap.driver.quit()
 
     def function_overall(self, function):
         self.overall = overall_ExcelData.loc[function]

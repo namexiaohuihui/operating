@@ -37,7 +37,10 @@ class verify_password(unittest.TestCase):
 
     @classmethod
     def tearDown(self):
-        ap.driver.close()
+        # 关闭当前浏览器
+        # ap.driver.close()
+        # 退出当前driver并且关闭所有的相关窗口
+        ap.driver.quit()
 
     def function_overall(self, function):
         self.overall = overall_ExcelData.loc[function]
@@ -51,12 +54,14 @@ class verify_password(unittest.TestCase):
     def password_after(self):
         # 4.获取提示信息
         msg_text = ap._visible_css_selectop_text(".error-msg")
-        ap.function_content_comparison(self.overall["输出"], msg_text, self.overall["场景"])
+        self.assertNotEqual(self.overall["输出"], msg_text, self.overall["场景"])
         ap.sleep_Rest()
+
 
         # 5.获取返回上一页之后的验证信息
         ap.driver.back()
-        ap._visible_css_selectop_text(".user-sidebar>li:nth-child(6)")
+        user_msg = ap._visible_css_selectop_text(".user-sidebar>li:nth-child(6)")
+        self.assertNotEqual(user_msg, msg_text, self.overall["场景"])
 
     def verify_password_sendkey(self, *content):
         """
