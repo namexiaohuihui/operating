@@ -13,14 +13,13 @@
 4.负数
 5.不在范围内的数值
 """
-import os
-import unittest
 import inspect
+import os
 import time
+import unittest
 
-from PageWeb.WebShop.OverallSituation import overallsituation
-from practical.utils import stringCutting  as sc
 from PageWeb.WebShop import JudgmentVerification as jv
+from PageWeb.WebShop.SystemSetup.ParameterSetting.namebean import letter_parameter_names
 from practical.utils.logger import Log
 
 """
@@ -33,7 +32,7 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
 overall_ExcelData = jv._excel_Data(filename="parameterSetting", SHEETNAME=1)
 # print(overall_ExcelData)
-ov = overallsituation()
+lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 
@@ -52,49 +51,47 @@ class verify_withdrawals(unittest.TestCase):
         jv.driver.quit()
 
     def function_overall(self, function):
+        # 获取用例信息
         self.overall = overall_ExcelData.loc[function]
-        print("---------------")
-        print(self.overall)
-        print("---------------")
 
     def _routepath(self):
-        jv._visible_return_selectop(".sidebar-menu li:nth-child(2)")
-        jv._visible_css_selectop(".treeview-menu.menu-open li:nth-child(1)")
-        jv._visible_css_selectop(".nav.nav-tabs li:nth-child(4)")
+        # 进入相应的目录
+        jv._visible_return_selectop(lpn.sidebar)
+        jv._visible_css_selectop(lpn.treew)
+        jv._visible_css_selectop(lpn.tabs_withdrawals)
 
     def _sendkey_input(self):
-        jv._visible_json_input("amount", self.overall["手续费"])
-        jv._visible_json_input("fee", self.overall["提现"])
-        jv._visible_css_selectop(".btn.btn-primary.feeSave")
+        # 对指定输入框进行输入
+        jv._visible_json_input(lpn.amount_load, self.overall["手续费"])
+        jv._visible_json_input(lpn.fee_load, self.overall["提现"])
+        jv._visible_css_selectop(lpn.extractSave)
 
     def test_procedures_high_withdrawals(self):
+        # 提现金额大于手续费
         function = inspect.stack()[0][3]  # 执行函数的函数名
         log.info("The validation scenario is:... %s" % function )
 
         self._routepath()
         self.function_overall(function) # 获取df 的内容值
-        self.case_browser(function) # 执行逻辑
+        self.case_browser(function,lpn.visible_h2) # 执行逻辑
         time.sleep(5)
 
     def test_procedures_low_withdrawals(self):
+        # 两个都输入0
         function = inspect.stack()[0][3]  # 执行函数的函数名
         log.info("The validation scenario is:... %s" % function)
 
         self._routepath()
         self.function_overall(function)
-        self.case_browser1(function)
+        self.case_browser(function,lpn.visible_p)
         time.sleep(5)
 
-    def case_browser(self, function):
+    def case_browser(self, function ,visible_text):
         self._sendkey_input()
-        sweet = jv._visible_css_selectop_text(".sweet-alert.showSweetAlert.visible h2:nth-of-type(1)")
-
-        self.assertEqual(sweet, self.overall["输出"], function)
+        sweet = jv._visible_css_selectop_text(visible_text)
 
         # 读取提示框的内容然后保存到df中
-        ov = ov.setContent(sweet)
-        self.overall["结果"] = ov.getContent()
-        print("nimadebiegw " + self.overall["结果"])
+        self.overall["结果"] = sweet
 
     def case_browser1(self, function):
         self._sendkey_input()
@@ -102,10 +99,9 @@ class verify_withdrawals(unittest.TestCase):
 
         self.assertEqual(sweet, self.overall["输出"], function)
         # 读取提示框的内容然后保存到df中
-        ov = ov.setContent(sweet)
-        self.overall["结果"] = ov.getContent()
+        self.overall["结果"] = sweet
         print("zheshishenm shuju " + self.overall["结果"])
-        overall_ExcelData.to_csv("zailai.csv", index=False, encoding="gbk")
+        # overall_ExcelData.to_csv("zailai.csv", index=False, encoding="gbk")
 
 
 if __name__ == '__main__':

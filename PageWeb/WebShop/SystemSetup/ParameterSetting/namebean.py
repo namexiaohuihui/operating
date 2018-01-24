@@ -11,13 +11,20 @@
 
 class letter_parameter_names(object):
 
+    """
+    整体路径
+    """
+    sidebar = ".sidebar-menu li:nth-child(2)" # 顶级目录
+    treew = ".treeview-menu.menu-open li:nth-child(1)" #上级目录
+    tabs_withdrawals = ".nav.nav-tabs li:nth-child(4)" # 提现入口
+
     """--------------------------------参数的获取路径------------------------------"""
 
     # 提取页面的----------------------
     # 提取值的设置
-    amount_load = ".form-control.intonum.amount"
+    amount_load = "amount"
     # 　手续的设置
-    fee_load = ".form-control.intoprice.fee"
+    fee_load = "fee"
     # 提交按钮
     extractSave = '.btn.btn-primary.feeSave'
 
@@ -49,10 +56,10 @@ class letter_parameter_names(object):
 
     # 弹窗的设置-------------------
     # 提示框的标题
-    visible_h4 = '.sweet-alert.showSweetAlert.visible>h4'
+    visible_h2 = '.sweet-alert.showSweetAlert.visible h2:nth-of-type(1)'
 
     # 提示框的内容
-    visible_p = '.sweet-alert.showSweetAlert.visible>p'
+    visible_p = '.sweet-alert.showSweetAlert.visible p:nth-of-type(1)'
 
     # 提示框中的确认
     confirm = '.confirm'

@@ -22,7 +22,6 @@ def singleton(cls, *args, **kw):
 
 @singleton
 class overallsituation(object):
-    def setContent(self,content):
+    self.content = ""
+    def __init__(self, content=0):
         self.content = content
-    def getContent(self):
-        return self.content
