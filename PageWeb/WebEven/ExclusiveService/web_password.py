@@ -4,21 +4,23 @@ __author__ = 'Administrator'
 @file: web_password.py
 @time: 2018/1/19 17:21
 """
-import unittest
 import inspect
-import time
 import os
+import time
+import unittest
 
 from PageWeb.WebEven import AccountPrivacy as ap
-from practical.utils.logger import Log
+from utils import Log
+from PageWeb.WebEven.ExclusiveService.namebean import letter_parameter_names
 
 print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
 overall_ExcelData = ap._excel_Data(filename="exclusiveServiceFile", SHEETNAME=1)
-
+lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+
 
 
 class verify_password(unittest.TestCase):
@@ -31,7 +33,7 @@ class verify_password(unittest.TestCase):
         ap.user_login()  # 用户登录
 
         # 1. 登录完成之后进入个人资料页面
-        if ap._visible_css_selectop(".user-head") == False:
+        if ap._visible_css_selectop(lpn.exit_head) == False:
             log.info("Log on failed program stopped running")
             os._exit(0)
 
@@ -46,22 +48,20 @@ class verify_password(unittest.TestCase):
         self.overall = overall_ExcelData.loc[function]
 
     def password_entrance(self):
-        log.info("%s Function starts to execute " % self.overall["场景"])
+        log.info("%s Function starts to execute " % self.overall[lpn.whole_scene])
 
         # 2.点击修改密码
-        ap._visible_css_selectop(".user-sidebar>li:nth-child(6)")
+        ap._visible_css_selectop(lpn.password_sidebar)
 
     def password_after(self):
         # 4.获取提示信息
-        msg_text = ap._visible_css_selectop_text(".error-msg")
-        self.assertNotEqual(self.overall["输出"], msg_text, self.overall["场景"])
+        msg_text = ap._visible_css_selectop_text(lpn.password_error_msg)
+        self.assertNotEqual(self.overall[lpn.whole_output()], msg_text, self.overall[lpn.whole_scene])
         ap.sleep_Rest()
 
 
         # 5.获取返回上一页之后的验证信息
         ap.driver.back()
-        user_msg = ap._visible_css_selectop_text(".user-sidebar>li:nth-child(6)")
-        self.assertNotEqual(user_msg, msg_text, self.overall["场景"])
 
     def verify_password_sendkey(self, *content):
         """
@@ -73,16 +73,15 @@ class verify_password(unittest.TestCase):
         self.password_entrance()
 
         # 3.获取输入信息
-        ap._sendKeys_css_selectop("#J_oldpwd", content[0])
-        ap._sendKeys_css_selectop("#J_newpwd", content[1])
-        ap._sendKeys_css_selectop("#J_repeatPwd", content[2])
+        ap._visible_json_input(lpn.password_oldpwd, content[0])
+        ap._visible_json_input(lpn.password_newpwd, content[1])
+        ap._visible_json_input(lpn.password_repeatPwd, content[2])
         self.password_after()
 
     def password_sendkey(self):
-        string = self.overall["输入"].split(',')  # 获取登录账号密码
-        oldpwd = string[0].split(':')[1].strip()  # 切割字符并获取第二份的内容，将数据里面的空格清空
-        newpwd = string[1].split(':')[1].strip()  # 切割字符并获取第二份的内容，将数据里面的空格清空
-        repeatPwd = string[2].split(':')[1].strip()  # 切割字符并获取第二份的内容，将数据里面的空格清空
+        oldpwd = sself.overall[lpn.password_past()]  # 切割字符并获取第二份的内容，将数据里面的空格清空
+        newpwd = self.overall[lpn.password_establish()]  # 切割字符并获取第二份的内容，将数据里面的空格清空
+        repeatPwd = self.overall[lpn.password_confirm()]  # 切割字符并获取第二份的内容，将数据里面的空格清空
 
         inString = [oldpwd, newpwd, repeatPwd]
         self.verify_password_sendkey(content=inString)
@@ -90,27 +89,8 @@ class verify_password(unittest.TestCase):
     def verify_password_none(self):
         self.password_entrance()
         # 3.点击提交
-        ap._visible_css_selectop(".u-btn.u-btn-morange")
+        ap._visible_css_selectop(lpn.password_morange)
         self.password_after()
-
-    def test_code_phone(self):
-        # 实现进入修改手机页面获取验证码
-        function = inspect.stack()[0][3]  # 执行函数的函数名
-        self.function_overall(function)
-
-        log.info("%s Function starts to execute " % self.overall["场景"])
-
-        # 2.点击手机号对象
-        ap._visible_css_selectop(".user-sidebar>li:nth-child(4)")
-
-        # 3.点击获取验证码
-        ap._visible_css_selectop("a[id='J_getCode'][class='verify-btn-code']")
-        content = ap._visible_css_selectop_text("a[id='J_second'][class='c-ff']")
-        assert '120' != content, self.overall["场景"]
-        ap.sleep_Rest()
-
-        # 4.点击返回回到个人资料页面
-        self.driver.back()
 
     def test_none_password(self):
         # 实现修改密码时，不输入密码

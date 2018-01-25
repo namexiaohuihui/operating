@@ -12,8 +12,9 @@ import time
 import unittest
 
 from PageWeb.WebEven import AccountPrivacy as ap
-from practical.utils import stringCutting  as sc
-from practical.utils.logger import Log
+from utils import Log
+from utils import StringCutting  as sc
+from PageWeb.WebEven.Auxiliary.namebean import letter_parameter_names
 
 """
 #--------------------读取excel表格数据部分-----------------------------------------
@@ -24,7 +25,7 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
 overall_ExcelData = ap._excel_Data(filename="auxiliaryFile", SHEETNAME=1)
 # print(overall_ExcelData)
-
+lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 """
@@ -63,100 +64,93 @@ class verify_home(unittest.TestCase):
     def function_overall(self, function):
         self.overall = overall_ExcelData.loc[function]
 
-        # 获取登录账号密码
-        string = sc.specified_cut(self.overall["输入"], ",")
+        # 切割字符并获取第二份的内容，将数据里面的空格清空
+        account = self.overall[lpn.even_account()]
 
         # 切割字符并获取第二份的内容，将数据里面的空格清空
-        account = sc.specified_cut(string[0], ":")[1].strip()
-
-        # 切割字符并获取第二份的内容，将数据里面的空格清空
-        password = sc.specified_cut(string[1], ":")[1].strip()
+        password = self.overall[lpn.even_password()]
 
         return account, password
 
     @modifier_Interface_sliding
     def test_homepage(self, account=None, password=None):  # 首页直接购买
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
         ap.add_goods()  # 添加商品的操作
 
-        ap._visible_css_selectop(locator='.J_goBuy.m-cart-by')  # 点击去结算
+        ap._visible_css_selectop(locator=lpn.home_gobuy)  # 点击去结算
 
         ap.sign_switching_logon(funs[0], funs[1])
 
     @modifier_Interface_sliding
     def test_shopping_cart(self, account=None, password=None):  # 购物车里面购买
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
         ap.add_goods()  # 添加商品的操作
 
-        ap._visible_css_selectop(locator='.m-cart-total')  # 进入购物车
+        ap._visible_css_selectop(locator=lpn.home_cart)  # 进入购物车
 
         ap.sleep_Rest()
 
-        ap._visible_css_selectop('.J_btn.u-btn')  # 点击去结算
+        ap._visible_css_selectop(lpn.home_gobuy_cart)  # 点击去结算
 
         ap.sign_switching_logon(funs[0], funs[1])
 
     @modifier_Interface_sliding
     def test_details_goods(self, account=None, password=None):  # 详情添加商品登陆
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
-        ap._visible_css_selectop('.shop-goods.shop-goods-cur li:nth-child(1)')  # 点击去详情
+        self.goods_cur()  # 点击去详情
 
         ap.sign_switching_logon(funs[0], funs[1])
 
     @modifier_Interface_sliding
     def test_water_ticket(self, account=None, password=None):  # 首页选择水票登录
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
-        ap._visible_css_selectop(".shop-tiket-items.J_buyTiket a:nth-of-type(1)")
+        ap._visible_css_selectop(lpn.home_tiket_items) #点击水票
 
-        ap._visible_css_selectop("#J_detailLst>p:last-child")
+        ap._visible_css_selectop(lpn.home_gobuy_tiket) # 点击去结算
 
         ap.sign_switching_logon(funs[0], funs[1])
 
     @modifier_Interface_sliding
     def test_details_water(self, account=None, password=None):  # 详情选择水票登录
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
-        ap._visible_css_selectop('.shop-goods.shop-goods-cur>li:nth-child(1)')  # 点击去详情
+        self.goods_cur() # 点击去详情
 
-        ap._visible_css_selectop(".shop-tiket-items.detail-add>a:last-child")  # 添加购物车
-        ap._visible_css_selectop(".buy-tiket-btn")  # 添加购物车之后进行
+        ap._visible_css_selectop(lpn.home_cur_detail)  # 添加购物车
+        ap._visible_css_selectop(lpn.home_gobuy_detail)  # 添加购物车之后进行
 
         ap.sign_switching_logon(funs[0], funs[1])
 
     @modifier_Interface_sliding
     def test_details_introduce(self, account=None, password=None):  # 详情介绍登录
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
-        ap._visible_css_selectop('.shop-goods.shop-goods-cur>li:nth-child(1)')  # 点击进详情页
+        self.goods_cur()  # 点击进详情页
 
-        ap._visible_css_selectop('.goods-nav>a:nth-child(3)')  # 查看商品评价
+        ap._visible_css_selectop(lpn.home_goods_evaluate)  # 查看商品评价
 
         ap.sign_switching_logon(funs[0], funs[1])
 
     @modifier_Interface_sliding
     def test_details_evaluate(self, account=None, password=None):  # 详情评价登录
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
-        ap._visible_css_selectop('.shop-goods.shop-goods-cur>li:nth-child(1)')  # 点击进详情页
+        self.goods_cur()
 
         ap._visible_css_selectop('.goods-nav>a:last-child')  # 查看商品详情页
 
         ap.sign_switching_logon(funs[0], funs[1])
+
+    def goods_cur(self):
+        ap._visible_css_selectop(lpn.home_goods_cur)  # 点击进详情页

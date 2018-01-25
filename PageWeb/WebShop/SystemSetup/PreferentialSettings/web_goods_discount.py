@@ -21,7 +21,7 @@ __author__ = 'Administrator'
 5.中文
 6.满足数值要求但符合要求
 """
-from practical.utils.logger import Log
+from utils import Log
 
 class goods_discount(discount_input, unittest.TestCase):
     @classmethod

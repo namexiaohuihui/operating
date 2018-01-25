@@ -6,14 +6,12 @@ __author__ = 'Administrator'
 https://foofish.net/python-decorator.html 装饰器的使用
 """
 
-import unittest
-import inspect
-import time
 import os
+import time
+import unittest
 
-from PageWeb.WebEven.ConversionStorage import conversionstorage
 from PageWeb.WebEven import AccountPrivacy as ap
-from practical.utils.logger import Log
+from utils import Log
 
 """
 #--------------------读取excel表格数据部分-----------------------------------------

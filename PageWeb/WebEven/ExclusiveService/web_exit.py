@@ -4,20 +4,21 @@ __author__ = 'Administrator'
 @file: web_exit.py
 @time: 2018/1/19 17:19
 """
-import unittest
 import inspect
-import time
 import os
+import time
+import unittest
 
 from PageWeb.WebEven import AccountPrivacy as ap
-from practical.utils.logger import Log
+from utils import Log
+from PageWeb.WebEven.ExclusiveService.namebean import letter_parameter_names
 
 print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
 overall_ExcelData = ap._excel_Data(filename="exclusiveServiceFile", SHEETNAME=1)
-
+lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 
@@ -31,7 +32,7 @@ class verify_exit(unittest.TestCase):
         ap.user_login()  # 用户登录
 
         # 1. 登录完成之后进入个人资料页面
-        if ap._visible_css_selectop(".user-head") == False:
+        if ap._visible_css_selectop(lpn.exit_head) == False:
             log.info("Log on failed program stopped running")
             os._exit(0)
 
@@ -46,10 +47,10 @@ class verify_exit(unittest.TestCase):
         self.overall = overall_ExcelData.loc[function]
 
     def exit_entrance(self):
-        log.info("%s Function starts to execute " % self.overall["场景"])
+        log.info("%s Function starts to execute " % self.overall[lpn.whole_scene])
 
         # 2.点击退出按钮
-        ap._visible_css_selectop(".user-sidebar>li:last-child")
+        ap._visible_css_selectop(lpn.exit_sidebar)
 
     def test_cancel_exit(self):
         # 实现点击退出之后点击取消弹窗
@@ -59,10 +60,10 @@ class verify_exit(unittest.TestCase):
         self.exit_entrance()
 
         # 3.获取退出提示语
-        ap._visible_css_selectop_text(".am-dialog-body")
+        ap._visible_css_selectop_text(lpn.exit_dialog_body)
 
         # 4.点取消退出
-        ap._visible_css_selectop(".am-dialog-footer>button:nth-child(1)")
+        ap._visible_css_selectop(lpn.dialog_false)
 
     def test_decide_exit(self):
         # 实现点击退出之后，确定提出
@@ -72,10 +73,10 @@ class verify_exit(unittest.TestCase):
         self.exit_entrance()
 
         # 3.获取退出提示语
-        ap._visible_css_selectop_text(".am-dialog-body")
+        ap._visible_css_selectop_text(lpn.exit_dialog_body)
 
         # 4.点确定退出
-        ap._visible_css_selectop(".am-dialog-footer>button:last-child")
+        ap._visible_css_selectop(lpn.dialog_true)
 
         # 获取退出之后的判断
-        ap._visible_css_selectop_text(".u-btn.u-btn-morange")
+        ap._visible_css_selectop_text(lpn.exit_dialog_morange)

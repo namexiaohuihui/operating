@@ -4,8 +4,10 @@ __author__ = 'Administrator'
 @file: demo_test.py
 @time: 2018/1/15 18:07
 """
-from threading import Thread
 import time
+from threading import Thread
+
+
 class MyThread(Thread):
 
     def __init__(self,func,args=()):
@@ -37,7 +39,7 @@ def dingdong():
     aa = abdq + 3
     return aa
 def get_basename():
-    from practical.utils.logger import Log
+    from utils import Log
     import os
     basename = os.path.splitext(os.path.basename(__file__))[0]
     log = Log(basename)

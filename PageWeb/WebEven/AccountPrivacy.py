@@ -8,13 +8,14 @@
 import inspect
 import os
 
-from PageWeb.WebEven.ConversionStorage import conversionstorage
-from practical.config import readModel
-from practical.constant.browser_establish import browser_confirm
-from practical.operation.selenium_click import action_click as vac
 from practical.operation.selenium_input import action_input as vai
-from practical.utils import DefinitionErrors as dError
 from practical.utils.RewriteThread import inherit_thread as th
+from practical.utils.browser_establish import browser_confirm
+from practical.utils.config import readModel
+from practical.utils.operation.selenium_click import action_click as vac
+
+from PageWeb.WebEven.ConversionStorage import conversionstorage
+from utils import DefinitionErrors as dError
 
 """
 # ------------------内容参数的比较------------------------
@@ -192,7 +193,7 @@ def _excel_Data(filename, SHEETNAME=1):
     file_path = readModel.establish_con(model="excelmodel").get("excel", filename)
 
     # 读取相应路径中的数据
-    from practical.utils.OpenpyxlExcel import READEXCEL, PANDASDATA
+    from utils import READEXCEL, PANDASDATA
     read = READEXCEL(file_path, SHEETNAME=SHEETNAME)
 
     # 获取case

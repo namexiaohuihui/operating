@@ -6,16 +6,15 @@
 @Entry Name:operating
 """
 
-import unittest
 import inspect
-import time
 import os
+import time
+import unittest
 
-from PageWeb.WebEven.ConversionStorage import conversionstorage
 from PageWeb.WebEven import AccountPrivacy as ap
-from practical.utils.logger import Log
-
-
+from PageWeb.WebEven.ConversionStorage import conversionstorage
+from utils import Log
+from PageWeb.WebEven.Auxiliary.namebean import letter_parameter_names
 """
 #--------------------读取excel表格数据部分-----------------------------------------
 """
@@ -23,8 +22,9 @@ print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.l
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
-overall_ExcelData = ap._excel_Data(filename="auxiliaryFile",SHEETNAME=6)
-
+overall_ExcelData = ap._excel_Data(filename="auxiliaryFile", SHEETNAME=4)
+# print(overall_ExcelData)
+lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 class verify_registered(unittest.TestCase):
@@ -47,48 +47,45 @@ class verify_registered(unittest.TestCase):
     def function_overall(self, function):
         self.overall = overall_ExcelData.loc[function]
 
+    def route_path(self):
+        ap._visible_css_selectop(lpn.registered_user)
+        ap._visible_css_selectop(lpn.registered_head)
+        ap._visible_css_selectop(lpn.registered_login_type)  # 切换注册
+
+    def message_content(self,remarks):
+        message = ap._visible_css_selectop_text(remarks)
+        # 储存登陆之后的提示
+        conversionstorage().set_remarks(message)
+
+    def close_content(self):
+        ap._visible_css_selectop(lpn.registered_close)
+
     def test_protocol(self):  # 注册页面点击内容
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         self.function_overall(function)
 
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".user-head")
-        ap._visible_css_selectop('.login-type>a:nth-child(2)')  # 切换注册
-        ap._visible_json_click('J_protocol')
+        self.route_path()
 
-        message = ap._visible_css_selectop_text(".over-box")
-        # 储存登陆之后的提示
-        conversionstorage().set_remarks(message)
+        ap._visible_json_click(lpn.registered_protocol) # 协议
+        self.message_content(lpn.registered_over_box)
+        self.close_content()
 
-        ap._visible_css_selectop('.close')
-
-    def test_privacy(self):  # 注册页面点击内容
-        # 实现进入修改手机页面之后返回
+    def test_privacy(self):  # 注册页面点击隐私
         function = inspect.stack()[0][3]  # 执行函数的函数名
         self.function_overall(function)
 
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".user-head")
-        ap._visible_css_selectop('.login-type>a:nth-child(2)')  # 切换注册
-        ap.driver.execute_script("document.getElementById('J_privacy').click();")
-        ap._visible_json_click('J_privacy')
+        self.route_path()
 
-        message = ap._visible_css_selectop_text(".over-box")
-        # 储存登陆之后的提示
-        conversionstorage().set_remarks(message)
+        ap._visible_json_click(lpn.registered_privacy)  # 协议
 
-        ap._visible_css_selectop('.close')
+        self.message_content(lpn.registered_over_box)
 
-    def test_message_tip(self):  # 注册页面点击内容
-        # 实现进入修改手机页面之后返回
+        self.close_content()
+
+    def test_message_tip(self):  # 注册页面页面的优惠
         function = inspect.stack()[0][3]  # 执行函数的函数名
         self.function_overall(function)
 
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".user-head")
-        ap._visible_css_selectop('.login-type>a:nth-child(2)')  # 切换注册
+        self.route_path()
 
-        message = ap._visible_css_selectop_text(".message-tip")
-        # 储存登陆之后的提示
-        conversionstorage().set_remarks(message)
+        self.message_content(lpn.registered_message_tip)

@@ -11,10 +11,11 @@ import unittest
 from time import sleep
 
 from practical.constant.parameter.parameter_data import parameter_content
+from practical.operation import selenium_input
+from practical.utils.browser_establish import browser_confirm
+from practical.utils.operation import selenium_click
 
-from practical.constant.browser_establish import browser_confirm
-from practical.operation import selenium_input, selenium_click
-from practical.utils.DefinitionErrors import dError
+from utils.DefinitionErrors import dError
 
 '''
 笔记：

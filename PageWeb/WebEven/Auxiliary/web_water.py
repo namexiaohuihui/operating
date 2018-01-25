@@ -5,17 +5,14 @@
 @time: 2018/1/21 17:12
 @Entry Name:operating
 """
-import unittest
 import inspect
-import time
 import os
+import time
+import unittest
 
-from PageWeb.WebEven.ConversionStorage import conversionstorage
-from practical.utils import stringCutting  as sc
 from PageWeb.WebEven import AccountPrivacy as ap
-from practical.utils.logger import Log
-
-
+from utils import Log
+from PageWeb.WebEven.Auxiliary.namebean import letter_parameter_names
 """
 #--------------------读取excel表格数据部分-----------------------------------------
 """
@@ -23,9 +20,9 @@ print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.l
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
-overall_ExcelData = ap._excel_Data(filename="auxiliaryFile",SHEETNAME=2)
+overall_ExcelData = ap._excel_Data(filename="auxiliaryFile", SHEETNAME=4)
 # print(overall_ExcelData)
-
+lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 
@@ -48,14 +45,11 @@ class verify_water(unittest.TestCase):
     def function_overall(self, function):
         self.overall = overall_ExcelData.loc[function]
 
-        # 获取登录账号密码
-        string = sc.specified_cut(self.overall["输入"], ",")
+        # 切割字符并获取第二份的内容，将数据里面的空格清空
+        account = self.overall[lpn.even_account()]
 
         # 切割字符并获取第二份的内容，将数据里面的空格清空
-        account = sc.specified_cut(string[0], ":")[1].strip()
-
-        # 切割字符并获取第二份的内容，将数据里面的空格清空
-        password = sc.specified_cut(string[1], ":")[1].strip()
+        password = self.overall[lpn.even_password()]
 
         return account, password
 
@@ -64,11 +58,12 @@ class verify_water(unittest.TestCase):
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
-        ap._visible_css_selectop('.nav-watikis')  # 水票页面
-        ap._visible_css_selectop(".am-dialog-button")
-        ap._visible_css_selectop('.shop-tiket-price>a:nth-child(2)')  # 购买
-        ap._visible_css_selectop('.buy-tiket-btn')  # 弹窗
+        ap._visible_css_selectop(lpn.water_watikis)  # 水票页面
+        ap._visible_css_selectop(lpn.water_dialog) # 点击水票
 
+        ap._visible_css_selectop(lpn.water_tiket_price)  # 购买
+
+        ap._visible_css_selectop(lpn.water_sign_login)  # 弹窗
         ap.sign_switching_logon(funs[0], funs[1])
 
     def test_water_details(self, account=None, password=None):  # 水票详情页面登录
@@ -76,19 +71,23 @@ class verify_water(unittest.TestCase):
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
-        ap._visible_css_selectop('.nav-watikis')  # 水票页面
-        ap._visible_css_selectop(".am-dialog-button")
-        ap._visible_css_selectop(".tiket-buy-lst>li:nth-child(1)")
-        ap._visible_css_selectop(".shop-tiket-items.detail-add>a:nth-of-type(1)")
-        ap._visible_css_selectop('.buy-tiket-btn')  # 弹窗
+        ap._visible_css_selectop(lpn.water_watikis)  # 水票页面
+        ap._visible_css_selectop(lpn.water_dialog)  # 点击水票
+
+        ap._visible_css_selectop(lpn.water_watikis_detail) #　水票详情页面
+        ap._visible_css_selectop(lpn.water_add_detail) #点击购买
+
+        ap._visible_css_selectop(lpn.water_sign_login)  # 弹窗
         ap.sign_switching_logon(funs[0], funs[1])
 
     def test_water_user(self, account=None, password=None):  # 个人水票登录
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
-        ap._visible_css_selectop('.nav-watikis')  # 水票页面
-        ap._visible_css_selectop(".am-dialog-button")
-        ap._visible_css_selectop(".select-watikis>a:nth-child(2)")
+        ap._visible_css_selectop(lpn.water_watikis)  # 水票页面
+        ap._visible_css_selectop(lpn.water_dialog)  # 点击水票
+
+        ap._visible_css_selectop(lpn.water_nth_detail) #个人水票
+
+        ap._visible_css_selectop(lpn.water_sign_login)  # 弹窗
         ap.sign_switching_logon(funs[0], funs[1])

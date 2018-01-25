@@ -4,21 +4,23 @@ __author__ = 'Administrator'
 @file: web_nickname.py
 @time: 2018/1/19 16:51
 """
-import unittest
 import inspect
-import time
 import os
+import time
+import unittest
 
 from PageWeb.WebEven import AccountPrivacy as ap
-from practical.utils.logger import Log
+from utils import Log
+from PageWeb.WebEven.ExclusiveService.namebean import letter_parameter_names
 
 print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
-overall_ExcelData = ap._excel_Data(filename="exclusiveServiceFile")
-
+overall_ExcelData = ap._excel_Data(filename="exclusiveServiceFile", SHEETNAME=1)
+lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+
 
 
 class verify_nickname(unittest.TestCase):
@@ -31,7 +33,7 @@ class verify_nickname(unittest.TestCase):
         ap.user_login(action=True)  # 用户登录
 
         # 1. 登录完成之后进入个人资料页面
-        if ap._visible_css_selectop(".user-head") == False:
+        if ap._visible_css_selectop(lpn.exit_head) == False:
             log.info("Log on failed program stopped running")
             os._exit(0)
 
@@ -51,40 +53,39 @@ class verify_nickname(unittest.TestCase):
         function = inspect.stack()[0][3]  # 执行函数的函数名
         self.function_overall(function)
 
-        log.info("%s Function starts to execute " % self.overall["场景"])
+        log.info("%s Function starts to execute " % self.overall[lpn.whole_scene])
 
         # 2.获取页面上昵称的数据并进行比较
-        sidebarMsg = ap._visible_css_selectop(".sidebar-msg")
-        self.assertNotEqual(self.overall["验证条件"], sidebarMsg.text, self.overall["场景"])
+        sidebarMsg = ap._visible_css_selectop(lpn.nickname_msg)
+        self.assertNotEqual(self.overall[lpn.whole_verification], sidebarMsg.text, self.overall[lpn.whole_scene])
 
         # 3.点击弹窗并获取弹窗中的数据
-        uText = ap._visible_css_selectop_attribute(".u-txt.u-txt-l")
-        self.assertNotEqual(self.overall["验证条件"], uText, self.overall["场景"])
+        uText = ap._visible_css_selectop_attribute(lpn.nickname_txt)
+        self.assertNotEqual(self.overall[lpn.whole_verification], uText, self.overall[lpn.whole_scene])
 
         # 4.点击弹窗中的取消按钮
-        ap._visible_css_selectop(".am-dialog-footer>button:nth-child(1)")
+        ap._visible_css_selectop(lpn.dialog_false)
 
     def test_modify_nickname(self):
         # 实现修改昵称
         function = inspect.stack()[0][3]  # 执行函数的函数名
         self.function_overall(function)
 
-        log.info("%s Function starts to execute " % self.overall["场景"])
+        log.info("%s Function starts to execute " % self.overall[lpn.whole_scene])
 
         # 2.点击昵称
-        ap._visible_css_selectop(".sidebar-msg")
+        ap._visible_css_selectop(lpn.nickname_msg)
 
         # 3.获取弹窗中昵称输入框对象，并输入内容
-        content_sendKeys = time.strftime('%H:%M:%S', time.localtime(time.time()))
-        ap._sendKeys_css_selectop(".u-txt.u-txt-l", content_sendKeys)
+        ap._sendKeys_css_selectop(lpn.nickname_txt, lpn.whole_output())
 
         # 4.点击弹窗中的确定按钮
-        ap._visible_css_selectop(".am-dialog-footer>button:last-child")
+        ap._visible_css_selectop(lpn.dialog_true)
 
         # 比较页面的最新数据跟输入的内容是否一致
-        sidebarMsg = ap._visible_css_selectop_text(".sidebar-msg")
+        sidebarMsg = ap._visible_css_selectop(lpn.nickname_msg)
 
-        assert sidebarMsg == content_sendKeys, self.overall["场景"]
+        assert sidebarMsg == lpn.whole_output(), self.overall[lpn.whole_scene]
 
 
 

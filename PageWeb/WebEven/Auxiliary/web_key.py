@@ -11,8 +11,8 @@ import time
 import unittest
 
 from PageWeb.WebEven import AccountPrivacy as ap
-from practical.utils import stringCutting  as sc
-from practical.utils.logger import Log
+from utils import Log
+from PageWeb.WebEven.Auxiliary.namebean import letter_parameter_names
 
 """
 #--------------------读取excel表格数据部分-----------------------------------------
@@ -23,7 +23,7 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
 overall_ExcelData = ap._excel_Data(filename="auxiliaryFile", SHEETNAME=3)
 # print(overall_ExcelData)
-
+lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 
@@ -46,14 +46,11 @@ class verify_key(unittest.TestCase):
     def function_overall(self, function):
         self.overall = overall_ExcelData.loc[function]
 
-        # 获取登录账号密码
-        string = sc.specified_cut(self.overall["输入"], ",")
+        # 切割字符并获取第二份的内容，将数据里面的空格清空
+        account = self.overall[lpn.even_account()]
 
         # 切割字符并获取第二份的内容，将数据里面的空格清空
-        account = sc.specified_cut(string[0], ":")[1].strip()
-
-        # 切割字符并获取第二份的内容，将数据里面的空格清空
-        password = sc.specified_cut(string[1], ":")[1].strip()
+        password = self.overall[lpn.even_password()]
 
         return account, password
 
@@ -62,7 +59,7 @@ class verify_key(unittest.TestCase):
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
 
-        ap._visible_css_selectop('.nav-onekey')  # 一键送水
-        ap._visible_css_selectop('.onekey-btn.dis')
+        ap._visible_css_selectop(lpn.key_onekey)  # 一键送水
+        ap._visible_css_selectop(lpn.key_onekey_dis)
 
         ap.sign_switching_logon(funs[0], funs[1])

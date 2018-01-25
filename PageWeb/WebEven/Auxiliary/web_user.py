@@ -5,17 +5,14 @@
 @time: 2018/1/21 17:26
 @Entry Name:operating
 """
-import unittest
 import inspect
-import time
 import os
+import time
+import unittest
 
-from PageWeb.WebEven.ConversionStorage import conversionstorage
-from practical.utils import stringCutting  as sc
 from PageWeb.WebEven import AccountPrivacy as ap
-from practical.utils.logger import Log
-
-
+from utils import Log
+from PageWeb.WebEven.Auxiliary.namebean import letter_parameter_names
 """
 #--------------------读取excel表格数据部分-----------------------------------------
 """
@@ -23,8 +20,9 @@ print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.l
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
-overall_ExcelData = ap._excel_Data(filename="auxiliaryFile",SHEETNAME=5)
-
+overall_ExcelData = ap._excel_Data(filename="auxiliaryFile", SHEETNAME=4)
+# print(overall_ExcelData)
+lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 class verify_user(unittest.TestCase):
@@ -46,106 +44,71 @@ class verify_user(unittest.TestCase):
     def function_overall(self, function):
         self.overall = overall_ExcelData.loc[function]
 
-        # 获取登录账号密码
-        string = sc.specified_cut(self.overall["输入"], ",")
+        # 切割字符并获取第二份的内容，将数据里面的空格清空
+        account = self.overall[lpn.even_account()]
 
         # 切割字符并获取第二份的内容，将数据里面的空格清空
-        account = sc.specified_cut(string[0], ":")[1].strip()
-
-        # 切割字符并获取第二份的内容，将数据里面的空格清空
-        password = sc.specified_cut(string[1], ":")[1].strip()
+        password = self.overall[lpn.even_password()]
 
         return account, password
+
+    def route_path(self,content,message):
+        ap._visible_css_selectop(lpn.user_user)
+        ap._visible_css_selectop(message)
+
+        ap.sign_switching_logon(content[0], content[1])
 
     def test_user_sign(self, account=None, password=None):  # 用户sgin
         # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
-
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".user-head")
-
-        ap.sign_switching_logon(funs[0], funs[1])
+        self.route_path(funs,lpn.registered_head)
 
 
     def test_pending_payment(self, account=None, password=None):  # 待付款跳转
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
-
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".msg-nav>a:nth-child(1)")
-
-        ap.sign_switching_logon(funs[0], funs[1])
+        self.route_path(funs, lpn.user_payment)
 
 
     def test_pending_delivery(self, account=None, password=None):  # 待发货跳转
         # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
-
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".msg-nav>a:nth-child(2)")
-
-        ap.sign_switching_logon(funs[0], funs[1])
+        self.route_path(funs, lpn.user_delivery)
 
     def test_distribution(self, account=None, password=None):  # 配送中跳转
-        # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
-
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".msg-nav>a:nth-child(3)")
-
-        ap.sign_switching_logon(funs[0], funs[1])
+        self.route_path(funs, lpn.user_distribution)
 
     def test_be_evaluated(self, account=None, password=None):  # 待评价跳转
         # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
-        funs = self.function_overall(function)
-
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".msg-nav>a:nth-child(4)")
-
-        ap.sign_switching_logon(funs[0], funs[1])
+        funs = self.function_overall(user_evaluated)
+        self.route_path(funs, lpn.user_distribution)
 
 
     def test_red_envelopes(self, account=None, password=None):  # 红包跳转
         # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
-
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".user-sidebar>li:nth-child(1)")
-
-        ap.sign_switching_logon(funs[0], funs[1])
+        self.route_path(funs, lpn.user_envelopes)
 
     def test_card_coupons(self, account=None, password=None):  # 卡券跳转
         # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
-
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".user-sidebar>li:nth-child(2)")
-
-        ap.sign_switching_logon(funs[0], funs[1])
+        self.route_path(funs, lpn.user_coupons)
 
     def test_water_ticket(self, account=None, password=None):  # 水票跳转
         # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
-
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".user-sidebar>li:nth-child(3)")
-
-        ap.sign_switching_logon(funs[0], funs[1])
+        self.route_path(funs, lpn.user_ticket)
 
     def test_address(self, account=None, password=None):  # 地址跳转
         # 实现进入修改手机页面之后返回
         function = inspect.stack()[0][3]  # 执行函数的函数名
         funs = self.function_overall(function)
-
-        ap._visible_css_selectop(".nav-user")
-        ap._visible_css_selectop(".user-sidebar>li:nth-child(4)")
-
-        ap.sign_switching_logon(funs[0], funs[1])
+        self.route_path(funs, lpn.user_address)

@@ -20,7 +20,7 @@ import unittest
 
 from PageWeb.WebShop import JudgmentVerification as jv
 from PageWeb.WebShop.SystemSetup.ParameterSetting.namebean import letter_parameter_names
-from practical.utils.logger import Log
+from utils import Log
 
 """
 #--------------------读取excel表格数据部分-----------------------------------------
@@ -62,8 +62,8 @@ class verify_withdrawals(unittest.TestCase):
 
     def _sendkey_input(self):
         # 对指定输入框进行输入
-        jv._visible_json_input(lpn.amount_load, self.overall["手续费"])
-        jv._visible_json_input(lpn.fee_load, self.overall["提现"])
+        jv._visible_json_input(lpn.amount_load, self.overall[lpn.parameter_procedures()])
+        jv._visible_json_input(lpn.fee_load, self.overall[lpn.parameter_withdrawals()])
         jv._visible_css_selectop(lpn.extractSave)
 
     def test_procedures_high_withdrawals(self):
@@ -91,16 +91,17 @@ class verify_withdrawals(unittest.TestCase):
         sweet = jv._visible_css_selectop_text(visible_text)
 
         # 读取提示框的内容然后保存到df中
-        self.overall["结果"] = sweet
+        self.overall[lpn.whole_result()] = sweet
 
     def case_browser1(self, function):
         self._sendkey_input()
         sweet = jv._visible_css_selectop_text(".sweet-alert.showSweetAlert.visible p:nth-of-type(1)")
 
-        self.assertEqual(sweet, self.overall["输出"], function)
+        self.assertEqual(sweet, self.overall[lpn.whole_output()], function)
         # 读取提示框的内容然后保存到df中
-        self.overall["结果"] = sweet
-        print("zheshishenm shuju " + self.overall["结果"])
+        self.overall[lpn.whole_result()] = sweet
+
+        print("zheshishenm shuju " + self.overall[lpn.whole_result()])
         # overall_ExcelData.to_csv("zailai.csv", index=False, encoding="gbk")
 
 

@@ -5,13 +5,12 @@
 @time: 2018/1/4 22:03
 @项目名称:operating
 """
-import unittest
-import inspect
-import time
 import os
+import time
+import unittest
 
 from PageWeb.WebEven import AccountPrivacy as ap
-from practical.utils.logger import Log
+from utils import Log
 
 print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
