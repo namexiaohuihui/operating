@@ -8,11 +8,11 @@ import inspect
 import os
 import time
 
-from practical.operation.selenium_input import action_input
-from practical.utils.RewriteThread import inherit_thread as th
-from practical.utils.browser_establish import browser_confirm
-from practical.utils.config import readModel
-from practical.utils.operation.selenium_click import action_click
+from utils.operation.selenium_input import action_input
+from utils.RewriteThread import inherit_thread as th
+from utils.browser_establish import browser_confirm
+from utils.config import readModel
+from utils.operation.selenium_click import action_click
 
 from utils import DefinitionErrors as dError
 
@@ -112,7 +112,7 @@ def _excel_Data(filename, SHEETNAME=1):
     file_path = readModel.establish_con(model="excelmodel").get("excel", filename)
 
     # 读取相应路径中的数据
-    from utils import READEXCEL, PANDASDATA
+    from utils.OpenpyxlExcel import READEXCEL, PANDASDATA
     read = READEXCEL(file_path, SHEETNAME=SHEETNAME)
 
     # 获取case

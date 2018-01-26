@@ -20,7 +20,7 @@ import unittest
 
 from PageWeb.WebShop import JudgmentVerification as jv
 from PageWeb.WebShop.SystemSetup.ParameterSetting.namebean import letter_parameter_names
-from utils import Log
+from utils.Logger import Log
 
 """
 #--------------------读取excel表格数据部分-----------------------------------------
@@ -49,6 +49,10 @@ class verify_withdrawals(unittest.TestCase):
         # 该类结束时最后调用的函数
         log.info("Make it complete and continue to press it next time...")
         jv.driver.quit()
+
+
+    def __del__(self):
+        print("------------------------------")
 
     def function_overall(self, function):
         # 获取用例信息
