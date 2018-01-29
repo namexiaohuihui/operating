@@ -67,13 +67,9 @@ def single_save_img(imgUrl):
         title = imgUrl["title"]
 
         # print(title)
-
         # print(jpg_rl)
-
         # print("")
-
         # 判断是否有jpg文件夹，不存在创建一个
-
         save_file = os.path.join(cur_path, "jpg")
 
         if not os.path.exists(save_file): os.makedirs(save_file)
@@ -114,7 +110,6 @@ def many_get_img_urls():
     return images
 
 
-
 @threads(5)
 def many_save_img(imgUrl):
 
@@ -125,18 +120,12 @@ def many_save_img(imgUrl):
         title = imgUrl["title"]
 
         # print(title)
-
         # print(jpg_rl)
-
         # print("")
-
         # 判断是否有jpg文件夹，不存在创建一个
-
         save_file = os.path.join(cur_path, "jpgs")
 
         if not os.path.exists(save_file): os.makedirs(save_file)
-
-
 
         with open(os.path.join(save_file, title+'.jpg'), "wb") as f:
 

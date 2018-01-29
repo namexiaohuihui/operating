@@ -50,7 +50,6 @@ class verify_withdrawals(unittest.TestCase):
         log.info("Make it complete and continue to press it next time...")
         jv.driver.quit()
 
-
     def __del__(self):
         print("------------------------------")
 
@@ -73,12 +72,13 @@ class verify_withdrawals(unittest.TestCase):
     def test_procedures_high_withdrawals(self):
         # 提现金额大于手续费
         function = inspect.stack()[0][3]  # 执行函数的函数名
-        log.info("The validation scenario is:... %s" % function )
+        log.info("The validation scenario is:... %s" % function)
 
         self._routepath()
-        self.function_overall(function) # 获取df 的内容值
-        self.case_browser(function,lpn.visible_h2) # 执行逻辑
-        time.sleep(5)
+        self.function_overall(function)  # 获取df 的内容值
+        time.sleep(2)
+        self.case_browser(lpn.visible_h2)  # 执行逻辑
+        time.sleep(3)
 
     def test_procedures_low_withdrawals(self):
         # 两个都输入0
@@ -87,15 +87,19 @@ class verify_withdrawals(unittest.TestCase):
 
         self._routepath()
         self.function_overall(function)
-        self.case_browser(function,lpn.visible_p)
-        time.sleep(5)
+        time.sleep(2)
+        self.case_browser(lpn.visible_p)  # 执行逻辑
+        time.sleep(3)
 
-    def case_browser(self, function ,visible_text):
+    def case_browser(self, visible_text):
         self._sendkey_input()
         sweet = jv._visible_css_selectop_text(visible_text)
-
+        print("tishik %s" % sweet)
         # 读取提示框的内容然后保存到df中
         self.overall[lpn.whole_result()] = sweet
+
+        # 提示框中的确定按钮
+        jv._visible_css_selectop(lpn.confirm)
 
     def case_browser1(self, function):
         self._sendkey_input()
@@ -107,8 +111,3 @@ class verify_withdrawals(unittest.TestCase):
 
         print("zheshishenm shuju " + self.overall[lpn.whole_result()])
         # overall_ExcelData.to_csv("zailai.csv", index=False, encoding="gbk")
-
-
-if __name__ == '__main__':
-    unittest.main()
-    # overall_ExcelData.to_csv("buhao.csv", index=False, encoding="gbk")
