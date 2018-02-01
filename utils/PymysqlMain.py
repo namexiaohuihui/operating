@@ -2,6 +2,7 @@
 
 import json
 import pymysql
+from utils.config import readModel
 
 __author__ = 'Administrator'
 """
@@ -16,24 +17,10 @@ class pymysqls(object):
         if not hasattr(cls, '_instance'):
             orig = super(pymysqls, cls)
             cls._instance = orig.__new__(cls, *args, **kw)
-            print('pymysqls')
         return cls._instance
 
     # 数据库和游标一起创建
     def connects_cureors(self, host, port, user, passwd, db, charset):
-        self.connect = pymysql.Connect(
-            host=host,
-            port=port,
-            user=user,
-            passwd=passwd,
-            db=db,
-            charset=charset
-        )
-        self.cursor = self.connect.cursor()
-        return self.cursor
-
-    # 连接数据库
-    def connects(self, host, port, user, passwd, db, charset):
         # 链接数据库，定义账号密码以及用户名
         self.connect = pymysql.Connect(
             host=host,
@@ -43,6 +30,29 @@ class pymysqls(object):
             db=db,
             charset=charset
         )
+        self.cursor = self.cureors()
+        return self.cursor
+
+    # 连接数据库
+    def connects_readModel(self):
+        conf = readModel.establish_con(model="model")
+        host = conf.get("database", "host")
+        port = int(conf.get("database", "port"))
+        user = conf.get("database", "user")
+        passwd = conf.get("database", "passwd")
+        db = conf.get("database", "db")
+        charset = conf.get("database", "charset")
+
+        # 链接数据库，定义账号密码以及用户名
+        self.connect = pymysql.Connect(
+            host=host,
+            port=port,
+            user=user,
+            passwd=passwd,
+            db=db,
+            charset=charset
+        )
+        self.cursor = self.cureors()
         return self.connect
 
     def cureors(self):
@@ -58,23 +68,17 @@ class pymysqls(object):
         # 去除首尾的中括号
         return jsondatar[1:len(jsondatar) - 1]
 
-    def selects(self, sql=None):
-        print("返回字典")
+    def total_selects(self, sql):
         try:
             self.cursor.execute(sql)
-
             # 好像是打印字段的属性
             index = self.cursor.description
-
             # 定义一个容器:列表，
             result = []
-
             # fetchall():接收全部的返回结果行.
             for res in self.cursor.fetchall():
-
                 # 定义一个字典
                 row = {}
-
                 # range(x):表示从0到x，不包括x
                 # len:返回字符串、列表、字典、元组等长度
                 for i in range(len(index)):
@@ -83,6 +87,24 @@ class pymysqls(object):
                 result.append(row)
                 # print("selects_list %s" % row)
             return result;
+        except:
+            print('MySQL connect fail...')
+
+    def single_selects(self, sql):
+        try:
+            self.cursor.execute(sql)
+            # 好像是打印字段的属性
+            index = self.cursor.description
+            # 定义一个字典
+            row = {}
+            # fetchall():接收全部的返回结果行.
+            res = self.cursor.fetchall()[0]
+
+            for i in range(len(index)):
+                # index[i][0] 获取字段里属性中的局部信息
+                row[index[i][0]] = res[i]
+
+            return row;
         except:
             print('MySQL connect fail...')
 
@@ -110,34 +132,35 @@ class pymysqls(object):
             self.connect.commit()
             print('事务处理成功', self.cursor.rowcount)
 
-    def obj_test(self, result,obj):
-        data_list = []
-        for res in result:
-            test = obj
-            dictionaries = {}
-            jsondatar = json.dumps(res, ensure_ascii=False)
-            rebuild = json.loads(jsondatar)
-            test.__dict__ = rebuild
-            dictionaries[test.id] = test
-            data_list.append(dictionaries)
-        return data_list;
 
+def do_something(df):
+    foo = df.loc['test_less_than']  # Is foo a view? A copy? Nobody knows!
+    # ... many lines here ...
+    foo['结果'] = "555"  # We don't know whether this will modify df or not!
+    return foo
+
+
+class number_one(object):
+    def __init__(self):
+        print("1")
 
 
 if __name__ == '__main__':
-    pm = pymysqls.__new__(pymysqls)
-    # pm.connects_cureors('localhost', 3306, 'root', 'xiaodingdong', 'ph_exclusive', 'utf8')
-    pm.connects_cureors('load', 3306, 'root', '123456', 'table', 'utf8')
-    sql = "select id,phone,add_time from lnsm_user where phone = '18778036030';"
-    result = pm.selects(sql)
-    pm.closes()
-    data_list = pm.obj_test(result, user_class())
-    print('data_list[test.id] %s ' % data_list)
-    for ttt in data_list:
-        print('ttt %s ' % ttt)
-        #print("ttt['10479']: ", ttt['10479'])
-        for key,valus in ttt.items():
-            print('{k}:{v}'.format(k=key,v=valus.id))
-            print('\n'.join(['%s:%s' % item for item in valus.__dict__.items()]))
+    assert "500" == '500'
 
 
+    # from PageWeb.WebShop import JudgmentVerification as jv
+    #
+    # overall_ExcelData = jv._excel_Data(filename="parameterSetting", SHEETNAME=1)
+    # df_index = df.loc[index]
+    # df_index[key] = value
+    # overall = overall_ExcelData.loc['test_all_zero']
+    #
+    # import time
+    # time.sleep(2)
+    # overall["结果"] = 2
+    # print(overall)
+    # number_one = number_one()
+    # overall_ExcelData.loc["test_less_than",'结果'] = number_one
+    # # df.loc[index,key] = value
+    # print(overall_ExcelData)

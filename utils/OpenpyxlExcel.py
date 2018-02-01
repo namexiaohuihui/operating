@@ -9,6 +9,7 @@ http://openpyxl.readthedocs.io/en/default/usage.html#write-a-workbook
 http://blog.csdn.net/tanzuozhev/article/details/76713387
 http://www.cnblogs.com/chaosimple/p/4153083.html
 http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.set_index.html 官网
+https://pandas.pydata.org/pandas-docs/stable/index.html
 """
 
 from openpyxl import Workbook, load_workbook
@@ -845,7 +846,7 @@ class PANDASDATA:
         print(df)
         lll = df.iloc[0]
         print(lll[1].value)
-        df.to_csv("qwe.xlsx",index=False,encoding="gbk")
+        df.to_csv("six6.xlsx",index=False,encoding="gbk")
 
         print("*-**-*-*-*")
         from openpyxl.utils.dataframe import dataframe_to_rows
@@ -859,6 +860,9 @@ class PANDASDATA:
                 print(row[r])
                 list_data.append(row[r])
             list_max.append(list_data)
+        # 修改某个key值先的Neri
+        lists = {1, 2, 3}
+        overall_ExcelData.loc[:, ('结果')] = lists
 
         excelData.index # 打印所有序列名
         excelData.columns # 打印标题

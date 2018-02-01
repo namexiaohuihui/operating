@@ -5,8 +5,6 @@
 @time: 2017/6/21 0:01
 """
 # 这是元素输入类，传入相应的id，name，text，xpath，css以及内容就可以执行输入的指令
-from time import sleep
-
 from utils.operation.selenium_visible import action_visible
 
 r'''
@@ -76,21 +74,23 @@ class action_input(action_visible):
         else:
             self.error_log(browser)
 
-    def transmitList(self,browser, combination):
+    def transmitList(self, browser, combination):
         for num in range(len(combination)):
             meter = combination[num]
-            self.css_input(browser,meter.parameter,meter.content)
+            self.css_input(browser, meter.parameter, meter.content)
 
-    def transmitDictionaries(self,browser, combination):
+    def transmitDictionaries(self, browser, combination):
         for _key, _value in combination.items():
             self.css_input(browser, _value, _key)
 
     def id_js_input(self, browser, ordinal, parameter):
         try:
+            self.focus_id(browser, ordinal)
             browser.execute_script("document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';")
+            self.sleep_Rest(1)
+            self.blur_id(browser, ordinal)
         except:
-            self.writeLog(browser)
-
+            self.error_log(browser)
 
     # 光标从ele元素上移除
     def blur_ele(self, browser, ele):
@@ -102,7 +102,7 @@ class action_input(action_visible):
 
     # 光标移动到id为ordinal的元素上
     def focus_id(self, browser, ordinal):
-        browser.execute_script("document.getElementById(\'" + ordinal + "\').focus();" )
+        browser.execute_script("document.getElementById(\'" + ordinal + "\').focus();")
 
     # 光标移动到ele元素上
     def focus_ele(self, browser, ele):
@@ -112,4 +112,4 @@ class action_input(action_visible):
     def ele_clear_keys(self, ele, parameter):
         ele.clear()
         ele.send_keys(parameter)
-        sleep(2)
+        self.sleep_Rest(1)

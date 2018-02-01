@@ -13,14 +13,16 @@ from utils.RewriteThread import inherit_thread as th
 from utils.browser_establish import browser_confirm
 from utils.config import readModel
 from utils.operation.selenium_click import action_click
-
+from utils.PymysqlMain import pymysqls
 from utils import DefinitionErrors as dError
+from utils.OpenpyxlExcel import READEXCEL, PANDASDATA
 
 """
 # ------------------内容参数的比较------------------------
 """
 vac = action_click()
 vai = action_input()
+
 
 # 在字符串str查找ing出现的位置.从number下标开始找,返回-1表示找不到
 def string_lookup_find(str, ing, number=0):
@@ -48,8 +50,6 @@ def _browser():
     return driver
 
 
-
-
 def get_account_account_password():
     conf = readModel.establish_con(model="model")  # 获取账号密码
     account = conf.get("username", "admin_account")
@@ -66,14 +66,8 @@ def _route():
 
 
 def user_login():
-    try:
-        acc_pa = get_account_account_password()  # 获取登录账号和密码
-        sign_user_login(acc_pa[0], acc_pa[1])  # 进行登录
-    except Exception:
-        function = inspect.stack()[0][3]  # 执行函数的函数名
-        error_log(function)
-        raise
-
+    acc_pa = get_account_account_password()  # 获取登录账号和密码
+    sign_user_login(acc_pa[0], acc_pa[1])  # 进行登录
 
 
 def sign_user_login(account, password):
@@ -96,7 +90,6 @@ def sign_user_login(account, password):
         raise
 
 
-
 """
 #--------------------读取excel表格数据部分-----------------------------------------
 """
@@ -112,7 +105,6 @@ def _excel_Data(filename, SHEETNAME=1):
     file_path = readModel.establish_con(model="excelmodel").get("excel", filename)
 
     # 读取相应路径中的数据
-    from utils.OpenpyxlExcel import READEXCEL, PANDASDATA
     read = READEXCEL(file_path, SHEETNAME=SHEETNAME)
 
     # 获取case
@@ -130,7 +122,7 @@ def _excel_Data(filename, SHEETNAME=1):
     # 数据转换
     pan = PANDASDATA(row_col_data)
 
-    df = pan.dataFrame(columns=title_data)
+    df = pan.dataFrame(columns=title_data)  # 设置标题名
 
     excelData = df.set_index([columnLabel])  # 设置df数据中的序列号
 
@@ -146,9 +138,11 @@ def _visible_return_selectop(locator, timeout=5):
     # 判断元素是否存在，如果存在就进行点击并返回对象
     vac.return_css_click(driver, locator)
 
+
 def _visible_css_selectop(locator, timeout=5):
     # 判断元素是否存在，如果存在就进行点击并返回对象
     vac.css_click(driver, locator)
+
 
 def _visible_css_selectop_text(locator):
     # 判断元素是否存在，如果存在就进行获取元素的text属性
@@ -175,6 +169,21 @@ def _visible_json_input(ordinal, parameter):
 
 
 """
+# 数据库查询及内容返回
+"""
+
+
+def mysql_selects(sql):
+    pm = pymysqls()
+
+    pm.connects_readModel()
+    result = pm.single_selects(sql)
+    pm.closes()
+
+    return result
+
+
+"""
 #--------------------其他一些配置部分-----------------------------------------
 """
 
@@ -188,6 +197,7 @@ def error_log(function):
 
     # 调用错误类
     dError.error_output(name_tion, driver)
+
 
 def _start_thread_pool(funktion):  # 开启线程池
     # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数

@@ -63,6 +63,7 @@ class action_click(action_visible):
         ele = self.is_visible_css_selectop(browser, prompt)
         if ele != False:  # 判断是否出现
             ele.click()
+            self.sleep_Rest()
         else:
             self.error_log(browser)
 

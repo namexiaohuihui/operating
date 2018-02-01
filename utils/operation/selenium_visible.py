@@ -12,6 +12,7 @@ import os
 
 import selenium.webdriver.support.expected_conditions as EC
 import selenium.webdriver.support.ui as ui
+from utils import DefinitionErrors as dError
 import inspect
 
 
@@ -151,12 +152,12 @@ class action_visible(object):
     def sleep_Rest(self,ti=1):  # 延迟
         sleep(ti)
 
-    def error_log(self,driver,function):
+    def error_log(self,driver):
         # 执行文件的文件名
         basename = os.path.splitext(os.path.basename(__file__))[0]
 
         # 拼接名字
-        name_tion = basename + "_" + function
+        name_tion = basename
 
         # 调用错误类
         dError.error_output(name_tion, driver)

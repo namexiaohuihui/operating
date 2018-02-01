@@ -7,16 +7,18 @@
 """
 
 from utils.ExcelBeanName import shop_systemsetup
+
+
 # 该类主要设置一些常用的属性值以及参数
 
 class letter_parameter_names(shop_systemsetup):
-
     """
     整体路径
     """
-    sidebar = ".sidebar-menu li:nth-child(2)" # 顶级目录
-    treew = ".treeview-menu.menu-open li:nth-child(1)" #上级目录
-    tabs_withdrawals = ".nav.nav-tabs li:nth-child(4)" # 提现入口
+    sidebar = ".sidebar-menu li:nth-child(2)"  # 顶级目录
+    treew = ".treeview-menu.menu-open li:nth-child(1)"  # 上级目录
+    tabs_withdrawals = ".nav.nav-tabs li:nth-child(4)"  # 提现入口
+    tabs_discount = ".nav.nav-tabs li:nth-child(5)"  # 提现入口
 
     """--------------------------------参数的获取路径------------------------------"""
 
@@ -27,6 +29,7 @@ class letter_parameter_names(shop_systemsetup):
     fee_load = "fee"
     # 提交按钮
     extractSave = '.btn.btn-primary.feeSave'
+    minyuan = "#minyuan"
 
     # 优惠页面的-------------
     # 对象折扣
@@ -45,14 +48,7 @@ class letter_parameter_names(shop_systemsetup):
     watikis_max = 'watikis_max'
 
     # 页面提交按钮
-    settingSave = '.btn.btn-primary.settingSave'
-
-    # 邀请页面-----------------------------------
-    hourTime = ".form-control.hour"
-    timeTime = ".form-control.time"
-    real_payTime = ".form-control.real_pay"
-    moneyTime = ".form-control.money"
-    saveTime = ".btn.btn-primary.save"
+    discountSave = '.btn.btn-primary.settingSave'
 
     # 弹窗的设置-------------------
     # 提示框的标题
@@ -78,10 +74,6 @@ class letter_parameter_names(shop_systemsetup):
 
     """--------------------------------提示参数------------------------------"""
 
-    # 提取页面----------------
-    ex_less = '提现手续费应小于提现金额'
-    ex_format = '请输入整数最多7位,小数后两位的价格格式'
-
     # 优惠设置---------------
     # 商品折扣数的提示
     gb_between = "请输入0.1~9.9之间的数"  # 折扣数输入的数字符合格式范围内
@@ -96,10 +88,19 @@ class letter_parameter_names(shop_systemsetup):
     #  上限数量的提示:
     number_max = "请输入金额格式"
 
-
-    # 邀请页面设置---------------
-
     # 系统固定提示框的提示
     system_preservation = "你确定要保存吗？"  # 再次确认的标题
     system_content = "保存后新产生的订单立即生效已产生的订单不受影响"  # 再次确认的提示内容
     system_successful = "操作成功"  # 再次确认的提示内容
+
+
+if __name__ == '__main__':
+    import unittest
+    from PageWeb.WebShop.SystemSetup.ParameterSetting.web_withdrawals import verify_withdrawals
+
+    # 构造测试集
+    suite = unittest.TestSuite()
+    suite.addTest(verify_withdrawals("test_less_than"))
+    # 执行测试
+    runner = unittest.TextTestRunner()
+    runner.run(suite)

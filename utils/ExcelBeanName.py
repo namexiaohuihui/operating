@@ -8,10 +8,13 @@
 """
 该文件用于存放excle文档的标题
 """
+
+
 class excel_title(object):
     """
     存放统一格式的标题
     """
+
     def whole_serial_number(self):
         return "序号"
 
@@ -51,6 +54,7 @@ class excel_title(object):
     def whole_query_statement(self):
         return "sql"
 
+
 # even 的地盘
 class even_auxiliary(excel_title):
     def even_account(self):
@@ -58,6 +62,7 @@ class even_auxiliary(excel_title):
 
     def even_password(self):
         return "密码"
+
 
 class even_exclusiveService(excel_title):
     def password_past(self):
@@ -69,14 +74,33 @@ class even_exclusiveService(excel_title):
     def password_confirm(self):
         return "确认密码"
 
+
 # shop的地盘
 class shop_systemsetup(excel_title):
 
-    def parameter_procedures(self):
+    def ps_with_extract(self):
+        return "提现"
+
+    def ps_with_cost(self):
         return "手续费"
 
-    def parameter_withdrawals(self):
-        return "提现"
+    def ps_count_goods_discount(self):
+        return "商品折扣"
+
+    def ps_count_goods_id(self):
+        return "不参与商品"
+
+    def ps_count_watiki_discount(self):
+        return "水票折扣"
+
+    def ps_count_watikis_id(self):
+        return "不参与水票"
+
+    def ps_count_watikis_max(self):
+        return "最高抵扣"
+
+
+
 
 
 

@@ -143,12 +143,21 @@ def sys_direct():
 def os_direct():
     os._exit(0)
 
-if __name__ == '__main__':
-    str = "账号:-----,密码:*****"
-    str11 = "什么呢翻就开始登陆功能"
-    if str.find(",") and str.find(":") != -1:
+def regular():
+    import re
 
-        print(str11)
+    regular = re.match('^select', 'select你select哈www.baidu.com')
+    if regular != None:
+        print(regular.span())
     else:
-        print(str)
+        print("none")
+
+if __name__ == '__main__':
+    import re
+
+    regular = re.match('^SELECT','SELECT你select哈www.baidu.com')
+    if regular != None:
+        print(regular.span())
+    else:
+        print("none")
 

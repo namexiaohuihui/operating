@@ -17,7 +17,7 @@ import inspect
 import os
 import time
 import unittest
-
+import re
 from PageWeb.WebShop import JudgmentVerification as jv
 from PageWeb.WebShop.SystemSetup.ParameterSetting.namebean import letter_parameter_names
 from utils.Logger import Log
@@ -30,32 +30,37 @@ print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.l
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
-overall_ExcelData = jv._excel_Data(filename="parameterSetting", SHEETNAME=1)
+overall_ExcelData = jv._excel_Data(filename="withdrawals", SHEETNAME=1)
 # print(overall_ExcelData)
 lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 
 class verify_withdrawals(unittest.TestCase):
-    @classmethod
+    """
+    继承函数
+    """
+
     def setUp(cls):
         # 该类运行时优先调用的函数
-        log.info("The program begins to execute. Don't stop me when you start.")
+        # log.info("The program begins to execute. Don't stop me when you start.")
         jv.driver = jv._browser()  # 打开浏览器
         jv.user_login()  # 用户登录
 
-    @classmethod
     def tearDown(cls):
         # 该类结束时最后调用的函数
-        log.info("Make it complete and continue to press it next time...")
+        # log.info("Make it complete and continue to press it next time...")
         jv.driver.quit()
+        # overall_ExcelData.to_excel(basename + ".xlsx", index=False, encoding="gbk")
 
-    def __del__(self):
-        print("------------------------------")
+    """
+    该类中专用的函数
+    """
 
-    def function_overall(self, function):
+    def _function_overall(self):
         # 获取用例信息
-        self.overall = overall_ExcelData.loc[function]
+        self.overall = overall_ExcelData.loc[self.function]
+        # print(self.overall)
 
     def _routepath(self):
         # 进入相应的目录
@@ -65,49 +70,141 @@ class verify_withdrawals(unittest.TestCase):
 
     def _sendkey_input(self):
         # 对指定输入框进行输入
-        jv._visible_json_input(lpn.amount_load, self.overall[lpn.parameter_procedures()])
-        jv._visible_json_input(lpn.fee_load, self.overall[lpn.parameter_withdrawals()])
+        drawals = self.overall[lpn.ps_with_extract()]
+        jv._visible_json_input(lpn.amount_load, drawals)
+
+        time.sleep(1)
+
+        minyuan_text = jv._visible_css_selectop_text(lpn.minyuan)
+        self.assertEqual(drawals, minyuan_text, self.function + " : fail")  # 比较动态计算的内容
+
+        jv._visible_json_input(lpn.fee_load, self.overall[lpn.ps_with_cost()])
+
         jv._visible_css_selectop(lpn.extractSave)
 
-    def test_procedures_high_withdrawals(self):
-        # 提现金额大于手续费
-        function = inspect.stack()[0][3]  # 执行函数的函数名
-        log.info("The validation scenario is:... %s" % function)
-
-        self._routepath()
-        self.function_overall(function)  # 获取df 的内容值
         time.sleep(2)
-        self.case_browser(lpn.visible_h2)  # 执行逻辑
-        time.sleep(3)
 
-    def test_procedures_low_withdrawals(self):
+    def _verify_mysql(self, my_sql):
+        # 数据库查询
+        drawals = self.overall[lpn.ps_with_extract()]
+        dures = self.overall[lpn.ps_with_cost()]
+        regular = re.match('^SELECT', my_sql)
+        if regular != None:
+            time.sleep(2)
+            # 读取数据库内容
+            result = jv.mysql_selects(my_sql)
+            value = result["value"]
+            value_split = value.split(",")
+
+            # 比较数据是否正确
+            self.assertEqual(value_split[0], drawals, self.function + " : fail")
+            self.assertEqual(value_split[1], dures, self.function + " : fail")
+
+    def _total_case(self, visible_text):
+        # case的汇总
+        self._routepath()
+        self._function_overall()  # 获取df 的内容值
+        time.sleep(2)
+        self.case_browser(visible_text)  # 执行逻辑
+
+    """
+    case函数
+    """
+
+    def test_less_than(self):
+        # 提现金额小于手续费
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+        self._total_case(lpn.visible_p)
+
+    def test_all_zero(self):
         # 两个都输入0
-        function = inspect.stack()[0][3]  # 执行函数的函数名
-        log.info("The validation scenario is:... %s" % function)
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+        self._total_case(lpn.visible_p)
 
-        self._routepath()
-        self.function_overall(function)
-        time.sleep(2)
-        self.case_browser(lpn.visible_p)  # 执行逻辑
-        time.sleep(3)
+    def test_greater_than(self):
+        # 提现金额大于手续费
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+        self._total_case(lpn.visible_h2)
+
+    def test_chinese_characters(self):
+        # 两个都输入中文
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+
+        self._total_case(lpn.visible_p)
+
+    def test_english_letter(self):
+        # 两个都输入字母
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+
+        self._total_case(lpn.visible_p)
+
+    def test_special_character(self):
+        # 两个都输入特殊符号
+
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+
+        self._total_case(lpn.visible_p)
+
+    def test_decimal(self):
+        # 两个都输入小数
+
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+
+        self._total_case(lpn.visible_p)
+
+    def test_decimal_integer(self):
+        # 提现金额输入小数,手续费输入整数
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+
+        self._total_case(lpn.visible_p)
+
+    def test_integer_decimal(self):
+        # 提现金额输入整数,手续费输入小数
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+
+        self._total_case(lpn.visible_p)
+
+    def test_integer_overrun(self):
+        # 提现金额输入正常数字,手续费输入超长整数
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+
+        self._total_case(lpn.visible_p)
+
+    def test_overrun_integer(self):
+        # 提现金额输入超长数字,手续费输入正常
+        self.function = inspect.stack()[0][3]  # 执行函数的函数名
+        log.info("The validation scenario is:... %s" % self.function)
+
+        self._total_case(lpn.visible_p)
 
     def case_browser(self, visible_text):
-        self._sendkey_input()
-        sweet = jv._visible_css_selectop_text(visible_text)
-        print("tishik %s" % sweet)
+
+        self._sendkey_input()  # 实现数据输入
+
+        sweet = jv._visible_css_selectop_text(visible_text)  # 获取提示框的数据
+        time.sleep(2)
+
         # 读取提示框的内容然后保存到df中
-        self.overall[lpn.whole_result()] = sweet
+        overall_ExcelData.loc[self.function, lpn.whole_result()] = sweet
 
         # 提示框中的确定按钮
         jv._visible_css_selectop(lpn.confirm)
 
-    def case_browser1(self, function):
-        self._sendkey_input()
-        sweet = jv._visible_css_selectop_text(".sweet-alert.showSweetAlert.visible p:nth-of-type(1)")
+        # 查询数据库
+        my_sql = self.overall[lpn.whole_query_statement()]  # 获取sql语句
+        if my_sql != None:
+            self._verify_mysql(my_sql)
 
-        self.assertEqual(sweet, self.overall[lpn.whole_output()], function)
-        # 读取提示框的内容然后保存到df中
-        self.overall[lpn.whole_result()] = sweet
 
-        print("zheshishenm shuju " + self.overall[lpn.whole_result()])
-        # overall_ExcelData.to_csv("zailai.csv", index=False, encoding="gbk")
+if __name__ == '__main__':
+    unittest.main()
