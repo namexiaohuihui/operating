@@ -95,17 +95,37 @@ def sign_user_login(account, password):
 """
 
 
-def _excel_Data(filename, SHEETNAME=1):
+def _read_excel(filename, SHEETNAME=1):
     """
-    从excel表格中获取数据并进行转换
-    :param file_path:
-    :return:
-    """
+        从excel表格中获取数据并进行转换
+        :param file_path:
+        :return:
+        """
     # 获取excel路径
     file_path = readModel.establish_con(model="excelmodel").get("excel", filename)
 
     # 读取相应路径中的数据
     read = READEXCEL(file_path, SHEETNAME=SHEETNAME)
+
+    return read
+
+
+def _conversion_pandas(row_col_data, title_data=None, columnLabel=None):
+    # 数据转换
+    pan = PANDASDATA(row_col_data)
+
+    df = pan.dataFrame(columns=title_data)  # 设置标题名
+
+    if columnLabel != None:
+
+        df = df.set_index([columnLabel])  # 设置df数据中的序列号
+
+    return df
+
+
+def _excel_Data(filename, SHEETNAME=1):
+    # 获取excel对象
+    read = _read_excel(filename, SHEETNAME)
 
     # 获取case
     whole = read.position_sheet_row_value()
@@ -119,12 +139,7 @@ def _excel_Data(filename, SHEETNAME=1):
     # 获取case中某个指定key的内容读出
     columnLabel = read.die_angegebene_keys(row_col_data=row_col_data, title_data=title_data)
 
-    # 数据转换
-    pan = PANDASDATA(row_col_data)
-
-    df = pan.dataFrame(columns=title_data)  # 设置标题名
-
-    excelData = df.set_index([columnLabel])  # 设置df数据中的序列号
+    excelData = _conversion_pandas(row_col_data, title_data, columnLabel)  # 设置df数据中的序列号
 
     return excelData
 
@@ -173,11 +188,25 @@ def _visible_json_input(ordinal, parameter):
 """
 
 
-def mysql_selects(sql):
+def create_database():
     pm = pymysqls()
 
     pm.connects_readModel()
+
+    return pm
+
+
+def mysql_single_selects(sql):
+    pm = create_database()
     result = pm.single_selects(sql)
+    pm.closes()
+
+    return result
+
+
+def total_vertical_selects(sql):
+    pm = create_database()
+    result = pm.total_vertical_selects(sql)
     pm.closes()
 
     return result

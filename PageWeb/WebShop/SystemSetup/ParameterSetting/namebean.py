@@ -47,8 +47,17 @@ class letter_parameter_names(shop_systemsetup):
     # 绑定峰值
     watikis_max = 'watikis_max'
 
+    # 商品选择
+    goods_check = ".status.goods_check"
+
+    # 水票选择
+    watiki_check = ".status.watiki_check"
+
     # 页面提交按钮
     discountSave = '.btn.btn-primary.settingSave'
+
+    # 城市名
+    city_name = ".box-city a"
 
     # 弹窗的设置-------------------
     # 提示框的标题

@@ -68,7 +68,8 @@ class pymysqls(object):
         # 去除首尾的中括号
         return jsondatar[1:len(jsondatar) - 1]
 
-    def total_selects(self, sql):
+    def total_vertical_selects(self, sql):
+        # 查询全部数据，key相同储存在一起
         try:
             self.cursor.execute(sql)
             # 好像是打印字段的属性
@@ -88,9 +89,12 @@ class pymysqls(object):
                 # print("selects_list %s" % row)
             return result;
         except:
-            print('MySQL connect fail...')
+            import traceback
+            error = traceback.format_exc()
+            print('MySQL connect fail... %s ' % error)
 
-    def single_selects(self, sql):
+    def single_cross_selects(self, sql):
+        # 只查询单个内容，并且是每一行为一个单位
         try:
             self.cursor.execute(sql)
             # 好像是打印字段的属性
@@ -146,11 +150,28 @@ class number_one(object):
 
 
 if __name__ == '__main__':
-    assert "500" == '500'
 
+    sql = 'SELECT a.`code`,a.`name` from lnsm_open_city c LEFT JOIN lnsm_area a on c.city = a.`code` WHERE c.`status` = 1;'
+    py = pymysqls()
+    py.connects_readModel()
+    neirong = py.total_vertical_selects(sql)
+    print(neirong)
 
+    # import time
+    # time.sleep(2)
+
+    from utils.OpenpyxlExcel import PANDASDATA
+    # 数据转换
+    pan = PANDASDATA(neirong)
+
+    df = pan.dataFrame()  # 设置标题名
+    print(df)
+    print("-**********************-")
+    print(df.loc[0]['name'])
+    print(len(df['name']))
+    for name in df['name']:
+        print(name)
     # from PageWeb.WebShop import JudgmentVerification as jv
-    #
     # overall_ExcelData = jv._excel_Data(filename="parameterSetting", SHEETNAME=1)
     # df_index = df.loc[index]
     # df_index[key] = value

@@ -92,7 +92,7 @@ class verify_withdrawals(unittest.TestCase):
         if regular != None:
             time.sleep(2)
             # 读取数据库内容
-            result = jv.mysql_selects(my_sql)
+            result = jv.mysql_single_selects(my_sql)
             value = result["value"]
             value_split = value.split(",")
 

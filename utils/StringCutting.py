@@ -154,10 +154,8 @@ def regular():
 
 if __name__ == '__main__':
     import re
-
-    regular = re.match('^SELECT','SELECT你select哈www.baidu.com')
-    if regular != None:
-        print(regular.span())
-    else:
-        print("none")
+    attr = 'http://adm450200in.t-lianni.com/setting/newuserpreferences?city=450100'
+    regular = re.search(r'[1-9]\d{5}(?!\d)', attr)
+    print(regular.group())
+    print(type(regular.group()))
 

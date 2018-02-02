@@ -55,7 +55,6 @@ class browser_confirm(object):
             # 实现全局变量的引用
         except Exception as msg:
             self.writeLog(msg)
-        return self.browser
 
     # 调用函数，实现打开ie浏览器的步骤
     def ie__browser(self):
@@ -92,7 +91,7 @@ class browser_confirm(object):
         print("浏览器开始执行初始化")
 
         # 创建浏览器对象
-        self.browser = self.chrome_browser(options=options)
+        self.chrome_browser(options=options)
         self.browser.maximize_window()
 
         if url == None:
@@ -104,7 +103,6 @@ class browser_confirm(object):
         else:
             # 输入网址
             self.browser.get(url)
-
         # 等待网页加载，加载时间为10s，加载完就跳过
         self.browser.implicitly_wait(15)
         print("浏览器打开完毕..........")

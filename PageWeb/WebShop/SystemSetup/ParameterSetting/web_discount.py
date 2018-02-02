@@ -1,24 +1,20 @@
 # -*- coding: utf-8 -*-
-import inspect
-import os
-import sys
-import unittest
-
-from PageWeb.WebShop.TargetParameter.SingleVerification import discount_input
-
 __author__ = 'Administrator'
 """
 @file: web_goods_discount.py
 @time: 2017/11/2 9:53
 """
-import inspect
+
 import os
-import time
-import unittest
 import re
+import sys
+import time
+import inspect
+import unittest
+import operator  # 任何对象都可以比较功能
+from utils.Logger import Log
 from PageWeb.WebShop import JudgmentVerification as jv
 from PageWeb.WebShop.SystemSetup.ParameterSetting.namebean import letter_parameter_names
-from utils.Logger import Log
 
 """
 商品折扣数:主要验证下面的问题:
@@ -34,7 +30,7 @@ print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.l
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
-overall_ExcelData = jv._excel_Data(filename="parameterSetting", SHEETNAME=1)
+overall_ExcelData = jv._excel_Data(filename="discount", SHEETNAME=1)
 # print(overall_ExcelData)
 lpn = letter_parameter_names()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
@@ -105,7 +101,58 @@ class verify_discount(unittest.TestCase):
 
         jv._visible_css_selectop(lpn.discountSave)
 
-    def test_goods_discount_one(self):
+    def _verify_mysql(self, my_sql, list_name, list_attr):
+        # 数据库查询
+        regular = re.match('^SELECT', my_sql)
+
+        if regular != None:
+            # 读取数据库内容
+            result = jv.total_vertical_selects(my_sql)
+            re_df = jv._conversion_pandas(result)
+
+            re_name = re_df['name']
+            re_code = re_df['code']
+
+            # 比较两个list的内容
+            verify_code = operator.eq(re_code, list_attr)
+            verify_name = operator.eq(re_name, list_name)
+            list_code = []
+            for code in  range(len(verify_code)):
+                content = "编号： %s 结果为 %s,城市名： %s 结果为 %s" \
+                          % (list_attr[code], verify_code[code], list_name[code],verify_name[code])
+                list_code.append(content)
+
+            print(list_code)
+
+    def test_display_switch(self):
+        # 获取城市数量以及名字(编码)是否正确
+        # 获取函数名
+        self.function = inspect.stack()[0][3]
+        self._routepath()
+        self._function_overall()  # 获取df 的内容值
+        tags = jv.driver.find_elements_by_css_selector(lpn.city_name)
+
+
+    def test_city_number(self):
+        # 获取城市数量以及名字(编码)是否正确
+        # 获取函数名
+        self.function = inspect.stack()[0][3]
+        self._routepath()
+        self._function_overall()  # 获取df 的内容值
+        tags = jv.driver.find_elements_by_css_selector(lpn.city_name)
+        list_text = []
+        list_attr = []
+        for tag in tags:
+            list_text.append(tag.text)
+            attr = tag.get_attribute('href')
+            regular = re.search(r'[1-9]\d{5}(?!\d)', attr)
+            list_attr.append(int(regular.group()))
+            # 查询数据库
+        my_sql = self.overall[lpn.whole_query_statement()]  # 获取sql语句
+        if my_sql != None:
+            self._verify_mysql(my_sql, list_text, list_attr)
+
+    def qwetest_all_choice(self):
         """验证商品打折数输入大于10的问题"""
         # 获取函数名
         self.function = inspect.stack()[0][3]
@@ -114,87 +161,6 @@ class verify_discount(unittest.TestCase):
         time.sleep(2)
 
         self._sendkey_input()  # 实现数据输入
-
-    def test_goods_discount_two(self):
-        """验证商品打折数输入小于0的问题:即输入负数"""
-        # 获取函数名
-        function = sys._getframe().f_code.co_name
-
-        self._routepath()
-        self._function_overall()  # 获取df 的内容值
-        time.sleep(2)
-
-        self._sendkey_input()  # 实现数据输入
-
-    def test_goods_discount_three(self):
-        """验证商品打折数输入在符合范围内但小数点后有多位的情况"""
-        # 获取函数名
-        function = sys._getframe().f_code.co_name
-        # 输入错误出现的提示
-        massegn = self.gb_format
-
-        parameter = "2.33333"
-
-        # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
-        list_parameter = [function, massegn, parameter]
-
-        # 传入名字和需要输入的参数
-        self.PreferentialVerification(list_parameter=list_parameter)
-
-    def test_goods_discount_four(self):
-        """验证商品打折数输入中文字符"""
-
-        # 获取函数名
-        function = sys._getframe().f_code.co_name
-        # 输入错误出现的提示
-        massegn = self.gb_format
-
-        parameter = "你好"
-
-        # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
-        list_parameter = [function, massegn, parameter]
-
-        # 传入名字和需要输入的参数
-        self.PreferentialVerification(list_parameter=list_parameter)
-
-    def test_goods_discount_five(self):
-        """输入符合条件的内容，并且成功提交"""
-        # 获取函数名
-        function = sys._getframe().f_code.co_name
-
-        # 提示框上输出的内容
-        massegn = self.system_successful
-
-        parameter = "0.2"
-
-        # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
-        list_parameter = [function, massegn, parameter]
-
-        # 传入名字和需要输入的参数
-        self.correct_function(list_parameter=list_parameter)
-
-        # 提交参数之后，进行再次确认提示，并完成其后的全部工作
-        self.integration_confirm_prompt(Situation=True)
-
-    def test_goods_discount_six(self):
-        """输入符合条件的内容，在二次确认提交的时候取消"""
-        # 获取函数名
-        function = sys._getframe().f_code.co_name
-
-        # 提示框上输出的内容
-        massegn = self.system_successful
-
-        parameter = "0.9"
-
-        # 严守格式：function = 函数名，massegn = 提示信息，parameter = 输入参数
-        list_parameter = [function, massegn, parameter]
-
-        # 传入名字和需要输入的参数
-        # 调用公告方法进行数据输入和判断
-        self.correct_function(list_parameter=list_parameter)
-
-        # 　－－－－－－－－－－－－－后续优化
-        self.integration_confirm_prompt()
 
 
 if __name__ == '__main__':
