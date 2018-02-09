@@ -38,11 +38,6 @@ class action_visible(object):
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             return ele
         except TimeoutException:
-            # import inspect
-            # print("The element does not appear：   %s" % locator)
-            # function = inspect.stack()[0][3]  # 执行函数的函数名
-            # error_log(function)
-
             return False
 
     # 一直等待某元素可见，默认超时10秒

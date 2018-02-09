@@ -151,11 +151,11 @@ class number_one(object):
 
 if __name__ == '__main__':
 
-    sql = 'SELECT a.`code`,a.`name` from lnsm_open_city c LEFT JOIN lnsm_area a on c.city = a.`code` WHERE c.`status` = 1;'
+    sql = "SELECT * from lnsm_system_setting s WHERE s.`key` = 'new-user-preferences-setting-450100';"
     py = pymysqls()
     py.connects_readModel()
     neirong = py.total_vertical_selects(sql)
-    print(neirong)
+    # print(neirong)
 
     # import time
     # time.sleep(2)
@@ -164,13 +164,11 @@ if __name__ == '__main__':
     # 数据转换
     pan = PANDASDATA(neirong)
 
-    df = pan.dataFrame()  # 设置标题名
-    print(df)
-    print("-**********************-")
-    print(df.loc[0]['name'])
-    print(len(df['name']))
-    for name in df['name']:
-        print(name)
+    df = pan.dataFrame()
+    value_text = df['value']
+    for ree in value_text:
+        print(ree)
+
     # from PageWeb.WebShop import JudgmentVerification as jv
     # overall_ExcelData = jv._excel_Data(filename="parameterSetting", SHEETNAME=1)
     # df_index = df.loc[index]

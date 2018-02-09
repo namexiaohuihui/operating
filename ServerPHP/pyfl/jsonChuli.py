@@ -56,6 +56,7 @@ class User2:
     def from_json(cls, json_str):
         json_dict = json.loads(json_str)
         return cls(**json_dict)
+
     def lizi(self):
         to1 = User2("tbrown", "Tom Brown")
         to3 = User2("tbrown", "Tom Brown").to_json()
@@ -84,9 +85,14 @@ if __name__ == '__main__':
 
     to2 = User2.from_json(User2("tbrown", "Tom Brown").to_json()).to_json()
     to4 = User2.from_json(User2("tbrown", "Tom Brown").to_json())
+    to5 = User2.from_json(to2)
     print(to1)
-    print(to1.name)
-    print(to1.username)
     print(to2)
+    print(to3)
+    print(to4)
+    print(to5)
+    # for naa in to5:
+    #     print(naa)
+
 
 

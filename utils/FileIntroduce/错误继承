@@ -8,6 +8,14 @@ selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: 
 SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
 输入路径或者网址时用的是反斜杠‘\’导致错误，如果用双正斜杠就好了'//'
 
+TypeError: 'module' object is not callable
+from导入的时候包名写错
+
+TypeError: not all arguments converted during string formatting
+print进行输入时语句上只写了两个%s，但是参数却有多个。
+
+StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+页面刷新之后需要重新定位。
 
 ******************************************
 map:{'buyer_watiki_id': 12452, 'incr': 1962, 'id': 1712190438126760, 'uid': 10478, 'type': 2, 'business_number': 12452, 'business_type': 2, 'utype': 1, 'amount': Decimal('1.00'), 'receipt': '', 'status': 2, 'status_code': '', 'status_msg': '', 'add_time': 1513672691}

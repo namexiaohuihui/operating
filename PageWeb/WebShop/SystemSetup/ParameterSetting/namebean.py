@@ -79,7 +79,7 @@ class letter_parameter_names(shop_systemsetup):
     btn_default = '.modal-footer button:nth-child(1)'
 
     # 二次确认中的确认按钮,通过id进行执行
-    discountsave = '#discountsave'
+    btn_primary = '#discountsave'
 
     """--------------------------------提示参数------------------------------"""
 

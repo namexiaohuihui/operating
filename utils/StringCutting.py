@@ -152,10 +152,14 @@ def regular():
     else:
         print("none")
 
+def xxxx(*lll):
+    if len(lll) is 2:
+        print("y")
+    else:
+        print("n")
 if __name__ == '__main__':
-    import re
-    attr = 'http://adm450200in.t-lianni.com/setting/newuserpreferences?city=450100'
-    regular = re.search(r'[1-9]\d{5}(?!\d)', attr)
-    print(regular.group())
-    print(type(regular.group()))
+    lists = [0]
+    lists2 = [1]
+    xxxx(lists,lists2)
+
 
