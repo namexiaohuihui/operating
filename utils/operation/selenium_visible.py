@@ -151,8 +151,5 @@ class action_visible(object):
         # 执行文件的文件名
         basename = os.path.splitext(os.path.basename(__file__))[0]
 
-        # 拼接名字
-        name_tion = basename
-
         # 调用错误类
-        dError.error_output(name_tion, driver)
+        dError.error_output(basename, driver)

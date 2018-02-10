@@ -54,7 +54,7 @@ class judgment_verification(compared_verify):
     """
 
     def option_browser(self):
-        return self._browser(option="admin_url")
+        self.driver = self._browser(option="admin_url")
 
     def get_account_account_password(self):
         conf = readModel.establish_con(model="model")  # 获取账号密码

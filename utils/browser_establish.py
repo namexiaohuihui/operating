@@ -5,7 +5,7 @@
 @time: 2017/6/20 22:24
 """
 import os
-
+from utils import DefinitionErrors as dError
 from selenium import webdriver
 
 r'''
@@ -50,11 +50,11 @@ class browser_confirm(object):
     # 调用函数，实现打开谷歌浏览器的步骤
     def chrome_browser(self, options=None):
         try:
-            self.browser = webdriver.Chrome(executable_path=r"E:\drivers\Drivers\chromedriver61-63.exe",
+            self.browser = webdriver.Chrome(executable_path=r"E:\drivers\Drivers\chromedriver62-64.exe",
                                         chrome_options=options)
             # 实现全局变量的引用
         except Exception as msg:
-            self.writeLog(msg)
+            self.writeLog()
 
     # 调用函数，实现打开ie浏览器的步骤
     def ie__browser(self):
@@ -63,7 +63,7 @@ class browser_confirm(object):
             self.browser = webdriver.Ie(r"E:\drivers\IEDriverServer.exe")
             print("打开IE")
         except:
-            self.writeLog(self)
+            self.writeLog()
         return self.browser
 
     # 调用函数，实现打开火狐浏览器的步骤
@@ -81,7 +81,7 @@ class browser_confirm(object):
 
             print("打开火狐")
         except Exception as msg:
-            self.writeLog(msg)
+            self.writeLog()
 
         return self.browser
 
@@ -125,3 +125,9 @@ class browser_confirm(object):
         except:
             self.writeLog('mobile_phone_mode')
 
+    def writeLog(self):
+        # 执行文件的文件名
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+
+        # 调用错误类
+        dError.error_output(basename, self.browser)

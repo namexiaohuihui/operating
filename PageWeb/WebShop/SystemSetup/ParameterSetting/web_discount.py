@@ -9,6 +9,7 @@ import os
 import re
 import sys
 import time
+import json
 import inspect
 import unittest
 import operator  # 任何对象都可以比较功能
@@ -41,19 +42,23 @@ class verify_discount(unittest.TestCase):
     """
        继承函数
     """
-
+    @classmethod
     def setUp(cls):
         # 该类运行时优先调用的函数
         # log.info("The program begins to execute. Don't stop me when you start.")
-        jv.driver = jv.option_browser()  # 打开浏览器
+        jv.option_browser()  # 打开浏览器
         jv.ps_user_login()  # 用户登录
 
+    @classmethod
     def tearDown(cls):
-        # 该类结束时最后调用的函数
-        # log.info("Make it complete and continue to press it next time...")
-        jv.driver.quit()
-        # overall_ExcelData.to_excel(basename + ".xlsx", index=False, encoding="gbk")
-
+        try:
+            # 该类结束时最后调用的函数
+            # log.info("Make it complete and continue to press it next time...")
+            jv.driver.quit()
+            # overall_ExcelData.to_excel(basename + ".xlsx", index=False, encoding="gbk")
+            pass
+        except UnicodeDecodeError:
+            log.info("又出现UTF-8的错误........")
     """
         该类中专用的函数
     """
@@ -106,13 +111,31 @@ class verify_discount(unittest.TestCase):
         my_sql = self.overall[lpn.whole_query_statement()]  # 获取sql语句
         return my_sql
 
+    def _get_content(self,value_text):
+        re_value = json.loads(value_text[0])
+
+        gd_dis = self.overall[lpn.ps_count_goods_discount()]
+        gd_id = self.overall[lpn.ps_count_goods_id()]
+        wa_dis = self.overall[lpn.ps_count_watiki_discount()]
+        wa_id = self.overall[lpn.ps_count_watikis_id()]
+        wa_max = self.overall[lpn.ps_count_watikis_max()]
+
+        # 将需要输入的参数弄成一个列表
+        excle_value = {'goods': {'discount': gd_dis,
+                                 'exception': gd_id},
+                       'watiki': {'discount': wa_dis,
+                                  'exception': wa_id,
+                                  'max': wa_max}}
+
+        re_ex = operator.eq(re_value, excle_value)
+
+        log.info("页面数据跟表格数据对比之后的结果 %s " % re_ex)
+
     def _verify_content_data(self):
         my_sql = self._verify_content()
         re_df = jv._verify_match(my_sql)
-        re_name = re_df['value']
-        print(re_name)
-        for ree in re_name:
-            print(ree)
+        value_text = re_df['value']
+        self._get_content(value_text)
 
     def _verify_content_mysql(self, list_name, list_attr):
         # 查询数据库
@@ -190,31 +213,34 @@ class verify_discount(unittest.TestCase):
         # 获取函数名
         self.function = inspect.stack()[0][3]
         self._rou_fun()
-        time.sleep(2)
-        self._verify_content_data()
-        # gd_check = jv._visible_return_selectop(lpn.goods_check)
-        # wa_check = jv._visible_return_selectop(lpn.watiki_check)
-        #
-        # # 单选框为选中状态就进行点击
-        # if gd_check.is_selected() :
-        #     jv.vac.element_click(gd_check)  # 元素点击
-        # if wa_check.is_selected() :
-        #     jv.vac.element_click(wa_check)  # 元素点击
-        #
-        # jv.sleep_time(2)
-        #
-        # # 提交
-        # jv._visible_css_selectop(lpn.discountSave)
-        #
-        # # 提示信息
-        # _content_text = jv._visible_css_selectop_text(lpn.modal_body_p)
-        # operator.eq(_content_text,self.overall[lpn.whole_output()])
-        #
-        # # 二次提交
-        # jv._visible_css_selectop(lpn.btn_default)
 
+        gd_check = jv._visible_return_selectop(lpn.goods_check)
+        wa_check = jv._visible_return_selectop(lpn.watiki_check)
+
+        # # 单选框为选中状态就进行点击
+        if gd_check.is_selected() :
+            jv.vac.element_click(gd_check)  # 元素点击
+        if wa_check.is_selected() :
+            jv.vac.element_click(wa_check)  # 元素点击
+
+        jv.sleep_time(2)
+
+        # # 提交
+        jv._visible_css_selectop(lpn.discountSave)
+
+        # # 提示信息
+        _content_text = jv._visible_css_selectop_text(lpn.modal_body_p)
+        operator.eq(_content_text,self.overall[lpn.whole_output()])
+
+        # 二次提交
+        jv._visible_css_selectop(lpn.btn_default)
+
+        # 二次提交之后的返回信息
         # _confirm_text = jv._visible_css_selectop_text(lpn.confirm)
+        # time.sleep(2)
         # operator.eq(_confirm_text,self.overall[lpn.whole_result()])
+        # time.sleep(2)
+
 
 
 if __name__ == '__main__':

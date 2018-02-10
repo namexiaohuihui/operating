@@ -40,7 +40,8 @@ http://www.chromedownloads.net/
 
 http://google-chrome.en.uptodown.com/mac/old :Mac的多些，Windows下的很缺，但是有好多其他的软件下载
 
-chromedriver:http://chromedriver.storage.googleapis.com/index.html
+chromedriver:
+http://chromedriver.storage.googleapis.com/index.html
 
 chromedriver与chrome映射表:http://blog.csdn.net/huilan_same/article/details/51896672
 
