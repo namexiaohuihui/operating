@@ -54,7 +54,7 @@ class verify_discount(unittest.TestCase):
         try:
             # 该类结束时最后调用的函数
             # log.info("Make it complete and continue to press it next time...")
-            jv.driver.quit()
+            # jv.driver.quit()
             # overall_ExcelData.to_excel(basename + ".xlsx", index=False, encoding="gbk")
             pass
         except UnicodeDecodeError:
@@ -231,16 +231,21 @@ class verify_discount(unittest.TestCase):
         # # 提示信息
         _content_text = jv._visible_css_selectop_text(lpn.modal_body_p)
         operator.eq(_content_text,self.overall[lpn.whole_output()])
+        log.info(_content_text)
 
         # 二次提交
-        jv._visible_css_selectop(lpn.btn_default)
+        jv._visible_css_selectop(lpn.btn_primary)
 
-        # 二次提交之后的返回信息
-        # _confirm_text = jv._visible_css_selectop_text(lpn.confirm)
-        # time.sleep(2)
-        # operator.eq(_confirm_text,self.overall[lpn.whole_result()])
-        # time.sleep(2)
+        """
+        二次提交之后的返回信息
+        """
+        _confirm_text = jv._visible_css_selectop_text(lpn.visible_h2) # 标题
+        time.sleep(2)
+        operator.eq(_confirm_text,self.overall[lpn.whole_result()]) # 数据比较
+        time.sleep(2)
+        log.info(_confirm_text)
 
+        jv._visible_css_selectop(lpn.confirm) # 提示框的确定按钮
 
 
 if __name__ == '__main__':

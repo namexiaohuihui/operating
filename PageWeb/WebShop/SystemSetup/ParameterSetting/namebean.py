@@ -59,15 +59,6 @@ class letter_parameter_names(shop_systemsetup):
     # 城市名
     city_name = ".box-city a"
 
-    # 弹窗的设置-------------------
-    # 提示框的标题
-    visible_h2 = '.sweet-alert.showSweetAlert.visible h2:nth-of-type(1)'
-
-    # 提示框的内容
-    visible_p = '.sweet-alert.showSweetAlert.visible p:nth-of-type(1)'
-
-    # 提示框中的确认
-    confirm = '.confirm'
 
     # 二次确认中的重点文字
     modal_body_h4 = '.modal-body>h4'
@@ -80,6 +71,17 @@ class letter_parameter_names(shop_systemsetup):
 
     # 二次确认中的确认按钮,通过id进行执行
     btn_primary = '#discountsave'
+
+
+    # 二次提交之后的弹窗设置-------------------
+    # 提示框的标题
+    visible_h2 = '.sweet-alert.showSweetAlert.visible h2:nth-of-type(1)'
+
+    # 提示框的内容
+    visible_p = '.sweet-alert.showSweetAlert.visible p:nth-of-type(1)'
+
+    # 提示框中的确认
+    confirm = '.confirm'
 
     """--------------------------------提示参数------------------------------"""
 
