@@ -136,20 +136,40 @@ class compared_verify(object):
 
     def _visible_css_selectop_attribute(self, locator):
         # 判断元素是否存在，如果存在就获取元素的value属性内容
-        self.vai._visible_selectop_attribute(self.driver, locator)
+        _attribute = self.vai._visible_selectop_attribute(self.driver, locator)
+        return _attribute
+
+    def _visible_css_selectop_Id(self, locator):
+        # 判断元素是否存在，如果存在就获取元素的value属性内容
+        _attribute = self.vai._visible_selectop_id(self.driver, locator, "disabled")
+        return _attribute
 
     def _sendKeys_css_selectop(self, locator, content):
         # 判断元素是否存在，如果存在就进行输入
         self.vai.css_input(self.driver, locator, content)
 
     def _visible_json_click(self, locator):
+        # 通过元素id利用js进行点击
         self.vac.id_confirm_prompt(self.driver, locator)
 
     def _visible_json_input(self, ordinal, parameter):
+        # 通过元素id利用js进行输入
         self.vai.id_js_input(self.driver, ordinal, parameter)
 
+    def visibleIsSelected(self, check):
+        # 单选框  选中  状态就进行点击
+        if check.is_selected():
+            self.vac.element_click(check)  # 元素点击
+            self.sleep_time()
+
+    def visibleNotSelected(self, check):
+        # 单选框  未选中  状态就进行点击
+        if not check.is_selected():
+            self.vac.element_click(check)  # 元素点击
+            self.sleep_time()
+
     """
-    # 数据库查询及内容返回
+    数据库查询及内容返回
     """
 
     def create_database(self):

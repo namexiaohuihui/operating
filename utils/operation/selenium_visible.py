@@ -17,12 +17,12 @@ import inspect
 
 
 class action_visible(object):
-
     """
     根据元素某个条件来显性等待元素，并判断该元素是否存在
     """
+
     # 一直等待某元素可见，默认超时10秒
-    def is_visible_xpath(self,driver,locator, timeout=10):
+    def is_visible_xpath(self, driver, locator, timeout=10):
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.XPATH, locator)))
             return ele
@@ -50,7 +50,7 @@ class action_visible(object):
 
 
 
-   # 一直等待某元素可见，默认超时10秒
+            # 一直等待某元素可见，默认超时10秒
 
     def is_visible_name(self, driver, locator, timeout=10):
         try:
@@ -59,22 +59,20 @@ class action_visible(object):
         except TimeoutException:
             return False
 
-
-
-
     """
         根据元素某个条件来显性等待元素，并判断该元素是否消失
     """
 
     # 一直等待某个元素消失，默认超时10秒
-    def is_not_visible_xpath(self,driver,locator, timeout=10):
+    def is_not_visible_xpath(self, driver, locator, timeout=10):
         try:
             ui.WebDriverWait(driver, timeout).until_not(EC.visibility_of_element_located((By.XPATH, locator)))
             return True
         except TimeoutException:
             return False
 
-        # 一直等待某个元素消失，默认超时10秒
+            # 一直等待某个元素消失，默认超时10秒
+
     def is_not_visible_css_selectop(self, driver, locator, timeout=10):
         try:
             # element_to_be_clickable元素存在并且可用，以便确定元素是可点击的
@@ -103,18 +101,42 @@ class action_visible(object):
     """
     # ----------------------------- 获取text以及attribute的内容值--------------------
     """
-    def _visible_selectop_attribute(self,driver , locator,attr = "value" , timeout=5):
-        # 判断元素是否存在，如果存在就获取元素的value属性内容
+
+    def _visible_selectop_attribute(self, driver, locator, attr="value", timeout=5):
+        """
+        判断元素是否存在，如果存在就获取元素的value属性内容
+        :param driver: 浏览器对象
+        :param locator: 元素定位方式
+        :param attr: 元素属性，默认为value
+        :param timeout: 默认超时时间为5
+        :return:  一直想不通的是获取disabled属性时为什么返回的是一个布尔值
+        """
         try:
             _ele = ui.WebDriverWait(driver, timeout).until(
                 EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
-            text = _ele.get_attribute(attr)  # 创建元素对象
-            return text
+            attribute = _ele.get_attribute(attr)  # 创建元素对象
+            return attribute
         except TimeoutException:
-
             return False
 
-    def _visible_selectop_text(self,driver,locator, timeout=5, poll_frequency=0.5):
+    def _visible_selectop_id(self, driver, locator, attr="value", timeout=5):
+        """
+        判断元素是否存在，如果存在就获取元素的value属性内容
+        :param driver: 浏览器对象
+        :param locator: 元素定位方式
+        :param attr: 元素属性，默认为value
+        :param timeout: 默认超时时间为5
+        :return:  一直想不通的是获取disabled属性时为什么返回的是一个布尔值
+        """
+        try:
+            _ele = ui.WebDriverWait(driver, timeout).until(
+                EC.visibility_of_element_located((By.ID, locator)))
+            attribute = _ele.get_attribute(attr)  # 创建元素对象
+            return attribute
+        except TimeoutException:
+            return False
+
+    def _visible_selectop_text(self, driver, locator, timeout=5, poll_frequency=0.5):
         # 判断元素是否存在，如果存在就进行获取元素的text属性
         try:
             _ele = ui.WebDriverWait(driver, timeout, poll_frequency).until(
@@ -127,27 +149,20 @@ class action_visible(object):
 
             return False
 
-
-
-
-
-
-
-
-    def scrollBar_top(self,browser):
+    def scrollBar_top(self, browser):
         sleep_Rest()
         # 将滚动条移动到顶部的意思
         browser.execute_script("window.scrollTo(0,0)")
 
-    def scrollBar_buttom(self,browser):
+    def scrollBar_buttom(self, browser):
         sleep_Rest()
         # 将滚动条移动到底部的意思
         browser.execute_script("window.scrollTo(0,document.body.scrollHeight)")
 
-    def sleep_Rest(self,ti=1):  # 延迟
+    def sleep_Rest(self, ti=1):  # 延迟
         sleep(ti)
 
-    def error_log(self,driver):
+    def error_log(self, driver):
         # 执行文件的文件名
         basename = os.path.splitext(os.path.basename(__file__))[0]
 

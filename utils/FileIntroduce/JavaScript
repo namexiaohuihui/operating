@@ -1,12 +1,12 @@
 
-1、js点击
+1、JavaScript点击
 
 profile = Selenium::WebDriver::Firefox::Profile.new
 $driver = Selenium::WebDriver.for :firefox, :profile=>profile
 $driver.execute_script("arguments[0].click()", element)
 
 
-2、js输入
+2、JavaScript输入
 
 $driver.execute_script("return arguments[0].value='#{string_text}'", @@element)
 

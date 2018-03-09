@@ -12,6 +12,36 @@ import operator  # 任何对象都可以比较功能
 
 
 class judgment_verification(compared_verify):
+
+    """
+    数据比较
+    """
+    def _verify_operator(self,re_value,excle_value):
+        re_ex = operator.eq(re_value, excle_value)
+        print("--------------------------------------")
+        print("读 data :  %s" % re_value)
+        print("获 data :  %s" % excle_value)
+        print("最终结果 : %s " % re_ex)
+        print("--------------------------------------")
+        return re_ex
+
+    def _verify_attr_name(self, my_sql, *codeattr):
+        re_df = self._verify_match(my_sql)
+
+        # 比较两个list的内容
+        list_name = codeattr[0]
+        list_attr = codeattr[1]
+        verify_name = self.separation(re_df, 'name', codeattr[0])
+        verify_code = self.separation(re_df, 'code', codeattr[1])
+
+        list_code = []
+        for code in range(len(verify_code)):
+            content = "编号： %s 结果为 %s,城市名： %s 结果为 %s" \
+                      % (list_attr[code], verify_code[code], list_name[code], verify_name[code])
+            list_code.append(content)
+
+        return list_code
+
     """
     正则的验收
     """
@@ -31,23 +61,6 @@ class judgment_verification(compared_verify):
             re_df = self._conversion_pandas(result)
 
         return re_df
-
-    def _verify_attr_name(self, my_sql, *codeattr):
-        re_df = self._verify_match(my_sql)
-
-        # 比较两个list的内容
-        list_name = codeattr[0]
-        list_attr = codeattr[1]
-        verify_name = self.separation(re_df, 'name', codeattr[0])
-        verify_code = self.separation(re_df, 'code', codeattr[1])
-
-        list_code = []
-        for code in range(len(verify_code)):
-            content = "编号： %s 结果为 %s,城市名： %s 结果为 %s" \
-                      % (list_attr[code], verify_code[code], list_name[code], verify_name[code])
-            list_code.append(content)
-
-        return list_code
 
     """
     #------------------获取浏览器部分------------------------------------

@@ -60,16 +60,16 @@ class letter_parameter_names(shop_systemsetup):
     city_name = ".box-city a"
 
 
-    # 二次确认中的重点文字
+    # 确认弹窗中的重点文字
     modal_body_h4 = '.modal-body>h4'
 
-    # 二次确认中的侧面文字
+    # 确认弹窗中的侧面文字
     modal_body_p = '.modal-body>p'
 
-    # 二次确认中的取消按钮:分类class名为modal-footer，去找到子类中button的元素并且位置为第一个
+    # 确认弹窗中的取消按钮:分类class名为modal-footer，去找到子类中button的元素并且位置为第一个
     btn_default = '.modal-footer button:nth-child(1)'
 
-    # 二次确认中的确认按钮,通过id进行执行
+    # 确认弹窗中的确认按钮,通过id进行执行
     btn_primary = '#discountsave'
 
 
