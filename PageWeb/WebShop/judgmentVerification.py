@@ -11,7 +11,7 @@ from utils.ComparedVerify import compared_verify
 import operator  # 任何对象都可以比较功能
 
 
-class judgment_verification(compared_verify):
+class JudgmentVerification(compared_verify):
 
     """
     数据比较

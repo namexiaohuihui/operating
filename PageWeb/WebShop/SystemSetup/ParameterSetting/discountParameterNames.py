@@ -11,7 +11,7 @@ from utils.ExcelBeanName import shop_systemsetup
 
 # 该类主要设置一些常用的属性值以及参数
 
-class letter_parameter_names(shop_systemsetup):
+class DiscountParameterNames(shop_systemsetup):
     """
     整体路径
     """

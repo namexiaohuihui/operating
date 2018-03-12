@@ -18,8 +18,8 @@ import os
 import time
 import unittest
 import re
-from PageWeb.WebShop import JudgmentVerification as jv
-from PageWeb.WebShop.SystemSetup.ParameterSetting.namebean import letter_parameter_names
+from PageWeb.WebShop import judgmentVerification as jv
+from PageWeb.WebShop.SystemSetup.ParameterSetting.discountParameterNames import letter_parameter_names
 from utils.Logger import Log
 
 """
@@ -32,7 +32,7 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 log = Log(basename)
 overall_ExcelData = jv._excel_Data(filename="withdrawals", SHEETNAME=1)
 # print(overall_ExcelData)
-lpn = letter_parameter_names()
+lpn = DiscountParameterNames()
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 

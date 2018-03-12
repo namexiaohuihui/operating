@@ -13,8 +13,8 @@ import json
 import inspect
 import unittest
 from utils.Logger import Log
-from PageWeb.WebShop.JudgmentVerification import judgment_verification
-from PageWeb.WebShop.SystemSetup.ParameterSetting.namebean import letter_parameter_names
+from PageWeb.WebShop.judgmentVerification import JudgmentVerification
+from PageWeb.WebShop.SystemSetup.ParameterSetting.discountParameterNames import DiscountParameterNames
 
 """
 商品折扣数:主要验证下面的问题:
@@ -34,9 +34,9 @@ print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.l
 # 获取文件名
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 定义类参数
-jv = judgment_verification()
+jv = JudgmentVerification()
 log = Log(basename)
-lpn = letter_parameter_names()
+lpn = DiscountParameterNames()
 # 读取数据内容
 overall_ExcelData = jv._excel_Data(filename="discount", SHEETNAME=1)
 
