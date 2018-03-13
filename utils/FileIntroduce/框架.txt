@@ -19,3 +19,5 @@ unittest.skipIf(condition, reason)、unittest.skipUnless(condition,
     #    unittest.TestLoader().loadTestsFromNames(['test_mathfunc.TestMathFunc']))  # loadTestsFromNames()，类似，传入列表
     # loadTestsFromTestCase()，传入TestCase
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestMathFunc))
+
+6.在Python2.2以后可以使用@classmethod装饰器来创建类方法.

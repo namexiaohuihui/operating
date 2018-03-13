@@ -32,7 +32,7 @@ class compared_verify(object):
         # 单例类判断。如果该类创建过就不需要重新创建了
         if not hasattr(cls, '_instance'):
             orig = super(compared_verify, cls)
-            cls._instance = orig.__new__(cls, *args, **kw)
+            cls._instance = orig.__new__(cls)
         return cls._instance
 
     # 在字符串str查找ing出现的位置.从number下标开始找,返回-1表示找不到

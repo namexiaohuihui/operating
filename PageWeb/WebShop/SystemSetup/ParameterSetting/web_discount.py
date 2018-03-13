@@ -13,8 +13,7 @@ import json
 import inspect
 import unittest
 from utils.Logger import Log
-from PageWeb.WebShop.judgmentVerification import JudgmentVerification
-from PageWeb.WebShop.SystemSetup.ParameterSetting.discountParameterNames import DiscountParameterNames
+from PageWeb.WebShop.SystemSetup.ParameterSetting.discountOperationSteps import DiscountOperationSteps
 
 """
 商品折扣数:主要验证下面的问题:
@@ -32,28 +31,33 @@ from PageWeb.WebShop.SystemSetup.ParameterSetting.discountParameterNames import 
 print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 # 获取文件名
-basename = os.path.splitext(os.path.basename(__file__))[0]
+# basename = os.path.splitext(os.path.basename(__file__))[0]
 # 定义类参数
-jv = JudgmentVerification()
-log = Log(basename)
-lpn = DiscountParameterNames()
+# jv = JudgmentVerification()
+# log = Log(basename)
+# lpn = DiscountParameterNames()
 # 读取数据内容
-overall_ExcelData = jv._excel_Data(filename="discount", SHEETNAME=1)
-
+# overall_ExcelData = jv._excel_Data(filename="discount", SHEETNAME=1)
+# 定义需要读取的文件名以及工作薄
 print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
 
 class verify_discount(unittest.TestCase):
+
     """
        继承函数
     """
-
+    @classmethod
     def setUp(cls):
         # 该类运行时优先调用的函数
         # log.info("The program begins to execute. Don't stop me when you start.")
-        jv.option_browser()  # 打开浏览器
-        jv.ps_user_login()  # 用户登录
+        basename = cls.__class__.__name__
+        cls.dis = DiscountOperationSteps()
+        EXCLE_FILE= cls.dis.getDiscountExcle()
+        cls.dis.openingProgram(basename,EXCLE_FILE)
 
+
+    @classmethod
     def tearDown(cls):
         try:
             # 该类结束时最后调用的函数
@@ -170,7 +174,7 @@ class verify_discount(unittest.TestCase):
         # 数据比较
         re_ex = jv._verify_operator(re_value, excle_value)
 
-        log.info("参与比较的函数为 %s 比较结果为 %s " % (self.function,re_ex))
+        log.info("参与比较的函数为 %s 比较结果为 %s " % (self.function, re_ex))
 
     def _verify_content_data(self):
         """
@@ -228,7 +232,7 @@ class verify_discount(unittest.TestCase):
     def promptVerification(self):
 
         # 提示信息的验证：再次确认的提示
-        self.windowVerification(lpn.modal_body_p,lpn.whole_output(),lpn.btn_primary)
+        self.windowVerification(lpn.modal_body_p, lpn.whole_output(), lpn.btn_primary)
 
         # 提交之后返回的数据进行验证
         self.windowVerification(lpn.visible_h2, lpn.whole_result(), lpn.confirm)
@@ -248,7 +252,7 @@ class verify_discount(unittest.TestCase):
         wa_check = jv._visible_return_selectop(lpn.watiki_check)
         jv.visibleIsSelected(wa_check)
 
-    def notSelected(self,selectop):
+    def notSelected(self, selectop):
         """执行单选框为未选中状态时就进行点击的动作"""
 
         # 获取单选框对象
@@ -312,7 +316,7 @@ class verify_discount(unittest.TestCase):
         content = tags[tag]
         cont = self.overall[lpn.ps_count_goods_discount()]
         oper = jv._verify_operator(content.text, cont)
-        log.info("默认展示页面 %s ----  : %s" % (oper, basename))
+        log.info("默认展示页面 %s ----  : %s" % (oper, self.basename))
 
         list_name = []
         list_attr = []
@@ -412,19 +416,20 @@ class verify_discount(unittest.TestCase):
     def test_water_NotInput(self):
         # 获取函数名
         self.function = inspect.stack()[0][3]
-        self._rou_fun()
+        # self._rou_fun()
 
-        # 水单选框的点击以及信息输入
-        self.notSelected(lpn.goods_check)
-        self.waterInput()
+        # # 水单选框的点击以及信息输入
+        # self.notSelected(lpn.goods_check)
+        # self.waterInput()
+        #
+        # # 提交按钮的点击
+        # jv._visible_css_selectop(lpn.discountSave)
+        #
+        # # 输入错误内容时，弹窗的提示
+        # self.promptErrorInformation()
+        #
+        # log.info("执行完了.....")
 
-        # 提交按钮的点击
-        jv._visible_css_selectop(lpn.discountSave)
-
-        # 输入错误内容时，弹窗的提示
-        self.promptErrorInformation()
-
-        log.info("执行完了.....")
 
 if __name__ == '__main__':
     unittest.main()

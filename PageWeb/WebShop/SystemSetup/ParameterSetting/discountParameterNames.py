@@ -12,6 +12,17 @@ from utils.ExcelBeanName import shop_systemsetup
 # 该类主要设置一些常用的属性值以及参数
 
 class DiscountParameterNames(shop_systemsetup):
+
+    """
+    定义文件名以及工作薄，方便统一进行修改
+    """
+
+    def getDiscountExcle(self):
+        disList = ["discount",1];
+        return disList;
+
+
+
     """
     整体路径
     """
@@ -106,12 +117,6 @@ class DiscountParameterNames(shop_systemsetup):
 
 
 if __name__ == '__main__':
-    import unittest
-    from PageWeb.WebShop.SystemSetup.ParameterSetting.web_withdrawals import verify_withdrawals
-
-    # 构造测试集
-    suite = unittest.TestSuite()
-    suite.addTest(verify_withdrawals("test_less_than"))
-    # 执行测试
-    runner = unittest.TextTestRunner()
-    runner.run(suite)
+    excle = DiscountParameterNames().getDiscountExcle()
+    print(excle[0])
+    print(excle[1])
