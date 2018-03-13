@@ -13,7 +13,6 @@ import operator  # 任何对象都可以比较功能
 
 class JudgmentVerification(compared_verify):
 
-
     """
     数据比较
     """

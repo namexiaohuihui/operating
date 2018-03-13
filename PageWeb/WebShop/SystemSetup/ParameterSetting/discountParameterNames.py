@@ -28,8 +28,8 @@ class DiscountParameterNames(shop_systemsetup):
     """
     sidebar = ".sidebar-menu li:nth-child(2)"  # 顶级目录
     treew = ".treeview-menu.menu-open li:nth-child(1)"  # 上级目录
-    tabs_withdrawals = ".nav.nav-tabs li:nth-child(4)"  # 提现入口
-    tabs_discount = ".nav.nav-tabs li:nth-child(5)"  # 提现入口
+    tabs_withdrawals = ".nav.nav-tabs li:nth-child(3)"  # 提现入口
+    tabs_discount = ".nav.nav-tabs li:nth-child(4)"  # 优惠入口
 
     """--------------------------------参数的获取路径------------------------------"""
 
