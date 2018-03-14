@@ -7,15 +7,14 @@ __author__ = 'DingDong'
 import inspect
 import os
 import time
-
-from utils.operation.selenium_input import action_input
-from utils.RewriteThread import inherit_thread as th
-from utils.browser_establish import browser_confirm
-from utils.config import readModel
-from utils.operation.selenium_click import action_click
-from utils.PymysqlMain import pymysqls
+import operator
 from utils import DefinitionErrors as dError
+from utils.config import readModel
+from utils.PymysqlMain import pymysqls
 from utils.OpenpyxlExcel import READEXCEL, PANDASDATA
+from utils.browser_establish import browser_confirm
+from utils.operation.selenium_input import action_input
+from utils.operation.selenium_click import action_click
 
 
 class compared_verify(object):
@@ -156,23 +155,24 @@ class compared_verify(object):
         # 通过元素id利用js进行输入
         self.vai.id_js_input(self.driver, ordinal, parameter)
 
-    def visibleIsSelected(self, check):
-        # 单选框  选中  状态就进行点击
-        if check.is_selected():
-            self.vac.element_click(check)  # 元素点击
-            self.sleep_time()
+    def visibleRadioSelected(self, check ,status = False):
+        """
+        当单选框在页面的状态跟期望的不一致时，会执行点击动作。
+        相反则不执行点击动作
+        status为False时表示期望单选框为不选中状态
+        相反则表示选中状态
+        :param check:  需要点击的单选框
+        :param status:  期望单选的状态，默认为False
+        :return:
+        """
+        print("单选框不用进行点击") if  operator.eq(check.is_selected(),status)  else self.vac.element_click(check)  # 元素点击
 
-    def visibleNotSelected(self, check):
-        # 单选框  未选中  状态就进行点击
-        if not check.is_selected():
-            self.vac.element_click(check)  # 元素点击
-            self.sleep_time()
-
-    """
-    数据库查询及内容返回
-    """
 
     def create_database(self):
+        """
+        数据库查询及内容返回
+        :return:  返回查询到的内容
+        """
         pm = pymysqls()
 
         pm.connects_readModel()
@@ -212,20 +212,21 @@ class compared_verify(object):
 
     def _start_thread_pool(self, funktion):  # 开启线程池
         # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
-        print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-        faden = []  # 该列表存放已经开启的线程
-
-        inhalt = []  # 该列表存放线程中所执行的函数返回值内容
-
-        for para in funktion:  # 遍历函数开启线程
-            threads = th(para)
-            faden.append(threads)
-            threads.start()
-
-        for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
-            argu.join()
-            inhalt.append(argu.get_result())
-
-        # overall_ExcelData = inhalt[0]  # df转换的数据，方便对excel进行操作r
-        print("Thread execution finished %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-        return inhalt
+        # print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+        # faden = []  # 该列表存放已经开启的线程
+        #
+        # inhalt = []  # 该列表存放线程中所执行的函数返回值内容
+        #
+        # for para in funktion:  # 遍历函数开启线程
+        #     threads = th(para)
+        #     faden.append(threads)
+        #     threads.start()
+        #
+        # for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
+        #     argu.join()
+        #     inhalt.append(argu.get_result())
+        #
+        # # overall_ExcelData = inhalt[0]  # df转换的数据，方便对excel进行操作r
+        # print("Thread execution finished %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+        # return inhalt
+        pass

@@ -7,6 +7,10 @@ __author__ = 'DingDong'
 """
 
 import os
+import time
+import json
+import inspect
+import unittest
 from utils.Logger import Log
 from PageWeb.WebShop.judgmentVerification import JudgmentVerification
 from PageWeb.WebShop.SystemSetup.ParameterSetting.discountParameterNames import DiscountParameterNames
@@ -20,8 +24,19 @@ JudgmentVerification ： 数据验证以及工具的使用
 
 
 class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
-    FUNCTION_NAME = ""
-    def openingProgram(self,basename,exclefile):
+
+#-----------------------------------文件配置参数----------------------------------
+    FUNCTION_NAME = "" # 执行函数的名称
+    RADIO_STATUS = False # 单选框的期望结果
+
+#----------------------------------文件配置函数-----------------------------------
+    def openingProgram(self, basename, exclefile):
+        """
+        定义log日志文件以及读取用例数据
+        :param basename:  执行用例的文件名
+        :param exclefile:  需要读取用例的文件名
+        :return:  暂时没有返回值
+        """
         # 拿出文件名和工作薄
         exclename = exclefile[0]
         exclesheet = exclefile[1]
@@ -30,31 +45,24 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         self.log = Log(basename)
 
         # 读取文档信息
-        self.overallExcelData = self._excel_Data(exclename,exclesheet)
+        self.overallExcelData = self._excel_Data(exclename, exclesheet)
 
         self.option_browser()  # 打开浏览器
         self.ps_user_login()  # 用户登录
 
 
-
-    """
-        该类中专用的函数
-    """
-
     def _rou_fun(self):
-        self._routepath()  # 调用进入目录的函数
-        self._function_overall()  # 调用获取用户的函数
-
-    def _function_overall(self):
-        # 获取用例信息
-        self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
-        # print(self.overall)
-
-    def _routepath(self):
-        # 进入相应的目录
+        """
+        进入相应的页面，并获取用例信息
+        :return:  暂时没有返回值
+        """
         self._visible_css_selectop(self.sidebar)
         self._visible_css_selectop(self.treew)
         self._visible_css_selectop(self.tabs_discount)
+
+        # 根据用例标题获取用例
+        self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
+
 
     # ------------------------------------输入模块
     def confirmInput(self, caseTitle, eleInformation):
@@ -106,26 +114,12 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         wa_max = self.overall[self.ps_count_watikis_max()]
 
         # 如果需要输入内容就返回内容否则返回一个空值
-        gbSult = gd_dis if gd_dis  else False
-        waSult = wa_dis if wa_dis  else False
-        if gbSult and waSult:
+        gbSult = gd_dis if gd_dis  else ''
+        waSult = wa_dis if wa_dis  else ''
+        if gbSult or waSult:
             # 将需要输入的参数弄成一个列表
             excle_value = {'goods': {'discount': gd_dis,
                                      'exception': gd_id},
-                           'watiki': {'discount': wa_dis,
-                                      'exception': wa_id,
-                                      'max': wa_max}}
-        elif gbSult:
-            # 将需要输入的参数弄成一个列表
-            excle_value = {'goods': {'discount': gd_dis,
-                                     'exception': gd_id},
-                           'watiki': {'discount': '',
-                                      'exception': '',
-                                      'max': ''}}
-        elif waSult:
-            # 将需要输入的参数弄成一个列表
-            excle_value = {'goods': {'discount': '',
-                                     'exception': ''},
                            'watiki': {'discount': wa_dis,
                                       'exception': wa_id,
                                       'max': wa_max}}
@@ -143,7 +137,7 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         # 数据比较
         re_ex = self._verify_operator(re_value, excle_value)
 
-        log.info("参与比较的函数为 %s 比较结果为 %s " % (self.FUNCTION_NAME, re_ex))
+        self.log.info("执行用例的函数为： %s 数据库比较结果为: %s " % (self.FUNCTION_NAME, re_ex))
 
     def _verify_content_data(self):
         """
@@ -161,7 +155,7 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
             #   比较数据
             self._get_content(value_text)
         else:
-            log.info("mysql 语句为空不需要进入.....")
+            self.log.info("mysql 语句为空不需要进入.....")
 
     def _verify_content_mysql(self, list_name, list_attr):
         """
@@ -174,9 +168,9 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         my_sql = self._verify_content()
         if my_sql != None:
             list_code = self._verify_attr_name(my_sql, list_name, list_attr)
-            log.info(list_code)
+            self.log.info(list_code)
         else:
-            log.info("mysql 语句为空不需要进入.....")
+            self.log.info("mysql 语句为空不需要进入.....")
 
     # ---------------其他模块------------------
     def obtain_city_name(self):
@@ -210,32 +204,45 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         # 点击提交时，因输入内容有误导致的弹窗
         self.windowVerification(self.visible_p, self.whole_result(), self.confirm)
 
-    def isSelected(self):
-        """执行单选框为选中状态时就进行点击的动作"""
-
+    def clickSelected(self):
         # 水优惠单选框的点击
-        gd_check = self._visible_return_selectop(self.goods_check)
-        self.visibleIsSelected(gd_check)
+        self.radioSelected(self.goods_check)
 
         # 水票优惠单选框的点击
-        wa_check = self._visible_return_selectop(self.watiki_check)
-        self.visibleIsSelected(wa_check)
+        self.radioSelected(self.watiki_check)
 
-    def notSelected(self, selectop):
-        """执行单选框为未选中状态时就进行点击的动作"""
+    def isSelected(self):
+        """
+        执行单选框为不选中状态
+        :return:
+        """
+        # 其实可以忽略这步，因为该参数默认为False。防止错误才写的
+        self.RADIO_STATUS = False
 
+        self.clickSelected()
+
+    def notSelected(self):
+        """
+        执行单选框为选中状态
+        :return:
+        """
+        self.RADIO_STATUS = True
+        self.clickSelected()
+
+    def radioSelected(self, selectop):
+        """通过单选框元素进行状态的点击"""
         # 获取单选框对象
         _check = self._visible_return_selectop(selectop)
 
-        # 执行点击命令
-        self.visibleNotSelected(_check)
+        # 执行单选框为选中状态的指令
+        self.visibleRadioSelected(_check, status=self.RADIO_STATUS)
 
     def waterSelectedInput(self):
         """
-        水优惠项的点击以及优惠数据输入
+        商品优惠项的点击以及优惠数据输入
         :return:
         """
-        self.notSelected(self.goods_check)
+        self.goodsCheckClick()
         self.waterInput()
 
     def watikiSelectedInput(self):
@@ -243,16 +250,28 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         水票优惠项的点击以及优惠数据输入
         :return:
         """
-        self.notSelected(self.watiki_check)
+        self.watikiCheckClick()
         self.watikiInput()
 
-    # 保存按钮的点击
+
     def visibleDiscountSave(self):
+        """
+        页面保存按钮的点击
+        :return:
+        """
         self._visible_css_selectop(self.discountSave)
 
-    # 水单选框的点击以及信息输入
+
     def goodsCheckClick(self):
-        self.notSelected(self.goods_check)
+        """
+        商品单选框的点击以及信息输入
+        :return:
+        """
+        self.radioSelected(self.goods_check)
 
-
-
+    def watikiCheckClick(self):
+        """
+        水票单选框的点击以及信息输入
+        :return:
+        """
+        self.radioSelected(self.watiki_check)

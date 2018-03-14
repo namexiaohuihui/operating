@@ -5,18 +5,23 @@ __author__ = 'Administrator'
 @time: 2017/11/2 9:53
 """
 
-import os
 import re
-import sys
 import time
-import json
 import inspect
 import unittest
 from utils.Logger import Log
 from PageWeb.WebShop.SystemSetup.ParameterSetting.discountOperationSteps import DiscountOperationSteps
 
 """
-商品折扣数:主要验证下面的问题:
+import的解释:
+re:正则
+time：时间
+inspect :　获取函数名
+unittest：用例框架
+Log：log日志
+DiscountOperationSteps ： 用例操作类
+
+折扣页面:主要验证下面的问题:
 1.小数
 2.符合要求的数值
 3.负数
@@ -137,7 +142,6 @@ class VerifyDiscount(unittest.TestCase):
         self.dis.visibleIsSelected(gd_check)
         self.dis.visibleIsSelected(wa_check)
 
-        # self.waterInput()
         """通过输入框进行数据输入"""
         gd_dis = self.dis._visible_css_selectop_Id(lpn.goods_discount)
         gd_id = self.dis._visible_css_selectop_Id(lpn.goods_id)
@@ -149,7 +153,7 @@ class VerifyDiscount(unittest.TestCase):
 
         self.dis._verify_operator(cancelInput, self.overall[lpn.whole_result()])
 
-    @unittest.skip(r"跳过:test_all_cancel")
+    # @unittest.skip(r"跳过:test_all_cancel")
     def test_all_cancel(self):
         """不设置优惠直接提交"""
         # 获取函数名
@@ -159,28 +163,16 @@ class VerifyDiscount(unittest.TestCase):
         # 执行单选框为选中状态时就进行点击的动作
         self.dis.isSelected()
 
-        # 提交
-        self.dis._visible_css_selectop(lpn.discountSave)
+        # 提交按钮的点击
+        self.dis.visibleDiscountSave()
 
-        # 提示信息
-        _content_text = self.dis._visible_css_selectop_text(lpn.modal_body_p)
-        self.dis._verify_operator(_content_text, self.overall[lpn.whole_output()])
-
-        # 二次提交
-        self.dis._visible_css_selectop(lpn.btn_primary)
-
-        """二次提交之后的返回信息"""
-        _confirm_text = self.dis._visible_css_selectop_text(lpn.visible_h2)  # 标题
-        self.dis.sleep_time()
-        self.dis._verify_operator(_confirm_text, self.overall[lpn.whole_result()])
-        self.dis.sleep_time()
-
-        self.dis._visible_css_selectop(lpn.confirm)  # 提示框的确定按钮
+        # 执行弹窗的点击动作
+        self.dis.promptVerification()
 
         # 比较数据库中的数据和输入的数据是否一致
-        self._verify_content_data()
+        self.dis._verify_content_data()
 
-    @unittest.skip(r"跳过:test_all_choice")
+    # @unittest.skip(r"跳过:test_all_choice")
     def test_all_choice(self):
         """设置优惠直接提交"""
         # 获取函数名
@@ -209,6 +201,7 @@ class VerifyDiscount(unittest.TestCase):
         self.dis._rou_fun()
 
         # 水单选框的点击以及信息输入
+        self.dis.RADIO_STATUS = True
         self.dis.goodsCheckClick()
         self.dis.waterInput()
 

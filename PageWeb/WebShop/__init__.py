@@ -66,5 +66,15 @@ class SubClassD(unittest.TestCase,SubClassC):
 
 if __name__ == '__main__':
 
-    b = SubClassD()
-    b.opopopo()
+    tttt = ''
+    ffff = 'nihao'
+
+    if tttt or ffff:
+        print("1")
+    # elif tttt:
+    #     print("2")
+    # elif ffff:
+    #     print("3")
+    else:
+        print("4")
+    print(ffff + "--")
