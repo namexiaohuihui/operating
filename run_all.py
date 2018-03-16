@@ -79,7 +79,7 @@ if __name__ == '__main__':
     # shangyigebanben()
 
     # 加载用例
-    all_case = add_case("PageWeb\\WebEven\\ExclusiveService","Web_PersonalData.py")
+    all_case = add_case("PageWeb\\WebShop\\SystemSetup\\ParameterSetting","Web_discount.py")
 
    # 生成测试报告的路径
     run_case(all_case)

@@ -53,6 +53,11 @@ class SubClassC(SubClassB,SubClassE):
     def opopopo(self):
         print("wosifangfa")
 
+
+    def foo(self):
+        return self.base
+    def foo1(self):
+        pass
 import unittest
 class SubClassD(unittest.TestCase,SubClassC):
 
@@ -64,17 +69,24 @@ class SubClassD(unittest.TestCase,SubClassC):
 
 
 
+def foo(n):
+    return abs(n)
+
+def foo1(n):
+    return lambda x:x+abs(n)
+
 if __name__ == '__main__':
 
-    tttt = ''
-    ffff = 'nihao'
+    list1 = [3, 5, -4, -1, 0, -2, -6]
 
-    if tttt or ffff:
-        print("1")
-    # elif tttt:
-    #     print("2")
-    # elif ffff:
-    #     print("3")
-    else:
-        print("4")
-    print(ffff + "--")
+    kg1 = lambda x : (abs(x))
+    print(sorted(list1,key=(kg1)))
+
+    fo = foo1(6)
+    print(sorted(list1,key=fo))
+
+    print(fo(8))
+
+    kg2 = lambda x : abs(x) + 6
+    print(kg2(-3))
+    print(sorted(list1, key=kg2))

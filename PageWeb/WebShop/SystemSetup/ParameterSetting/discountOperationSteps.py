@@ -29,6 +29,13 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
     FUNCTION_NAME = "" # 执行函数的名称
     RADIO_STATUS = False # 单选框的期望结果
 
+    def setFunctionName(self,functionName):
+        self.FUNCTION_NAME = functionName
+
+    def setRadioStatus(self,radioStatus):
+        self.RADIO_STATUS = radioStatus
+
+
 #----------------------------------文件配置函数-----------------------------------
     def openingProgram(self, basename, exclefile):
         """
@@ -70,34 +77,35 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         title = self.overall[caseTitle]  # 根据用例title来读取数据
 
         information = self._verify_parameter(title)  # 判断数据是否为None，如果是就返回一个空值‘’
+
         self._visible_json_input(eleInformation, information)  # 通过元素id利用json进行输入输入
 
     def waterInput(self):
         """页面商品输入框"""
         # 商品折扣
-        self.confirmInput(self.ps_count_goods_discount(), self.goods_discount)
+        self.confirmInput(self.psCountgoodsdiscount(), self.goods_discount)
 
         # 商品id
-        self.confirmInput(self.ps_count_goods_id(), self.goods_id)
+        self.confirmInput(self.psCountGoodsId(), self.goods_id)
 
     def watikiInput(self):
         """页面水票输入框"""
         # 水票折扣
-        self.confirmInput(self.ps_count_watiki_discount(), self.watiki_discount)
+        self.confirmInput(self.psCountWatikiDiscount(), self.watiki_discount)
 
         # 水票id
-        self.confirmInput(self.ps_count_watikis_id(), self.watikis_id)
+        self.confirmInput(self.psCountWatikisId(), self.watikis_id)
 
         # 商品最高抵扣
-        self.confirmInput(self.ps_count_watikis_max(), self.watikis_max)
+        self.confirmInput(self.psCountWatikisMax(), self.watikis_max)
 
     def confirmationSubmission(self):
         """信息输入框和按钮合并的函数"""
         # 数据输入
-        self.waterInput()
-        self.watikiInput()
+        self.waterSelectedInput()
+        self.watikiSelectedInput()
         # 保存按钮
-        self._visible_css_selectop(self.discountSave)
+        self.visibleDiscountSave()
 
     # ----------------------数据库模块----------------
     def _verify_content(self):
@@ -107,11 +115,11 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
     def excleValue(self):
 
         # 读取excle表格需要输入的内容
-        gd_dis = self.overall[self.ps_count_goods_discount()]
-        gd_id = self.overall[self.ps_count_goods_id()]
-        wa_dis = self.overall[self.ps_count_watiki_discount()]
-        wa_id = self.overall[self.ps_count_watikis_id()]
-        wa_max = self.overall[self.ps_count_watikis_max()]
+        gd_dis = self.overall[self.psCountgoodsdiscount()]
+        gd_id = self.overall[self.psCountGoodsId()]
+        wa_dis = self.overall[self.psCountWatikiDiscount()]
+        wa_id = self.overall[self.psCountWatikisId()]
+        wa_max = self.overall[self.psCountWatikisMax()]
 
         # 如果需要输入内容就返回内容否则返回一个空值
         gbSult = gd_dis if gd_dis  else ''
@@ -129,8 +137,11 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         return excle_value
 
     def _get_content(self, value_text):
-        """比较数据库中的数据跟excle的数据是否一致"""
-
+        """
+        比较数据库中的数据跟excle的数据是否一致
+        :param value_text: 需要进行比较的数据信息
+        :return:
+        """
         excle_value = self.excleValue()  # 获取excle中的数据
         re_value = json.loads(value_text[0])  # 获取数据库中的数据
 
@@ -174,6 +185,10 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
 
     # ---------------其他模块------------------
     def obtain_city_name(self):
+        """
+        获取全部城市的名字
+        :return:
+        """
         tags = self.driver.find_elements_by_css_selector(self.city_name)
         return tags
 
@@ -193,7 +208,12 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         self._visible_css_selectop(button)
 
     def promptVerification(self):
-
+        """
+        点击提交之后，弹窗的二次确认
+        and
+        提交之后接口返回的提示信息
+        :return:
+        """
         # 提示信息的验证：再次确认的提示
         self.windowVerification(self.modal_body_p, self.whole_output(), self.btn_primary)
 
@@ -201,36 +221,18 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         self.windowVerification(self.visible_h2, self.whole_result(), self.confirm)
 
     def promptErrorInformation(self):
-        # 点击提交时，因输入内容有误导致的弹窗
+        """
+        信息有误进行提交时，弹窗的提示
+        :return:
+        """
         self.windowVerification(self.visible_p, self.whole_result(), self.confirm)
 
-    def clickSelected(self):
-        # 水优惠单选框的点击
-        self.radioSelected(self.goods_check)
-
-        # 水票优惠单选框的点击
-        self.radioSelected(self.watiki_check)
-
-    def isSelected(self):
-        """
-        执行单选框为不选中状态
-        :return:
-        """
-        # 其实可以忽略这步，因为该参数默认为False。防止错误才写的
-        self.RADIO_STATUS = False
-
-        self.clickSelected()
-
-    def notSelected(self):
-        """
-        执行单选框为选中状态
-        :return:
-        """
-        self.RADIO_STATUS = True
-        self.clickSelected()
-
     def radioSelected(self, selectop):
-        """通过单选框元素进行状态的点击"""
+        """
+        通过单选框元素进行状态的点击
+        :param selectop:  单选框的对象
+        :return:
+        """
         # 获取单选框对象
         _check = self._visible_return_selectop(selectop)
 
@@ -242,16 +244,25 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         商品优惠项的点击以及优惠数据输入
         :return:
         """
-        self.goodsCheckClick()
-        self.waterInput()
+        # 读取商品优惠的设置是否打开
+        self.RADIO_STATUS = self.stringToValueBoolean(self.overall[self.psCountGoodsChoice()])
+        # 商品优惠单选框的点击
+        self.radioSelected(self.goods_check)
+        self.waterInput() if self.RADIO_STATUS else self.log(
+            "%s的设置为 %s" %(self.psCountGoodsChoice(),self.RADIO_STATUS))
 
     def watikiSelectedInput(self):
         """
         水票优惠项的点击以及优惠数据输入
         :return:
         """
-        self.watikiCheckClick()
-        self.watikiInput()
+        # 读取水票优惠的设置是否打开
+        self.RADIO_STATUS = self.stringToValueBoolean(self.overall[self.psCountWatikiChoice()])
+        # 水票优惠单选框的点击
+        self.radioSelected(self.watiki_check)
+        self.watikiInput() if self.RADIO_STATUS else self.log(
+            "%s的设置为 %s" % (self.psCountWatikiChoice(), self.RADIO_STATUS))
+
 
 
     def visibleDiscountSave(self):
@@ -262,16 +273,3 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         self._visible_css_selectop(self.discountSave)
 
 
-    def goodsCheckClick(self):
-        """
-        商品单选框的点击以及信息输入
-        :return:
-        """
-        self.radioSelected(self.goods_check)
-
-    def watikiCheckClick(self):
-        """
-        水票单选框的点击以及信息输入
-        :return:
-        """
-        self.radioSelected(self.watiki_check)

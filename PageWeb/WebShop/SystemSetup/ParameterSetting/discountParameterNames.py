@@ -6,12 +6,12 @@
 @项目名称:operating
 """
 
-from utils.ExcelBeanName import shop_systemsetup
+from utils.ExcelBeanName import ShopSystemsetup
 
 
 # 该类主要设置一些常用的属性值以及参数
 
-class DiscountParameterNames(shop_systemsetup):
+class DiscountParameterNames(ShopSystemsetup):
 
     """
     定义文件名以及工作薄，方便统一进行修改

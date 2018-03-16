@@ -51,6 +51,10 @@ class compared_verify(object):
             content = ''
         return content
 
+    def stringToValueBoolean(self, value):
+        _value = True if value is "true" else False
+        return _value
+
     """
     #------------------获取浏览器部分------------------------------------
     """
@@ -155,7 +159,7 @@ class compared_verify(object):
         # 通过元素id利用js进行输入
         self.vai.id_js_input(self.driver, ordinal, parameter)
 
-    def visibleRadioSelected(self, check ,status = False):
+    def visibleRadioSelected(self, check, status=False):
         """
         当单选框在页面的状态跟期望的不一致时，会执行点击动作。
         相反则不执行点击动作
@@ -165,8 +169,7 @@ class compared_verify(object):
         :param status:  期望单选的状态，默认为False
         :return:
         """
-        print("单选框不用进行点击") if  operator.eq(check.is_selected(),status)  else self.vac.element_click(check)  # 元素点击
-
+        print("单选框不用进行点击") if operator.eq(check.is_selected(), status) else self.vac.element_click(check)  # 元素点击
 
     def create_database(self):
         """

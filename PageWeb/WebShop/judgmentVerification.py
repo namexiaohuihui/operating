@@ -21,13 +21,11 @@ class JudgmentVerification(compared_verify):
         print("--------------------------------------")
         print("读 data :  %s" % re_value)
         print("获 data :  %s" % excle_value)
-        print("最终结果 : %s " % re_ex)
         print("--------------------------------------")
         return re_ex
 
     def _verify_attr_name(self, my_sql, *codeattr):
         re_df = self._verify_match(my_sql)
-
         # 比较两个list的内容
         list_name = codeattr[0]
         list_attr = codeattr[1]
@@ -42,11 +40,15 @@ class JudgmentVerification(compared_verify):
 
         return list_code
 
-    """
-    正则的验收
-    """
 
     def separation(self, re_df, title, content):
+        """
+        数据验收
+        :param re_df:
+        :param title:
+        :param content:
+        :return:
+        """
         re_name = re_df[title]
         _verify = operator.eq(re_name, content)
         return _verify

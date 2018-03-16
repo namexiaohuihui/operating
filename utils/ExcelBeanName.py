@@ -76,27 +76,33 @@ class even_exclusiveService(excel_title):
 
 
 # shop的地盘
-class shop_systemsetup(excel_title):
+class ShopSystemsetup(excel_title):
 
-    def ps_with_extract(self):
+    def psWithExtract(self):
         return "提现"
 
-    def ps_with_cost(self):
+    def psWithCost(self):
         return "手续费"
 
-    def ps_count_goods_discount(self):
+    def psCountgoodsdiscount(self):
         return "商品折扣"
 
-    def ps_count_goods_id(self):
+    def psCountGoodsChoice(self):
+        return "商品选择框"
+
+    def psCountGoodsId(self):
         return "不参与商品"
 
-    def ps_count_watiki_discount(self):
+    def psCountWatikiChoice(self):
+        return "水票选择框"
+
+    def psCountWatikiDiscount(self):
         return "水票折扣"
 
-    def ps_count_watikis_id(self):
+    def psCountWatikisId(self):
         return "不参与水票"
 
-    def ps_count_watikis_max(self):
+    def psCountWatikisMax(self):
         return "最高抵扣"
 
 

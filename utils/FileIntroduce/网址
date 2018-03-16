@@ -56,3 +56,9 @@ http://selenium-release.storage.googleapis.com/index.html
 
 4.pom.xml里的-java、remote、firefox、chrome、ie等
 http://mvnrepository.com/artifact/org.seleniumhq.selenium
+
+pycharm插件
+https://www.zhihu.com/question/37787004?sort=created
+
+json通过 *path的方式来解析
+https://pypi.python.org/pypi/jmespath,
