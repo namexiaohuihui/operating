@@ -160,7 +160,7 @@ if __name__ == '__main__':
     # time.sleep(2)
     import operator
 
-    from utils.OpenpyxlExcel import PANDASDATA
+    from utils.openpyxlExcel import PANDASDATA
 
     # 数据转换
     pan = PANDASDATA(neirong)

@@ -51,7 +51,7 @@ class excel_title(object):
     def whole_remarks(self):
         return "备注"
 
-    def whole_query_statement(self):
+    def wholeQueryStatement(self):
         return "sql"
 
 

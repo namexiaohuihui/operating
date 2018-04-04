@@ -12,7 +12,7 @@ from practical.utils.config import readModel
 
 from PageWeb.WebEven.ConversionStorage import conversionstorage
 
-from utils.ComparedVerify import compared_verify
+from utils.comparedVerify import compared_verify
 
 """
 # ------------------内容参数的比较------------------------

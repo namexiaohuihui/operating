@@ -38,9 +38,6 @@ class READINGCSV:
 
 
     def dict_read(self):
-        handle = open(self._data, newline='')
-        spamreader = csv.DictReader(handle)
-        return spamreader
         """
                 with open('names.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
@@ -48,14 +45,11 @@ class READINGCSV:
                 print(row)
                 print(row['first_name'], row['last_name'])
         """
+        handle = open(self._data, newline='')
+        spamreader = csv.DictReader(handle)
+        return spamreader
 
     def sni_read(self):
-        handle = open(self._data, newline='')
-        dialect = csv.Sniffer().sniff(handle.read(1024))
-        # 首次读取时，从第N个字符开始
-        handle.seek(0)
-        reader = csv.reader(handle, dialect)
-        return reader
         """
                 with open('example.csv', newline='') as csvfile:
             dialect = csv.Sniffer().sniff(csvfile.read(1024))
@@ -65,6 +59,12 @@ class READINGCSV:
             for row in reader:
                 print(row)
         """
+        handle = open(self._data, newline='')
+        dialect = csv.Sniffer().sniff(handle.read(1024))
+        # 首次读取时，从第N个字符开始
+        handle.seek(0)
+        reader = csv.reader(handle, dialect)
+        return reader
 
 
 class WRITINGCSV:

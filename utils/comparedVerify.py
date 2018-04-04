@@ -11,26 +11,28 @@ import operator
 from utils import DefinitionErrors as dError
 from utils.config import readModel
 from utils.PymysqlMain import pymysqls
-from utils.OpenpyxlExcel import READEXCEL, PANDASDATA
+from utils.openpyxlExcel import OpenExcelPandas
 from utils.browser_establish import browser_confirm
 from utils.operation.selenium_input import action_input
 from utils.operation.selenium_click import action_click
 
 
-class compared_verify(object):
+class ComparedVerify(object):
     vac = action_click()
     vai = action_input()
 
-    """
+    def __new__(cls, *args, **kw):
+        """
+        单例类判断。如果该类创建过就不需要重新创建了
         单例类的用法：
         用于连接两个类之间的数据数据。
         通过第三方来传递信息
-    """
-
-    def __new__(cls, *args, **kw):
-        # 单例类判断。如果该类创建过就不需要重新创建了
+        :param args:
+        :param kw:
+        :return:
+        """
         if not hasattr(cls, '_instance'):
-            orig = super(compared_verify, cls)
+            orig = super(ComparedVerify, cls)
             cls._instance = orig.__new__(cls)
         return cls._instance
 
@@ -52,7 +54,7 @@ class compared_verify(object):
         return content
 
     def stringToValueBoolean(self, value):
-        _value = True if value is "true" else False
+        _value = operator.eq(value,"true")
         return _value
 
     """
@@ -74,49 +76,26 @@ class compared_verify(object):
        #--------------------读取excel表格数据部分-----------------------------------------
    """
 
-    def _read_excel(self, filename, SHEETNAME=1):
-        """
-            从excel表格中获取数据并进行转换
-            :param file_path:
-            :return:
-            """
-        # 获取excel路径
-        file_path = readModel.establish_con(model="excelmodel").get("excel", filename)
+    def conversionPandas(self, row_col_data, title_data=None, columnLabel=None):
+        # # 数据转换
+        # pan = PANDASDATA(row_col_data)
+        #
+        # df = pan.dataFrame(columns=title_data)  # 设置标题名
+        #
+        # if columnLabel != None:
+        #     df = df.set_index([columnLabel])  # 设置df数据中的序列号
 
-        # 读取相应路径中的数据
-        read = READEXCEL(file_path, SHEETNAME=SHEETNAME)
-
-        return read
-
-    def _conversion_pandas(self, row_col_data, title_data=None, columnLabel=None):
-        # 数据转换
-        pan = PANDASDATA(row_col_data)
-
-        df = pan.dataFrame(columns=title_data)  # 设置标题名
-
-        if columnLabel != None:
-            df = df.set_index([columnLabel])  # 设置df数据中的序列号
-
+        read = OpenExcelPandas(row_col_data, title_data)
+        df = read.conversionPandas()
         return df
 
     def _excel_Data(self, filename, SHEETNAME=1):
-        # 获取excel对象
-        read = self._read_excel(filename, SHEETNAME)
 
-        # 获取case
-        whole = read.position_sheet_row_value()
-
-        # 将case中内容的数据读出
-        row_col_data = whole[0]
-
-        # 将case中标题的内容读出
-        title_data = whole[1]
-
-        # 获取case中某个指定key的内容读出
-        columnLabel = read.die_angegebene_keys(row_col_data=row_col_data, title_data=title_data)
-
-        excelData = self._conversion_pandas(row_col_data, title_data, columnLabel)  # 设置df数据中的序列号
-
+        # 获取excel路径
+        file_path = readModel.establish_con(model="excelmodel").get("excel", filename)
+        # 读取相应路径中的数据
+        read = OpenExcelPandas(file_path, sheet=SHEETNAME)
+        excelData = read.readCaseExcel()
         return excelData
 
     """
@@ -159,7 +138,7 @@ class compared_verify(object):
         # 通过元素id利用js进行输入
         self.vai.id_js_input(self.driver, ordinal, parameter)
 
-    def visibleRadioSelected(self, check, status=False):
+    def visibleRadioSelected(self, check, status):
         """
         当单选框在页面的状态跟期望的不一致时，会执行点击动作。
         相反则不执行点击动作
@@ -189,7 +168,7 @@ class compared_verify(object):
 
         return result
 
-    def mysql_total_selects(self, sql):
+    def mysqlTotalSelects(self, sql):
         pm = self.create_database()
         result = pm.total_vertical_selects(sql)
         pm.closes()
@@ -233,3 +212,16 @@ class compared_verify(object):
         # print("Thread execution finished %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
         # return inhalt
         pass
+
+
+if __name__ == '__main__':
+    co = ComparedVerify()
+    excelData = co._excel_Data('discount', 1)
+
+    # 获取excel路径
+    # file_path = readModel.establish_con(model="excelmodel").get("excel", 'discount')
+    # # 读取相应路径中的数据
+    # read = OpenExcelPandas(file_path,1)
+    # excelData = read.readCaseExcel()
+
+    print(excelData)

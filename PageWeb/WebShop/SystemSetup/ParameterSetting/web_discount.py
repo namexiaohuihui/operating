@@ -32,9 +32,6 @@ DiscountOperationSteps ： 用例操作类
 下文重复出现的内容注释：
 1.@unittest.skip(r"跳过:XXXX") ：告诉unittest框架我要跳过这个用例，并打印出信息（跳过:XXXX）
 """
-
-print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-
 # 获取文件名
 # basename = os.path.splitext(os.path.basename(__file__))[0]
 # 定义类参数
@@ -44,12 +41,10 @@ print("Start getting use cases : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.l
 # 读取数据内容
 # overall_ExcelData = jv._excel_Data(filename="discount", SHEETNAME=1)
 # 定义需要读取的文件名以及工作薄
-print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-
 
 class VerifyDiscount(unittest.TestCase):
-    global dis
-    dis = DiscountOperationSteps()
+    global disSte
+    disSte = DiscountOperationSteps()
 
     """
        继承函数
@@ -60,8 +55,8 @@ class VerifyDiscount(unittest.TestCase):
         # 该类运行时优先调用的函数
         # log.info("The program begins to execute. Don't stop me when you start.")
         basename = cls.__class__.__name__
-        EXCLE_FILE = dis.getDiscountExcle()
-        dis.openingProgram(basename, EXCLE_FILE)
+        EXCLE_FILE = disSte.getDiscountExcle()
+        disSte.openingProgram(basename, EXCLE_FILE)
 
     @classmethod
     def tearDown(cls):
@@ -76,141 +71,134 @@ class VerifyDiscount(unittest.TestCase):
 
     # ---------------用例部分-----------------
 
-    # @unittest.skip(r"跳过:test_city_number")
+    @unittest.skip(r"跳过:test_city_number")
     def test_city_number(self):
-        # 获取城市数量以及名字(编码)是否正确
+        """获取城市数量以及名字(编码)是否正确"""
         # 获取函数名
-        dis.setFunctionName(inspect.stack()[0][3])
-        dis._rou_fun()
-        tags = dis.obtain_city_name()
-
-        list_name = []
-        list_attr = []
+        disSte.setFunctionName(inspect.stack()[0][3])
+        # 进入路径
+        disSte._rou_fun()
+        # 获取城市信息
+        tags = disSte.obtain_city_name()
+        list_name = [] # 储存城市名
+        list_attr = [] # 储存城市编码
         for tag in tags:
-            list_name.append(tag.text)
+            list_name.append(tag.text) # 添加城市名
+            # 正则切割数据，提取编码
             attr = tag.get_attribute('href')
             regular = re.search(r'[1-9]\d{5}(?!\d)', attr)
+            # 添加编码
             list_attr.append(int(regular.group()))
 
         # 将页面上获取到的数据进行比较
-        dis._verify_content_mysql(list_name, list_attr)
-
-    @unittest.skip(r"跳过:test_display_switch")
-    def test_display_switch(self):
-        # 判断显示项是否正确
-        # 获取函数名
-        dis.setFunctionName(inspect.stack()[0][3])
-        dis._rou_fun()
-        tags = dis.obtain_city_name()
-
-        # 找到页面默认展示项的位置
-        for tag in range(len(tags)):
-            try:
-                tags[tag].get_attribute('class')
-                break
-            except:
-                pass
-
-        # 跟需求上的展示项是否一致
-        content = tags[tag]  # 获取网页展示数据
-        cont = dis.overall[lpn.ps_count_goods_discount()]  # 获取数据库中的数据
-        dis._verify_operator(content.text, cont)  # 数据比较
-
-        list_name = []
-        list_attr = []
-        for tag in range(len(tags)):
-            jv.vac.element_click(tags[tag])  # 元素点击
-            tags = dis.obtain_city_name()  # 点击之后会重新刷新页面，需要重新定位元素
-
-            list_name.append(tags[tag].text)
-
-            attr = jv.driver.current_url
-            regular = re.search(r'[1-9]\d{5}(?!\d)', attr)
-            list_attr.append(int(regular.group()))
-
-        dis._verify_content_mysql(list_name, list_attr)
+        disSte._verify_content_mysql(list_name, list_attr)
 
     @unittest.skip(r"跳过:test_display_switch")
     def test_cancel_input(self):
         """不设置优惠时对输入框进行校验"""
         # 获取函数名，并相应的目录下面
-        dis.setFunctionName(inspect.stack()[0][3])
-        dis._rou_fun()
+        disSte.setFunctionName(inspect.stack()[0][3])
 
-        gd_check = dis._visible_return_selectop(lpn.goods_check)
-        wa_check = dis._visible_return_selectop(lpn.watiki_check)
-        # 单选框为选中状态就进行点击
-        dis.visibleIsSelected(gd_check)
-        dis.visibleIsSelected(wa_check)
+        # 进入路径
+        disSte._rou_fun()
 
-        """通过输入框进行数据输入"""
-        gd_dis = dis._visible_css_selectop_Id(lpn.goods_discount)
-        gd_id = dis._visible_css_selectop_Id(lpn.goods_id)
-        wa_dis = dis._visible_css_selectop_Id(lpn.watiki_discount)
-        wa_id = dis._visible_css_selectop_Id(lpn.watikis_id)
-        wa_max = dis._visible_css_selectop_Id(lpn.watikis_max)
+        # 执行输入指令
+        disSte.confirmationSubmission()
 
-        cancelInput = 'true' if gd_dis and gd_id and wa_dis and wa_id and wa_max else 'false';
+        # 执行弹窗的点击动作
+        disSte.promptVerification()
 
-        dis._verify_operator(cancelInput, self.overall[lpn.whole_result()])
+        # 执行数据比较的任务
+        disSte._verify_content_data()
 
     @unittest.skip(r"跳过:test_all_cancel")
     def test_all_cancel(self):
         """不设置优惠直接提交"""
         # 获取函数名
-        dis.setFunctionName(inspect.stack()[0][3])
-        dis._rou_fun()
+        disSte.setFunctionName(inspect.stack()[0][3])
 
-        # 执行单选框为选中状态时就进行点击的动作
-        dis.confirmationSubmission()
+        # 进入路径
+        disSte._rou_fun()
 
-        # 提交按钮的点击
-        dis.visibleDiscountSave()
+        # 执行输入指令
+        disSte.confirmationSubmission()
 
         # 执行弹窗的点击动作
-        dis.promptVerification()
+        disSte.promptVerification()
 
-        # 比较数据库中的数据和输入的数据是否一致
-        dis._verify_content_data()
+        # 执行数据比较的任务
+        disSte._verify_content_data()
 
     @unittest.skip(r"跳过:test_all_choice")
     def test_all_choice(self):
         """设置优惠直接提交"""
         # 获取函数名
-        dis.setFunctionName(inspect.stack()[0][3])
-        dis._rou_fun()
+        disSte.setFunctionName(inspect.stack()[0][3])
 
-        # 水单选框的点击以及信息输入
-        dis.waterSelectedInput()
+        # 进入路径
+        disSte._rou_fun()
 
-        # 水票单选框的点击以及信息输入
-        dis.watikiSelectedInput()
-
-        # 提交按钮的点击
-        dis.visibleDiscountSave()
+        # 执行输入指令
+        disSte.confirmationSubmission()
 
         # 执行弹窗的点击动作
-        dis.promptVerification()
+        disSte.promptVerification()
 
-        # 数据库信息比较
-        dis._verify_content_data()
+        # 执行数据比较的任务
+        disSte._verify_content_data()
 
     @unittest.skip(r"跳过:test_water_NotInput")
     def test_water_NotInput(self):
         # 获取函数名
-        dis.setFunctionName(inspect.stack()[0][3])
-        dis._rou_fun()
+        disSte.setFunctionName(inspect.stack()[0][3])
 
-        # 水单选框的点击以及信息输入
-        dis.RADIO_STATUS = True
-        dis.goodsCheckClick()
-        dis.waterInput()
+        # 进入路径
+        disSte._rou_fun()
 
-        # 提交按钮的点击
-        dis.visibleDiscountSave()
+        # 执行输入指令
+        disSte.confirmationSubmission()
 
-        # 输入错误内容时，弹窗的提示
-        dis.promptErrorInformation()
+        # 执行弹窗的点击动作，
+        disSte.promptErrorInformation()
+
+        # 执行数据比较的任务
+        # disSte._verify_content_data()
+
+    @unittest.skip(r"跳过:test_water_choice")
+    def test_water_choice(self):
+        """设置水优惠信息"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.promptVerification()
+
+        # 执行数据比较的任务
+        disSte._verify_content_data()
+
+    # @unittest.skip(r"跳过:test_water_discount")
+    def test_water_discount(self):
+        """只设水折扣"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.promptVerification()
+
+        # 执行数据比较的任务
+        disSte._verify_content_data()
 
 
 if __name__ == '__main__':

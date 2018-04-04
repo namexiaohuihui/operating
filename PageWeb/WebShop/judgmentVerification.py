@@ -7,20 +7,29 @@ __author__ = 'DingDong'
 import re
 import inspect
 from utils.config import readModel
-from utils.ComparedVerify import compared_verify
+from utils.comparedVerify import ComparedVerify
 import operator  # 任何对象都可以比较功能
 
 
-class JudgmentVerification(compared_verify):
-
+class JudgmentVerification(ComparedVerify):
     """
     数据比较
     """
-    def _verify_operator(self,re_value,excle_value):
-        re_ex = operator.eq(re_value, excle_value)
+
+    def _verify_operator(self, reValue, excleValue):
+        """
+        数据比较
+        :param reValue:  数据源
+        :param excleValue:  比较源
+        :return:
+        """
+        re_ex = operator.eq(reValue, excleValue)
         print("--------------------------------------")
-        print("读 data :  %s" % re_value)
-        print("获 data :  %s" % excle_value)
+        print("读 data :  %s" % reValue)
+        print("读 data 类型 :  %s" % type(reValue))
+        print("获 data :  %s" % excleValue)
+        print("获 data 类型 :  %s" % type(excleValue))
+        print("执行比较之后的结果为 %s" % re_ex)
         print("--------------------------------------")
         return re_ex
 
@@ -40,7 +49,6 @@ class JudgmentVerification(compared_verify):
 
         return list_code
 
-
     def separation(self, re_df, title, content):
         """
         数据验收
@@ -50,19 +58,19 @@ class JudgmentVerification(compared_verify):
         :return:
         """
         re_name = re_df[title]
-        _verify = operator.eq(re_name, content)
+        _verify = self._verify_operator(re_name, content)
         return _verify
 
     def _verify_match(self, my_sql):
         # 数据库查询
         regular = re.match('^SELECT', my_sql)
-        re_df = None
+        result = None
         if regular != None:
             # 读取数据库内容
-            result = self.mysql_total_selects(my_sql)
-            re_df = self._conversion_pandas(result)
+            result = self.mysqlTotalSelects(my_sql)
+            # re_df = self.conversionPandas(result) # 暂时不需要将数据转换成df形式
 
-        return re_df
+        return result
 
     """
     #------------------获取浏览器部分------------------------------------

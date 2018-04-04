@@ -24,7 +24,21 @@ import numpy
 
 
 class READEXCEL:
-    def __init__(self, FILEPATH, SHEETNAME=1):
+    # def __init__(self, FILEPATH, SHEETNAME=1):
+    #     """
+    #         FILEPATH :需要文件的位置
+    #         SHEETNAME　：读取工作薄的页面或者工作薄名
+    #     """
+    #     # 判断文件是否存在
+    #     if os.path.exists(FILEPATH):
+    #         self.excel = FILEPATH
+    #
+    #         # 判断是否为空
+    #         self.readexccel_Data(SHEETNAME)
+    #     else:
+    #         raise FileNotFoundError('文件不存在！')
+
+    def startReadExcel(self, FILEPATH, SHEETNAME=1):
         """
             FILEPATH :需要文件的位置
             SHEETNAME　：读取工作薄的页面或者工作薄名
@@ -79,8 +93,6 @@ class READEXCEL:
         else:
             print('1级错误')
 
-
-
     def position_sheet_row_value(self, min_row=1, max_row=None, max_col=None):
         """
         指定行读取整行的数据数据信息，数据已经通过value转换了
@@ -92,7 +104,7 @@ class READEXCEL:
         content = self.sheetbook.iter_rows(min_row=min_row, max_row=max_row, max_col=max_col)
         row_col_data = []  # 存储除了标题以外的内容
         title_data = []  # 只存储标题内容
-        _data = True #用来控制第一行打印的数据为用例标题
+        _data = True  # 用来控制第一行打印的数据为用例标题
         for row in content:
             row_data = []
             for single in row:
@@ -102,12 +114,12 @@ class READEXCEL:
                     row_data.append(single.value)
             _data = False
 
-            if len(row_data) >= 9: # 过滤一些不要的数据
+            if len(row_data) >= 9:  # 过滤一些不要的数据
                 row_col_data.append(row_data)
 
         return row_col_data, title_data
 
-    def die_angegebene_keys(self,row_col_data,title_data,keys = "函数"):
+    def die_angegebene_keys(self, row_col_data, title_data, keys="函数"):
         """
         # 根据指定的keys值执行读取
         :param row_col_data: 从case中单独分离出的数据信息
@@ -117,7 +129,7 @@ class READEXCEL:
         """
         columnLabel = []  # 获取指定key的内容用于做序列名
         for title in range(len(title_data)):
-            if title_data[title] == keys :
+            if title_data[title] == keys:
                 for rowColExcel in row_col_data:
                     columnLabel.append(rowColExcel[title])
                 break
@@ -193,7 +205,6 @@ class READEXCEL:
             '''
         return content;
 
-
     def attribute_template(self, emplate=None):
         """
         将现有xlsx文档保存为xltx模板
@@ -243,7 +254,6 @@ class READEXCEL:
 
         else:
             print('你丫的文件输入有误')
-
 
     def attribute_document(self, template, document):
         """
@@ -337,7 +347,6 @@ class WRITEEXCEL:
         else:
             self.active_sheet(_TITLE)
 
-
     def create_sheet(self, _TITLE, _INDEX):
         """
            如果只创建一个工作薄的话不建议这个方式
@@ -379,7 +388,7 @@ class WRITEEXCEL:
        """
         _ = self.work_sheet.cell(column=col, row=row, value=value)
 
-    def content_row_append(self,content):
+    def content_row_append(self, content):
         """
         对一整行直接写入.
         如果文件已经写入内容时，那么就在下一行写入内容
@@ -412,7 +421,7 @@ class WRITEEXCEL:
         # 时间戳转时间
         return dt.fromtimestamp()
 
-    def datetime_format(self,format = "%Y-%m-%d %H:%M:%S"):
+    def datetime_format(self, format="%Y-%m-%d %H:%M:%S"):
         #   获取当前时间，并按照格式进行返回
         import datetime
         return datetime.datetime.now().strftime(format)
@@ -444,7 +453,6 @@ class WRITEEXCEL:
         except InsufficientCoordinatesException:
             print('Break the merge error')
 
-
     def row_col_merge_excel(self, start_row=1, start_column=1, end_row=1, end_column=1):
         """
         指定行列之后进行合并
@@ -458,7 +466,8 @@ class WRITEEXCEL:
         :return:
         """
         try:
-            self.work_sheet.merge_cells(start_row=start_row, start_column=start_column, end_row=end_row, end_column=end_column)
+            self.work_sheet.merge_cells(start_row=start_row, start_column=start_column, end_row=end_row,
+                                        end_column=end_column)
             pass
         except InsufficientCoordinatesException:
             print('Merge error')
@@ -479,12 +488,12 @@ class WRITEEXCEL:
         """
         try:
             self.work_sheet.unmerge_cells(start_row=start_row, start_column=start_column, end_row=end_row,
-                                        end_column=end_column)
+                                          end_column=end_column)
             pass
         except InsufficientCoordinatesException:
             print('Break the merge error')
 
-    def insert_picture(self,range,image):
+    def insert_picture(self, range, image):
         """
         插入图片
         :param range: 需要插入图片的位置
@@ -494,14 +503,14 @@ class WRITEEXCEL:
         from openpyxl.drawing.image import Image
         ws[range] = "You should see three logos below"
         img = Image(image)
-        ws.add_image(img,range)
+        ws.add_image(img, range)
 
-    def bar_comparison_diagram(self,from_rows=True,
-                 min_col=1,
-                 min_row=1,
-                 max_col=2,
-                 max_row=2,
-                 anchor=None):
+    def bar_comparison_diagram(self, from_rows=True,
+                               min_col=1,
+                               min_row=1,
+                               max_col=2,
+                               max_row=2,
+                               anchor=None):
         """
         将一定范围内容的数据转换成条形图，进行比较。更方便查看
         :param from_rows:  为真时,拿行作为一个系列。为假时拿列作为一个系列进行比较
@@ -531,7 +540,7 @@ class WRITEEXCEL:
 
         ws.add_chart(chart, anchor)
 
-    def comment_remarks(self,range,text = 'Bug',author = 'dingdong' ):
+    def comment_remarks(self, range, text='Bug', author='dingdong'):
         """
         设置评论内容及作者...
         :param range: 范围
@@ -541,10 +550,10 @@ class WRITEEXCEL:
         """
         # 添加标红注释
         from openpyxl.comments import Comment
-        comment = Comment(text=text, author = author)
+        comment = Comment(text=text, author=author)
         ws[range].comment = comment
 
-    def folding_column(self,min_range,max_range,hidden=False):
+    def folding_column(self, min_range, max_range, hidden=False):
         """
          折叠柱（轮廓）（将指定 column name 进行折叠）
         :param min_range:  开始的位置
@@ -557,13 +566,13 @@ class WRITEEXCEL:
             """
             1.先判断开始位置是否小于结束位置：思路：字符串长度以及ASCII的大小
             """
-            #算出值的长度
+            # 算出值的长度
             length_min = len(min_range)
             length_max = len(max_range)
 
-            #　开始位置必须在结束位置的前面，所以先判断两个字母的长度
+            # 　开始位置必须在结束位置的前面，所以先判断两个字母的长度
             #   长度小于说明ASCII码也一定小于
-            if length_min < length_max :
+            if length_min < length_max:
                 self.work_sheet.column_dimensions.group(min_range, max_range, hidden=hidden)
 
             # 长度相等时，判断长度是不是为1.如果是说明不需要将字符串拆分之后进行计算
@@ -597,7 +606,7 @@ class WRITEEXCEL:
         else:
             print('The parameters given must be characters....')
 
-    def worksheet_color(self,color = '1072BA'):
+    def worksheet_color(self, color='1072BA'):
         # 设置工作薄标题颜色
         self.work_sheet.sheet_properties.tabColor = color
 
@@ -608,17 +617,19 @@ class WRITEEXCEL:
         ws1.title = 'range names'
 
         ws2 = wb.create_sheet(title='Pi', index=3)  # 设置标题并指定sheet的位置
-        #如果单元格内容为时间，那么可以查看设置时间的格式
+        # 如果单元格内容为时间，那么可以查看设置时间的格式
         # 为数字时，打印数字格式
         ws['A1'].number_format
 
 
-
 class PANDASDATA:
-    """
-    将读取excle中的数据进行转换
-    """
-    def __init__(self,_data):
+
+    def startPandasData(self, _data):
+        """
+        接收excle中读取到的数据
+        :param _data:  excle数据源
+        :return:
+        """
         self._data = _data
 
     def conversion_series(self):
@@ -629,7 +640,7 @@ class PANDASDATA:
         series = pd.Series(self._data)
         return series
 
-    def definition_DataFrame(self,index,periods,columns=None):
+    def definition_DataFrame(self, index, periods, columns=None):
         '''
         将字典的业内容进行系列化。
         :param index:  字典中的排列
@@ -640,16 +651,16 @@ class PANDASDATA:
         index1   1     1
         index2   2     2
         '''
-        dates = pd.date_range(index,periods=periods)
+        dates = pd.date_range(index, periods=periods)
         # 转换
-        return self.dataFrame(dates,columns)
+        return self.dataFrame(dates, columns)
 
-    def dataFrame(self,index=None,columns=None):
+    def dataFrame(self, index=None, columns=None):
         # 转换
-        df = pd.DataFrame(self._data, index=index,columns=columns)
+        df = pd.DataFrame(self._data, index=index, columns=columns)
         return df
 
-    def df_conversion(self,df,data_type = 'itertuples'):
+    def df_conversion(self, df, data_type='itertuples'):
         '''
         df转换成list的方法，然后给excle输入
         :param df: 通过pandas转换出来的df数据
@@ -696,7 +707,7 @@ class PANDASDATA:
         else:
             print('你确定自己输入正确了?、、、')
 
-    def zip_col(self,df,index=1,number=None):
+    def zip_col(self, df, index=1, number=None):
         '''
         通过zip方法，直接返回指定列的数据
         :param df:
@@ -719,7 +730,7 @@ class PANDASDATA:
                     list_data.append(row[r].value)
                 list_max.append(list_data)
 
-    def iloc_row(self,df,index = 1):
+    def iloc_row(self, df, index=1):
         """
         直接获取相应的行数据
         df['c1'].iloc[x].dtype 指定列的内容，并打印数据类型
@@ -733,7 +744,7 @@ class PANDASDATA:
         else:
             print('长度大于了。。。。。')
 
-    def row_index_header(self,df,index=False,header=False):
+    def row_index_header(self, df, index=False, header=False):
         from openpyxl.utils.dataframe import dataframe_to_rows
         '''
         建议都为假。。。
@@ -761,7 +772,7 @@ class PANDASDATA:
                     pass
                 else:
                     list_data = []
-                    for r in range(1,len(row)):
+                    for r in range(1, len(row)):
                         list_data.append(row[r].value)
                     list_max.append(list_data)
                 row_true = False
@@ -846,7 +857,7 @@ class PANDASDATA:
         print(df)
         lll = df.iloc[0]
         print(lll[1].value)
-        df.to_csv("six6.xlsx",index=False,encoding="gbk")
+        df.to_csv("six6.xlsx", index=False, encoding="gbk")
 
         print("*-**-*-*-*")
         from openpyxl.utils.dataframe import dataframe_to_rows
@@ -863,33 +874,63 @@ class PANDASDATA:
         # 修改某个key值先的Neri
         lists = {1, 2, 3}
         overall_ExcelData.loc[:, ('结果')] = lists
+        print(excelData.index)  # 打印所有序列名
+        print(excelData.columns)  # 打印标题
+        print(excelData.iloc[0])  # 获取第0行的数据
+        print(excelData.loc["22"])  # 获取标签序号为”22“的内容数据
 
-        excelData.index # 打印所有序列名
-        excelData.columns # 打印标题
-        excelData.iloc[0] # 获取第0行的数据
-        excelData.loc["22"] # 获取标签为”22“的内容数据
+
+class OpenExcelPandas(READEXCEL, PANDASDATA):
+
+    def __init__(self, name, sheet=''):
+        """
+        关于_date和_title的解释
+        读取excel的数据时：
+          _date表示的文件的路径
+          _title表示的是工作薄的页面
+        通过pandas进行转换时：
+          _date表示的数据
+          _title表示的是标题
+        :param name:
+        :param sheet:
+        """
+        self._date = name
+        self._title = sheet
+
+    def readCaseExcel(self):
+        # 创建工作薄workbook对象
+        self.startReadExcel(self._date, self._title)
+
+        # 数据读取
+        whole = self.position_sheet_row_value()
+
+        # 将case中内容部分的数据（除标题以外的数据）读出
+        self._date = whole[0]
+
+        # 将case中标题的内容读出
+        self._title = whole[1]
+
+        # 获取指定标题的内容
+        columnLabel = self.die_angegebene_keys(row_col_data=self._date, title_data=self._title)
+
+        # 通过pandas将数据进行转换
+        return self.conversionPandas(columnLabel)
+
+    def conversionPandas(self, columnLabel=None):
+        # 创建pandas中的数据源
+        self.startPandasData(self._date)
+
+        df = self.dataFrame(columns=self._title)  # 设置标题名
+
+        if columnLabel != None:
+            df = df.set_index([columnLabel])  # 设置df数据中的序列号
+
+        return df
+
 
 if __name__ == '__main__':
-    read = READEXCEL(r'E:\drivers\CasePlan\CasrScene\BuyersWechat\买家微信信息管理场景.xlsx')
-    max_row = read.position_sheet_row_value()
-    """
-    pan = PANDASDATA(max_row)
-    df = pan.definition_DataFrame('2013-01-01 12:13:52',2,data)
-    content = df.iloc[0]
-    print(df)
-    
-    """
-    dates = pd.date_range("2013-01-01", periods=len(tuple(max_row[0])))
-    df = pd.DataFrame(max_row[0], index=dates,columns=max_row[1])
-    print(df)
-    print(len(tuple(max_row[0])))
-    print( df.iloc[0]['场景'])
+    from utils.comparedVerify import ComparedVerify
 
+    excelData = ComparedVerify()._excel_Data('discount', 1)
 
-
-
-
-
-
-
-
+    print(excelData.iloc[0])

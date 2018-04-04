@@ -24,19 +24,12 @@ JudgmentVerification ： 数据验证以及工具的使用
 
 
 class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
+    # -----------------------------------文件配置参数----------------------------------
+    FUNCTION_NAME = "FUNCTION_NAME"  # 记录目前执行的函数名（也可以认为目前执行的用例）
+    GOODS_RADIO_STATUS = False  # 商品单选框的期望结果
+    WATIKIS_RADIO_STATUS = False  # 水票单选框的期望结果
 
-#-----------------------------------文件配置参数----------------------------------
-    FUNCTION_NAME = "" # 执行函数的名称
-    RADIO_STATUS = False # 单选框的期望结果
-
-    def setFunctionName(self,functionName):
-        self.FUNCTION_NAME = functionName
-
-    def setRadioStatus(self,radioStatus):
-        self.RADIO_STATUS = radioStatus
-
-
-#----------------------------------文件配置函数-----------------------------------
+    # ----------------------------------文件配置函数-----------------------------------
     def openingProgram(self, basename, exclefile):
         """
         定义log日志文件以及读取用例数据
@@ -57,7 +50,6 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         self.option_browser()  # 打开浏览器
         self.ps_user_login()  # 用户登录
 
-
     def _rou_fun(self):
         """
         进入相应的页面，并获取用例信息
@@ -67,11 +59,29 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         self._visible_css_selectop(self.treew)
         self._visible_css_selectop(self.tabs_discount)
 
-        # 根据用例标题获取用例
+
+    def setFunctionName(self, funtion):
+        """
+        设置需要运行的函数名
+        :param funtion:  函数名
+        :return:
+        """
+        self.FUNCTION_NAME = funtion
+
+        # 根据df标签序号获取用例
         self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
 
+    def setRadioStatus(self):
+        """
+        设置执行用户时，单选框的状态
+        GOODS_RADIO_STATUS = False  # 商品单选框的期望结果
+        WATIKIS_RADIO_STATUS = False  # 水票单选框的期望结果
+        :return:
+        """
+        self.GOODS_RADIO_STATUS = self.stringToValueBoolean(self.overallExcelData.loc[self.psCountGoodsChoice])
+        self.WATIKIS_RADIO_STATUS = self.stringToValueBoolean(self.overallExcelData.loc[self.psCountWatikiChoice])
 
-    # ------------------------------------输入模块
+    # ------------------------------------输入模块-----------------------------
     def confirmInput(self, caseTitle, eleInformation):
         """通过输入框进行数据输入"""
         title = self.overall[caseTitle]  # 根据用例title来读取数据
@@ -107,9 +117,9 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         # 保存按钮
         self.visibleDiscountSave()
 
-    # ----------------------数据库模块----------------
+    # ---------------------------------数据库模块--------------------------
     def _verify_content(self):
-        my_sql = self.overall[self.whole_query_statement()]  # 获取sql语句
+        my_sql = self.overall[self.wholeQueryStatement()]  # 获取sql语句
         return my_sql
 
     def excleValue(self):
@@ -121,10 +131,7 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         wa_id = self.overall[self.psCountWatikisId()]
         wa_max = self.overall[self.psCountWatikisMax()]
 
-        # 如果需要输入内容就返回内容否则返回一个空值
-        gbSult = gd_dis if gd_dis  else ''
-        waSult = wa_dis if wa_dis  else ''
-        if gbSult or waSult:
+        if self.GOODS_RADIO_STATUS or self.WATIKIS_RADIO_STATUS:
             # 将需要输入的参数弄成一个列表
             excle_value = {'goods': {'discount': gd_dis,
                                      'exception': gd_id},
@@ -136,19 +143,39 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
 
         return excle_value
 
-    def _get_content(self, value_text):
+    def _getContent(self, valueText):
         """
         比较数据库中的数据跟excle的数据是否一致
         :param value_text: 需要进行比较的数据信息
         :return:
         """
-        excle_value = self.excleValue()  # 获取excle中的数据
-        re_value = json.loads(value_text[0])  # 获取数据库中的数据
-
+        excleValue = self.excleValue()  # 获取excle中的数据
         # 数据比较
-        re_ex = self._verify_operator(re_value, excle_value)
+        reEx = self._verify_operator(valueText, excleValue)
 
-        self.log.info("执行用例的函数为： %s 数据库比较结果为: %s " % (self.FUNCTION_NAME, re_ex))
+        self.log.info("执行用例的函数为： %s 数据库比较结果为: %s " % (self.FUNCTION_NAME, reEx))
+
+    def getValteText(self,verify,value = 'value'):
+        """
+        根据数据类型为list的，进行转换成字符串并切割位于数据前后的“[]”
+        之后在将切割好的数据转换成json数据（即dict类型）
+        根据key来读取数据内容，读取出来的数据类型为str
+        需要转换成dict
+        :param verify: 数据源
+        :param value: 需要读取的key
+        :return:
+        """
+        # 将list转换成str
+        verify = json.dumps(verify, ensure_ascii=False)
+        # 切割str中前后位置的"[]"
+        verify = verify[1:len(verify) - 1]
+        # 将str转换成dict
+        verify = json.loads(verify)
+
+        # 根据key值读取数据将其转换成dict
+        verify = json.loads(verify[value])
+
+        return verify
 
     def _verify_content_data(self):
         """
@@ -156,17 +183,24 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         比较数据库的内容和excle的内容是否一致
         :return:
         """
-        # 　查询数据库
+        # 　读取sql语句
         my_sql = self._verify_content()
-        if my_sql != None:
-            #  判断sql是否存在，并返回df数据
+
+        # 判断语句是否None
+        if my_sql:
+            #  根据sql语句并返回数据
             re_df = self._verify_match(my_sql)
-            #  获取数据中指定key的内容
-            value_text = re_df['value']
-            #   比较数据
-            self._get_content(value_text)
+
+            if re_df:
+                #  获取数据中指定key的内容
+                value_text = self.getValteText(re_df)
+
+                #  比较数据
+                self._getContent(value_text)
+            else:
+                self.log.info("mysql 语句有误,执行查询时没找到数据.....")
         else:
-            self.log.info("mysql 语句为空不需要进入.....")
+            self.log.info("mysql 语句为空不执行动作 %s " % my_sql)
 
     def _verify_content_mysql(self, list_name, list_attr):
         """
@@ -225,9 +259,9 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         信息有误进行提交时，弹窗的提示
         :return:
         """
-        self.windowVerification(self.visible_p, self.whole_result(), self.confirm)
+        self.windowVerification(self.visible_p, self.whole_output(), self.confirm)
 
-    def radioSelected(self, selectop):
+    def radioSelected(self, selectop, radioStatus):
         """
         通过单选框元素进行状态的点击
         :param selectop:  单选框的对象
@@ -237,7 +271,7 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         _check = self._visible_return_selectop(selectop)
 
         # 执行单选框为选中状态的指令
-        self.visibleRadioSelected(_check, status=self.RADIO_STATUS)
+        self.visibleRadioSelected(_check, status=radioStatus)
 
     def waterSelectedInput(self):
         """
@@ -245,11 +279,14 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         :return:
         """
         # 读取商品优惠的设置是否打开
-        self.RADIO_STATUS = self.stringToValueBoolean(self.overall[self.psCountGoodsChoice()])
+        self.GOODS_RADIO_STATUS = self.stringToValueBoolean(self.overall[self.psCountGoodsChoice()])
+
         # 商品优惠单选框的点击
-        self.radioSelected(self.goods_check)
-        self.waterInput() if self.RADIO_STATUS else self.log(
-            "%s的设置为 %s" %(self.psCountGoodsChoice(),self.RADIO_STATUS))
+        self.radioSelected(self.goods_check, self.GOODS_RADIO_STATUS)
+
+        # 数据输入
+        self.waterInput() if self.GOODS_RADIO_STATUS else self.log.info(
+            "%s的设置为 %s" % (self.psCountGoodsChoice(), self.GOODS_RADIO_STATUS))
 
     def watikiSelectedInput(self):
         """
@@ -257,13 +294,14 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         :return:
         """
         # 读取水票优惠的设置是否打开
-        self.RADIO_STATUS = self.stringToValueBoolean(self.overall[self.psCountWatikiChoice()])
+        self.WATIKIS_RADIO_STATUS = self.stringToValueBoolean(self.overall[self.psCountWatikiChoice()])
+
         # 水票优惠单选框的点击
-        self.radioSelected(self.watiki_check)
-        self.watikiInput() if self.RADIO_STATUS else self.log(
-            "%s的设置为 %s" % (self.psCountWatikiChoice(), self.RADIO_STATUS))
+        self.radioSelected(self.watiki_check, self.WATIKIS_RADIO_STATUS)
 
-
+        # 数据输入
+        self.watikiInput() if self.WATIKIS_RADIO_STATUS else self.log.info(
+            "%s的设置为 %s" % (self.psCountWatikiChoice(), self.WATIKIS_RADIO_STATUS))
 
     def visibleDiscountSave(self):
         """
@@ -271,5 +309,3 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         :return:
         """
         self._visible_css_selectop(self.discountSave)
-
-
