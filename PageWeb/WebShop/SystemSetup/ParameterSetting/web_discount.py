@@ -182,7 +182,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         disSte._verify_content_data()
 
-    # @unittest.skip(r"跳过:test_water_discount")
+    @unittest.skip(r"跳过:test_water_discount")
     def test_water_discount(self):
         """只设水折扣"""
         # 获取函数名
@@ -199,6 +199,204 @@ class VerifyDiscount(unittest.TestCase):
 
         # 执行数据比较的任务
         disSte._verify_content_data()
+
+
+    @unittest.skip(r"跳过:test_water_goods")
+    def test_water_goods(self):
+        """只设限制商品"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作，
+        disSte.promptErrorInformation()
+
+        # 执行数据比较的任务
+        # disSte._verify_content_data()
+
+
+    @unittest.skip(r"跳过:test_watikis_NotInput")
+    def test_watikis_NotInput(self):
+        """勾选水票优惠但不输入优惠信息"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作，
+        disSte.promptErrorInformation()
+
+        # 执行数据比较的任务
+        # disSte._verify_content_data()
+
+
+    @unittest.skip(r"跳过:test_watikis_choice")
+    def test_watikis_choice(self):
+        """设置水票优惠信息"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.promptVerification()
+
+        # 执行数据比较的任务
+        disSte._verify_content_data()
+
+    @unittest.skip(r"跳过:test_watikis_discount")
+    def test_watikis_discount(self):
+        """只设水票折扣"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.returnVerification()
+
+        # 执行数据比较的任务
+        disSte._verify_content_data()
+
+    @unittest.skip(r"跳过:test_watikis_discountMaxZero")
+    def test_watikis_discountMaxZero(self):
+        """只水票折扣，并且最高抵扣为默认值"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.promptVerification()
+
+        # 执行数据比较的任务
+        disSte._verify_content_data()
+
+    @unittest.skip(r"跳过:test_watikis_limit")
+    def test_watikis_limit(self):
+        """只设限制水票"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.promptErrorInformation()
+
+        # 执行数据比较的任务
+        # disSte._verify_content_data()
+
+    @unittest.skip(r"跳过:test_watikis_max")
+    def test_watikis_max(self):
+        """只设最高抵扣"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.promptErrorInformation()
+
+        # 执行数据比较的任务
+        # disSte._verify_content_data()
+
+    @unittest.skip(r"跳过:test_watikis_DiscountLimit")
+    def test_watikis_DiscountLimit(self):
+        """设置水票折扣和限制水票"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.returnVerification()
+
+    @unittest.skip(r"跳过:test_watikis_DiscountLimitMaxZero")
+    def test_watikis_DiscountLimitMaxZero(self):
+        """设置水票折扣，限制水票,并且最大值为0"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.promptVerification()
+
+        # 执行数据比较的任务
+        disSte._verify_content_data()
+
+    # @unittest.skip(r"跳过:test_watikis_DiscounMax")
+    def test_watikis_DiscounMax(self):
+        """设置水票折扣和最高抵扣"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.promptVerification()
+
+        # 执行数据比较的任务
+        disSte._verify_content_data()
+
+    # @unittest.skip(r"跳过:test_watikis_LimitMax")
+    def test_watikis_LimitMax(self):
+        """设置水票限制和最高抵扣"""
+        # 获取函数名
+        disSte.setFunctionName(inspect.stack()[0][3])
+
+        # 进入路径
+        disSte._rou_fun()
+
+        # 执行输入指令
+        disSte.confirmationSubmission()
+
+        # 执行弹窗的点击动作
+        disSte.promptErrorInformation()
+
+        # 执行数据比较的任务
+        # disSte._verify_content_data()
 
 
 if __name__ == '__main__':

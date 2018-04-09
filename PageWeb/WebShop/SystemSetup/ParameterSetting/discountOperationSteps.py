@@ -59,7 +59,6 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         self._visible_css_selectop(self.treew)
         self._visible_css_selectop(self.tabs_discount)
 
-
     def setFunctionName(self, funtion):
         """
         设置需要运行的函数名
@@ -88,6 +87,7 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
 
         information = self._verify_parameter(title)  # 判断数据是否为None，如果是就返回一个空值‘’
 
+        print("输入的内容: %s 输入的对象: %s 输入的地方: %s " % (information,eleInformation,caseTitle))
         self._visible_json_input(eleInformation, information)  # 通过元素id利用json进行输入输入
 
     def waterInput(self):
@@ -122,20 +122,33 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         my_sql = self.overall[self.wholeQueryStatement()]  # 获取sql语句
         return my_sql
 
+    def getOverall(self,verify):
+        meter = self.overall[verify]
+        parameter = self._verify_parameter(meter)
+        return parameter
+
     def excleValue(self):
 
         # 读取excle表格需要输入的内容
-        gd_dis = self.overall[self.psCountgoodsdiscount()]
-        gd_id = self.overall[self.psCountGoodsId()]
-        wa_dis = self.overall[self.psCountWatikiDiscount()]
-        wa_id = self.overall[self.psCountWatikisId()]
-        wa_max = self.overall[self.psCountWatikisMax()]
+        gd_dis = self.getOverall(self.psCountgoodsdiscount())
+        gd_id = self.getOverall(self.psCountGoodsId())
+        wa_dis = self.getOverall(self.psCountWatikiDiscount())
+        wa_id = self.getOverall(self.psCountWatikisId())
+        wa_max = self.getOverall(self.psCountWatikisMax())
 
-        if self.GOODS_RADIO_STATUS or self.WATIKIS_RADIO_STATUS:
-            # 将需要输入的参数弄成一个列表
+        if self.GOODS_RADIO_STATUS and self.WATIKIS_RADIO_STATUS: # 商品和水票都输入了
             excle_value = {'goods': {'discount': gd_dis,
                                      'exception': gd_id},
                            'watiki': {'discount': wa_dis,
+                                      'exception': wa_id,
+                                      'max': wa_max}}
+
+        elif self.GOODS_RADIO_STATUS: # 只有商品输入
+            excle_value = {'goods': {'discount': gd_dis,
+                                     'exception': gd_id}}
+
+        elif self.WATIKIS_RADIO_STATUS: # 只有水票输入
+            excle_value = {'watiki': {'discount': wa_dis,
                                       'exception': wa_id,
                                       'max': wa_max}}
         else:
@@ -155,7 +168,7 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
 
         self.log.info("执行用例的函数为： %s 数据库比较结果为: %s " % (self.FUNCTION_NAME, reEx))
 
-    def getValteText(self,verify,value = 'value'):
+    def getValteText(self, verify, value='value'):
         """
         根据数据类型为list的，进行转换成字符串并切割位于数据前后的“[]”
         之后在将切割好的数据转换成json数据（即dict类型）
@@ -245,14 +258,43 @@ class DiscountOperationSteps(JudgmentVerification, DiscountParameterNames):
         """
         点击提交之后，弹窗的二次确认
         and
-        提交之后接口返回的提示信息
+        提交之后接口返回的提示信息,该信息为正确的信息
         :return:
+        """
+        # 提示信息的验证：再次确认的提示
+        # self.windowVerification(self.modal_body_p, self.whole_output(), self.btn_primary)
+
+        # 提交之后返回的数据进行验证
+        # self.windowVerification(self.visible_h2, self.whole_result(), self.confirm)
+
+        self.returnDataVerification(self.visible_h2)
+
+    def returnVerification(self):
+        """
+            点击提交之后，弹窗的二次确认
+            and
+            提交之后接口返回的提示信息,该信息为错误的信息
+            :return:
+        """
+        # 提示信息的验证：再次确认的提示
+        # self.windowVerification(self.modal_body_p, self.whole_output(), self.btn_primary)
+
+        # 提交之后返回的数据进行验证
+        # self.windowVerification(self.visible_p, self.whole_result(), self.confirm)
+        self.returnDataVerification(self.visible_p)
+
+    def returnDataVerification(self,returnData):
+        """
+            点击提交之后，弹窗的二次确认
+            and
+            提交之后接口返回的提示信息
+            :return:
         """
         # 提示信息的验证：再次确认的提示
         self.windowVerification(self.modal_body_p, self.whole_output(), self.btn_primary)
 
         # 提交之后返回的数据进行验证
-        self.windowVerification(self.visible_h2, self.whole_result(), self.confirm)
+        self.windowVerification(returnData, self.whole_result(), self.confirm)
 
     def promptErrorInformation(self):
         """

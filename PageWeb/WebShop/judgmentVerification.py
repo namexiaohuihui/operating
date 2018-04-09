@@ -25,10 +25,10 @@ class JudgmentVerification(ComparedVerify):
         """
         re_ex = operator.eq(reValue, excleValue)
         print("--------------------------------------")
-        print("读 data :  %s" % reValue)
-        print("读 data 类型 :  %s" % type(reValue))
-        print("获 data :  %s" % excleValue)
-        print("获 data 类型 :  %s" % type(excleValue))
+        print("读mysql data :  %s" % reValue)
+        print("读mysql data 类型 :  %s" % type(reValue))
+        print("获excle data :  %s" % excleValue)
+        print("获excle data 类型 :  %s" % type(excleValue))
         print("执行比较之后的结果为 %s" % re_ex)
         print("--------------------------------------")
         return re_ex

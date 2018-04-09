@@ -5,6 +5,9 @@
 @time: 2017/12/16 18:00
 @项目名称:operating
 https://tool.css-js.com/rgba.html
+
+颜色返回类
+
 """
 
 def aqua():

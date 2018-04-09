@@ -21,6 +21,10 @@ class DiscountParameterNames(ShopSystemsetup):
         disList = ["discount",1];
         return disList;
 
+    def getDailyBulletin(self):
+        disList = ["dailybulletin", 1];
+        return disList;
+
 
 
     """
