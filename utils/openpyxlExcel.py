@@ -5,7 +5,6 @@
 @time: 2017/12/9 18:39
 @项目名称:operating
 http://openpyxl.readthedocs.io/en/latest/
-http://openpyxl.readthedocs.io/en/default/usage.html#write-a-workbook
 http://blog.csdn.net/tanzuozhev/article/details/76713387
 http://www.cnblogs.com/chaosimple/p/4153083.html
 http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.set_index.html 官网
@@ -643,7 +642,7 @@ class PANDASDATA:
     def definition_DataFrame(self, index, periods, columns=None):
         '''
         将字典的业内容进行系列化。
-        :param index:  字典中的排列
+        :param index:  字典中的序列号
         :param columns: 字典中的key
         :return:
         例:

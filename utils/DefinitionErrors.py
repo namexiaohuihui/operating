@@ -28,22 +28,14 @@ def error_get(basename, _browser_):
     log = Log(basename, "ERROR")
     log.info(error)
 
-    # 截图
-    # _browser_.get_screenshot_as_file("./" + logFile + "-screenshot_error.png")
     _browser_.get_screenshot_as_file(os.path.join(log_path, logFile + ".png"))
 
 
 def error_output(basename, _browser_):
 
-    log = Log(basename, classification='ERROR')
     error = traceback.format_exc()
+    log = Log(basename, classification='ERROR')
     log.info("发生错误时打印的错误数据信息: %s" % error)
 
-    # 截图
-    # _browser_.get_screenshot_as_file("./-screenshot_error.png")
-    # cur_path = os.path.dirname(os.path.realpath(__file__))
-    #
-    # log_path = os.path.join(os.path.dirname(cur_path), 'logs')
-    #
     basename = basename + ".png"
     _browser_.get_screenshot_as_file(os.path.join(log_path, basename))

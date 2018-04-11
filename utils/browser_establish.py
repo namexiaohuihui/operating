@@ -102,8 +102,9 @@ class browser_confirm(object):
             self.browser.get(url)
         # 等待网页加载，加载时间为10s，加载完就跳过
         self.browser.implicitly_wait(15)
+
         print("浏览器打开完毕..........")
-        return self.browser;
+        return self.browser
 
     #   设置手机模式
     def mobile_phone_mode(self):
