@@ -4,14 +4,13 @@ __author__ = 'DingDong'
 @file: ComparedVerify.py
 @time: 2018/2/5 10:30
 """
-import inspect
 import os
 import time
 import operator
-from utils import DefinitionErrors as dError
+from tools import DefinitionErrors as dError
 from utils.config import readModel
-from utils.PymysqlMain import pymysqls
-from utils.openpyxlExcel import OpenExcelPandas
+from tools.PymysqlMain import pymysqls
+from tools.openpyxlExcel import OpenExcelPandas
 from utils.browser_establish import browser_confirm
 from utils.operation.selenium_input import action_input
 from utils.operation.selenium_click import action_click
@@ -92,7 +91,10 @@ class ComparedVerify(object):
     def _excel_Data(self, filename, SHEETNAME=1):
 
         # 获取excel路径
-        file_path = readModel.establish_con(model="excelmodel").get("excel", filename)
+        conmodel = readModel.establish_con(model="excelmodel")
+        consyst = conmodel.get("excel", "systemsetup")
+        excelname = conmodel.get("excel", filename)
+        file_path = os.path.join(consyst, excelname)
         # 读取相应路径中的数据
         read = OpenExcelPandas(file_path, sheet=SHEETNAME)
         excelData = read.readCaseExcel()
@@ -103,12 +105,12 @@ class ComparedVerify(object):
     """
 
     def _visible_return_selectop(self, locator, timeout=5):
-        # 判断元素是否存在，如果存在就进行点击并返回对象
+        # 判断元素是否存在，如果存在就返回该元素
         ele = self.vac.is_visible_css_selectop(self.driver, locator)
         return ele
 
     def _visible_css_selectop(self, locator, timeout=5):
-        # 判断元素是否存在，如果存在就进行点击并返回对象
+        # 判断元素是否存在，如果存在就进行点击
         self.vac.css_click(self.driver, locator)
 
     def _visible_css_selectop_text(self, locator):

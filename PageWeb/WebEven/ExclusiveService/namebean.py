@@ -5,7 +5,7 @@
 @time: 2018/1/25 23:16
 @Entry Name:operating
 """
-from utils.ExcelBeanName import even_exclusiveService
+from utils.excelname.excelBeanName import even_exclusiveService
 # 该类主要设置一些常用的属性值以及参数
 
 class letter_parameter_names(even_exclusiveService):

@@ -9,7 +9,7 @@ import datetime
 import os
 import traceback
 
-from utils.Logger import Log
+from tools.Logger import Log
 
 # 错误截图的存放路径
 cur_path = os.path.dirname(os.path.realpath(__file__))

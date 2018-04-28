@@ -10,6 +10,10 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 
+"""
+通过路径来获取旗下子标签的数据信息
+"""
+
 
 class ExtendBeantifulSoup():
     """
@@ -30,6 +34,10 @@ class ExtendBeantifulSoup():
         self.daily = daily
         # 定义数据容器
         self.dataSet = []
+
+    def serLablePath(self, lable):
+        # 设置元素路径
+        self.lablePath = lable
 
     def setLableOneTr(self, one):
         # 设置一级元素标签
@@ -72,7 +80,6 @@ class ExtendBeantifulSoup():
 
         # 查找路径下面全部关于此标签的内容
         lableOne = adress[0].find_all(self.LABLE_ONE_TR)
-
         return lableOne
 
     def lableParsingKey(self):
@@ -80,6 +87,7 @@ class ExtendBeantifulSoup():
         :return:  返回单次获取到的数据，并以key-value关系返回
         """
         lableOne = self.lableParsing()
+        print(lableOne)
         for one in lableOne:  # 循环
             daily = {}  # 查找的内容通过键值关系进行输出
             # 查找路径下面全部关于此标签的内容
@@ -90,22 +98,21 @@ class ExtendBeantifulSoup():
                 daily[self.daily[two]] = lable.text.strip()
             # 添加到数据容器中
             self.dataSet.append(daily)
-        return daily
+            return self
 
-    def lableParsingList(self):
+    def lableParsingList(self,td = "td"):
         """
         :return: 返回单次获取到的数据，并以list形式返回
         """
+        self.setLableTwoTd(td)
         lableOne = self.lableParsing()
         for one in lableOne:  # 循环
             # 查找路径下面全部关于此标签的内容
             lableTwo = one.find_all(self.LABLE_TWO_TD)
-            daily = []  # 查找的内容通过键值关系进行输出
-            for two in lableTwo:
-                daily.append(two.text.strip())
+            # 将数据转换成列表形式进行输出
+            daily = map(lambda one: one.text.strip(), lableTwo)
             self.dataSet.append(daily)
-        return daily
-
+        return self
     def interfaceToPandas(self):
         # 将数据转换成pandsa
         if self.dataSet:
@@ -113,19 +120,27 @@ class ExtendBeantifulSoup():
             return df
         else:
             return 0
-
-
+nishishabi = "duidi"
 if __name__ == '__main__':
-    daily = ["type", "city", "title", "content", "time", "status", "default"]
-
+    weizhi = 7
+    import time
     be = browser_confirm()
-    drivers = be.url_opens(r"F:\desktop\gonggao.html")
+    drivers = be.url_opens(r"F:\desktop\66.html")
+    time.sleep(1)
+    side = drivers.find_element_by_css_selector("ul.sidebar-menu>li:nth-child(9)")
+    # body > div.wrapper > aside > section > ul > li.treeview.active
+    # body > div.wrapper > aside > section > ul > li: nth - child(9)
+    print(side.text)
+    print("11111")
+    print(side.click())
+    side = drivers.find_element_by_css_selector(".treeview-menu.menu-open>li:nth-child(2)")
+    print(side.text)
+    print("2222")
+    print(side.click())
+    side = drivers.find_element_by_css_selector(".nav.nav-tabs>li:nth-child(1)")
+    print(side.text)
+    print("333")
+    print(side.click())
 
-    db = ExtendBeantifulSoup(drivers, "#datatatle > tbody", daily)
-    db.lableParsingList()
-    db.interfaceToPandas()
-    print(df)
-    drivers.close()
 
-    print(df.index)  # 打印所有序列名
-    print(df.columns)  # 打印标题
+

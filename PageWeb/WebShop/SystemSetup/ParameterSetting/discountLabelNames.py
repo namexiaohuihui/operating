@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*- 
 """
 @__author__ :70486 
-@file: name_bean.py
+@file: discountLabelNames.py
 @time: 2017/11/2 23:36
 @项目名称:operating
 """
 
-from utils.ExcelBeanName import ShopSystemsetup
+from utils.excelname.shopSystemsetup import ShopParameterSetting
 
 
 # 该类主要设置一些常用的属性值以及参数
 
-class DiscountParameterNames(ShopSystemsetup):
+class DiscountParameterNames(ShopParameterSetting):
 
     """
     定义文件名以及工作薄，方便统一进行修改
@@ -19,21 +19,15 @@ class DiscountParameterNames(ShopSystemsetup):
 
     def getDiscountExcle(self):
         disList = ["discount",1];
-        return disList;
-
-    def getDailyBulletin(self):
-        disList = ["dailybulletin", 1];
-        return disList;
-
-
+        return disList
 
     """
     整体路径
     """
-    sidebar = ".sidebar-menu li:nth-child(2)"  # 顶级目录
-    treew = ".treeview-menu.menu-open li:nth-child(1)"  # 上级目录
-    tabs_withdrawals = ".nav.nav-tabs li:nth-child(3)"  # 提现入口
-    tabs_discount = ".nav.nav-tabs li:nth-child(4)"  # 优惠入口
+    sidebar = ".sidebar-menu li:nth-child(2)"  # 菜单目录
+    treew = ".treeview-menu.menu-open li:nth-child(1)"  # 标签目录
+    tabs_withdrawals = ".nav.nav-tabs li:nth-child(3)"  # 提现页面
+    tabs_discount = ".nav.nav-tabs li:nth-child(4)"  # 优惠页面
 
     """--------------------------------参数的获取路径------------------------------"""
 
@@ -120,7 +114,3 @@ class DiscountParameterNames(ShopSystemsetup):
     system_successful = "操作成功"  # 再次确认的提示内容
 
 
-if __name__ == '__main__':
-    excle = DiscountParameterNames().getDiscountExcle()
-    print(excle[0])
-    print(excle[1])

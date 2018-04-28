@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+__author__ = 'DingDong'
+"""
+@file: timeFromat.py
+@time: 2018/4/17 16:17
+"""
+import time
+
+
+class TimeFromat(object):
+
+    # 单例类判断。如果该类创建过就不需要重新创建了
+    def __new__(cls, *args, **kw):
+        if not hasattr(cls, '_instance'):
+            orig = super(TimeFromat, cls)
+            cls._instance = orig.__new__(cls, *args, **kw)
+        return cls._instance
+
+    def timeToStamp(self, tm):
+        # 根据日期转换成时间戳
+        tm = time.strptime(tm, '%Y-%m-%d %H:%M:%S')
+        timeStamp = int(time.mktime(tm))
+        return timeStamp
+
+    def structToStamp(self, tm):
+        # struct_time时间格式转时间戳
+        timeStamp = int(time.mktime(tm))
+        return timeStamp
+
+    def stampToTime(self, tm):
+        # 将时间戳转换成时间
+        if type(tm) is str:
+            tm = int(tm)
+        timeArray = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(tm))
+        return timeArray
+
+    def currentToStamp(self):
+        # 获取当前时间转成时间戳
+        currentTime = time.localtime(time.time())
+        return self.structToStamp(currentTime)
+
+    def currentToTime(self):
+        # 获取当前时间转成时间
+        currentTime = time.time()
+        return self.stampToTime(currentTime)
+
+
+if __name__ == '__main__':
+    print(TimeFromat().stampToTime(1525190399))

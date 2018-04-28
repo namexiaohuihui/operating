@@ -5,7 +5,7 @@
 @time: 2017/6/20 22:24
 """
 import os
-from utils import DefinitionErrors as dError
+from tools import DefinitionErrors as dError
 from selenium import webdriver
 
 r'''

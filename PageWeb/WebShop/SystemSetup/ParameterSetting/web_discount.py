@@ -6,10 +6,9 @@ __author__ = 'Administrator'
 """
 
 import re
-import time
+import os
 import inspect
 import unittest
-from utils.Logger import Log
 from PageWeb.WebShop.SystemSetup.ParameterSetting.discountOperationSteps import DiscountOperationSteps
 
 """
@@ -54,7 +53,7 @@ class VerifyDiscount(unittest.TestCase):
     def setUp(cls):
         # 该类运行时优先调用的函数
         # log.info("The program begins to execute. Don't stop me when you start.")
-        basename = cls.__class__.__name__
+        basename = os.path.splitext(os.path.basename(__file__))[0]
         EXCLE_FILE = disSte.getDiscountExcle()
         disSte.openingProgram(basename, EXCLE_FILE)
 
@@ -362,7 +361,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         disSte._verify_content_data()
 
-    # @unittest.skip(r"跳过:test_watikis_DiscounMax")
+    @unittest.skip(r"跳过:test_watikis_DiscounMax")
     def test_watikis_DiscounMax(self):
         """设置水票折扣和最高抵扣"""
         # 获取函数名

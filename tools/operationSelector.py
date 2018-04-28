@@ -5,8 +5,6 @@ __author__ = 'DingDong'
 @time: 2018/4/10 11:17
 """
 from utils.browser_establish import browser_confirm
-import time
-from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.select import Select
 from utils.operation.selenium_visible import action_visible
 
@@ -31,6 +29,7 @@ class OperationSelector(action_visible):
         """
         for option in self.select.options:
             self.optionsList.append(option.text.strip())
+        return self.optionsList
 
     def get_value(self):
         """
@@ -46,7 +45,7 @@ class OperationSelector(action_visible):
         return self.select
 
     def getSelectedOptions(self):
-        # 返回当前业已option
+        # 返回当前业已选择的option
         selected = self.select.first_selected_option.text.strip()
         return selected
 
@@ -125,6 +124,7 @@ class OperationSelector(action_visible):
         self.select.select_by_visible_text(text)
         return selected
 
+
     # ----------------------------------取消已选择的参数------------------------
     def setDeselectAll(self):
         """
@@ -170,6 +170,5 @@ if __name__ == '__main__':
     be = browser_confirm()
     drivers = be.url_opens(r"F:\desktop\gonggao.html")
     dl = OperationSelector(drivers, ".box-city > div:nth-child(1) > select")
-    optinons = dl.getValueSize()
-    print(optinons)
-    drivers.close()
+    print(dl.get_options())
+    # drivers.close()

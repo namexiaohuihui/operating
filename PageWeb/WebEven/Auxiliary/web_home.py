@@ -13,7 +13,6 @@ import unittest
 
 from PageWeb.WebEven import AccountPrivacy as ap
 from utils import Log
-from utils import StringCutting  as sc
 from PageWeb.WebEven.Auxiliary.namebean import letter_parameter_names
 
 """

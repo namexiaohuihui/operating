@@ -10,7 +10,7 @@
 """
 
 
-class excel_title(object):
+class ExcelTitle(object):
     """
     存放统一格式的标题
     """
@@ -56,7 +56,7 @@ class excel_title(object):
 
 
 # even 的地盘
-class even_auxiliary(excel_title):
+class even_auxiliary(ExcelTitle):
     def even_account(self):
         return "账号"
 
@@ -64,7 +64,7 @@ class even_auxiliary(excel_title):
         return "密码"
 
 
-class even_exclusiveService(excel_title):
+class even_exclusiveService(ExcelTitle):
     def password_past(self):
         return "旧密码"
 
@@ -75,36 +75,11 @@ class even_exclusiveService(excel_title):
         return "确认密码"
 
 
-# shop的地盘
-class ShopSystemsetup(excel_title):
+if __name__ == '__main__':
+    from utils.excelname.shopSystemsetup import ShopNoticeController as sn
 
-    def psWithExtract(self):
-        return "提现"
-
-    def psWithCost(self):
-        return "手续费"
-
-    def psCountgoodsdiscount(self):
-        return "商品折扣"
-
-    def psCountGoodsChoice(self):
-        return "商品选择框"
-
-    def psCountGoodsId(self):
-        return "不参与商品"
-
-    def psCountWatikiChoice(self):
-        return "水票选择框"
-
-    def psCountWatikiDiscount(self):
-        return "水票折扣"
-
-    def psCountWatikisId(self):
-        return "不参与水票"
-
-    def psCountWatikisMax(self):
-        return "最高抵扣"
-
+    print(sn.dailyDeadline)
+    print(sn.dailyCity(sn))
 
 
 

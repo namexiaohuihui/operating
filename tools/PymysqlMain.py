@@ -137,66 +137,15 @@ class pymysqls(object):
             print('事务处理成功', self.cursor.rowcount)
 
 
-def do_something(df):
-    foo = df.loc['test_less_than']  # Is foo a view? A copy? Nobody knows!
-    # ... many lines here ...
-    foo['结果'] = "555"  # We don't know whether this will modify df or not!
-    return foo
-
-
-class number_one(object):
-    def __init__(self):
-        print("1")
-
-
 if __name__ == '__main__':
-    sql = "SELECT * from lnsm_system_setting s WHERE s.`key` = 'new-user-preferences-setting-450100';"
+    sql = ""
+    from tools.openpyxlExcel import PANDASDATA
+
     py = pymysqls()
     py.connects_readModel()
     neirong = py.total_vertical_selects(sql)
-    # print(neirong)
-
-    # import time
-    # time.sleep(2)
-    import operator
-
-    from utils.openpyxlExcel import PANDASDATA
-
     # 数据转换
     pan = PANDASDATA(neirong)
-
-    df = pan.dataFrame()
-
-    ree = json.loads(df['value'][0])
-
-    ceshi_str = 'discount'
-    cesi_in = '5'
-
-    ceshi_watiki = {'goods': {'discount': '1', 'exception': '6553,6576,6595,6596,6597,6598,6600,6602,6603,6604,6605,6606,6607,6608,6609,6610,6611,6601,6616,6553'}, 'watiki': {ceshi_str: cesi_in, 'exception': '17006', 'max': '75'}}
-
-
-    ceshi_value = operator.eq(ree, ceshi_watiki)
-    print(ceshi_value)
-
-    # ree = json.loads(value_text[0])
-    # print(ree['goods'])
-    # for ree in value_text:
-    #     ree = json.loads(ree)
-    #     print(ree['goods'])
-    # print(ree['goods'])
-    # print(ree['watiki'])
-
-    # from PageWeb.WebShop import JudgmentVerification as jv
-    # overall_ExcelData = jv._excel_Data(filename="parameterSetting", SHEETNAME=1)
-    # df_index = df.loc[index]
-    # df_index[key] = value
-    # overall = overall_ExcelData.loc['test_all_zero']
-    #
-    # import time
-    # time.sleep(2)
-    # overall["结果"] = 2
-    # print(overall)
-    # number_one = number_one()
-    # overall_ExcelData.loc["test_less_than",'结果'] = number_one
-    # # df.loc[index,key] = value
-    # print(overall_ExcelData)
+    daily = ["type", "city", "title", "content", "time", "status", "default"]
+    df = pan.dataFrame(columns=daily)
+    print(df)

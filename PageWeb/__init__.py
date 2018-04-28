@@ -10,13 +10,8 @@ def nihaoma(value,text):
     return operator.eq(value,text)
 
 if __name__ == '__main__':
-    value = {"goods":{"discount":"1","exception":"10370"},"watiki":{"discount":"5","exception":"10253","max":"75"}}
-    nihao ={'goods': {'discount': '1', 'exception': '10370'}, 'watiki': {'discount': '5', 'exception': '10253', 'max': '75'}}
-    print(nihaoma(value,nihao))
-
-    excle_value = {'goods': {'discount': 1,
-                             'exception': 1},
-                   'watiki': {'discount': 1,
-                              'exception': 1,
-                              'max': 1}}
-    print(type(excle_value))
+    neirong = [{'code': 450100, 'name': '南宁市'}, {'code': 450200, 'name': '柳州市'}, {'code': 430100, 'name': '长沙市'}, {'code': 451000, 'name': '百色市'}, {'code': 451100, 'name': '贺州市'}, {'code': 420100, 'name': '武汉市'}, {'code': 500100, 'name': '重庆市辖区'}]
+    for code in neirong:
+        # print(code)
+        for (d, x) in code.items():
+            print("key:" + d + ",value:" + str(x))

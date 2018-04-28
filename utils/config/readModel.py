@@ -33,9 +33,15 @@ def obtain_con(conf):
 
 
 if __name__ == '__main__':
-    cur_path = os.path.dirname(os.path.realpath(__file__))
-    configPath = os.path.join(cur_path,"model.ini")
-    conf = configparser.ConfigParser()
-    conf.read(configPath)
-    host = conf.get("database", "host")
-    print(host)
+    # cur_path = os.path.dirname(os.path.realpath(__file__))
+    # configPath = os.path.join(cur_path,"model.ini")
+    # conf = configparser.ConfigParser()
+    # conf.read(configPath)
+    # host = conf.get("database", "host")
+    # print(host)
+    connn = establish_con("excelmodel")
+    syst = connn.get("excel","systemsetup")
+    dail = connn.get("excel","dailybulletin")
+    excel = os.path.join(syst,dail)
+    print(excel)
+

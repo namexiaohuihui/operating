@@ -17,11 +17,11 @@ print进行输入时语句上只写了两个%s，但是参数却有多个。
 StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
 页面刷新之后需要重新定位。
 
-******************************************
-map:{'buyer_watiki_id': 12452, 'incr': 1962, 'id': 1712190438126760, 'uid': 10478, 'type': 2, 'business_number': 12452, 'business_type': 2, 'utype': 1, 'amount': Decimal('1.00'), 'receipt': '', 'status': 2, 'status_code': '', 'status_msg': '', 'add_time': 1513672691}
-******************************************
-map:{'buyer_watiki_id': 12449, 'incr': 1960, 'id': 1712190405422707, 'uid': 10478, 'type': 2, 'business_number': 12449, 'business_type': 2, 'utype': 1, 'amount': Decimal('9.00'), 'receipt': '', 'status': 2, 'status_code': '', 'status_msg': '', 'add_time': 1513670741}
-******************************************
-map:{'buyer_watiki_id': 12437, 'incr': 1958, 'id': 1712191132562435, 'uid': 11011, 'type': 2, 'business_number': 12437, 'business_type': 2, 'utype': 1, 'amount': Decimal('0.10'), 'receipt': '2017121921001004280293975094', 'status': 2, 'status_code': '', 'status_msg': '', 'add_time': 1513654375}
-******************************************
-map:{'buyer_watiki_id': 12436, 'incr': 1957, 'id': 1712191049094269, 'uid': 10478, 'type': 1, 'business_number': 12436, 'business_type': 2, 'utype': 1, 'amount': Decimal('0.01'), 'receipt': '50000105162017121902760862413', 'status': 2, 'status_code': '', 'status_msg': '', 'add_time': 1513651739}
+ Can only compare identically-labeled DataFrame objects
+ 两个pandas对象进行比较时，长度不相等出现的错误
+
+TypeError: argument of type 'NoneType' is not iterable
+weizhi = self.overall[dn.dailyCity()]
+dl.setSelectorText(weizhi)
+不设置中间变量shezhi时就会出现这个错误
+

@@ -4,11 +4,13 @@
 @file: OpenpyxlExcel.py
 @time: 2017/12/9 18:39
 @项目名称:operating
-http://openpyxl.readthedocs.io/en/latest/
-http://blog.csdn.net/tanzuozhev/article/details/76713387
-http://www.cnblogs.com/chaosimple/p/4153083.html
+http://openpyxl.readthedocs.io/en/latest/ 读取excel
+http://blog.csdn.net/tanzuozhev/article/details/76713387 pandas迭代
+http://www.cnblogs.com/chaosimple/p/4153083.html 十分钟搞定pandas
 http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.set_index.html 官网
-https://pandas.pydata.org/pandas-docs/stable/index.html
+https://pandas.pydata.org/pandas-docs/stable/index.html官网
+https://www.cnblogs.com/en-heng/p/5630849.html 函数解释
+https://jingyan.baidu.com/article/36d6ed1f6c54b01bcf488312.html pandas数据合并
 """
 
 from openpyxl import Workbook, load_workbook
@@ -623,6 +625,14 @@ class WRITEEXCEL:
 
 class PANDASDATA:
 
+    def __init__(self, _data = None):
+        """
+        接收excle中读取到的数据
+        :param _data:  excle数据源
+        :return:
+        """
+        self._data = _data
+
     def startPandasData(self, _data):
         """
         接收excle中读取到的数据
@@ -630,6 +640,7 @@ class PANDASDATA:
         :return:
         """
         self._data = _data
+        return self
 
     def conversion_series(self):
         '''
@@ -655,9 +666,30 @@ class PANDASDATA:
         return self.dataFrame(dates, columns)
 
     def dataFrame(self, index=None, columns=None):
+        '''
+       将字典的业内容进行系列化。
+        :param index:  字典中的序列号
+        :param columns: 字典中的key
+        :return:
+        例:
+                key1   key2
+        index1   1     1
+        index2   2     2
+        '''
         # 转换
         df = pd.DataFrame(self._data, index=index, columns=columns)
         return df
+
+    def functionConcat(self,function,*frames):
+        '''
+        将多个DataFrame数据集合并之后，将其转成excle文档方便进行查看
+        :param function:  新创建的excle文件名
+        :param frames:  多个DataFrame合并后的数据集
+        :return:
+        '''
+        result = pd.concat(frames, keys=['readdata', 'storage', 'results'])
+        result.to_csv(function + ".csv", index=False, encoding="gbk")
+
 
     def df_conversion(self, df, data_type='itertuples'):
         '''
@@ -877,6 +909,10 @@ class PANDASDATA:
         print(excelData.columns)  # 打印标题
         print(excelData.iloc[0])  # 获取第0行的数据
         print(excelData.loc["22"])  # 获取标签序号为”22“的内容数据
+
+        # concat将其进行合并操作.keys将其合并后用索引区分来源于不同DataFrame的数据
+        frames = [dfebs, df, dfop]
+        result = pd.concat(frames,keys=['dfebs', 'df', 'dfop'])
 
 
 class OpenExcelPandas(READEXCEL, PANDASDATA):

@@ -12,8 +12,7 @@ import os
 
 import selenium.webdriver.support.expected_conditions as EC
 import selenium.webdriver.support.ui as ui
-from utils import DefinitionErrors as dError
-import inspect
+from tools import DefinitionErrors as dError
 
 
 class action_visible(object):

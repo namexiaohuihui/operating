@@ -16,7 +16,7 @@ class QRCode(object):
 # if len(sys.argv) < 2:
 #     print("Usage : %s <image file>" %sys.argv[0])
 #     sys.exit(1)
-    filepath = r"E:\需求\【0UI】\安卓\界面PNG\连你合伙人\连你合伙人6.png"
+    filepath = r"----6.png"
 
     def getQRCodeData(self):
         image = cv2.imread(filepath)

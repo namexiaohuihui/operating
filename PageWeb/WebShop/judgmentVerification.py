@@ -6,14 +6,31 @@ __author__ = 'DingDong'
 """
 import re
 import inspect
+from tools.Logger import Log
 from utils.config import readModel
 from utils.comparedVerify import ComparedVerify
 import operator  # 任何对象都可以比较功能
 
 
 class JudgmentVerification(ComparedVerify):
+
     """
-    数据比较
+    # 全局参数部分
+    """
+    def setFunctionName(self, funtion):
+        """
+        设置需要运行的函数名
+        :param funtion:  函数名
+        :return:
+        """
+        # 记录目前执行的函数名（也可以认为目前执行的用例）
+        self.FUNCTION_NAME = funtion
+        self.log.functionName(self.FUNCTION_NAME)
+        # 根据df标签序号获取用例
+        self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
+
+    """
+    # ---------------------数据比较----------------------
     """
 
     def _verify_operator(self, reValue, excleValue):
@@ -23,54 +40,25 @@ class JudgmentVerification(ComparedVerify):
         :param excleValue:  比较源
         :return:
         """
+        self.log.info("读mysql data :  %s  类型 :  %s" % (reValue,type(reValue)))
+        self.log.info("获excle data :  %s  类型 :  %s" % (excleValue,type(excleValue)))
         re_ex = operator.eq(reValue, excleValue)
-        print("--------------------------------------")
-        print("读mysql data :  %s" % reValue)
-        print("读mysql data 类型 :  %s" % type(reValue))
-        print("获excle data :  %s" % excleValue)
-        print("获excle data 类型 :  %s" % type(excleValue))
-        print("执行比较之后的结果为 %s" % re_ex)
-        print("--------------------------------------")
+        self.log.info("执行比较之后的结果为 %s" % re_ex)
         return re_ex
 
-    def _verify_attr_name(self, my_sql, *codeattr):
-        re_df = self._verify_match(my_sql)
-        # 比较两个list的内容
-        list_name = codeattr[0]
-        list_attr = codeattr[1]
-        verify_name = self.separation(re_df, 'name', codeattr[0])
-        verify_code = self.separation(re_df, 'code', codeattr[1])
-
-        list_code = []
-        for code in range(len(verify_code)):
-            content = "编号： %s 结果为 %s,城市名： %s 结果为 %s" \
-                      % (list_attr[code], verify_code[code], list_name[code], verify_name[code])
-            list_code.append(content)
-
-        return list_code
-
-    def separation(self, re_df, title, content):
-        """
-        数据验收
-        :param re_df:
-        :param title:
-        :param content:
-        :return:
-        """
-        re_name = re_df[title]
-        _verify = self._verify_operator(re_name, content)
-        return _verify
-
     def _verify_match(self, my_sql):
-        # 数据库查询
+        '''
+        数据库查询
+        :param my_sql:  sql语句
+        :return:  返回查询到的数据集，没查到数据时返回None
+        '''
         regular = re.match('^SELECT', my_sql)
-        result = None
         if regular != None:
             # 读取数据库内容
             result = self.mysqlTotalSelects(my_sql)
             # re_df = self.conversionPandas(result) # 暂时不需要将数据转换成df形式
-
-        return result
+            return result
+        return None
 
     """
     #------------------获取浏览器部分------------------------------------
@@ -79,22 +67,36 @@ class JudgmentVerification(ComparedVerify):
     def option_browser(self):
         self.driver = self._browser(option="admin_url")
 
+    def openingProgram(self, basename, exclefile):
+        """
+        定义log日志文件以及读取用例数据
+        :param basename:  执行用例的文件名
+        :param exclefile:  需要读取用例的文件名
+        :return:  暂时没有返回值
+        """
+        # 拿出文件名和工作薄
+        exclename = exclefile[0]
+        exclesheet = exclefile[1]
+        # 定义日志
+        self.log = Log(basename)
+        # 读取文档信息
+        self.overallExcelData = self._excel_Data(exclename, exclesheet)
+
+        self.option_browser()  # 打开浏览器
+        self.ps_user_login()  # 用户登录
+        pass
+
     def get_account_account_password(self):
         conf = readModel.establish_con(model="model")  # 获取账号密码
         account = conf.get("username", "admin_account")
         password = conf.get("username", "admin_password")
         return account, password
 
-    def _route(self):
-        # 点击信息页面
-        self._visible_css_selectop(".nav-user")
-        self.sleep_time()
-        # 点击页面中的登录按钮
-        self._visible_css_selectop(".user-head")
 
     def ps_user_login(self):
         acc_pa = self.get_account_account_password()  # 获取登录账号和密码
         self.sign_user_login(acc_pa[0], acc_pa[1])  # 进行登录
+        pass
 
     def sign_user_login(self, account, password):
         """
@@ -107,3 +109,15 @@ class JudgmentVerification(ComparedVerify):
         self.vai.name_input(self.driver, 'password', password)
 
         self._visible_json_click("loginBtn")
+        pass
+
+    # -----------------------输入项----------------
+    def confirmInput(self, caseTitle, eleInformation):
+        """获取用例数据之后并进行输入操作"""
+        title = self.overall[caseTitle]  # 根据用例title来读取数据
+
+        information = self._verify_parameter(title)  # 判断数据是否为None，如果是就返回一个空值‘’
+
+        print("输入的内容: %s 输入的对象: %s 输入的地方: %s " % (information,eleInformation,caseTitle))
+        self._visible_json_input(eleInformation, information)  # 通过元素id利用json进行输入输入
+
