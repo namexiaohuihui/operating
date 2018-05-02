@@ -7,12 +7,14 @@ __author__ = 'DingDong'
 import json
 from tools.Logger import Log
 import time
+from pandas import DataFrame
 from utils.timeFromat import TimeFromat
 from tools.openpyxlExcel import PANDASDATA
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
 from PageWeb.WebShop.judgmentVerification import JudgmentVerification
 from PageWeb.WebShop.SystemSetup.NoticeController.dailyLabelNames import DailyLabelNames
 from tools.operationSelector import OperationSelector
+
 
 class DailyOperationSteps(JudgmentVerification):
     global dn
@@ -71,7 +73,7 @@ class DailyOperationSteps(JudgmentVerification):
 
     def _verify_content(self, whole):
         my_sql = self.overall[whole]  # 获取sql语句
-        match = self._verify_match(my_sql) # 返回查询之后的数据信息
+        match = self._verify_match(my_sql)  # 返回查询之后的数据信息
         return match
 
     def oneStorage(self):
@@ -81,6 +83,13 @@ class DailyOperationSteps(JudgmentVerification):
         df = self.pan.dataFrame(columns=self.setDailyTitle())
         return df
 
+    def setButtonMysql(self):
+        # 搜索按钮
+        self._visible_css_selectop(dn.dail_button)
+
+        # 根据sql查询数据内容
+        df = self.oneStorage()
+        return df
 
     # ---------------------------------页面数据获取--------------------------
     def getLableExtend(self, load, td="td"):
@@ -96,61 +105,89 @@ class DailyOperationSteps(JudgmentVerification):
         self._verify_operator(df, ddf)
         pass
 
-    def getAllContent(self):
+    def judgeAllContent(self,df,dfebs):
+        if type(dfebs) is DataFrame:
+            # 比较两个数据是否一致
+            dfop = self._verify_operator(df, dfebs)
 
-        # 第一个sql的数据
-        df = self.oneStorage()
+            # 将读取的数据以及比较的结果保存为一个文档
+            self.pan.functionConcat(self.FUNCTION_NAME, df, dfebs, dfop)
+        else:
+            self.log.info("getAllContent + 公告页面的tbody不存在")
+
+    def getAllScreening(self):
+        # 执行点击按钮之后执行查询语句
+        df = self.setButtonMysql()
+        # 获取页面数据
+        dfebs = self.getLableTbodyPage()
+
+        self.judgeAllContent(df, dfebs)
+
+    def getAllContent(self):
+        # 执行点击按钮之后执行查询语句
+        df = self.setButtonMysql()
 
         # 修改时间和操作
         df = self.defaultModifyTime(df)
 
         # 获取页面数据
         dfebs = self.extendSoup(df)
-
-        # 比较两个数据是否一致
-        dfop = self._verify_operator(df, dfebs)
-
-        # 将读取的数据以及比较的结果保存为一个文档
-        self.pan.functionConcat(self.FUNCTION_NAME, df, dfebs, dfop)
+        #　比较操作
+        self.judgeAllContent(df,dfebs)
 
     def getAllCity(self):
         # 筛选数据的函数
-        # 找到下拉框
-        dl = OperationSelector(self.driver,dn.dail_city)
+        # 找到城市下拉框
+        dl = OperationSelector(self.driver, dn.dail_city)
         # 设置数据
         weizhi = self.overall[dn.dailyCity()]
         dl.setSelectorText(weizhi)
-        self._visible_css_selectop(dn.dail_button)
         # 获取数据的函数
         self.getAllContent()
 
     def getAllRelease(self):
+
         # 筛选数据的函数
-        # 找到下拉框
-        dl = OperationSelector(self.driver,dn.dail_status)
+        # 找到城市下拉框
+        dl = OperationSelector(self.driver, dn.dail_city)
+        # 设置数据
+        weizhi = self.overall[dn.dailyCity()]
+        dl.setSelectorText(weizhi)
+
+        # 找到状态下拉框
+        dl.setSelectData(dn.dail_status)
         # 设置数据
         weizhi = self.overall[dn.dailyTitle()]
-        print(weizhi)
         dl.setSelectorText(weizhi)
-        self._visible_css_selectop(dn.dail_button)
-        # 获取数据的函数
-        self.getAllContent()
+        # 剩下的数据获取和比较操作
+        self.getAllScreening()
 
-
-    def extendSoup(self,df):
+    def getLableTbodyPage(self):
         '''
-        读取网页的数据并进行转换操作
-        :param df:
+        获取标签为lable_tbody的全部数据并进行转换操作
         :return:
         '''
+        # 获取页面数据
         ele = self._visible_return_selectop(dn.lable_tbody)
         if ele != False:  # 判断是否出现
             # 读取页面数据
             ebs = ExtendBeantifulSoup(self.driver, dn.lable_tbody, self.setDailyTitle())
             # 判断是否需要翻页读取数据
             self.sizeLen(ebs, len(df.values))
-
             dfebs = ebs.interfaceToPandas()
+            return dfebs
+        else:
+            self.log.info("getLableTbodyPage + 公告页面的tbody不存在")
+            return ele
+
+    def extendSoup(self, df):
+        '''
+        将转换的数据进行切割重组
+        :param df:
+        :return:
+        '''
+        dfebs = self.getLableTbodyPage()
+        if type(dfebs) is DataFrame:  # 判断是否出现
             default = dfebs["default"]
             df_dault = []
             for deff in default:
@@ -158,8 +195,9 @@ class DailyOperationSteps(JudgmentVerification):
             dfebs["default"] = df_dault
             return dfebs
         else:
-            self.log.info("公告页面的tbody不存在")
-            return ele
+            self.log.info("extendSoup + 公告页面的tbody不存在")
+            return dfebs
+
     def sizeLen(self, ebs, size):
         """
         判断是否有翻页数据
@@ -210,4 +248,8 @@ class DailyOperationSteps(JudgmentVerification):
         df["status"] = status
         df["default"] = defaults
         df["time"] = times
+
+        weizhi = self.overall[dn.dailyTitle()]
+        df = df[df['status'].isin([weizhi])]
+
         return df

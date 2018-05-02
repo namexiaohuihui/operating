@@ -17,7 +17,7 @@ print进行输入时语句上只写了两个%s，但是参数却有多个。
 StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
 页面刷新之后需要重新定位。
 
- Can only compare identically-labeled DataFrame objects
+ValueError: Can only compare identically-labeled DataFrame objects
  两个pandas对象进行比较时，长度不相等出现的错误
 
 TypeError: argument of type 'NoneType' is not iterable
@@ -25,3 +25,5 @@ weizhi = self.overall[dn.dailyCity()]
 dl.setSelectorText(weizhi)
 不设置中间变量shezhi时就会出现这个错误
 
+ValueError: invalid literal for int() with base 10: '2018-04-05 00:00:00-2018-05-06 23:59:59'
+时间戳转日期的函数时，需要传入时间戳，而我传入的是日期格式所以导致这个问题

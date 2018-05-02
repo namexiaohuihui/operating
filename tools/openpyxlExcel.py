@@ -690,6 +690,10 @@ class PANDASDATA:
         result = pd.concat(frames, keys=['readdata', 'storage', 'results'])
         result.to_csv(function + ".csv", index=False, encoding="gbk")
 
+    def contentConcat(self,*frames : "多个Dataframes数据"):
+
+        result = pd.concat(frames)
+        return result
 
     def df_conversion(self, df, data_type='itertuples'):
         '''

@@ -14,12 +14,14 @@ class OperationSelector(action_visible):
     def __init__(self, drivers, lablePath):
         # 赋值浏览器
         self.drivers = drivers
+        self.setSelectData(lablePath)
+
+    def setSelectData(self,lablePath):
         # 需要爬取数据在页面中的位置
         selectEle = self.is_visible_css_selectop(self.drivers, lablePath)
         self.select = Select(selectEle)
         # 装options的数据,不创建value的容器是因为很少使用value
         self.optionsList = []
-
     # ----------------------------------获取参数------------------------
 
     def get_options(self):
