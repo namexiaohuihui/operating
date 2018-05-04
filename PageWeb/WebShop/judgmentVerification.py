@@ -43,7 +43,6 @@ class JudgmentVerification(ComparedVerify):
         self.log.info("读mysql data :  %s  类型 :  %s " % (reValue,type(reValue)))
         self.log.info("获excle data :  %s  类型 :  %s " % (excleValue,type(excleValue)))
         re_ex = operator.eq(reValue, excleValue)
-        self.log.info("执行比较之后的结果为 %s" % re_ex)
         return re_ex
 
     def _verify_match(self, my_sql):

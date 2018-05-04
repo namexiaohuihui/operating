@@ -25,8 +25,8 @@ def error_get(basename, _browser_):
 
     # 获取错误日志并打印
     error = traceback.format_exc()
-    log = Log(basename, "ERROR")
-    log.info(error)
+    log = Log(basename, classification = "ERROR")
+    log.info("发生错误时打印的错误数据信息: %s" % error)
 
     _browser_.get_screenshot_as_file(os.path.join(log_path, logFile + ".png"))
 

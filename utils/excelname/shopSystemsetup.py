@@ -45,7 +45,7 @@ class ShopNoticeController(ExcelTitle):
         return "城市"
 
     def dailyTitle(self):
-        return "标题"
+        return "状态"
 
     def dailyContent(self):
         return "内容"

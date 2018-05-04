@@ -16,7 +16,7 @@ def add_case(caseName='Case',rule='web_*.py'):
     discover = unittest.defaultTestLoader.discover(case_path,
                                                    pattern=rule,
                                                    top_level_dir=None)
-    print("用例所在位置 %s " % case_path)
+    print("用例所在位置 %s  执行的文件 %s " % (case_path,rule))
     return discover
 
 def run_case(all_Case,reportName = 'report'):
@@ -51,7 +51,7 @@ def get_report_file(report_path):
     return report_file
 
 def shangyigebanben():
-    case_path = os.path.join(os.getcwd(), "PageWeb\\WebShop\\TargetParameter\\parameter\\PreferentialSettings")
+    case_path = os.path.join(os.getcwd(), "PageWeb\\WebShop\\SystemSetup\\NoticeController")
     # 报告存放路径
     report_path = os.path.join(os.getcwd(), "report")
 
@@ -60,7 +60,7 @@ def shangyigebanben():
     now = time.strftime("%Y_%m_%d_%H_%M_%S")
     # html报告文件
     # report_abspath = os.path.join(report_path, "result" + now + ".html")
-    report_abspath = os.path.join(report_path, "result" + now + ".html")
+    report_abspath = os.path.join(report_path, now + "result.html")
 
     discover = unittest.defaultTestLoader.discover(case_path,
                                                    pattern="web_*.py",
@@ -79,9 +79,9 @@ if __name__ == '__main__':
     # shangyigebanben()
 
     # 加载用例
-    all_case = add_case("PageWeb\\WebShop\\SystemSetup\\ParameterSetting","Web_discount.py")
+    all_case = add_case("PageWeb\\WebShop\\SystemSetup\\NoticeController")
 
-   # 生成测试报告的路径
+    # 生成测试报告的路径
     run_case(all_case)
     # 获取最新的而测试报告文件
     report_path = os.path.join(cur_path,"report")# 报告文件夹

@@ -27,3 +27,6 @@ dl.setSelectorText(weizhi)
 
 ValueError: invalid literal for int() with base 10: '2018-04-05 00:00:00-2018-05-06 23:59:59'
 时间戳转日期的函数时，需要传入时间戳，而我传入的是日期格式所以导致这个问题
+
+TypeError: expected string or bytes-like object
+拿一个空的数据去执行正在比较。my_sql = None然后运行regular = re.match('^SELECT', my_sql)

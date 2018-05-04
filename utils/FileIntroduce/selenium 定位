@@ -1,5 +1,5 @@
 下面简要介绍一下css元素选择器的语法
-
+pip install -U selenium 升级selenium
 常见语法
 
 * 通用元素选择器，匹配任何元素

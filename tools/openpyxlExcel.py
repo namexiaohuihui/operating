@@ -918,6 +918,9 @@ class PANDASDATA:
         frames = [dfebs, df, dfop]
         result = pd.concat(frames,keys=['dfebs', 'df', 'dfop'])
 
+        # 获取‘status’列标签下面内容为‘xxx’的全部data数据内容
+        df = df[df['status'].isin(['xxx'])]
+
 
 class OpenExcelPandas(READEXCEL, PANDASDATA):
 

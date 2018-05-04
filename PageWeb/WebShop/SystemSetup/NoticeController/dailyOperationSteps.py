@@ -33,7 +33,6 @@ class DailyOperationSteps(JudgmentVerification):
         """
             定义文件名以及工作薄，方便统一进行修改
         """
-        # dn = DailyLabelNames()
         EXCLE_FILE = dn.getDailyBulletin()
         self.openingProgram(basename, EXCLE_FILE)
         pass
@@ -84,20 +83,46 @@ class DailyOperationSteps(JudgmentVerification):
         return df
 
     def setButtonMysql(self):
-        # 搜索按钮
-        self._visible_css_selectop(dn.dail_button)
-
         # 根据sql查询数据内容
         df = self.oneStorage()
         return df
 
-    # ---------------------------------页面数据获取--------------------------
+    # ---------------------------------用例/页面数据处理--------------------------
+
+    def getOperaSelect(self):
+        # 找到城市下拉框
+        dl = OperationSelector(self.driver, dn.dail_city)
+        # 设置数据
+        weizhi = self.overall[dn.dailyCity()]
+        dl.setSelectorText(weizhi)
+        self.log.info("下拉选择的数据为 %s " % weizhi)
+
+        # 找到状态下拉框
+        dl.setSelectData(dn.dail_status)
+        # 设置数据
+        weizhi = self.overall[dn.dailyTitle()]
+        dl.setSelectorText(weizhi)
+        self.log.info("下拉选择的数据为 %s " % weizhi)
+
+        # 搜索按钮
+        self._visible_css_selectop(dn.dail_button)
+
     def getLableExtend(self, load, td="td"):
+        '''
+        定义获取页面数据对象
+        :param load:
+        :param td:
+        :return:
+        '''
         ebs = ExtendBeantifulSoup(self.driver, load, self.setDailyTitle())
         df = ebs.lableParsingList(td).interfaceToPandas()
         return df
 
     def getAllTitle(self):
+        '''
+        获取标签为th的数据信息
+        :return:
+        '''
         df = self.getLableExtend(dn.lable_thead, "th").iloc[0]
         df = list(df)
         ddf = self.overall[dn.whole_result()]
@@ -112,57 +137,29 @@ class DailyOperationSteps(JudgmentVerification):
 
             # 将读取的数据以及比较的结果保存为一个文档
             self.pan.functionConcat(self.FUNCTION_NAME, df, dfebs, dfop)
-        else:
-            self.log.info("getAllContent + 公告页面的tbody不存在")
 
-    def getAllScreening(self):
+        else:
+            self.log.info("getAllTitle + 公告页面的tbody不存在")
+
+    def getAllScreening(self)->"不需要转换查询数据":
         # 执行点击按钮之后执行查询语句
         df = self.setButtonMysql()
         # 获取页面数据
-        dfebs = self.getLableTbodyPage()
-
+        dfebs = self.getLableTbodyPage(df)
+        # 数据比较
         self.judgeAllContent(df, dfebs)
 
-    def getAllContent(self):
+    def getAllContent(self)->"选择转换查询数据":
         # 执行点击按钮之后执行查询语句
         df = self.setButtonMysql()
-
         # 修改时间和操作
         df = self.defaultModifyTime(df)
-
         # 获取页面数据
         dfebs = self.extendSoup(df)
         #　比较操作
         self.judgeAllContent(df,dfebs)
 
-    def getAllCity(self):
-        # 筛选数据的函数
-        # 找到城市下拉框
-        dl = OperationSelector(self.driver, dn.dail_city)
-        # 设置数据
-        weizhi = self.overall[dn.dailyCity()]
-        dl.setSelectorText(weizhi)
-        # 获取数据的函数
-        self.getAllContent()
-
-    def getAllRelease(self):
-
-        # 筛选数据的函数
-        # 找到城市下拉框
-        dl = OperationSelector(self.driver, dn.dail_city)
-        # 设置数据
-        weizhi = self.overall[dn.dailyCity()]
-        dl.setSelectorText(weizhi)
-
-        # 找到状态下拉框
-        dl.setSelectData(dn.dail_status)
-        # 设置数据
-        weizhi = self.overall[dn.dailyTitle()]
-        dl.setSelectorText(weizhi)
-        # 剩下的数据获取和比较操作
-        self.getAllScreening()
-
-    def getLableTbodyPage(self):
+    def getLableTbodyPage(self,df):
         '''
         获取标签为lable_tbody的全部数据并进行转换操作
         :return:
@@ -186,7 +183,7 @@ class DailyOperationSteps(JudgmentVerification):
         :param df:
         :return:
         '''
-        dfebs = self.getLableTbodyPage()
+        dfebs = self.getLableTbodyPage(df)
         if type(dfebs) is DataFrame:  # 判断是否出现
             default = dfebs["default"]
             df_dault = []
@@ -249,7 +246,41 @@ class DailyOperationSteps(JudgmentVerification):
         df["default"] = defaults
         df["time"] = times
 
+        """
         weizhi = self.overall[dn.dailyTitle()]
         df = df[df['status'].isin([weizhi])]
+        """
 
         return df
+
+    #-----------------------------------------用例直接使用-----------------
+
+    def getAllCity(self)->"获取城市内容":
+        # 筛选数据的函数
+        self.getOperaSelect()
+        # 获取数据的函数
+        self.getAllContent()
+        pass
+
+
+    def getAllRelease(self):
+
+        # 下拉筛选的选择
+        self.getOperaSelect()
+
+        # 剩下的数据获取和比较操作
+        self.getAllScreening()
+        pass
+
+    def getStopRelease(self):
+        # 下拉筛选的选择
+        self.getOperaSelect()
+
+        tbody = self._visible_return_selectop(dn.lable_tbody )
+        tbody_tr = tbody.find_elements_by_tag_name("tr")
+        if len(tbody_tr) > 0 :
+            print(tbody_tr[0].text)
+            tbody_tr = tbody_tr[0].find_elements_by_tag_name("td")
+            print(tbody_tr[len(tbody_tr) -1 ].text)
+            # tbody_tr[len(tbody_tr) - 1].click()
+            tbody_tr[len(tbody_tr) -1].find_element_by_css_selector(".btn.btn-default.btn-sm.confirm-btn").click()
