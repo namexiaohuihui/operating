@@ -4,19 +4,21 @@ __author__ = 'DingDong'
 @file: dailyOperationSteps.py
 @time: 2018/4/16 10:25
 """
-import json
-from tools.Logger import Log
-import time
+import inspect
+
 from pandas import DataFrame
-from utils.timeFromat import TimeFromat
-from tools.openpyxlExcel import PANDASDATA
-from tools.extendBeantifulSoup import ExtendBeantifulSoup
-from PageWeb.WebShop.judgmentVerification import JudgmentVerification
+
 from PageWeb.WebShop.SystemSetup.NoticeController.dailyLabelNames import DailyLabelNames
+from PageWeb.WebShop.judgmentVerification import JudgmentVerification
+from tools.extendBeantifulSoup import ExtendBeantifulSoup
+from tools.openpyxlExcel import PANDASDATA
 from tools.operationSelector import OperationSelector
+from utils.timeFromat import TimeFromat
 
 
 class DailyOperationSteps(JudgmentVerification):
+    STOP_RELEASE_STATUS = 2
+
     global dn
     dn = DailyLabelNames()
 
@@ -70,22 +72,17 @@ class DailyOperationSteps(JudgmentVerification):
 
     # ---------------------------------数据库模块--------------------------
 
-    def _verify_content(self, whole):
-        my_sql = self.overall[whole]  # 获取sql语句
+    def _verify_content(self):
+        my_sql = self.overall[dn.wholeQueryStatement()]  # 获取sql语句
         match = self._verify_match(my_sql)  # 返回查询之后的数据信息
         return match
 
-    def oneStorage(self):
-        # 执行第一个sql之后所得到的数据集
-        storage = self._verify_content(dn.wholeQueryStatement())
-        self.pan = PANDASDATA(storage)
-        df = self.pan.dataFrame(columns=self.setDailyTitle())
-        return df
-
     def setButtonMysql(self):
         # 根据sql查询数据内容
-        df = self.oneStorage()
-        return df
+        # 执行第一个sql之后所得到的数据集
+        storage = self._verify_content()
+        self.pan = PANDASDATA(storage)
+        self.MYSQL_DF = self.pan.dataFrame(columns=self.setDailyTitle())
 
     # ---------------------------------用例/页面数据处理--------------------------
 
@@ -115,85 +112,153 @@ class DailyOperationSteps(JudgmentVerification):
         :return:
         '''
         ebs = ExtendBeantifulSoup(self.driver, load, self.setDailyTitle())
-        df = ebs.lableParsingList(td).interfaceToPandas()
-        return df
+        EBS_DF = ebs.lableParsingList(td).interfaceToPandas()
+        return EBS_DF
 
     def getAllTitle(self):
         '''
         获取标签为th的数据信息
         :return:
         '''
-        df = self.getLableExtend(dn.lable_thead, "th").iloc[0]
-        df = list(df)
-        ddf = self.overall[dn.whole_result()]
-        ddf = ddf.split(",")
-        self._verify_operator(df, ddf)
+        EBS_DF = self.getLableExtend(dn.lable_thead, "th").iloc[0]
+        EBS_DF = list(EBS_DF)
+        OVE_DF = self.overall[dn.whole_result()]
+        OVE_DF = OVE_DF.split(",")
+        self._verify_operator_dataframe(EBS_DF, OVE_DF)
         pass
 
-    def judgeAllContent(self,df,dfebs):
-        if type(dfebs) is DataFrame:
+    def judgeAllContent(self):
+        if type(self.LABLE_DF) is DataFrame:
             # 比较两个数据是否一致
-            dfop = self._verify_operator(df, dfebs)
+            dfop = self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
 
             # 将读取的数据以及比较的结果保存为一个文档
-            self.pan.functionConcat(self.FUNCTION_NAME, df, dfebs, dfop)
-
+            self.pan.functionConcat(self.FUNCTION_NAME, self.MYSQL_DF, self.LABLE_DF, dfop)
         else:
-            self.log.info("getAllTitle + 公告页面的tbody不存在")
+            self.log.info(inspect.stack()[0][3] % "%s + 公告页面的tbody不存在")
 
-    def getAllScreening(self)->"不需要转换查询数据":
+    def getAllScreening(self) -> "不需要转换查询数据":
         # 执行点击按钮之后执行查询语句
-        df = self.setButtonMysql()
+        self.setButtonMysql()
         # 获取页面数据
-        dfebs = self.getLableTbodyPage(df)
+        self.getLableTbodyPage()
         # 数据比较
-        self.judgeAllContent(df, dfebs)
+        self.judgeAllContent()
 
-    def getAllContent(self)->"选择转换查询数据":
+    def getAllContent(self) -> "选择转换查询数据":
         # 执行点击按钮之后执行查询语句
-        df = self.setButtonMysql()
+        self.setButtonMysql()
         # 修改时间和操作
-        df = self.defaultModifyTime(df)
+        self.defaultModifyTime()
         # 获取页面数据
-        dfebs = self.extendSoup(df)
-        #　比较操作
-        self.judgeAllContent(df,dfebs)
+        self.extendSoup()
+        # 　比较操作
+        self.judgeAllContent()
 
-    def getLableTbodyPage(self,df):
+    def getLableTbodyPage(self):
         '''
         获取标签为lable_tbody的全部数据并进行转换操作
         :return:
         '''
         # 获取页面数据
-        ele = self._visible_return_selectop(dn.lable_tbody)
-        if ele != False:  # 判断是否出现
+        self.LABLE_DF = self._visible_css_selectop_text(dn.lable_tbody)
+        if self.LABLE_DF is not '':  # 判断是否出现
             # 读取页面数据
             ebs = ExtendBeantifulSoup(self.driver, dn.lable_tbody, self.setDailyTitle())
             # 判断是否需要翻页读取数据
-            self.sizeLen(ebs, len(df.values))
-            dfebs = ebs.interfaceToPandas()
-            return dfebs
-        else:
-            self.log.info("getLableTbodyPage + 公告页面的tbody不存在")
-            return ele
+            self.sizeLen(ebs, len(self.MYSQL_DF.values))
+            self.LABLE_DF = ebs.interfaceToPandas()
 
-    def extendSoup(self, df):
+    def interface_conditions(self, operation, default, attribute=None) -> "操作提交之后,提示语的比较":
+        # 3.获取用户执行的动作
+        _operation = self.overall[dn.dailyOperation()]  # 获取操作按钮
+        self.log.info("操作按钮为 %s " % _operation)
+        if _operation == "确定":
+            # 3.1 执行点击操作
+            self._visible_css_selectop(operation)
+            # 3.2点击之后的返回信息
+            _title = self._visible_css_selectop_text(dn.dail_title)
+            # 3.3判断信息跟规定中的是否一致
+            self._verify_operator(_title, self.overall[dn.whole_verification()])
+            # 3.4点击按钮
+            self._visible_css_selectop(dn.dail_determine)
+
+            # 3.5提交按钮之后，进行数据库查询。将查询的结果返回
+            self.sleep_time(2)
+            statements_content = " n.id = '%s' " % (self.number_cutting(attribute))
+            self.overall[dn.wholeQueryStatement()] = self.overall[dn.wholeQueryStatement()] + statements_content
+            self.setButtonMysql()
+        else:
+            self._visible_css_selectop(default)
+
+    def popup_title_content(self) -> "二次确认弹窗的信息比较":
+        if type(self.LABLE_DF) is DataFrame:
+            # 2.获取二次确认弹窗的标题和内容
+            _title = self._visible_css_selectop_text(dn.dail_title)
+            _content = self._visible_css_selectop_text(dn.dail_content)
+            title_content = {"title": _title, "content": _content}
+            # 2.1获取用例上弹窗的数据信息，并转换成ison数据格式
+            content = self.strTodict(self.overall[dn.whole_result()])
+            # 2.22判断是否一致
+            self._verify_operator(title_content, content)
+            # 3.获取用户执行的动作,判断是取消提交还是确定提交
+            self.interface_conditions(dn.dail_determine, dn.dail_cancel, attribute)
+
+        else:
+            self.log.info("%s  公告页面的tbody不存在" % inspect.stack()[0][3])
+
+    def get_popup_data(self):
+        # 数据
+        choose = self._visible_css_selectop_text(dn.operation_choose)  # 公告类型
+        op_select = OperationSelector(self.driver, dn.operation_select).getSelectedOptions()
+        dail = self._visible_css_selectop_attribute(dn.operation_dail_input)  # 标题
+        content = self._visible_css_selectop_text(dn.operation_content_input)  # 公告内容
+        # 公告日期,弹窗中的时间多出两个空格，不好进行比较所以去除
+        deadline = self._visible_css_selectop_attribute(dn.operation_deadline_input).replace(" ", "")
+
+        daily = {"type": choose, "city": op_select, "title": dail, "content": content, "time": deadline, }
+
+        daily_df = {}
+        lable_daily = self.LABLE_DF.iloc[0]
+        for k in daily.keys():
+            daily_df[k] = lable_daily[k]
+        # 因为弹窗时间多空格，进行去除工作。所以外面的时间也要进行去除工作.
+        daily_df["time"] = daily_df["time"].replace(" ", "")
+
+        self._verify_operator(daily, daily_df)
+
+    def get_window_data(self):
+        # 获取页面数据
+        self.LABLE_DF = self._visible_css_selectop_text(dn.lable_tbody)
+        if self.LABLE_DF is not '':  # 判断是否出现
+            # 读取页面数据对象
+            ebs = ExtendBeantifulSoup(self.driver, dn.lable_tbody, self.setDailyTitle())
+            # 获取当页的数据信息
+            ebs.lableParsingList()
+            self.LABLE_DF = ebs.interfaceToPandas()
+
+            # 如果数据存在就先找到需要操作的公告id
+            attribute = self._visible_css_selectop_attribute(dn.button_one, attr="data-url")
+            # 并点击该公告
+            self._visible_css_selectop(dn.button_one)
+
+        return attribute
+
+    def extendSoup(self):
         '''
         将转换的数据进行切割重组
         :param df:
         :return:
         '''
-        dfebs = self.getLableTbodyPage(df)
+        dfebs = self.getLableTbodyPage()
         if type(dfebs) is DataFrame:  # 判断是否出现
             default = dfebs["default"]
             df_dault = []
             for deff in default:
                 df_dault.append(deff.replace("\n\n\n", ""))
             dfebs["default"] = df_dault
-            return dfebs
         else:
-            self.log.info("extendSoup + 公告页面的tbody不存在")
-            return dfebs
+            self.log.info("%s  公告页面的tbody不存在" % inspect.stack()[0][3])
 
     def sizeLen(self, ebs, size):
         """
@@ -210,15 +275,15 @@ class DailyOperationSteps(JudgmentVerification):
 
     # ---------------------------------df数据集修改--------------------------
 
-    def defaultModifyTime(self, df):
+    def defaultModifyTime(self):
         tf = TimeFromat()
         now = tf.currentToStamp()  # 获取当前时间戳
         status = []  # 存状态
         defaults = []  # 存操作
         times = []  # 存时间
-        for code in range(len(df.values)):
+        for code in range(len(self.MYSQL_DF.values)):
             # 获取时间
-            statusda = df.iloc[code]
+            statusda = self.MYSQL_DF.iloc[code]
             status_time = statusda["time"]  # 开始时间
             status_end = statusda["default"]  # 结束时间
 
@@ -242,45 +307,52 @@ class DailyOperationSteps(JudgmentVerification):
             status_end = tf.stampToTime(status_end)
             times.append(status_time + "-" + status_end)
         # 赋值
-        df["status"] = status
-        df["default"] = defaults
-        df["time"] = times
+        self.MYSQL_DF["status"] = status
+        self.MYSQL_DF["default"] = defaults
+        self.MYSQL_DF["time"] = times
 
-        """
-        weizhi = self.overall[dn.dailyTitle()]
-        df = df[df['status'].isin([weizhi])]
-        """
+    # -----------------------------------------用例直接使用-----------------
 
-        return df
-
-    #-----------------------------------------用例直接使用-----------------
-
-    def getAllCity(self)->"获取城市内容":
+    def getAllCity(self) -> "获取城市内容":
         # 筛选数据的函数
         self.getOperaSelect()
         # 获取数据的函数
         self.getAllContent()
         pass
 
-
     def getAllRelease(self):
-
         # 下拉筛选的选择
         self.getOperaSelect()
-
         # 剩下的数据获取和比较操作
         self.getAllScreening()
+
+    def getStopRelease(self) -> "点击停止和发布按钮,弹出二次确认框":
+        # 下拉筛选的选择
+        self.getOperaSelect()
+        # 判断页面是否有数据
+        attribute = self.get_window_data()
+        # 二次弹窗的操作并将操作之后的数据信息返回
+        self.popup_title_content(attribute)
+        assert self.STOP_RELEASE_STATUS is self.MYSQL_DF["status"], "表数据信息跟预期的不一样 --> %s" % single_natch["status"]
         pass
 
-    def getStopRelease(self):
+    def get_overdue_modify(self) -> "点击按钮弹出编辑框":
         # 下拉筛选的选择
         self.getOperaSelect()
 
-        tbody = self._visible_return_selectop(dn.lable_tbody )
-        tbody_tr = tbody.find_elements_by_tag_name("tr")
-        if len(tbody_tr) > 0 :
-            print(tbody_tr[0].text)
-            tbody_tr = tbody_tr[0].find_elements_by_tag_name("td")
-            print(tbody_tr[len(tbody_tr) -1 ].text)
-            # tbody_tr[len(tbody_tr) - 1].click()
-            tbody_tr[len(tbody_tr) -1].find_element_by_css_selector(".btn.btn-default.btn-sm.confirm-btn").click()
+        # 获取页面数据
+        attribute = self.get_window_data()
+
+        if type(self.LABLE_DF) is DataFrame:
+            # 获取弹窗的数据并跟页面数据进行比较
+            self.get_popup_data()
+
+            # 获取用户执行的动作,判断是取消提交还是确定提交
+            self.interface_conditions(dn.operation_primary, dn.operation_default, attribute)
+
+            # 修改时间和操作
+            self.defaultModifyTime()
+            self._verify_operator_dataframe(self.MYSQL_DF.iloc[0],self.LABLE_DF.iloc[0])
+        else:
+            self.log.info("%s  公告页面的tbody不存在" % inspect.stack()[0][3])
+        pass

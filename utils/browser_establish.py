@@ -81,7 +81,6 @@ class browser_confirm(object):
             # os.environ["webdriver.path"] = firefoxgeckobdriver
 
             self.browser = webdriver.Firefox(executable_path=firefoxgeckobdriver)
-            self.browser.find_element_by_css_selector()
             print("打开火狐")
         except Exception as msg:
             self.writeLog()
@@ -94,6 +93,7 @@ class browser_confirm(object):
         print("浏览器开始执行初始化")
 
         # 创建浏览器对象
+        # self.firefox_browser()
         self.chrome_browser(options=options)
         self.browser.maximize_window()
 

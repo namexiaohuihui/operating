@@ -53,5 +53,5 @@ class ShopNoticeController(ExcelTitle):
     def dailyDeadline(self):
         return "有限期"
 
-    def dailySqlTwo(self):
-        return "sql2"
+    def dailyOperation(self):
+        return "操作"

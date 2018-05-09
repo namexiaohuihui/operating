@@ -109,8 +109,8 @@ class pymysqls(object):
                 row[index[i][0]] = res[i]
 
             return row;
-        except:
-            print('MySQL connect fail...')
+        except Exception as msg:
+            print('MySQL connect fail... %s ' % msg)
 
     def closes(self):
         # 关闭游标

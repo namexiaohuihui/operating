@@ -30,3 +30,10 @@ ValueError: invalid literal for int() with base 10: '2018-04-05 00:00:00-2018-05
 
 TypeError: expected string or bytes-like object
 拿一个空的数据去执行正在比较。my_sql = None然后运行regular = re.match('^SELECT', my_sql)
+
+TypeError: not all arguments converted during string formatting
+原因：数据打印的格式输入有误
+ self.log.info( inspect.stack()[0][3] % "%s  公告页面的tbody不存在" )
+
+ tuple index out of range
+ mysql语句指令太长导致的问题

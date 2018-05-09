@@ -5,10 +5,10 @@ __author__ = 'DingDong'
 @time: 2018/4/11 9:20
 """
 
-from utils.browser_establish import browser_confirm
-from bs4 import BeautifulSoup
 import pandas as pd
-import time
+from bs4 import BeautifulSoup
+
+from utils.browser_establish import browser_confirm
 
 """
 通过路径来获取旗下子标签的数据信息
@@ -35,7 +35,7 @@ class ExtendBeantifulSoup():
         # 定义数据容器
         self.dataSet = []
 
-    def serLablePath(self, lable):
+    def setLablePath(self, lable):
         # 设置元素路径
         self.lablePath = lable
 
@@ -100,7 +100,7 @@ class ExtendBeantifulSoup():
             self.dataSet.append(daily)
             return self
 
-    def lableParsingList(self,td = "td"):
+    def lableParsingList(self, td="td"):
         """
         :return: 返回单次获取到的数据，并以list形式返回
         """
@@ -113,6 +113,21 @@ class ExtendBeantifulSoup():
             daily = map(lambda one: one.text.strip(), lableTwo)
             self.dataSet.append(daily)
         return self
+
+    def lable_parsing_cssselector(self,parsing,span =None):
+        self.htmlToSoup()
+
+        # 查找：在BeautifulSoup中是否有下面路径的数据
+        adress = self.soup.select(self.lablePath)
+        print("-----------------")
+        print(adress)
+        lableOne = adress[0].find(class_=parsing)
+        print("-----------------")
+        print(lableOne)
+        span = lableOne.find(span)
+        print("-----------------")
+        print(span.text)
+        # daily = map(lambda one: one.text.strip(), lableOne)
     def interfaceToPandas(self):
         # 将数据转换成pandsa
         if self.dataSet:
@@ -120,27 +135,16 @@ class ExtendBeantifulSoup():
             return df
         else:
             return 0
-nishishabi = "duidi"
+
 if __name__ == '__main__':
-    weizhi = 7
-    import time
+    daily = ["type", "city", "title", "content", "time", "status", "default"]
     be = browser_confirm()
-    drivers = be.url_opens(r"F:\desktop\66.html")
-    time.sleep(1)
-    side = drivers.find_element_by_css_selector("ul.sidebar-menu>li:nth-child(9)")
-    # body > div.wrapper > aside > section > ul > li.treeview.active
-    # body > div.wrapper > aside > section > ul > li: nth - child(9)
-    print(side.text)
-    print("11111")
-    print(side.click())
-    side = drivers.find_element_by_css_selector(".treeview-menu.menu-open>li:nth-child(2)")
-    print(side.text)
-    print("2222")
-    print(side.click())
-    side = drivers.find_element_by_css_selector(".nav.nav-tabs>li:nth-child(1)")
-    print(side.text)
-    print("333")
-    print(side.click())
+    drivers = be.url_opens(r"F:\desktop\dijia.html")
+    ebs = ExtendBeantifulSoup(drivers, ".modal-content", daily)
+    # 获取当页的数据信息
+    ebs.lable_parsing_cssselector("form-group","span")
+    ebs.lable_parsing_cssselector("form-control","option")
 
 
-
+    LABLE_DF = ebs.interfaceToPandas()
+    drivers.close()

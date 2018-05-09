@@ -16,12 +16,9 @@ from tools import DefinitionErrors as dError
 
 
 class action_visible(object):
-    """
-    根据元素某个条件来显性等待元素，并判断该元素是否存在
-    """
-
-    # 一直等待某元素可见，默认超时10秒
+    # ------------------------------等待某个元素可见，默认超时10秒-------------------
     def is_visible_xpath(self, driver, locator, timeout=10):
+        # 一直等待某元素可见，默认超时10秒
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.XPATH, locator)))
             return ele
@@ -31,45 +28,38 @@ class action_visible(object):
             # error_log(function)
             return False
 
-    # 一直等待某元素可见，默认超时10秒
     def is_visible_css_selectop(self, driver, locator, timeout=3):
+        # 一直等待某元素可见，默认超时10秒
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             return ele
         except TimeoutException:
             return False
 
-    # 一直等待某元素可见，默认超时10秒
     def is_visible_id(self, driver, locator, timeout=3):
+        # 一直等待某元素可见，默认超时10秒
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.ID, locator)))
             return ele
         except TimeoutException:
             return False
 
-
-
-            # 一直等待某元素可见，默认超时10秒
-
     def is_visible_name(self, driver, locator, timeout=10):
+        # 一直等待某元素可见，默认超时10秒
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.NAME, locator)))
             return ele
         except TimeoutException:
             return False
 
-    """
-        根据元素某个条件来显性等待元素，并判断该元素是否消失
-    """
-
-    # 一直等待某个元素消失，默认超时10秒
+    # ------------------------------等待某个元素不可见，默认超时10秒-------------------
     def is_not_visible_xpath(self, driver, locator, timeout=10):
+        # 一直等待某个元素消失，默认超时10秒
         try:
             ui.WebDriverWait(driver, timeout).until_not(EC.visibility_of_element_located((By.XPATH, locator)))
             return True
         except TimeoutException:
             return False
-
 
     def is_not_visible_css_selectop(self, driver, locator, timeout=10):
         # 一直等待某个元素消失，默认超时10秒
@@ -81,8 +71,8 @@ class action_visible(object):
         except TimeoutException:
             return False
 
-    # 一直等待某个元素消失，默认超时10秒
     def is_not_visible_id(self, driver, locator, timeout=10):
+        # 一直等待某个元素消失，默认超时10秒
         try:
             ui.WebDriverWait(driver, timeout).until_not(EC.visibility_of_element_located((By.ID, locator)))
             return True
@@ -97,10 +87,7 @@ class action_visible(object):
         except TimeoutException:
             return False
 
-    """
     # ----------------------------- 获取text以及attribute的内容值--------------------
-    """
-
     def _visible_selectop_attribute(self, driver, locator, attr="value", timeout=5):
         """
         判断元素是否存在，如果存在就获取元素的value属性内容
@@ -142,11 +129,64 @@ class action_visible(object):
                 EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             text = _ele.text
             return text
-
         except TimeoutException:
-
             return False
 
+    # --------------------------其他一些等待条件的使用-----------------
+    def _visible_text_css(self, driver, locator, text, timeout=5):
+        """
+        定位的元素是否带有相应的文本信息
+        可用于判断一个元素的文字是否符合
+        :param driver:
+        :param locator:  一组（by，locator），这里只需要输入css_selector的元素定位参数
+        :param text: 需要被检验的文本内容
+        :param timeout: 一组webelement
+        :return:
+        """
+        _ele = ui.WebDriverWait(driver, timeout).until(
+            EC.text_to_be_present_in_element((By.CSS_SELECTOR, locator), text))
+        return _ele
+
+    def _visible_contains_title(self, driver, text, timeout=5):
+        """
+        等待网页标题包含指定的大小写敏感字符串
+        可用于判断网页是否打开，并打开之后的网页跟要求的是否一致
+        :param driver:
+        :param text: 被校验的包含在标题中的字符串
+        :param timeout:
+        :return: 成功返回True，失败返回False
+        """
+        _ele = ui.WebDriverWait(driver, timeout).until(
+            EC.title_contains(text))
+        return _ele
+
+    def _visible_is_title(self, driver, text, timeout=5):
+        """
+        等待网页标题包含指定的大小写敏感字符串
+        可用于判断网页是否打开，并打开之后的网页跟要求的是否一致
+        :param driver:
+        :param text:网页的标题
+        :param timeout:
+        :return: 成功返回True，失败返回False
+        """
+        _ele = ui.WebDriverWait(driver, timeout).until(
+            EC.title_is(text))
+        return _ele
+
+    def _visible_of_wide_high(self, driver, locator, timeout=5):
+        """
+        元素是否可见，并且宽和高都大于0
+        可用于判断一个一出现的元素大小是否符合要求
+        :param driver:
+        :param locator:
+        :param timeout:
+        :return: 返回一个WebElement
+        """
+        _ele = ui.WebDriverWait(driver, timeout).until(
+            EC.visibility_of((By.CSS_SELECTOR, locator)))
+        return _ele
+
+    # -----------------------------------滚动条的移动------------------------
     def scrollBar_top(self, browser):
         sleep_Rest()
         # 将滚动条移动到顶部的意思
@@ -157,6 +197,7 @@ class action_visible(object):
         # 将滚动条移动到底部的意思
         browser.execute_script("window.scrollTo(0,document.body.scrollHeight)")
 
+    # -------------------------延时以及错误的定义---------------------------
     def sleep_Rest(self, ti=1):  # 延迟
         sleep(ti)
 

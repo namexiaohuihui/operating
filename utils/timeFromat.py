@@ -40,10 +40,27 @@ class TimeFromat(object):
         return self.structToStamp(currentTime)
 
     def currentToTime(self):
-        # 获取当前时间转成时间
+        # 获取当前时间戳转成时间
         currentTime = time.time()
         return self.stampToTime(currentTime)
 
+    def cutting_time(self,time_msg,start = 0 ,middle = 19,again = 20,end =0):
+        # 指定位置对时间数据进行切割
+        if end == 0:
+            end = len(time_msg)
+        sttus = time_msg[start:middle]
+        enmd = time_msg[again:end]
+        return sttus,enmd
+
+    def cutting_time_current(self,time_msg):
+        cutting = self.cutting_time(time_msg)
+        sttus = self.timeToStamp(cutting[0])
+        enmd = self.timeToStamp(cutting[1])
+        return sttus, enmd
 
 if __name__ == '__main__':
-    print(TimeFromat().stampToTime(1525190399))
+    time_stauts = "2017-08-03 00:00:00-2017-08-03 23:59:59"
+
+    cutting =  TimeFromat().cutting_time_current(time_stauts)
+    print(cutting[0])
+    print(cutting[1])

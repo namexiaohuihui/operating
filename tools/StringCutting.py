@@ -9,9 +9,9 @@
 
 import re
 
-# 切割字符：str字符，op指定切割的元素，num切割的数量，ber获取的数量
-def specified_cut_ber(str, op, num, ber):
-    string = str.split(op, num)[ber]
+# 切割字符：strr字符，op指定切割的元素，num切割的数量，ber获取的数量
+def specified_cut_ber(strr, op, num, ber):
+    string = str.split(strr,op, num)[ber]
     return string;
 
 
@@ -38,15 +38,15 @@ def spaces_left(str):
 
 
 # 去除两边的空格
-def spaces_sides(str):
-    str = str.strip()
-    return str;
+def spaces_sides(strr):
+    strr = str.strip(strr)
+    return strr;
 
 
 # 用指定的字符代替现有的字符
-def spaces_replace(str, op=' ', oa=''):
-    str = str.replace(op, oa)
-    return str;
+def spaces_replace(strr, op=' ', oa=''):
+    strr = str.replace(op, oa)
+    return strr;
 
 
 # 指定位置进行切割数据,str数据，num开始位置，ber结束位置
@@ -158,8 +158,6 @@ def xxxx(*lll):
     else:
         print("n")
 if __name__ == '__main__':
-    lists = [0]
-    lists2 = [1]
-    xxxx(lists,lists2)
-
+    qweqwe = "/setting/notice/release/26/2"
+    print(qweqwe.replace("e", ""))
 

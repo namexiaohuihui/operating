@@ -4,16 +4,19 @@ __author__ = 'DingDong'
 @file: ComparedVerify.py
 @time: 2018/2/5 10:30
 """
+import json
+import operator  # 任何对象都可以比较功能
 import os
+import sys
 import time
-import operator
+
 from tools import DefinitionErrors as dError
-from utils.config import readModel
 from tools.PymysqlMain import pymysqls
 from tools.openpyxlExcel import OpenExcelPandas
 from utils.browser_establish import browser_confirm
-from utils.operation.selenium_input import action_input
+from utils.config import readModel
 from utils.operation.selenium_click import action_click
+from utils.operation.selenium_input import action_input
 
 
 class ComparedVerify(object):
@@ -45,7 +48,23 @@ class ComparedVerify(object):
 
     """
        # ------------------内容参数的比较------------------------
-   """
+    """
+
+    def _verify_operator(self, reValue, excleValue):
+        """
+        简单的数据比较：list、dict、str、int、bool等数据类型
+        :param reValue:  数据源
+        :param excleValue:  比较源
+        :return:
+        """
+        self.log.info("读mysql data :  %s  类型 :  %s " % (reValue, type(reValue)))
+        self.log.info("获excle data :  %s  类型 :  %s " % (excleValue, type(excleValue)))
+        assert reValue == excleValue, "_verify_operator 数据比较错误，用例不通过处理。"
+
+    def _verify_operator_dataframe(self, reValue: "数据源", excleValue: "比较源") -> ("dataFrame数据类型进行比较"):
+        self.log.info("读mysql data :  %s  类型 :  %s " % (reValue, type(reValue)))
+        self.log.info("获excle data :  %s  类型 :  %s " % (excleValue, type(excleValue)))
+        return operator.eq(reValue, excleValue)
 
     def _verify_parameter(self, content):
         if content is None:
@@ -53,8 +72,15 @@ class ComparedVerify(object):
         return content
 
     def stringToValueBoolean(self, value):
-        _value = operator.eq(value,"true")
+        _value = operator.eq(value, "true")
         return _value
+
+    def number_cutting(self, attribute: "某个需要切割的数据") -> "对字符串中的数据进行id切割":
+        ribute = str.split(attribute, "/", 4)
+        if "/" in ribute[4]:
+            return str.split(ribute[4], "/")[0]
+        else:
+            return ribute[4]
 
     """
     #------------------获取浏览器部分------------------------------------
@@ -112,15 +138,16 @@ class ComparedVerify(object):
     def _visible_css_selectop(self, locator, timeout=5):
         # 判断元素是否存在，如果存在就进行点击
         self.vac.css_click(self.driver, locator)
+        pass
 
     def _visible_css_selectop_text(self, locator):
         # 判断元素是否存在，如果存在就进行获取元素的text属性
         _text = self.vai._visible_selectop_text(self.driver, locator)
         return _text
 
-    def _visible_css_selectop_attribute(self, locator):
+    def _visible_css_selectop_attribute(self, locator, attr="value"):
         # 判断元素是否存在，如果存在就获取元素的value属性内容
-        _attribute = self.vai._visible_selectop_attribute(self.driver, locator)
+        _attribute = self.vai._visible_selectop_attribute(self.driver, locator, attr)
         return _attribute
 
     def _visible_css_selectop_Id(self, locator):
@@ -140,6 +167,10 @@ class ComparedVerify(object):
         # 通过元素id利用js进行输入
         self.vai.id_js_input(self.driver, ordinal, parameter)
 
+    """
+        #--------------------单选框按钮的点击-----------------------------------------
+    """
+
     def visibleRadioSelected(self, check, status):
         """
         当单选框在页面的状态跟期望的不一致时，会执行点击动作。
@@ -152,20 +183,23 @@ class ComparedVerify(object):
         """
         print("单选框不用进行点击") if operator.eq(check.is_selected(), status) else self.vac.element_click(check)  # 元素点击
 
+    """
+        #--------------------数据库查询-----------------------------------------
+    """
+
     def create_database(self):
         """
         数据库查询及内容返回
         :return:  返回查询到的内容
         """
         pm = pymysqls()
-
         pm.connects_readModel()
 
         return pm
 
     def mysql_single_selects(self, sql):
         pm = self.create_database()
-        result = pm.single_selects(sql)
+        result = pm.single_cross_selects(sql)
         pm.closes()
 
         return result
@@ -178,11 +212,25 @@ class ComparedVerify(object):
         return result
 
     """
+        #--------------------json数据的转换-----------------------------------------
+    """
+
+    def strTodict(self, title):
+        print("需要转化你json数据--> %s" % title)
+        return json.loads(title) if title is not None else "json中loads错误了"
+
+    """
     #--------------------其他一些配置部分-----------------------------------------
     """
 
     def sleep_time(self, times=1):
         time.sleep(times)
+
+    def abnormal_exit(self, msg: str = "页面没有数据"):
+        try:
+            sys.exit(0)
+        except:
+            print("%s ,程序强制退出" % msg)
 
     def error_log(self, function):
         # 执行文件的文件名

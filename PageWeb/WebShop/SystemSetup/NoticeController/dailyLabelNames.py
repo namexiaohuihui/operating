@@ -36,26 +36,32 @@ class DailyLabelNames(ShopNoticeController):
     lable_thead = "#datatatle > thead"
     # 界面上：公告内容
     lable_tbody = "#datatatle > tbody"
+    # 界面上：公告第一个操作按钮
+    button_one = "%s > tr:nth-child(1) > td:nth-child(7) >button:nth-child(1)" % lable_tbody
+    # 界面上：公告第二个操作按钮
+    button_two = "%s > tr:nth-child(1) > td:nth-child(7) >button:nth-child(2)" % lable_tbody
 
+    # 弹窗的位置
+    operation_location = ".modal-content"
     # 弹窗上：标题
-    operation_title = ".modal-header h4:nth-of-type(1)"
-    # 弹窗上：单选按钮
-    operation_choose = "#noticeForm > div:nth-child(3) > div > span"
+    operation_title = ".modal-header>h4:nth-of-type(1)"
+    # 弹窗上：公告类型
+    operation_choose = ".form-group>div>span"
     # 弹窗上：提示文字
     operation_text = ".#noticeForm > div:nth-child(3) > div > p"
     # 弹窗上：下拉
     operation_select = "#noticeForm > div:nth-child(4) > div > select"
     operation_select_text = "#noticeForm > div:nth-child(4) > label"
     # 弹窗上：公告输入
-    operation_dail = "#noticeForm > div:nth-child(5) > input"
     operation_dail_text = "#noticeForm > div:nth-child(5) > label"
+    operation_dail_input = ".form-control.noticename"
     # 弹窗上：内容输入
-    operation_content = "#noticeForm > div:nth-child(6) > textarea"
     operation_content_text = "#noticeForm > div:nth-child(6) > label"
+    operation_content_input = ".form-control.noticeinfo"
     # 弹窗上：日期输入
-    operation_deadline = "#noticeForm > div:nth-child(7) > textarea"
     operation_deadline_text = "#noticeForm > div:nth-child(7) > label"
-    # 弹窗上：按钮
+    operation_deadline_input = ".form-control.pull-right"
+    # 弹窗上：取消/确定按钮
     operation_default = ".btn.btn-default"
     operation_primary = ".btn.btn-primary"
 
@@ -64,7 +70,7 @@ class DailyLabelNames(ShopNoticeController):
     # 日常上：状态
     dail_status = ".box-city > div:nth-child(2) > select"
     # 日常上：按钮
-    dail_button = ".box-city > div:nth-child(3) > button"
+    dail_button = ".btn.btn-default.btn-flat.btn-action.J_ipt"
     # 日常上：弹窗标题
     dail_title ='.sweet-alert.showSweetAlert.visible h2:nth-of-type(1)'
     # 日常上：弹窗内容
@@ -73,6 +79,7 @@ class DailyLabelNames(ShopNoticeController):
     dail_determine = '.sa-confirm-button-container'
     # 日常上：弹窗取消按钮
     dail_cancel = ".cancel"
+
 
     # 帮助上：页面入口
     hele_iframe = ".ke-edit-iframe"
