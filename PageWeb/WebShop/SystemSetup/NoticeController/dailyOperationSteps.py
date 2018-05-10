@@ -169,46 +169,68 @@ class DailyOperationSteps(JudgmentVerification):
             self.sizeLen(ebs, len(self.MYSQL_DF.values))
             self.LABLE_DF = ebs.interfaceToPandas()
 
-    def interface_conditions(self, operation, default, attribute=None) -> "操作提交之后,提示语的比较":
-        # 3.获取用户执行的动作
-        _operation = self.overall[dn.dailyOperation()]  # 获取操作按钮
-        self.log.info("操作按钮为 %s " % _operation)
-        if _operation == "确定":
-            # 3.1 执行点击操作
-            self._visible_css_selectop(operation)
-            # 3.2点击之后的返回信息
-            _title = self._visible_css_selectop_text(dn.dail_title)
-            # 3.3判断信息跟规定中的是否一致
-            self._verify_operator(_title, self.overall[dn.whole_verification()])
-            # 3.4点击按钮
-            self._visible_css_selectop(dn.dail_determine)
+    def submit_data_judgment(self) -> "提交完成之后数据信息判断":
+        # 修改时间和操作
+        self.defaultModifyTime()
+        # 提交之后的数据跟用例的数据比较情况
+        self._verify_operator_dataframe(self.MYSQL_DF.iloc[0], self.LABLE_DF.iloc[0])
 
-            # 3.5提交按钮之后，进行数据库查询。将查询的结果返回
-            self.sleep_time(2)
-            statements_content = " n.id = '%s' " % (self.number_cutting(attribute))
-            self.overall[dn.wholeQueryStatement()] = self.overall[dn.wholeQueryStatement()] + statements_content
-            self.setButtonMysql()
+    def submit_conditions(self, operation: "提交按钮", attribute: "公告id") -> "执行提交操作之后根据id查询数据库":
+        # 3.1 执行点击操作
+        self._visible_css_selectop(operation)
+        # 3.2点击之后的返回信息
+        _title = self._visible_css_selectop_text(dn.dail_title)
+        # 3.3判断信息跟规定中的是否一致
+        self._verify_operator(_title, self.overall[dn.whole_verification()])
+        # 3.4点击提交按钮
+        self._visible_css_selectop(dn.dail_determine)
+
+        # 3.5提交按钮之后，进行数据库查询。将查询的结果返回
+        self.sleep_time(2)
+        statements_content = " n.id = '%s' " % (self.number_cutting(attribute))
+        self.overall[dn.wholeQueryStatement()] = self.overall[dn.wholeQueryStatement()] + statements_content
+        # 3.6查询数据库
+        self.setButtonMysql()
+
+    def submlit_conditions(self, operation: "提交按钮", default: "取消按钮", attribute):
+        if self.conditions_operation(dn.dailyOperation()) == True:
+            self.submit_conditions(operation=operation, attribute=attribute)  # 执行提交
+            # 比较数据库的数据
+            self.submit_data_judgment()
         else:
             self._visible_css_selectop(default)
 
-    def popup_title_content(self) -> "二次确认弹窗的信息比较":
-        if type(self.LABLE_DF) is DataFrame:
-            # 2.获取二次确认弹窗的标题和内容
-            _title = self._visible_css_selectop_text(dn.dail_title)
-            _content = self._visible_css_selectop_text(dn.dail_content)
-            title_content = {"title": _title, "content": _content}
-            # 2.1获取用例上弹窗的数据信息，并转换成ison数据格式
-            content = self.strTodict(self.overall[dn.whole_result()])
-            # 2.22判断是否一致
-            self._verify_operator(title_content, content)
-            # 3.获取用户执行的动作,判断是取消提交还是确定提交
-            self.interface_conditions(dn.dail_determine, dn.dail_cancel, attribute)
-
+    def interface_conditions(self, operation: "提交按钮", default: "取消按钮", attribute) -> "操作提交之后,提示语的比较":
+        if self.conditions_operation(dn.dailyOperation()) == True:
+            self.submit_conditions(operation=operation, attribute=attribute)
         else:
-            self.log.info("%s  公告页面的tbody不存在" % inspect.stack()[0][3])
+            self._visible_css_selectop(default)
 
-    def get_popup_data(self):
-        # 数据
+    def popup_title_content(self, attribute) -> "二次确认弹窗的信息比较":
+        # 2.获取二次确认弹窗的标题和内容
+        _title = self._visible_css_selectop_text(dn.dail_title)
+        _content = self._visible_css_selectop_text(dn.dail_content)
+        title_content = {"title": _title, "content": _content}
+        # 2.1获取用例上弹窗的数据信息，并转换成ison数据格式
+        content = self.strTodict(self.overall[dn.whole_result()])
+        # 2.22判断是否一致
+        self._verify_operator(title_content, content)
+
+        # 3.获取用户执行的动作,判断是取消提交还是确定提交
+        self.interface_conditions(dn.dail_determine, dn.dail_cancel, attribute)
+        self._verify_operator(self.STOP_RELEASE_STATUS,self.MYSQL_DF.iloc[0]["status"])
+
+    def get_popup_data(self, attribute):
+
+        # 弹窗数据获取以及判断
+        self.popup_data_obtain()
+        # 缺少弹窗内容的输入
+        这里有毒.....
+        # 获取用户执行的动作,判断是取消提交还是确定提交
+        self.submlit_conditions(dn.operation_primary, dn.operation_default, attribute)
+
+    def popup_data_obtain(self):
+        # 获取弹窗的数据并跟页面数据进行比较
         choose = self._visible_css_selectop_text(dn.operation_choose)  # 公告类型
         op_select = OperationSelector(self.driver, dn.operation_select).getSelectedOptions()
         dail = self._visible_css_selectop_attribute(dn.operation_dail_input)  # 标题
@@ -225,6 +247,7 @@ class DailyOperationSteps(JudgmentVerification):
         # 因为弹窗时间多空格，进行去除工作。所以外面的时间也要进行去除工作.
         daily_df["time"] = daily_df["time"].replace(" ", "")
 
+        # 弹窗数据跟页面数据的比较情况
         self._verify_operator(daily, daily_df)
 
     def get_window_data(self):
@@ -241,8 +264,9 @@ class DailyOperationSteps(JudgmentVerification):
             attribute = self._visible_css_selectop_attribute(dn.button_one, attr="data-url")
             # 并点击该公告
             self._visible_css_selectop(dn.button_one)
-
-        return attribute
+            return attribute
+        else:
+            return None
 
     def extendSoup(self):
         '''
@@ -331,9 +355,8 @@ class DailyOperationSteps(JudgmentVerification):
         self.getOperaSelect()
         # 判断页面是否有数据
         attribute = self.get_window_data()
-        # 二次弹窗的操作并将操作之后的数据信息返回
-        self.popup_title_content(attribute)
-        assert self.STOP_RELEASE_STATUS is self.MYSQL_DF["status"], "表数据信息跟预期的不一样 --> %s" % single_natch["status"]
+
+        self.popup_title_content(attribute) if attribute is not None else self.log.info("页面数据为空")
         pass
 
     def get_overdue_modify(self) -> "点击按钮弹出编辑框":
@@ -342,17 +365,5 @@ class DailyOperationSteps(JudgmentVerification):
 
         # 获取页面数据
         attribute = self.get_window_data()
-
-        if type(self.LABLE_DF) is DataFrame:
-            # 获取弹窗的数据并跟页面数据进行比较
-            self.get_popup_data()
-
-            # 获取用户执行的动作,判断是取消提交还是确定提交
-            self.interface_conditions(dn.operation_primary, dn.operation_default, attribute)
-
-            # 修改时间和操作
-            self.defaultModifyTime()
-            self._verify_operator_dataframe(self.MYSQL_DF.iloc[0],self.LABLE_DF.iloc[0])
-        else:
-            self.log.info("%s  公告页面的tbody不存在" % inspect.stack()[0][3])
+        self.get_popup_data(attribute) if attribute is not None else self.log.info("页面数据为空")
         pass

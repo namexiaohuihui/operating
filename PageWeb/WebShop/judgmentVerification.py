@@ -31,6 +31,16 @@ class JudgmentVerification(ComparedVerify):
     """
     # ---------------------数据比较----------------------
     """
+    def conditions_operation(self,operation):
+        # 按钮判断在这里控制
+        # 3.获取用户执行的动作
+        _operation = self.overall[operation]  # 获取操作按钮
+        if _operation == "确定":
+            self.log.info("操作按钮为-->确定吗? %s " % _operation)
+            return True
+        else:
+            self.log.info("操作按钮为-->取消吗? %s " % _operation)
+            return False
 
     def mysql_match(self, my_sql: "mysql语句") -> "正则切割sql语句是否为查询语句":
         return re.match('^SELECT', my_sql)
