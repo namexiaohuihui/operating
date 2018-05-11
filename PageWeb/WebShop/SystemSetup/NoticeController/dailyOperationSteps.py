@@ -14,11 +14,12 @@ from tools.extendBeantifulSoup import ExtendBeantifulSoup
 from tools.openpyxlExcel import PANDASDATA
 from tools.operationSelector import OperationSelector
 from utils.timeFromat import TimeFromat
+from PageWeb.WebShop.SystemSetup.NoticeController import popupWindows
 
 
 class DailyOperationSteps(JudgmentVerification):
     STOP_RELEASE_STATUS = 2
-
+    ANNOUN_SHE_TIME = ''
     global dn
     dn = DailyLabelNames()
 
@@ -171,7 +172,8 @@ class DailyOperationSteps(JudgmentVerification):
 
     def submit_data_judgment(self) -> "提交完成之后数据信息判断":
         # 修改时间和操作
-        self.defaultModifyTime()
+        self.default_modify_time()
+        # self.defaultModifyTime()
         # 提交之后的数据跟用例的数据比较情况
         self._verify_operator_dataframe(self.MYSQL_DF.iloc[0], self.LABLE_DF.iloc[0])
 
@@ -184,6 +186,7 @@ class DailyOperationSteps(JudgmentVerification):
         self._verify_operator(_title, self.overall[dn.whole_verification()])
         # 3.4点击提交按钮
         self._visible_css_selectop(dn.dail_determine)
+        self.ANNOUN_SHE_TIME = self.ti.currentToStamp()
 
         # 3.5提交按钮之后，进行数据库查询。将查询的结果返回
         self.sleep_time(2)
@@ -211,44 +214,46 @@ class DailyOperationSteps(JudgmentVerification):
         _title = self._visible_css_selectop_text(dn.dail_title)
         _content = self._visible_css_selectop_text(dn.dail_content)
         title_content = {"title": _title, "content": _content}
-        # 2.1获取用例上弹窗的数据信息，并转换成ison数据格式
+        # 2.1获取用例上弹窗的数据信息，并转换成json数据格式
         content = self.strTodict(self.overall[dn.whole_result()])
         # 2.22判断是否一致
         self._verify_operator(title_content, content)
 
         # 3.获取用户执行的动作,判断是取消提交还是确定提交
         self.interface_conditions(dn.dail_determine, dn.dail_cancel, attribute)
-        self._verify_operator(self.STOP_RELEASE_STATUS,self.MYSQL_DF.iloc[0]["status"])
+        self._verify_operator(self.STOP_RELEASE_STATUS, self.MYSQL_DF.iloc[0]["status"])
 
     def get_popup_data(self, attribute):
 
         # 弹窗数据获取以及判断
         self.popup_data_obtain()
         # 缺少弹窗内容的输入
-        这里有毒.....
+        popupWindows.set_popup_all_data(self, dn)
+        print("屏蔽提交按钮，查看数据")
         # 获取用户执行的动作,判断是取消提交还是确定提交
         self.submlit_conditions(dn.operation_primary, dn.operation_default, attribute)
 
     def popup_data_obtain(self):
-        # 获取弹窗的数据并跟页面数据进行比较
-        choose = self._visible_css_selectop_text(dn.operation_choose)  # 公告类型
-        op_select = OperationSelector(self.driver, dn.operation_select).getSelectedOptions()
-        dail = self._visible_css_selectop_attribute(dn.operation_dail_input)  # 标题
-        content = self._visible_css_selectop_text(dn.operation_content_input)  # 公告内容
-        # 公告日期,弹窗中的时间多出两个空格，不好进行比较所以去除
-        deadline = self._visible_css_selectop_attribute(dn.operation_deadline_input).replace(" ", "")
-
-        daily = {"type": choose, "city": op_select, "title": dail, "content": content, "time": deadline, }
-
-        daily_df = {}
-        lable_daily = self.LABLE_DF.iloc[0]
-        for k in daily.keys():
-            daily_df[k] = lable_daily[k]
-        # 因为弹窗时间多空格，进行去除工作。所以外面的时间也要进行去除工作.
-        daily_df["time"] = daily_df["time"].replace(" ", "")
-
-        # 弹窗数据跟页面数据的比较情况
-        self._verify_operator(daily, daily_df)
+        popupWindows.get_popup_data_obtain(self, dn)
+        # # 获取弹窗的数据并跟页面数据进行比较
+        # choose = self._visible_css_selectop_text(dn.operation_choose)  # 公告类型
+        # op_select = OperationSelector(self.driver, dn.operation_select).getSelectedOptions()
+        # dail = self._visible_css_selectop_attribute(dn.operation_dail_input)  # 标题
+        # content = self._visible_css_selectop_text(dn.operation_content_input)  # 公告内容
+        # # 公告日期,弹窗中的时间多出两个空格，不好进行比较所以去除
+        # deadline = self._visible_css_selectop_attribute(dn.operation_deadline_input).replace(" ", "")
+        #
+        # daily = {"type": choose, "city": op_select, "title": dail, "content": content, "time": deadline, }
+        #
+        # daily_df = {}
+        # lable_daily = self.LABLE_DF.iloc[0]
+        # for k in daily.keys():
+        #     daily_df[k] = lable_daily[k]
+        # # 因为弹窗时间多空格，进行去除工作。所以外面的时间也要进行去除工作.
+        # daily_df["time"] = daily_df["time"].replace(" ", "")
+        #
+        # # 弹窗数据跟页面数据的比较情况
+        # self._verify_operator(daily, daily_df)
 
     def get_window_data(self):
         # 获取页面数据
@@ -298,6 +303,37 @@ class DailyOperationSteps(JudgmentVerification):
             ebs.lableParsingList()
 
     # ---------------------------------df数据集修改--------------------------
+
+    def default_modify(self, modify):
+        status_time = int(modify["time"])
+        status_end = int(modify["default"])
+        print("-----------")
+        print(status_time,type(status_time))
+        print(status_end,type(status_end))
+        print(self.ANNOUN_SHE_TIME,type(self.ANNOUN_SHE_TIME))
+        print("-----------")
+        status = []
+        # 存储状态以及操作按钮
+        if self.ANNOUN_SHE_TIME < status_end and self.ANNOUN_SHE_TIME > status_time:  # 大于开始时间小于结束时间
+            status.append("发布中")
+        if self.ANNOUN_SHE_TIME < status_time:  # 小于开始时间
+            status.append("未开始")
+        if self.ANNOUN_SHE_TIME > status_end:  # 大于结束时间
+            status.append("已过期")
+        return status
+
+    def default_modify_time(self):
+        # 判断时间给出数据
+        status = self.default_modify(self.MYSQL_DF.iloc[0])
+        print("11111111111111111")
+        # 赋值
+        self.MYSQL_DF["status"] = status
+
+        # 判断时间给出数据
+        status = self.default_modify(self.LABLE_DF.iloc[0])
+        # 赋值
+        print("22222222222222222222222")
+        self.LABLE_DF["status"] = status
 
     def defaultModifyTime(self):
         tf = TimeFromat()

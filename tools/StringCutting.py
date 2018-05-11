@@ -158,6 +158,8 @@ def xxxx(*lll):
     else:
         print("n")
 if __name__ == '__main__':
-    qweqwe = "/setting/notice/release/26/2"
-    print(qweqwe.replace("e", ""))
+    qweqwe = "2018-01-12 00:00:00-2018-01-12 06:00:00"
+    print(qweqwe[:19])
+    print(qweqwe[20:])
+
 

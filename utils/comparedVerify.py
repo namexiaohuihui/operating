@@ -164,8 +164,12 @@ class ComparedVerify(object):
         self.vac.id_confirm_prompt(self.driver, locator)
 
     def _visible_json_input(self, ordinal, parameter):
-        # 通过元素id利用js进行输入
+        # 利用js通过元素id直接修改value的数据
         self.vai.id_js_input(self.driver, ordinal, parameter)
+
+    def _visible_json_save(self, ordinal, parameter):
+        # 利用js通过元素id直接修改value的数据
+        self.vai.id_js_cursor_save(self.driver, ordinal, parameter)
 
     """
         #--------------------单选框按钮的点击-----------------------------------------
@@ -212,7 +216,7 @@ class ComparedVerify(object):
         return result
 
     """
-        #--------------------json数据的转换-----------------------------------------
+    #--------------------json数据的转换-----------------------------------------
     """
 
     def strTodict(self, title):

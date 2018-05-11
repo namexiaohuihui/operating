@@ -5,7 +5,7 @@ __author__ = 'DingDong'
 @time: 2018/1/23 10:18
 """
 import re
-
+from utils.timeFromat import TimeFromat
 from tools.Logger import Log
 from utils.comparedVerify import ComparedVerify
 from utils.config import readModel
@@ -27,7 +27,7 @@ class JudgmentVerification(ComparedVerify):
         self.log.functionName(self.FUNCTION_NAME)
         # 根据df标签序号获取用例
         self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
-
+        self.ti = TimeFromat()
     """
     # ---------------------数据比较----------------------
     """
@@ -41,6 +41,7 @@ class JudgmentVerification(ComparedVerify):
         else:
             self.log.info("操作按钮为-->取消吗? %s " % _operation)
             return False
+
 
     def mysql_match(self, my_sql: "mysql语句") -> "正则切割sql语句是否为查询语句":
         return re.match('^SELECT', my_sql)

@@ -43,6 +43,9 @@ class DailyLabelNames(ShopNoticeController):
 
     # 弹窗的位置
     operation_location = ".modal-content"
+    # 弹窗的类型:
+    operation_noticesort = "#noticesort1" #日常
+    operation_noticesort2 = "#noticesort2" # 维护
     # 弹窗上：标题
     operation_title = ".modal-header>h4:nth-of-type(1)"
     # 弹窗上：公告类型
@@ -52,7 +55,7 @@ class DailyLabelNames(ShopNoticeController):
     # 弹窗上：下拉
     operation_select = "#noticeForm > div:nth-child(4) > div > select"
     operation_select_text = "#noticeForm > div:nth-child(4) > label"
-    # 弹窗上：公告输入
+    # 弹窗上：标题输入
     operation_dail_text = "#noticeForm > div:nth-child(5) > label"
     operation_dail_input = ".form-control.noticename"
     # 弹窗上：内容输入
@@ -61,6 +64,7 @@ class DailyLabelNames(ShopNoticeController):
     # 弹窗上：日期输入
     operation_deadline_text = "#noticeForm > div:nth-child(7) > label"
     operation_deadline_input = ".form-control.pull-right"
+    operation_deadline_id = "reservationtime"  # 这个时间放的是id路径不是cssSelector
     # 弹窗上：取消/确定按钮
     operation_default = ".btn.btn-default"
     operation_primary = ".btn.btn-primary"

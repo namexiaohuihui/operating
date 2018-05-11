@@ -6,10 +6,12 @@ __author__ = 'DingDong'
 """
 from utils.excelname.excelBeanName import ExcelTitle
 
+
 class ShopParameterSetting(ExcelTitle):
     """
     参数设置页面，优惠设置项的用例标题
     """
+
     def WithExtract(self):
         return "提现"
 
@@ -37,21 +39,32 @@ class ShopParameterSetting(ExcelTitle):
     def CountWatikisMax(self):
         return "最高抵扣"
 
+
 class ShopNoticeController(ExcelTitle):
     """
         参数设置页面，公告设置项的标题
     """
+
     def dailyCity(self):
         return "城市"
 
     def dailyTitle(self):
         return "状态"
 
-    def dailyContent(self):
-        return "内容"
-
-    def dailyDeadline(self):
-        return "有限期"
-
     def dailyOperation(self):
         return "操作"
+
+    def announType(self):
+        return "公告类型"
+
+    def announCity(self):
+        return "公告城市"
+
+    def announTitle(self):
+        return "公告标题"
+
+    def announContent(self):
+        return "公告内容"
+
+    def announDeadline(self):
+        return "公告日期"
