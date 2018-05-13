@@ -11,7 +11,7 @@ import types
 import urllib.parse
 # requests库的http请求、
 """
-　①get请求：requests.get(‘url‘) 
+　  ①get请求：requests.get(‘url‘) 
 　　②post请求：requests.post("url/post")
 　　③put请求：requests.put("url/put")
 　　④delete请求：requests.delete("url/delete")

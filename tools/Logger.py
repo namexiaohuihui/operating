@@ -6,6 +6,7 @@
 @项目名称:operating
 """
 import logging, time
+import pprint
 import os
 
 # log_path是存放日志的路径
@@ -71,6 +72,8 @@ class Log():
     def functionName(self, functionName="Undefined function"):
         self.function = functionName
 
+    def log_ppriny(self,message):
+        pprint.pprint(message)
 
 if __name__ == "__main__":
     basename = "112"

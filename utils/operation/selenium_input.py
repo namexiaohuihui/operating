@@ -91,7 +91,7 @@ class action_input(action_visible):
             self.focus_id(browser, ordinal)
             self.id_js_cursor_save(browser,ordinal,parameter)
             # browser.execute_script("document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';")
-            self.sleep_Rest(1)
+            self.sleep_Rest()
             self.blur_id(browser, ordinal)
         except:
             self.error_log(browser)
@@ -100,7 +100,7 @@ class action_input(action_visible):
         # 通过id进行js输入
         try:
             browser.execute_script("document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';")
-            self.sleep_Rest(1)
+            self.sleep_Rest()
         except:
             self.error_log(browser)
 

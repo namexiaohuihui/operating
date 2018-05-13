@@ -167,10 +167,14 @@ class OperationSelector(action_visible):
         self.select.deselect_by_visible_text(text)
         return selected
 
-
+import time
 if __name__ == '__main__':
     be = browser_confirm()
-    drivers = be.url_opens(r"F:\desktop\gonggao.html")
-    dl = OperationSelector(drivers, ".box-city > div:nth-child(1) > select")
-    print(dl.get_options())
+    drivers = be.url_opens("file:///c:/Users/70486/Desktop/dijia.html")
+    time.sleep(2)
+    ordinal = "reservationtime"
+    parameter = "2018-01-02 12:18 - 2018-01-03 19:56"
+    reservationtime = "document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';"
+    print(reservationtime)
+    drivers.execute_script(reservationtime)
     # drivers.close()

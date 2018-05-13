@@ -9,7 +9,7 @@
 import urllib.request
 
 import urllib.parse
-
+import json
 url='http://www.tuling123.com/openapi/api'
 
 data={"key": "your", "info": '你好'}
@@ -22,4 +22,4 @@ html=urllib.request.urlopen(re)
 
 print(html.getcode(),html.msg)
 
-print(html.read())
+print(json.loads(html.read()))

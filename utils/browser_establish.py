@@ -93,8 +93,8 @@ class browser_confirm(object):
         print("浏览器开始执行初始化")
 
         # 创建浏览器对象
-        # self.firefox_browser()
-        self.chrome_browser(options=options)
+        self.firefox_browser()
+        # self.chrome_browser(options=options)
         self.browser.maximize_window()
 
         if url == None:

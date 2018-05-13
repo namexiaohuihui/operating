@@ -37,3 +37,6 @@ TypeError: not all arguments converted during string formatting
 
  tuple index out of range
  mysql语句指令太长导致的问题
+
+ bs4.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+ 没有安装lxml导致的，pip install lxml就解决了
