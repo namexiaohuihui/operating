@@ -136,7 +136,7 @@ class DailyOperationSteps(JudgmentVerification):
             # 将读取的数据以及比较的结果保存为一个文档
             self.pan.functionConcat(self.FUNCTION_NAME, self.MYSQL_DF, self.LABLE_DF, dfop)
         else:
-            self.log.info(inspect.stack()[0][3] % "%s + 公告页面的tbody不存在")
+            self.log.info("公告页面的tbody不存在 ----> %s" % inspect.stack()[0][3] )
 
     def getAllScreening(self) -> "不需要转换查询数据":
         # 执行点击按钮之后执行查询语句
