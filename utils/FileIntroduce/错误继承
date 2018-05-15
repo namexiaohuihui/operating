@@ -40,3 +40,6 @@ TypeError: not all arguments converted during string formatting
 
  bs4.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
  没有安装lxml导致的，pip install lxml就解决了
+
+ TypeError: not all arguments converted during string formatting
+ 原因是time.localtime(status_time)转换的数据之后不能通过字符串形式进行输出

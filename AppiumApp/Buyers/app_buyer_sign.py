@@ -12,7 +12,17 @@ from appium import webdriver
 
 class buyer_sign(unittest.TestCase):
     strr = "qweads11"
-    # 设置可支持中文输入unicodeKeyboard
+    # 设置可支持中文输入unicodeKeyboard，有你就会出现code：1的错误
+    r"""
+    	[error] [MJSONWP] Encountered internal error running command: 
+    	Error: Error executing adbExec. Original 
+    	error: 'Command 'E\:\\sdk\\platform-tools\\adb.exe -P 5037 -s 192.168.10.148\:5555 
+    	install C\:\\Users\\Administrator\\AppData\\Local\\Programs\\appium-desktop\\resources\\app\\node_modules\\appium\\node_modules\\appium-android-ime\\bin\\UnicodeIME-debug.apk' 
+    	exited with code 1'; 
+    	Stderr: 'adb: failed to install C:\Users\Administrator\AppData\Local\Programs\appium-desktop\resources\app\node_modules\appium\node_modules\appium-android-ime\bin\UnicodeIME-debug.apk: 
+    	Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE: Package io.appium.android.ime signatures do not match the previously installed version; ignoring!]';
+    	 Code: '1'
+    """
     # 设置输入法为系统默认resetKeyboard
     desired_caps = {
         "platformName": "Android",
@@ -21,7 +31,6 @@ class buyer_sign(unittest.TestCase):
         "appPackage": "com.lianni.delivery",
         "appActivity": ".StartActivity",
         "noReset": 'True',
-        "unicodeKeyboard": 'True',
         "resetKeyboard": 'True'
     }
     @classmethod
@@ -34,7 +43,6 @@ class buyer_sign(unittest.TestCase):
         #   "appPackage": "com.lianni.delivery",
         #   "appActivity": ".StartActivity",
         #   "noSign": True,
-        #   "unicodeKeyboard": True,
         #   "resetKeyboard": True
         # }
         # self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
@@ -52,7 +60,7 @@ class buyer_sign(unittest.TestCase):
         # android.widget.Button
         # driver.sendKeyEvent(66)
         # 权限弹窗的处理
-        self.driver.switchTo().alert().accept();
+        # self.driver.switchTo().alert().accept();
 
     def start_server(self):
         self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub",self.desired_caps)

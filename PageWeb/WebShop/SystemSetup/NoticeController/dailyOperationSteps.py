@@ -8,17 +8,19 @@ import inspect
 
 from pandas import DataFrame
 
+from PageWeb.WebShop.SystemSetup.NoticeController import popupWindows
 from PageWeb.WebShop.SystemSetup.NoticeController.dailyLabelNames import DailyLabelNames
 from PageWeb.WebShop.judgmentVerification import JudgmentVerification
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
 from tools.openpyxlExcel import PANDASDATA
 from tools.operationSelector import OperationSelector
 from utils.timeFromat import TimeFromat
-from PageWeb.WebShop.SystemSetup.NoticeController import popupWindows
 
 
 class DailyOperationSteps(JudgmentVerification):
+    # 修改已停止的公告之后，状态值
     STOP_RELEASE_STATUS = 2
+    # 记录提交修改公告的时间
     ANNOUN_SHE_TIME = ''
     global dn
     dn = DailyLabelNames()
@@ -29,7 +31,7 @@ class DailyOperationSteps(JudgmentVerification):
         pandas标题的设置
         :return:
         """
-        daily = ["type", "city", "title", "content", "time", "status", "default"]
+        daily = ("type", "city", "title", "content", "time", "status", "default")
         return daily
 
     def setDailyBulletin(self, basename):
@@ -136,7 +138,7 @@ class DailyOperationSteps(JudgmentVerification):
             # 将读取的数据以及比较的结果保存为一个文档
             self.pan.functionConcat(self.FUNCTION_NAME, self.MYSQL_DF, self.LABLE_DF, dfop)
         else:
-            self.log.info("公告页面的tbody不存在 ----> %s" % inspect.stack()[0][3] )
+            self.log.info("公告页面的tbody不存在 ----> %s" % inspect.stack()[0][3])
 
     def getAllScreening(self) -> "不需要转换查询数据":
         # 执行点击按钮之后执行查询语句
@@ -173,7 +175,6 @@ class DailyOperationSteps(JudgmentVerification):
     def submit_data_judgment(self) -> "提交完成之后数据信息判断":
         # 修改时间和操作
         self.default_modify_time()
-        # self.defaultModifyTime()
         # 提交之后的数据跟用例的数据比较情况
         self._verify_operator_dataframe(self.MYSQL_DF.iloc[0], self.LABLE_DF.iloc[0])
 
@@ -307,11 +308,6 @@ class DailyOperationSteps(JudgmentVerification):
     def default_modify(self, modify):
         status_time = int(modify["time"])
         status_end = int(modify["default"])
-        print("-----------")
-        print(status_time,type(status_time))
-        print(status_end,type(status_end))
-        print(self.ANNOUN_SHE_TIME,type(self.ANNOUN_SHE_TIME))
-        print("-----------")
         status = []
         # 存储状态以及操作按钮
         if self.ANNOUN_SHE_TIME < status_end and self.ANNOUN_SHE_TIME > status_time:  # 大于开始时间小于结束时间
@@ -320,20 +316,20 @@ class DailyOperationSteps(JudgmentVerification):
             status.append("未开始")
         if self.ANNOUN_SHE_TIME > status_end:  # 大于结束时间
             status.append("已过期")
+        print("status -------> %s " % status)
         return status
 
     def default_modify_time(self):
         # 判断时间给出数据
         status = self.default_modify(self.MYSQL_DF.iloc[0])
-        print("11111111111111111")
         # 赋值
         self.MYSQL_DF["status"] = status
 
         # 判断时间给出数据
         status = self.default_modify(self.LABLE_DF.iloc[0])
         # 赋值
-        print("22222222222222222222222")
-        self.LABLE_DF["status"] = status
+        print("self.LABLE_DF -----? %s " % self.LABLE_DF )
+        self.LABLE_DF.iloc[0]["status"] = status
 
     def defaultModifyTime(self):
         tf = TimeFromat()
@@ -403,3 +399,12 @@ class DailyOperationSteps(JudgmentVerification):
         attribute = self.get_window_data()
         self.get_popup_data(attribute) if attribute is not None else self.log.info("页面数据为空")
         pass
+
+    def get_time_status(self, expect_value) -> "根据修改时间然后判断状态是否正常":
+        '''
+        程序运行完毕之后，根据修改后的状态来判断状态值是否跟期望的一直
+        :param expect_value:  修改时间之后，期望该公告的状态
+        :return:
+        '''
+        self.get_overdue_modify()
+        assert expect_value == self.MYSQL_DF.iloc[0]['status'], "时间设置不严谨，导致公告期望状态判断出错.用例出现False"

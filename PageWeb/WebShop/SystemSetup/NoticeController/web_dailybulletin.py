@@ -16,6 +16,12 @@ disSte = DailyOperationSteps()
 
 class DailyBulletin(unittest.TestCase):
     """公告用例类"""
+    # 期望公告处于发布中时，状态的显示
+    RELEASE_STATUS__EXPECT = "发布中"
+    # 期望公告处于发布中时，状态的显示
+    PREPARED_STATUS__EXPECT = "未开始"
+    # 期望公告处于发布中时，状态的显示
+    OVERDUE_STATUS__EXPECT = "已过期"
 
     @classmethod
     def setUp(cls):
@@ -190,7 +196,7 @@ class DailyBulletin(unittest.TestCase):
         pass
 
     # @unittest.skip(r"跳过:test_overdueModifyCity")
-    def ttttest_overdueModifyCity(self) -> "修改某个已过期的公告,改变所属地":
+    def test_overdueModifyCity(self) -> "修改某个已过期的公告,改变所属地":
         """
         修改某个已过期的公告，改变所属地
         :return: None
@@ -200,7 +206,7 @@ class DailyBulletin(unittest.TestCase):
         pass
 
     # @unittest.skip(r"跳过:test_overdueModifyTitle")
-    def ttttest_overdueModifyTitle(self) -> "修改某个已过期的公告,改变标题":
+    def test_overdueModifyTitle(self) -> "修改某个已过期的公告,改变标题":
         """
         修改某个已过期的公告，改变标题
         :return: None
@@ -210,7 +216,7 @@ class DailyBulletin(unittest.TestCase):
         pass
 
     # @unitest.skip(r"跳过:test_overdueModifyContent")
-    def ttttest_overdueModifyContent(self) -> "修改某个已过期的公告,改变内容":
+    def test_overdueModifyContent(self) -> "修改某个已过期的公告,改变内容":
         """
         修改某个已过期的公告，改变内容
         :return: None
@@ -220,12 +226,13 @@ class DailyBulletin(unittest.TestCase):
         pass
 
     # @unittest.skip(r"跳过:test_overdueModifyReleaseTime")
-    def ttttest_overdueModifyReleaseTime(self) -> "修改某个已过期的公告,改变时间":
+    def test_overdueModifyReleaseTime(self) -> "修改某个已过期的公告,改变时间":
         """
-        修改某个已过期的公告，当前时间在有限期内
+        修改某个已过期的公告，当前时间在有限期内.此时该公告变成发布中
         :return: None
         """
-        # disSte.setFunctionName(inspect.stack()[0][3])
+        disSte.setFunctionName(inspect.stack()[0][3])
+        disSte.get_time_status(expect_value=self.RELEASE_STATUS__EXPECT)
         pass
 
     # @unittest.skip(r"跳过:test_overdueModifyNotStart")

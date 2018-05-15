@@ -64,7 +64,20 @@ class DailyLabelNames(ShopNoticeController):
     # 弹窗上：日期输入
     operation_deadline_text = "#noticeForm > div:nth-child(7) > label"
     operation_deadline_input = ".form-control.pull-right"
-    operation_deadline_id = "reservationtime"  # 这个时间放的是id路径不是cssSelector
+    # 弹窗上：日期弹窗开始时间的月日选择
+    deadline_data_left = ".calendar.first.left>div:nth-child(1)>table>tbody"
+    # 弹窗上：日期弹窗开始时间的时分选择
+    deadline_hour_left = ".calendar.first.left>div:nth-child(2)>select"
+    deadline_minutese_left = ".calendar.first.left>div:nth-child(2)>select"
+
+    # 弹窗上：日期弹窗开始时间的月日选择
+    deadline_data_right = ".calendar.first.right>div:nth-child(1)>tbody"
+    # 弹窗上：日期弹窗开始时间的时分选择
+    deadline_hour_right = ".calendar.first.left>div:nth-child(2)>select"
+    deadline_minutese_right = ".calendar.first.left>div:nth-child(2)>select"
+
+    operation_deadline_button = ".applyBtn.btn.btn-small.btn-sm.btn-success"
+
     # 弹窗上：取消/确定按钮
     operation_default = ".btn.btn-default"
     operation_primary = ".btn.btn-primary"

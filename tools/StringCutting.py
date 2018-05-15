@@ -158,8 +158,13 @@ def xxxx(*lll):
     else:
         print("n")
 if __name__ == '__main__':
-    qweqwe = "2018-01-12 00:00:00-2018-01-12 06:00:00"
-    print(qweqwe[:19])
-    print(qweqwe[20:])
+    from python_utils import converters
+
+    left_time = str.split('5月 2018', '月')
+    status_mon = converters.to_int(left_time[0])
+    status_year = converters.to_int(left_time[1])
+
+    print(status_mon)
+    print(status_year)
 
 

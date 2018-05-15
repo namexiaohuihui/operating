@@ -6,13 +6,15 @@ __author__ = 'DingDong'
 """
 from tools.operationSelector import OperationSelector
 
-def set_parameter_sharing(self, announ, announ_key,operation):
+
+def set_parameter_sharing(self, announ, announ_key, operation):
     content = self.overall[announ]
+    print("公告内容 %s " % content)
     if content is None:  # 如何为空就直接重赋值
         content = self.LABLE_DF.iloc[0][announ_key]
-    print("公告内容 %s " % content)
     self._sendKeys_css_selectop(operation, content)
     return content
+
 
 def set_popup_type(self, dn):
     choose = self.overall[dn.announType()]
@@ -32,52 +34,54 @@ def set_popup_type(self, dn):
 
     return choose
 
+
 def set_popup_city(self, dn):
     op_select = self.overall[dn.announCity()]
+    print("公告城市 %s " % op_select)
     if op_select is None:  # 如何为空就直接重赋值
         op_select = self.LABLE_DF.iloc[0]["city"]
-    print("公告城市 %s " % op_select)
     OperationSelector(self.driver, dn.operation_select).setSelectorText(op_select)
     return op_select
 
-def set_popup_title(self, dn):
 
-    title = set_parameter_sharing(self,dn.announTitle(), "title",dn.operation_dail_input)
+def set_popup_title(self, dn):
+    title = set_parameter_sharing(self, dn.announTitle(), "title", dn.operation_dail_input)
     return title
 
+
 def set_popup_content(self, dn):
-    content = set_parameter_sharing(self,dn.announContent(), "content",dn.operation_content_input)
+    content = set_parameter_sharing(self, dn.announContent(), "content", dn.operation_content_input)
     return content
+
 
 def set_popup_time(self, dn):
     daily_time = self.overall[dn.announDeadline()]
+    print("公告日期 %s " % daily_time)
     if daily_time is None:  # 如何为空就直接重赋值
         daily_time = self.LABLE_DF.iloc[0]["time"]
-    print("公告日期 %s " % daily_time)
-    self._visible_json_save(dn.operation_deadline_id, daily_time)
-    return daily_time
+
+    # 找到数据然后进行切割操作,status_time : 开始时间, status_end :结束时间
+    status_time,status_end = self.ti.cutting_time_current(daily_time)
+
+    # 日期输入
+    self._visible_css_selectop(dn.operation_deadline_input) # 点击日期输入框
+    self._sendKeys_css_selectop(dn.operation_deadline_status, status_time) # 日期选择框中输入开始时间
+    self._sendKeys_css_selectop(dn.operation_deadline_end, status_end) # 日期选择框中输入结束时间
+    self._visible_css_selectop(dn.operation_deadline_button) # 日期选择框中确认按钮点击
+
+    return status_time,status_end
+
 
 def set_popup_all_data(self, dn):
-
-    choose = set_popup_type(self, dn) # 公告类型
-
-    op_select = set_popup_city(self, dn) # 公告城市
-
+    choose = set_popup_type(self, dn)  # 公告类型
+    op_select = set_popup_city(self, dn)  # 公告城市
     title = set_popup_title(self, dn)  # 公告标题
-
-    content = set_popup_content(self, dn) # 公告内容
-
-    daily_time = set_popup_time(self, dn)  # 设置日期
-
-    # 拆分开始时间和结束时间，判断该公告状态
-    daily_time = self.ti.cutting_time(daily_time)
-    status_time = self.ti.timeToStamp(daily_time[0])
-    status_end = self.ti.timeToStamp(daily_time[1])
-
-    self.LABLE_DF.iloc[0] = {"type": choose, "city": op_select, "title": title,
-                             "content": content, "time": status_time, "status": '暂时没有数据', "default": status_end}
-
+    content = set_popup_content(self, dn)  # 公告内容
+    status_time,status_end = set_popup_time(self, dn)  # 设置日期，将设置的数据进行返回
+    daily_value = (choose, op_select, title, content, status_time, '暂时没有数据', status_end)
+    self.LABLE_DF.iloc[0] = dict(zip(self.setDailyTitle(), daily_value))
     self.log.info("提交的参数为: ------> %s " % self.LABLE_DF.iloc[0])
+
 
 def get_popup_data_obtain(self, dn):
     # 获取弹窗的数据并跟页面数据进行比较
@@ -88,14 +92,16 @@ def get_popup_data_obtain(self, dn):
     # 公告日期,弹窗中的时间多出两个空格，不好进行比较所以去除
     deadline = self._visible_css_selectop_attribute(dn.operation_deadline_input).replace(" ", "")
 
-    daily = {"type": choose, "city": op_select, "title": dail, "content": content, "time": deadline, }
+    daily_keys = ("type", "city", "title", "content", "time")
+    daily_value = (choose, op_select, dail, content, deadline)
+    daily_keys = dict(zip(daily_keys, daily_value))
 
     daily_df = {}
     lable_daily = self.LABLE_DF.iloc[0]
-    for k in daily.keys():
+    for k in daily_keys.keys():
         daily_df[k] = lable_daily[k]
     # 因为弹窗时间多空格，进行去除工作。所以外面的时间也要进行去除工作.
     daily_df["time"] = daily_df["time"].replace(" ", "")
 
     # 弹窗数据跟页面数据的比较情况
-    self._verify_operator(daily, daily_df)
+    self._verify_operator(daily_keys, daily_df)

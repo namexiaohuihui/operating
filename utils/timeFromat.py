@@ -64,3 +64,6 @@ if __name__ == '__main__':
     cutting =  TimeFromat().cutting_time_current(time_stauts)
     print(cutting[0])
     print(cutting[1])
+    localtime = time.localtime(cutting[0])
+    print("Local current time :", localtime)
+    print("Local current time :", time.time())

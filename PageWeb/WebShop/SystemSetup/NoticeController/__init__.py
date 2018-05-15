@@ -18,11 +18,11 @@ __author__ = 'DingDong'
 
 """
 
-from collections import OrderedDict
-import pprint
-daily = ("type", "city", "title", "content", "time", "status", "default")
-daily2 = ("gonhgfao", "nanning", "hahah", "neirongh", "shjina", "zhungtai", "jieshu")
+# from collections import OrderedDict
+# import pprint
+# daily = ["type", "city", "title", "content", "time", "status", "default"]
+# daily2 = ("gonhgfao", "nanning", "hahah", "neirongh", "shjina", "zhungtai", "jieshu")
+#
+# shuju2 = dict(zip(daily,daily2))
+# print(shuju2)
 
-shuju2 = dict(zip(daily,daily2))
-print("nihao","buhao",sep="gun")
-print(shuju2)
