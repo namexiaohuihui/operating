@@ -79,7 +79,7 @@ class DailyLabelNames(ShopNoticeController):
     operation_deadline_button = ".applyBtn.btn.btn-small.btn-sm.btn-success"
 
     # 弹窗上：取消/确定按钮
-    operation_default = ".btn.btn-default"
+    operation_default = ".modal-footer>button:nth-child(1)>"
     operation_primary = ".btn.btn-primary"
 
     # 日常上：城市

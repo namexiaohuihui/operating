@@ -26,7 +26,7 @@ class DailyBulletin(unittest.TestCase):
     OVERDUE_STATUS__EXPECT = "已过期"
 
     @classmethod
-    def setUp(cls):
+    def setUpClass(cls):
         # 获取运行文件的类名
         basename = os.path.splitext(os.path.basename(__file__))[0]
         # 打开浏览器，定义log日志。读取excle文档数据
@@ -36,10 +36,11 @@ class DailyBulletin(unittest.TestCase):
         pass
 
     @classmethod
-    def tearDown(cls):
+    def tearDownClass(cls):
         try:
             # 该类结束时最后调用的函数
-            disSte.driver.quit()
+            # disSte.driver.quit()
+            disSte.driver.close()
             # disSte.sleep_time(1)
             pass
         except UnicodeDecodeError:
@@ -235,7 +236,7 @@ class DailyBulletin(unittest.TestCase):
         :return: None
         """
         disSte.setFunctionName(inspect.stack()[0][3])
-        dict.log.info(disSte.FUNCTION_NAME,"-------->涉及日期的发布暂时无法通过selenium进行测试操作")
+        disSte.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % disSte.FUNCTION_NAME)
         # disSte.get_time_status(expect_value=self.RELEASE_STATUS__EXPECT)
         pass
 
@@ -246,7 +247,7 @@ class DailyBulletin(unittest.TestCase):
         :return: None
         """
         disSte.setFunctionName(inspect.stack()[0][3])
-        dict.log.info(disSte.FUNCTION_NAME, "-------->涉及日期的发布暂时无法通过selenium进行测试操作")
+        disSte.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % disSte.FUNCTION_NAME)
         pass
 
     # @unittest.skip(r"跳过:test_overdueModifyOverdue")
@@ -256,7 +257,7 @@ class DailyBulletin(unittest.TestCase):
         :return: None
         """
         disSte.setFunctionName(inspect.stack()[0][3])
-        dict.log.info(disSte.FUNCTION_NAME, "-------->涉及日期的发布暂时无法通过selenium进行测试操作")
+        disSte.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % disSte.FUNCTION_NAME)
         pass
 
     # @unittest.skip(r"跳过:test_stopsModifyCity")
@@ -296,7 +297,7 @@ class DailyBulletin(unittest.TestCase):
         :return: None
         """
         disSte.setFunctionName(inspect.stack()[0][3])
-        dict.log.info(disSte.FUNCTION_NAME, "-------->涉及日期的发布暂时无法通过selenium进行测试操作")
+        disSte.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % disSte.FUNCTION_NAME)
         pass
 
     # @unittest.skip(r"跳过:test_stopsModifyContent")
@@ -306,7 +307,7 @@ class DailyBulletin(unittest.TestCase):
         :return: None
         """
         disSte.setFunctionName(inspect.stack()[0][3])
-        dict.log.info(disSte.FUNCTION_NAME, "-------->涉及日期的发布暂时无法通过selenium进行测试操作")
+        disSte.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % disSte.FUNCTION_NAME)
         pass
 
     # @unittest.skip(r"跳过:test_stopsModifyContent")
@@ -316,7 +317,7 @@ class DailyBulletin(unittest.TestCase):
         :return: None
         """
         disSte.setFunctionName(inspect.stack()[0][3])
-        dict.log.info(disSte.FUNCTION_NAME, "-------->涉及日期的发布暂时无法通过selenium进行测试操作")
+        disSte.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % disSte.FUNCTION_NAME)
         pass
 
 

@@ -64,10 +64,7 @@ def set_popup_time(self, dn):
     status_time,status_end = self.ti.cutting_time_current(daily_time)
 
     # 日期输入
-    self._visible_css_selectop(dn.operation_deadline_input) # 点击日期输入框
-    self._sendKeys_css_selectop(dn.operation_deadline_status, status_time) # 日期选择框中输入开始时间
-    self._sendKeys_css_selectop(dn.operation_deadline_end, status_end) # 日期选择框中输入结束时间
-    self._visible_css_selectop(dn.operation_deadline_button) # 日期选择框中确认按钮点击
+    self.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % self.FUNCTION_NAME)
 
     return status_time,status_end
 
