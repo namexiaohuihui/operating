@@ -76,6 +76,7 @@ class ComparedVerify(object):
         return _value
 
     def number_cutting(self, attribute: "某个需要切割的数据") -> "对字符串中的数据进行id切割":
+        print("{}------->公告的id数据 ".format(attribute))
         ribute = str.split(attribute, "/", 4)
         if "/" in ribute[4]:
             return str.split(ribute[4], "/")[0]

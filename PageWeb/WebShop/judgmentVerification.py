@@ -79,6 +79,7 @@ class JudgmentVerification(ComparedVerify):
     """
 
     def option_browser(self):
+        # 调用自定义的浏览器接口
         self.driver = self._browser(option="admin_url")
 
     def openingProgram(self, basename, exclefile):
@@ -89,8 +90,7 @@ class JudgmentVerification(ComparedVerify):
         :return:  暂时没有返回值
         """
         # 拿出文件名和工作薄
-        exclename = exclefile[0]
-        exclesheet = exclefile[1]
+        exclename,exclesheet = exclefile
         # 定义日志
         self.log = Log(basename)
         # 读取文档信息

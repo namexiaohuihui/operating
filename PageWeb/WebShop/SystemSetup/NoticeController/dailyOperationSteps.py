@@ -34,11 +34,11 @@ class DailyOperationSteps(JudgmentVerification):
         daily = ("type", "city", "title", "content", "time", "status", "default")
         return daily
 
-    def setDailyBulletin(self, basename):
+    def setDailyBulletin(self, basename, case_position):
         """
             定义文件名以及工作薄，方便统一进行修改
         """
-        EXCLE_FILE = dn.getDailyBulletin()
+        EXCLE_FILE = dn.getDailyBulletin(case_position)
         self.openingProgram(basename, EXCLE_FILE)
         pass
 
@@ -120,13 +120,15 @@ class DailyOperationSteps(JudgmentVerification):
 
     def getAllTitle(self):
         '''
-        获取标签为th的数据信息
+        获取标签为th的数据信息.
+        通过","进行切割然后判断数据信息是否一致
         :return:
         '''
         EBS_DF = self.getLableExtend(dn.lable_thead, "th").iloc[0]
         EBS_DF = list(EBS_DF)
         OVE_DF = self.overall[dn.whole_result()]
         OVE_DF = OVE_DF.split(",")
+        # 比较两个数据是否一致
         self._verify_operator_dataframe(EBS_DF, OVE_DF)
         pass
 
@@ -136,7 +138,7 @@ class DailyOperationSteps(JudgmentVerification):
             dfop = self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
 
             # 将读取的数据以及比较的结果保存为一个文档
-            self.pan.functionConcat(self.FUNCTION_NAME, self.MYSQL_DF, self.LABLE_DF, dfop)
+            # self.pan.functionConcat(self.FUNCTION_NAME, self.MYSQL_DF, self.LABLE_DF, dfop)
         else:
             self.log.info("公告页面的tbody不存在 ----> %s" % inspect.stack()[0][3])
 
@@ -187,28 +189,33 @@ class DailyOperationSteps(JudgmentVerification):
         self._verify_operator(_title, self.overall[dn.whole_verification()])
         # 3.4点击提交按钮
         self._visible_css_selectop(dn.dail_determine)
+        # 记录提交的时间
         self.ANNOUN_SHE_TIME = self.ti.currentToStamp()
 
         # 3.5提交按钮之后，进行数据库查询。将查询的结果返回
         self.sleep_time(2)
         statements_content = " n.id = '%s' " % (self.number_cutting(attribute))
+        # 拼接sql
         self.overall[dn.wholeQueryStatement()] = self.overall[dn.wholeQueryStatement()] + statements_content
         # 3.6查询数据库
         self.setButtonMysql()
 
     def submlit_conditions(self, operation: "提交按钮", default: "取消按钮", attribute):
-        if self.conditions_operation(dn.dailyOperation()) == True:
-            self.submit_conditions(operation=operation, attribute=attribute)  # 执行提交
+        if self.interface_conditions(operation, default, attribute):
+            # 数据处理，将界面数据的时间进行修改
+            self.time_to_list()
             # 比较数据库的数据
             self.submit_data_judgment()
-        else:
-            self._visible_css_selectop(default)
 
     def interface_conditions(self, operation: "提交按钮", default: "取消按钮", attribute) -> "操作提交之后,提示语的比较":
-        if self.conditions_operation(dn.dailyOperation()) == True:
+        # 判断二次确认的弹窗信息以及验证结果
+        bl_cond = self.conditions_operation(dn.dailyOperation())
+        if bl_cond:
+            self.ANNOUN_SHE_TIME = self.ti.currentToTime()
             self.submit_conditions(operation=operation, attribute=attribute)
         else:
             self._visible_css_selectop(default)
+        return bl_cond
 
     def popup_title_content(self, attribute) -> "二次确认弹窗的信息比较":
         # 2.获取二次确认弹窗的标题和内容
@@ -221,42 +228,21 @@ class DailyOperationSteps(JudgmentVerification):
         self._verify_operator(title_content, content)
 
         # 3.获取用户执行的动作,判断是取消提交还是确定提交
-        self.interface_conditions(dn.dail_determine, dn.dail_cancel, attribute)
-        self._verify_operator(self.STOP_RELEASE_STATUS, self.MYSQL_DF.iloc[0]["status"])
+        self.submlit_conditions(dn.dail_determine, dn.dail_cancel, attribute)
+
+    def popup_data_obtain(self):
+        popupWindows.get_popup_data_obtain(self, dn)
 
     def get_popup_data(self, attribute):
 
         # 弹窗数据获取以及判断
         self.popup_data_obtain()
-        # 缺少弹窗内容的输入
+        # 对弹窗输入框进行数据输入
         popupWindows.set_popup_all_data(self, dn)
-        print("屏蔽提交按钮，查看数据")
         # 获取用户执行的动作,判断是取消提交还是确定提交
         self.submlit_conditions(dn.operation_primary, dn.operation_default, attribute)
 
-    def popup_data_obtain(self):
-        popupWindows.get_popup_data_obtain(self, dn)
-        # # 获取弹窗的数据并跟页面数据进行比较
-        # choose = self._visible_css_selectop_text(dn.operation_choose)  # 公告类型
-        # op_select = OperationSelector(self.driver, dn.operation_select).getSelectedOptions()
-        # dail = self._visible_css_selectop_attribute(dn.operation_dail_input)  # 标题
-        # content = self._visible_css_selectop_text(dn.operation_content_input)  # 公告内容
-        # # 公告日期,弹窗中的时间多出两个空格，不好进行比较所以去除
-        # deadline = self._visible_css_selectop_attribute(dn.operation_deadline_input).replace(" ", "")
-        #
-        # daily = {"type": choose, "city": op_select, "title": dail, "content": content, "time": deadline, }
-        #
-        # daily_df = {}
-        # lable_daily = self.LABLE_DF.iloc[0]
-        # for k in daily.keys():
-        #     daily_df[k] = lable_daily[k]
-        # # 因为弹窗时间多空格，进行去除工作。所以外面的时间也要进行去除工作.
-        # daily_df["time"] = daily_df["time"].replace(" ", "")
-        #
-        # # 弹窗数据跟页面数据的比较情况
-        # self._verify_operator(daily, daily_df)
-
-    def get_window_data(self):
+    def get_window_data(self, bl_button: "用户检查是点击第一个按钮还是第二个" = True):
         # 获取页面数据
         self.LABLE_DF = self._visible_css_selectop_text(dn.lable_tbody)
         if self.LABLE_DF is not '':  # 判断是否出现
@@ -266,10 +252,15 @@ class DailyOperationSteps(JudgmentVerification):
             ebs.lableParsingList()
             self.LABLE_DF = ebs.interfaceToPandas()
 
+            # 用户检查是点击第一个按钮还是第二个
+            print("用户检查是点击第一个按钮还是第二个 ---> {}".format(bl_button))
+            # attribute = dn.button_one if bl_button else dn.button_two
+            bl_button = dn.button_one if bl_button else dn.button_two
             # 如果数据存在就先找到需要操作的公告id
-            attribute = self._visible_css_selectop_attribute(dn.button_one, attr="data-url")
+            attribute = self._visible_css_selectop_attribute(bl_button, attr="data-url")
             # 并点击该公告
-            self._visible_css_selectop(dn.button_one)
+            self._visible_css_selectop(bl_button)
+            print("{}------->公告的id数据 ".format(attribute))
             return attribute
         else:
             return None
@@ -304,10 +295,8 @@ class DailyOperationSteps(JudgmentVerification):
             ebs.lableParsingList()
 
     # ---------------------------------df数据集修改--------------------------
-
-    def default_modify(self, modify):
-        status_time = int(modify["time"])
-        status_end = int(modify["default"])
+    def status_time_modify(self, status_time, status_end):
+        print(type(status_time),type(status_end))
         status = []
         # 存储状态以及操作按钮
         if self.ANNOUN_SHE_TIME < status_end and self.ANNOUN_SHE_TIME > status_time:  # 大于开始时间小于结束时间
@@ -319,6 +308,11 @@ class DailyOperationSteps(JudgmentVerification):
         print("status -------> %s " % status)
         return status
 
+    def default_modify(self, modify):
+        status_time = int(modify["time"])
+        status_end = int(modify["default"])
+        return self.status_time_modify(status_time, status_end)
+
     def default_modify_time(self):
         # 判断时间给出数据
         status = self.default_modify(self.MYSQL_DF.iloc[0])
@@ -328,7 +322,7 @@ class DailyOperationSteps(JudgmentVerification):
         # 判断时间给出数据
         status = self.default_modify(self.LABLE_DF.iloc[0])
         # 赋值
-        print("self.LABLE_DF -----? %s " % self.LABLE_DF )
+        print("self.LABLE_DF -----? %s " % self.LABLE_DF)
         self.LABLE_DF.iloc[0]["status"] = status
 
     def defaultModifyTime(self):
@@ -382,21 +376,30 @@ class DailyOperationSteps(JudgmentVerification):
         # 剩下的数据获取和比较操作
         self.getAllScreening()
 
-    def getStopRelease(self) -> "点击停止和发布按钮,弹出二次确认框":
+    def time_to_list(self):
+        print("转换前的数据{}".format(self.LABLE_DF.iloc[0]))
+        status_time, status_end = self.ti.cutting_time_current(self.LABLE_DF.iloc[0]['time'])
+        status = self.status_time_modify(status_time, status_end)
+        self.LABLE_DF.iloc[0]["status"] = status
+        print("转换后的数据{}".format(self.LABLE_DF.iloc[0]))
+
+    def getStopRelease(self, bl_button=True) -> "点击停止和发布按钮,弹出二次确认框":
         # 下拉筛选的选择
         self.getOperaSelect()
-        # 判断页面是否有数据
-        attribute = self.get_window_data()
+        # 获取当前页面上所展示的全部数据。
+        attribute = self.get_window_data(bl_button)
 
+        # 获取二次弹窗的数据
         self.popup_title_content(attribute) if attribute is not None else self.log.info("页面数据为空")
         pass
 
-    def get_overdue_modify(self) -> "点击按钮弹出编辑框":
+    def get_overdue_modify(self, bl_button=True) -> "点击按钮弹出编辑框":
         # 下拉筛选的选择
         self.getOperaSelect()
 
-        # 获取页面数据
-        attribute = self.get_window_data()
+        # 获取当前页面上所展示的全部数据。
+        attribute = self.get_window_data(bl_button)
+        # 获取编辑框的数据
         self.get_popup_data(attribute) if attribute is not None else self.log.info("页面数据为空")
         pass
 

@@ -7,11 +7,11 @@ __author__ = 'DingDong'
 from utils.excelname.shopSystemsetup import ShopNoticeController
 class DailyLabelNames(ShopNoticeController):
 
-    def getDailyBulletin(self):
+    def getDailyBulletin(self,case_position):
         """
             定义文件名以及工作薄，方便统一进行修改
         """
-        disList = ["dailybulletin", 1];
+        disList = ("dailybulletin", case_position)
         return disList
 
     """
@@ -93,7 +93,7 @@ class DailyLabelNames(ShopNoticeController):
     # 日常上：弹窗内容
     dail_content ='.sweet-alert.showSweetAlert.visible p:nth-of-type(1)'
     # 日常上：弹窗确定按钮
-    dail_determine = '.sa-confirm-button-container'
+    dail_determine = '.confirm'
     # 日常上：弹窗取消按钮
     dail_cancel = ".cancel"
 
@@ -103,12 +103,7 @@ class DailyLabelNames(ShopNoticeController):
     # 帮助上：输入框
     hele_body = ".ke-content"
 
-    # -----------------------提示标语信息---------------------
-    bulletin_primary = "确定"
-    stop_title = "你确认要停止?"
-    stop_content = "确定要停止该平台公告吗?"
-    stop_determine = "是的, 停止!"
-    stop_cancel = "取消"
+
 
 
 

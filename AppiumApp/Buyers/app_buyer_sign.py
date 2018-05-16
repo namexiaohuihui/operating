@@ -5,9 +5,12 @@ __author__ = 'Administrator'
 @time: 2018/1/15 17:35
 """
 
+import time
 import unittest
 
 from appium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class buyer_sign(unittest.TestCase):
@@ -33,6 +36,7 @@ class buyer_sign(unittest.TestCase):
         "noReset": 'True',
         "resetKeyboard": 'True'
     }
+
     @classmethod
     def setUp(cls):
         cls.start_server(cls)
@@ -53,18 +57,29 @@ class buyer_sign(unittest.TestCase):
         print(self.strr + "qwe")
 
     def test_one(self):
-        print("qw")
-        # 	com.android.packageinstaller:id/permission_allow_button
-        # com.lianni.delivery:id/edt_account
-        # com.lianni.delivery:id/edt_password
-        # android.widget.Button
-        # driver.sendKeyEvent(66)
-        # 权限弹窗的处理
-        # self.driver.switchTo().alert().accept();
+        print("test_one")
 
     def start_server(self):
-        self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub",self.desired_caps)
-        sleep(5)
+        self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", self.desired_caps)
+        time.sleep(5)
+
+    def always_allow(self, number=5):
+        '''
+        权限弹窗--始终允许
+        :param number:弹窗判断次数，默认给5次
+        :return:
+        '''
+        for i in range(number):
+            loc = ("xpath", "//*[@text='始终允许']")
+            try:
+                e = WebDriverWait(self.driver, 1, 0.5).until(EC.presence_of_element_located(loc))
+                e.click()
+            except Exception as ex:
+                print("权限弹窗处查找出现错误 ---------> {}".format(ex))
+                # 出现权限错误时说明找不到弹窗或者找不到相应的路径，故跳出循环节约时间
+                break
+        else:
+            print("权限判断循环没有进入好好看看自己传入的是啥玩意...........")
 
 
 if __name__ == '__main__':

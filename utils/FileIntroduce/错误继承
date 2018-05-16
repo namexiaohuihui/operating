@@ -43,3 +43,10 @@ TypeError: not all arguments converted during string formatting
 
  TypeError: not all arguments converted during string formatting
  原因是time.localtime(status_time)转换的数据之后不能通过字符串形式进行输出
+
+
+ TypeError: Object of type 'WebElement' is not JSON serializable
+ 原因：应该传入元素的css_selector路径而我传入了一个int数据进去
+
+ local variable 'attribute' referenced before assignment
+ 局部变量元素attribute没有找到

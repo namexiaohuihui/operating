@@ -83,9 +83,14 @@ if __name__ == '__main__':
 
         jiantou = drivers.find_element_by_css_selector(
             ".calendar.first.left>div.calendar-date>table>thead>tr:nth-child(1)>th.next.available")
+        attribute = jiantou.get_attribute('class')  # 创建元素对象
+        print(attribute)
         drivers.execute_script("arguments[0].click();", jiantou)
     # div.calendar.first.left > div.calendar-date > table > tbody
-    tbody_tr = drivers.find_element_by_css_selector('.calendar.first.left>div.calendar-date>table>tbody>tr')
+    tbody_tr = drivers.find_elements_by_css_selector('.calendar.first.left>div.calendar-date>table>tbody>tr')
     for tr in tbody_tr:
-        print(tr.text)
+        if tr.text:
+            print(tr.text)
+        else:
+            print("!-!")
     # drivers.close()

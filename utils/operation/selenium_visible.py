@@ -33,7 +33,8 @@ class action_visible(object):
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             return ele
-        except TimeoutException:
+        except Exception as e:
+            self.error_log(driver,e)
             return False
 
     def is_visible_id(self, driver, locator, timeout=3):
@@ -201,7 +202,7 @@ class action_visible(object):
     def sleep_Rest(self, ti=1):  # 延迟
         sleep(ti)
 
-    def error_log(self, driver):
+    def error_log(self, driver ,e=None):
         # 执行文件的文件名
         basename = os.path.splitext(os.path.basename(__file__))[0]
 

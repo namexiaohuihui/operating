@@ -61,9 +61,7 @@ class TimeFromat(object):
 if __name__ == '__main__':
     time_stauts = "2017-08-03 00:00:00-2017-08-03 23:59:59"
 
-    cutting =  TimeFromat().cutting_time_current(time_stauts)
-    print(cutting[0])
-    print(cutting[1])
-    localtime = time.localtime(cutting[0])
-    print("Local current time :", localtime)
-    print("Local current time :", time.time())
+    sttus,enmd =  TimeFromat().cutting_time_current(time_stauts)
+
+    print("Local current time :", type(sttus))
+    print("Local current time :", enmd)
