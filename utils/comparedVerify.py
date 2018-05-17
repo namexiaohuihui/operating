@@ -204,6 +204,7 @@ class ComparedVerify(object):
 
     def mysql_single_selects(self, sql):
         pm = self.create_database()
+        print("sql --------> {}".format(sql))
         result = pm.single_cross_selects(sql)
         pm.closes()
 

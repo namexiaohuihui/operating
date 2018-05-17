@@ -170,8 +170,10 @@ class DailyOperationSteps(JudgmentVerification):
     def time_to_list(self):
         print("转换前的数据{}".format(self.LABLE_DF.iloc[0]))
         status_time, status_end = self.ti.cutting_time_current(self.LABLE_DF.iloc[0]['time'])
-        status = self.status_time_modify(status_time, status_end)
-        self.LABLE_DF.iloc[0]["status"] = status
+        # status_time = self.list_add_number(status_time)
+        # status_end = self.list_add_number(status_end)
+        self.LABLE_DF.iloc[0]["time"] = status_time
+        self.LABLE_DF.iloc[0]["default"] = status_end
         print("转换后的数据{}".format(self.LABLE_DF.iloc[0]))
 
     def submit_conditions(self, operation: "提交按钮", attribute: "公告id") -> "执行提交操作之后根据id查询数据库":
@@ -218,7 +220,6 @@ class DailyOperationSteps(JudgmentVerification):
         """
         bl_cond = self.conditions_operation(dn.dailyOperation())
         if bl_cond:
-            self.ANNOUN_SHE_TIME = self.ti.currentToTime()
             # 如果为确定按钮，那么就比较二次弹窗的信息
             self.submit_conditions(operation=operation, attribute=attribute)
         else:
@@ -368,10 +369,7 @@ class DailyOperationSteps(JudgmentVerification):
         # 剩下的数据获取和比较操作
         self.getAllScreening()
 
-    def popup_title_content(self, bl_button=True) -> "二次确认弹窗的信息比较":
-        # 点击按钮，开始执行 下一步的操作
-        attribute = self.lable_button_click(bl_button)
-
+    def poput_to_confirm(self):
         # 2.获取二次确认弹窗的标题和内容
         _title = self._visible_css_selectop_text(dn.dail_title)
         _content = self._visible_css_selectop_text(dn.dail_content)
@@ -383,10 +381,17 @@ class DailyOperationSteps(JudgmentVerification):
         # 2.22判断是否一致
         self._verify_operator(title_content, content)
 
+    def popup_title_content(self, bl_button=True) -> "二次确认弹窗的信息比较":
+        # 点击停止/发布按钮，弹出二次确认弹窗
+        attribute = self.lable_button_click(bl_button)
+
+        # 二次弹窗的标题以及提示消息的判断
+        self.poput_to_confirm()
+
         # 3.获取用户执行的动作,判断是取消提交还是确定提交
         self.popup_conditions_button(dn.dail_determine, dn.dail_cancel, attribute)
 
-    def get_popup_data(self,bl_button):
+    def get_popup_data(self, bl_button):
         # 点击按钮，开始执行 下一步的操作
         attribute = self.lable_button_click(bl_button)
 
@@ -402,6 +407,10 @@ class DailyOperationSteps(JudgmentVerification):
     # -----------------------------------------用例直接使用--------------------------
 
     def getAllCity(self) -> "获取城市内容":
+        '''
+        进入页面，读取数据并进行比对
+        :return:
+        '''
         # 筛选数据的函数
         self.getOperaSelect()
         # 获取数据的函数
@@ -409,16 +418,30 @@ class DailyOperationSteps(JudgmentVerification):
         pass
 
     def getStopRelease(self, bl_button=True) -> "点击停止和发布按钮,弹出二次确认框":
+        '''
+        点击操作按钮，并对弹窗二次对话框的处理
+        :param bl_button:  公告操作里面有两个按钮时。需要通过bl_button来判断点击哪一个
+        为真时：点击操作里面第一个按钮
+        为假时：点击操作里面第二个按钮
+        :return:
+        '''
         # 下拉筛选的选择
         self.getOperaSelect()
         # 获取当前页面上所展示的全部数据。
         attribute = self.get_window_data()
 
         # 获取二次弹窗的数据
-        self.popup_title_content(attribute, bl_button) if attribute is not None else self.log.info("页面数据为空")
+        self.popup_title_content(bl_button) if attribute is not None else self.log.info("页面数据为空")
         pass
 
     def get_overdue_modify(self, bl_button=True) -> "点击按钮弹出编辑框":
+        '''
+        点击操作按钮，并对编辑弹窗进行数据输入以及数据校验
+        :param bl_button:公告操作里面有两个按钮时。需要通过bl_button来判断点击哪一个
+        为真时：点击操作里面第一个按钮
+        为假时：点击操作里面第二个按钮
+        :return:
+        '''
         # 下拉筛选的选择
         self.getOperaSelect()
 
@@ -428,8 +451,26 @@ class DailyOperationSteps(JudgmentVerification):
         self.get_popup_data(bl_button) if attribute is not None else self.log.info("页面数据为空")
         pass
 
-    def get_time_status(self, expect_value) -> "根据修改时间然后判断状态是否正常":
+    def get_announcement_release(self) -> "用于公告发布的操作":
+        # 点击添加按钮
+        self._visible_css_selectop(dn.operation)
+        # 信息输入
+        popupWindows.release_popup_data(self, dn)
+        bl_cond = self.conditions_operation(dn.dailyOperation())
+        if bl_cond:
+            # 点击提交按钮
+            self._visible_css_selectop(dn.operation_primary)
+            # 错误提示框的信息比较
+            self.poput_to_confirm()
+            self.vac.sleep_Rest(3)
+            # 弹窗上的确认按钮点击
+            self._visible_css_selectop(dn.error_button)
+        else:
+            self._visible_css_selectop(dn.operation_default)
+
+    def get_time_status(self, expect_value) -> "目前没有使用到这个函数":
         '''
+        根据修改时间然后判断状态是否正常
         程序运行完毕之后，根据修改后的状态来判断状态值是否跟期望的一直
         :param expect_value:  修改时间之后，期望该公告的状态
         :return:

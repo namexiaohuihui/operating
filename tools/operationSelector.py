@@ -4,8 +4,9 @@ __author__ = 'DingDong'
 @file: operationSelector.py
 @time: 2018/4/10 11:17
 """
-from utils.browser_establish import browser_confirm
 from selenium.webdriver.support.select import Select
+
+from utils.browser_establish import browser_confirm
 from utils.operation.selenium_visible import action_visible
 
 
@@ -16,12 +17,13 @@ class OperationSelector(action_visible):
         self.drivers = drivers
         self.setSelectData(lablePath)
 
-    def setSelectData(self,lablePath):
+    def setSelectData(self, lablePath):
         # 需要爬取数据在页面中的位置
         selectEle = self.is_visible_css_selectop(self.drivers, lablePath)
         self.select = Select(selectEle)
         # 装options的数据,不创建value的容器是因为很少使用value
         self.optionsList = []
+
     # ----------------------------------获取参数------------------------
 
     def get_options(self):
@@ -123,9 +125,11 @@ class OperationSelector(action_visible):
         :return: 返回替换前的option
         """
         selected = self.getSelectedOptions()
-        self.select.select_by_visible_text(text)
+        if selected == text:
+            pass
+        else:
+            self.select.select_by_visible_text(text)
         return selected
-
 
     # ----------------------------------取消已选择的参数------------------------
     def setDeselectAll(self):
@@ -167,7 +171,9 @@ class OperationSelector(action_visible):
         self.select.deselect_by_visible_text(text)
         return selected
 
+
 import time
+
 if __name__ == '__main__':
     be = browser_confirm()
     drivers = be.url_opens("file:///c:/Users/70486/Desktop/dijia.html")

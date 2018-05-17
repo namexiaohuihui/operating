@@ -5,10 +5,11 @@ __author__ = 'DingDong'
 @time: 2018/1/23 10:18
 """
 import re
-from utils.timeFromat import TimeFromat
+
 from tools.Logger import Log
 from utils.comparedVerify import ComparedVerify
 from utils.config import readModel
+from utils.timeFromat import TimeFromat
 
 
 class JudgmentVerification(ComparedVerify):
@@ -28,10 +29,17 @@ class JudgmentVerification(ComparedVerify):
         # 根据df标签序号获取用例
         self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
         self.ti = TimeFromat()
+
+    def list_add_number(self, number):
+        collection = []
+        collection.append(number)
+        return collection
+
     """
     # ---------------------数据比较----------------------
     """
-    def conditions_operation(self,operation):
+
+    def conditions_operation(self, operation):
         # 按钮判断在这里控制
         # 3.获取用户执行的动作
         _operation = self.overall[operation]  # 获取操作按钮
@@ -41,7 +49,6 @@ class JudgmentVerification(ComparedVerify):
         else:
             self.log.info("操作按钮为-->取消吗? %s " % _operation)
             return False
-
 
     def mysql_match(self, my_sql: "mysql语句") -> "正则切割sql语句是否为查询语句":
         return re.match('^SELECT', my_sql)
@@ -90,7 +97,7 @@ class JudgmentVerification(ComparedVerify):
         :return:  暂时没有返回值
         """
         # 拿出文件名和工作薄
-        exclename,exclesheet = exclefile
+        exclename, exclesheet = exclefile
         # 定义日志
         self.log = Log(basename)
         # 读取文档信息
@@ -133,4 +140,3 @@ class JudgmentVerification(ComparedVerify):
 
         print("输入的内容: %s 输入的对象: %s 输入的地方: %s " % (information, eleInformation, caseTitle))
         self._visible_json_input(eleInformation, information)  # 通过元素id利用json进行输入输入
-

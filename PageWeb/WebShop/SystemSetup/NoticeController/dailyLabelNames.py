@@ -5,9 +5,11 @@ __author__ = 'DingDong'
 @time: 2018/4/15 17:54
 """
 from utils.excelname.shopSystemsetup import ShopNoticeController
+
+
 class DailyLabelNames(ShopNoticeController):
 
-    def getDailyBulletin(self,case_position):
+    def getDailyBulletin(self, case_position):
         """
             定义文件名以及工作薄，方便统一进行修改
         """
@@ -19,18 +21,16 @@ class DailyLabelNames(ShopNoticeController):
     """
     sidebar = ".sidebar-menu>li:nth-child(9)"  # 菜单目录
 
-
     treew = ".treeview-menu.menu-open li:nth-child(2)"  # 标签目录
 
     tabs_maintenance = ".nav.nav-tabs li:nth-child(1)"  # 维护页面
     tabs_dail = ".nav.nav-tabs li:nth-child(2)"  # 日常页面
     tabs_help = ".nav.nav-tabs>li:nth-child(3)"  # 帮助页面
 
-
     # -----------------------参数获取路径---------------------
 
     # 界面上：添加按钮
-    operation = ".btn.btn-default.btn-sm modal-btn"
+    operation = ".btn.btn-default.btn-sm.modal-btn"
     turn_page = ".pagination"
     # 界面上：公告标题
     lable_thead = "#datatatle > thead"
@@ -40,12 +40,14 @@ class DailyLabelNames(ShopNoticeController):
     button_one = "%s > tr:nth-child(1) > td:nth-child(7) >button:nth-child(1)" % lable_tbody
     # 界面上：公告第二个操作按钮
     button_two = "%s > tr:nth-child(1) > td:nth-child(7) >button:nth-child(2)" % lable_tbody
+    # 界面上：添加公告的时候错误信息提示框的唯一按钮
+    error_button = ".sa-confirm-button-container"
 
     # 弹窗的位置
     operation_location = ".modal-content"
     # 弹窗的类型:
-    operation_noticesort = "#noticesort1" #日常
-    operation_noticesort2 = "#noticesort2" # 维护
+    operation_noticesort = "#noticesort1"  # 日常
+    operation_noticesort2 = "#noticesort2"  # 维护
     # 弹窗上：标题
     operation_title = ".modal-header>h4:nth-of-type(1)"
     # 弹窗上：公告类型
@@ -89,24 +91,15 @@ class DailyLabelNames(ShopNoticeController):
     # 日常上：按钮
     dail_button = ".btn.btn-default.btn-flat.btn-action.J_ipt"
     # 日常上：弹窗标题
-    dail_title ='.sweet-alert.showSweetAlert.visible h2:nth-of-type(1)'
+    dail_title = '.sweet-alert.showSweetAlert.visible h2:nth-of-type(1)'
     # 日常上：弹窗内容
-    dail_content ='.sweet-alert.showSweetAlert.visible p:nth-of-type(1)'
+    dail_content = '.sweet-alert.showSweetAlert.visible p:nth-of-type(1)'
     # 日常上：弹窗确定按钮
     dail_determine = '.confirm'
     # 日常上：弹窗取消按钮
     dail_cancel = ".cancel"
 
-
     # 帮助上：页面入口
     hele_iframe = ".ke-edit-iframe"
     # 帮助上：输入框
     hele_body = ".ke-content"
-
-
-
-
-
-
-
-

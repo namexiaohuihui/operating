@@ -5,16 +5,17 @@ __author__ = 'DingDong'
 @time: 2018/4/9 18:04
 
 """
-import os
 import inspect
+import os
 import unittest
 
 from PageWeb.WebShop.SystemSetup.NoticeController.dailyOperationSteps import DailyOperationSteps
 
 disSte = DailyOperationSteps()
 
-
 """公告用例类"""
+
+
 class DailyBulletin(unittest.TestCase):
     # 用例sheet的位置
     CASE_EXCLE_POSITION = 1
@@ -40,7 +41,7 @@ class DailyBulletin(unittest.TestCase):
         try:
             # 该类结束时最后调用的函数
             # disSte.driver.quit()
-            disSte.driver.close()
+            # disSte.driver.close()
             # disSte.sleep_time(1)
             pass
         except UnicodeDecodeError:
@@ -320,7 +321,6 @@ class DailyBulletin(unittest.TestCase):
         disSte.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % disSte.FUNCTION_NAME)
         pass
 
-
     def test_stopsModifyRelease(self):
         """
         点击已停止的公告的发布按钮
@@ -330,10 +330,8 @@ class DailyBulletin(unittest.TestCase):
         disSte.getStopRelease(bl_button=False)
         pass
 
-
-
     # @unittest.skip(r"跳过:test_preparedModifyCity")
-    def ttttest_preparedModifyCity(self) -> "不知道给什么备注比较好":
+    def test_preparedModifyCity(self) -> "不知道给什么备注比较好":
         """
         修改某个未开始的公告，改变所属地
         :return: None
@@ -343,7 +341,7 @@ class DailyBulletin(unittest.TestCase):
         pass
 
     # @unittest.skip(r"跳过:test_preparedModifyTitle")
-    def ttttest_preparedModifyTitle(self) -> "不知道给什么备注比较好":
+    def test_preparedModifyTitle(self) -> "不知道给什么备注比较好":
         """
         修改某个未开始的公告，改变标题
         :return: None
@@ -353,7 +351,7 @@ class DailyBulletin(unittest.TestCase):
         pass
 
     # @unittest.skip(r"跳过:test_preparedModifyContent")
-    def ttttest_preparedModifyContent(self) -> "不知道给什么备注比较好":
+    def test_preparedModifyContent(self) -> "不知道给什么备注比较好":
         """
         修改某个未开始的公告，改变内容
         :return: None
@@ -363,30 +361,52 @@ class DailyBulletin(unittest.TestCase):
         pass
 
     # @unittest.skip(r"跳过:test_preparedModifyReleaseTime")
-    def ttttest_preparedModifyReleaseTime(self) -> "不知道给什么备注比较好":
+    def test_preparedModifyReleaseTime(self) -> "不知道给什么备注比较好":
         """
         修改某个未开始的公告（当前时间在有效期内）
         :return: None
         """
-        # disSte.setFunctionName(inspect.stack()[0][3])
+        disSte.setFunctionName(inspect.stack()[0][3])
+        disSte.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % disSte.FUNCTION_NAME)
         pass
 
     # @unittest.skip(r"跳过:test_preparedModifyNotStart")
-    def ttttest_preparedModifyNotStart(self) -> "不知道给什么备注比较好":
+    def test_preparedModifyNotStart(self) -> "不知道给什么备注比较好":
         """
         修改某个未开始的公告（当前时间小于有限期）
         :return: None
         """
-        # disSte.setFunctionName(inspect.stack()[0][3])
+        disSte.setFunctionName(inspect.stack()[0][3])
+        disSte.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % disSte.FUNCTION_NAME)
         pass
 
     # @unittest.skip(r"跳过:test_preparedModifyStops")
-    def ttttest_preparedModifyStops(self) -> "不知道给什么备注比较好":
+    def test_preparedModifyStops(self) -> "不知道给什么备注比较好":
         """
         修改某个未开始的公告（当前时间大于有效期）
         :return: None
         """
-        # disSte.setFunctionName(inspect.stack()[0][3])
+        disSte.setFunctionName(inspect.stack()[0][3])
+        disSte.log.info("%s -------->涉及日期的发布暂时无法通过selenium进行测试操作" % disSte.FUNCTION_NAME)
+        pass
+
+    def test_preparedActionStops(self):
+        """
+        停止某个未开始的公告
+        :return: None
+        """
+        disSte.setFunctionName(inspect.stack()[0][3])
+        disSte.getStopRelease(bl_button=False)
+        pass
+
+#---------------发布公告都是执行输入动作，无法提交数据所以不进行数据库判断----------------
+    def test_dailyReleaseCity(self):
+        """
+        停止某个未开始的公告
+        :return: None
+        """
+        disSte.setFunctionName(inspect.stack()[0][3])
+        disSte.get_announcement_release()
         pass
 
 
