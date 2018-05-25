@@ -1,0 +1,11 @@
+HomePage:
+  dec: 首页
+  locators:
+      -
+        name: 城市选择
+        type: id
+        value: com.sankuai.meituan:id/city_button
+      -
+         name: 首页搜索
+         type: id
+         value: com.sankuai.meituan:id/search_edit

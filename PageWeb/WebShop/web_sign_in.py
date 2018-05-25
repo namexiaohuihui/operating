@@ -19,7 +19,7 @@ from tools.DefinitionErrors import dError
 
 '''
 笔记：
-unittest.TestCase的使用：
+    unittest.TestCase的使用：
     使用setUpClass时，调用class函数需要传入self：比如：self.url_op(self)
     使用setUp时，则相反不需要传入self
 '''

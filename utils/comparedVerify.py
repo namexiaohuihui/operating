@@ -50,20 +50,22 @@ class ComparedVerify(object):
        # ------------------内容参数的比较------------------------
     """
 
-    def _verify_operator(self, reValue, excleValue):
+    def operator_dataframe(self, reValue: object, excleValue: object):
+        self.log.info("读取:  %s  类型 :  %s " % (reValue, type(reValue)))
+        self.log.info("获得:  %s  类型 :  %s " % (excleValue, type(excleValue)))
+
+    def _verify_operator(self, reValue: object, excleValue: object) -> "通过assert断言形式进行比较":
         """
         简单的数据比较：list、dict、str、int、bool等数据类型
         :param reValue:  数据源
         :param excleValue:  比较源
         :return:
         """
-        self.log.info("读mysql data :  %s  类型 :  %s " % (reValue, type(reValue)))
-        self.log.info("获excle data :  %s  类型 :  %s " % (excleValue, type(excleValue)))
+        self.operator_dataframe(reValue, excleValue)
         assert reValue == excleValue, "_verify_operator 数据比较错误，用例不通过处理。"
 
-    def _verify_operator_dataframe(self, reValue: "数据源", excleValue: "比较源") -> ("dataFrame数据类型进行比较"):
-        self.log.info("读mysql data :  %s  类型 :  %s " % (reValue, type(reValue)))
-        self.log.info("获excle data :  %s  类型 :  %s " % (excleValue, type(excleValue)))
+    def _verify_operator_dataframe(self, reValue: "pandas类型的数据源", excleValue: "pandas类型的比较源") -> ("dataFrame数据类型进行比较"):
+        self.operator_dataframe(reValue, excleValue)
         return operator.eq(reValue, excleValue)
 
     def _verify_parameter(self, content):
@@ -102,18 +104,18 @@ class ComparedVerify(object):
        #--------------------读取excel表格数据部分-----------------------------------------
    """
 
-    def conversionPandas(self, row_col_data, title_data=None, columnLabel=None):
-        # # 数据转换
-        # pan = PANDASDATA(row_col_data)
-        #
-        # df = pan.dataFrame(columns=title_data)  # 设置标题名
-        #
-        # if columnLabel != None:
-        #     df = df.set_index([columnLabel])  # 设置df数据中的序列号
-
-        read = OpenExcelPandas(row_col_data, title_data)
-        df = read.conversionPandas()
-        return df
+    # def conversionPandas(self, row_col_data, title_data=None, columnLabel=None):
+    #     # # 数据转换
+    #     # pan = PANDASDATA(row_col_data)
+    #     #
+    #     # df = pan.dataFrame(columns=title_data)  # 设置标题名
+    #     #
+    #     # if columnLabel != None:
+    #     #     df = df.set_index([columnLabel])  # 设置df数据中的序列号
+    #
+    #     read = OpenExcelPandas(row_col_data, title_data)
+    #     df = read.conversionPandas()
+    #     return df
 
     def _excel_Data(self, filename, SHEETNAME=1):
 

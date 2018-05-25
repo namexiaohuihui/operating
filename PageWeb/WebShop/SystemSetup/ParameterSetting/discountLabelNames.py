@@ -12,20 +12,20 @@ from utils.excelname.shopSystemsetup import ShopParameterSetting
 # 该类主要设置一些常用的属性值以及参数
 
 class DiscountParameterNames(ShopParameterSetting):
-
     """
     定义文件名以及工作薄，方便统一进行修改
     """
 
     def getDiscountExcle(self):
-        disList = ["discount",1];
+        disList = ["discount", 1];
         return disList
 
     """
     整体路径
     """
-    sidebar = ".sidebar-menu li:nth-child(2)"  # 菜单目录
+    sidebar = ".sidebar-menu>li:nth-child(9)"  # 菜单目录
     treew = ".treeview-menu.menu-open li:nth-child(1)"  # 标签目录
+
     tabs_withdrawals = ".nav.nav-tabs li:nth-child(3)"  # 提现页面
     tabs_discount = ".nav.nav-tabs li:nth-child(4)"  # 优惠页面
 
@@ -68,7 +68,6 @@ class DiscountParameterNames(ShopParameterSetting):
     # 城市名
     city_name = ".box-city a"
 
-
     # 确认弹窗中的重点文字
     modal_body_h4 = '.modal-body>h4'
 
@@ -80,7 +79,6 @@ class DiscountParameterNames(ShopParameterSetting):
 
     # 确认弹窗中的确认按钮,通过id进行执行
     btn_primary = '#discountsave'
-
 
     # 二次提交之后的弹窗设置-------------------
     # 提示框的标题
@@ -112,5 +110,3 @@ class DiscountParameterNames(ShopParameterSetting):
     system_preservation = "你确定要保存吗？"  # 再次确认的标题
     system_content = "保存后新产生的订单立即生效已产生的订单不受影响"  # 再次确认的提示内容
     system_successful = "操作成功"  # 再次确认的提示内容
-
-

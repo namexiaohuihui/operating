@@ -16,13 +16,15 @@ class DailyLabelNames(ShopNoticeController):
         disList = ("dailybulletin", case_position)
         return disList
 
-    """
-        整体路径
-    """
-    sidebar = ".sidebar-menu>li:nth-child(9)"  # 菜单目录
+    '''定义的参数'''
+    # 根据用例上设置的公告时间判断，该时间设置之后公告是否处于------->发布中
+    RELEASE_DAILY_STATUS = '发布中'
+    # 根据用例上设置的公告时间判断，该时间设置之后公告是否处于------->未开始
+    PREPARE_DAILY_STATUS = '未开始'
+    # 根据用例上设置的公告时间判断，该时间设置之后公告是否处于------->已过期
+    OVERDUE_DAILY_STATUS = '已过期'
 
-    treew = ".treeview-menu.menu-open li:nth-child(2)"  # 标签目录
-
+    # 子菜单目录
     tabs_maintenance = ".nav.nav-tabs li:nth-child(1)"  # 维护页面
     tabs_dail = ".nav.nav-tabs li:nth-child(2)"  # 日常页面
     tabs_help = ".nav.nav-tabs>li:nth-child(3)"  # 帮助页面
@@ -65,6 +67,7 @@ class DailyLabelNames(ShopNoticeController):
     operation_content_input = ".form-control.noticeinfo"
     # 弹窗上：日期输入
     operation_deadline_text = "#noticeForm > div:nth-child(7) > label"
+    # 弹窗上：日期输入，没点击之前是.form-control.pull-right，点击之后是.form-control.pull-right
     operation_deadline_input = ".form-control.pull-right"
     # 弹窗上：日期弹窗开始时间的月日选择
     deadline_data_left = ".calendar.first.left>div:nth-child(1)>table>tbody"
@@ -77,7 +80,7 @@ class DailyLabelNames(ShopNoticeController):
     # 弹窗上：日期弹窗开始时间的时分选择
     deadline_hour_right = ".calendar.first.left>div:nth-child(2)>select"
     deadline_minutese_right = ".calendar.first.left>div:nth-child(2)>select"
-
+    # 弹窗上：日期确认按钮
     operation_deadline_button = ".applyBtn.btn.btn-small.btn-sm.btn-success"
 
     # 弹窗上：取消/确定按钮

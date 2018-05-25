@@ -1,0 +1,23 @@
+HomePage:
+  dec: 首页
+  locators:
+      -
+        name: 城市选择
+        type: id
+        value: com.sankuai.meituan:id/city_button
+      -
+         name: 首页搜索
+         type: id
+         value: com.sankuai.meituan:id/search_edit
+
+MyPage:
+  dec: 我的
+  locators:
+      -
+        name: 我的
+        type: accessibility_id
+        value: 我的
+      -
+         name: 请点击登录
+         type: id
+         value: com.sankuai.meituan:id/user_name

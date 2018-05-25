@@ -25,3 +25,7 @@ __author__ = 'DingDong'
 #
 # shuju2 = dict(zip(daily,daily2))
 # print(shuju2)
+
+'''
+body > div.daterangepicker.dropdown-menu.show-calendar.opensleft > div.calendar.first.left > div.calendar-date > table > thead > tr:nth-child(1) > th.next.available
+'''

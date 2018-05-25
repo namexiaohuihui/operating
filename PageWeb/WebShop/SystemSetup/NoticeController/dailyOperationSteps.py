@@ -8,36 +8,54 @@ import inspect
 
 from pandas import DataFrame
 
+from PageWeb.WebShop.SystemSetup import SystemCoexistence
 from PageWeb.WebShop.SystemSetup.NoticeController import popupWindows
 from PageWeb.WebShop.SystemSetup.NoticeController.dailyLabelNames import DailyLabelNames
-from PageWeb.WebShop.judgmentVerification import JudgmentVerification
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
 from tools.openpyxlExcel import PANDASDATA
 from tools.operationSelector import OperationSelector
-from utils.timeFromat import TimeFromat
 
 
-class DailyOperationSteps(JudgmentVerification):
-    # 修改已停止的公告之后，状态值
-    STOP_RELEASE_STATUS = 2
+class DailyOperationSteps(SystemCoexistence):
     # 记录提交修改公告的时间
     ANNOUN_SHE_TIME = ''
     global dn
     dn = DailyLabelNames()
+    # 当前子目录的所在位置
+    TREEW_TAGS_LOCATION = "2"
 
     # ----------------------------------文件配置函数-----------------------------------
+
+    # BOOL_TITLE_KEY :设置一个参数用于判断当前程序是运行日常还是维护的代码
+    def _modify_boolean_key(self, bl_key):
+        self.BOOL_TITLE_KEY = bl_key
+
+    def _achieve_boolean_key(self):
+        return self.BOOL_TITLE_KEY
+
+    modify_key = property(_achieve_boolean_key, _modify_boolean_key,
+                          doc='Notice the setting of the header parameter.')
+
     def setDailyTitle(self):
-        """
+        '''
         pandas标题的设置
+        modify_key参数是子类里面的一个参数值.
         :return:
-        """
-        daily = ("type", "city", "title", "content", "time", "status", "default")
+        '''
+        print("----->%s" % self.modify_key)
+        if self.modify_key:
+            daily = ("type", "city", "title", "content", "time", "status", "default")
+        else:
+            daily = ("type", "title", "content", "time", "status", "default")
         return daily
 
-    def setDailyBulletin(self, basename, case_position):
-        """
-            定义文件名以及工作薄，方便统一进行修改
-        """
+    def setDailyBulletin(self, basename: str, case_position: int) -> '程序首次运行时必须定义的部分':
+        '''
+        定义执行工作时的文件名，以及用例所在的工作薄，方便统一进行修改
+        :param basename:  文件名
+        :param case_position: 工作薄
+        :return:
+        '''
         EXCLE_FILE = dn.getDailyBulletin(case_position)
         self.openingProgram(basename, EXCLE_FILE)
         pass
@@ -46,12 +64,16 @@ class DailyOperationSteps(JudgmentVerification):
         self._visible_css_selectop(dn.sidebar)
         self._visible_css_selectop(dn.treew)
 
-    def _rou_DailyFun(self):
+    def rou_location(self):
+        self.treew_tags = self.TREEW_TAGS_LOCATION
+        self._rou_DailyFun()
+
+    def _rou_daily_opera(self):
         """
         进入日常公告页面
         :return:  暂时没有返回值
         """
-        self._rou_fun()
+        self.rou_location()
         self._visible_css_selectop(dn.tabs_dail)
         pass
 
@@ -60,7 +82,7 @@ class DailyOperationSteps(JudgmentVerification):
         进入维护页面
         :return:  暂时没有返回值
         """
-        self._rou_fun()
+        self.rou_location()
         self._visible_css_selectop(dn.tabs_maintenance)
         pass
 
@@ -69,14 +91,15 @@ class DailyOperationSteps(JudgmentVerification):
         进入帮助页面
         :return:  暂时没有返回值
         """
-        self._rou_fun()
+        self.rou_location()
         self._visible_css_selectop(dn.tabs_help)
         pass
 
     # ---------------------------------数据库模块--------------------------
 
     def _verify_content(self):
-        my_sql = self.overall[dn.wholeQueryStatement()]  # 获取sql语句
+        # 获取excle文档中标题为sql的数据信息
+        my_sql = self.overall[dn.wholeQueryStatement()]
         match = self._verify_match(my_sql)  # 返回查询之后的数据信息
         return match
 
@@ -88,50 +111,36 @@ class DailyOperationSteps(JudgmentVerification):
         self.MYSQL_DF = self.pan.dataFrame(columns=self.setDailyTitle())
 
     # ---------------------------------用例/页面数据处理--------------------------
-    def getOperaSelect(self):
-        # 找到城市下拉框
-        dl = OperationSelector(self.driver, dn.dail_city)
-        # 设置数据
-        weizhi = self.overall[dn.dailyCity()]
+    def set_opeasselect(self, dl, text_key):
+        # 筛选公告所在城市
+        weizhi = self.overall[text_key]
         dl.setSelectorText(weizhi)
         self.log.info("下拉选择的数据为 %s " % weizhi)
 
-        # 找到状态下拉框
+    def getOperaSelect(self):
+        # 找到城市下拉框
+        dl = OperationSelector(self.driver, dn.dail_city)
+        # 筛选公告所在城市
+        self.set_opeasselect(dl, dn.dailyCity())
+
+        # 筛选公告状态
         dl.setSelectData(dn.dail_status)
-        # 设置数据
-        weizhi = self.overall[dn.dailyTitle()]
-        dl.setSelectorText(weizhi)
-        self.log.info("下拉选择的数据为 %s " % weizhi)
+        self.set_opeasselect(dl, dn.dailyTitle())
 
         # 搜索按钮
         self._visible_css_selectop(dn.dail_button)
 
-    def getLableExtend(self, load, td="td"):
+    def getLableExtend(self, td="td"):
         '''
         定义获取页面数据对象
-        :param load:
-        :param td:
+        :param td: 页面标签
         :return:
         '''
-        ebs = ExtendBeantifulSoup(self.driver, load, self.setDailyTitle())
+        ebs = ExtendBeantifulSoup(self.driver, dn.lable_thead, self.setDailyTitle())
         EBS_DF = ebs.lableParsingList(td).interfaceToPandas()
         return EBS_DF
 
-    def getAllTitle(self):
-        '''
-        获取标签为th的数据信息.
-        通过","进行切割然后判断数据信息是否一致
-        :return:
-        '''
-        EBS_DF = self.getLableExtend(dn.lable_thead, "th").iloc[0]
-        EBS_DF = list(EBS_DF)
-        OVE_DF = self.overall[dn.whole_result()]
-        OVE_DF = OVE_DF.split(",")
-        # 比较两个数据是否一致
-        self._verify_operator_dataframe(EBS_DF, OVE_DF)
-        pass
-
-    def judgeAllContent(self):
+    def judgeAllContent(self) -> '用于比较页面数据跟查询之后的数据是否一致,没有返回值':
         if type(self.LABLE_DF) is DataFrame:
             # 比较两个数据是否一致
             dfop = self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
@@ -176,20 +185,30 @@ class DailyOperationSteps(JudgmentVerification):
         self.LABLE_DF.iloc[0]["default"] = status_end
         print("转换后的数据{}".format(self.LABLE_DF.iloc[0]))
 
-    def submit_conditions(self, operation: "提交按钮", attribute: "公告id") -> "执行提交操作之后根据id查询数据库":
+    def interface_return_validation(self, operation: "提交按钮"):
         # 3.1 执行点击操作
         self._visible_css_selectop(operation)
+        # 记录提交的时间
+        self.ANNOUN_SHE_TIME = self.ti.currentToStamp()
         # 3.2点击之后的返回信息
         _title = self._visible_css_selectop_text(dn.dail_title)
         # 3.3判断信息跟规定中的是否一致
         self._verify_operator(_title, self.overall[dn.whole_verification()])
-        # 3.4点击提交按钮
+        # 3.4点击OK确认按钮
         self._visible_css_selectop(dn.dail_determine)
-        # 记录提交的时间
-        self.ANNOUN_SHE_TIME = self.ti.currentToStamp()
+
+    def submit_conditions(self, operation: "提交按钮", attribute: "公告id") -> "执行提交操作之后根据id查询数据库":
+        '''
+        执行提交操作，并查询数据库的内容
+        :param operation:
+        :param attribute:
+        :return:
+        '''
+        # 提交操作之后，判断是否能正常的提交成功
+        self.interface_return_validation(operation)
 
         # 3.5提交按钮之后，进行数据库查询。将查询的结果返回
-        self.sleep_time(2)
+        self.sleep_time(2)  # 这里不加延迟会出错。。。。和尚的锅
         statements_content = " n.id = '%s' " % (self.number_cutting(attribute))
         # 拼接sql
         self.overall[dn.wholeQueryStatement()] = self.overall[dn.wholeQueryStatement()] + statements_content
@@ -285,17 +304,31 @@ class DailyOperationSteps(JudgmentVerification):
             ebs.lableParsingList()
 
     # ---------------------------------df数据集修改--------------------------
-    def status_time_modify(self, status_time, status_end):
-        print(type(status_time), type(status_end))
-        status = []
+    def judge_time_only(self, status_time, status_end):
+        print("---------->时间 %s %s" % (type(status_time), type(status_end)))
+
         # 存储状态以及操作按钮
         if self.ANNOUN_SHE_TIME < status_end and self.ANNOUN_SHE_TIME > status_time:  # 大于开始时间小于结束时间
-            status.append("发布中")
-        if self.ANNOUN_SHE_TIME < status_time:  # 小于开始时间
-            status.append("未开始")
-        if self.ANNOUN_SHE_TIME > status_end:  # 大于结束时间
-            status.append("已过期")
+            status = dn.RELEASE_DAILY_STATUS
+
+        # 小于开始时间
+        elif self.ANNOUN_SHE_TIME < status_time:
+            status = dn.PREPARE_DAILY_STATUS
+
+        # 大于结束时间
+        elif self.ANNOUN_SHE_TIME > status_end:
+            status = dn.OVERDUE_DAILY_STATUS
+
+        else:
+            status = "时间状态不行呀"
         print("status -------> %s " % status)
+
+        return status
+
+    def status_time_modify(self, status_time, status_end):
+        status = []
+        status_data = self.judge_time_only(status_time=status_time, status_end=status_end)
+        status.append(status_data)
         return status
 
     def default_modify(self, modify):
@@ -312,21 +345,24 @@ class DailyOperationSteps(JudgmentVerification):
         # 判断时间给出数据
         status = self.default_modify(self.LABLE_DF.iloc[0])
         # 赋值
-        self.LABLE_DF.iloc[0]["status"] = status
+        self.LABLE_DF.iloc[0]["status"] = status[0]
 
     def defaultModifyTime(self):
-        tf = TimeFromat()
-        now = tf.currentToStamp()  # 获取当前时间戳
+        '''
+        对mysql数据信息进行时间判断，并修改公告的状态以及操作按钮
+        :return:
+        '''
+        now = self.ti.currentToStamp()  # 获取当前时间戳
         status = []  # 存状态
         defaults = []  # 存操作
         times = []  # 存时间
         for code in range(len(self.MYSQL_DF.values)):
-            # 获取时间
+            # 获取指定行数的数据信息
             statusda = self.MYSQL_DF.iloc[code]
-            status_time = statusda["time"]  # 开始时间
-            status_end = statusda["default"]  # 结束时间
+            status_time = statusda["time"]  # 单条数据中，key为time 的数据
+            status_end = statusda["default"]  # 单条数据中，key为default 的数据
 
-            # 存储状态以及操作按钮
+            # 判断时间并存储状态以及操作按钮
             if statusda["status"] == 1:
                 if now < status_end and now > status_time:  # 大于开始时间小于结束时间
                     status.append("发布中")
@@ -342,44 +378,69 @@ class DailyOperationSteps(JudgmentVerification):
                 defaults.append("编辑 发布")
 
             # 存储时间
-            status_time = tf.stampToTime(status_time)
-            status_end = tf.stampToTime(status_end)
+            status_time = self.ti.stampToTime(status_time)
+            status_end = self.ti.stampToTime(status_end)
             times.append(status_time + "-" + status_end)
-        # 赋值
+        # 将状态，操作按钮，以及时间重复赋值给sql查询之后的数据。改变其内部数据
         self.MYSQL_DF["status"] = status
         self.MYSQL_DF["default"] = defaults
         self.MYSQL_DF["time"] = times
 
-    # ------------------------------用例多次调用的方法统一起来------------
-    def getAllContent(self) -> "选择转换查询数据":
-        # 执行点击按钮之后执行查询语句
-        self.setButtonMysql()
-        # 修改时间和操作
-        self.defaultModifyTime()
-        # 下拉筛选的选择
-        self.getOperaSelect()
-        # 获取页面数据:获取页面数据必须在执行sql语句之后。不然有个判断会出错
-        self.extendSoup()
-        # 　比较操作
-        self.judgeAllContent()
+    # ------------------------------用例多次调用的方法统一起来---------------------------------
+    def judge_time_click_button(self):
+        '''
+        检验excle上的时间参数是否符合要求，
+        符合时就点击添加按钮，不符合时就提示用例失败
+        :return:
+        '''
+        # 判断用例设置的时间是否符合该用例的场景
+        self.case_time_assert(dn.announDeadline(), dn.whole_output())
+        # 点击添加按钮
+        self._visible_css_selectop(dn.operation)
 
-    def getAllRelease(self) -> "只获取页面数据然后跟数据库比较":
-        # 下拉筛选的选择
-        self.getOperaSelect()
-        # 剩下的数据获取和比较操作
-        self.getAllScreening()
+    def judge_conditions_operation(self):
+        '''
+        判断是点击添加弹窗上的提交按钮还是取消按钮。
+        提交之后进行mysql数据查询，看是否能查询到该数据信息
+        :return:
+        '''
+        # 判断是否为提交按钮
+        bl_cond = self.conditions_operation(dn.dailyOperation())
+
+        if bl_cond:
+            # 点击弹窗上的提交按钮,并判断提示信息是否正确
+            self.interface_return_validation(dn.operation_primary)
+
+            # 3.5提交按钮之后，进行数据库查询。将查询的结果返回
+            # 提交公告之后，不对sql数据信息进行比较
+            self.sleep_time(2)  # 这里不加延迟会出错。。。。和尚的锅
+            statements_content = " n.title = '%s' and n.content = '%s' " % \
+                                 (self.overall[dn.announTitle()], self.overall[dn.announContent()])
+            # 拼接sql
+            self.overall[dn.wholeQueryStatement()] = self.overall[dn.wholeQueryStatement()] + statements_content
+            # 3.6查询数据库
+            self.setButtonMysql()
+        else:
+            self._visible_css_selectop(dn.operation_default)
 
     def poput_to_confirm(self):
+        '''
+        _content元素找不到时，说明提示弹窗只有标题没有内容，此时应扑捉
+        :return:
+        '''
         # 2.获取二次确认弹窗的标题和内容
         _title = self._visible_css_selectop_text(dn.dail_title)
-        _content = self._visible_css_selectop_text(dn.dail_content)
-        title_content = {"title": _title, "content": _content}
-
-        # 2.1获取用例上弹窗的数据信息，并转换成json数据格式
-        content = self.strTodict(self.overall[dn.whole_result()])
+        try:
+            _content = self._visible_css_selectop_text(dn.dail_content)
+            _title = {"title": _title, "content": _content}
+            # 2.1获取用例上弹窗的数据信息，并转换成json数据格式
+            _content = self.strTodict(self.overall[dn.whole_result()])
+        except Exception as ex:
+            _content = self.overall[dn.whole_result()]
+            print("弹窗没有内容，只有文字。")
 
         # 2.22判断是否一致
-        self._verify_operator(title_content, content)
+        self._verify_operator(_title, _content)
 
     def popup_title_content(self, bl_button=True) -> "二次确认弹窗的信息比较":
         # 点击停止/发布按钮，弹出二次确认弹窗
@@ -403,77 +464,3 @@ class DailyOperationSteps(JudgmentVerification):
 
         # 获取用户执行的动作,判断是取消提交还是确定提交
         self.submit_conditions_button(dn.operation_primary, dn.operation_default, attribute)
-
-    # -----------------------------------------用例直接使用--------------------------
-
-    def getAllCity(self) -> "获取城市内容":
-        '''
-        进入页面，读取数据并进行比对
-        :return:
-        '''
-        # 筛选数据的函数
-        self.getOperaSelect()
-        # 获取数据的函数
-        self.getAllContent()
-        pass
-
-    def getStopRelease(self, bl_button=True) -> "点击停止和发布按钮,弹出二次确认框":
-        '''
-        点击操作按钮，并对弹窗二次对话框的处理
-        :param bl_button:  公告操作里面有两个按钮时。需要通过bl_button来判断点击哪一个
-        为真时：点击操作里面第一个按钮
-        为假时：点击操作里面第二个按钮
-        :return:
-        '''
-        # 下拉筛选的选择
-        self.getOperaSelect()
-        # 获取当前页面上所展示的全部数据。
-        attribute = self.get_window_data()
-
-        # 获取二次弹窗的数据
-        self.popup_title_content(bl_button) if attribute is not None else self.log.info("页面数据为空")
-        pass
-
-    def get_overdue_modify(self, bl_button=True) -> "点击按钮弹出编辑框":
-        '''
-        点击操作按钮，并对编辑弹窗进行数据输入以及数据校验
-        :param bl_button:公告操作里面有两个按钮时。需要通过bl_button来判断点击哪一个
-        为真时：点击操作里面第一个按钮
-        为假时：点击操作里面第二个按钮
-        :return:
-        '''
-        # 下拉筛选的选择
-        self.getOperaSelect()
-
-        # 获取当前页面上所展示的全部数据。
-        attribute = self.get_window_data()
-        # 获取编辑框的数据
-        self.get_popup_data(bl_button) if attribute is not None else self.log.info("页面数据为空")
-        pass
-
-    def get_announcement_release(self) -> "用于公告发布的操作":
-        # 点击添加按钮
-        self._visible_css_selectop(dn.operation)
-        # 信息输入
-        popupWindows.release_popup_data(self, dn)
-        bl_cond = self.conditions_operation(dn.dailyOperation())
-        if bl_cond:
-            # 点击提交按钮
-            self._visible_css_selectop(dn.operation_primary)
-            # 错误提示框的信息比较
-            self.poput_to_confirm()
-            self.vac.sleep_Rest(3)
-            # 弹窗上的确认按钮点击
-            self._visible_css_selectop(dn.error_button)
-        else:
-            self._visible_css_selectop(dn.operation_default)
-
-    def get_time_status(self, expect_value) -> "目前没有使用到这个函数":
-        '''
-        根据修改时间然后判断状态是否正常
-        程序运行完毕之后，根据修改后的状态来判断状态值是否跟期望的一直
-        :param expect_value:  修改时间之后，期望该公告的状态
-        :return:
-        '''
-        self.get_overdue_modify()
-        assert expect_value == self.MYSQL_DF.iloc[0]['status'], "时间设置不严谨，导致公告期望状态判断出错.用例出现False"

@@ -5,13 +5,14 @@ __author__ = 'Administrator'
 @time: 2017/11/8 15:09
 """
 
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by import By
-from time import sleep
 import os
+from time import sleep
 
 import selenium.webdriver.support.expected_conditions as EC
 import selenium.webdriver.support.ui as ui
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+
 from tools import DefinitionErrors as dError
 
 
@@ -34,7 +35,7 @@ class action_visible(object):
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             return ele
         except Exception as e:
-            self.error_log(driver,e)
+            self.error_log(driver, e)
             return False
 
     def is_visible_id(self, driver, locator, timeout=3):
@@ -123,11 +124,10 @@ class action_visible(object):
         except TimeoutException:
             return False
 
-    def _visible_selectop_text(self, driver, locator, timeout=5, poll_frequency=0.5):
+    def _visible_selectop_text(self, driver, locator, timeout=5):
         # 判断元素是否存在，如果存在就进行获取元素的text属性
         try:
-            _ele = ui.WebDriverWait(driver, timeout, poll_frequency).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+            _ele = self.is_visible_css_selectop(driver, locator, timeout)
             text = _ele.text
             return text
         except TimeoutException:
@@ -202,7 +202,7 @@ class action_visible(object):
     def sleep_Rest(self, ti=1):  # 延迟
         sleep(ti)
 
-    def error_log(self, driver ,e=None):
+    def error_log(self, driver, e=None):
         # 执行文件的文件名
         basename = os.path.splitext(os.path.basename(__file__))[0]
 

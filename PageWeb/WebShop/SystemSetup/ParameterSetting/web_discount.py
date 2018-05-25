@@ -50,7 +50,7 @@ class VerifyDiscount(unittest.TestCase):
     """
 
     @classmethod
-    def setUp(cls):
+    def setUpClass(cls):
         # 该类运行时优先调用的函数
         # log.info("The program begins to execute. Don't stop me when you start.")
         basename = os.path.splitext(os.path.basename(__file__))[0]
@@ -58,19 +58,19 @@ class VerifyDiscount(unittest.TestCase):
         disSte.openingProgram(basename, EXCLE_FILE)
 
     @classmethod
-    def tearDown(cls):
+    def tearDownClass(cls):
         try:
             # 该类结束时最后调用的函数
             # log.info("Make it complete and continue to press it next time...")
-            # jv.driver.quit()
+            disSte.driver.quit()
             # overall_ExcelData.to_excel(basename + ".xlsx", index=False, encoding="gbk")
             pass
         except UnicodeDecodeError:
-            log.info("又出现UTF-8的错误........")
+            disSte.log.info("又出现UTF-8的错误........")
 
     # ---------------用例部分-----------------
 
-    @unittest.skip(r"跳过:test_city_number")
+    # @unittest.skip(r"跳过:test_city_number")
     def test_city_number(self):
         """获取城市数量以及名字(编码)是否正确"""
         # 获取函数名
@@ -92,7 +92,7 @@ class VerifyDiscount(unittest.TestCase):
         # 将页面上获取到的数据进行比较
         disSte._verify_content_mysql(list_name, list_attr)
 
-    @unittest.skip(r"跳过:test_display_switch")
+    # @unittest.skip(r"跳过:test_display_switch")
     def test_cancel_input(self):
         """不设置优惠时对输入框进行校验"""
         # 获取函数名，并相应的目录下面
@@ -110,7 +110,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_all_cancel")
+    # @unittest.skip(r"跳过:test_all_cancel")
     def test_all_cancel(self):
         """不设置优惠直接提交"""
         # 获取函数名
@@ -128,7 +128,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_all_choice")
+    # @unittest.skip(r"跳过:test_all_choice")
     def test_all_choice(self):
         """设置优惠直接提交"""
         # 获取函数名
@@ -146,7 +146,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_water_NotInput")
+    # @unittest.skip(r"跳过:test_water_NotInput")
     def test_water_NotInput(self):
         # 获取函数名
         disSte.setFunctionName(inspect.stack()[0][3])
@@ -163,7 +163,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         # disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_water_choice")
+    # @unittest.skip(r"跳过:test_water_choice")
     def test_water_choice(self):
         """设置水优惠信息"""
         # 获取函数名
@@ -181,7 +181,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_water_discount")
+    # @unittest.skip(r"跳过:test_water_discount")
     def test_water_discount(self):
         """只设水折扣"""
         # 获取函数名
@@ -200,7 +200,7 @@ class VerifyDiscount(unittest.TestCase):
         disSte._verify_content_data()
 
 
-    @unittest.skip(r"跳过:test_water_goods")
+    # @unittest.skip(r"跳过:test_water_goods")
     def test_water_goods(self):
         """只设限制商品"""
         # 获取函数名
@@ -219,7 +219,7 @@ class VerifyDiscount(unittest.TestCase):
         # disSte._verify_content_data()
 
 
-    @unittest.skip(r"跳过:test_watikis_NotInput")
+    # @unittest.skip(r"跳过:test_watikis_NotInput")
     def test_watikis_NotInput(self):
         """勾选水票优惠但不输入优惠信息"""
         # 获取函数名
@@ -238,7 +238,7 @@ class VerifyDiscount(unittest.TestCase):
         # disSte._verify_content_data()
 
 
-    @unittest.skip(r"跳过:test_watikis_choice")
+    # @unittest.skip(r"跳过:test_watikis_choice")
     def test_watikis_choice(self):
         """设置水票优惠信息"""
         # 获取函数名
@@ -256,7 +256,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_watikis_discount")
+    # @unittest.skip(r"跳过:test_watikis_discount")
     def test_watikis_discount(self):
         """只设水票折扣"""
         # 获取函数名
@@ -274,7 +274,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_watikis_discountMaxZero")
+    # @unittest.skip(r"跳过:test_watikis_discountMaxZero")
     def test_watikis_discountMaxZero(self):
         """只水票折扣，并且最高抵扣为默认值"""
         # 获取函数名
@@ -292,7 +292,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_watikis_limit")
+    # @unittest.skip(r"跳过:test_watikis_limit")
     def test_watikis_limit(self):
         """只设限制水票"""
         # 获取函数名
@@ -310,7 +310,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         # disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_watikis_max")
+    # @unittest.skip(r"跳过:test_watikis_max")
     def test_watikis_max(self):
         """只设最高抵扣"""
         # 获取函数名
@@ -328,7 +328,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         # disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_watikis_DiscountLimit")
+    # @unittest.skip(r"跳过:test_watikis_DiscountLimit")
     def test_watikis_DiscountLimit(self):
         """设置水票折扣和限制水票"""
         # 获取函数名
@@ -343,7 +343,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行弹窗的点击动作
         disSte.returnVerification()
 
-    @unittest.skip(r"跳过:test_watikis_DiscountLimitMaxZero")
+    # @unittest.skip(r"跳过:test_watikis_DiscountLimitMaxZero")
     def test_watikis_DiscountLimitMaxZero(self):
         """设置水票折扣，限制水票,并且最大值为0"""
         # 获取函数名
@@ -361,7 +361,7 @@ class VerifyDiscount(unittest.TestCase):
         # 执行数据比较的任务
         disSte._verify_content_data()
 
-    @unittest.skip(r"跳过:test_watikis_DiscounMax")
+    # @unittest.skip(r"跳过:test_watikis_DiscounMax")
     def test_watikis_DiscounMax(self):
         """设置水票折扣和最高抵扣"""
         # 获取函数名

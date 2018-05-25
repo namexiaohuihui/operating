@@ -18,11 +18,12 @@ class OperationSelector(action_visible):
         self.setSelectData(lablePath)
 
     def setSelectData(self, lablePath):
-        # 需要爬取数据在页面中的位置
+        # 找到select元素
         selectEle = self.is_visible_css_selectop(self.drivers, lablePath)
         self.select = Select(selectEle)
         # 装options的数据,不创建value的容器是因为很少使用value
         self.optionsList = []
+        return self
 
     # ----------------------------------获取参数------------------------
 

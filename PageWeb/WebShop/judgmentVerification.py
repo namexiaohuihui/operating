@@ -30,14 +30,29 @@ class JudgmentVerification(ComparedVerify):
         self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
         self.ti = TimeFromat()
 
-    def list_add_number(self, number):
-        collection = []
-        collection.append(number)
-        return collection
+    # def list_add_number(self, number):
+    #     collection = []
+    #     collection.append(number)
+    #     return collection
 
     """
     # ---------------------数据比较----------------------
     """
+
+    def case_time_assert(self, announ_deadline, whole_result):
+
+        # 指定key值获取pandas用例上相应的数据信息
+        excel_time = self.overall[announ_deadline]
+        assert excel_time != None, "%s get_time_status 没有设置时间" % self.FUNCTION_NAME
+        # 记录当前时间
+        self.ANNOUN_SHE_TIME = self.ti.currentToStamp()
+        # 将时间进行切割，分成开始开始时间和结束时间
+        sttus, enmd = self.ti.cutting_time_current(excel_time)
+        # 判断时间用例时间
+        status_type = self.judge_time_only(status_time=sttus, status_end=enmd)
+        # 用例期望的状态
+        whole_result = self.overall[whole_result]
+        assert status_type == whole_result, "%s根据时间来判断状态出错 %s %s" % (self.FUNCTION_NAME, status_type, whole_result)
 
     def conditions_operation(self, operation):
         # 按钮判断在这里控制
@@ -60,26 +75,25 @@ class JudgmentVerification(ComparedVerify):
         :return:  返回查询到的数据集，没查到数据时返回None
         '''
         regular = self.mysql_match(my_sql)
-        if regular != None:
+        if regular:
             # 读取数据库内容
+            print("msql--->%s" % my_sql)
             result = self.mysqlTotalSelects(my_sql)
-            # re_df = self.conversionPandas(result) # 暂时不需要将数据转换成df形式
             return result
         return None
 
-    def _verify_single_match(self, my_sql):
-        '''
-        数据库查询
-        :param my_sql:  sql语句
-        :return:  返回查询到的数据集，没查到数据时返回None
-        '''
-        regular = self.mysql_match(my_sql)
-        if regular != None:
-            # 读取数据库内容
-            result = self.mysql_single_selects(my_sql)
-            # re_df = self.conversionPandas(result) # 暂时不需要将数据转换成df形式
-            return result
-        return None
+    # def _verify_single_match(self, my_sql):
+    #     '''
+    #     数据库查询
+    #     :param my_sql:  sql语句
+    #     :return:  返回查询到的数据集，没查到数据时返回None
+    #     '''
+    #     regular = self.mysql_match(my_sql)
+    #     if regular:
+    #         # 读取数据库内容
+    #         result = self.mysql_single_selects(my_sql)
+    #         return result
+    #     return None
 
     """
     #------------------创建浏览器并执行登录------------------------------------
