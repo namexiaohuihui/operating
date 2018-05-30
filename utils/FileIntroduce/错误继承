@@ -50,3 +50,6 @@ TypeError: not all arguments converted during string formatting
 
  local variable 'attribute' referenced before assignment
  局部变量元素attribute没有找到
+
+ yaml.scanner.ScannerError: while scanning a block scalar expected a comment or a line break, but found 't'
+ 原因： 在编写内容时（thead: > tbody > tr） 冒号后面直接使用了大于号，然后报错

@@ -13,11 +13,11 @@ https://www.cnblogs.com/en-heng/p/5630849.html 函数解释
 https://jingyan.baidu.com/article/36d6ed1f6c54b01bcf488312.html pandas数据合并
 """
 
-from openpyxl import Workbook, load_workbook
-import datetime
 import os
+
 import pandas as pd
-import numpy
+from openpyxl import Workbook, load_workbook
+from openpyxl.utils.dataframe import dataframe_to_rows
 
 """
 这个class负责读取数据：从excel中读取数据到电脑
@@ -522,7 +522,7 @@ class WRITEEXCEL:
         :param anchor:   图标显示的开始位置
         :return:
         """
-        from openpyxl.chart import BarChart, Reference, Series
+        from openpyxl.chart import BarChart, Reference
         # 制作表格的数据范围
         values = Reference(self.work_sheet,
                            min_col=min_col,
@@ -625,7 +625,7 @@ class WRITEEXCEL:
 
 class PANDASDATA:
 
-    def __init__(self, _data = None):
+    def __init__(self, _data=None):
         """
         接收excle中读取到的数据
         :param _data:  excle数据源
@@ -680,7 +680,7 @@ class PANDASDATA:
         df = pd.DataFrame(self._data, index=index, columns=columns)
         return df
 
-    def functionConcat(self,function,*frames):
+    def functionConcat(self, function, *frames):
         '''
         将多个DataFrame数据集合并之后，将其转成excle文档方便进行查看
         :param function:  新创建的excle文件名
@@ -690,7 +690,7 @@ class PANDASDATA:
         result = pd.concat(frames, keys=['readdata', 'storage', 'results'])
         result.to_csv(function + ".csv", index=False, encoding="gbk")
 
-    def contentConcat(self,*frames : "多个Dataframes数据"):
+    def contentConcat(self, *frames: "多个Dataframes数据"):
 
         result = pd.concat(frames)
         return result
@@ -746,7 +746,7 @@ class PANDASDATA:
         '''
         通过zip方法，直接返回指定列的数据
         :param df:
-        :param index:    需要返回的列
+        :param index:    需要返回的行
         :param number:   需要返回的列
         :return:
         '''
@@ -780,14 +780,12 @@ class PANDASDATA:
             print('长度大于了。。。。。')
 
     def row_index_header(self, df, index=False, header=False):
-        from openpyxl.utils.dataframe import dataframe_to_rows
         '''
         建议都为假。。。
                 header1    header2
         index1    1          2
         index2    3          4
         打印之后的数据为:
-            [None , header1 , header2 ]
             [index1 , 1 , 2 ]
             [index2 , 3 , 4 ]
         :param df:
@@ -798,20 +796,15 @@ class PANDASDATA:
         if index and header:
             """
             都为真时，说明有首行header内容以及首列标签index
-            需要对他们进行处理，这些都不是我们想要的数据
+            将标题以及标签的数据去除之后重新返回数据
             """
             list_max = []
-            row_true = True
             for row in dataframe_to_rows(df, index=index, header=header):
-                if row_true:
-                    pass
-                else:
-                    list_data = []
-                    for r in range(1, len(row)):
-                        list_data.append(row[r].value)
-                    list_max.append(list_data)
-                row_true = False
-
+                list_data = []
+                for r in range(1, len(row)):
+                    list_data.append(row[r].value)
+                list_max.append(list_data)
+            return list_max
         elif index is True and header is False:
             """
             index为真时，说明首列标签index
@@ -823,35 +816,30 @@ class PANDASDATA:
                 for r in range(1, len(row)):
                     list_data.append(row[r].value)
                 list_max.append(list_data)
-
+            return list_max
         elif index is False and header:
             """
             header为真时，说明首行header的内容
             需要对他进行处理，这些不是我们想要的数据
             """
             list_max = []
-            row_true = True
-            for row in dataframe_to_rows(df, index=index, header=header):
-                if row_true:
-                    pass
-                else:
-                    list_data = []
-                    for r in range(len(row)):
-                        list_data.append(row[r].value)
-                    list_max.append(list_data)
-                row_true = False
-
-        elif index is False and header is False:
-            """
-            都为假时，说明首行header和标签index都没有返回这时不需要进行处理操作直接使用
-            """
-            list_max = []
-            import numpy as np
             for row in dataframe_to_rows(df, index=index, header=header):
                 list_data = []
                 for r in range(len(row)):
                     list_data.append(row[r].value)
                 list_max.append(list_data)
+            return list_max
+        elif index is False and header is False:
+            """
+            都为假时，说明首行header和标签index都没有返回这时不需要进行处理操作直接使用
+            """
+            list_max = []
+            for row in dataframe_to_rows(df, index=index, header=header):
+                list_data = []
+                for r in range(len(row)):
+                    list_data.append(row[r])
+                list_max.append(list_data)
+            return list_max
         else:
             print('bus')
 
@@ -916,7 +904,7 @@ class PANDASDATA:
 
         # concat将其进行合并操作.keys将其合并后用索引区分来源于不同DataFrame的数据
         frames = [dfebs, df, dfop]
-        result = pd.concat(frames,keys=['dfebs', 'df', 'dfop'])
+        result = pd.concat(frames, keys=['dfebs', 'df', 'dfop'])
 
         # 获取‘status’列标签下面内容为‘xxx’的全部data数据内容
         df = df[df['status'].isin(['xxx'])]
@@ -932,7 +920,7 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
           _title表示的是工作薄的页面
         通过pandas进行转换时：
           _date表示的数据
-          _title表示的是标题
+          _title表示的是工作薄的名称
         :param name:
         :param sheet:
         """
@@ -949,13 +937,25 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         # 将case中内容部分的数据（除标题以外的数据）读出
         self._date = whole[0]
 
-        # 将case中标题的内容读出
+        # 将case中标题的全部内容读出
         self._title = whole[1]
 
         # 获取指定标题的内容
         columnLabel = self.die_angegebene_keys(row_col_data=self._date, title_data=self._title)
 
         # 通过pandas将数据进行转换
+        return self.conversionPandas(columnLabel)
+
+    def internal_read_excel(self):
+        '''
+        利用pandas内置函数，直接读取xlsx的数据信息
+        并将函数名提取出来，用于序列号的赋值
+        :return:
+        '''
+        self._data = pd.read_excel(self._date, self._title)
+        self._title = self._data.keys()
+        self._date = self.row_index_header(self._data)
+        columnLabel = list(self._data["函数"])
         return self.conversionPandas(columnLabel)
 
     def conversionPandas(self, columnLabel=None):
@@ -966,13 +966,18 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
 
         if columnLabel != None:
             df = df.set_index([columnLabel])  # 设置df数据中的序列号
-
-        return df
+        return df.fillna(value='')
 
 
 if __name__ == '__main__':
-    from utils.comparedVerify import ComparedVerify
+    import time
 
-    excelData = ComparedVerify()._excel_Data('discount', 1)
+    status_tt = time.time()
 
-    print(excelData.iloc[0])
+    excel_case = OpenExcelPandas(
+        r'E:\drivers\CasePlan\CasrScene\BackStageManagement\InteractionActions\WholeInteraction\interaction.xlsx',
+        "标签")
+    excel_case = excel_case.internal_read_excel()
+    print(excel_case)
+    print(time.time() - status_tt)
+    print(excel_case.loc["weishenm"])

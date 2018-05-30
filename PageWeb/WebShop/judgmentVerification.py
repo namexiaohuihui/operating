@@ -4,9 +4,11 @@ __author__ = 'DingDong'
 @file: JudgmentVerification.py
 @time: 2018/1/23 10:18
 """
+import os
 import re
 
 from tools.Logger import Log
+from tools.openpyxlExcel import OpenExcelPandas
 from utils.comparedVerify import ComparedVerify
 from utils.config import readModel
 from utils.timeFromat import TimeFromat
@@ -30,10 +32,10 @@ class JudgmentVerification(ComparedVerify):
         self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
         self.ti = TimeFromat()
 
-    # def list_add_number(self, number):
-    #     collection = []
-    #     collection.append(number)
-    #     return collection
+    # --------------------------------正则的使用
+    def re_cutting_data(self, attr):
+        cutting = re.search(r'[1-9]\d{5}(?!\d)', attr)
+        return cutting.group()
 
     """
     # ---------------------数据比较----------------------
@@ -65,6 +67,7 @@ class JudgmentVerification(ComparedVerify):
             self.log.info("操作按钮为-->取消吗? %s " % _operation)
             return False
 
+    # ---------------------------------sql的使用部分-------------------------------
     def mysql_match(self, my_sql: "mysql语句") -> "正则切割sql语句是否为查询语句":
         return re.match('^SELECT', my_sql)
 
@@ -110,16 +113,29 @@ class JudgmentVerification(ComparedVerify):
         :param exclefile:  需要读取用例的文件名
         :return:  暂时没有返回值
         """
-        # 拿出文件名和工作薄
-        exclename, exclesheet = exclefile
         # 定义日志
         self.log = Log(basename)
-        # 读取文档信息
-        self.overallExcelData = self._excel_Data(exclename, exclesheet)
+        # 读取文档信息,MODEI_KEY_POSITION位于SystenSerup的init，
+        # MODEI_CASE_POSITION位于NoticeController的init
+        self.overallExcelData = self._excel_Data(self.MODEI_KEY_POSITION, self.MODEI_CASE_POSITION, exclefile)
 
         self.option_browser()  # 打开浏览器
         self.ps_user_login()  # 用户登录
         pass
+
+    def _excel_Data(self, model_key, filename, SHEETNAME):
+
+        # 获取excel路径
+        conmodel = readModel.establish_con(model="excelmodel")
+        consyst = conmodel.get("excel", model_key)
+        excelname = conmodel.get("excel", filename)
+        file_path = os.path.join(consyst, excelname)
+        # 读取相应路径中的数据
+        read = OpenExcelPandas(file_path, sheet=SHEETNAME)
+        # 之前是用readCaseExcel这个函数但是感觉时代要变化就用了internal_read_excel
+        # excelData = read.readCaseExcel()
+        excelData = read.internal_read_excel()
+        return excelData
 
     def get_account_account_password(self):
         conf = readModel.establish_con(model="model")  # 获取账号密码
@@ -154,3 +170,38 @@ class JudgmentVerification(ComparedVerify):
 
         print("输入的内容: %s 输入的对象: %s 输入的地方: %s " % (information, eleInformation, caseTitle))
         self._visible_json_input(eleInformation, information)  # 通过元素id利用json进行输入输入
+
+    # -----------------------城市编码和那么的获取---------------------
+    def default_city_content(self, city_ele, result):
+        '''默认进来页面是否为产品规定的'''
+        for city in city_ele:
+            if city.get_attribute('class') == 'active':
+                self._verify_operator(city.text, self.overall[result])
+                break
+
+    def lable_code_name(self, city_ele, tag, bute) -> dict:
+        '''
+        获取城市标签中，全部的code和bane
+        :param city_ele:  城市标签元素
+        :param tag:  元素携带的标签
+        :param bute: 子元素携带的标签
+        :return: code为key，name为value的数据集
+        '''
+        LABLE_DF = {}
+        for number in range(1, len(city_ele)):
+            element = self._visible_returan_tag_name(city_ele[number], tag, 5)
+            code = self.re_cutting_data(element.get_attribute(bute))
+            LABLE_DF[code] = element.text
+        return LABLE_DF
+
+    def mysql_code_name(self, content)->dict:
+        '''
+        根据sql语句查询数据，将数据根据code为key，name为value的原则重新排版
+        :param content: sql语句
+        :return: code为key，name为value的数据集
+        '''
+        MYSQL_DF = self._verify_match(content)
+        mysql_df = {}
+        for mysql in MYSQL_DF:
+            mysql_df[str(mysql['city'])] = mysql['name']
+        return mysql_df

@@ -17,15 +17,14 @@ __author__ = 'DingDong'
         assert k == 2, "cuowuxinxi "
 
 """
+from PageWeb.WebShop.SystemSetup import SystemCoexistence
 
-# from collections import OrderedDict
-# import pprint
-# daily = ["type", "city", "title", "content", "time", "status", "default"]
-# daily2 = ("gonhgfao", "nanning", "hahah", "neirongh", "shjina", "zhungtai", "jieshu")
-#
-# shuju2 = dict(zip(daily,daily2))
-# print(shuju2)
 
-'''
-body > div.daterangepicker.dropdown-menu.show-calendar.opensleft > div.calendar.first.left > div.calendar-date > table > thead > tr:nth-child(1) > th.next.available
-'''
+class DailyNotice(SystemCoexistence):
+
+    # 当前子目录的所在位置
+    TREEW_TAGS_LOCATION = "2"
+
+    # 该目录下的用例在modei文件中所属的key值
+    MODEI_CASE_POSITION = "dailybulletin"
+

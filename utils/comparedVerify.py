@@ -12,7 +12,6 @@ import time
 
 from tools import DefinitionErrors as dError
 from tools.PymysqlMain import pymysqls
-from tools.openpyxlExcel import OpenExcelPandas
 from utils.browser_establish import browser_confirm
 from utils.config import readModel
 from utils.operation.selenium_click import action_click
@@ -117,21 +116,18 @@ class ComparedVerify(object):
     #     df = read.conversionPandas()
     #     return df
 
-    def _excel_Data(self, filename, SHEETNAME=1):
-
-        # 获取excel路径
-        conmodel = readModel.establish_con(model="excelmodel")
-        consyst = conmodel.get("excel", "systemsetup")
-        excelname = conmodel.get("excel", filename)
-        file_path = os.path.join(consyst, excelname)
-        # 读取相应路径中的数据
-        read = OpenExcelPandas(file_path, sheet=SHEETNAME)
-        excelData = read.readCaseExcel()
-        return excelData
-
     """
         #--------------------元素判断部分-----------------------------------------
     """
+
+    def _visible_returan_tag_name(self, ele, locator, timeout=5):
+        loca_ele = self.vac.ele_visible_tag_name(ele, locator, timeout)
+        return loca_ele
+
+    def _visible_returns_selectop(self, locator, timeout=5):
+        # 根据元素组path来查找元素，并将元素组进行返回
+        ele = self.vac.is_visibles_css_selectop(self.driver, locator)
+        return ele
 
     def _visible_return_selectop(self, locator, timeout=5):
         # 判断元素是否存在，如果存在就返回该元素

@@ -15,8 +15,8 @@ def specified_cut_ber(strr, op, num, ber):
     return string;
 
 
-def specified_cut_num(str, op, num):
-    string = str.split(op, num)
+def specified_cut_num(strr, op, num):
+    string = str.split(strr,op, num)
     return string;
 
 

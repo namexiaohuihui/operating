@@ -34,7 +34,6 @@ class OperationSelector(action_visible):
         """
         for option in self.select.options:
             self.optionsList.append(option.text.strip())
-        return self.optionsList
 
     def get_value(self):
         """

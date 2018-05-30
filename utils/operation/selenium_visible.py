@@ -17,6 +17,15 @@ from tools import DefinitionErrors as dError
 
 
 class action_visible(object):
+    # ------------------------------根据已知元素查找下面子元素的标签-------------------
+    def ele_visible_tag_name(self, driver, locator, timeout=3):
+        # 根据现有的元素和标签查找子元素是否存在
+        try:
+            ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.TAG_NAME, locator)))
+            return ele
+        except Exception as e:
+            self.error_log(driver, e)
+            return False
     # ------------------------------等待某个元素可见，默认超时10秒-------------------
     def is_visible_xpath(self, driver, locator, timeout=10):
         # 一直等待某元素可见，默认超时10秒
@@ -30,9 +39,21 @@ class action_visible(object):
             return False
 
     def is_visible_css_selectop(self, driver, locator, timeout=3):
-        # 一直等待某元素可见，默认超时10秒
+        # 一直等待某元素可见，默认超时10秒，返回找到的单个元素组
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
+            return ele
+        except Exception as e:
+            self.error_log(driver, e)
+            return False
+
+
+
+    def is_visibles_css_selectop(self, driver, locator, timeout=3):
+        # 一直等待某元素可见，默认超时10秒,返回全部找到的数据元素组
+        try:
+            ele = ui.WebDriverWait(driver, timeout).until(
+                EC.visibility_of_all_elements_located((By.CSS_SELECTOR, locator)))
             return ele
         except Exception as e:
             self.error_log(driver, e)
@@ -132,6 +153,8 @@ class action_visible(object):
             return text
         except TimeoutException:
             return False
+
+
 
     # --------------------------其他一些等待条件的使用-----------------
     def _visible_text_css(self, driver, locator, text, timeout=5):

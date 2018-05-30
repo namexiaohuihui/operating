@@ -8,7 +8,7 @@ import inspect
 
 from pandas import DataFrame
 
-from PageWeb.WebShop.SystemSetup import SystemCoexistence
+from PageWeb.WebShop.SystemSetup.NoticeController import DailyNotice
 from PageWeb.WebShop.SystemSetup.NoticeController import popupWindows
 from PageWeb.WebShop.SystemSetup.NoticeController.dailyLabelNames import DailyLabelNames
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
@@ -16,13 +16,12 @@ from tools.openpyxlExcel import PANDASDATA
 from tools.operationSelector import OperationSelector
 
 
-class DailyOperationSteps(SystemCoexistence):
+class DailyOperationSteps(DailyNotice):
     # 记录提交修改公告的时间
     ANNOUN_SHE_TIME = ''
+
     global dn
     dn = DailyLabelNames()
-    # 当前子目录的所在位置
-    TREEW_TAGS_LOCATION = "2"
 
     # ----------------------------------文件配置函数-----------------------------------
 
@@ -49,31 +48,13 @@ class DailyOperationSteps(SystemCoexistence):
             daily = ("type", "title", "content", "time", "status", "default")
         return daily
 
-    def setDailyBulletin(self, basename: str, case_position: int) -> '程序首次运行时必须定义的部分':
-        '''
-        定义执行工作时的文件名，以及用例所在的工作薄，方便统一进行修改
-        :param basename:  文件名
-        :param case_position: 工作薄
-        :return:
-        '''
-        EXCLE_FILE = dn.getDailyBulletin(case_position)
-        self.openingProgram(basename, EXCLE_FILE)
-        pass
-
-    def _rou_fun(self):
-        self._visible_css_selectop(dn.sidebar)
-        self._visible_css_selectop(dn.treew)
-
-    def rou_location(self):
-        self.treew_tags = self.TREEW_TAGS_LOCATION
-        self._rou_DailyFun()
 
     def _rou_daily_opera(self):
         """
         进入日常公告页面
         :return:  暂时没有返回值
         """
-        self.rou_location()
+        self._rou_system()
         self._visible_css_selectop(dn.tabs_dail)
         pass
 
@@ -82,7 +63,7 @@ class DailyOperationSteps(SystemCoexistence):
         进入维护页面
         :return:  暂时没有返回值
         """
-        self.rou_location()
+        self._rou_system()
         self._visible_css_selectop(dn.tabs_maintenance)
         pass
 
@@ -91,7 +72,7 @@ class DailyOperationSteps(SystemCoexistence):
         进入帮助页面
         :return:  暂时没有返回值
         """
-        self.rou_location()
+        self._rou_system()
         self._visible_css_selectop(dn.tabs_help)
         pass
 

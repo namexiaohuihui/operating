@@ -24,7 +24,7 @@ class MaintainNotice(unittest.TestCase):
         # 获取运行文件的类名
         basename = os.path.splitext(os.path.basename(__file__))[0]
         # 打开浏览器，定义log日志。读取excle文档数据
-        announ.setDailyBulletin(basename, cls.CASE_EXCLE_POSITION)
+        announ.openingProgram(basename, cls.CASE_EXCLE_POSITION)
         # 进入路径
         announ._rou_MaintenanceFun()
 
