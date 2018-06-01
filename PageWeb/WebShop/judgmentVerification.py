@@ -32,14 +32,12 @@ class JudgmentVerification(ComparedVerify):
         self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
         self.ti = TimeFromat()
 
-    # --------------------------------正则的使用
+    # --------------------------------正则的使用--------------------------
     def re_cutting_data(self, attr):
         cutting = re.search(r'[1-9]\d{5}(?!\d)', attr)
         return cutting.group()
 
-    """
-    # ---------------------数据比较----------------------
-    """
+    # ------------------------数据比较-----------------------------
 
     def case_time_assert(self, announ_deadline, whole_result):
 
@@ -113,14 +111,16 @@ class JudgmentVerification(ComparedVerify):
         :param exclefile:  需要读取用例的文件名
         :return:  暂时没有返回值
         """
+        # 这两个比较耗时间
+        self.option_browser()  # 打开浏览器
+        self.ps_user_login()  # 用户登录
+
         # 定义日志
         self.log = Log(basename)
         # 读取文档信息,MODEI_KEY_POSITION位于SystenSerup的init，
         # MODEI_CASE_POSITION位于NoticeController的init
         self.overallExcelData = self._excel_Data(self.MODEI_KEY_POSITION, self.MODEI_CASE_POSITION, exclefile)
 
-        self.option_browser()  # 打开浏览器
-        self.ps_user_login()  # 用户登录
         pass
 
     def _excel_Data(self, model_key, filename, SHEETNAME):
@@ -194,7 +194,7 @@ class JudgmentVerification(ComparedVerify):
             LABLE_DF[code] = element.text
         return LABLE_DF
 
-    def mysql_code_name(self, content)->dict:
+    def mysql_code_name(self, content) -> dict:
         '''
         根据sql语句查询数据，将数据根据code为key，name为value的原则重新排版
         :param content: sql语句
@@ -204,4 +204,13 @@ class JudgmentVerification(ComparedVerify):
         mysql_df = {}
         for mysql in MYSQL_DF:
             mysql_df[str(mysql['city'])] = mysql['name']
+        return mysql_df
+
+    def mysql_area_name(self, content, option):
+        MYSQL_DF = self._verify_match(content)
+        # mysql_df = [(value for value in mysql.values()) for mysql in MYSQL_DF]
+        mysql_df = [option]
+        for mysql in MYSQL_DF:
+            for value in mysql.values():
+                mysql_df.append(value)
         return mysql_df

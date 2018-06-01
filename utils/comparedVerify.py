@@ -9,7 +9,7 @@ import operator  # 任何对象都可以比较功能
 import os
 import sys
 import time
-
+from tools.RewriteThread import InheritThread as th
 from tools import DefinitionErrors as dError
 from tools.PymysqlMain import pymysqls
 from utils.browser_establish import browser_confirm
@@ -246,36 +246,43 @@ class ComparedVerify(object):
         # 调用错误类
         dError.error_output(name_tion, self.driver)
 
-    def _start_thread_pool(self, funktion):  # 开启线程池
+    def start_thread_pool(self, funktion):  # 开启线程池
+        # https://www.cnblogs.com/qualitysong/archive/2011/05/27/2060246.html
         # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
-        # print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-        # faden = []  # 该列表存放已经开启的线程
-        #
-        # inhalt = []  # 该列表存放线程中所执行的函数返回值内容
-        #
-        # for para in funktion:  # 遍历函数开启线程
-        #     threads = th(para)
-        #     faden.append(threads)
-        #     threads.start()
-        #
-        # for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
-        #     argu.join()
-        #     inhalt.append(argu.get_result())
-        #
-        # # overall_ExcelData = inhalt[0]  # df转换的数据，方便对excel进行操作r
-        # print("Thread execution finished %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-        # return inhalt
-        pass
+        print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+        faden = []  # 该列表存放已经开启的线程
+        inhalt = []  # 该列表存放线程中所执行的函数返回值内容
+
+        for para in funktion:  # 遍历函数开启线程
+            # th是内置的函数
+            threads = th(para['func'],para['args'])
+            faden.append(threads)
+            threads.start()
+
+        for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
+            argu.join()
+            inhalt.append(argu.get_result())
+
+        print("Thread execution finished %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+        return inhalt
+
+
+def xxx1(x, y):
+    return x + y
+
+
+def yyy1(x, y):
+    return x * y
+
+
+def zzz1(x, y):
+    return x / y
 
 
 if __name__ == '__main__':
-    co = ComparedVerify()
-    excelData = co._excel_Data('discount', 1)
-
-    # 获取excel路径
-    # file_path = readModel.establish_con(model="excelmodel").get("excel", 'discount')
-    # # 读取相应路径中的数据
-    # read = OpenExcelPandas(file_path,1)
-    # excelData = read.readCaseExcel()
-
-    print(excelData)
+    x1 = xxx1
+    y1 = yyy1
+    z1 = zzz1
+    funktion= [x1,y1,z1]
+    inhalt = ComparedVerify().start_thread_pool(funktion)
+    print(inhalt)

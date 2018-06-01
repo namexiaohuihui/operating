@@ -177,6 +177,13 @@ class InteractionController(ExcelTitle):
         '''
         return 'area'
 
+    def yaml_option(self):
+        '''
+        首选项的获取
+        :return:
+        '''
+        return 'option'
+
     def yaml_manager(self):
         '''
         manager的key定义

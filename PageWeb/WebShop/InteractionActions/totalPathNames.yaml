@@ -28,17 +28,17 @@ timeselect:
 label:
   name: 订单标签
   type: cssSelector/checkbox
-  value: #form > div:nth-child(2) > div:nth-child(2) > div > div >label
+  value: form.form-inline > div:nth-child(2) > div:nth-child(2) > div > div >label
 
 area:
   name: 区域筛选
   type: cssSelector/select
-  manager: #manager
-  director: #director
-  region: #area
+  manager: form.form-inline > div:nth-child(2) > div:nth-child(3) > div > div > select:nth-child(2)
+  director: form.form-inline > div:nth-child(2) > div:nth-child(3) > div > div > select:nth-child(3)
+  region: form.form-inline > div:nth-child(2) > div:nth-child(3) > div > div > select:nth-child(4)
 
 status:
-  name: 类型
+  name: 状态
   type: cssSelector/select
   source: #type
   pay: #status

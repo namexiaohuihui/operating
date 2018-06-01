@@ -28,62 +28,90 @@ class WholeActionsJudge(InteractionCoexistence):
     # loantion = self.select_path['citytab']['value']
     # self._visible_return_selectop(loantion)
 
-    def time_options_judge(self):
-        # 找到下拉框，读取内部数据
-        time_path = self.select_path[self.names_key.yaml_timeselect()]
-        optins = OperationSelector(self.driver, time_path[self.names_key.yaml_judge()]).getAllOptions()
+    def whole_selector_options(self, se_path, se_con):
+        # 找到下拉框
+        time_path = self.select_path[se_path]
+        optins = OperationSelector(self.driver, time_path[se_con]).getAllOptions()
 
         # 找到文档中存储产品设置的默认值
-        time_content = self.select_content[self.names_key.yaml_timeselect()]
+        time_content = self.select_content[se_path]
 
-        # 比较两者之间
-        self._verify_operator(str.split(time_content[self.names_key.yaml_judge()], ','), optins)
+        # 比较时间下拉框：第一个参数为：文档记录的默认值，第二个参数为：界面获取的额数据
+        self._verify_operator(str.split(time_content[se_con], ','), optins)
+        return time_path, time_content
 
+    def time_options_judge(self):
+        # 可用于selector数据读取以及判断
+        time_path, time_content = self.whole_selector_options(self.names_key.yaml_timeselect(),
+                                                              self.names_key.yaml_judge())
+
+        # 可用于页面数据读取以及判断
         # 时间输入框的选择
-        print(time_path[self.names_key.yaml_choose()])
         self._visible_css_selectop(time_path[self.names_key.yaml_choose()])
         # 找到页面上的元素
         ranges = time_path[self.names_key.yaml_opensleft()] + " %s" % time_path[
             self.names_key.yaml_ranges()]
 
         # 读取元素内容
-        print(ranges)
         ranges_load = self._visible_returns_selectop(ranges)
-        ranges_con = [xx.text.strip() for xx in ranges_load]
 
-        # 找到文档中存储产品设置的默认值
-        self._verify_operator(str.split(time_content[self.names_key.yaml_choose()], ','), ranges_con)
+        # 比较时间输入框
+        self._verify_operator(str.split(time_content[self.names_key.yaml_choose()], ','),
+                              [ran.text.strip() for ran in ranges_load])
 
-    def city_replace_active(self):
+    def select_option_time(self):
         '''
-        切换已开通的数据城市
-        1.获取已开通的全部城市数据
-        2.循环便利点击
-        :return:
+        在指定城市页面执行数据校验工作
+        1. 找到全部城市页面
+        2. 判断文档规定需要执行动作的城市
+        3. 执行动作
+        :return: 不返回
         '''
-        # 1.获取全部元素
-        city_ele = self.get_city_ele()
-
-        number_len = len(city_ele)
-
-        for code in range(1, number_len):
-            # 遍历点击
-            city_ele[code].click()
-            # 点击之后要重新获取元素
-            city_ele = self.get_city_ele()
-            # 判断切换之后的元素所写到的class是不是产品大大规定的。。。
-            assert city_ele[code].get_attribute('class') == self.overall[self.names_key.whole_result()]
-
-    def select_option_judge(self):
-        city_ele = self.get_city_ele()
-        excle_title = self.overall[self.names_key.excle_city()]
-        if excle_title:
-            for city in city_ele:
-                if city.text == excle_title:
-                    self.log.info("在%s界面进行操作" % city.text)
-                    # 点击元素
-                    city.click()
-                    break
-        else:
-            self.log.info("在默认界面进行操作")
+        # 第一第二步
+        self.city_switch_judge()
+        # 第三步
         self.time_options_judge()
+
+    def select_lable_radio(self):
+        '''
+        在指定城市页面执行数据校验工作
+        1. 找到全部城市页面
+        2. 判断文档规定需要执行动作的城市
+        3. 执行动作
+        :return: 不返回
+        '''
+        # 第一第二步
+        self.city_switch_judge()
+        # 第三步
+        # 找到单选框
+        time_path = self.select_path[self.names_key.yaml_label()]
+        # 读取内容
+        time_content = self.select_content[self.names_key.yaml_label()]
+        # 找到产品规定的数据信息
+        optins = self._visible_returns_selectop(time_path[self.names_key.yaml_value()])
+        # 比较两者之间
+        self._verify_operator(str.split(time_content[self.names_key.yaml_value()], ','),
+                              [op.text.strip() for op in optins])
+
+    def area_verify_options(self,area_path,area_content,mana,option):
+        manager = mana + "%s" % option
+        MYSQL_DF = self.mysql_area_name(area_content[mana], area_content[manager])
+        manager = OperationSelector(self.driver, area_path[mana]).getAllOptions()
+        self._verify_operator(MYSQL_DF, manager)
+
+    def select_area_region(self):
+        # 区域下拉框的key
+        area_path = self.select_path[self.names_key.yaml_area()]
+
+        # 找到内部存档数据的key
+        area_content = self.select_content[self.names_key.yaml_area()]
+
+        # 区域第一个下拉框的内容
+        self.area_verify_options(area_path,area_content,self.names_key.yaml_manager(),self.names_key.yaml_option())
+
+        # 区域第二个下拉框的内容
+        self.area_verify_options(area_path,area_content,self.names_key.yaml_director(),self.names_key.yaml_option())
+
+        # 区域第三个下拉框的内容
+        self.area_verify_options(area_path,area_content,self.names_key.yaml_region(),self.names_key.yaml_option())
+

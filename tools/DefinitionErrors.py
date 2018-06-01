@@ -36,4 +36,4 @@ def error_output(basename, _browser_,e = None):
     log = Log(basename, classification='ERROR')
     log.info("发生错误时打印的错误数据信息: %s" % error)
     basename = basename + ".png"
-    _browser_.get_screenshot_as_file(os.path.join(log_path, basename))
+    # _browser_.get_screenshot_as_file(os.path.join(log_path, basename))

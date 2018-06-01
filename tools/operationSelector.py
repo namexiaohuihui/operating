@@ -65,6 +65,7 @@ class OperationSelector(action_visible):
             pass
         return self.optionsList
 
+
     def getAllValue(self):
         """
         获取全部的value数据

@@ -5,27 +5,25 @@
 @time: 2018/1/15 21:25
 @项目名称:operating
 """
+import os
+import time
 from threading import Thread
 
-from bs4 import BeautifulSoup
-
 import requests
-
-import os
-
-import time
-
+from bs4 import BeautifulSoup
 from tomorrow import threads
 
-class inherit_thread(Thread):
 
-    def __init__(self,func,args=()):
-        super(inherit_thread,self).__init__()
+class InheritThread(Thread):
+
+    def __init__(self, func, args=()):
+        super(InheritThread, self).__init__()
         self.func = func
         self.args = args
 
     def run(self):
         self.result = self.func(*self.args)
+        print("执行工作者 %s " % self.func)
 
     def get_result(self):
         try:
@@ -34,8 +32,9 @@ class inherit_thread(Thread):
             return None
 
     def ThreadUse(self):
-        x.join() # 在这里统一执行线程等待的方法
-        x.start() #线程开始
+        x.join()  # 在这里统一执行线程等待的方法
+        x.start()  # 线程开始
+
 
 # 当前脚本所在的目录
 
@@ -43,7 +42,6 @@ cur_path = os.path.dirname(os.path.realpath(__file__))
 
 
 def single_get_img_urls():
-
     r = requests.get("http://699pic.com/sousuo-218808-13-1.html")
 
     fengjing = r.content
@@ -57,9 +55,7 @@ def single_get_img_urls():
     return images
 
 
-
 def single_save_img(imgUrl):
-
     try:
 
         jpg_rl = imgUrl["data-original"]
@@ -74,15 +70,15 @@ def single_save_img(imgUrl):
 
         if not os.path.exists(save_file): os.makedirs(save_file)
 
-
-
-        with open(os.path.join(save_file, title+'.jpg'), "wb") as f:
+        with open(os.path.join(save_file, title + '.jpg'), "wb") as f:
 
             f.write(requests.get(jpg_rl).content)
 
     except:
 
         pass
+
+
 def single_thread():
     t1 = time.time()
 
@@ -95,8 +91,8 @@ def single_thread():
 
     print("总耗时：%.2f 秒" % (t2 - t1))
 
-def many_get_img_urls():
 
+def many_get_img_urls():
     r = requests.get("http://699pic.com/sousuo-218808-13-1.html")
 
     fengjing = r.content
@@ -112,7 +108,6 @@ def many_get_img_urls():
 
 @threads(5)
 def many_save_img(imgUrl):
-
     try:
 
         jpg_rl = imgUrl["data-original"]
@@ -127,13 +122,14 @@ def many_save_img(imgUrl):
 
         if not os.path.exists(save_file): os.makedirs(save_file)
 
-        with open(os.path.join(save_file, title+'.jpg'), "wb") as f:
+        with open(os.path.join(save_file, title + '.jpg'), "wb") as f:
 
             f.write(requests.get(jpg_rl).content)
 
     except:
 
         pass
+
 
 def many_thread():
     t1 = time.time()
@@ -146,5 +142,7 @@ def many_thread():
     t2 = time.time()
 
     print("总耗时：%.2f 秒" % (t2 - t1))
+
+
 if __name__ == '__main__':
     many_thread()

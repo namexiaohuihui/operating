@@ -71,7 +71,7 @@ class InteractionCoexistence(BackgroundCoexistence):
         # 1.获取全部元素
         city_ele = self.get_city_ele()
         # 2.数据获取及判断
-        self.default_city_content(city_ele,self.names_key.whole_result())
+        self.default_city_content(city_ele, self.names_key.whole_result())
 
     def city_code_judge(self):
         '''
@@ -94,3 +94,41 @@ class InteractionCoexistence(BackgroundCoexistence):
 
         # 4.两端数据比较
         self._verify_operator(MYSQL_DF, LABLE_DF)
+
+    def city_replace_active(self):
+        '''
+        切换已开通的数据城市
+        1.获取已开通的全部城市数据
+        2.循环便利点击
+        :return:
+        '''
+        # 1.获取全部元素
+        city_ele = self.get_city_ele()
+
+        number_len = len(city_ele)
+
+        for code in range(1, number_len):
+            # 遍历点击
+            city_ele[code].click()
+            # 点击之后要重新获取元素
+            city_ele = self.get_city_ele()
+            # 判断切换之后的元素所写到的class是不是产品大大规定的。。。
+            assert city_ele[code].get_attribute('class') == self.overall[self.names_key.whole_result()]
+
+    def city_switch_judge(self):
+        '''
+        1. 找到全部城市页面
+        2. 判断文档规定需要执行动作的城市
+        :return: 不返回
+        '''
+        city_ele = self.get_city_ele()
+        excle_title = self.overall[self.names_key.excle_city()]
+        if excle_title:
+            for city in city_ele:
+                if city.text == excle_title:
+                    self.log.info("在%s界面进行操作" % city.text)
+                    # 点击元素
+                    city.click()
+                    break
+        else:
+            self.log.info("在默认界面进行操作")
