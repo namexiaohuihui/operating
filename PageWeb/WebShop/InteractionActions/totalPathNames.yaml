@@ -40,49 +40,49 @@ area:
 status:
   name: 状态
   type: cssSelector/select
-  source: #type
-  pay: #status
+  source: form.form-inline > div:nth-child(3) > div:nth-child(1) > div > div > select:nth-child(2)
+  pay: form.form-inline > div:nth-child(3) > div:nth-child(1) > div > div > select:nth-child(3)
 
 order:
   name: 订单
   type: cssSelector/select
-  value: #form > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(1) > select
-  placeholder: #form > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > input
+  value: form.form-inline > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(1) > select
+  placeholder: form.form-inline > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > input
 
 buyer:
   name: 买家
   type: cssSelector/select
-  value: #form > div:nth-child(3) > div:nth-child(3)>div:nth-child(1)>div:nth-child(1) > select
-  placeholder: #form > div:nth-child(3) > div:nth-child(3) > div > div:nth-child(2) > input
+  value: form.form-inline > div:nth-child(3) > div:nth-child(3)>div:nth-child(1)>div:nth-child(1) > select
+  placeholder: form.form-inline > div:nth-child(3) > div:nth-child(3) > div > div:nth-child(2) > input
 
 
 other:
   name: 其他
   type: cssSelector/select
-  value: #form > div:nth-child(3) > div:nth-child(4) > div:nth-child(1)>div:nth-child(1) > select
-  placeholder: #form > div:nth-child(3) > div:nth-child(4) > div:nth-child(1)>div:nth-child(2) > input
+  value: form.form-inline > div:nth-child(3) > div:nth-child(4) > div:nth-child(1)>div:nth-child(1) > select
+  placeholder: form.form-inline > div:nth-child(3) > div:nth-child(4) > div:nth-child(1)>div:nth-child(2) > input
 
 button:
-name: 按钮
-type: cssSelector/button
-search: #form > div.row.orderscreen > div > div:nth-child(1) > button
-export: #form > div.row.orderscreen > div > div:nth-child(2) > button
+  name: 按钮
+  type: cssSelector/button
+  search: form.form-inline > div.row.orderscreen > div > div:nth-child(1) > button
+  export: form.form-inline > div.row.orderscreen > div > div:nth-child(2) > button
 
 content:
-name: 页面展示数据
-type: cssSelector/tr
-sdf: .table.table-striped >
-thead: thead > tr > th
-thead: tbody > tr
+  name: 页面展示数据
+  type: cssSelector/tr
+  sdf: .table.table-striped >
+  thead: thead > tr > th
+  thead: tbody > tr
 
 record:
-name: 底部数量的记录
-type: cssSelector/div
-value: .dataTables_info
+  name: 底部数量的记录
+  type: cssSelector/div
+  value: .dataTables_info
 
 buttonpage:
-name: 底部翻页
-type: cssSelector/div
-paginate: .dataTables_paginate.paging_simple_numbers > ul > li
-previous: .paginate_button.previous
-next: .paginate_button.next
+  name: 底部翻页
+  type: cssSelector/div
+  paginate: .dataTables_paginate.paging_simple_numbers > ul > li
+  previous: .paginate_button.previous
+  next: .paginate_button.next

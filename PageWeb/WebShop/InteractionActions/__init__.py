@@ -7,6 +7,7 @@ __author__ = 'DingDong'
 
 from PageWeb.WebShop import BackgroundCoexistence
 from PageWeb.WebShop.InteractionActions.interactionNames import InteractionNames
+from tools.operationSelector import OperationSelector
 
 
 class InteractionCoexistence(BackgroundCoexistence):
@@ -115,20 +116,114 @@ class InteractionCoexistence(BackgroundCoexistence):
             # 判断切换之后的元素所写到的class是不是产品大大规定的。。。
             assert city_ele[code].get_attribute('class') == self.overall[self.names_key.whole_result()]
 
-    def city_switch_judge(self):
+    def whole_selector_options(self, se_path, se_con):
+        # 找到下拉框
+        time_path = self.select_path[se_path]
+        optins = OperationSelector(self.driver, time_path[se_con]).getAllOptions()
+
+        # 找到文档中存储产品设置的默认值
+        time_content = self.select_content[se_path]
+
+        # 比较时间下拉框：第一个参数为：文档记录的默认值，第二个参数为：界面获取的额数据
+        self._verify_operator(str.split(time_content[se_con], ','), optins)
+        return time_path, time_content
+
+    def time_options_judge(self):
+        # 可用于selector数据读取以及判断
+        time_path, time_content = self.whole_selector_options(self.names_key.yaml_timeselect(),
+                                                              self.names_key.yaml_judge())
+
+        # 可用于页面数据读取以及判断
+        # 时间输入框的选择
+        self._visible_css_selectop(time_path[self.names_key.yaml_choose()])
+        # 找到页面上的元素
+        ranges = time_path[self.names_key.yaml_opensleft()] + " %s" % time_path[
+            self.names_key.yaml_ranges()]
+
+        # 读取元素内容
+        ranges_load = self._visible_returns_selectop(ranges)
+
+        # 比较时间输入框
+        self._verify_operator(str.split(time_content[self.names_key.yaml_choose()], ','),
+                              [ran.text.strip() for ran in ranges_load])
+
+    def select_option_time(self):
         '''
-        1. 找到全部城市页面
-        2. 判断文档规定需要执行动作的城市
+        在指定城市页面执行数据校验工作
+        3. 执行动作
         :return: 不返回
         '''
-        city_ele = self.get_city_ele()
-        excle_title = self.overall[self.names_key.excle_city()]
-        if excle_title:
-            for city in city_ele:
-                if city.text == excle_title:
-                    self.log.info("在%s界面进行操作" % city.text)
-                    # 点击元素
-                    city.click()
-                    break
-        else:
-            self.log.info("在默认界面进行操作")
+        # 第三步
+        self.time_options_judge()
+
+    def select_lable_radio(self):
+        '''
+        在指定城市页面执行数据校验工作
+        3. 执行动作
+        :return: 不返回
+        '''
+        # 第三步
+        # 找到单选框
+        time_path = self.select_path[self.names_key.yaml_label()]
+        # 读取内容
+        time_content = self.select_content[self.names_key.yaml_label()]
+        # 找到产品规定的数据信息
+        optins = self._visible_returns_selectop(time_path[self.names_key.yaml_value()])
+        # 比较两者之间
+        self._verify_operator(str.split(time_content[self.names_key.yaml_value()], ','),
+                              [op.text.strip() for op in optins])
+
+    def area_verify_options(self, area_path, area_content, mana, option):
+        manager = mana + "%s" % option
+        MYSQL_DF = self.mysql_area_name(area_content[mana], area_content[manager])
+        manager = OperationSelector(self.driver, area_path[mana]).getAllOptions()
+        self._verify_operator(MYSQL_DF, manager)
+
+    def select_area_region(self):
+        # 区域下拉框的key
+        area_path = self.select_path[self.names_key.yaml_area()]
+
+        # 找到内部存档数据的key
+        area_content = self.select_content[self.names_key.yaml_area()]
+
+        # 区域第一个下拉框的内容
+        self.area_verify_options(area_path, area_content, self.names_key.yaml_manager(), self.names_key.yaml_option())
+
+        # 区域第二个下拉框的内容
+        self.area_verify_options(area_path, area_content, self.names_key.yaml_director(), self.names_key.yaml_option())
+
+        # 区域第三个下拉框的内容
+        self.area_verify_options(area_path, area_content, self.names_key.yaml_region(), self.names_key.yaml_option())
+
+    def order_source_status(self):
+        #  订单来源下拉框的判断
+        self.whole_selector_options(self.names_key.yaml_status(), self.names_key.yaml_source())
+        #  订单章台下拉框的判断
+        self.whole_selector_options(self.names_key.yaml_status(), self.names_key.yaml_pay())
+
+    def value_placeholder(self, key, value, placeholder):
+        # 比较下拉框
+        self.whole_selector_options(key, value)
+
+        # 获取输入框中的默认值
+        place = self._visible_css_selectop_attribute(locator=self.select_path[key][placeholder], attr=placeholder)
+
+        # 比较输入框中的默认值是否正确
+        self._verify_operator(self.select_content[key][placeholder], place)
+    def summary_value_placeholder(self,key):
+        self.value_placeholder(key, self.names_key.yaml_value(),
+                               self.names_key.yaml_placeholder())
+    def order_value_placeholder(self):
+        self.summary_value_placeholder(self.names_key.yaml_order())
+        # self.value_placeholder(self.names_key.yaml_order(), self.names_key.yaml_value(),
+        #                        self.names_key.yaml_placeholder())
+
+    def buyer_value_placeholder(self):
+        self.summary_value_placeholder(self.names_key.yaml_buyer())
+        # self.value_placeholder(self.names_key.yaml_buyer(), self.names_key.yaml_value(),
+        #                        self.names_key.yaml_placeholder())
+
+    def other_value_placeholder(self):
+        self.summary_value_placeholder(self.names_key.yaml_other())
+        # self.value_placeholder(self.names_key.yaml_other(), self.names_key.yaml_value(),
+        #                        self.names_key.yaml_placeholder())

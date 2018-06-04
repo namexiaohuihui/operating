@@ -22,6 +22,9 @@ class InteractionController(ExcelTitle):
     def excle_city(self) -> str:
         return '城市'
 
+    def excle_conditions(self) -> str:
+        return '条件'
+
     # ----------------------------共用的定义--------------------
     def yaml_dec(self):
         return 'dec'

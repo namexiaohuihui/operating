@@ -61,6 +61,26 @@ class OrderWholeLabel(unittest.TestCase):
         whole.setFunctionName(inspect.stack()[0][3])
         whole.select_area_region()
 
+    def test_status_type(self):
+        '''订单来源和状态的默认值校验'''
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.order_source_status()
+
+    def test_order_value(self):
+        '''订单下拉和关键字框默认值校验'''
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.order_value_placeholder()
+
+    def test_buyer_value(self):
+        '''买家下拉和关键字框默认值校验'''
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.buyer_value_placeholder()
+
+    def test_other_value(self):
+        '''其他下拉框和关键字框默认值校验'''
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.other_value_placeholder()
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
