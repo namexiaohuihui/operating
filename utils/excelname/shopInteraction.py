@@ -41,6 +41,9 @@ class InteractionController(ExcelTitle):
     def yaml_placeholder(self):
         return 'placeholder'
 
+    def yaml_orderkey(self):
+        return 'orderkey'
+
     # ---------------------------文档所属的位置----------------------------
     def yaml_files(self):
         '''

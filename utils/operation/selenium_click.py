@@ -41,31 +41,29 @@ class action_click(action_visible):
     def id_click(self, browser, prompt):
         ele = self.is_visible_id(browser, prompt)
         if ele != False:  # 判断是否出现
-            ele.click()
+            self.element_click(ele)
         else:
             self.error_log(browser)
 
     def name_click(self, browser, prompt):
         ele = self.is_visible_name(browser, prompt)
         if ele != False:  # 判断是否出现
-            ele.click()
+            self.element_click(ele)
         else:
             self.error_log(browser)
 
     def xpath_click(self, browser, prompt):
         ele = self.is_visible_xpath(browser, prompt)
         if ele != False:  # 判断是否出现
-            ele.click()
+            self.element_click(ele)
         else:
             self.error_log(browser)
 
     def css_click(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
         if ele != False:  # 判断是否出现
-            ele.click()
-            self.sleep_Rest()
-        else:
-            self.error_log(browser)
+            self.element_click(ele)
+        return ele
 
     def element_click(self, element):
         element.click()

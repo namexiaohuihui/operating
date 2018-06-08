@@ -136,8 +136,8 @@ class ComparedVerify(object):
 
     def _visible_css_selectop(self, locator, timeout=5):
         # 判断元素是否存在，如果存在就进行点击
-        self.vac.css_click(self.driver, locator)
-        pass
+        ele = self.vac.css_click(self.driver, locator)
+        return ele
 
     def _visible_css_selectop_text(self, locator):
         # 判断元素是否存在，如果存在就进行获取元素的text属性
@@ -267,22 +267,14 @@ class ComparedVerify(object):
         return inhalt
 
 
-def xxx1(x, y):
-    return x + y
-
-
-def yyy1(x, y):
-    return x * y
-
-
-def zzz1(x, y):
-    return x / y
-
-
 if __name__ == '__main__':
-    x1 = xxx1
-    y1 = yyy1
-    z1 = zzz1
-    funktion= [x1,y1,z1]
-    inhalt = ComparedVerify().start_thread_pool(funktion)
-    print(inhalt)
+    xxxx = 8
+    while True:
+        if xxxx > 1:
+            print("xxx %s " % xxxx)
+            xxxx -= 1
+            print("--------- %s " % xxxx)
+        else:
+            print("+++++++++ %s " % xxxx)
+            break
+

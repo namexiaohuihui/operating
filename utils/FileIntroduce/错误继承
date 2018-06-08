@@ -53,3 +53,7 @@ TypeError: not all arguments converted during string formatting
 
  yaml.scanner.ScannerError: while scanning a block scalar expected a comment or a line break, but found 't'
  原因： 在编写内容时（thead: > tbody > tr） 冒号后面直接使用了大于号，然后报错
+
+
+ ValueError: Unsupported or invalid CSS selector: ">tbody"
+使用bs4爬取数据时，因通过select来查找数据，写法为.xxxx>tbody。提示找不到tbody。去掉该tbody即可

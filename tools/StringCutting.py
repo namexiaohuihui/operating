@@ -157,14 +157,6 @@ def xxxx(*lll):
         print("y")
     else:
         print("n")
-if __name__ == '__main__':
-    from python_utils import converters
 
-    left_time = str.split('5月 2018', '月')
-    status_mon = converters.to_int(left_time[0])
-    status_year = converters.to_int(left_time[1])
-
-    print(status_mon)
-    print(status_year)
 
 

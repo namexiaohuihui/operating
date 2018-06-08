@@ -912,7 +912,7 @@ class PANDASDATA:
 
 class OpenExcelPandas(READEXCEL, PANDASDATA):
 
-    def __init__(self, name, sheet=''):
+    def __init__(self, name='', sheet=''):
         """
         关于_date和_title的解释
         读取excel的数据时：

@@ -12,8 +12,11 @@ from tools.operationSelector import OperationSelector
 class WholeActionsJudge(InteractionCoexistence):
     # excle文档中case所在工作薄的名称
     MODEL_WORKBOOK_LABEL = '标签'
+    MODEL_WORKBOOK_DATA = '数据'
+    MODEL_WORKBOOK_EVENT = '交互'
 
-    # 当前子慕课在菜单下的所属位置
+
+    # 当前子目录在菜单下的所属位置
     TREEW_TAGS_LOCATION = "1"
 
     # 根据key值，读取modei文件下保存用例的存放位置

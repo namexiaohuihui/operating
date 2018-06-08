@@ -71,8 +71,8 @@ button:
 content:
   name: 页面展示数据
   type: cssSelector/tr
-  sdf: .table.table-striped >
-  thead: thead > tr > th
+  table: .table.table-striped >
+  thead: thead > tr
   thead: tbody > tr
 
 record:
@@ -85,4 +85,4 @@ buttonpage:
   type: cssSelector/div
   paginate: .dataTables_paginate.paging_simple_numbers > ul > li
   previous: .paginate_button.previous
-  next: .paginate_button.next
+  next: .paginate_button.next > a

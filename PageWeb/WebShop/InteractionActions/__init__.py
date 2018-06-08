@@ -7,6 +7,7 @@ __author__ = 'DingDong'
 
 from PageWeb.WebShop import BackgroundCoexistence
 from PageWeb.WebShop.InteractionActions.interactionNames import InteractionNames
+from tools.extendBeantifulSoup import ExtendBeantifulSoup
 from tools.operationSelector import OperationSelector
 
 
@@ -51,6 +52,12 @@ class InteractionCoexistence(BackgroundCoexistence):
                                                             parse[self.names_key.yaml_value()])
 
     # ---------------------------------------各个order页面中相同的用例集合点：以下为界面固定元件的校验-----------------------------
+    # -------------------------此处为各用例共用的函数--------------------------
+    def get_order_title(self, orderkey):
+        content = self.select_content[orderkey]
+        content = str.split('#%s' % content, ',')
+        return content
+
     def get_city_ele(self):
         '''
         根据city的路径查找该路径下面的全部元素
@@ -61,6 +68,68 @@ class InteractionCoexistence(BackgroundCoexistence):
         city_ele = self._visible_returns_selectop(loantion)
         return city_ele
 
+    def whole_selector_options(self, se_path, se_con):
+        # 找到下拉框
+        time_path = self.select_path[se_path]
+        optins = OperationSelector(self.driver, time_path[se_con]).getAllOptions()
+
+        # 找到文档中存储产品设置的默认值
+        time_content = self.select_content[se_path]
+
+        # 比较时间下拉框：第一个参数为：文档记录的默认值，第二个参数为：界面获取的额数据
+        self._verify_operator(str.split(time_content[se_con], ','), optins)
+        return time_path, time_content
+
+    def time_options_judge(self):
+        # 可用于selector数据读取以及判断
+        time_path, time_content = self.whole_selector_options(self.names_key.yaml_timeselect(),
+                                                              self.names_key.yaml_judge())
+
+        # 可用于页面数据读取以及判断
+        # 时间输入框的选择
+        self._visible_css_selectop(time_path[self.names_key.yaml_choose()])
+        # 找到页面上的元素
+        ranges = time_path[self.names_key.yaml_opensleft()] + " %s" % time_path[
+            self.names_key.yaml_ranges()]
+
+        # 读取元素内容
+        ranges_load = self._visible_returns_selectop(ranges)
+
+        # 比较时间输入框
+        self._verify_operator(str.split(time_content[self.names_key.yaml_choose()], ','),
+                              [ran.text.strip() for ran in ranges_load])
+
+    def value_placeholder(self, key, value, placeholder):
+        # 比较下拉框
+        self.whole_selector_options(key, value)
+
+        # 获取输入框中的默认值
+        place = self._visible_css_selectop_attribute(locator=self.select_path[key][placeholder], attr=placeholder)
+
+        # 比较输入框中的默认值是否正确
+        self._verify_operator(self.select_content[key][placeholder], place)
+
+    def summary_value_placeholder(self, key):
+        self.value_placeholder(key, self.names_key.yaml_value(),
+                               self.names_key.yaml_placeholder())
+
+    def order_lable_bs4(self, content, table, thead, td="th"):
+        '''
+        根据元素标签获取爬取数据
+        :param content:  需要爬取的元素标签
+        :param table: 子标签
+        :param td: 孙标签
+        :return:
+        '''
+        path = self.select_path[content]
+        # # 程序设置有误，需要控制器
+        content = str.split(path[table], '>')[0]
+        ebs = ExtendBeantifulSoup(self.driver, content)
+        EBS_DF = ebs.lable_table_list(thead, td)
+        # EBS_DF = list(ebs.lableParsingList(td).dataSet[0])
+        return EBS_DF
+
+    # -------------------------此处为界面用例的调用处--------------------------
     def city_active_default(self):
         '''
         判断city默认选中的对象是否为产品大大规定的
@@ -116,37 +185,6 @@ class InteractionCoexistence(BackgroundCoexistence):
             # 判断切换之后的元素所写到的class是不是产品大大规定的。。。
             assert city_ele[code].get_attribute('class') == self.overall[self.names_key.whole_result()]
 
-    def whole_selector_options(self, se_path, se_con):
-        # 找到下拉框
-        time_path = self.select_path[se_path]
-        optins = OperationSelector(self.driver, time_path[se_con]).getAllOptions()
-
-        # 找到文档中存储产品设置的默认值
-        time_content = self.select_content[se_path]
-
-        # 比较时间下拉框：第一个参数为：文档记录的默认值，第二个参数为：界面获取的额数据
-        self._verify_operator(str.split(time_content[se_con], ','), optins)
-        return time_path, time_content
-
-    def time_options_judge(self):
-        # 可用于selector数据读取以及判断
-        time_path, time_content = self.whole_selector_options(self.names_key.yaml_timeselect(),
-                                                              self.names_key.yaml_judge())
-
-        # 可用于页面数据读取以及判断
-        # 时间输入框的选择
-        self._visible_css_selectop(time_path[self.names_key.yaml_choose()])
-        # 找到页面上的元素
-        ranges = time_path[self.names_key.yaml_opensleft()] + " %s" % time_path[
-            self.names_key.yaml_ranges()]
-
-        # 读取元素内容
-        ranges_load = self._visible_returns_selectop(ranges)
-
-        # 比较时间输入框
-        self._verify_operator(str.split(time_content[self.names_key.yaml_choose()], ','),
-                              [ran.text.strip() for ran in ranges_load])
-
     def select_option_time(self):
         '''
         在指定城市页面执行数据校验工作
@@ -201,18 +239,6 @@ class InteractionCoexistence(BackgroundCoexistence):
         #  订单章台下拉框的判断
         self.whole_selector_options(self.names_key.yaml_status(), self.names_key.yaml_pay())
 
-    def value_placeholder(self, key, value, placeholder):
-        # 比较下拉框
-        self.whole_selector_options(key, value)
-
-        # 获取输入框中的默认值
-        place = self._visible_css_selectop_attribute(locator=self.select_path[key][placeholder], attr=placeholder)
-
-        # 比较输入框中的默认值是否正确
-        self._verify_operator(self.select_content[key][placeholder], place)
-    def summary_value_placeholder(self,key):
-        self.value_placeholder(key, self.names_key.yaml_value(),
-                               self.names_key.yaml_placeholder())
     def order_value_placeholder(self):
         self.summary_value_placeholder(self.names_key.yaml_order())
         # self.value_placeholder(self.names_key.yaml_order(), self.names_key.yaml_value(),
@@ -227,3 +253,34 @@ class InteractionCoexistence(BackgroundCoexistence):
         self.summary_value_placeholder(self.names_key.yaml_other())
         # self.value_placeholder(self.names_key.yaml_other(), self.names_key.yaml_value(),
         #                        self.names_key.yaml_placeholder())
+
+    # -------------------------此处为数据用例的调用处--------------------------
+    def order_whole_title(self):
+        EBS_DF = self.order_lable_bs4(self.names_key.yaml_content(), self.names_key.yaml_table(), 'thead', "th")
+        EBS_DF = list(EBS_DF.dataSet[0])
+        self._verify_operator(self.get_order_title(self.names_key.yaml_orderkey()), EBS_DF)
+
+    def order_whole_page(self)->"获取页面数据信息流程":
+        '''
+        1. 获取界面内容
+        2. 执行sql
+        3. 比较数据
+        :return:
+        '''
+        '''
+         # 获取翻页按钮的位置
+        button_next = self.select_path[self.names_key.yaml_buttonpage()][self.names_key.yaml_next()]
+
+        # 获取tbody数据显示框的内容所在地
+        path = self.select_path[self.names_key.yaml_content()]
+        content = str.split(path[self.names_key.yaml_table()], '>')[0]
+
+        # 获取数据
+        df = self.tbody_td_data(content,button_next,"#订单编号")
+        '''
+
+        # 根据sql读取数据信息并进行重组
+        MYSQL_DF = self._verify_match(self.overall[self.names_key.wholeQueryStatement()])
+        print(MYSQL_DF)
+
+

@@ -30,6 +30,7 @@ class OrderWholeLabel(unittest.TestCase):
     @classmethod
     def tearDown(cls) -> '关闭浏览器,做程序结尾工作':
         print('关闭浏览器,做程序结尾工作')
+        whole.driver.close()
 
     def test_default_active(self):
         '''默认展示是否正确'''

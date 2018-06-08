@@ -16,9 +16,9 @@ class TimeFromat(object):
             cls._instance = orig.__new__(cls, *args, **kw)
         return cls._instance
 
-    def timeToStamp(self, tm):
+    def timeToStamp(self, tm,tm_format = "%Y-%m-%d %H:%M:%S"):
         # 根据日期转换成时间戳
-        tm = time.strptime(tm, '%Y-%m-%d %H:%M:%S')
+        tm = time.strptime(tm,tm_format)
         timeStamp = int(time.mktime(tm))
         return timeStamp
 
@@ -27,11 +27,11 @@ class TimeFromat(object):
         timeStamp = int(time.mktime(tm))
         return timeStamp
 
-    def stampToTime(self, tm):
+    def stampToTime(self, tm,tm_format = "%Y-%m-%d %H:%M:%S"):
         # 将时间戳转换成时间
         if type(tm) is str:
             tm = int(tm)
-        timeArray = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(tm))
+        timeArray = time.strftime(tm_format, time.localtime(tm))
         return timeArray
 
     def currentToStamp(self):

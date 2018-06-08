@@ -176,12 +176,11 @@ class OperationSelector(action_visible):
 import time
 
 if __name__ == '__main__':
+    from utils.operation.selenium_visible import action_visible
     be = browser_confirm()
-    drivers = be.url_opens("file:///c:/Users/70486/Desktop/dijia.html")
-    time.sleep(2)
-    ordinal = "reservationtime"
-    parameter = "2018-01-02 12:18 - 2018-01-03 19:56"
-    reservationtime = "document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';"
-    print(reservationtime)
-    drivers.execute_script(reservationtime)
+    drivers = be.url_opens(r"F:\desktop\genghuan.html")
+    # time.sleep(2)
+    ele = action_visible().is_visible_css_selectop(drivers,'.form-control.staff')
+    print(ele)
+    ele.send_keys('55555555')
     # drivers.close()
