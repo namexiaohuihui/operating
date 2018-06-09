@@ -77,7 +77,22 @@ def shangyigebanben():
     # 调用add_case函数返回值
     runner.run(discover)
     fp.close()
+def jiemianyunxing():
+	# https://blog.csdn.net/u011061889/article/details/79440349
+	# pip install pyinstaller
+	# pyinstaller test.py
+	from tkinter import *
+	from tkinter.messagebox import *
+	def callback():
+		if askyesno('Verify','zhen de yao tuichu ma ?') :
+			showwarning('Yes','duidi, jiushi yao tuichu')
+		else:
+			showinfo('No','tuichuchengg')
 
+errmsg = 'sorry, anniiu wufashiyong'
+Button(text = 'Quit',command = callback).pack(fill = X)
+Button(text = 'spam' , command = (lambda : showerror('span',errmsg))).pack(fill = X)
+mainloop()
 
 if __name__ == '__main__':
     # shangyigebanben()
