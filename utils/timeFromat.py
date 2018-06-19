@@ -4,6 +4,7 @@ __author__ = 'DingDong'
 @file: timeFromat.py
 @time: 2018/4/17 16:17
 """
+import datetime
 import time
 
 
@@ -16,9 +17,9 @@ class TimeFromat(object):
             cls._instance = orig.__new__(cls, *args, **kw)
         return cls._instance
 
-    def timeToStamp(self, tm,tm_format = "%Y-%m-%d %H:%M:%S"):
+    def timeToStamp(self, tm, tm_format="%Y-%m-%d %H:%M:%S"):
         # 根据日期转换成时间戳
-        tm = time.strptime(tm,tm_format)
+        tm = time.strptime(tm, tm_format)
         timeStamp = int(time.mktime(tm))
         return timeStamp
 
@@ -27,7 +28,7 @@ class TimeFromat(object):
         timeStamp = int(time.mktime(tm))
         return timeStamp
 
-    def stampToTime(self, tm,tm_format = "%Y-%m-%d %H:%M:%S"):
+    def stampToTime(self, tm, tm_format="%Y-%m-%d %H:%M:%S"):
         # 将时间戳转换成时间
         if type(tm) is str:
             tm = int(tm)
@@ -44,24 +45,33 @@ class TimeFromat(object):
         currentTime = time.time()
         return self.stampToTime(currentTime)
 
-    def cutting_time(self,time_msg,start = 0 ,middle = 19,again = 20,end =0):
+    def cutting_time(self, time_msg, start=0, middle=19, again=20, end=0):
         # 指定位置对时间数据进行切割
         if end == 0:
             end = len(time_msg)
         sttus = time_msg[start:middle]
         enmd = time_msg[again:end]
-        return sttus,enmd
+        return sttus, enmd
 
-    def cutting_time_current(self,time_msg):
+    def cutting_time_current(self, time_msg):
         cutting = self.cutting_time(time_msg)
         sttus = self.timeToStamp(cutting[0])
         enmd = self.timeToStamp(cutting[1])
         return sttus, enmd
 
+    def today_to_stamp(self, day):
+        # 今天日期
+        today = datetime.date.today()
+        yes_time = today + datetime.timedelta(days=day)  # 指定某天的日期
+        print("多少天前: %s 以及最前的那天 %s" % (day,yes_time))
+        # 今天开始时间戳
+        today_start_time = int(time.mktime(time.strptime(str(yes_time), '%Y-%m-%d')))
+
+        # 今天结束时间戳(当前时间)
+        today_end_time = self.currentToStamp()
+
+        return today_start_time, today_end_time
+
+
 if __name__ == '__main__':
-    time_stauts = "2017-08-03 00:00:00-2017-08-03 23:59:59"
-
-    sttus,enmd =  TimeFromat().cutting_time_current(time_stauts)
-
-    print("Local current time :", type(sttus))
-    print("Local current time :", enmd)
+    print(TimeFromat().today_to_stamp(-7))

@@ -9,9 +9,10 @@ import operator  # 任何对象都可以比较功能
 import os
 import sys
 import time
-from tools.RewriteThread import InheritThread as th
+
 from tools import DefinitionErrors as dError
 from tools.PymysqlMain import pymysqls
+from tools.RewriteThread import InheritThread as th
 from utils.browser_establish import browser_confirm
 from utils.config import readModel
 from utils.operation.selenium_click import action_click
@@ -49,7 +50,7 @@ class ComparedVerify(object):
        # ------------------内容参数的比较------------------------
     """
 
-    def operator_dataframe(self, reValue: object, excleValue: object):
+    def operator_dataframe(self, reValue: object, excleValue: object) -> ("打印数据信息"):
         self.log.info("读取:  %s  类型 :  %s " % (reValue, type(reValue)))
         self.log.info("获得:  %s  类型 :  %s " % (excleValue, type(excleValue)))
 
@@ -64,6 +65,12 @@ class ComparedVerify(object):
         assert reValue == excleValue, "_verify_operator 数据比较错误，用例不通过处理。"
 
     def _verify_operator_dataframe(self, reValue: "pandas类型的数据源", excleValue: "pandas类型的比较源") -> ("dataFrame数据类型进行比较"):
+        '''
+        dataFrame数据类型进行比较
+        :param reValue:  数据源
+        :param excleValue:  比较源
+        :return:
+        '''
         self.operator_dataframe(reValue, excleValue)
         return operator.eq(reValue, excleValue)
 
@@ -181,7 +188,7 @@ class ComparedVerify(object):
         status为False时表示期望单选框为不选中状态
         相反则表示选中状态
         :param check:  需要点击的单选框
-        :param status:  期望单选的状态，默认为False
+        :param status:  期望单选的状态
         :return:
         """
         print("单选框不用进行点击") if operator.eq(check.is_selected(), status) else self.vac.element_click(check)  # 元素点击
@@ -251,14 +258,16 @@ class ComparedVerify(object):
         # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
         print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
         faden = []  # 该列表存放已经开启的线程
-        inhalt = []  # 该列表存放线程中所执行的函数返回值内容
-
         for para in funktion:  # 遍历函数开启线程
             # th是内置的函数
-            threads = th(para['func'],para['args'])
-            faden.append(threads)
+            print("提交的参数 %s " % para['args'])
+            threads = th(para['func'], para['args'])
             threads.start()
+            faden.append(threads)
+        return self.start_thread_row(faden)
 
+    def start_thread_row(self, faden):
+        inhalt = []  # 该列表存放所执行线程中return的值
         for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
             argu.join()
             inhalt.append(argu.get_result())
@@ -268,13 +277,16 @@ class ComparedVerify(object):
 
 
 if __name__ == '__main__':
-    xxxx = 8
-    while True:
-        if xxxx > 1:
-            print("xxx %s " % xxxx)
-            xxxx -= 1
-            print("--------- %s " % xxxx)
-        else:
-            print("+++++++++ %s " % xxxx)
-            break
+    nihaoma1 = [
+{'timeselect': [{'judge': True}, {'choose': True}]},
+ {'label': True},
+ {'area': [{'manager': True}, {'director': True}, {'region': True}]},
+ {'status': [{'source': True}, {'pay': True}]},
+ {'order': [{'value': True}, {'placeholder': True}]},
+ {'buyer': [{'value': True}, {'placeholder': True}]},
+ {'other': [{'value': True}, {'placeholder': True}]}
+
+ ]
+
+    print(nihaoma1[0].keys())
 

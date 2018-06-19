@@ -17,6 +17,8 @@ class InteractionController(ExcelTitle):
     文档中有些备注写的不是很明确，是因为涉及版面数据。
     也有些是忘记写备注...
     '''
+    def program_operation(self):
+        return '操作'
 
     # ----------------------------excle文档中标题的定义----------
     def excle_city(self) -> str:
@@ -24,6 +26,9 @@ class InteractionController(ExcelTitle):
 
     def excle_conditions(self) -> str:
         return '条件'
+
+    def excle_screening(self) -> str:
+        return '筛选'
 
     # ----------------------------共用的定义--------------------
     def yaml_dec(self):

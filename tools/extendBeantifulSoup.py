@@ -131,7 +131,8 @@ class ExtendBeantifulSoup():
             # 查找路径下面全部关于此标签的内容
             lableTwo = lable.find_all(self.lable_two)
             # 将数据转换成列表形式进行输出
-            daily = map(lambda lable: lable.text.strip(), lableTwo)
+            daily = map(lambda lable: lable.text.replace('\n', '').strip(), lableTwo)
+            # daily = map(lambda lable: lable.text.replace('\n', '|').replace(' ', '').strip(), lableTwo)
             self.dataSet.append(daily)
 
     def lable_table_list(self, table, th="th"):

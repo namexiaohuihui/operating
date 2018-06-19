@@ -30,5 +30,15 @@ class WholeActionsJudge(InteractionCoexistence):
     # def city_active_confirm(self):
     # loantion = self.select_path['citytab']['value']
     # self._visible_return_selectop(loantion)
-
-
+    #
+    # def screening_to_mysql(self,filters,list_all):
+    #     filters_keys = filters.keys()  # 找出filters当中的key
+    #     sql_list = []
+    #     for row_keys,row_list in filters_keys,list_all:
+    #         internal = row_list[row_keys][0]
+    #         for int_key in internal.keys():
+    #             if internal[int_key] == filters[row_keys][internal]:
+    #                 if row_keys == self.names_key.yaml_timeselect():
+    #                     if int_key == self.names_key.yaml_choose():
+    #                         ti_days = "o.add_time BETWEEN %s AND %s" % (self.ti.today_to_stamp(7))
+    #                         sql_list.append(ti_days)

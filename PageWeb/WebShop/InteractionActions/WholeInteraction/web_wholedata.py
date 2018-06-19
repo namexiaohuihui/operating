@@ -25,9 +25,14 @@ class InterationOrderLable(unittest.TestCase):
 
     @classmethod
     def tearDown(cls) -> '关闭浏览器,做程序结尾工作':
-        print('关闭浏览器,做程序结尾工作')
-        whole.driver.close()
-        whole.driver.quit()
+        try:
+            # whole.driver.close()
+            # whole.driver.quit()
+            pass
+        except:
+            print("又见UTF-8错误")
+        finally:
+            print('关闭浏览器,做程序结尾工作')
 
     def test_whole_title(self):
         whole.setFunctionName(inspect.stack()[0][3])
@@ -36,6 +41,34 @@ class InterationOrderLable(unittest.TestCase):
     def test_whole_page(self):
         whole.setFunctionName(inspect.stack()[0][3])
         whole.order_whole_page()
+
+    def test_whole_screening(self):
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.screening_selector()
+
+    def test_day_appointment(self):
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.appointment_bunber()
+
+    def test_day_communicate(self):
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.appointment_bunber()
+
+    def test_day_large_quantity(self):
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.appointment_bunber()
+
+    def test_day_seconds(self):
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.appointment_bunber()
+
+    def test_day_offline(self):
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.appointment_bunber()
+
+    def test_area_screening(self):
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.area_screening_conditions()
 
 
 if __name__ == '__main__':

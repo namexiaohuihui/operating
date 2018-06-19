@@ -12,14 +12,15 @@ from utils.operation.selenium_visible import action_visible
 
 class OperationSelector(action_visible):
     # ----------------------------------初始化参数------------------------
-    def __init__(self, drivers, lablePath):
+    def __init__(self, drivers, labelPath=None):
         # 赋值浏览器
         self.drivers = drivers
-        self.setSelectData(lablePath)
+        if labelPath:
+            self.setSelectData(labelPath)
 
-    def setSelectData(self, lablePath):
+    def setSelectData(self, labelPath):
         # 找到select元素
-        selectEle = self.is_visible_css_selectop(self.drivers, lablePath)
+        selectEle = self.is_visible_css_selectop(self.drivers, labelPath)
         self.select = Select(selectEle)
         # 装options的数据,不创建value的容器是因为很少使用value
         self.optionsList = []
@@ -64,7 +65,6 @@ class OperationSelector(action_visible):
             self.get_options()
             pass
         return self.optionsList
-
 
     def getAllValue(self):
         """
@@ -126,7 +126,7 @@ class OperationSelector(action_visible):
         :return: 返回替换前的option
         """
         selected = self.getSelectedOptions()
-        if selected == text:
+        if selected == text:  # 判断当前业已的option是否为需要新设置的数据信息
             pass
         else:
             self.select.select_by_visible_text(text)
@@ -172,15 +172,18 @@ class OperationSelector(action_visible):
         self.select.deselect_by_visible_text(text)
         return selected
 
+    def lable_set_text(self, label, text):
+        self.setSelectData(label)
+        self.setSelectorText(text)
 
-import time
 
 if __name__ == '__main__':
     from utils.operation.selenium_visible import action_visible
+
     be = browser_confirm()
     drivers = be.url_opens(r"F:\desktop\genghuan.html")
     # time.sleep(2)
-    ele = action_visible().is_visible_css_selectop(drivers,'.form-control.staff')
+    ele = action_visible().is_visible_css_selectop(drivers, '.form-control.staff')
     print(ele)
     ele.send_keys('55555555')
     # drivers.close()

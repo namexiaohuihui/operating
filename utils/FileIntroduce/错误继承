@@ -18,12 +18,15 @@ StaleElementReferenceException: Message: stale element reference: element is not
 页面刷新之后需要重新定位。
 
 ValueError: Can only compare identically-labeled DataFrame objects
- 两个pandas对象进行比较时，长度不相等出现的错误
+提示这个的原因往往是需要比较的两个数据不同
+ 1.两个pandas对象进行比较时，长度不相等出现的错误
+ 2.某个key下面的数据type不同
+
 
 TypeError: argument of type 'NoneType' is not iterable
 weizhi = self.overall[dn.dailyCity()]
 dl.setSelectorText(weizhi)
-不设置中间变量shezhi时就会出现这个错误
+不设置中间变量weizhi时就会出现这个错误
 
 ValueError: invalid literal for int() with base 10: '2018-04-05 00:00:00-2018-05-06 23:59:59'
 时间戳转日期的函数时，需要传入时间戳，而我传入的是日期格式所以导致这个问题

@@ -6,7 +6,8 @@
 @项目名称:operating
 """
 from PageWeb.WebShop.judgmentVerification import JudgmentVerification
-
+from tools.extendBeantifulSoup import ExtendBeantifulSoup
+import pandas as pd
 
 class BackgroundCoexistence(JudgmentVerification):
     # 设置菜单字目录上的标题
@@ -19,7 +20,7 @@ class BackgroundCoexistence(JudgmentVerification):
     def sidebar_number_get(self) -> "获取子菜单的所在位置":
         return self.sidebar
 
-    # -------------------通过第三方参数来设置或者读取子菜单的位置
+    # -------------------通过第三方参数来设置或者读取主菜单的位置-------------
     sidebar_tags = property(sidebar_number_get, set_sidebar_number, doc="Setting an error or getting the main menu.")
 
     # -------------------------定义子菜单的所在位置------------------------
@@ -50,23 +51,46 @@ class BackgroundCoexistence(JudgmentVerification):
         :param title_key: df序列号数据设置项
         :return:
         '''
+        # 1.定义爬虫对象
         ebs = ExtendBeantifulSoup(self.driver, content)
         soup_list = []
-        while True:
+        # 2.循环读取页面数据
+        while True:  # 先进入页面读取数据，然后判断下一页按钮是否存在，存在就点击。不存在就跳过 ---->不严谨
+            # 获取界面数据并将标签为tbody的数据切割出来
+            cutting = ebs.lable_table_parsing('tbody')
+            soup_list.append(cutting)
             if self._visible_css_selectop(button_next):
-                # 获取界面数据并将标签为tbody的数据切割出来
-                cutting = ebs.lable_table_parsing('tbody')
-                soup_list.append(cutting)
+                pass
             else:
                 break
+
+        # 3.将页面数据进行爬取
         for tags in soup_list:
             ebs.lable_cutting_tags(tags, "td")
-        # 获取df数据标题
+        # 4.获取df数据标题
         ebs.daily = self.get_order_title(self.names_key.yaml_orderkey())
 
-        # 将数据转换成df
+        # 5.将数据转换成df
         df = ebs.interfaceToPandas()
 
-        # 重新设置序列号
-        df = df.set_index([list(df[title_key])])
+        if type(df) != int:
+            # 6.重新设置序列号
+            df = df.set_index([list(df[title_key])])
+            print("页面数据不为空")
+        else:
+            print("页面数据为空")
+            pass
         return df
+
+    def parsing_tbody(self,content,button_next,operation):
+        # 获取页面全部数据
+        self.LABLE_DF = self.tbody_td_data(content, button_next, "#订单编号")
+
+        if self.LABLE_DF :
+            # 将空格全部去除
+            list_operation = self.LABLE_DF[operation]
+            list_operation = list(map(lambda x: x.replace(' ', ''), list_operation))
+            self.LABLE_DF[operation] = list_operation
+        else:
+            print("我就可以再来一次空吧")
+

@@ -807,8 +807,8 @@ class PANDASDATA:
             return list_max
         elif index is True and header is False:
             """
-            index为真时，说明首列标签index
-            需要对他进行处理，这些不是我们想要的数据
+            index为真时，说明首列标签index保留
+            需要对header进行处理，header不是我们想要的数据
             """
             list_max = []
             for row in dataframe_to_rows(df, index=index, header=header):
@@ -819,8 +819,8 @@ class PANDASDATA:
             return list_max
         elif index is False and header:
             """
-            header为真时，说明首行header的内容
-            需要对他进行处理，这些不是我们想要的数据
+            header为真时，说明首行header保留
+            需要对index进行处理，index不是我们想要的数据
             """
             list_max = []
             for row in dataframe_to_rows(df, index=index, header=header):
@@ -931,14 +931,9 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         # 创建工作薄workbook对象
         self.startReadExcel(self._date, self._title)
 
-        # 数据读取
-        whole = self.position_sheet_row_value()
-
         # 将case中内容部分的数据（除标题以外的数据）读出
-        self._date = whole[0]
-
         # 将case中标题的全部内容读出
-        self._title = whole[1]
+        self._date, self._title = self.position_sheet_row_value()
 
         # 获取指定标题的内容
         columnLabel = self.die_angegebene_keys(row_col_data=self._date, title_data=self._title)
@@ -958,14 +953,20 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         columnLabel = list(self._data["函数"])
         return self.conversionPandas(columnLabel)
 
+    def conversion_column(self, df, columnLabel):
+        if columnLabel != None:
+            df = df.set_index([columnLabel])  # 设置df数据中的序列号
+        return df
+
     def conversionPandas(self, columnLabel=None):
         # 创建pandas中的数据源
         self.startPandasData(self._date)
 
         df = self.dataFrame(columns=self._title)  # 设置标题名
 
-        if columnLabel != None:
-            df = df.set_index([columnLabel])  # 设置df数据中的序列号
+        if columnLabel:
+            df = self.conversion_column(df, columnLabel)
+
         return df.fillna(value='')
 
 

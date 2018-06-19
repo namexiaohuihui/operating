@@ -14,6 +14,34 @@ from tools.operationSelector import OperationSelector
 class InteractionCoexistence(BackgroundCoexistence):
     names_key = InteractionNames()
 
+    # 10待付款
+    STATUS_TEN = 10
+    # 20已关闭
+    STATUS_TWENTY = 20
+    # 30付款中
+    STATUS_THIRTY = 30
+    # 32付款成功
+    STATUS_TEN_TWO = 32
+    # 50待发货
+    STATUS_FIFTY = 50
+    # 60发货中
+    STATUS_SIXTY = 60
+    # 70已收货
+    STATUS_SEVENTY = 70
+
+    # 平台
+    TYPE_ONE = 1
+    # 抢购
+    TYPE_TWO = 2
+    # 平台水票
+    TYPE_THREE = 3
+    # 店铺
+    TYPE_FOUR = 4
+    # 店铺水票
+    TYPE_FIVE = 5
+    # 线下
+    TYPE_SIX = 6
+
     # 菜单在整体目录中的位置
     SIDEBAR_TAGS_LOCATION = "2"
 
@@ -80,26 +108,33 @@ class InteractionCoexistence(BackgroundCoexistence):
         self._verify_operator(str.split(time_content[se_con], ','), optins)
         return time_path, time_content
 
+    def time_options_choose(self, time_path):
+        # 时间输入框的选择
+        self._visible_css_selectop(time_path[self.names_key.yaml_choose()])
+
+        # 找到时间输入框元素的位置
+        ranges = time_path[self.names_key.yaml_opensleft()] + " %s" % time_path[
+            self.names_key.yaml_ranges()]
+
+        # 返回该路径下的全部元素
+        ranges_load = self._visible_returns_selectop(ranges)
+        return ranges_load
+
     def time_options_judge(self):
         # 可用于selector数据读取以及判断
         time_path, time_content = self.whole_selector_options(self.names_key.yaml_timeselect(),
                                                               self.names_key.yaml_judge())
 
-        # 可用于页面数据读取以及判断
-        # 时间输入框的选择
-        self._visible_css_selectop(time_path[self.names_key.yaml_choose()])
-        # 找到页面上的元素
-        ranges = time_path[self.names_key.yaml_opensleft()] + " %s" % time_path[
-            self.names_key.yaml_ranges()]
-
-        # 读取元素内容
-        ranges_load = self._visible_returns_selectop(ranges)
+        # 时间输入框
+        self.time_options_choose(time_path)
 
         # 比较时间输入框
         self._verify_operator(str.split(time_content[self.names_key.yaml_choose()], ','),
                               [ran.text.strip() for ran in ranges_load])
 
-    def value_placeholder(self, key, value, placeholder):
+    def value_placeholder(self, key):
+        value = self.names_key.yaml_value()
+        placeholder = self.names_key.yaml_placeholder()
         # 比较下拉框
         self.whole_selector_options(key, value)
 
@@ -108,10 +143,6 @@ class InteractionCoexistence(BackgroundCoexistence):
 
         # 比较输入框中的默认值是否正确
         self._verify_operator(self.select_content[key][placeholder], place)
-
-    def summary_value_placeholder(self, key):
-        self.value_placeholder(key, self.names_key.yaml_value(),
-                               self.names_key.yaml_placeholder())
 
     def order_lable_bs4(self, content, table, thead, td="th"):
         '''
@@ -129,7 +160,232 @@ class InteractionCoexistence(BackgroundCoexistence):
         # EBS_DF = list(ebs.lableParsingList(td).dataSet[0])
         return EBS_DF
 
-    # -------------------------此处为界面用例的调用处--------------------------
+    def label_search_button(self):  # 界面搜索按钮的点击
+        search_button = self.select_path[self.names_key.yaml_button()][self.names_key.yaml_search()]
+        self._visible_css_selectop(search_button)
+
+    # -------------------------数据用例的二次调用----------------------
+    def path_tbody(self):
+        # 获取翻页按钮的位置
+        button_next = self.select_path[self.names_key.yaml_buttonpage()][self.names_key.yaml_next()]
+
+        # 获取tbody界面数据的路径所在地
+        path = self.select_path[self.names_key.yaml_content()]
+        content = str.split(path[self.names_key.yaml_table()], '>')[0]
+        # 将路径传入，解析工作开始
+        self.parsing_tbody(content, button_next, self.names_key.program_operation())
+
+    def area_statement_query(self):
+        self.ti_days = 0
+        area = self.names_key.yaml_area()
+        region = self.filters[area][self.names_key.yaml_region()]
+
+        manager = self.filters[area][self.names_key.yaml_manager()]
+        director = self.filters[area][self.names_key.yaml_director()]
+        director = "%s,%s" % (manager, director)
+        statement = self.overall[self.names_key.wholeQueryStatement()] % (
+            self.ti.today_to_stamp(self.ti_days), region, director)
+        mysql_list = self.reprogramming_definition(statement)
+        self.mysql_statement(mysql_list)
+
+    def statement_query(self):
+        # 根据sql读取数据信息并进行重组
+        statement = self.overall[self.names_key.wholeQueryStatement()] % (self.ti.today_to_stamp(self.ti_days))
+        mysql_list = self.reprogramming_definition(statement)
+        self.mysql_statement(mysql_list)
+
+    def mysql_statement(self, mysql_list):
+        # 获取标题
+        key_title = self.get_order_title(self.names_key.yaml_orderkey())
+        self.MYSQL_DF = self.list_to_pandas(mysql_list, key_title, "#订单编号")
+
+    def items_status_judge(self, item_status, arrive_time):
+
+        if item_status == self.STATUS_TEN:
+            item_status = "等待付款"
+            operation = "查看关闭操作记录"
+
+        elif item_status == self.STATUS_TWENTY:
+            item_status = "交易关闭"
+            operation = "查看操作记录"
+
+        elif item_status == self.STATUS_THIRTY:
+            item_status = "付款中"
+            operation = "查看关闭操作记录"
+
+        elif item_status == self.STATUS_TEN_TWO:
+            item_status = "等待派单"
+            if arrive_time:
+                operation = "派单查看关闭操作记录"
+            else:
+                operation = "派单转预约查看关闭操作记录"
+
+        elif item_status == self.STATUS_FIFTY:
+            # 订单为预约时，就不需要出现转预约的按钮
+            item_status = "等待配送"
+            if arrive_time:
+                operation = "更换配送员查看关闭操作记录"
+            else:
+                operation = "更换配送员转预约查看关闭操作记录"
+
+        elif item_status == self.STATUS_SIXTY:
+            # 订单为预约时，就不需要出现转预约的按钮
+            item_status = "配送中"
+            if arrive_time:
+                operation = "查看关闭操作记录"
+            else:
+                operation = "转预约查看关闭操作记录"
+
+        elif item_status == self.STATUS_SEVENTY:
+            item_status = "交易完成"
+            operation = "查看操作记录"
+        else:
+            operation = "没有找到这个状态"
+        return item_status, operation
+
+    def items_type_judge(self, item_type):
+        if item_type == self.TYPE_ONE:
+            item_type = "平台"
+            item_type = ""
+
+        if item_type == self.TYPE_TWO:
+            item_type = "抢购 "
+
+        # elif item_type == self.TYPE_THREE:
+        #     item_type = "水票"
+
+        elif item_type == self.TYPE_FOUR:
+            item_type = "店铺 "
+
+        # elif item_type == self.TYPE_FIVE:
+        #     item_type = "店铺水票"
+
+        elif item_type == self.TYPE_SIX:
+            item_type = "线下 "
+        else:
+            return False
+        return item_type
+
+    def reprogramming_definition(self, statements: str):
+        '''
+        根据mysql语句，返回查询之后的数据信息
+        并根据表头将数据进行细分。存入相应的dict中
+        1.执行语句获取表中的数据信息
+        2.获取dict需要设置的key
+        3.根据表头读取相应的数据，存入dict对应key的value中，
+        :param statements:  mysql的执行语句
+        :return:
+        '''
+        # 1.执行语句获取表中的数据信息
+        results_sta = self._verify_match(statements)
+
+        adjust_results = []  # 定义list，存储mysql转换之后的数据
+
+        # 2.获取dict需要设置的key
+        key_title = self.get_order_title(self.names_key.yaml_orderkey())
+
+        # 3.根据表头读取相应的数据，存入dict对应key的value中
+        for items in range(len(results_sta)):
+            row_data = {}
+            results_items = results_sta[items]
+            # key = 订单编号 ,value = results_sta中标题头名为id
+            row_data[key_title[0]] = str(results_items["id"])
+
+            # key = 订单标签 ，value = results_sta转换为标签.逻辑有误只能在没有个输出语句后面加个空格‘ ’。。sorry
+            judge_type = self.items_type_judge(results_items["type"])
+            arrive_time = '' if results_items["arrive_time"] == 0 else "预约 "
+            large_quantity = '' if results_items["large_quantity"] == 1 else "大客户 "
+            communicate = '' if results_items["communicate"] == 1 else "新用户 "
+            # 本来每个标签之间都要加一个空格，但是逻辑有误就不在这里加了。放在获取数据的地方进行添加
+            row_data[key_title[1]] = ("%s%s%s%s" % (judge_type, arrive_time, large_quantity, communicate)).strip()
+
+            # key = 买家名称,value = results_sta中标题头名为nickname
+            row_data[key_title[2]] = results_items["nickname"]
+
+            # key = 收货地址,value = results_sta中标题头名为house_number
+            # 因为门牌号中多了一个竖线所以要过滤掉
+            house_number = results_items["house_number"].replace("|", '')
+
+            # 将contact、address和过滤后的house_number当做value
+            row_data[key_title[3]] = "%s,%s%s" % (
+                results_items["contact"], results_items["address"], house_number)
+
+            # key = 所属区域,value = results_sta中标题头名为name
+            row_data[key_title[4]] = results_items["name"]
+
+            # key = 状态，value = results_sta中标题头名为status
+            # 以及根据status来判断该内容应有什么样子的操作
+            row_data[key_title[5]], row_data[key_title[7]] = self.items_status_judge(results_items["status"],
+                                                                                     arrive_time)  # 操作
+
+            # 下单时间格式转换及获取
+            row_data[key_title[6]] = self.ti.stampToTime(results_items["add_time"], "%Y-%m-%d %H:%M")
+
+            adjust_results.append(row_data)
+
+        return adjust_results
+
+    def get_filters_excel(self):
+        self.filters = self.overall[self.names_key.excle_screening()]  # 找到用例当中的数据
+        self.filters = self.strTodict(self.filters)  # 将数据转换成json形式
+        return self.filters
+
+    def filters_selector_send(self, filters):
+        filters_keys = filters.keys()  # 找出filters当中的key
+        peripheral = self.names_key.yaml_timeselect()  # 找到时间的key名称
+        self.filters_selector(filters, peripheral, [self.names_key.yaml_judge()])  # 时间下拉
+        if peripheral in filters_keys:  # 判断时间key是否在filters的keys中
+            time_path = self.select_path[peripheral]  # 时间输入框所在的路径
+            internal = self.names_key.yaml_choose()  # 时间输入框的key值
+            if internal in filters[peripheral].keys():  # 判断key是否出现
+                print(filters[peripheral][internal])
+                ranges_eles = self.time_options_choose(time_path)  # 找到时间选择输入框中的数值
+                for value_is in ranges_eles:  # 遍历，符合条件的就进行点击
+                    if value_is.text == filters[peripheral][internal]:
+                        self.vac.element_click(value_is)
+                        break
+
+    def filters_radio(self, filters):
+        filters_keys = filters.keys()
+        peripheral = self.names_key.yaml_label()
+        if peripheral in filters_keys:
+            # 找出需要设置的标签
+            label_scr = str.split(filters[peripheral], ',')
+            print(label_scr)
+            # 找到界面标签
+            internal = self.names_key.yaml_value()
+            label_path = self.select_path[peripheral]  # 元素所在的路径
+            ranges_eles = self._visible_returns_selectop(label_path[internal])
+            for value_is in ranges_eles:
+                if value_is.text.strip() in label_scr:
+                    self.visibleRadioSelected(value_is, True)
+
+    def filters_selector(self, filters, peripheral, inside):
+        filters_keys = filters.keys()
+        op_sele = OperationSelector(self.driver)
+        if peripheral in filters_keys:  # 区域的东西
+            print(filters[peripheral])
+            time_path = self.select_path[peripheral]  # 元素所在的路径
+
+            for internal in inside:
+                if internal in filters[peripheral].keys():  # 经理
+                    print(filters[peripheral][internal])
+                    op_sele.lable_set_text(time_path[internal], filters[peripheral][internal])
+
+    def filters_send_keys(self, filters, peripheral):
+        filters_keys = filters.keys()
+        self.filters_selector(filters, peripheral, [self.names_key.yaml_value()])
+        if peripheral in filters_keys:
+            time_path = self.select_path[peripheral]  # 元素所在的路径
+            # VALUE的下拉
+            # placeholder的输入
+            internal = self.names_key.yaml_placeholder()
+            if internal in filters[peripheral].keys():
+                print(filters[peripheral][internal])
+                self._sendKeys_css_selectop(time_path[internal], filters[peripheral][internal])
+        # -------------------------用例的直接调用--------------------------
+        # -------------------------此处为界面用例的调用处--------------------------
+
     def city_active_default(self):
         '''
         判断city默认选中的对象是否为产品大大规定的
@@ -160,7 +416,8 @@ class InteractionCoexistence(BackgroundCoexistence):
         LABLE_DF = self.lable_code_name(city_ele, 'a', 'href')
 
         # 3.根据sql读取相应的数据信息
-        MYSQL_DF = self.mysql_code_name(self.select_content[self.names_key.yaml_citytab()][self.names_key.yaml_value()])
+        MYSQL_DF = self.mysql_code_name(
+            self.select_content[self.names_key.yaml_citytab()][self.names_key.yaml_value()])
 
         # 4.两端数据比较
         self._verify_operator(MYSQL_DF, LABLE_DF)
@@ -203,9 +460,9 @@ class InteractionCoexistence(BackgroundCoexistence):
         # 第三步
         # 找到单选框
         time_path = self.select_path[self.names_key.yaml_label()]
-        # 读取内容
+        # 读取yaml中产品规定的Neri内容
         time_content = self.select_content[self.names_key.yaml_label()]
-        # 找到产品规定的数据信息
+        # 找到页面的内容
         optins = self._visible_returns_selectop(time_path[self.names_key.yaml_value()])
         # 比较两者之间
         self._verify_operator(str.split(time_content[self.names_key.yaml_value()], ','),
@@ -225,13 +482,16 @@ class InteractionCoexistence(BackgroundCoexistence):
         area_content = self.select_content[self.names_key.yaml_area()]
 
         # 区域第一个下拉框的内容
-        self.area_verify_options(area_path, area_content, self.names_key.yaml_manager(), self.names_key.yaml_option())
+        self.area_verify_options(area_path, area_content, self.names_key.yaml_manager(),
+                                 self.names_key.yaml_option())
 
         # 区域第二个下拉框的内容
-        self.area_verify_options(area_path, area_content, self.names_key.yaml_director(), self.names_key.yaml_option())
+        self.area_verify_options(area_path, area_content, self.names_key.yaml_director(),
+                                 self.names_key.yaml_option())
 
         # 区域第三个下拉框的内容
-        self.area_verify_options(area_path, area_content, self.names_key.yaml_region(), self.names_key.yaml_option())
+        self.area_verify_options(area_path, area_content, self.names_key.yaml_region(),
+                                 self.names_key.yaml_option())
 
     def order_source_status(self):
         #  订单来源下拉框的判断
@@ -240,17 +500,20 @@ class InteractionCoexistence(BackgroundCoexistence):
         self.whole_selector_options(self.names_key.yaml_status(), self.names_key.yaml_pay())
 
     def order_value_placeholder(self):
-        self.summary_value_placeholder(self.names_key.yaml_order())
+        # 订单下拉框
+        self.value_placeholder(self.names_key.yaml_order())
         # self.value_placeholder(self.names_key.yaml_order(), self.names_key.yaml_value(),
         #                        self.names_key.yaml_placeholder())
 
     def buyer_value_placeholder(self):
-        self.summary_value_placeholder(self.names_key.yaml_buyer())
+        # 用户下拉框
+        self.value_placeholder(self.names_key.yaml_buyer())
         # self.value_placeholder(self.names_key.yaml_buyer(), self.names_key.yaml_value(),
         #                        self.names_key.yaml_placeholder())
 
     def other_value_placeholder(self):
-        self.summary_value_placeholder(self.names_key.yaml_other())
+        # 其他下拉框
+        self.value_placeholder(self.names_key.yaml_other())
         # self.value_placeholder(self.names_key.yaml_other(), self.names_key.yaml_value(),
         #                        self.names_key.yaml_placeholder())
 
@@ -260,27 +523,63 @@ class InteractionCoexistence(BackgroundCoexistence):
         EBS_DF = list(EBS_DF.dataSet[0])
         self._verify_operator(self.get_order_title(self.names_key.yaml_orderkey()), EBS_DF)
 
-    def order_whole_page(self)->"获取页面数据信息流程":
+    def order_whole_page(self) -> "获取页面数据信息流程":
         '''
         1. 获取界面内容
         2. 执行sql
         3. 比较数据
         :return:
         '''
-        '''
-         # 获取翻页按钮的位置
-        button_next = self.select_path[self.names_key.yaml_buttonpage()][self.names_key.yaml_next()]
+        self.ti_days = 0  # 不写就报错
+        funktion = [{"func": self.path_tbody, "args": ''}, {"func": self.statement_query, "args": ""}]
+        # self.path_tbody()
+        # self.statement_query()
+        self.start_thread_pool(funktion)
+        self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
 
-        # 获取tbody数据显示框的内容所在地
-        path = self.select_path[self.names_key.yaml_content()]
-        content = str.split(path[self.names_key.yaml_table()], '>')[0]
+    def screening_selector(self):
+        filters = self.get_filters_excel()  # 读取excle表格的数据并转换成json数据
 
-        # 获取数据
-        df = self.tbody_td_data(content,button_next,"#订单编号")
-        '''
+        self.filters_selector_send(filters)  # 时间输入框以及下拉
+        self.filters_radio(filters)  # 复选框选择
 
-        # 根据sql读取数据信息并进行重组
-        MYSQL_DF = self._verify_match(self.overall[self.names_key.wholeQueryStatement()])
-        print(MYSQL_DF)
+        inside = [self.names_key.yaml_manager(), self.names_key.yaml_director(), self.names_key.yaml_region()]
+        self.filters_selector(filters, self.names_key.yaml_area(), inside)  # 区域
 
+        inside = [self.names_key.yaml_source(), self.names_key.yaml_pay()]
+        self.filters_selector(filters, self.names_key.yaml_status(), inside)  # 状态
 
+        self.filters_send_keys(filters, self.names_key.yaml_order())  # 订单
+        self.filters_send_keys(filters, self.names_key.yaml_buyer())  # 用户
+        self.filters_send_keys(filters, self.names_key.yaml_other())  # 其他
+
+    def appointment_bunber(self):
+        filters = self.get_filters_excel()  # 读取excle表格的数据并转换成json数据
+
+        self.filters_selector_send(filters)  # 时间输入框以及下拉
+        self.filters_radio(filters)  # 复选框选择
+
+        self.label_search_button()  # 点击搜索按钮
+
+        days = filters[self.names_key.yaml_timeselect()][self.names_key.yaml_choose()]
+        self.ti_days = 0
+        if days == "昨天":
+            self.ti_days = -1
+        elif days == "最近7日":
+            self.ti_days = -6
+        elif days == "最近30天":
+            self.ti_days = -29
+
+        funktion = [{"func": self.path_tbody, "args": ''}, {"func": self.statement_query, "args": ""}]
+        self.start_thread_pool(funktion)
+        self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
+
+    def area_screening_conditions(self):
+        filters = self.get_filters_excel()  # 读取excle表格的数据并转换成json数据
+
+        inside = [self.names_key.yaml_manager(), self.names_key.yaml_director(), self.names_key.yaml_region()]
+        self.filters_selector(filters, self.names_key.yaml_area(), inside)  # 区域
+        self.label_search_button()  # 点击搜索按钮
+        funktion = [{"func": self.path_tbody, "args": ''}, {"func": self.area_statement_query, "args": ""}]
+        self.start_thread_pool(funktion)
+        self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
