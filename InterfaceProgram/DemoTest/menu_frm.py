@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*- 
 """
 @__author__ :DingDong
-@file: menu_win.py
-@time: 2018/6/13 22:01
+@file: menu_frm.py
+@time: 2018/6/19 21:50
 @Entry Name:operating
 """
 from tkinter import *
@@ -26,54 +26,55 @@ def zheshitaochaugn():
     showwarning("文件", "你打开的文件为 %s " % windonws)
 
 def showjinggao(demo):
-    showwarning("什么？？", "哈哈 %s " % list(demos_win[demo]()))
+    # print("标题%s内容 %s " % (demo,demos_win[demo]()))
+    showwarning("标题 : %s" % demo,demos_win[demo]())
 
-def makemenu(win):
-    top =Menu(win) # 设置菜单归属于这个窗口。 win = top-level window
-    win.config(menu=top) # set its menu option
-    file=Menu(top)
+def makemenu(parent):
+    menubar =Frame(parent) # 设置菜单归属于这个窗口。 parent = top-level window
+    menubar.pack(side = TOP,fill=X)
+
+    fbutton = Menubutton(menubar,text = 'File',underline = 0)
+    fbutton.pack(side=LEFT)
+
+    file=Menu(fbutton)
     file.add_command(label='New...',command=notdone,underline = 0)
     file.add_command(label='Open...',command=zheshitaochaugn,underline = 0)
-    file.add_command(label='Quit...',command=win.quit,underline = 0)
-    top.add_cascade(label='File',menu=file,underline=0)
+    file.add_command(label='Quit...',command=parent.quit,underline = 0)
+    fbutton.config(menu = file)
+
     # tearoff设置该菜单是否可以独立运行，默认为True。true为允许
-    edit = Menu(top,tearoff=False)
+    ebutton = Menubutton(menubar, text='Edit', underline=0)
+    ebutton.pack(side=LEFT)
+    edit = Menu(ebutton,tearoff=False)
     edit.add_command(label='Cut.....', command=notdone, underline=0)
     edit.add_command(label='Paste.....', command=notdone, underline=0)
     edit.add_separator() # 添加分隔符
-    top.add_cascade(label='shabi', menu=edit, underline=0)
+    ebutton.config(menu=edit) # 给菜单绑定下拉
 
     submenu = Menu(edit,tearoff =True)
-    submenu.add_command(label='Spam',command = win.quit,underline = 0)
+    submenu.add_command(label='Spam',command = parent.quit,underline = 0)
     submenu.add_command(label='Eggs',command = notdone,underline = 0)
     edit.add_cascade(label='Stuff', menu=submenu, underline=0)
 
-    dialog = Menu(top, tearoff=False)
+    dbutton = Menubutton(menubar, text='shibi', underline=0)
+    dbutton.pack(side=LEFT)
+    dialog = Menu(dbutton, tearoff=False)
     for key in demos_win:
         funcc = (lambda handler = showjinggao,name = key : handler(name))
         dialog.add_command(label=key, command=funcc, underline=0)
-    top.add_cascade(label='taocan', menu=dialog, underline=0)
-def setBgColor():
-    (triple,hexstr) = askcolor()
-    if hexstr:
-        print(hexstr)
+    # menubar.add_cascade(label='taocan', menu=dialog, underline=0)
+    dbutton.config(menu=dialog)
+    return menubar
 
-        push.config(bg=hexstr)
 if __name__ == '__main__':
     print("1-----------------------1")
     root = Tk() # 创建菜单窗口，or Toplevel()
-    root.title('menu-win') # 设置标题 set window-mgr info
+    root.title('menu-frm') # 设置标题 set window-mgr info
     makemenu(root)
     print("2-----------------------1")
     msg = Label(root,text='Window menu basics')
     msg.pack(expand =YES,fill = BOTH)
     msg.config(relief=SUNKEN,width = 40,height = 7,bg = 'beige')
     print("3-----------------------1")
-    # global push
-    push = Button(msg,text = 'Set Background Color',command = setBgColor)
-    push.config(height = 3,font=('items',20,'bold'))
-    # global push均匀分配给其他组件,fill对齐方式
-    push.pack(side=TOP)
-    # push.pack(side=TOP,expand=YES,fill=BOTH)
     root.mainloop()
     print("4-----------------------1")
