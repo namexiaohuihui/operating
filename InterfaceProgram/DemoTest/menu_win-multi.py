@@ -4,6 +4,7 @@
 @file: menu_win-multi.py
 @time: 2018/6/19 21:35
 @Entry Name:operating
+menu创建菜单框
 """
 
 from tkinter import  *

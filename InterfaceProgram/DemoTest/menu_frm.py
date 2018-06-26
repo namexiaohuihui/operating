@@ -4,6 +4,7 @@
 @file: menu_frm.py
 @time: 2018/6/19 21:50
 @Entry Name:operating
+菜单框
 """
 from tkinter import *
 from tkinter.messagebox import *

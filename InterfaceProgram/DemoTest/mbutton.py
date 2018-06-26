@@ -4,6 +4,7 @@
 @file: mbutton.py
 @time: 2018/6/20 10:32
 @Entry Name:operating
+将菜单写到按钮上
 """
 from tkinter import *
 root = Tk()

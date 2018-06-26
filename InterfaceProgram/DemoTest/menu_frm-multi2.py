@@ -4,6 +4,7 @@
 @file: menu_frm-multi2.py
 @time: 2018/6/19 22:23
 @Entry Name:operating
+菜单框
 """
 
 from tkinter import  *

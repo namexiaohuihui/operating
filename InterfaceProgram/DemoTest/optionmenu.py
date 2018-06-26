@@ -4,6 +4,7 @@
 @file: optionmenu.py
 @time: 2018/6/20 10:38
 @Entry Name:operating
+下拉框的设置以及获取信息
 """
 from tkinter import  *
 root = Tk()

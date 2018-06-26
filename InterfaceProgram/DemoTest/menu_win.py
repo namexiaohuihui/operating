@@ -4,6 +4,7 @@
 @file: menu_win.py
 @time: 2018/6/13 22:01
 @Entry Name:operating
+使用menu来创建菜单
 """
 from tkinter import *
 from tkinter.messagebox import *
