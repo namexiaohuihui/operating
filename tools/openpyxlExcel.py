@@ -327,6 +327,9 @@ class WRITEEXCEL:
 
                 self.excel = FILEPATH  # 存储文件的路径保存
                 self.writeexcel_Data(_TITLE=SHEETTITLE, _INDEX=_INDEX)  # 调用初始化函数，赋值标题
+            elif os.path.splitext(path[1])[1] == '.csv':  # 检验文件是否为xlsx格式的文件
+                self.excel = FILEPATH  # 存储文件的路径保存
+                self.writeexcel_Data(_TITLE=SHEETTITLE, _INDEX=_INDEX)  # 调用初始化函数，赋值标题
 
             else:
                 print(os.path.splitext(path[1])[1] + ' : 读取文件的格式不对')
@@ -387,7 +390,8 @@ class WRITEEXCEL:
            :param value:
            :return:
        """
-        _ = self.work_sheet.cell(column=col, row=row, value=value)
+        date_ex = self.work_sheet.cell(column=col, row=row, value=value)
+        return date_ex
 
     def content_row_append(self, content):
         """
@@ -544,7 +548,7 @@ class WRITEEXCEL:
     def comment_remarks(self, range, text='Bug', author='dingdong'):
         """
         设置评论内容及作者...
-        :param range: 范围
+        :param range: 指定范围设置相应的备注
         :param text: 评论内容
         :param author: 作者
         :return:
@@ -667,7 +671,7 @@ class PANDASDATA:
 
     def dataFrame(self, index=None, columns=None):
         '''
-       将字典的业内容进行系列化。
+       将字典业已的内容进行系列化。
         :param index:  字典中的序列号
         :param columns: 字典中的key
         :return:
@@ -918,6 +922,7 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         读取excel的数据时：
           _date表示的文件的路径
           _title表示的是工作薄的页面
+
         通过pandas进行转换时：
           _date表示的数据
           _title表示的是工作薄的名称
@@ -971,14 +976,46 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
 
 
 if __name__ == '__main__':
-    import time
+    # `type` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '类型 1买家 2商家 3配送员 4配送中心 5供应商',
+    sql = """
+    SELECT
+	u.id AS '用户ID',
+	b.nickname AS '名称',
+	u.open_id AS 'open_id'
+FROM
+	lnsm_user AS u
+LEFT JOIN lnsm_buyer AS b ON u.id = b.buyer_id
+WHERE u.type = 1
+LIMIT 150000, 150000
+;
+    """
 
-    status_tt = time.time()
+    from tools.PymysqlMain import pymysqls
 
-    excel_case = OpenExcelPandas(
-        r'E:\drivers\CasePlan\CasrScene\BackStageManagement\InteractionActions\WholeInteraction\interaction.xlsx',
-        "标签")
-    excel_case = excel_case.internal_read_excel()
-    print(excel_case)
-    print(time.time() - status_tt)
-    print(excel_case.loc["weishenm"])
+    pm = pymysqls()
+    pm.connects_readModel()
+    result = pm.total_vertical_selects(sql)
+    pm.closes()
+    # df = pd.DataFrame(result)
+    # try:
+    #     df.to_csv(r'F:\desktop\什么贵呀.csv', index=False, encoding="gbk")
+    # except:
+    #     print("1")
+
+    import xlsxwriter
+
+    # Create an new Excel file and add a worksheet.
+    workbook = xlsxwriter.Workbook(r'F:\desktop\测试数据.csv')
+    worksheet = workbook.add_worksheet()
+
+    worksheet.write(0, 0, '用户ID')
+    worksheet.write(0, 1, '名称')
+    worksheet.write(0, 2, 'open_id')
+    # Write some numbers, with row/column notation.
+    for re in range(len(result)):
+        trr_Re = result[re]
+        worksheet.write(re+1, 0, trr_Re['用户ID'])
+        worksheet.write(re+1, 1, trr_Re['名称'])
+        worksheet.write(re+1, 2, trr_Re['open_id'])
+
+    workbook.close()

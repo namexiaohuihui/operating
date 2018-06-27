@@ -84,6 +84,7 @@ class pymysqls(object):
                 # len:返回字符串、列表、字典、元组等长度
                 for i in range(len(index)):
                     # index[i][0] 获取字段里属性中的局部信息
+
                     row[index[i][0]] = res[i]
                 result.append(row)
                 # print("selects_list %s" % row)

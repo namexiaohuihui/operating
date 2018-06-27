@@ -16,7 +16,7 @@ whole = WholeActionsJudge()
 class InterationOrderLable(unittest.TestCase):
 
     @classmethod
-    def setUp(cls) -> '定义log文件/读取excel数据/开启浏览器':
+    def setUpClass(cls) -> '定义log文件/读取excel数据/开启浏览器':
         # 获取运行文件的类名
         basename = os.path.splitext(os.path.basename(__file__))[0]
         # 打开浏览器，定义log日志。读取excle文档数据
@@ -24,10 +24,10 @@ class InterationOrderLable(unittest.TestCase):
         whole._rou_interaction()
 
     @classmethod
-    def tearDown(cls) -> '关闭浏览器,做程序结尾工作':
+    def tearDownClass(cls) -> '关闭浏览器,做程序结尾工作':
         try:
-            # whole.driver.close()
-            # whole.driver.quit()
+            whole.driver.close()
+            whole.driver.quit()
             pass
         except:
             print("又见UTF-8错误")
@@ -72,4 +72,4 @@ class InterationOrderLable(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(verbosity=2)
+    unittest.main()

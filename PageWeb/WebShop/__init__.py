@@ -7,7 +7,7 @@
 """
 from PageWeb.WebShop.judgmentVerification import JudgmentVerification
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
-import pandas as pd
+
 
 class BackgroundCoexistence(JudgmentVerification):
     # 设置菜单字目录上的标题
@@ -82,15 +82,13 @@ class BackgroundCoexistence(JudgmentVerification):
             pass
         return df
 
-    def parsing_tbody(self,content,button_next,operation):
+    def parsing_tbody(self, content, button_next, operation):
         # 获取页面全部数据
         self.LABLE_DF = self.tbody_td_data(content, button_next, "#订单编号")
-
-        if self.LABLE_DF :
+        if type(self.LABLE_DF) is int:
+            print("我就可以再来一次空吧")
+        else:
             # 将空格全部去除
             list_operation = self.LABLE_DF[operation]
             list_operation = list(map(lambda x: x.replace(' ', ''), list_operation))
             self.LABLE_DF[operation] = list_operation
-        else:
-            print("我就可以再来一次空吧")
-

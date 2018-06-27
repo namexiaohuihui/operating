@@ -175,16 +175,21 @@ class InteractionCoexistence(BackgroundCoexistence):
         # 将路径传入，解析工作开始
         self.parsing_tbody(content, button_next, self.names_key.program_operation())
 
-    def area_statement_query(self):
+    def area_statement_query(self, ti_days):
         self.ti_days = 0
         area = self.names_key.yaml_area()
         region = self.filters[area][self.names_key.yaml_region()]
 
         manager = self.filters[area][self.names_key.yaml_manager()]
         director = self.filters[area][self.names_key.yaml_director()]
-        director = "%s,%s" % (manager, director)
+        # director = "%s,%s" % (manager, director)
+        # print("peisongdian", region)
+        # print("quyu", director)
+        # print("shijian", self.ti.today_to_stamp(self.ti_days))
+        # print("sql", self.overall[self.names_key.wholeQueryStatement()])
+        start_time, stop_time = self.ti.today_to_stamp(self.ti_days)
         statement = self.overall[self.names_key.wholeQueryStatement()] % (
-            self.ti.today_to_stamp(self.ti_days), region, director)
+            start_time, stop_time, region, director)
         mysql_list = self.reprogramming_definition(statement)
         self.mysql_statement(mysql_list)
 
@@ -251,8 +256,8 @@ class InteractionCoexistence(BackgroundCoexistence):
         if item_type == self.TYPE_TWO:
             item_type = "抢购 "
 
-        # elif item_type == self.TYPE_THREE:
-        #     item_type = "水票"
+        elif item_type == self.TYPE_THREE:
+            item_type = "水票 "
 
         elif item_type == self.TYPE_FOUR:
             item_type = "店铺 "
@@ -263,7 +268,7 @@ class InteractionCoexistence(BackgroundCoexistence):
         elif item_type == self.TYPE_SIX:
             item_type = "线下 "
         else:
-            return False
+            return item_type
         return item_type
 
     def reprogramming_definition(self, statements: str):
@@ -580,6 +585,6 @@ class InteractionCoexistence(BackgroundCoexistence):
         inside = [self.names_key.yaml_manager(), self.names_key.yaml_director(), self.names_key.yaml_region()]
         self.filters_selector(filters, self.names_key.yaml_area(), inside)  # 区域
         self.label_search_button()  # 点击搜索按钮
-        funktion = [{"func": self.path_tbody, "args": ''}, {"func": self.area_statement_query, "args": ""}]
+        funktion = [{"func": self.path_tbody, "args": ''}, {"func": self.area_statement_query, "args": "0"}]
         self.start_thread_pool(funktion)
         self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)

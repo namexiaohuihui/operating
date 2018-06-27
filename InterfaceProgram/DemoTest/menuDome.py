@@ -28,7 +28,7 @@ class NewMenuDemo(Frame):
         self.entrie = []
         for field in filedas:
             row = Frame(self)
-            lab = Label(row,width = 5,text = field)
+            lab = Label(row,width = 8,text = field)
             ent = Entry(row)
             row.pack(side=TOP,fill =X)
             lab.pack(side = LEFT)
@@ -75,14 +75,15 @@ class NewMenuDemo(Frame):
         如果不保存，内容就不复存在。（Python编程第八章有介绍）
         :return:
         '''
-        photoFiles = ('ameng.gif','fengc.gif')
+        # photoFiles = ('ameng.gif','fengc.gif')
+        photoFiles = ('buyer.png','chasu.png','zong.png')
         # photoFiles = ('tupian.png')
         pulldown = Menu(self.menubar)
         self.photoObjs = []
         CUR_PATH = os.path.dirname(os.path.realpath(__file__))
         for filename in photoFiles:
             case_path = os.path.join(os.path.join(CUR_PATH, 'gifs'), filename)
-            img = PhotoImage(file =case_path) # 不用gif图片会出错
+            img = PhotoImage(file =case_path)
             # img = PhotoImage(filename) # 错误的
             pulldown.add_command(image = img,command = self.notdone)
             self.photoObjs.append(img)

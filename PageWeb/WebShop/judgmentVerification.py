@@ -230,3 +230,4 @@ class JudgmentVerification(ComparedVerify):
             print("mysql 等于0")
             data_df = 0
         return data_df
+
