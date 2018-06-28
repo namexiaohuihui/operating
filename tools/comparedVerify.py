@@ -13,10 +13,10 @@ import time
 from tools import DefinitionErrors as dError
 from tools.PymysqlMain import pymysqls
 from tools.RewriteThread import InheritThread as th
-from utils.browser_establish import browser_confirm
-from utils.config import readModel
-from utils.operation.selenium_click import action_click
-from utils.operation.selenium_input import action_input
+from tools.browser_establish import browser_confirm
+from tools.configs import readModel
+from tools.operation.selenium_click import action_click
+from tools.operation.selenium_input import action_input
 
 
 class ComparedVerify(object):
@@ -51,8 +51,9 @@ class ComparedVerify(object):
     """
 
     def operator_dataframe(self, reValue: object, excleValue: object) -> ("打印数据信息"):
-        self.log.info("读取:  %s  类型 :  %s " % (reValue, type(reValue)))
-        self.log.info("获得:  %s  类型 :  %s " % (excleValue, type(excleValue)))
+        # self.log.info("读取:  %s  类型 :  %s " % (reValue, type(reValue)))
+        # self.log.info("获得:  %s  类型 :  %s " % (excleValue, type(excleValue)))
+        pass
 
     def _verify_operator(self, reValue: object, excleValue: object) -> "通过assert断言形式进行比较":
         """
@@ -227,7 +228,7 @@ class ComparedVerify(object):
     """
 
     def strTodict(self, title):
-        print("需要转化你json数据--> %s" % title)
+        # print("需要转化你json数据--> %s" % title)
         return json.loads(title) if title is not None else "json中loads错误了"
 
     """
@@ -256,11 +257,10 @@ class ComparedVerify(object):
     def start_thread_pool(self, funktion):  # 开启线程池
         # https://www.cnblogs.com/qualitysong/archive/2011/05/27/2060246.html
         # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
-        print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+        # print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
         faden = []  # 该列表存放已经开启的线程
         for para in funktion:  # 遍历函数开启线程
             # th是内置的函数
-            print("提交的参数--%s--" % (para['args']))
             threads = th(para['func'], para['args'])
             threads.start()
             faden.append(threads)
@@ -272,7 +272,7 @@ class ComparedVerify(object):
             argu.join()
             inhalt.append(argu.get_result())
 
-        print("Thread execution finished %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+        # print("Thread execution finished %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
         return inhalt
 
     def xxxxx(self, msg):

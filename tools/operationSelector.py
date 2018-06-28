@@ -8,8 +8,8 @@ import time
 
 from selenium.webdriver.support.select import Select
 
-from utils.browser_establish import browser_confirm
-from utils.operation.selenium_visible import action_visible
+from tools.browser_establish import browser_confirm
+from tools.operation.selenium_visible import action_visible
 
 
 class OperationSelector(action_visible):
@@ -185,7 +185,7 @@ class OperationSelector(action_visible):
 
 
 if __name__ == '__main__':
-    from utils.operation.selenium_visible import action_visible
+    from tools.operation.selenium_visible import action_visible
 
     be = browser_confirm()
     drivers = be.url_opens(r"F:\desktop\genghuan.html")

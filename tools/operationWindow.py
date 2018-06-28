@@ -18,8 +18,8 @@ import time
 from python_utils import converters
 
 from tools.operationSelector import OperationSelector
-from utils.browser_establish import browser_confirm
-from utils.timeFromat import TimeFromat
+from tools.browser_establish import browser_confirm
+from tools.timeFromat import TimeFromat
 
 
 def brows():

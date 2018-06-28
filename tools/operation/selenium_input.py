@@ -5,7 +5,7 @@
 @time: 2017/6/21 0:01
 """
 # 这是元素输入类，传入相应的id，name，text，xpath，css以及内容就可以执行输入的指令
-from utils.operation.selenium_visible import action_visible
+from tools.operation.selenium_visible import action_visible
 
 r'''
                        _oo0oo_

@@ -6,13 +6,12 @@
 @项目名称:operating
 """
 import inspect
-import os
 
 from practical.utils.config import readModel
 
 from PageWeb.WebEven.ConversionStorage import conversionstorage
 
-from utils.comparedVerify import compared_verify
+from tools.comparedVerify import compared_verify
 
 """
 # ------------------内容参数的比较------------------------

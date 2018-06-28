@@ -66,7 +66,7 @@ class TimeFromat(object):
         # 今天日期
         today = datetime.date.today()
         yes_time = today + datetime.timedelta(days=int(day))  # 指定某天的日期
-        print("多少天前: %s 以及最前的那天 %s" % (day, yes_time))
+        # print("多少天前: %s 以及最前的那天 %s" % (day, yes_time))
         # 今天开始时间戳
         today_start_time = int(time.mktime(time.strptime(str(yes_time), '%Y-%m-%d')))
 
@@ -115,4 +115,4 @@ class TimeFromat(object):
 
 
 if __name__ == '__main__':
-    TimeFromat().neizhidefangfa()
+    print(TimeFromat().today_to_stamp(0))

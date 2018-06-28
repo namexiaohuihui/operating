@@ -4,7 +4,7 @@ __author__ = 'DingDong'
 @file: shopSystemsetup.py
 @time: 2018/4/13 14:13
 """
-from utils.excelname.excelBeanName import ExcelTitle
+from tools.excelname.excelBeanName import ExcelTitle
 
 
 class ShopParameterSetting(ExcelTitle):

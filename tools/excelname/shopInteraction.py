@@ -5,7 +5,7 @@ __author__ = 'DingDong'
 @time: 2018/5/29 11:01
 """
 
-from utils.excelname.excelBeanName import ExcelTitle
+from tools.excelname.excelBeanName import ExcelTitle
 
 
 class InteractionController(ExcelTitle):

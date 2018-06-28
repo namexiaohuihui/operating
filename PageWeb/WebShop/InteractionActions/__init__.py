@@ -175,34 +175,36 @@ class InteractionCoexistence(BackgroundCoexistence):
         # 将路径传入，解析工作开始
         self.parsing_tbody(content, button_next, self.names_key.program_operation())
 
-    def nishibushishale(self, qwqw):
-        statement = self.overall[self.names_key.wholeQueryStatement()] % qwqw
+    def advanced_query(self, ad_query):
+        statement = self.overall[self.names_key.wholeQueryStatement()] % ad_query
 
         mysql_list = self.reprogramming_definition(statement)
         self.mysql_statement(mysql_list)
 
     def area_statement_query(self, days=0):
+        start_time, stop_time = self.ti.today_to_stamp(days)
+
         area = self.names_key.yaml_area()
         region = self.filters[area][self.names_key.yaml_region()]
 
         director = self.filters[area][self.names_key.yaml_director()]
 
-        start_time, stop_time = self.ti.today_to_stamp(days)
-        qwe = (start_time, stop_time, region, director)
-        self.nishibushishale(qwe)
+        ad_query = (start_time, stop_time, region, director)
 
-        # statement = self.overall[self.names_key.wholeQueryStatement()] % (
-        #     start_time, stop_time, region, director)
-        # mysql_list = self.reprogramming_definition(statement)
-        # self.mysql_statement(mysql_list)
+        self.advanced_query(ad_query)
 
-    def statement_query(self):
+    def time_statement_query(self, *days):
         # 根据sql读取数据信息并进行重组
-        start_time, stop_time = self.ti.today_to_stamp(self.ti_days)
-        statement = self.overall[self.names_key.wholeQueryStatement()] % (start_time, stop_time)
-
-        mysql_list = self.reprogramming_definition(statement)
-        self.mysql_statement(mysql_list)
+        print("kaishishijian ".format(days))
+        t_d = ''
+        for d in days:
+            if d == 0:
+                t_d = 0
+                break
+            else:
+                t_d = t_d + d
+        print("这回时间是 %s" % t_d)
+        self.advanced_query(self.ti.today_to_stamp(t_d))
 
     def mysql_statement(self, mysql_list):
         # 获取标题
@@ -540,8 +542,7 @@ class InteractionCoexistence(BackgroundCoexistence):
         3. 比较数据
         :return:
         '''
-        self.ti_days = 0  # 不写就报错
-        funktion = [{"func": self.path_tbody, "args": ''}, {"func": self.statement_query, "args": ""}]
+        funktion = [{"func": self.path_tbody, "args": ''}, {"func": self.time_statement_query(), "args": "0"}]
         # self.path_tbody()
         # self.statement_query()
         self.start_thread_pool(funktion)
@@ -564,33 +565,31 @@ class InteractionCoexistence(BackgroundCoexistence):
         self.filters_send_keys(filters, self.names_key.yaml_other())  # 其他
 
     def appointment_bunber(self):
-        filters = self.get_filters_excel()  # 读取excle表格的数据并转换成json数据
-
-        self.filters_selector_send(filters)  # 时间输入框以及下拉
-        self.filters_radio(filters)  # 复选框选择
-
+        self.screening_selector()
         self.label_search_button()  # 点击搜索按钮
 
+        filters = self.get_filters_excel()  # 读取excle表格的数据并转换成json数据
         days = filters[self.names_key.yaml_timeselect()][self.names_key.yaml_choose()]
-        self.ti_days = 0
         if days == "昨天":
-            self.ti_days = -1
+            ti_days = '-1'
         elif days == "最近7日":
-            self.ti_days = -6
+            ti_days = '-6'
         elif days == "最近30天":
-            self.ti_days = -29
+            ti_days = '-29'
+        else:
+            ti_days = 0
         funktion = [{"func": self.path_tbody, "args": ''},
-                    {"func": self.statement_query, "args": ""}]
+                    {"func": self.time_statement_query, "args": ti_days}]
         self.start_thread_pool(funktion)
         self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
 
     def area_screening_conditions(self):
-        filters = self.get_filters_excel()  # 读取excle表格的数据并转换成json数据
-
-        inside = [self.names_key.yaml_manager(), self.names_key.yaml_director(), self.names_key.yaml_region()]
-        self.filters_selector(filters, self.names_key.yaml_area(), inside)  # 区域
+        # 下拉框统一筛选。没有参数的就不进行操作
+        self.screening_selector()
         self.label_search_button()  # 点击搜索按钮
+
         funktion = [{"func": self.path_tbody, "args": ''},
                     {"func": self.area_statement_query, "args": ""}]
+
         self.start_thread_pool(funktion)
         self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)

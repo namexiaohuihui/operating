@@ -76,7 +76,7 @@ class even_exclusiveService(ExcelTitle):
 
 
 if __name__ == '__main__':
-    from utils.excelname.shopSystemsetup import ShopNoticeController as sn
+    from tools.excelname import ShopNoticeController as sn
 
     print(sn.dailyDeadline)
     print(sn.dailyCity(sn))

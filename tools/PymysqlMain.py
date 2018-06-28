@@ -5,9 +5,12 @@ __author__ = 'Administrator'
 @time: 2017/7/13 16:12
 """
 import json
+
 import pymysql
 
-from utils.config import readModel
+# from tools.configs.readModel import ReadModel
+from tools.configs import readModel
+
 
 class pymysqls(object):
     # 单例类判断。如果该类创建过就不需要重新创建了
@@ -135,16 +138,16 @@ class pymysqls(object):
             self.connect.commit()
             print('事务处理成功', self.cursor.rowcount)
 
-
-if __name__ == '__main__':
-    sql = ""
-    from tools.openpyxlExcel import PANDASDATA
-
-    py = pymysqls()
-    py.connects_readModel()
-    neirong = py.total_vertical_selects(sql)
-    # 数据转换
-    pan = PANDASDATA(neirong)
-    daily = ["type", "city", "title", "content", "time", "status", "default"]
-    df = pan.dataFrame(columns=daily)
-    print(df)
+#
+# if __name__ == '__main__':
+#     sql = ""
+#     from tools.openpyxlExcel import PANDASDATA
+#
+#     py = pymysqls()
+#     py.connects_readModel()
+#     neirong = py.total_vertical_selects(sql)
+#     # 数据转换
+#     pan = PANDASDATA(neirong)
+#     daily = ["type", "city", "title", "content", "time", "status", "default"]
+#     df = pan.dataFrame(columns=daily)
+#     print(df)

@@ -8,7 +8,7 @@ import os
 
 import yaml
 
-from utils.excelname.shopInteraction import InteractionController
+from tools.excelname.shopInteraction import InteractionController
 
 
 # 当前脚本路径

@@ -9,9 +9,9 @@ import re
 
 from tools.Logger import Log
 from tools.openpyxlExcel import OpenExcelPandas
-from utils.comparedVerify import ComparedVerify
-from utils.config import readModel
-from utils.timeFromat import TimeFromat
+from tools.comparedVerify import ComparedVerify
+from tools.configs import readModel
+from tools.timeFromat import TimeFromat
 
 
 

@@ -14,18 +14,16 @@ https://jingyan.baidu.com/article/36d6ed1f6c54b01bcf488312.html pandas数据合�
 """
 
 import os
+import sys
 import time
 
 import pandas as pd
 
-
-import sys
-import os
-#获取项目路径下的目录
+# 获取项目路径下的目录
 os.chdir('E:\\operating')
-print("2")
-#将项目路径保存
+# 将项目路径保存
 sys.path.append('E:\\operating')
+
 from tools.PymysqlMain import pymysqls
 from openpyxl import Workbook, load_workbook
 from openpyxl.utils.dataframe import dataframe_to_rows

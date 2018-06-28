@@ -6,7 +6,13 @@ __author__ = 'DingDong'
 """
 import inspect
 import os
+import sys
 import unittest
+
+# 获取项目路径下的目录
+os.chdir('E:\\operating')
+# 将项目路径保存
+sys.path.append('E:\\operating')
 
 from PageWeb.WebShop.InteractionActions.WholeInteraction.wholeActionsJudge import WholeActionsJudge
 

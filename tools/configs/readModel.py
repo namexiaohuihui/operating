@@ -7,13 +7,7 @@
 """
 import configparser
 import os
-import sys
-import os
-#获取项目路径下的目录
-os.chdir('E:\\operating')
-print("1")
-#将项目路径保存
-sys.path.append('E:\\operating')
+
 
 def establish_con(model):
     cur_path = os.path.dirname(os.path.realpath(__file__))
@@ -46,8 +40,7 @@ if __name__ == '__main__':
     # host = conf.get("database", "host")
     # print(host)
     connn = establish_con("excelmodel")
-    syst = connn.get("excel","systemsetup")
-    dail = connn.get("excel","dailybulletin")
-    excel = os.path.join(syst,dail)
+    syst = connn.get("excel", "systemsetup")
+    dail = connn.get("excel", "dailybulletin")
+    excel = os.path.join(syst, dail)
     print(excel)
-

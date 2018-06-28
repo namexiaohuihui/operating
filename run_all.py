@@ -1,13 +1,20 @@
 # coding:utf-8
-import unittest
-import os
 import HTMLTestRunner
+import os
+import sys
+import unittest
 from tkinter import *
 from tkinter.messagebox import *
+
+# 获取项目路径下的目录
+os.chdir('E:\\operating')
+# 将项目路径保存
+sys.path.append('E:\\operating')
 # import HTMLTestReportCN
 
 # 获取当前文件所在目录
 CUR_PATH = os.path.dirname(os.path.realpath(__file__))
+
 
 def add_case(case_name='Case', rule='web_*.py'):
     # 加载所有的用例
@@ -72,33 +79,35 @@ def shangyigebanben():
 
     fp = open(report_abspath, "wb")
     runner = HTMLTestReportCN.HTMLTestRunner(stream=fp,
-                                           title=u'自动化测试报告,测试结果如下：',
-                                           description=u'用例执行情况：')
+                                             title=u'自动化测试报告,测试结果如下：',
+                                             description=u'用例执行情况：')
 
     # 调用add_case函数返回值
     runner.run(discover)
     fp.close()
+
 
 def jiemianyunxing():
     # https://blog.csdn.net/u011061889/article/details/79440349
     # pip install pyinstaller
     # pyinstaller test.py
     def callback():
-        if askyesno('Verify','zhen de yao tuichu ma ?') :
-            showwarning('Yes','duidi, jiushi yao tuichu')
+        if askyesno('Verify', 'zhen de yao tuichu ma ?'):
+            showwarning('Yes', 'duidi, jiushi yao tuichu')
         else:
-            showinfo('No','tuichuchengg')
+            showinfo('No', 'tuichuchengg')
 
     errmsg = 'sorry, anniiu wufashiyong'
-    Button(text = 'Quit',command = callback).pack(fill = X)
-    Button(text = 'spam' , command = (lambda : showerror('span',errmsg))).pack(fill = X)
+    Button(text='Quit', command=callback).pack(fill=X)
+    Button(text='spam', command=(lambda: showerror('span', errmsg))).pack(fill=X)
     mainloop()
+
 
 if __name__ == '__main__':
     # shangyigebanben()
 
     # 加载用例
-    all_case = add_case("PageWeb\\WebShop\\InteractionActions\\WholeInteraction","web_wholedata.py")
+    all_case = add_case("PageWeb\\WebShop\\InteractionActions\\WholeInteraction", "web_wholedata.py")
 
     # 生成测试报告的路径
     run_case(all_case)

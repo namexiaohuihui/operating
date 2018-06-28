@@ -13,7 +13,7 @@ import requests
 from bs4 import BeautifulSoup
 from tomorrow import threads
 
-
+# https://www.cnblogs.com/qualitysong/archive/2011/05/27/2060246.html
 class InheritThread(Thread):
 
     def __init__(self, func, args=()):

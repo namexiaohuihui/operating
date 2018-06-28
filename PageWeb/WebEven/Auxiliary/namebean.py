@@ -6,7 +6,7 @@
 @Entry Name:operating
 """
 
-from utils.excelname.excelBeanName import even_auxiliary
+from tools.excelname import even_auxiliary
 # 该类主要设置一些常用的属性值以及参数
 
 class letter_parameter_names(even_auxiliary):

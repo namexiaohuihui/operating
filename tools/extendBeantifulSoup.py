@@ -8,7 +8,7 @@ __author__ = 'DingDong'
 import pandas as pd
 from bs4 import BeautifulSoup
 
-from utils.browser_establish import browser_confirm
+from tools.browser_establish import browser_confirm
 
 """
 通过路径来获取旗下子标签的数据信息

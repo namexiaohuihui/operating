@@ -76,7 +76,7 @@ class BackgroundCoexistence(JudgmentVerification):
         if type(df) != int:
             # 6.重新设置序列号
             df = df.set_index([list(df[title_key])])
-            print("页面数据不为空")
+            # print("页面数据不为空")
         else:
             print("页面数据为空")
             pass
