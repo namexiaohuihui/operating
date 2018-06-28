@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
-
-import json
-import pymysql
-from utils.config import readModel
-
 __author__ = 'Administrator'
 """
 @file: pymysql_main.py
 @time: 2017/7/13 16:12
 """
+import json
+import pymysql
 
+from utils.config import readModel
 
 class pymysqls(object):
     # 单例类判断。如果该类创建过就不需要重新创建了

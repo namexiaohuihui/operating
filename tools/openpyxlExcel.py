@@ -14,8 +14,19 @@ https://jingyan.baidu.com/article/36d6ed1f6c54b01bcf488312.html pandas数据合�
 """
 
 import os
+import time
 
 import pandas as pd
+
+
+import sys
+import os
+#获取项目路径下的目录
+os.chdir('E:\\operating')
+print("2")
+#将项目路径保存
+sys.path.append('E:\\operating')
+from tools.PymysqlMain import pymysqls
 from openpyxl import Workbook, load_workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 
@@ -980,42 +991,42 @@ if __name__ == '__main__':
     sql = """
     SELECT
 	u.id AS '用户ID',
-	b.nickname AS '名称',
 	u.open_id AS 'open_id'
 FROM
 	lnsm_user AS u
 LEFT JOIN lnsm_buyer AS b ON u.id = b.buyer_id
 WHERE u.type = 1
-LIMIT 150000, 150000
+LIMIT 150000, 225000
 ;
     """
-
-    from tools.PymysqlMain import pymysqls
 
     pm = pymysqls()
     pm.connects_readModel()
     result = pm.total_vertical_selects(sql)
     pm.closes()
-    # df = pd.DataFrame(result)
-    # try:
-    #     df.to_csv(r'F:\desktop\什么贵呀.csv', index=False, encoding="gbk")
-    # except:
-    #     print("1")
+    df = pd.DataFrame(result, columns=['用户ID', 'open_id'])
+    nicename = time.strftime('%H-%M-%S', time.localtime())
+    path_kkk = r'F:\desktop\测试%s.csv' % nicename
+    try:
+        df.to_csv(path_kkk, index=False, encoding="gbk")
+        print("文件所在的位置 %s" % path_kkk)
+        print("新建的文件大小:%.2fM" % (os.path.getsize(path_kkk) / 1048576))
+    except Exception as e:
+        print(e)
 
-    import xlsxwriter
-
-    # Create an new Excel file and add a worksheet.
-    workbook = xlsxwriter.Workbook(r'F:\desktop\测试数据.csv')
-    worksheet = workbook.add_worksheet()
-
-    worksheet.write(0, 0, '用户ID')
-    worksheet.write(0, 1, '名称')
-    worksheet.write(0, 2, 'open_id')
-    # Write some numbers, with row/column notation.
-    for re in range(len(result)):
-        trr_Re = result[re]
-        worksheet.write(re+1, 0, trr_Re['用户ID'])
-        worksheet.write(re+1, 1, trr_Re['名称'])
-        worksheet.write(re+1, 2, trr_Re['open_id'])
-
-    workbook.close()
+    # import xlsxwriter
+    #
+    # # Create an new Excel file and add a worksheet.
+    # workbook = xlsxwriter.Workbook(r'F:\desktop\测试数据.xlsx')
+    # worksheet = workbook.add_worksheet()
+    # buyer_id = '用户ID'
+    # open_id = 'open_id'
+    # worksheet.write(0, 0, buyer_id)
+    # worksheet.write(0, 1,open_id)
+    # # Write some numbers, with row/column notation.
+    # for re in range(len(result)):
+    #     trr_Re = result[re]
+    #     worksheet.write(re+1, 0, trr_Re[buyer_id])
+    #     worksheet.write(re+1, 1, trr_Re[open_id])
+    #
+    # workbook.close()

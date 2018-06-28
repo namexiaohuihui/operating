@@ -175,27 +175,32 @@ class InteractionCoexistence(BackgroundCoexistence):
         # 将路径传入，解析工作开始
         self.parsing_tbody(content, button_next, self.names_key.program_operation())
 
-    def area_statement_query(self, ti_days):
-        self.ti_days = 0
-        area = self.names_key.yaml_area()
-        region = self.filters[area][self.names_key.yaml_region()]
+    def nishibushishale(self, qwqw):
+        statement = self.overall[self.names_key.wholeQueryStatement()] % qwqw
 
-        manager = self.filters[area][self.names_key.yaml_manager()]
-        director = self.filters[area][self.names_key.yaml_director()]
-        # director = "%s,%s" % (manager, director)
-        # print("peisongdian", region)
-        # print("quyu", director)
-        # print("shijian", self.ti.today_to_stamp(self.ti_days))
-        # print("sql", self.overall[self.names_key.wholeQueryStatement()])
-        start_time, stop_time = self.ti.today_to_stamp(self.ti_days)
-        statement = self.overall[self.names_key.wholeQueryStatement()] % (
-            start_time, stop_time, region, director)
         mysql_list = self.reprogramming_definition(statement)
         self.mysql_statement(mysql_list)
 
+    def area_statement_query(self, days=0):
+        area = self.names_key.yaml_area()
+        region = self.filters[area][self.names_key.yaml_region()]
+
+        director = self.filters[area][self.names_key.yaml_director()]
+
+        start_time, stop_time = self.ti.today_to_stamp(days)
+        qwe = (start_time, stop_time, region, director)
+        self.nishibushishale(qwe)
+
+        # statement = self.overall[self.names_key.wholeQueryStatement()] % (
+        #     start_time, stop_time, region, director)
+        # mysql_list = self.reprogramming_definition(statement)
+        # self.mysql_statement(mysql_list)
+
     def statement_query(self):
         # 根据sql读取数据信息并进行重组
-        statement = self.overall[self.names_key.wholeQueryStatement()] % (self.ti.today_to_stamp(self.ti_days))
+        start_time, stop_time = self.ti.today_to_stamp(self.ti_days)
+        statement = self.overall[self.names_key.wholeQueryStatement()] % (start_time, stop_time)
+
         mysql_list = self.reprogramming_definition(statement)
         self.mysql_statement(mysql_list)
 
@@ -574,8 +579,8 @@ class InteractionCoexistence(BackgroundCoexistence):
             self.ti_days = -6
         elif days == "最近30天":
             self.ti_days = -29
-
-        funktion = [{"func": self.path_tbody, "args": ''}, {"func": self.statement_query, "args": ""}]
+        funktion = [{"func": self.path_tbody, "args": ''},
+                    {"func": self.statement_query, "args": ""}]
         self.start_thread_pool(funktion)
         self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
 
@@ -585,6 +590,7 @@ class InteractionCoexistence(BackgroundCoexistence):
         inside = [self.names_key.yaml_manager(), self.names_key.yaml_director(), self.names_key.yaml_region()]
         self.filters_selector(filters, self.names_key.yaml_area(), inside)  # 区域
         self.label_search_button()  # 点击搜索按钮
-        funktion = [{"func": self.path_tbody, "args": ''}, {"func": self.area_statement_query, "args": "0"}]
+        funktion = [{"func": self.path_tbody, "args": ''},
+                    {"func": self.area_statement_query, "args": ""}]
         self.start_thread_pool(funktion)
         self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)

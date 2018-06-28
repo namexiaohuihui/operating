@@ -76,7 +76,7 @@ class NewMenuDemo(Frame):
         :return:
         '''
         # photoFiles = ('ameng.gif','fengc.gif')
-        photoFiles = ('buyer.png','chasu.png','zong.png')
+        photoFiles = ('开关.png','日记.png','星球.png')
         # photoFiles = ('tupian.png')
         pulldown = Menu(self.menubar)
         self.photoObjs = []

@@ -4,6 +4,8 @@ __author__ = 'DingDong'
 @file: operationSelector.py
 @time: 2018/4/10 11:17
 """
+import time
+
 from selenium.webdriver.support.select import Select
 
 from utils.browser_establish import browser_confirm
@@ -125,12 +127,16 @@ class OperationSelector(action_visible):
         :param text: 需要设置新的option值所对应的text
         :return: 返回替换前的option
         """
-        selected = self.getSelectedOptions()
-        if selected == text:  # 判断当前业已的option是否为需要新设置的数据信息
-            pass
-        else:
-            self.select.select_by_visible_text(text)
-        return selected
+        try:
+            selected = self.getSelectedOptions()
+            if selected == text:  # 判断当前业已的option是否为需要新设置的数据信息
+                pass
+            else:
+                self.select.select_by_visible_text(text)
+        except:
+            print("This parameter is not found in the drop-down box %s" % text)
+        finally:
+            return selected
 
     # ----------------------------------取消已选择的参数------------------------
     def setDeselectAll(self):
@@ -175,6 +181,7 @@ class OperationSelector(action_visible):
     def lable_set_text(self, label, text):
         self.setSelectData(label)
         self.setSelectorText(text)
+        time.sleep(0.5)
 
 
 if __name__ == '__main__':

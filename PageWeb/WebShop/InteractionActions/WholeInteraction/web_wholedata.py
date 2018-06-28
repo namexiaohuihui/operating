@@ -26,8 +26,8 @@ class InterationOrderLable(unittest.TestCase):
     @classmethod
     def tearDownClass(cls) -> '关闭浏览器,做程序结尾工作':
         try:
-            whole.driver.close()
-            whole.driver.quit()
+            # whole.driver.close()
+            # whole.driver.quit()
             pass
         except:
             print("又见UTF-8错误")

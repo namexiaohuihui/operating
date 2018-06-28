@@ -260,7 +260,7 @@ class ComparedVerify(object):
         faden = []  # 该列表存放已经开启的线程
         for para in funktion:  # 遍历函数开启线程
             # th是内置的函数
-            print("提交的参数 %s %s " %(para['func'],para['args']) )
+            print("提交的参数--%s--" % (para['args']))
             threads = th(para['func'], para['args'])
             threads.start()
             faden.append(threads)
@@ -275,12 +275,14 @@ class ComparedVerify(object):
         print("Thread execution finished %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
         return inhalt
 
-    def xxxxx(self,msg):
+    def xxxxx(self, msg):
         return msg
-    def yyyyy(self,msg):
+
+    def yyyyy(self, msg):
         return msg
+
+
 if __name__ == '__main__':
     cv = ComparedVerify()
-    kkkk = [{"func":cv.xxxxx,"args":'5'},{"func":cv.yyyyy,"args":'4'}]
+    kkkk = [{"func": cv.xxxxx, "args": '5'}, {"func": cv.yyyyy, "args": '4'}]
     print(cv.start_thread_pool(kkkk))
-

@@ -7,7 +7,13 @@
 """
 import configparser
 import os
-
+import sys
+import os
+#获取项目路径下的目录
+os.chdir('E:\\operating')
+print("1")
+#将项目路径保存
+sys.path.append('E:\\operating')
 
 def establish_con(model):
     cur_path = os.path.dirname(os.path.realpath(__file__))
