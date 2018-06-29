@@ -955,7 +955,7 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         # 通过pandas将数据进行转换
         return self.conversionPandas(columnLabel)
 
-    def internal_read_excel(self):
+    def internal_read_excel(self, title="函数"):
         '''
         利用pandas内置函数，直接读取xlsx的数据信息
         并将函数名提取出来，用于序列号的赋值
@@ -964,7 +964,7 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         self._data = pd.read_excel(self._date, self._title)
         self._title = self._data.keys()
         self._date = self.row_index_header(self._data)
-        columnLabel = list(self._data["函数"])
+        columnLabel = list(self._data[title])  # 设置序列号的名字
         return self.conversionPandas(columnLabel)
 
     def conversion_column(self, df, columnLabel):
@@ -986,6 +986,8 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
 
 if __name__ == '__main__':
     # `type` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '类型 1买家 2商家 3配送员 4配送中心 5供应商',
+    status_number = '200000'
+    stop_number = '100000'
     sql = """
     SELECT
 	u.id AS '用户ID',
@@ -994,9 +996,9 @@ FROM
 	lnsm_user AS u
 LEFT JOIN lnsm_buyer AS b ON u.id = b.buyer_id
 WHERE u.type = 1
-LIMIT 150000, 225000
+LIMIT %s, %s
 ;
-    """
+    """ % (status_number, stop_number)
 
     pm = pymysqls()
     pm.connects_readModel()
@@ -1004,7 +1006,7 @@ LIMIT 150000, 225000
     pm.closes()
     df = pd.DataFrame(result, columns=['用户ID', 'open_id'])
     nicename = time.strftime('%H-%M-%S', time.localtime())
-    path_kkk = r'F:\desktop\测试%s.csv' % nicename
+    path_kkk = r'F:\desktop\数据量%s-%s.csv' % (stop_number, nicename)
     try:
         df.to_csv(path_kkk, index=False, encoding="gbk")
         print("文件所在的位置 %s" % path_kkk)

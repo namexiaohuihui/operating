@@ -5,9 +5,11 @@
 @time: 2017/6/20 22:24
 """
 import os
-from tools import DefinitionErrors as dError
+
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
+
+from tools import DefinitionErrors as dError
 
 r'''
                        _oo0oo_
@@ -35,9 +37,11 @@ r'''
                佛祖保佑         永无BUG
 '''
 
+
 # __new__创建一个对象，__init__实例化一个对象
 class browser_confirm(object):
     BROWSER_NAME = ""
+
     # 单例类判断。如果该类创建过就不需要重新创建了
     def __new__(cls, *args, **kw):
         if not hasattr(cls, '_instance'):
@@ -57,17 +61,18 @@ class browser_confirm(object):
             # 实现全局变量的引用
         except WebDriverException as msg:
             self.writeLog()
-        except Exception :
+        except Exception:
             self.writeLog()
+
     def chrome_browser_options(self, options):
         try:
             self.browser = webdriver.Chrome(executable_path=r"E:\drivers\Drivers\chromedriver238-67.exe",
-                                        chrome_options=options)
+                                            chrome_options=options)
             self.BROWSER_NAME = "有options的谷歌"
             # 实现全局变量的引用
         except WebDriverException as msg:
             self.writeLog()
-        except Exception :
+        except Exception:
             self.writeLog()
 
     # 调用函数，实现打开ie浏览器的步骤
@@ -99,7 +104,7 @@ class browser_confirm(object):
         return self.browser
 
     # 运行浏览器
-    def url_opens(self, url=None,options=None):
+    def url_opens(self, url=None, options=None):
         # 创建浏览器对象
         # self.firefox_browser()
         self.chrome_browser_options(options=options) if options else self.chrome_browser()
@@ -116,6 +121,10 @@ class browser_confirm(object):
 
         return self.browser
 
+    def dingdong_mobile_opens(self, url):
+        options = self.mobile_phone_mode()
+        self.url_opens(url, options)
+
     #   设置手机模式
     def mobile_phone_mode(self):
         try:
@@ -127,7 +136,6 @@ class browser_confirm(object):
             mobile_emulation = {
                 "deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},
                 "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1"}
-            
 
             # mobile_emulation = {"browserName": "IE"}
             options = Options()

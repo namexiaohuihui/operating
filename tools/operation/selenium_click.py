@@ -38,6 +38,7 @@ from tools.operation.selenium_visible import action_visible
 
 
 class action_click(action_visible):
+
     def id_click(self, browser, prompt):
         ele = self.is_visible_id(browser, prompt)
         if ele != False:  # 判断是否出现
@@ -66,8 +67,11 @@ class action_click(action_visible):
         return ele
 
     def element_click(self, element):
-        element.click()
-        self.sleep_Rest()
+        try:
+            element.click()
+            self.sleep_Rest()
+        except:
+            print("元素点击的地方出现错误")
 
     def css_confirm_prompt(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)

@@ -18,17 +18,18 @@ from tools import DefinitionErrors as dError
 
 class action_visible(object):
     # ------------------------------根据已知元素查找下面子元素的标签-------------------
-    def ele_visible_tag_name(self, driver, locator, timeout=3):
+    def ele_visible_tag_name(self, driver, locator, timeout=5):
         # 根据现有的元素和标签查找子元素是否存在
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.TAG_NAME, locator)))
             return ele
         except Exception as e:
-            self.error_log(driver, e)
+            print("%s 元素没找到" % locator)
             return False
-    # ------------------------------等待某个元素可见，默认超时10秒-------------------
-    def is_visible_xpath(self, driver, locator, timeout=10):
-        # 一直等待某元素可见，默认超时10秒
+
+    # ------------------------------等待某个元素可见，默认超时5秒-------------------
+    def is_visible_xpath(self, driver, locator, timeout=5):
+        # 一直等待某元素可见，默认超时5秒
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.XPATH, locator)))
             return ele
@@ -38,54 +39,55 @@ class action_visible(object):
             # error_log(function)
             return False
 
-    def is_visible_css_selectop(self, driver, locator, timeout=3):
-        # 一直等待某元素可见，默认超时10秒，返回找到的单个元素组
+    def is_visible_css_selectop(self, driver, locator, timeout=5):
+        # 一直等待某元素可见，默认超时5秒，返回找到的单个元素组
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             return ele
         except Exception as e:
-            self.error_log(driver, e)
+            print('元素不存在出现超时的情况 %s' % locator)
+            # self.error_log(driver, e)
             return False
 
-
-
-    def is_visibles_css_selectop(self, driver, locator, timeout=3):
-        # 一直等待某元素可见，默认超时10秒,返回全部找到的数据元素组
+    def is_visibles_css_selectop(self, driver, locator, timeout=5):
+        # 一直等待某元素可见，默认超时5秒,返回全部找到的数据元素组
         try:
             ele = ui.WebDriverWait(driver, timeout).until(
                 EC.visibility_of_all_elements_located((By.CSS_SELECTOR, locator)))
             return ele
         except Exception as e:
-            self.error_log(driver, e)
+            # self.error_log(driver, e)
+            print("%s 元素找不到" % locator)
             return False
 
     def is_visible_id(self, driver, locator, timeout=3):
-        # 一直等待某元素可见，默认超时10秒
+        # 一直等待某元素可见，默认超时5秒
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.ID, locator)))
             return ele
         except TimeoutException:
+            print("没有找到输入点 %s" % locator)
             return False
 
-    def is_visible_name(self, driver, locator, timeout=10):
-        # 一直等待某元素可见，默认超时10秒
+    def is_visible_name(self, driver, locator, timeout=5):
+        # 一直等待某元素可见，默认超时5秒
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.NAME, locator)))
             return ele
         except TimeoutException:
             return False
 
-    # ------------------------------等待某个元素不可见，默认超时10秒-------------------
-    def is_not_visible_xpath(self, driver, locator, timeout=10):
-        # 一直等待某个元素消失，默认超时10秒
+    # ------------------------------等待某个元素不可见，默认超时5秒-------------------
+    def is_not_visible_xpath(self, driver, locator, timeout=5):
+        # 一直等待某个元素消失，默认超时5秒
         try:
             ui.WebDriverWait(driver, timeout).until_not(EC.visibility_of_element_located((By.XPATH, locator)))
             return True
         except TimeoutException:
             return False
 
-    def is_not_visible_css_selectop(self, driver, locator, timeout=10):
-        # 一直等待某个元素消失，默认超时10秒
+    def is_not_visible_css_selectop(self, driver, locator, timeout=5):
+        # 一直等待某个元素消失，默认超时5秒
         try:
             # element_to_be_clickable元素存在并且可用，以便确定元素是可点击的
 
@@ -94,16 +96,16 @@ class action_visible(object):
         except TimeoutException:
             return False
 
-    def is_not_visible_id(self, driver, locator, timeout=10):
-        # 一直等待某个元素消失，默认超时10秒
+    def is_not_visible_id(self, driver, locator, timeout=5):
+        # 一直等待某个元素消失，默认超时5秒
         try:
             ui.WebDriverWait(driver, timeout).until_not(EC.visibility_of_element_located((By.ID, locator)))
             return True
         except TimeoutException:
             return False
 
-    def is_not_visible__name(self, driver, locator, timeout=10):
-        # 一直等待某个元素消失，默认超时10秒
+    def is_not_visible__name(self, driver, locator, timeout=5):
+        # 一直等待某个元素消失，默认超时5秒
         try:
             ui.WebDriverWait(driver, timeout).until_not(EC.visibility_of_element_located((By.NAME, locator)))
             return True
@@ -153,8 +155,6 @@ class action_visible(object):
             return text
         except TimeoutException:
             return False
-
-
 
     # --------------------------其他一些等待条件的使用-----------------
     def _visible_text_css(self, driver, locator, text, timeout=5):
