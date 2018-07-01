@@ -64,3 +64,9 @@ TypeError: not all arguments converted during string formatting
 AttributeError: 'NoneType' object has no attribute 'encoding'
 原因：mysql进行查询时，字符集charset没有设置为utf8而是设置为QQAA导致的。
 将数据重新按照规则进行设置
+
+ValueError: I/O operation on closed file.
+原因：使用了with open（）as file:函数里面创建内容参数
+
+优化：with open（） as file:往csv写入数据时，每个数据之间都有一个空格。
+方法： open(newline='')指定newline参数，该参数是每个csv之间的分割符

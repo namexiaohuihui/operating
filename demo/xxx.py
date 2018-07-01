@@ -7,6 +7,8 @@ from tools.openpyxlExcel import OpenExcelPandas
 from tools.operation.selenium_click import action_click
 from tools.operation.selenium_input import action_input
 
+file_path = 'C:\\Users\\70486\\Desktop\\'
+
 
 class AotuLoginStop(unittest.TestCase):
     aci = action_input()
@@ -93,13 +95,13 @@ class AotuLoginStop(unittest.TestCase):
         return ele_toast
 
     def test_auto_bunus(self):
-        read = OpenExcelPandas(r'F:\desktop\买家记录300.xlsx', sheet='名字')
+        read = OpenExcelPandas(file_path + '买家记录300.xlsx', sheet='名字')
         df_excelData = read.internal_read_excel(title='买家ID')
         # print(df_excelData)
         df_excelData.loc[:, '验证码'] = np.array([5] * len(df_excelData))
         print("------------------")
         try:
-            for start in range(185, 200):
+            for start in range(len(df_excelData)):
                 print('+++++++++++++++++++++')
                 start_iloc = dict(df_excelData.iloc[start])
                 print("正在执行第 %s 的数据, %s" % (str(start), start_iloc))
@@ -107,14 +109,14 @@ class AotuLoginStop(unittest.TestCase):
                 ele_toast = self.auto_home()
                 self.auto_stop()
                 start_iloc['验证码'] = ele_toast
-                df_excelData.iloc[start] = start_iloc
+                df_excelData.iloc[start] = start_iloc.values()
             self.driver.close()
         except Exception as  e:
             print(e)
         finally:
             print("*************************")
             print(df_excelData)
-            df_excelData.to_csv(r'F:\desktop\执行完毕.xlsx', index=False, encoding="gbk")
+            df_excelData.to_csv(file_path + '执行完毕.xlsx', index=False, encoding="gbk")
             print("*************************")
 
 

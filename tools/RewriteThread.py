@@ -8,10 +8,11 @@
 import os
 import time
 from threading import Thread
-
+from multiprocessing import cpu_count, Process, Queue
 import requests
 from bs4 import BeautifulSoup
 from tomorrow import threads
+
 
 # https://www.cnblogs.com/qualitysong/archive/2011/05/27/2060246.html
 class InheritThread(Thread):
@@ -22,7 +23,7 @@ class InheritThread(Thread):
         self.args = args
 
     def run(self):
-        self.result = self.func(*self.args)
+        self.result = self.func(self.args)
         print("线程工作者 %s " % self.func)
 
     def get_result(self):
@@ -34,6 +35,20 @@ class InheritThread(Thread):
     def ThreadUse(self):
         x.join()  # 在这里统一执行线程等待的方法
         x.start()  # 线程开始
+
+
+class InheritProcess(Process):
+    # 通过并发异步形式执行
+    def __init__(self, fun, args=()):
+        Process.__init__(self)
+        self.func = fun
+        self.args = args
+
+    def run(self):
+        for link_key, link_value in self.args[0].items():
+            print("是否为最后一个", link_key,link_value)
+            self.result = self.func(link_key,link_value)
+
 
 # 当前脚本所在的目录
 
@@ -149,8 +164,10 @@ def xxxx(x):
 
 def yyyy(y):
     return 3 * y
+
+
 if __name__ == '__main__':
-    funktion = [{"func":xxxx,"args":2},{"func":yyyy,"args":3}]
+    funktion = [{"func": xxxx, "args": 2}, {"func": yyyy, "args": 3}]
     faden = []  # 该列表存放已经开启的线程
     inhalt = []  # 该列表存放线程中所执行的函数返回值内容
 

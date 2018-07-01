@@ -104,10 +104,17 @@ class browser_confirm(object):
         return self.browser
 
     # 运行浏览器
-    def url_opens(self, url=None, options=None):
+    def url_opens(self, url=None, liulanqi='chrome', options=None):
         # 创建浏览器对象
-        # self.firefox_browser()
-        self.chrome_browser_options(options=options) if options else self.chrome_browser()
+        if 'chrome' == liulanqi:
+
+            self.chrome_browser_options(options=options) if options else self.chrome_browser()
+        elif 'firefox' == liulanqi:
+            self.firefox_browser()
+
+        else:
+            self.ie__browser()
+
         self.browser.maximize_window()
 
         if url == None:
@@ -150,3 +157,15 @@ class browser_confirm(object):
 
         # 调用错误类
         dError.error_get(basename, self.browser)
+
+
+def nihao(lllffs):
+    print(lllffs[0])
+    print(lllffs[1])
+    return lllffs[1]
+
+
+if __name__ == '__main__':
+    link_range_list = [(0, 50), (51, 100), (101, 150), (151, 200), (201, 250), (251, 300)]
+    for i in range(len(link_range_list)):
+        print(link_range_list[i])

@@ -24,3 +24,8 @@ class QRCode(object):
         for item in result:
             print(item.type)
             print(item.data)
+
+
+if __name__ == '__main__':
+    link_range_list = [(0, 50), (51, 100), (101, 150), (151, 200), (201, 250), (251, 300)]
+    print(link_range_list[0])

@@ -39,10 +39,21 @@ class demo:
 
 
 if __name__ == '__main__':
-    foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]
-    print([x * 2 + 10 for x in foo])
-    ttt = [x for x in foo if x % 3 == 0]
-    print(ttt)
-    # function_with_one_star(1, "11", 3,4)
-    # function_with_two_stars(a=1, b=2, c=3)
-
+    # with open("nihao.txt","r",encoding='utf8') as klu:
+    #     result = klu.read()
+    #     print(result)
+    #
+    # nishibushi =[]
+    # import csv
+    # with open(r"C:\Users\70486\Desktop\买家记录300.csv", "r") as klu:
+    #     result = csv.reader(klu)
+    #     print(type(result))
+    #     for row in result:
+    #         nishibushi.append(row)
+    #         pass
+    # with open(r"C:\Users\70486\Desktop\是在.csv", "w",newline='') as nihf:
+    #     result = csv.writer(nihf)
+    #     # print(nishibushi)
+    #     for row in nishibushi:
+    #         result.writerow(row)
+    pass
