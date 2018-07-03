@@ -8,17 +8,14 @@
 """
 from tkinter import  *
 root = Tk()
-
+root.geometry('+400+200')
+root.minsize(200,200)
 var1 = StringVar()
 var2 = StringVar()
-shenme = ('guilao1','zhishenm','haha','shen')
 opt1 = OptionMenu(root,var1,'eggs','toast','guilao1','zhishenm','haha','shen')
 opt2 = OptionMenu(root,var2,'bacon','sausage')
-for value in shenme:
-    opt2.value = value
 opt1.pack(fill = X)
 opt2.pack(fill = X)
-
 var1.set('span')
 var2.set('han')
 def state():
