@@ -73,15 +73,16 @@ class READEXCEL:
         self.workbook = load_workbook(filename=self.excel)  # 打开文档
 
         # 判断是根据数字还是文字进行读取sheet，如果是数字的话必须小于现有的长度
-        if type(sheet) in [int] and sheet < len(self.workbook.sheetnames):
-            self.sheetbook = self.workbook[self.workbook.sheetnames[sheet]]
+        if type(sheet) in [int] and sheet <= len(self.workbook.sheetnames):
+            # elf.workbook.sheetnames 打印工作薄名称
+            self.sheetbook = self.workbook[self.workbook.sheetnames[sheet - 1]]
 
         # 如果是文字
         elif type(sheet) in [str]:
-            self.sheetbook = self.workbook[self.workbook.sheetnames[sheet]]
+            self.sheetbook = self.workbook[sheet]
 
         # 长度过长时提示
-        elif sheet >= len(self.workbook.sheetnames):
+        elif sheet > len(self.workbook.sheetnames):
             print("sheet索要的位置大于现有的长度")
 
         # 最后输出
@@ -115,18 +116,16 @@ class READEXCEL:
         row_col_data = []  # 存储除了标题以外的内容
         title_data = []  # 只存储标题内容
         _data = True  # 用来控制第一行打印的数据为用例标题
-        for row in content:
+        for row in content:  # 工作薄的全部内容
             row_data = []
-            for single in row:
+            for single in row:  # 遍历每行的数据信息
                 if _data:
-                    title_data.append(single.value)
+                    title_data.append(single.value)  # 添加标题
                 else:
-                    row_data.append(single.value)
-            _data = False
-
-            if len(row_data) >= 9:  # 过滤一些不要的数据
+                    row_data.append(single.value)  # 添加内容
+            if not _data:
                 row_col_data.append(row_data)
-
+            _data = False
         return row_col_data, title_data
 
     def die_angegebene_keys(self, row_col_data, title_data, keys="函数"):
@@ -922,15 +921,20 @@ class PANDASDATA:
         # 获取‘status’列标签下面内容为‘xxx’的全部data数据内容
         df = df[df['status'].isin(['xxx'])]
 
+        # 将指定行数的内容进行返回
+        read._data = pd.read_csv('path', sep=',', engine='python')
+        read._data.get_chunk(5)
+
 
 class OpenExcelPandas(READEXCEL, PANDASDATA):
 
-    def __init__(self, name='', sheet=''):
+    def __init__(self, name='', sheet=','):
         """
         关于_date和_title的解释
         读取excel的数据时：
           _date表示的文件的路径
           _title表示的是工作薄的页面
+
 
         通过pandas进行转换时：
           _date表示的数据
@@ -941,19 +945,27 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         self._date = name
         self._title = sheet
 
-    def readCaseExcel(self):
+    def readCaseExcel(self, title='函数'):
         # 创建工作薄workbook对象
-        self.startReadExcel(self._date, self._title)
+        self.startReadExcel(self._date, self._title) if self._title else self.startReadExcel(self._date)
 
         # 将case中内容部分的数据（除标题以外的数据）读出
         # 将case中标题的全部内容读出
         self._date, self._title = self.position_sheet_row_value()
-
         # 获取指定标题的内容
-        columnLabel = self.die_angegebene_keys(row_col_data=self._date, title_data=self._title)
+        columnLabel = self.die_angegebene_keys(row_col_data=self._date, title_data=self._title, keys=title)
 
         # 通过pandas将数据进行转换
         return self.conversionPandas(columnLabel)
+
+    def internal_pandas_read(self, title='函数'):
+        genericpath = os.path.splitext(self._date)[1]  # 切割文件后缀名
+        if 'xlsx' in genericpath:
+            return self.internal_read_excel(title)
+        elif 'csv' in genericpath:
+            return self.internal_read_csv(title)
+        else:
+            print("If pandas read the document information, they should pass in the formatted document..")
 
     def internal_read_excel(self, title="函数"):
         '''
@@ -962,10 +974,20 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         :return:
         '''
         self._data = pd.read_excel(self._date, self._title)
-        self._title = self._data.keys()
-        self._date = self.row_index_header(self._data)
         columnLabel = list(self._data[title])  # 设置序列号的名字
-        return self.conversionPandas(columnLabel)
+        return self.conversion_column(self._data, columnLabel)
+
+    def internal_read_csv(self, title="函数"):
+        '''
+        读取csv文档数据。sep 为csv切割符号
+        header 指定行为矩阵的key
+        engine 最好写吧，不然容易意不意外惊不惊喜
+        :param title:  矩阵中，拿来设置序列号的相应行key
+        :return:
+        '''
+        self._data = pd.read_csv(self._date, sep=self._title, header=0, engine='python')
+        columnLabel = list(self._data[title])  # 设置序列号的名字  10W数据量
+        return self.conversion_column(self._data, columnLabel)
 
     def conversion_column(self, df, columnLabel):
         if columnLabel != None:
@@ -984,27 +1006,29 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         return df.fillna(value='')
 
 
-if __name__ == '__main__':
+def sql_de_zhixing():
     # `type` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '类型 1买家 2商家 3配送员 4配送中心 5供应商',
-    status_number = '200000'
+    status_number = '0'
     stop_number = '100000'
     sql = """
-    SELECT
-	u.id AS '用户ID',
-	u.open_id AS 'open_id'
-FROM
-	lnsm_user AS u
-LEFT JOIN lnsm_buyer AS b ON u.id = b.buyer_id
-WHERE u.type = 1
-LIMIT %s, %s
-;
-    """ % (status_number, stop_number)
+        SELECT
+    	u.id AS '买家ID',
+    	u.open_id AS 'open_id',
+    	u.phone AS '认证手机'
+    FROM
+    	lnsm_user AS u
+    LEFT JOIN lnsm_buyer AS b ON u.id = b.buyer_id
+    WHERE u.type = 1
+    ORDER BY `id` DESC
+    LIMIT %s, %s
+    ;
+        """ % (status_number, stop_number)
 
     pm = pymysqls()
     pm.connects_readModel()
     result = pm.total_vertical_selects(sql)
     pm.closes()
-    df = pd.DataFrame(result, columns=['用户ID', 'open_id'])
+    df = pd.DataFrame(result, columns=['买家ID', 'open_id', '认证手机'])
     nicename = time.strftime('%H-%M-%S', time.localtime())
     path_kkk = r'F:\desktop\数据量%s-%s.csv' % (stop_number, nicename)
     try:
@@ -1014,19 +1038,22 @@ LIMIT %s, %s
     except Exception as e:
         print(e)
 
-    # import xlsxwriter
-    #
-    # # Create an new Excel file and add a worksheet.
-    # workbook = xlsxwriter.Workbook(r'F:\desktop\测试数据.xlsx')
-    # worksheet = workbook.add_worksheet()
-    # buyer_id = '用户ID'
-    # open_id = 'open_id'
-    # worksheet.write(0, 0, buyer_id)
-    # worksheet.write(0, 1,open_id)
-    # # Write some numbers, with row/column notation.
-    # for re in range(len(result)):
-    #     trr_Re = result[re]
-    #     worksheet.write(re+1, 0, trr_Re[buyer_id])
-    #     worksheet.write(re+1, 1, trr_Re[open_id])
-    #
-    # workbook.close()
+
+if __name__ == '__main__':
+    file_path = 'F:\\desktop\\'
+    read_name = "买家记录300.xlsx"
+    read_name2 = "买家记录300.csv"
+    # 　读取xlsx的方式
+    read = OpenExcelPandas(file_path + read_name, sheet='买家记录300')
+    df_excelData = read.internal_pandas_read("买家ID")
+    print(df_excelData)
+    print("--------------------")
+    # 读取csv的方式
+    read = OpenExcelPandas(file_path + read_name2, sheet=',')
+    df_excelData = read.internal_pandas_read("买家ID")
+    print(df_excelData)
+    print("--------------------")
+    # 不通过pandas来读取文档
+    read = OpenExcelPandas(file_path + read_name, sheet='买家记录300')
+    df_excelData = read.readCaseExcel()
+    print(df_excelData)

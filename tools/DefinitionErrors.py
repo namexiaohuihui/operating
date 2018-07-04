@@ -37,3 +37,17 @@ def error_output(basename, _browser_,e = None):
     log.info("发生错误时打印的错误数据信息: %s" % error)
     # basename = basename + ".png"
     # _browser_.get_screenshot_as_file(os.path.join(log_path, basename))
+
+def error_mess(basename,e = None):
+    error = e if e else traceback.format_exc()
+    log = Log(basename, classification='ERROR')
+    log.info("信息错误%s:  %s" % (basename,error))
+    # basename = basename + ".png"
+    # _browser_.get_screenshot_as_file(os.path.join(log_path, basename))
+if __name__ == '__main__':
+    link_range_len = [{'firefox': (0, 2)}, {'chrome': (4, 6)}]
+    print(link_range_len[0]['firefox'][0])
+    for link_key, link_value in link_range_len[0].items():
+        print(link_key)
+        print(link_value)
+        pass

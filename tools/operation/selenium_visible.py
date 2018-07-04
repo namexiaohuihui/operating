@@ -222,7 +222,7 @@ class action_visible(object):
         browser.execute_script("window.scrollTo(0,document.body.scrollHeight)")
 
     # -------------------------延时以及错误的定义---------------------------
-    def sleep_Rest(self, ti=1):  # 延迟
+    def sleep_Rest(self, ti=0.5):  # 延迟
         sleep(ti)
 
     def error_log(self, driver, e=None):

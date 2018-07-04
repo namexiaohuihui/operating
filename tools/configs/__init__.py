@@ -4,8 +4,3 @@ __author__ = 'DingDong'
 @file: __init__.py.py
 @time: 2018/6/28 16:57
 """
-nihao = ''
-if nihao:
-    print("@")
-else:
-    print("3")

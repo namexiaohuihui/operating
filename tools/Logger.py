@@ -5,9 +5,10 @@
 @time: 2017/12/21 22:02
 @项目名称:operating
 """
-import logging, time
-import pprint
+import logging
 import os
+import pprint
+import time
 
 # log_path是存放日志的路径
 cur_path = os.path.dirname(os.path.realpath(__file__))
@@ -25,9 +26,10 @@ class Log():
         self.logger.setLevel(logging.DEBUG)  # 设置输入语句的等级
         # 日志输出格式
         # self.formatter = logging.Formatter('[%(asctime)s] - %(name)s - %(filename)s] - %(levelname)s: %(message)s')
-        self.formatter = logging.Formatter('[%(asctime)s] - %(name)s] - %(levelname)s: %(message)s')
-
-        self.function = "Undefined function"
+        self.formatter = logging.Formatter('[%(asctime)s] - %(name)s] - %(levelname)s: %(message)s',
+                                           datefmt='%Y-%m-%d %H:%M:%S')
+        # self.function = "Undefined function"
+        self.fun_name = "Undefined function"
 
     def __console(self, level, message):
         # 创建一个FileHandler，用于写到本地
@@ -72,9 +74,17 @@ class Log():
     def functionName(self, functionName="Undefined function"):
         self.function = functionName
 
-    def log_ppriny(self,message):
+    def getFunctionName(self):
+        return self.function
+
+    def log_ppriny(self, message):
         pprint.pprint(message)
+
+    fun_name = property(getFunctionName, functionName, "log获取的时候出错了")
+
 
 if __name__ == "__main__":
     basename = "112"
-    Log().info("123123")
+    logs = Log()
+    logs.fun_name = "biaer "
+    logs.info(basename)

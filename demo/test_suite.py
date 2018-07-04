@@ -44,13 +44,13 @@ if __name__ == '__main__':
     #     print(result)
     #
     # nishibushi =[]
-    # import csv
-    # with open(r"C:\Users\70486\Desktop\买家记录300.csv", "r") as klu:
-    #     result = csv.reader(klu)
-    #     print(type(result))
-    #     for row in result:
-    #         nishibushi.append(row)
-    #         pass
+    import csv
+    with open(r"F\desktop\买家记录300.csv", "r") as klu:
+        result = csv.reader(klu)
+        print(type(result))
+        for row in result:
+            nishibushi.append(row)
+            pass
     # with open(r"C:\Users\70486\Desktop\是在.csv", "w",newline='') as nihf:
     #     result = csv.writer(nihf)
     #     # print(nishibushi)

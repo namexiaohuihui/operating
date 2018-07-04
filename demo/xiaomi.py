@@ -74,5 +74,7 @@ class GetXiaoMi:
 
 
 if __name__ == '__main__':
-    run = GetXiaoMi()
-    run.get_xiaomi()
+    # run = GetXiaoMi()
+    # run.get_xiaomi()
+    ssa = """nihao %s %s gsrfwer  %s """  % ( "erwqe","dfgdf","asdas")
+    print(ssa)

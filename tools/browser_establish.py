@@ -64,27 +64,16 @@ class browser_confirm(object):
         except Exception:
             self.writeLog()
 
-    def chrome_browser_options(self, options):
-        try:
-            self.browser = webdriver.Chrome(executable_path=r"E:\drivers\Drivers\chromedriver238-67.exe",
-                                            chrome_options=options)
-            self.BROWSER_NAME = "有options的谷歌"
-            # 实现全局变量的引用
-        except WebDriverException as msg:
-            self.writeLog()
-        except Exception:
-            self.writeLog()
-
     # 调用函数，实现打开ie浏览器的步骤
-    def ie__browser(self):
+    def ie_browser(self):
         try:
+            # https://www.cnblogs.com/ppppying/p/6143658.html
             # 实现全局变量的引用
-            self.browser = webdriver.Ie(r"E:\drivers\IEDriverServer.exe")
+            self.browser = webdriver.Ie(executable_path=r"E:\drivers\Drivers\IEDriverServer.exe")
             self.BROWSER_NAME = "IE浏览器"
             # print("打开IE")
         except:
             self.writeLog()
-        return self.browser
 
     # 调用函数，实现打开火狐浏览器的步骤
     def firefox_browser(self):
@@ -104,29 +93,27 @@ class browser_confirm(object):
         return self.browser
 
     # 运行浏览器
-    def url_opens(self, url=None, liulanqi='chrome', options=None):
+    def url_opens(self, url=None, liulanqi='firefox', options=None):
         # 创建浏览器对象
         if 'chrome' == liulanqi:
-
-            self.chrome_browser_options(options=options) if options else self.chrome_browser()
+            self.chrome_browser()
         elif 'firefox' == liulanqi:
             self.firefox_browser()
-
         else:
-            self.ie__browser()
+            self.ie_browser()
 
-        self.browser.maximize_window()
+        if self.browser:
+            self.browser.maximize_window()
 
-        if url == None:
-            # 输入网址
-            self.browser.get('http://www.baidu.com')
-        else:
             # 输入网址
             self.browser.get(url)
-        # 等待网页加载，加载时间为10s，加载完就跳过
-        self.browser.implicitly_wait(15)
+            # 等待网页加载，加载时间为10s，加载完就跳过
+            # 隐形等待时间和显性等待时间不同时，默认使用两者之间最大的那个
+            self.browser.implicitly_wait(5)
 
-        return self.browser
+            return self.browser
+        else:
+            return False
 
     def dingdong_mobile_opens(self, url):
         options = self.mobile_phone_mode()
@@ -156,16 +143,5 @@ class browser_confirm(object):
         basename = os.path.splitext(os.path.basename(__file__))[0]
 
         # 调用错误类
-        dError.error_get(basename, self.browser)
+        dError.error_mess(basename)
 
-
-def nihao(lllffs):
-    print(lllffs[0])
-    print(lllffs[1])
-    return lllffs[1]
-
-
-if __name__ == '__main__':
-    link_range_list = [(0, 50), (51, 100), (101, 150), (151, 200), (201, 250), (251, 300)]
-    for i in range(len(link_range_list)):
-        print(link_range_list[i])
