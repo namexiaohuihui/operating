@@ -27,7 +27,7 @@ def zheshitaochaugn():
     showwarning("文件", "你打开的文件为 %s " % windonws)
 
 def showjinggao(demo):
-    showwarning("什么？？", "哈哈 %s " % list(demos_win[demo]()))
+    showwarning("输入框表头",demos_win[demo]())
 
 def makemenu(win):
     top =Menu(win) # 设置菜单归属于这个窗口。 win = top-level window

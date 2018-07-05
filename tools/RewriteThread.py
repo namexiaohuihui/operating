@@ -167,17 +167,19 @@ def yyyy(y):
 
 
 if __name__ == '__main__':
-    funktion = [{"func": xxxx, "args": 2}, {"func": yyyy, "args": 3}]
-    faden = []  # 该列表存放已经开启的线程
-    inhalt = []  # 该列表存放线程中所执行的函数返回值内容
-
-    for para in funktion:  # 遍历函数开启线程
-        # th是内置的函数
-        th = InheritThread(para['func'], [para['args']])
-        th.start()
-        faden.append(th)
-
-    for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
-        argu.join()
-        inhalt.append(argu.get_result())
-    print(inhalt)
+    # many_thread()
+    single_thread()
+    # funktion = [{"func": xxxx, "args": 2}, {"func": yyyy, "args": 3}]
+    # faden = []  # 该列表存放已经开启的线程
+    # inhalt = []  # 该列表存放线程中所执行的函数返回值内容
+    #
+    # for para in funktion:  # 遍历函数开启线程
+    #     # th是内置的函数
+    #     th = InheritThread(para['func'], [para['args']])
+    #     th.start()
+    #     faden.append(th)
+    #
+    # for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
+    #     argu.join()
+    #     inhalt.append(argu.get_result())
+    # print(inhalt)
