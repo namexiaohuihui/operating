@@ -118,11 +118,14 @@ class READEXCEL:
         _data = True  # 用来控制第一行打印的数据为用例标题
         for row in content:  # 工作薄的全部内容
             row_data = []
+            print("***")
             for single in row:  # 遍历每行的数据信息
                 if _data:
                     title_data.append(single.value)  # 添加标题
                 else:
                     row_data.append(single.value)  # 添加内容
+                    print(type(single.value))
+            print("***")
             if not _data:
                 row_col_data.append(row_data)
             _data = False
@@ -951,12 +954,12 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
 
         # 将case中内容部分的数据（除标题以外的数据）读出
         # 将case中标题的全部内容读出
-        self._date, self._title = self.position_sheet_row_value()
+        self._data, self._title = self.position_sheet_row_value()
         # 获取指定标题的内容
-        columnLabel = self.die_angegebene_keys(row_col_data=self._date, title_data=self._title, keys=title)
+        # columnLabel = self.die_angegebene_keys(row_col_data=self._date, title_data=self._title, keys=title)
 
         # 通过pandas将数据进行转换
-        return self.conversionPandas(columnLabel)
+        return self.conversionPandas(title)
 
     def internal_pandas_read(self, title='函数'):
         genericpath = os.path.splitext(self._date)[1]  # 切割文件后缀名
@@ -986,24 +989,25 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         :return:
         '''
         self._data = pd.read_csv(self._date, sep=self._title, header=0, engine='python')
-        columnLabel = list(self._data[title])  # 设置序列号的名字  10W数据量
+        columnLabel = list(self._data[title])  # 设置序列号的名字
         return self.conversion_column(self._data, columnLabel)
 
     def conversion_column(self, df, columnLabel):
         if columnLabel != None:
             df = df.set_index([columnLabel])  # 设置df数据中的序列号
-        return df
-
-    def conversionPandas(self, columnLabel=None):
-        # 创建pandas中的数据源
-        self.startPandasData(self._date)
-
-        df = self.dataFrame(columns=self._title)  # 设置标题名
-
-        if columnLabel:
-            df = self.conversion_column(df, columnLabel)
-
         return df.fillna(value='')
+
+    def conversionPandas(self, title="函数"):
+        '''
+        通过已读取的
+        :param title:
+        :return:
+        '''
+
+        self._data = self.dataFrame(columns=self._title)  # 设置标题名
+        columnLabel = list(self._data[title])  # 设置序列号的名字
+
+        return self.conversion_column(self._data, columnLabel)
 
 
 def sql_de_zhixing():
@@ -1044,16 +1048,16 @@ if __name__ == '__main__':
     read_name = "买家记录300.xlsx"
     read_name2 = "买家记录300.csv"
     # 　读取xlsx的方式
-    read = OpenExcelPandas(file_path + read_name, sheet='买家记录300')
-    df_excelData = read.internal_pandas_read("买家ID")
-    print(df_excelData)
+    # read = OpenExcelPandas(file_path + read_name, sheet='买家记录300')
+    # df_excelData = read.internal_pandas_read("买家ID")
+    # print(df_excelData)
     print("--------------------")
     # 读取csv的方式
-    read = OpenExcelPandas(file_path + read_name2, sheet=',')
-    df_excelData = read.internal_pandas_read("买家ID")
-    print(df_excelData)
+    # read = OpenExcelPandas(file_path + read_name2, sheet=',')
+    # df_excelData = read.internal_pandas_read("买家ID")
+    # print(df_excelData)
     print("--------------------")
     # 不通过pandas来读取文档
     read = OpenExcelPandas(file_path + read_name, sheet='买家记录300')
-    df_excelData = read.readCaseExcel()
+    df_excelData = read.readCaseExcel("买家ID")
     print(df_excelData)
