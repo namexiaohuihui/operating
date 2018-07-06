@@ -4,6 +4,7 @@
 @file: listbox.py
 @time: 2018/7/5 22:05
 @Entry Name:operating
+通过Listview和Radiobutton来展示条件 简易版
 """
 from tkinter import *
 from tkinter import ttk

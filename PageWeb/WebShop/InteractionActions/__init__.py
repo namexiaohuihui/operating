@@ -179,7 +179,20 @@ class InteractionCoexistence(BackgroundCoexistence):
         statement = self.overall[self.names_key.wholeQueryStatement()] % ad_query
 
         mysql_list = self.reprogramming_definition(statement)
+
         self.mysql_statement(mysql_list)
+
+    def status_statement_query(self, days=0):
+
+        start_time, stop_time = self.ti.today_to_stamp(days)
+
+        area = self.names_key.yaml_status()
+
+        director = self.status_text_to_number(self.filters[area][self.names_key.yaml_pay()])
+
+        ad_query = (start_time, stop_time, director)
+
+        self.advanced_query(ad_query)
 
     def area_statement_query(self, days=0):
         start_time, stop_time = self.ti.today_to_stamp(days)
@@ -195,7 +208,6 @@ class InteractionCoexistence(BackgroundCoexistence):
 
     def time_statement_query(self, *days):
         # 根据sql读取数据信息并进行重组
-        print("kaishishijian ".format(days))
         t_d = ''
         for d in days:
             if d == 0:
@@ -203,13 +215,39 @@ class InteractionCoexistence(BackgroundCoexistence):
                 break
             else:
                 t_d = t_d + d
-        print("这回时间是 %s" % t_d)
         self.advanced_query(self.ti.today_to_stamp(t_d))
 
     def mysql_statement(self, mysql_list):
         # 获取标题
         key_title = self.get_order_title(self.names_key.yaml_orderkey())
         self.MYSQL_DF = self.list_to_pandas(mysql_list, key_title, "#订单编号")
+
+    def status_text_to_number(self, text: str):
+        if text == "等待付款":
+            operation = self.STATUS_TEN
+
+        elif text == "交易关闭":
+            operation = self.STATUS_TWENTY
+
+        elif text == "付款中":
+            operation = self.STATUS_THIRTY
+
+        elif text == "等待派单":
+            operation = self.STATUS_TEN_TWO
+
+        elif text == "等待配送":
+            operation = self.STATUS_FIFTY
+
+        elif text == "配送中":
+            operation = self.STATUS_SIXTY
+
+        elif text == "交易完成":
+            operation = self.STATUS_SEVENTY
+
+        else:
+            operation = "状态文字输入错误"
+
+        return operation
 
     def items_status_judge(self, item_status, arrive_time):
 
@@ -590,6 +628,21 @@ class InteractionCoexistence(BackgroundCoexistence):
 
         funktion = [{"func": self.path_tbody, "args": ''},
                     {"func": self.area_statement_query, "args": ""}]
+
+        self.start_thread_pool(funktion)
+        self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
+
+    def status_screening_conditions(self):
+        '''
+        根据状态进行筛选数据信息
+        :return:
+        '''
+        # 下拉框统一筛选。没有参数的就不进行操作
+        self.screening_selector()
+        self.label_search_button()  # 点击搜索按钮
+
+        funktion = [{"func": self.path_tbody, "args": ''},
+                    {"func": self.status_statement_query(), "args": ""}]
 
         self.start_thread_pool(funktion)
         self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)

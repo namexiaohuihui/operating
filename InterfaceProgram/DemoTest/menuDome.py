@@ -11,20 +11,38 @@ from tkinter import *
 from tkinter.messagebox import *
 from tkinter import ttk
 class NewMenuDemo(Frame):
-    def __init__(self,parent = None):
+    def __init__(self,options,parent = None):
         Frame.__init__(self,parent)
         self.pack(expand = YES ,fill = BOTH) # 缺少这个之后，除菜单以外的书都不会显示
         self.createWidgets()
         self.master.title('标题测试框')
         self.master.iconname("tkPython")
+        self.options = options
 
     def createWidgets(self):
-        self.makeMenuBar()
-        self.makeInputBar()
-        self.makeToolBar()
+        self.makeMenuBar() # 设置菜单
+        self.makeToolBar() # 设置底部操作按钮
+        self.makeEntryBar() # 设置输入框
+        self.makeWidgets()
 
 
-    def makeInputBar(self):
+    def makeWidgets(self):
+        sbar = Scrollbar(self) # 不传入self会出现下拉框异常的情况s
+        list = Listbox(self,relief=SUNKEN)
+        sbar.config(command=list.yview)
+        list.config(yscrollcommand=sbar.set)
+        sbar.pack(side=RIGHT,fill=Y)
+        list.pack(side=RIGHT,expand=YES,fill=BOTH)
+        pos = 0
+        for label in options:
+            list.insert(pos,label)
+            pos += 1
+            pass
+        list.bind("<Double-1>",self.handleList)
+        self.listbox = list
+        pass
+
+    def makeEntryBar(self):
         filedas = ('name', 'pass')
         self.entrie = []
         for field in filedas:
@@ -102,7 +120,19 @@ class NewMenuDemo(Frame):
         for entry in entries:
             print('Input = "%s"' % entry.get())
 
+    def onPress(self):
+        print(self.var.get())
 
+    def handleList(self,event):
+        index = self.listbox.curselection()
+        label = self.listbox.get(index)
+        self.runCommand(label)
+        pass
+
+    def runCommand(self,selection):
+        print('You selected',selection)
+        pass
 if __name__ == '__main__':
-    NewMenuDemo().mainloop() #TK运行必须调用该函数，不然不显示界面
+    options = (('Linlife-%s' % x) for x in range(1,4))
+    NewMenuDemo(options).mainloop() #TK运行必须调用该函数，不然不显示界面
     pass

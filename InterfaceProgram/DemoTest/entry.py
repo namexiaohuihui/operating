@@ -5,6 +5,7 @@
 @time: 2018/7/3 22:20
 @Entry Name:operating
 https://blog.csdn.net/u014027051/article/details/53813152/ 事件绑定
+文本输入框及获取
 """
 from tkinter import *
 

@@ -22,6 +22,7 @@ class ScrolledList(Frame):
         # gift.set('Greeting')
         gifts = {'card': 'Greeting card', 'flowers': 'Flowers', 'nastygram': 'Nastygram'}
         self.var = StringVar()
+
         for key in gifts:
             Radiobutton(self,text=key,command=self.onPress,
                         variable=self.var,
@@ -42,7 +43,7 @@ class ScrolledList(Frame):
         sbar.config(command=list.yview)
         list.config(yscrollcommand=sbar.set)
         sbar.pack(side=RIGHT,fill=Y)
-        list.pack(side=LEFT,expand=YES,fill=BOTH)
+        list.pack(side=RIGHT,expand=YES,fill=BOTH)
         pos = 0
         for label in options:
             list.insert(pos,label)

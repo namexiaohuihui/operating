@@ -93,7 +93,7 @@ class browser_confirm(object):
         return self.browser
 
     # 运行浏览器
-    def url_opens(self, url=None, liulanqi='firefox', options=None):
+    def url_opens(self, url=None, liulanqi='chrome', options=None):
         # 创建浏览器对象
         if 'chrome' == liulanqi:
             self.chrome_browser()
@@ -109,7 +109,7 @@ class browser_confirm(object):
             self.browser.get(url)
             # 等待网页加载，加载时间为10s，加载完就跳过
             # 隐形等待时间和显性等待时间不同时，默认使用两者之间最大的那个
-            self.browser.implicitly_wait(5)
+            self.browser.implicitly_wait(10)
 
             return self.browser
         else:
@@ -119,8 +119,12 @@ class browser_confirm(object):
         options = self.mobile_phone_mode()
         self.url_opens(url, options)
 
-    #   设置手机模式
     def mobile_phone_mode(self):
+        '''
+        将谷歌浏览器设置为手机模式
+
+        :return:
+        '''
         try:
             from selenium.webdriver.chrome.options import Options
             # 有效的移动设备Galaxy S5.Nexus 5X.Nexus 6P

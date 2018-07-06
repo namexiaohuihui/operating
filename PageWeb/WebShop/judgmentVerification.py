@@ -221,8 +221,8 @@ class JudgmentVerification(ComparedVerify):
         :return:
         '''
         op_execl = OpenExcelPandas(data_list,key_title)
-        data_df = op_execl.conversionPandas() # 转换数据
-        data_df = op_execl.conversion_column(data_df,list(data_df[column])) # 设置序列号
+        data_df = op_execl.conversionPandas(column) # 转换数据
+        # data_df = op_execl.conversion_column(data_df,list(data_df[column])) # 设置序列号
         if len(data_df.index) > 0:
             print("mysql 不等于0")
             pass

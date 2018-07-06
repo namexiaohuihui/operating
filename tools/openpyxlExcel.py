@@ -104,7 +104,7 @@ class READEXCEL:
         else:
             print('1级错误')
 
-    def position_sheet_row_value(self, min_row=1, max_row=None, max_col=None):
+    def coordinates_sheet_row_value(self, min_row=1, max_row=None, max_col=None):
         """
         指定行读取整行的数据数据信息，数据已经通过value转换了
         :param min_row:  最小的行
@@ -114,21 +114,15 @@ class READEXCEL:
         """
         content = self.sheetbook.iter_rows(min_row=min_row, max_row=max_row, max_col=max_col)
         row_col_data = []  # 存储除了标题以外的内容
-        title_data = []  # 只存储标题内容
+        # title_data = []  # 只存储标题内容
         _data = True  # 用来控制第一行打印的数据为用例标题
         for row in content:  # 工作薄的全部内容
-            row_data = []
-            print("***")
-            for single in row:  # 遍历每行的数据信息
-                if _data:
-                    title_data.append(single.value)  # 添加标题
-                else:
-                    row_data.append(single.value)  # 添加内容
-                    print(type(single.value))
-            print("***")
-            if not _data:
-                row_col_data.append(row_data)
-            _data = False
+            if _data :
+                title_data = list(map(lambda single: single.value, row))  # 添加标题
+                _data = False
+            else:
+                # 存储除了标题以外的内容
+                row_col_data.append(list(map(lambda single: single.value, row)))
         return row_col_data, title_data
 
     def die_angegebene_keys(self, row_col_data, title_data, keys="函数"):
@@ -147,7 +141,7 @@ class READEXCEL:
                 break
         return columnLabel
 
-    def position_sheet_cols_value(self, min_row=1, max_row=None, max_col=None):
+    def coordinates_sheet_cols_value(self, min_row=1, max_row=None, max_col=None):
         '''
         指定列来读取整列的数据，数据已经通过value转换了
         :param min_row:  最小的行
@@ -158,7 +152,7 @@ class READEXCEL:
         content = self.sheetbook.iter_cols(min_row=min_row, max_row=max_row, max_col=max_col)
         return content
 
-    def position_sheet_row(self, min_row=1, max_row=None, max_col=None):
+    def coordinates_sheet_row(self, min_row=1, max_row=None, max_col=None):
         """
         指定行读取整行的数据数据信息，数据类型为cell
         :param min_row:  最小的行
@@ -169,7 +163,7 @@ class READEXCEL:
         content = self.sheetbook.iter_rows(min_row=min_row, max_row=max_row, max_col=max_col)
         return content
 
-    def position_sheet_cols(self, min_row=1, max_row=None, max_col=None):
+    def coordinates_sheet_cols(self, min_row=1, max_row=None, max_col=None):
         '''
         指定列来读取整列的数据，数据类型为cell
         :param min_row:  最小的行
@@ -887,8 +881,8 @@ class PANDASDATA:
         print(content["场景"].value)
 
         print("**********")
-        content = read.position_sheet_row_value(min_row=2)
-        content1 = read.position_sheet_row_value(min_row=2)
+        content = read.coordinates_sheet_row_value(min_row=2)
+        content1 = read.coordinates_sheet_row_value(min_row=2)
         print("**********", len(tuple(content1)))
         df = pd.DataFrame(content, columns=data)
         df["序号"][0] = "66"
@@ -945,19 +939,18 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         :param name:
         :param sheet:
         """
-        self._date = name
+        self._data = name
         self._title = sheet
 
     def readCaseExcel(self, title='函数'):
         # 创建工作薄workbook对象
-        self.startReadExcel(self._date, self._title) if self._title else self.startReadExcel(self._date)
+        self.startReadExcel(self._data, self._title) if self._title else self.startReadExcel(self._date)
 
         # 将case中内容部分的数据（除标题以外的数据）读出
         # 将case中标题的全部内容读出
-        self._data, self._title = self.position_sheet_row_value()
-        # 获取指定标题的内容
-        # columnLabel = self.die_angegebene_keys(row_col_data=self._date, title_data=self._title, keys=title)
-
+        self._data, self._title = self.coordinates_sheet_row_value()
+        print(self._data)
+        print(self._title)
         # 通过pandas将数据进行转换
         return self.conversionPandas(title)
 
@@ -976,7 +969,7 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         并将函数名提取出来，用于序列号的赋值
         :return:
         '''
-        self._data = pd.read_excel(self._date, self._title)
+        self._data = pd.read_excel(self._data, self._title)
         columnLabel = list(self._data[title])  # 设置序列号的名字
         return self.conversion_column(self._data, columnLabel)
 
@@ -1047,17 +1040,18 @@ if __name__ == '__main__':
     file_path = 'F:\\desktop\\'
     read_name = "买家记录300.xlsx"
     read_name2 = "买家记录300.csv"
+    read_name3 = "买家记录300.xltx"
     # 　读取xlsx的方式
     # read = OpenExcelPandas(file_path + read_name, sheet='买家记录300')
     # df_excelData = read.internal_pandas_read("买家ID")
     # print(df_excelData)
-    print("--------------------")
+    # print("--------------------")
     # 读取csv的方式
     # read = OpenExcelPandas(file_path + read_name2, sheet=',')
     # df_excelData = read.internal_pandas_read("买家ID")
     # print(df_excelData)
-    print("--------------------")
+    # print("--------------------")
     # 不通过pandas来读取文档
-    read = OpenExcelPandas(file_path + read_name, sheet='买家记录300')
+    read = OpenExcelPandas(file_path + read_name3, sheet='买家记录300')
     df_excelData = read.readCaseExcel("买家ID")
     print(df_excelData)

@@ -76,6 +76,9 @@ class InterationOrderLable(unittest.TestCase):
         whole.setFunctionName(inspect.stack()[0][3])
         whole.area_screening_conditions()
 
+    def test_status_screening(self):
+        whole.setFunctionName(inspect.stack()[0][3])
+        whole.status_screening_conditions()
 
 if __name__ == '__main__':
     unittest.main()
