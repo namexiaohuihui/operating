@@ -117,7 +117,7 @@ class READEXCEL:
         # title_data = []  # 只存储标题内容
         _data = True  # 用来控制第一行打印的数据为用例标题
         for row in content:  # 工作薄的全部内容
-            if _data :
+            if _data:
                 title_data = list(map(lambda single: single.value, row))  # 添加标题
                 _data = False
             else:
@@ -927,15 +927,18 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
 
     def __init__(self, name='', sheet=','):
         """
-        关于_date和_title的解释
+        关于_date和_title的解释：
         读取excel的数据时：
           _date表示的文件的路径
-          _title表示的是工作薄的页面
+          _title表示的是工作薄的页面 或者 工作薄的名称
 
+        读取csv的数据时：
+          _date表示的文件的路径
+          _title表示的是该文件的分隔符。例如‘，’逗号
 
         通过pandas进行转换时：
           _date表示的数据
-          _title表示的是工作薄的名称
+          _title表示的是需要对数据进行重新获取并转换成序列号的key。
         :param name:
         :param sheet:
         """
@@ -970,8 +973,11 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         :return:
         '''
         self._data = pd.read_excel(self._data, self._title)
-        columnLabel = list(self._data[title])  # 设置序列号的名字
-        return self.conversion_column(self._data, columnLabel)
+        if title:
+            columnLabel = list(self._data[title])  # 设置序列号的名字
+            return self.conversion_column(self._data, columnLabel)
+        else:
+            return self.conversion_column(self._data, None)
 
     def internal_read_csv(self, title="函数"):
         '''
@@ -982,11 +988,14 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         :return:
         '''
         self._data = pd.read_csv(self._date, sep=self._title, header=0, engine='python')
-        columnLabel = list(self._data[title])  # 设置序列号的名字
-        return self.conversion_column(self._data, columnLabel)
+        if title:
+            columnLabel = list(self._data[title])  # 设置序列号的名字
+            return self.conversion_column(self._data, columnLabel)
+        else:
+            return self.conversion_column(self._data, None)
 
-    def conversion_column(self, df, columnLabel):
-        if columnLabel != None:
+    def conversion_column(self, df, columnLabel=None):
+        if columnLabel:
             df = df.set_index([columnLabel])  # 设置df数据中的序列号
         return df.fillna(value='')
 
@@ -998,9 +1007,11 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         '''
 
         self._data = self.dataFrame(columns=self._title)  # 设置标题名
-        columnLabel = list(self._data[title])  # 设置序列号的名字
-
-        return self.conversion_column(self._data, columnLabel)
+        if title:
+            columnLabel = list(self._data[title])  # 设置序列号的名字
+            return self.conversion_column(self._data, columnLabel)
+        else:
+            return self.conversion_column(self._data, None)
 
 
 def sql_de_zhixing():

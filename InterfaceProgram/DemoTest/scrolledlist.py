@@ -15,14 +15,8 @@ class ScrolledList(Frame):
         self.makeWidgets(options)
 
         Label(self,text="Radio demos").pack(side =TOP)
-        # gift = StringVar()
-        # Radiobutton(self, text='Greeting', variable=gift, value='card').pack(anchor=NW)
-        # Radiobutton(self, text='Flowers', variable=gift, value='flowers').pack(anchor=NW)
-        # Radiobutton(self, text='Nastygram', variable=gift, value='nastygram').pack(anchor=NW)
-        # gift.set('Greeting')
         gifts = {'card': 'Greeting card', 'flowers': 'Flowers', 'nastygram': 'Nastygram'}
         self.var = StringVar()
-
         for key in gifts:
             Radiobutton(self,text=key,command=self.onPress,
                         variable=self.var,
@@ -43,7 +37,8 @@ class ScrolledList(Frame):
         sbar.config(command=list.yview)
         list.config(yscrollcommand=sbar.set)
         sbar.pack(side=RIGHT,fill=Y)
-        list.pack(side=RIGHT,expand=YES,fill=BOTH)
+        list.pack(side=LEFT,expand=YES,fill=BOTH)
+        # list.itemconfigure(i, background='#f0f0ff')
         pos = 0
         for label in options:
             list.insert(pos,label)

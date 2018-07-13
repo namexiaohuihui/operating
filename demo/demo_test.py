@@ -55,7 +55,7 @@ if __name__ == '__main__':
     path = os.path.join(log_path, "qweassdd" + "-screenshot_error.png")
     print(path)
     # st = time.time()
-    # from PageWeb.WebEven.ExclusiveService import AccountPrivacy as ap
+    # from WeChatBuyers.ExclusiveService import AccountPrivacy as ap
     # from practical.utils.RewriteThread import inherit_thread as th
     # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
     #

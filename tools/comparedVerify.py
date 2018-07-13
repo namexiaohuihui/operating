@@ -51,8 +51,8 @@ class ComparedVerify(object):
     """
 
     def operator_dataframe(self, reValue: object, excleValue: object) -> ("打印数据信息"):
-        # self.log.info("读取:  %s  类型 :  %s " % (reValue, type(reValue)))
-        # self.log.info("获得:  %s  类型 :  %s " % (excleValue, type(excleValue)))
+        self.log.info("读取:  %s  类型 :  %s " % (reValue, type(reValue)))
+        self.log.info("获得:  %s  类型 :  %s " % (excleValue, type(excleValue)))
         pass
 
     def _verify_operator(self, reValue: object, excleValue: object) -> "通过assert断言形式进行比较":
@@ -81,7 +81,7 @@ class ComparedVerify(object):
         return content
 
     def stringToValueBoolean(self, value):
-        _value = operator.eq(value, "true")
+        _value = operator.eq(value, True)
         return _value
 
     def number_cutting(self, attribute: "某个需要切割的数据") -> "对字符串中的数据进行id切割":
