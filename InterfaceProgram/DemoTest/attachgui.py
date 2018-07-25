@@ -8,7 +8,7 @@
 import sys
 print(sys.path)
 from tkinter import *
-from graphicsGUI.graphicsTkinter002 import MyGui
+from InterfaceProgram.DemoTest.graphicsTkinter002 import MyGui
 
 # 应用主窗口
 mainwin=Tk()

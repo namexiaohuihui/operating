@@ -34,15 +34,17 @@ class NewMenuDemo(Frame):
 
     def sendGift(self, *args):
         idxs = self.lbox.curselection()
-        if len(idxs) == 1:
-            print(idxs)
+        print('环境',idxs)
+        if len(idxs) == 1: # 判断是否选择环境
             idx = int(idxs[0])
             self.lbox.see(idx)
             name = countrynames[idx]
-            code = str.strip(self.var.get())
+            code = str.strip(self.var.get()) # 判断是否选择lnlife
+            print('目录',code)
             if code != '':
                 username = self.entrie[filedas[0]]
                 password = self.entrie[filedas[1]]
+                print("账号密码:",username.get(),password.get())
                 if username.get() and password.get():
                     self.promptInformation("The user is logged in.")
                 else:
@@ -178,7 +180,7 @@ class NewMenuDemo(Frame):
             Frame.quit(self)
 
     def onPress(self):
-        print(self.var.get())
+        print('单选按钮为 : ',self.var.get())
 
     def promptInformation(self, msg):
         self.sentmsg.set(msg)
