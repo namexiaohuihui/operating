@@ -2,7 +2,7 @@
 unittest:
 1.成功是 .，失败是 F，出错是 E，跳过是 S。
 2.每个测试方法均以 test 开头，否则是不被unittest识别的。
-3.#setUp用来为测试准备环境，tearDown用来清理环境.每执行一次函数就会调用它们
+3.#setUp用来为测试准备环境，tearDown用来清理环境.每执行一次函数就会调用它们,需配合@classmethod装饰器
     #setUpClass() 与 tearDownClass():从头到尾只调用一次
 4.跳过某个case
 skip装饰器一共有三个 unittest.skip(reason)、

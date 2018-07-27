@@ -11,7 +11,7 @@ from threading import Thread
 from multiprocessing import cpu_count, Process, Queue
 import requests
 from bs4 import BeautifulSoup
-from tomorrow import threads
+from tomorrow3 import threads
 
 
 # https://www.cnblogs.com/qualitysong/archive/2011/05/27/2060246.html

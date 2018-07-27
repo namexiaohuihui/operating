@@ -1,0 +1,58 @@
+python鄙视链：pytest 鄙视 > unittest  鄙视 > robotframework 鄙视 > 记流水账 鄙视 > “hello world”小白
+安装pytest : pip install -U pytest
+
+pytest简介
+    pytest是python的一种单元测试框架，与python自带的unittest测试框架类似，但是比unittest框架使用起来更简洁，
+    效率更高。根据pytest的官方网站介绍，它具有如下特点：
+    非常容易上手，入门简单，文档丰富，文档中有很多实例可以参考
+    能够支持简单的单元测试和复杂的功能测试
+    支持参数化
+    执行测试过程中可以将某些测试跳过（skip），或者对某些预期失败的case标记成失败
+    支持重复执行(rerun)失败的case
+    支持运行由nose, unittest编写的测试case
+    可生成html报告
+    方便的和持续集成工具jenkins集成
+    可支持执行部分用例
+    具有很多第三方插件，并且可以自定义扩展
+
+pytest用例规则:
+    测试文件以test_开头（以_test结尾也可以）
+    测试类以Test开头，并且不能带有 init 方法
+    测试函数以test_开头
+    断言使用assert
+
+用例设计原则
+    文件名以test_*.py文件和*_test.py
+    以test_开头的函数
+    以Test开头的类
+    以test_开头的方法
+    所有的包pakege必须要有__init__.py文件
+
+cmd执行方法：
+    1.cmd窗口输入：pytest（或者输入py.test也可以）可运行当前目录及其子目录下以test_*.py或*_test.py文件，
+    找到文件后，在文件中找到以test开头函数并执行。
+
+    2.打开cmd，cd到test_class.py的文件目录，如果只想运行这个文件，加上-q参数，-q参数用来指定执行的文件，
+    不指定就执行该文件夹下所有的用例
+
+    3.python -m pytest
+
+执行用例规则：
+    1.执行某个目录下所有的用例：  pytest 文件名/
+    2.执行某一个py文件下用例：   pytest -q 脚本名称.py
+    3.-k 按关键字匹配：  pytest -k “MyClass and not method”
+    4.按节点运行：
+        .py模块中某个函数pytest test_mod.py::test_func
+        .py模块测试类里面的某个方法： pytest test_mod.py::TestClass::test_method
+    5.将运行用@ pytest.mark.slow装饰器修饰的所有测试：   pytest -m slow
+    6.从包里面运行：  pytest —pyargs pkg.testing，这将导入pkg.testing并使用其文件系统位置来查找和运行测试。
+    7.遇到错误时停止测试： pytest -x test_class.py
+    8.当用例错误个数达到指定数量时，停止测试： pytest —maxfail=num
+
+
+用例运行级别(仿unittest前置和后置setup和teardown以及setupClass和teardownClass)：
+    模块级（setup_module/teardown_module）开始于模块始末，全局的
+    函数级（setup_function/teardown_function）只对函数用例生效（不在类中）
+    类级（setup_class/teardown_class）只在类中前后运行一次(在类中)
+    方法级（setup_method/teardown_method）开始于方法始末（在类中）
+    类里面的（setup/teardown）运行在调用方法的前后

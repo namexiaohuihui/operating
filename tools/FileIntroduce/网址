@@ -1,6 +1,9 @@
 中国互联网测试地址:
 	https://testerhome.com/
-	
+
+python内部框架获取处：
+    https://pypi.org/project/openpyxl/
+
 appnium实例代码:
 	https://github.com/appium/sample-code/tree/master/sample-code/examples
 
@@ -14,10 +17,10 @@ appium api：
 	http://npm.taobao.org/package/appium-android-driver
 
 pandas：
-https://pandas.pydata.org/pandas-docs/stable/index.html
+    https://pandas.pydata.org/pandas-docs/stable/index.html
 
 py3学习的地方
-https://python3-cookbook.readthedocs.io/zh_CN/latest/copyright.html
+    https://python3-cookbook.readthedocs.io/zh_CN/latest/copyright.html
 
 http://python.jobbole.com/81546/  线程大大
 
