@@ -1,26 +1,47 @@
 # -*- coding: utf-8 -*-
-__author__ = 'Administrator'
-"""
+'''
+                       _oo0oo_
+                      o8888888o
+                      88" . "88
+                      (| -_- |)
+                      0\  =  /0
+                    ___/`---'\___
+                  .' \\|     |// '.
+                 / \\|||  :  |||// \
+                / _||||| -:- |||||- \
+               |   | \\\  -  /// |   |
+               | \_|  ''\---/''  |_/ |
+               \  .-\__  '-'  ___/-. /
+             ___'. .'  /--.--\  `. .'___
+          ."" '<  `.___\_<|>_/___.' >' "".
+         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+         \  \ `_.   \_ __\ /__ _/   .-` /  /
+     =====`-.____`.___ \_____/___.-`___.-'=====
+                        `=---='
+
+
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+               佛祖保佑         永无BUG
+@author: 70486
+@license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
+@software: PyCharm
 @file: test_demo.py
-@time: 2018/1/16 11:51
-"""
-from demo import demo_test
-def modifier_Interface_sliding(func):
-    #Interface_sliding()
+@time: 2018/7/27 20:44
+@desc:
+'''
+class TestDemo:
+    def test_one(self):
+        x = "this"
+        assert 'h' in x
 
-    def modifier(*s, **gs):
-        from time import ctime
-        print("[%s] %s() called" % (ctime(), func.__name__))
-        return func(*s, **gs)
+    def test_two(self):
+        x = "hello"
+        assert hasattr(x, 'check')
 
-    return modifier
-
-print(demo_test.abdq)
-demo_test.abdq = "88"
-print(demo_test.abdq)
-aa = demo_test.dong()
-demo_test.abdq = aa
-print(demo_test.abdq)
-demo_test.abdq = 33
-print(demo_test.dingdong())
-print(modifier_Interface_sliding(demo_test.dingdong()))
+    def test_three(self):
+        a = 'hello'
+        b = 'hello world'
+        assert a in b
+if __name__ == '__main__':
+    pytest.main(['-q', 'test_demo.py','—maxfail = 2'])

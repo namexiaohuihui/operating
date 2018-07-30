@@ -37,7 +37,7 @@ r'''
                佛祖保佑         永无BUG
 '''
 
-
+driver_path = 'E:\drivers\Drivers'
 # __new__创建一个对象，__init__实例化一个对象
 class browser_confirm(object):
     BROWSER_NAME = ""
@@ -56,7 +56,7 @@ class browser_confirm(object):
     # 调用函数，实现打开谷歌浏览器的步骤
     def chrome_browser(self, options=None):
         try:
-            self.browser = webdriver.Chrome(executable_path=r"E:\drivers\Drivers\chromedriver238-67.exe")
+            self.browser = webdriver.Chrome(executable_path=os.path.join(driver_path,'chromedriver239-68.exe'))
             self.BROWSER_NAME = "无options的谷歌"
             # 实现全局变量的引用
         except WebDriverException as msg:
@@ -69,7 +69,7 @@ class browser_confirm(object):
         try:
             # https://www.cnblogs.com/ppppying/p/6143658.html
             # 实现全局变量的引用
-            self.browser = webdriver.Ie(executable_path=r"E:\drivers\Drivers\IEDriverServer.exe")
+            self.browser = webdriver.Ie(executable_path=os.path.join(driver_path, 'IEDriverServer.exe'))
             self.BROWSER_NAME = "IE浏览器"
             # print("打开IE")
         except:
@@ -83,7 +83,7 @@ class browser_confirm(object):
             os.environ["webdriver.firefox.bin"] = firefoxBin
             self.BROWSER_NAME = "火狐浏览器"
             # 代码加载火狐驱动
-            firefoxgeckobdriver = os.path.abspath(r"E:\drivers\Drivers\geckodriver64.exe")
+            firefoxgeckobdriver = os.path.abspath(os.path.join(driver_path, 'geckodriver64.exe'))
             # os.environ["webdriver.path"] = firefoxgeckobdriver
 
             self.browser = webdriver.Firefox(executable_path=firefoxgeckobdriver)
@@ -109,7 +109,7 @@ class browser_confirm(object):
             self.browser.get(url)
             # 等待网页加载，加载时间为10s，加载完就跳过
             # 隐形等待时间和显性等待时间不同时，默认使用两者之间最大的那个
-            self.browser.implicitly_wait(10)
+            self.browser.implicitly_wait(15)
 
             return self.browser
         else:

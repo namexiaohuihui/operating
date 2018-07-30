@@ -26,14 +26,20 @@
 @author: 70486
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: test_class.py
-@time: 2018/7/27 15:27
+@file: websiteJudge.py
+@time: 2018/7/30 17:08
 @desc:
 '''
-
-def func(x):
-    return x + 1
+from CenterBackground.WebsiteAddress import WebsiteCoexistence
 
 
-def test_answer():
-    assert func(3) == 5
+class NewsJudge(WebsiteCoexistence):
+    TREEW_TAGS_LOCATION = "2"
+
+    def _rou_task(self):
+        """
+        进入日常公告页面
+        :return:  暂时没有返回值
+        """
+        self._rou_system()
+        pass

@@ -44,16 +44,6 @@ class JudgmentVerification(ComparedVerify):
         assert excel_time != None , "%s 没有设置时间,用例跳过" % self.FUNCTION_NAME
         # 记录当前时间
         self.ANNOUN_SHE_TIME = self.ti.currentToStamp()
-        '''
-        # 将时间进行切割，分成开始开始时间和结束时间
-        sttus, enmd = self.ti.cutting_time_current(excel_time)
-        通过时间来判断状态，并跟excle存储的数据进行比较。。。有点多余，已去除。
-        # 判断时间用例时间
-        status_type = self.judge_time_only(status_time=sttus, status_end=enmd)
-        # 用例期望的状态
-        whole_result = self.overall[whole_result]
-        assert status_type == whole_result, "%s根据时间来判断状态出错 %s %s" % (self.FUNCTION_NAME, status_type, whole_result)
-        '''
 
     def conditions_operation(self, operation):
         # 按钮判断在这里控制

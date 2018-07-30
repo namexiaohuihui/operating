@@ -7,7 +7,7 @@
 """
 from CenterBackground.judgmentVerification import JudgmentVerification
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
-
+import time
 
 class BackgroundCoexistence(JudgmentVerification):
     # 设置菜单字目录上的标题
@@ -25,7 +25,7 @@ class BackgroundCoexistence(JudgmentVerification):
 
     # -------------------------定义子菜单的所在位置------------------------
     def set_treeview_number(self, number: int) -> "通过number定义子菜单的所在位置":
-        self.treew = ".treeview-menu.menu-open li:nth-child(%s)" % number
+        self.treew = ".treeview-menu.menu-open>li:nth-child(%s)" % number
 
     def treeview_number_get(self) -> "获取子菜单的所在位置":
         return self.treew

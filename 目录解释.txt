@@ -1,5 +1,0 @@
-app:是appium唤醒app的
-demo：练习
-page_web：网页
-practical：参数以及公共执行的数据
-report：执行之后的报告所在地

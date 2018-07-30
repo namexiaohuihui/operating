@@ -26,14 +26,7 @@
 @author: 70486
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: test_class.py
-@time: 2018/7/27 15:27
+@file: __init__.py.py
+@time: 2018/7/30 17:21
 @desc:
 '''
-
-def func(x):
-    return x + 1
-
-
-def test_answer():
-    assert func(3) == 5

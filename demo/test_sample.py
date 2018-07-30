@@ -26,14 +26,38 @@
 @author: 70486
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: test_class.py
-@time: 2018/7/27 15:27
+@file: test_sample.py
+@time: 2018/7/27 15:06
 @desc:
 '''
+import pytest
+class TestClass():
+    def setup(self):
+        print("setup: 每个用例开始前执行")
 
-def func(x):
-    return x + 1
+    def teardown(self):
+        print("teardown: 每个用例结束后执行")
 
+    def setup_class(self):
+        print("setup_class：所有用例执行之前")
 
-def test_answer():
-    assert func(3) == 5
+    def teardown_class(self):
+        print("teardown_class：所有用例执行之前")
+
+    def setup_method(self):
+        print("setup_method:  每个用例开始前执行")
+
+    def teardown_method(self):
+        print("teardown_method:  每个用例结束后执行")
+
+    def test_one(self):
+        x = "this"
+        assert 'h' in x
+
+    def test_two(self):
+        x = "hello"
+        assert 'h' in x
+
+if __name__ == '__main__':
+    # unittest.main()
+    pytest.main(['-q', 'test_sample.py'])

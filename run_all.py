@@ -16,7 +16,7 @@ sys.path.append('E:\\operating')
 CUR_PATH = os.path.dirname(os.path.realpath(__file__))
 
 
-def add_case(case_name='Case', rule='web_*.py'):
+def add_case(case_name='Case', rule='test_*.py'):
     # 加载所有的用例
     case_path = os.path.join(CUR_PATH, case_name)
 
@@ -107,8 +107,7 @@ if __name__ == '__main__':
     # shangyigebanben()
 
     # 加载用例
-    all_case = add_case("PageWeb\\WebShop\\SystemSetup\\NoticeController")
-
+    all_case = add_case(r"CenterBackground\InteractionActions")
     # 生成测试报告的路径
     run_case(all_case)
     # 获取最新的而测试报告文件

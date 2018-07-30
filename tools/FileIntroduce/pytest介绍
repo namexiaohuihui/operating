@@ -51,8 +51,8 @@ cmd执行方法：
 
 
 用例运行级别(仿unittest前置和后置setup和teardown以及setupClass和teardownClass)：
-    模块级（setup_module/teardown_module）开始于模块始末，全局的
-    函数级（setup_function/teardown_function）只对函数用例生效（不在类中）
-    类级（setup_class/teardown_class）只在类中前后运行一次(在类中)
-    方法级（setup_method/teardown_method）开始于方法始末（在类中）
-    类里面的（setup/teardown）运行在调用方法的前后
+    模块级（setup_module/teardown_module）开始于模块始末（不在类中--py文件里面没有class），全部用例只执行一次
+    函数级（setup_function/teardown_function）只对函数用例生效（不在类中--py文件里面没有class），每个用例开始和结束调用一次
+    类级（setup_class/teardown_class）只在类中前后运行一次(在类中--py文件里面有class)，等价于unittest里面的setupClass和teardownClass
+    方法级（setup_method/teardown_method）开始于方法始末（在类中--py文件里面有class），和setup/teardown功能是一样的，一般二者用其中一个即可
+    类里面的（setup/teardown）运行在调用方法的前后，等价unittest里面的setup/teardown
