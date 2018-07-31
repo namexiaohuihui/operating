@@ -76,7 +76,7 @@ class InteractionCoexistence(BackgroundCoexistence):
         :return:
         '''
         parse = self.names_key.read_parseyaml(self.SELECT_LABLE_CONTENT)
-        self.select_content = self.names_key.read_parseyaml(parse[self.names_key.yaml_files()],
+        self.select_content = self.names_key.together_catalog(parse[self.names_key.yaml_files()],
                                                             parse[self.names_key.yaml_value()])
 
     # ---------------------------------------各个order页面中相同的用例集合点：以下为界面固定元件的校验-----------------------------

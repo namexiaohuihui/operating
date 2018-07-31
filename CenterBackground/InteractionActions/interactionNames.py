@@ -39,6 +39,21 @@ basepath = os.path.dirname(os.path.realpath(__file__))
 
 
 class InteractionNames(InteractionController):
+
+    def together_catalog(self, fpath, name):
+        '''
+        指定文件路径以及文件名来读取数据信息
+        :param fpath: 文件路径
+        :param name: 文件名称
+        :return:
+        '''
+        page_list = {}
+        yaml_file_path = os.path.join(fpath, name)
+        with open(yaml_file_path, 'r', encoding='utf-8') as f:
+            page = yaml.load(f)
+            page_list.update(page)
+        return page_list
+
     def read_parseyaml(self, files):
         '''
         遍历读取yaml文件
