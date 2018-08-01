@@ -38,7 +38,7 @@ news = NewsJudge()
 
 
 class TestNews(unittest.TestCase):
-    '''参数'''
+    '''新闻'''
 
     @classmethod
     def setUpClass(cls):
@@ -54,7 +54,7 @@ class TestNews(unittest.TestCase):
     def tearDownClass(cls):
         try:
             # 该类结束时最后调用的函数
-            # news.driver.quit()
+            news.driver.quit()
             pass
         except UnicodeDecodeError:
             pass

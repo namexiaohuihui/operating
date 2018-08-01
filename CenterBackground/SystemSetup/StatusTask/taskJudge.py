@@ -9,7 +9,7 @@ from CenterBackground.SystemSetup import SystemCoexistence
 
 
 class TaskJudge(SystemCoexistence):
-    TREEW_TAGS_LOCATION = "7"
+    FATHER_TAGS_LOCATION = "7"
 
     def _rou_task(self):
         """

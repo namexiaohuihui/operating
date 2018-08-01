@@ -10,11 +10,12 @@ import os
 import sys
 import time
 
-from tools import DefinitionErrors as dError
+from tools import StringCutting
+from tools.configs import readModel
 from tools.PymysqlMain import pymysqls
+from tools import DefinitionErrors as dError
 from tools.RewriteThread import InheritThread as th
 from tools.browser_establish import browser_confirm
-from tools.configs import readModel
 from tools.operation.selenium_click import action_click
 from tools.operation.selenium_input import action_input
 
@@ -40,11 +41,7 @@ class ComparedVerify(object):
 
     # 在字符串str查找ing出现的位置.从number下标开始找,返回-1表示找不到
     def string_lookup_find(self, str, ing, number=0):
-        nPos = str.find(ing, number)
-        if nPos != -1:
-            return True
-        else:
-            return False
+        return StringCutting.string_search_number(str, ing, number)
 
     """
        # ------------------内容参数的比较------------------------
@@ -106,23 +103,6 @@ class ComparedVerify(object):
         # 2.调用已经规划好的浏览器函数
         self.driver = bc.url_opens(url)
         return self.driver
-
-    """
-       #--------------------读取excel表格数据部分-----------------------------------------
-   """
-
-    # def conversionPandas(self, row_col_data, title_data=None, columnLabel=None):
-    #     # # 数据转换
-    #     # pan = PANDASDATA(row_col_data)
-    #     #
-    #     # df = pan.dataFrame(columns=title_data)  # 设置标题名
-    #     #
-    #     # if columnLabel != None:
-    #     #     df = df.set_index([columnLabel])  # 设置df数据中的序列号
-    #
-    #     read = OpenExcelPandas(row_col_data, title_data)
-    #     df = read.conversionPandas()
-    #     return df
 
     """
         #--------------------元素判断部分-----------------------------------------
@@ -254,7 +234,7 @@ class ComparedVerify(object):
         # 调用错误类
         dError.error_output(name_tion, self.driver)
 
-    def start_thread_pool(self, funktion):  # 开启线程池
+    def skip_waiting(self, funktion):
         # https://www.cnblogs.com/qualitysong/archive/2011/05/27/2060246.html
         # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
         # print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
@@ -264,6 +244,10 @@ class ComparedVerify(object):
             threads = th(para['func'], para['args'])
             threads.start()
             faden.append(threads)
+        return faden
+
+    def start_thread_pool(self, funktion):  # 开启线程池
+        faden = self.skip_waiting(funktion)
         return self.start_thread_row(faden)
 
     def start_thread_row(self, faden):
@@ -271,8 +255,6 @@ class ComparedVerify(object):
         for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
             argu.join()
             inhalt.append(argu.get_result())
-
-        # print("Thread execution finished %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
         return inhalt
 
     def xxxxx(self, msg):

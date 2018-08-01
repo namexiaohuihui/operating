@@ -26,20 +26,21 @@
 @author: 70486
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: websiteJudge.py
-@time: 2018/7/30 17:08
+@file: test_file.py
+@time: 2018/7/31 13:57
 @desc:
 '''
-from CenterBackground.WebsiteAddress import WebsiteCoexistence
+import pytest
+@pytest.fixture()
+def login():
+    print("输入账号，密码先登录")
 
+def test_s1(login):
+    print("用例1：登录之后其它动作111")
 
-class WebsiteJudge(WebsiteCoexistence):
-    FATHER_TAGS_LOCATION = "1"
+def test_s2():  # 不传login
+    print("用例2：不需要登录，操作222")
 
-    def _rou_task(self):
-        """
-        进入日常公告页面
-        :return:  暂时没有返回值
-        """
-        self._rou_system()
-        pass
+def test_s3(login):
+    print("用例3：登录之后其它动作333")
+

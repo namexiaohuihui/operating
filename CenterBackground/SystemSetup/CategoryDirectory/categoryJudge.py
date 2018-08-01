@@ -11,7 +11,7 @@ category = CategoryNames()
 
 
 class CategoryJudge(SystemCoexistence):
-    TREEW_TAGS_LOCATION = "5"
+    FATHER_TAGS_LOCATION = "5"
 
     def _rou_category(self):
         """

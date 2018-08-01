@@ -4,7 +4,7 @@ __author__ = 'DingDong'
 @file: dailyLabelNames.py
 @time: 2018/4/15 17:54
 """
-from tools.excelname.shopSystemsetup import ShopNoticeController
+from tools.excelname.adminSystemsetup import ShopNoticeController
 
 
 class DailyLabelNames(ShopNoticeController):

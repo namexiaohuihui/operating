@@ -23,23 +23,17 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
                佛祖保佑         永无BUG
-@author: 70486
+@author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: websiteJudge.py
-@time: 2018/7/30 17:08
+@file: __init__.py.py
+@time: 2018/7/31 16:46
 @desc:
 '''
-from CenterBackground.WebsiteAddress import WebsiteCoexistence
+from CenterBackground import BackgroundCoexistence
 
 
-class WebsiteJudge(WebsiteCoexistence):
-    FATHER_TAGS_LOCATION = "1"
-
-    def _rou_task(self):
-        """
-        进入日常公告页面
-        :return:  暂时没有返回值
-        """
-        self._rou_system()
-        pass
+class GoodsConditions(BackgroundCoexistence):
+    MODEI_KEY_POSITION = 'product'
+    FATHER_TAGS_LOCATION = "3"
+    pass

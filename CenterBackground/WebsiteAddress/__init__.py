@@ -36,7 +36,7 @@ from CenterBackground import BackgroundCoexistence
 
 class WebsiteCoexistence(BackgroundCoexistence):
     # 该菜单在所属目录的绝对位置
-    SIDEBAR_TAGS_LOCATION = "9"
+    CHILD_TAGS_LOCATION = "9"
 
     # 该菜单的用例所处位置的总目录
     MODEI_KEY_POSITION = "还没写"
@@ -46,8 +46,8 @@ class WebsiteCoexistence(BackgroundCoexistence):
         进入菜单下面的子目录
         :return:  暂时没有返回值
         """
-        self.sidebar_tags = self.SIDEBAR_TAGS_LOCATION
-        self.treew_tags = self.TREEW_TAGS_LOCATION
+        self.father_tags = self.CHILD_TAGS_LOCATION
+        self.child_tags = self.FATHER_TAGS_LOCATION
         self._rou_background()
         pass
 

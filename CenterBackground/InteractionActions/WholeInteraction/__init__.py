@@ -14,7 +14,7 @@ __author__ = 'DingDong'
 #
 # class WholeActions(InteractionCoexistence):
 #     # 当前子目录的所在位置
-#     TREEW_TAGS_LOCATION = "1"
+#     FATHER_TAGS_LOCATION = "1"
 #
 #     # 该目录下的用例在modei文件中所属的key值
 #     MODEI_CASE_POSITION = "whole"

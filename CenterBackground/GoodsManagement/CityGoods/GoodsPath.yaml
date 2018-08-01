@@ -1,0 +1,8 @@
+dec: 该页面下的元素路径
+
+citytab:
+  name: 城市
+  type: cssSelector/li
+  value: .nav.nav-tabs > li
+  label: a
+  attribute: href

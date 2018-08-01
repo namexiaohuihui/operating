@@ -38,7 +38,7 @@ home_brand = HomeBrandJudge()
 
 
 class TestNews(unittest.TestCase):
-    '''参数'''
+    '''首页'''
 
     @classmethod
     def setUpClass(cls):
@@ -54,7 +54,7 @@ class TestNews(unittest.TestCase):
     def tearDownClass(cls):
         try:
             # 该类结束时最后调用的函数
-            # home_brand.driver.quit()
+            home_brand.driver.quit()
             pass
         except UnicodeDecodeError:
             pass

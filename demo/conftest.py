@@ -26,20 +26,13 @@
 @author: 70486
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: websiteJudge.py
-@time: 2018/7/30 17:08
+@file: conftest.py
+@time: 2018/7/31 14:00
 @desc:
 '''
-from CenterBackground.WebsiteAddress import WebsiteCoexistence
 
+import pytest
 
-class WebsiteJudge(WebsiteCoexistence):
-    FATHER_TAGS_LOCATION = "1"
-
-    def _rou_task(self):
-        """
-        进入日常公告页面
-        :return:  暂时没有返回值
-        """
-        self._rou_system()
-        pass
+@pytest.fixture()
+def login():
+    print("做执行前的工作")

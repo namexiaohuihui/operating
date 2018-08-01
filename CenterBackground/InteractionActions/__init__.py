@@ -10,6 +10,8 @@ from CenterBackground.InteractionActions.interactionNames import InteractionName
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
 from tools.operationSelector import OperationSelector
 
+basepath = os.path.dirname(os.path.realpath(__file__))
+
 
 class InteractionCoexistence(BackgroundCoexistence):
     names_key = InteractionNames()
@@ -43,7 +45,7 @@ class InteractionCoexistence(BackgroundCoexistence):
     TYPE_SIX = 6
 
     # 菜单在整体目录中的位置
-    SIDEBAR_TAGS_LOCATION = "2"
+    CHILD_TAGS_LOCATION = "2"
 
     # 该菜单的用例所处位置目录
     MODEI_KEY_POSITION = "interaction"
@@ -58,25 +60,25 @@ class InteractionCoexistence(BackgroundCoexistence):
         进入日常公告页面
         :return:  暂时没有返回值
         """
-        self.treew_tags = self.TREEW_TAGS_LOCATION
-        self.sidebar_tags = self.SIDEBAR_TAGS_LOCATION
+        self.child_tags = self.FATHER_TAGS_LOCATION
+        self.father_tags = self.CHILD_TAGS_LOCATION
         self._rou_background()
         pass
 
     def parseyaml_location(self):
         '''
-        解析yaml文件中存储标签的位置信息
+        解析yaml文件中存储标签的位置信息 : totalPathNames
         :return:
         '''
-        self.select_path = self.names_key.read_parseyaml(self.SELECT_LABLE_LOCATION)
+        self.select_path = self.names_key.read_parseyaml(basepath, self.SELECT_LABLE_LOCATION)
 
     def parseyaml_content(self):
         '''
-        解析yaml文件中存储标签所携带的默认参数以及sql
+        解析yaml文件中存储标签所携带的默认参数以及sql : totalLableNanme
         :return:
         '''
-        parse = self.names_key.read_parseyaml(self.SELECT_LABLE_CONTENT)
-        self.select_content = self.names_key.together_catalog(parse[self.names_key.yaml_files()],
+        parse = self.names_key.read_parseyaml(basepath, self.SELECT_LABLE_CONTENT)
+        self.select_content = self.names_key.read_parseyaml(parse[self.names_key.yaml_files()],
                                                             parse[self.names_key.yaml_value()])
 
     # ---------------------------------------各个order页面中相同的用例集合点：以下为界面固定元件的校验-----------------------------

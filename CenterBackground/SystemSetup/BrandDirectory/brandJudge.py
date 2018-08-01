@@ -11,7 +11,7 @@ brand = BrandNames()
 
 
 class BrandJudge(SystemCoexistence):
-    TREEW_TAGS_LOCATION = "6"
+    FATHER_TAGS_LOCATION = "6"
 
     def _rou_brand(self):
         """

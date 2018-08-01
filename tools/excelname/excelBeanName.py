@@ -54,6 +54,38 @@ class ExcelTitle(object):
     def wholeQueryStatement(self):
         return "sql"
 
+    # ----------------------------共用的定义--------------------
+    def yaml_dec(self):
+        return 'dec'
+
+    def yaml_name(self):
+        return 'name'
+
+    def yaml_type(self):
+        return 'type'
+
+    def yaml_value(self):
+        return 'value'
+
+    def yaml_placeholder(self):
+        return 'placeholder'
+
+    def yaml_orderkey(self):
+        return 'orderkey'
+
+    def yaml_attribute(self):
+        return 'attribute'
+
+    #  -------------------------------------元素标签属性--------------------
+    def ele_class(self):
+        return 'class'
+
+    def ele_href(self):
+        return 'href'
+
+    def ele_active(self):
+        return 'active'
+
 
 # even 的地盘
 class even_auxiliary(ExcelTitle):
@@ -80,8 +112,3 @@ if __name__ == '__main__':
 
     print(sn.dailyDeadline)
     print(sn.dailyCity(sn))
-
-
-
-
-

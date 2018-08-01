@@ -34,7 +34,7 @@ from CenterBackground.WebsiteAddress import WebsiteCoexistence
 
 
 class HomeBrandJudge(WebsiteCoexistence):
-    TREEW_TAGS_LOCATION = "3"
+    FATHER_TAGS_LOCATION = "3"
 
     def _rou_task(self):
         """

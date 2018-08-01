@@ -8,7 +8,7 @@ from CenterBackground.SystemSetup import SystemCoexistence
 
 
 class InformationJudge(SystemCoexistence):
-    TREEW_TAGS_LOCATION = "9"
+    FATHER_TAGS_LOCATION = "9"
 
     def _rou_information(self):
         """

@@ -46,6 +46,17 @@ python中对文件、文件夹（文件操作函数）的操作需要涉及到os
 
 获取文件大小：os.path.getsize（filename）
 
+获取当前文件名以及文件后缀：os.path.basename(__file__)
+获取当前程序运行的类名：os.path.splitext(os.path.basename(__class__.__name__))[0]
+获取当前文件名不需要后缀：s.path.splitext(os.path.basename(__file__))[0]
+获取当前方法名：inspect.stack()[0][3]
+遍历basepath目录下面的全部文件：
+for fpath, dirname, fnames in os.walk(basepath):
+        print("--------------")
+        print(fpath)      # 当前遍历的路径
+        print(dirname)    # 路径下面的目录名字
+        print(fnames)     # 路径下面的文件名字
+        print("--------------")
 
 文件操作：
 os.mknod("test.txt")        创建空文件

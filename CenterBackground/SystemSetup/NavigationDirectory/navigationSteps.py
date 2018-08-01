@@ -11,7 +11,7 @@ naviga = NavigationNames()
 
 
 class NavigationSteps(SystemCoexistence):
-    TREEW_TAGS_LOCATION = "3"
+    FATHER_TAGS_LOCATION = "3"
 
     def _rou_navigation(self):
         """

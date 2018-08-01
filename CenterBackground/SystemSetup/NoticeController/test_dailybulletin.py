@@ -44,7 +44,7 @@ class TestDailyBulletin(unittest.TestCase):
     def tearDownClass(cls):
         try:
             # 该类结束时最后调用的函数
-            # announ.driver.quit()
+            announ.driver.quit()
             # announ.driver.close()
             # announ.sleep_time(1)
             pass

@@ -11,7 +11,7 @@ city_show = CityShowNames()
 
 
 class CityShowJudge(SystemCoexistence):
-    TREEW_TAGS_LOCATION = "4"
+    FATHER_TAGS_LOCATION = "4"
 
     def _rou_city_show(self):
         """

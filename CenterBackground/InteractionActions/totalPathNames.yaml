@@ -73,7 +73,6 @@ content:
   type: cssSelector/tr
   table: .table.table-striped >
   thead: thead > tr
-  thead: tbody > tr
 
 record:
   name: 底部数量的记录

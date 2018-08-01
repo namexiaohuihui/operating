@@ -28,7 +28,7 @@ class TestTaskSystem(unittest.TestCase):
     def tearDownClass(cls):
         try:
             # 该类结束时最后调用的函数
-            # task.driver.quit()
+            task.driver.quit()
             # announ.sleep_time(1)
             pass
         except UnicodeDecodeError:

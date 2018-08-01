@@ -54,7 +54,7 @@ class TestWebsite(unittest.TestCase):
     def tearDownClass(cls):
         try:
             # 该类结束时最后调用的函数
-            # website.driver.quit()
+            website.driver.quit()
             pass
         except UnicodeDecodeError:
             pass

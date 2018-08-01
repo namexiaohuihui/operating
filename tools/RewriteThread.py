@@ -23,7 +23,10 @@ class InheritThread(Thread):
         self.args = args
 
     def run(self):
-        self.result = self.func(self.args)
+        if self.args:
+            self.result = self.func(self.args)
+        else:  # 参数为空时，不传入内容值
+            self.result = self.func()
         print("线程工作者 %s " % self.func)
 
     def get_result(self):
@@ -46,8 +49,8 @@ class InheritProcess(Process):
 
     def run(self):
         for link_key, link_value in self.args[0].items():
-            print("是否为最后一个", link_key,link_value)
-            self.result = self.func(link_key,link_value)
+            print("是否为最后一个", link_key, link_value)
+            self.result = self.func(link_key, link_value)
 
 
 # 当前脚本所在的目录

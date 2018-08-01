@@ -89,6 +89,7 @@ def shangyigebanben():
 
 def jiemianyunxing():
     # https://blog.csdn.net/u011061889/article/details/79440349
+	# https://pythonhosted.org/PyInstaller/
     # pip install pyinstaller
     # pyinstaller test.py
     def callback():
@@ -107,7 +108,7 @@ if __name__ == '__main__':
     # shangyigebanben()
 
     # 加载用例
-    all_case = add_case(r"CenterBackground\InteractionActions")
+    all_case = add_case(r"CenterBackground")
     # 生成测试报告的路径
     run_case(all_case)
     # 获取最新的而测试报告文件

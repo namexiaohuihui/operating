@@ -41,7 +41,7 @@ class JudgmentVerification(ComparedVerify):
         # 指定key值获取pandas用例上相应的数据信息
         excel_time = self.overall[announ_deadline]
 
-        assert excel_time != None , "%s 没有设置时间,用例跳过" % self.FUNCTION_NAME
+        assert excel_time != None, "%s 没有设置时间,用例跳过" % self.FUNCTION_NAME
         # 记录当前时间
         self.ANNOUN_SHE_TIME = self.ti.currentToStamp()
 
@@ -78,9 +78,9 @@ class JudgmentVerification(ComparedVerify):
     #------------------创建浏览器并执行登录------------------------------------
     """
 
-    def option_browser(self):
+    def option_browser(self, options='admin_url'):
         # 调用自定义的浏览器接口
-        self.driver = self._browser(option="admin_url")
+        self.driver = self._browser(option=options)
 
     def openingProgram(self, basename, exclefile):
         """
@@ -90,13 +90,14 @@ class JudgmentVerification(ComparedVerify):
         :return:  暂时没有返回值
         """
         # 这两个比较耗时间
-        self.option_browser()  # 打开浏览器
-        self.ps_user_login()  # 用户登录
+        skip_browser = [{"func": self.option_browser, "args": ''}, {"func": self.ps_user_login, "args": ''}]
+        self.skip_waiting(skip_browser)
+        # self.option_browser()  # 打开浏览器
+        # self.ps_user_login()  # 用户登录
 
         # 定义日志
         self.log = Log(basename)
         # 读取文档的所在主目录,MODEI_KEY_POSITION
-
         # 读取文档下面的子目录，MODEI_CASE_POSITION
         self.overallExcelData = self._excel_Data(self.MODEI_KEY_POSITION, self.MODEI_CASE_POSITION, exclefile)
 
@@ -122,7 +123,7 @@ class JudgmentVerification(ComparedVerify):
         password = conf.get("username", "admin_password")
         return account, password
 
-    def ps_user_login(self):
+    def ps_user_login(self, para=None):
         acc_pa = self.get_account_account_password()  # 获取登录账号和密码
         self.sign_user_login(acc_pa[0], acc_pa[1])  # 进行登录
         pass
