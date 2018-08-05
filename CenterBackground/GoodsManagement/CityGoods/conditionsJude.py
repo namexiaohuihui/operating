@@ -36,16 +36,14 @@ from CenterBackground.GoodsManagement import GoodsConditions
 from CenterBackground.GoodsManagement.GoodsParameter import FinancialParameter
 from tools import readYaml
 from CenterBackground import GoodsManagement
-
+import operator
 fpath = os.path.dirname(os.path.realpath(__file__))  # 返回该文件所在的目录
 name = 'GoodsPath.yaml'
 
 
 class ConditionsJude(GoodsConditions):
     goods = FinancialParameter()
-    CHILD_TAGS_LOCATION = 1
-    MODEL_WORKBOOK_CITY = '城市'
-    MODEI_CASE_POSITION = 'city'
+
 
     def __init__(self):  # 执行读取yaml数据信息
         self.financial_path = readYaml.read_parseyaml(fpath, name)
@@ -59,13 +57,3 @@ class ConditionsJude(GoodsConditions):
         self.father_tags = self.FATHER_TAGS_LOCATION
         self._rou_background()
         pass
-
-    def get_active_city(self):
-        city_ele = self._visible_returns_selectop(self.financial_path[self.goods.yaml_value()])
-        for ele in city_ele:
-            if ele.get_attribute(self.goods.ele_class()) is self.goods.ele_active():
-                print('---')
-                print(ele.text)
-                print('---')
-            else:
-                print(ele.text)

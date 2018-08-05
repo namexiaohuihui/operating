@@ -33,9 +33,9 @@
 import os
 import inspect
 import unittest
-from CenterBackground.GoodsManagement.CityGoods.conditionsJude import ConditionsJude
+from CenterBackground.GoodsManagement.CityGoods.cityTabJude import CityTabJude
 
-cond = ConditionsJude()
+city_tab = CityTabJude()
 
 
 class TestCityTab(unittest.TestCase):
@@ -45,18 +45,56 @@ class TestCityTab(unittest.TestCase):
         # 获取运行文件的类名
         basename = os.path.splitext(os.path.basename(__file__))[0]
         # 打开浏览器，定义log日志。读取excle文档数据
-        cond.openingProgram(basename, cond.MODEL_WORKBOOK_CITY)
-        cond._rou_interaction()
+        city_tab.openingProgram(basename, city_tab.MODEL_WORKBOOK_CITY)
+        city_tab._rou_interaction()
 
     def tearDown(self):
-        cond.driver.quit()
+        city_tab.driver.quit()
         print("teardown: 每个用例结束后执行")
-
-    def test_active_city(self):
-        cond.get_active_city()
         pass
 
-    def test_switch(self):
+    def test_already_citys(self):
+        '''
+        读取全部的城市
+        :return:
+        '''
+        city_tab.get_already_citys()
+        pass
+    def test_already_codes(self):
+        '''
+        获取全部城市的code
+        :return:
+        '''
+        city_tab.get_already_codes()
+        pass
+
+    def test_active_city(self):
+        '''
+        寻找默认展开项
+        :return:
+        '''
+        city_tab.get_active_city()
+        pass
+
+    def test_active_code(self):
+        '''
+        寻找默认展开项的编码
+        :return:
+        '''
+        city_tab.get_active_code()
+        pass
+
+    def test_switch_city(self):
+        '''
+        点击全部的tab项
+        :return:
+        '''
+        city_tab.click_switch_city()
+        pass
+    def test_switch_url(self):
+        city_tab.click_switch_code()
+
+    def switch_switch(self):
         print("------------")
         print(os.path.basename(__file__))
         print(os.path.splitext(os.path.basename(__class__.__name__))[0])

@@ -90,10 +90,10 @@ class JudgmentVerification(ComparedVerify):
         :return:  暂时没有返回值
         """
         # 这两个比较耗时间
-        skip_browser = [{"func": self.option_browser, "args": ''}, {"func": self.ps_user_login, "args": ''}]
-        self.skip_waiting(skip_browser)
-        # self.option_browser()  # 打开浏览器
-        # self.ps_user_login()  # 用户登录
+        # skip_browser = [{"func": self.option_browser, "args": ''}, {"func": self.ps_user_login, "args": ''}]
+        # self.skip_waiting(skip_browser)
+        self.option_browser()  # 打开浏览器
+        self.ps_user_login()  # 用户登录
 
         # 定义日志
         self.log = Log(basename)

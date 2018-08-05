@@ -48,3 +48,5 @@ def read_parseyaml(fpath, name):
             page = yaml.load(f)
             pageElements.update(page)
     return pageElements
+# name = 'GoodsPath.yaml'
+# print(read_parseyaml(r'E:\operating\CenterBackground\GoodsManagement\CityGoods',name))

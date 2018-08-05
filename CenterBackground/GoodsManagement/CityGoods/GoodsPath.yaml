@@ -6,3 +6,4 @@ citytab:
   value: .nav.nav-tabs > li
   label: a
   attribute: href
+  active: li.active

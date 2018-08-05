@@ -32,8 +32,17 @@
 '''
 from tools.excelname.excelBeanName import ExcelTitle
 class CityGoodsPage(ExcelTitle):
-    def city_name(self):
+    def excle_name(self):
         return '城市'
 
-    def city_code(self):
+    def excle_code(self):
         return '编码'
+
+    def yaml_city_tab(self):
+        return 'citytab'
+
+    def yaml_label(self):
+        return 'label'
+
+    def yaml_active(self):
+        return 'active'
