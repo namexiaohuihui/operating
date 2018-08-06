@@ -36,7 +36,7 @@ class OperationSelector(action_visible):
 
     # ----------------------------------获取参数------------------------
 
-    def get_options(self):
+    def __getOptions__(self):
         """
         统计options值，只限内部使用。外部不可调用
         :return:
@@ -57,8 +57,11 @@ class OperationSelector(action_visible):
         # 　返回select对象
         return self.select
 
-    def getSelectedOptions(self):
-        # 返回当前业已选择的option
+    def getSelectedOptions(self) -> str:
+        '''
+        返回当前业已选择的option
+        :return:
+        '''
         selected = self.select.first_selected_option.text.strip()
         return selected
 
@@ -70,7 +73,7 @@ class OperationSelector(action_visible):
         if self.optionsList:
             pass
         else:
-            self.get_options()
+            self.__getOptions__()
             pass
         return self.optionsList
 
@@ -135,7 +138,8 @@ class OperationSelector(action_visible):
         """
         try:
             selected = self.getSelectedOptions()
-            if selected == text:  # 判断当前业已的option是否为需要新设置的数据信息
+            # 判断当前业已的option是否为需要新设置的数据信息
+            if selected == text:
                 pass
             else:
                 self.select.select_by_visible_text(text)

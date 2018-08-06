@@ -1,5 +1,3 @@
-dec: 该页面下的元素路径
-
 citytab:
   name: 城市
   type: cssSelector/li
@@ -10,3 +8,9 @@ citytab:
   obj: .nav.nav-tabs
 
 formGroup:
+  statusV: select[name='status']
+  categoryV: select[name='category']
+  preferencesV: select[name='preferences']
+  conditionsV: form.form-inline > div:nth-child(4) > input
+  searchB: form.form-inline > div:nth-child(5) > button
+  exportB: form.form-inline > div:nth-child(6) > button

@@ -39,6 +39,10 @@ class CityGoodsPage(ExcelTitle):
 
     def excle_code(self):
         return '编码'
+    def excle_including(self):
+        return '全部'
+    def excle_default(self):
+        return '默认'
 
     def yaml_obj(self):
         return 'obj'
@@ -51,3 +55,18 @@ class CityGoodsPage(ExcelTitle):
 
     def yaml_active(self):
         return 'active'
+
+    def yaml_formGroup(self):
+        return 'formGroup'
+    def yaml_statusV(self):
+        return 'statusV'
+    def yaml_categoryV(self):
+        return 'categoryV'
+    def yaml_preferencesV(self):
+        return 'preferencesV'
+    def yaml_conditionsV(self):
+        return 'conditions'
+    def yaml_searchB(self):
+        return 'searchB'
+    def yaml_exportB(self):
+        return 'exportB'

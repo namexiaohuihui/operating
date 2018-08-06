@@ -51,14 +51,85 @@ class TestFormGroup(unittest.TestCase):
         form_group.driver.quit()
         print("teardown: 每个用例结束后执行")
         pass
-
+    # ----------------------------状态筛选框-------------------------------
     def test_statusSelect(self):
+        '''
+        执行获取状态全部optios值的用例
+        :return:
+        '''
         form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.get_already_citys()
+        form_group.get_statusSelect()
         pass
 
     def test_statusDefault(self):
+        '''
+        执行状态默认值的用例
+        :return:
+        '''
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.get_statusDefault()
         pass
 
     def test_statusTraverse(self):
+        '''
+        执行遍历选择状态中全部option值的用例
+        :return:
+        '''
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.get_statusTraverse()
+        pass
+    # ----------------------------类目筛选框-------------------------------
+    def test_categorySelect(self):
+        '''
+        执行获取类目全部optios值的用例
+        :return:
+        '''
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.get_categorySelect()
+        pass
+
+    def test_categoryDefault(self):
+        '''
+        执行类目默认值的用例
+        :return:
+        '''
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.get_categoryDefault()
+        pass
+
+    def test_categoryTraverse(self):
+        '''
+        执行遍历选择类目中全部option值的用例
+        :return:
+        '''
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.get_categoryTraverse()
+        pass
+
+    # ----------------------------对象筛选框-------------------------------
+    def test_preferencesSelect(self):
+        '''
+        执行获取对象全部optios值的用例
+        :return:
+        '''
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.get_preferencesSelect()
+        pass
+
+    def test_preferencesDefault(self):
+        '''
+        执行对象默认值的用例
+        :return:
+        '''
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.get_preferencesDefault()
+        pass
+
+    def test_preferencesTraverse(self):
+        '''
+        执行遍历选择对象中全部option值的用例
+        :return:
+        '''
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.get_preferencesTraverse()
         pass
