@@ -7,3 +7,6 @@ citytab:
   label: a
   attribute: href
   active: li.active
+  obj: .nav.nav-tabs
+
+formGroup:

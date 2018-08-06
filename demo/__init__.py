@@ -30,18 +30,8 @@
 
                佛祖保佑         永无BUG
 '''
-class A(object):
-    pass
-class B(A):
-    def __init__(self):
-        print("B")
 
-class C(B):
-    pass
 
-print(C())
-t1 ='nihao'
-t2 = 'nihao'
-import operator
-assert operator.eq(t1,t2),'你不懂'
-print("2")
+tt = ['wqe','sdf','sdfsd']
+nihao = ','.join(tt)
+print(nihao)

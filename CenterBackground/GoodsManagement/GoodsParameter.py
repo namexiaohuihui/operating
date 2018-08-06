@@ -33,6 +33,8 @@
 import os
 from tools import readYaml
 from tools.excelname.adminGongsMana import CityGoodsPage
+
+
 class FinancialParameter(CityGoodsPage):
 
     def financial_yaml(self, fpath, name):

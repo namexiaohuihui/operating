@@ -26,28 +26,13 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: adminGoongdManagement.py
-@time: 2018/8/1 11:31
+@file: toolconfig.py
+@time: 2018/8/6 11:04
 @desc:
 '''
-from tools.excelname.excelBeanName import ExcelTitle
-
-
-class CityGoodsPage(ExcelTitle):
-    def excle_name(self):
-        return '城市'
-
-    def excle_code(self):
-        return '编码'
-
-    def yaml_obj(self):
-        return 'obj'
-
-    def yaml_city_tab(self):
-        return 'citytab'
-
-    def yaml_label(self):
-        return 'label'
-
-    def yaml_active(self):
-        return 'active'
+import sys
+print(sys.version)
+print(sys.version_info)
+if sys.version_info < (3, 3):
+    raise RuntimeError('At least Python 3.4 is required')
+print(type( sys.version))

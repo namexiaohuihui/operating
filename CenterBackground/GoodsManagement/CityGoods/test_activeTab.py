@@ -26,16 +26,16 @@
 @author: 70486
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: test_cityTab.py
+@file: test_activeTab.py
 @time: 2018/7/31 14:03
 @desc:
 '''
 import os
 import inspect
 import unittest
-from CenterBackground.GoodsManagement.CityGoods.cityTabJude import CityTabJude
+from CenterBackground.GoodsManagement.CityGoods.activeTabJude import ActiveTabJude
 
-city_tab = CityTabJude()
+city_tab = ActiveTabJude()
 
 
 class TestCityTab(unittest.TestCase):
@@ -58,13 +58,16 @@ class TestCityTab(unittest.TestCase):
         读取全部的城市
         :return:
         '''
+        city_tab.setFunctionName(inspect.stack()[0][3])
         city_tab.get_already_citys()
         pass
+
     def test_already_codes(self):
         '''
         获取全部城市的code
         :return:
         '''
+        city_tab.setFunctionName(inspect.stack()[0][3])
         city_tab.get_already_codes()
         pass
 
@@ -73,6 +76,7 @@ class TestCityTab(unittest.TestCase):
         寻找默认展开项
         :return:
         '''
+        city_tab.setFunctionName(inspect.stack()[0][3])
         city_tab.get_active_city()
         pass
 
@@ -81,6 +85,7 @@ class TestCityTab(unittest.TestCase):
         寻找默认展开项的编码
         :return:
         '''
+        city_tab.setFunctionName(inspect.stack()[0][3])
         city_tab.get_active_code()
         pass
 
@@ -89,10 +94,18 @@ class TestCityTab(unittest.TestCase):
         点击全部的tab项
         :return:
         '''
+        city_tab.setFunctionName(inspect.stack()[0][3])
         city_tab.click_switch_city()
         pass
+
     def test_switch_url(self):
+        '''
+        通过url来切换
+        :return:
+        '''
+        city_tab.setFunctionName(inspect.stack()[0][3])
         city_tab.click_switch_code()
+        pass
 
     def switch_switch(self):
         print("------------")

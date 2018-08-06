@@ -28,6 +28,12 @@ class OperationSelector(action_visible):
         self.optionsList = []
         return self
 
+    # --------------------------------参数类型转换----------------------
+    def options_to_str(self):
+        self.getAllOptions()
+        str_option = ','.join(self.optionsList)
+        return str_option
+
     # ----------------------------------获取参数------------------------
 
     def get_options(self):
@@ -137,6 +143,25 @@ class OperationSelector(action_visible):
             print("This parameter is not found in the drop-down box %s" % text)
         finally:
             return selected
+    # ---------------------------------------遍历设置option值-----------------------------
+    def traverseYield(self, textList):
+        '''
+        根据lit/dict创建迭代器
+        :param textList:
+        :return:
+        '''
+        for text in textList:
+            yield text
+
+    def traverseSetText(self, textList):
+        '''
+        通过lit/dict来设置select的option
+        :param textList:
+        :return:
+        '''
+        tr_yield = traverseYield(textList)
+        for text in tr_yield:
+            self.select.select_by_visible_text(text)
 
     # ----------------------------------取消已选择的参数------------------------
     def setDeselectAll(self):
@@ -178,7 +203,14 @@ class OperationSelector(action_visible):
         self.select.deselect_by_visible_text(text)
         return selected
 
+    # -------------------------------根据新的label来设置内容------------------------------
     def lable_set_text(self, label, text):
+        '''
+        根据label来设置新的text
+        :param label: select位置
+        :param text:  需要设置的值
+        :return:
+        '''
         self.setSelectData(label)
         self.setSelectorText(text)
         time.sleep(0.5)

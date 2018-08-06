@@ -26,28 +26,22 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: adminGoongdManagement.py
-@time: 2018/8/1 11:31
+@file: formGroupJude.py
+@time: 2018/8/6 14:34
 @desc:
 '''
-from tools.excelname.excelBeanName import ExcelTitle
+import operator
+from tools import StringCutting
+from tools.operationSelector import OperationSelector
+from CenterBackground.GoodsManagement.CityGoods.conditionsJude import ConditionsJude
 
 
-class CityGoodsPage(ExcelTitle):
-    def excle_name(self):
-        return '城市'
+class FormGroupJude(ConditionsJude):
+    MODEL_WORKBOOK_CITY = '筛选'
 
-    def excle_code(self):
-        return '编码'
+    def __init__(self):
+        ConditionsJude.__init__(self)
 
-    def yaml_obj(self):
-        return 'obj'
+    def get_statusSelect(self):
+        OperationSelector(self.driver,self.financial_path)
 
-    def yaml_city_tab(self):
-        return 'citytab'
-
-    def yaml_label(self):
-        return 'label'
-
-    def yaml_active(self):
-        return 'active'
