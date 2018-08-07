@@ -77,8 +77,8 @@ class LinuxOperating(object):
 if __name__ == '__main__':
     l_dict = {
         "host": "192.168.10.203",
-        "user": "panhui",
-        "pass": "qweasd11",
+        "user": "--",
+        "pass": "**",
         "port": 22,
         "cmd": "cd log/;cat sms-2018-25.log"}
     content = LinuxOperating(l_dict).stdout_content
