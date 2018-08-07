@@ -147,6 +147,7 @@ class OperationSelector(action_visible):
             print("This parameter is not found in the drop-down box %s" % text)
         finally:
             return selected
+
     # ---------------------------------------遍历设置option值-----------------------------
     def traverseYield(self, textList):
         '''

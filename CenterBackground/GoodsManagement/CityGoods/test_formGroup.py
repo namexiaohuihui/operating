@@ -40,17 +40,18 @@ form_group = FormGroupJude()
 
 class TestFormGroup(unittest.TestCase):
     def setUp(self):
-        print("setup: 每个用例开始前后执行")
         # 获取运行文件的类名
-        basename = os.path.splitext(os.path.basename(__file__))[0]
+        self.basename = os.path.splitext(os.path.basename(__file__))[0]
+        print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        form_group.openingProgram(basename, form_group.MODEL_WORKBOOK_CITY)
+        form_group.openingProgram(self.basename, form_group.MODEL_WORKBOOK_CITY)
         form_group._rou_interaction()
 
     def tearDown(self):
         form_group.driver.quit()
-        print("teardown: 每个用例结束后执行")
+        print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
+
     # ----------------------------状态筛选框-------------------------------
     def test_statusSelect(self):
         '''
@@ -78,6 +79,7 @@ class TestFormGroup(unittest.TestCase):
         form_group.setFunctionName(inspect.stack()[0][3])
         form_group.get_statusTraverse()
         pass
+
     # ----------------------------类目筛选框-------------------------------
     def test_categorySelect(self):
         '''
@@ -132,4 +134,20 @@ class TestFormGroup(unittest.TestCase):
         '''
         form_group.setFunctionName(inspect.stack()[0][3])
         form_group.get_preferencesTraverse()
+        pass
+
+    # ----------------------------輸入框以及按鈕-------------------------------
+    def test_conditionsInput(self):
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.jude_input_conditions()
+        pass
+
+    def test_button_search(self):
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.jude_button_search()
+        pass
+
+    def test_button_export(self):
+        form_group.setFunctionName(inspect.stack()[0][3])
+        form_group.jude_button_export()
         pass

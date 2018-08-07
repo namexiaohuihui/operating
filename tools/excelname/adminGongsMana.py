@@ -65,7 +65,7 @@ class CityGoodsPage(ExcelTitle):
     def yaml_preferencesV(self):
         return 'preferencesV'
     def yaml_conditionsV(self):
-        return 'conditions'
+        return 'conditionsV'
     def yaml_searchB(self):
         return 'searchB'
     def yaml_exportB(self):
