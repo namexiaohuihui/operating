@@ -164,7 +164,7 @@ class OperationSelector(action_visible):
         :param textList:
         :return:
         '''
-        tr_yield = traverseYield(textList)
+        tr_yield = self.traverseYield(textList)
         for text in tr_yield:
             self.select.select_by_visible_text(text)
 

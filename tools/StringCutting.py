@@ -178,7 +178,19 @@ def re_zip_code(str_text: str, pattern=r'[1-9]\d{5}(?!\d)'):
     :return:
     '''
     searchObj = re.search(pattern, str_text)
-    re_span = searchObj.span()  # 返回已查到的数据信息所在位置
+    print(searchObj)
+    # re_span = searchObj.span()  # 返回已查到的数据信息所在位置
     re_group = searchObj.group()  # 返回已查到的数据信息
     return re_group
+
+#
+# text = str.split('每页显示10条，共24条记录', '，')[-1]
+#
+# text = int(re_zip_code(text,r'[1-9]\d'))
+# if (text%10) > 0:
+#     number = 1
+# else:
+#     number = 0
+# text = int((text/10)) + number
+# print(text)
 

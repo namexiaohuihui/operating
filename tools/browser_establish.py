@@ -96,25 +96,22 @@ class browser_confirm(object):
     # 运行浏览器
     def url_opens(self, url=None, liulanqi='chrome', options=None):
         # 创建浏览器对象
-        if 'chrome' == liulanqi:
+        if 'chrome' == liulanqi or 'Chrome' == liulanqi:
             self.chrome_browser()
-        elif 'firefox' == liulanqi:
+        elif 'firefox' == liulanqi or 'Firefox' == liulanqi:
             self.firefox_browser()
         else:
             self.ie_browser()
 
-        if self.browser:
-            self.browser.maximize_window()
+        self.browser.maximize_window()
 
-            # 输入网址
-            self.browser.get(url)
-            # 等待网页加载，加载时间为10s，加载完就跳过
-            # 隐形等待时间和显性等待时间不同时，默认使用两者之间最大的那个
-            self.browser.implicitly_wait(15)
+        # 输入网址
+        self.browser.get(url)
+        # 等待网页加载，加载时间为10s，加载完就跳过
+        # 隐形等待时间和显性等待时间不同时，默认使用两者之间最大的那个
+        self.browser.implicitly_wait(15)
 
-            return self.browser
-        else:
-            return False
+        return self.browser
 
     def dingdong_mobile_opens(self, url):
         options = self.mobile_phone_mode()
@@ -141,7 +138,7 @@ class browser_confirm(object):
             options.add_experimental_option("mobileEmulation", mobile_emulation)
             return options
         except:
-            self.writeLog('mobile_phone_mode')
+            self.writeLog()
 
     def writeLog(self):
         # 执行文件的文件名

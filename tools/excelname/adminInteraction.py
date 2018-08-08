@@ -17,6 +17,7 @@ class InteractionController(ExcelTitle):
     文档中有些备注写的不是很明确，是因为涉及版面数据。
     也有些是忘记写备注...
     '''
+
     def program_operation(self):
         return '操作'
 

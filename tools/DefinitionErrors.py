@@ -18,36 +18,28 @@ log_path = os.path.join(cur_path, 'imgs')
 # 如果不存在这个logs文件夹，就自动创建一个
 if not os.path.exists(log_path): os.mkdir(log_path)
 
-def error_get(basename, _browser_):
 
+def error_get(basename, _browser_):
     # 组合日志文件名（当前文件名+当前时间）.比如：case_login_success_20150817192533
     logFile = basename + "-" + datetime.datetime.now().strftime("%Y%m%d %H%M%S")
 
     # 获取错误日志并打印
     error = traceback.format_exc()
-    log = Log(basename, classification = "ERROR")
+    log = Log(basename, classification="ERROR")
     log.info("发生错误时打印的错误数据信息: %s" % error)
 
     _browser_.get_screenshot_as_file(os.path.join(log_path, logFile + ".png"))
 
 
-def error_output(basename, _browser_,e = None):
+def error_output(basename, _browser_, e=None):
     error = e if e else traceback.format_exc()
     log = Log(basename, classification='ERROR')
     log.info("发生错误时打印的错误数据信息: %s" % error)
     # basename = basename + ".png"
     # _browser_.get_screenshot_as_file(os.path.join(log_path, basename))
 
-def error_mess(basename,e = None):
+
+def error_mess(basename, e=None):
     error = e if e else traceback.format_exc()
     log = Log(basename, classification='ERROR')
-    log.info("信息错误%s:  %s" % (basename,error))
-    # basename = basename + ".png"
-    # _browser_.get_screenshot_as_file(os.path.join(log_path, basename))
-if __name__ == '__main__':
-    link_range_len = [{'firefox': (0, 2)}, {'chrome': (4, 6)}]
-    print(link_range_len[0]['firefox'][0])
-    for link_key, link_value in link_range_len[0].items():
-        print(link_key)
-        print(link_value)
-        pass
+    log.info("信息错误%s:  %s" % (basename, error))

@@ -11,7 +11,7 @@ from selenium.webdriver.common.by import By
 
 
 class GetXiaoMi:
-    driver = webdriver.Chrome(executable_path=r"E:\drivers\Drivers\chromedriver62-64.exe")
+    # driver = webdriver.Chrome(executable_path=r"E:\drivers\Drivers\chromedriver62-64.exe")
     url = 'https://item.mi.com/product/7831.html'
 
     # 一直等待某元素可见，默认超时10秒
@@ -76,5 +76,6 @@ class GetXiaoMi:
 if __name__ == '__main__':
     # run = GetXiaoMi()
     # run.get_xiaomi()
-    ssa = """nihao %s %s gsrfwer  %s """  % ( "erwqe","dfgdf","asdas")
-    print(ssa)
+    nihao = "123123"
+    buhiao = 1
+    print(nihao+'{}'.format(buhiao))
