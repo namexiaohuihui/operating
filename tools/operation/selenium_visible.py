@@ -7,7 +7,7 @@ __author__ = 'Administrator'
 
 import os
 from time import sleep
-
+from selenium.webdriver.common.action_chains import ActionChains
 import selenium.webdriver.support.expected_conditions as EC
 import selenium.webdriver.support.ui as ui
 from selenium.common.exceptions import TimeoutException
@@ -48,6 +48,12 @@ class action_visible(object):
             print('元素不存在出现超时的情况 %s' % locator)
             # self.error_log(driver, e)
             return False
+
+    def ac_move_to_element(self, driver, locator):
+        el = self.is_visible_css_selectop(driver, locator)
+        ActionChains(driver).move_to_element(el).perform()
+        el.click()
+        pass
 
     def is_visibles_css_selectop(self, driver, locator, timeout=5):
         # 一直等待某元素可见，默认超时5秒,返回全部找到的数据元素组

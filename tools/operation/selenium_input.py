@@ -65,6 +65,13 @@ class action_input(action_visible):
             self.ele_clear_keys(ele, parameter)
         else:
             self.error_log(browser)
+    def css_input_number(self, browser, css, parameter, number=0):
+        ele = self.is_visibles_css_selectop(browser, css)
+        if ele != False:  # 判断是否出现
+            # 元素输入
+            self.ele_clear_keys(ele[number], parameter)
+        else:
+            self.error_log(browser)
 
     def xpath_input(self, browser, xpath, parameter):
         ele = self.is_visible_xpath(browser, xpath)
