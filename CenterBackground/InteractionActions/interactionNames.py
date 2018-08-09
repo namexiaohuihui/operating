@@ -31,10 +31,8 @@
 @desc:
 '''
 
-import yaml
-import os
 from tools.excelname.adminInteraction import InteractionController
-from tools import readYaml
+from tools.YAMLconfig import readYaml
 
 
 class InteractionNames(InteractionController):
@@ -46,7 +44,7 @@ class InteractionNames(InteractionController):
         :param name: 文件名称
         :return:
         '''
-        return readYaml.read_parseyaml(fpath, name)
+        return readYaml.read_filepath(fpath, name)
 
 
 if __name__ == '__main__':

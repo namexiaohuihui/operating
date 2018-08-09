@@ -30,10 +30,10 @@
 @time: 2018/7/31 16:46
 @desc:
 '''
-from CenterBackground import BackgroundCoexistence
+from CenterBackground.judgmentVerification import JudgmentVerification
 
 
-class GoodsConditions(BackgroundCoexistence):
+class GoodsConditions(JudgmentVerification):
     MODEI_KEY_POSITION = 'product'
     FATHER_TAGS_LOCATION = "3"
     pass

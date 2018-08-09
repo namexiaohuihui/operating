@@ -30,8 +30,10 @@
 @time: 2018/8/8 17:32
 @desc:
 '''
-from CenterBackground import BackgroundCoexistence
-class PromotionalBulk(BackgroundCoexistence):
-    MODEI_KEY_POSITION = 'bulkgroup' # 用例所在位置
+from CenterBackground.judgmentVerification import JudgmentVerification
+
+
+class PromotionalBulk(JudgmentVerification):
+    MODEI_KEY_POSITION = 'bulkgroup'  # 在ini中用例的所在位置
     FATHER_TAGS_LOCATION = "6"
     pass

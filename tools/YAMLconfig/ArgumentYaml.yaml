@@ -1,0 +1,7 @@
+promote:
+  father: 6
+  modei: bulkgroup
+  bulk:
+    modei: bulk
+    child: 7
+    create: 创建

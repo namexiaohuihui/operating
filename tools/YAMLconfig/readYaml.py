@@ -33,7 +33,26 @@
 
 import os
 import yaml
-def read_parseyaml(fpath, name):
+
+
+def read_expression():
+    yaml_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'expression')
+    pageElements = read_parseyaml(yaml_file_path)
+    return pageElements
+
+
+def read_argument():
+    pageElements = read_parseyaml('ArgumentYaml.yaml')
+    return pageElements
+
+
+def read_filepath(fpath, name):
+    yaml_file_path = os.path.join(fpath, name)
+    pageElements = read_parseyaml(yaml_file_path)
+    return pageElements
+
+
+def read_parseyaml(fpath=None, name=None):
     '''
     指定文件路径以及文件名来读取数据信息
     :param fpath: 文件路径
@@ -41,12 +60,10 @@ def read_parseyaml(fpath, name):
     :return:
     '''
     pageElements = {}
-    yaml_file_path = os.path.join(fpath, name)
+    yaml_file_path = 'ArgumentYaml.yaml'
     # 排除一些非.yaml的文件
     if '.yaml' in str(yaml_file_path):
         with open(yaml_file_path, 'r', encoding='utf-8') as f:
             page = yaml.load(f)
             pageElements.update(page)
     return pageElements
-# name = 'GoodsPath.yaml'
-# print(read_parseyaml(r'E:\operating\CenterBackground\GoodsManagement\CityGoods',name))

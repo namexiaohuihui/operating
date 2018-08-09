@@ -36,7 +36,7 @@ import time
 
 
 class CreateBulkJude(BulkGroupJude):
-    MODEL_WORKBOOK_CITY = '创建'
+    MODEL_WORKBOOK_CITY = '创建'  # 用例标签名
 
     def __init__(self):
         BulkGroupJude.__init__(self)
@@ -49,4 +49,3 @@ class CreateBulkJude(BulkGroupJude):
         self.vai.css_input_number(self.driver, '.select2-search__field', '水', 0)
         # 点击下拉框，并选择内容
         self.vai.ac_move_to_element(self.driver, ".select2-results__option")
-

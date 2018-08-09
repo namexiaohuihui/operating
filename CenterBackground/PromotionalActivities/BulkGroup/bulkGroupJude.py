@@ -31,17 +31,19 @@
 @desc:
 '''
 import os
-from tools import readYaml
+from tools.YAMLconfig import readYaml
 
 fpath = os.path.dirname(os.path.realpath(__file__))  # 返回该文件所在的目录
 name = 'BulkGroup.yaml'
 from CenterBackground.PromotionalActivities import PromotionalBulk
+
+
 class BulkGroupJude(PromotionalBulk):
-    MODEI_CASE_POSITION = 'bulk' # 用例名字
+    MODEI_CASE_POSITION = 'bulk'  # 在ini文件里面的用例名字
     CHILD_TAGS_LOCATION = 7
 
     def __init__(self):  # 执行读取yaml数据信息
-        self.financial_path = readYaml.read_parseyaml(fpath, name)
+        self.financial_path = readYaml.read_filepath(fpath, name)
         pass
 
     def _rou_interaction(self):

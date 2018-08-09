@@ -33,9 +33,7 @@
 import os
 from CenterBackground.GoodsManagement import GoodsConditions
 from CenterBackground.GoodsManagement.GoodsParameter import FinancialParameter
-from tools import readYaml
-from CenterBackground import GoodsManagement
-import operator
+from tools.YAMLconfig import readYaml
 
 fpath = os.path.dirname(os.path.realpath(__file__))  # 返回该文件所在的目录
 name = 'GoodsPath.yaml'
@@ -47,7 +45,7 @@ class ConditionsJude(GoodsConditions):
     goods = FinancialParameter()
 
     def __init__(self):  # 执行读取yaml数据信息
-        self.financial_path = readYaml.read_parseyaml(fpath, name)
+        self.financial_path = readYaml.read_filepath(fpath, name)
 
     def _rou_interaction(self):
         """

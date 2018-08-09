@@ -30,11 +30,10 @@
 @time: 2018/7/30 17:07
 @desc:
 '''
+from CenterBackground.judgmentVerification import JudgmentVerification
 
-from CenterBackground import BackgroundCoexistence
 
-
-class WebsiteCoexistence(BackgroundCoexistence):
+class WebsiteCoexistence(JudgmentVerification):
     # 该菜单在所属目录的绝对位置
     CHILD_TAGS_LOCATION = "9"
 
@@ -56,4 +55,3 @@ class WebsiteCoexistence(BackgroundCoexistence):
         sidebar_title = self._visible_css_selectop_text(self.sidebar)
         content_title = self._visible_css_selectop_text(self.content_header)
         print("%s 进入页面成功" % basename) if sidebar_title == content_title else print("%s 进入页面失败" % basename)
-

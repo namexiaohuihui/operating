@@ -5,9 +5,9 @@ __author__ = 'DingDong'
 @time: 2018/7/9 17:20
 财务
 """
-from CenterBackground import BackgroundCoexistence
+from CenterBackground.judgmentVerification import JudgmentVerification
 
 
-class FinancialConditions(BackgroundCoexistence):
+class FinancialConditions(JudgmentVerification):
 
     pass

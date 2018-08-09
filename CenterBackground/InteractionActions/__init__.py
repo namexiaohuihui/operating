@@ -5,7 +5,7 @@ __author__ = 'DingDong'
 @time: 2018/5/24 16:49
 """
 
-from CenterBackground import BackgroundCoexistence
+from CenterBackground.judgmentVerification import JudgmentVerification
 from CenterBackground.InteractionActions.interactionNames import InteractionNames
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
 from tools.operationSelector import OperationSelector
@@ -13,7 +13,7 @@ from tools.operationSelector import OperationSelector
 basepath = os.path.dirname(os.path.realpath(__file__))
 
 
-class InteractionCoexistence(BackgroundCoexistence):
+class InteractionCoexistence(JudgmentVerification):
     names_key = InteractionNames()
 
     # 10待付款

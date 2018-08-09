@@ -23,24 +23,10 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
                佛祖保佑         永无BUG
-@author: 70486
+@author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: financialParameter.py
-@time: 2018/7/31 15:00
-@desc: 获取Excel表格以及其他文档的数据信息
+@file: __init__.py.py
+@time: 2018/8/9 10:57
+@desc:
 '''
-from tools.YAMLconfig import readYaml
-from tools.excelname.adminGongsMana import CityGoodsPage
-
-
-class FinancialParameter(CityGoodsPage):
-
-    def financial_yaml(self, fpath, name):
-        '''
-        指定文件路径以及文件名来读取数据信息
-        :param fpath: 文件路径
-        :param name: 文件名称
-        :return:
-        '''
-        return readYaml.read_filepath(fpath, name)
