@@ -33,24 +33,25 @@
 import os
 import inspect
 import unittest
+from CenterBackground.GoodsManagement import CityGoods
 from CenterBackground.GoodsManagement.CityGoods.activeTabJude import ActiveTabJude
 
-city_tab = ActiveTabJude()
+city_tab = ActiveTabJude(CityGoods.tab)
 
 
 class TestCityTab(unittest.TestCase):
 
     def setUp(self):
-        print("setup: 每个用例开始前后执行")
         # 获取运行文件的类名
-        basename = os.path.splitext(os.path.basename(__file__))[0]
+        self.basename = os.path.splitext(os.path.basename(__file__))[0]
+        print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        city_tab.openingProgram(basename, city_tab.MODEL_WORKBOOK_CITY)
-        city_tab._rou_interaction()
+        city_tab.openingProgram(self.basename)
+        city_tab._rou_background()
 
     def tearDown(self):
         city_tab.driver.quit()
-        print("teardown: 每个用例结束后执行")
+        print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_already_citys(self):

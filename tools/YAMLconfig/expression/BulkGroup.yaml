@@ -1,1 +1,30 @@
-dec: qweqw
+citytab:
+  name: 城市
+  type: cssSelector/li
+  value: ul.nav.nav-tabs.nav-slot > li
+  label: a
+  attribute: href
+  active: li.active
+  obj: .nav.nav-tabs
+
+formGroup:
+  status: select[id='status']
+  category: select[id='type']
+  preferences: select[id='types']
+  conditions: form.form-inline > div:nth-child(4) > input
+  search: button.btn.btn-default.btn-flat.formSub.J_ipt
+  export: button.btn.btn-default.btn-flat.btn-action.J_ipt
+
+popup:
+  add: .btn.btn-default.btn-sm.modal-btn
+  watiki: input[id='activitytype1']
+  goods: input[id='activitytype2']
+  gName: input[class="select2-search__field"][placeholder="请输入名称/ID"]
+  price: .form-control.shortinto
+  number: .form-control.scareNum
+  end: input[id='endtime']
+  name: input[id='name']
+  originator: input[class="select2-search__field"][placeholder="用户ID/手机号"]
+  default: btn btn-default
+  primary: btn btn-primary
+  option: .select2-results__option

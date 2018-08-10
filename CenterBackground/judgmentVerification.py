@@ -7,17 +7,25 @@ __author__ = 'DingDong'
 import os
 import re
 import time
-
 from tools.Logger import Log
-from tools.comparedVerify import ComparedVerify
 from tools.configs import readModel
+from tools.YAMLconfig import readYaml
+from tools.comparedVerify import ComparedVerify
 from tools.openpyxlExcel import OpenExcelPandas
 from tools.timeFromat import TimeFromat
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
 
 
 class JudgmentVerification(ComparedVerify):
+    # 文件全局配置对象
+    config_dist = ''
 
+    def __init__(self):
+        # 获取yaml文件的数据，并根据menu来读取出相应的数据信息
+        self.argument = readYaml.read_expression()[self.config_dist['menu']]
+        # 根据子类要求的yaml路径来读取该页面的全部元素路径
+        self.financial = readYaml.read_expression(self.config_dist['yaml'])
+        pass
 
     # 设置菜单字目录上的标题
     content_header = ".content-header > h1"
@@ -44,13 +52,18 @@ class JudgmentVerification(ComparedVerify):
     # -------------------通过第三方参数来设置或者读取子菜单的位置
     child_tags = property(treeview_number_get, set_treeview_number, doc="Error setting or getting subtags.")
 
-    # -----------------进入目录路径----------------
+    # ------------------------------进入目录路径-------------------------------
     def _rou_background(self):
         """
-        进入指定页面
+        father_tags： 定义菜单的所在位置
+        child_tags ： 定义模块的所在位置
         :return:  暂时没有返回值
         """
+
+        self.father_tags = self.argument['father']
         self._visible_css_selectop(self.father_tags)
+
+        self.child_tags = self.argument[self.config_dist['module']]['child']
         self._visible_css_selectop(self.child_tags)
         pass
 
@@ -109,6 +122,7 @@ class JudgmentVerification(ComparedVerify):
         :param funtion:  函数名
         :return:
         """
+        self.log.info()
         # 记录目前执行的函数名（也可以认为目前执行的用例）
         self.FUNCTION_NAME = funtion
         self.log.functionName(self.FUNCTION_NAME)
@@ -162,32 +176,34 @@ class JudgmentVerification(ComparedVerify):
         return None
 
     """
-    #------------------创建浏览器并执行登录------------------------------------
+    #---------------------------------创建浏览器并执行登录------------------------------------
     """
 
     def option_browser(self, options='admin_url'):
         # 调用自定义的浏览器接口
         self.driver = self._browser(option=options)
 
-    def openingProgram(self, basename, exclefile):
+    def openingProgram(self, basename):
         """
         定义log日志文件以及读取用例数据
         :param basename:  执行用例的文件名
         :param exclefile:  需要读取用例的文件名
         :return:  暂时没有返回值
         """
-        # 这两个比较耗时间
-        # skip_browser = [{"func": self.option_browser, "args": ''}, {"func": self.ps_user_login, "args": ''}]
-        # self.skip_waiting(skip_browser)
         self.option_browser()  # 打开浏览器
         self.ps_user_login()  # 用户登录
 
         # 定义日志
         self.log = Log(basename)
-        # 读取文档的所在主目录,MODEI_KEY_POSITION
-        # 读取文档下面的子目录，MODEI_CASE_POSITION
-        self.overallExcelData = self._excel_Data(self.MODEI_KEY_POSITION, self.MODEI_CASE_POSITION, exclefile)
-
+        # 读取用例所在的位置
+        MODEI_KEY_POSITION = self.argument['module']
+        # 读取用例的名称
+        MODEI_CASE_POSITION = self.argument[self.config_dist['module']]['module']
+        # 读取用例里面的标签
+        print(self.config_dist)
+        exclefile = self.argument[self.config_dist['module']][self.config_dist['sheet']]
+        print(exclefile)
+        self.overallExcelData = self._excel_Data(MODEI_KEY_POSITION, MODEI_CASE_POSITION, exclefile)
         pass
 
     def _excel_Data(self, model_key, filename, SHEETNAME):
@@ -199,8 +215,6 @@ class JudgmentVerification(ComparedVerify):
         file_path = os.path.join(consyst, excelname)
         # 读取相应路径中的数据
         read = OpenExcelPandas(file_path, sheet=SHEETNAME)
-        # 之前是用readCaseExcel这个函数但是感觉时代要变化就用了internal_read_excel
-        # excelData = read.readCaseExcel()
         excelData = read.internal_read_excel()
         return excelData
 

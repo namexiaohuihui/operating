@@ -73,7 +73,7 @@ class action_click(action_visible):
         except:
             print("元素点击的地方出现错误")
 
-    def css_confirm_prompt(self, browser, prompt):
+    def ele_confirm_prompt(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
         if ele != False:  # 判断是否出现
             browser.execute_script("arguments[0].click();", ele)
@@ -84,6 +84,13 @@ class action_click(action_visible):
         if self.is_visible_id(browser, prompt) != False:
             browser.execute_script("document.getElementById(\'" + prompt + "\').click();")
         else:
+            function = inspect.stack()[0][3]  # 执行函数的函数名
+            print("%s :没有找到这个元素: %s" % (function, prompt))
+
+    def css_confirm_prompt(self, browser, prompt):
+        try:
+            browser.execute_script("document.getElementsByClassName(\'" + prompt + "\').click();")
+        except:
             function = inspect.stack()[0][3]  # 执行函数的函数名
             print("%s :没有找到这个元素: %s" % (function, prompt))
 

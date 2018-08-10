@@ -30,9 +30,24 @@
 @time: 2018/7/31 14:00
 @desc:
 '''
-
 import pytest
+
 
 @pytest.fixture()
 def login():
     print("做执行前的工作")
+
+
+def pytest_runtest_makereport(item, call):
+    if "incremental" in item.keywords:
+        if call.excinfo is not None:
+            parent = item.parent
+            parent._previousfailed = item
+        print("11111")
+
+def pytest_runtest_setup(item):
+    if "incremental" in item.keywords:
+        previousfailed = getattr(item.parent, "_previousfailed", None)
+        if previousfailed is not None:
+            pytest.xfail("previous test failed (%s)" % previousfailed.name)
+            print("2222222222")

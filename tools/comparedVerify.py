@@ -9,7 +9,7 @@ import operator  # 任何对象都可以比较功能
 import os
 import sys
 import time
-
+import ast
 from tools import StringCutting
 from tools.configs import readModel
 from tools.PymysqlMain import pymysqls
@@ -211,6 +211,10 @@ class ComparedVerify(object):
         # print("需要转化你json数据--> %s" % title)
         return json.loads(title) if title is not None else "json中loads错误了"
 
+    def astTodict(self, title):
+        # d1 = eval(title)也可以
+        return ast.literal_eval(title) if title is not None else "json中loads错误了"
+
     """
     #--------------------其他一些配置部分-----------------------------------------
     """
@@ -262,9 +266,3 @@ class ComparedVerify(object):
 
     def yyyyy(self, msg):
         return msg
-
-
-if __name__ == '__main__':
-    cv = ComparedVerify()
-    kkkk = [{"func": cv.xxxxx, "args": '5'}, {"func": cv.yyyyy, "args": '4'}]
-    print(cv.start_thread_pool(kkkk))

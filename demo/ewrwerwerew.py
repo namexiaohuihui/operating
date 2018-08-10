@@ -23,36 +23,36 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
                佛祖保佑         永无BUG
-@author: 70486
+@author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: readYaml.py
-@time: 2018/7/31 15:18
+@file: ewrwerwerew.py
+@time: 2018/8/10 9:37
 @desc:
 '''
+import pytest
 
-import os
-import yaml
+@pytest.fixture()
+def fix_err(x):
+    raise x
+
+@pytest.mark.incremental
+class TestUserHandling:
+    def test_login(self, fix_err):
+        print('test_login')
+
+        try:
+            raise RuntimeError("error")
+        except AssertionError as e:
+            pass
+        except:
+            fix_err(e)
+    def test_modification(self,login):
+        print('test_modification')
+
+    def test_deletion(self):
+        print('test_deletion')
 
 
-def read_expression(name='ArgumentAdmin.yaml'):
-    pageElements = read_parseyaml(os.path.dirname(os.path.realpath(__file__)), name)
-    return pageElements
-
-
-def read_parseyaml(fpath, fname):
-    '''
-    指定文件路径以及文件名来读取数据信息
-    :param fpath: 文件路径
-    :param name: 文件名称
-    :return:
-    '''
-    pageElements = {}
-    yaml_file_path = os.path.join(fpath, fname)
-    # 排除一些非.yaml的文件
-    if '.yaml' in str(yaml_file_path):
-        with open(yaml_file_path, 'r', encoding='utf-8') as f:
-            page = yaml.load(f)
-            pageElements.update(page)
-    return pageElements
-print(read_expression())
+def test_normal():
+    print('test_normal')

@@ -30,10 +30,3 @@
 @time: 2018/7/31 16:46
 @desc:
 '''
-from CenterBackground.judgmentVerification import JudgmentVerification
-
-
-class GoodsConditions(JudgmentVerification):
-    MODEI_KEY_POSITION = 'product'
-    FATHER_TAGS_LOCATION = "3"
-    pass

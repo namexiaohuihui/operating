@@ -26,32 +26,22 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: BulkGroupJude.py
-@time: 2018/8/8 17:35
+@file: labelJude.py
+@time: 2018/8/10 18:06
 @desc:
 '''
-import os
-from tools.YAMLconfig import readYaml
 
-fpath = os.path.dirname(os.path.realpath(__file__))  # 返回该文件所在的目录
-name = 'BulkGroup.yaml'
-from CenterBackground.PromotionalActivities import PromotionalBulk
+import operator
+from tools import StringCutting
+from CenterBackground.GoodsManagement import CityGoods
+from CenterBackground.judgmentVerification import JudgmentVerification
+from tools.excelname.adminGongsMana import CityGoodsPage
 
 
-class BulkGroupJude(PromotionalBulk):
-    MODEI_CASE_POSITION = 'bulk'  # 在ini文件里面的用例名字
-    CHILD_TAGS_LOCATION = 7
+class LabelJude(JudgmentVerification):
 
-    def __init__(self):  # 执行读取yaml数据信息
-        self.financial_path = readYaml.read_filepath(fpath, name)
-        pass
-
-    def _rou_interaction(self):
-        """
-        进入日常公告页面
-        :return:  暂时没有返回值
-        """
-        self.child_tags = self.CHILD_TAGS_LOCATION
-        self.father_tags = self.FATHER_TAGS_LOCATION
-        self._rou_background()
+    def __init__(self, option):
+        JudgmentVerification.config_dist = CityGoods.add_key(option)
+        JudgmentVerification.__init__(self)
+        self.cGoods = CityGoodsPage()
         pass

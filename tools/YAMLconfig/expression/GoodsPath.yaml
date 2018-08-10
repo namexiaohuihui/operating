@@ -1,0 +1,16 @@
+citytab:
+  name: 城市
+  type: cssSelector/li
+  value: .nav.nav-tabs > li
+  label: a
+  attribute: href
+  active: li.active
+  obj: .nav.nav-tabs
+
+formGroup:
+  status: select[name='status']
+  category: select[name='category']
+  preferences: select[name='preferences']
+  conditions: form.form-inline > div:nth-child(4) > input
+  search: form.form-inline > div:nth-child(5) > button
+  export: form.form-inline > div:nth-child(6) > button

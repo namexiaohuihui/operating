@@ -1,0 +1,19 @@
+# 更新此处的key值时，需要把用例所在包中init处的dict也进行更新
+
+promote:
+  father: 6
+  module: bulkgroup
+  bulk:
+    module: bulk
+    child: 7
+    create: 创建
+
+goods:
+  father: 3
+  module: product
+  citys:
+    module: city
+    child: 1
+    tab: 城市
+    select: 筛选
+    label: 页面

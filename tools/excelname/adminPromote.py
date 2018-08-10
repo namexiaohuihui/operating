@@ -23,24 +23,55 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
                佛祖保佑         永无BUG
-@author: 70486
+@author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: financialParameter.py
-@time: 2018/7/31 15:00
-@desc: 获取Excel表格以及其他文档的数据信息
+@file: adminPromote.py
+@time: 2018/8/10 11:59
+@desc:
 '''
-from tools.YAMLconfig import readYaml
-from tools.excelname.adminGongsMana import CityGoodsPage
+from tools.excelname.excelBeanName import ExcelTitle
 
 
-class FinancialParameter(CityGoodsPage):
+class BulkSelector(ExcelTitle):
 
-    def financial_yaml(self, fpath, name):
-        '''
-        指定文件路径以及文件名来读取数据信息
-        :param fpath: 文件路径
-        :param name: 文件名称
-        :return:
-        '''
-        return readYaml.read_filepath(fpath, name)
+    def yaml_popup(self):
+        return 'popup'
+
+    def yaml_add(self):
+        return 'add'
+
+    def yaml_watiki(self):
+        return 'watiki'
+
+    def yaml_goods(self):
+        return 'goods'
+
+    def yaml_gName(self):
+        return 'gName'
+
+    def yaml_price(self):
+        return 'price'
+
+    def yaml_number(self):
+        return 'number'
+
+    def yaml_end(self):
+        return 'end'
+
+    def yaml_name(self):
+        return 'name'
+
+    def yaml_originator(self):
+        return 'originator'
+
+    def yaml_default(self):
+        return 'default'
+
+    def yaml_primary(self):
+        return 'primary'
+
+    def yaml_option(self):
+        return 'option'
+
+    pass

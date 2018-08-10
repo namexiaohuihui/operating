@@ -34,47 +34,9 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class CityGoodsPage(ExcelTitle):
-    def excle_name(self):
-        return '城市'
-
-    def excle_code(self):
-        return '编码'
 
     def excle_including(self):
         return '全部'
 
     def excle_default(self):
         return '默认'
-
-    def yaml_obj(self):
-        return 'obj'
-
-    def yaml_city_tab(self):
-        return 'citytab'
-
-    def yaml_label(self):
-        return 'label'
-
-    def yaml_active(self):
-        return 'active'
-
-    def yaml_formGroup(self):
-        return 'formGroup'
-
-    def yaml_statusV(self):
-        return 'statusV'
-
-    def yaml_categoryV(self):
-        return 'categoryV'
-
-    def yaml_preferencesV(self):
-        return 'preferencesV'
-
-    def yaml_conditionsV(self):
-        return 'conditionsV'
-
-    def yaml_searchB(self):
-        return 'searchB'
-
-    def yaml_exportB(self):
-        return 'exportB'

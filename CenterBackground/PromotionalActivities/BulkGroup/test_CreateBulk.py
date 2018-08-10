@@ -33,16 +33,22 @@
 import os
 import inspect
 import unittest
+import pytest
+
 from CenterBackground.PromotionalActivities.BulkGroup.createBulkJude import CreateBulkJude
-create = CreateBulkJude()
+from CenterBackground.PromotionalActivities import BulkGroup
+
+create = CreateBulkJude(BulkGroup.create)
+
+
 class TestCreateBulk(unittest.TestCase):
     def setUp(self):
         # 获取运行文件的类名
         self.basename = os.path.splitext(os.path.basename(__file__))[0]
         print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        create.openingProgram(self.basename, create.MODEL_WORKBOOK_CITY)
-        create._rou_interaction()
+        create.openingProgram(self.basename)
+        create._rou_background()
 
     def tearDown(self):
         # create.driver.quit()
@@ -50,7 +56,6 @@ class TestCreateBulk(unittest.TestCase):
         pass
 
     def test_newCreate(self):
+        create.setFunctionName(inspect.stack()[0][3])
         create.click_date()
-
-
-
+        pass

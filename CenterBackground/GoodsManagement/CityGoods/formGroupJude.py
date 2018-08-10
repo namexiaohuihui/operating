@@ -33,26 +33,29 @@
 import operator
 from tools import StringCutting
 from tools.operationSelector import OperationSelector
-from CenterBackground.GoodsManagement.CityGoods.conditionsJude import ConditionsJude
+from CenterBackground.GoodsManagement import CityGoods
+from tools.excelname.adminGongsMana import CityGoodsPage
+from CenterBackground.judgmentVerification import JudgmentVerification
 
 
-class FormGroupJude(ConditionsJude):
-    MODEL_WORKBOOK_CITY = '筛选'
+class FormGroupJude(JudgmentVerification):
 
-    def __init__(self):
-        ConditionsJude.__init__(self)
+    def __init__(self, option):
+        JudgmentVerification.config_dist = CityGoods.add_key(option)
+        JudgmentVerification.__init__(self)
+        self.cGoods = CityGoodsPage()
         pass
 
     def return_status(self) -> str:
-        s_status = self.financial_path[self.goods.yaml_formGroup()][self.goods.yaml_statusV()]
+        s_status = self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_status()]
         return s_status
 
     def return_category(self) -> str:
-        s_category = self.financial_path[self.goods.yaml_formGroup()][self.goods.yaml_categoryV()]
+        s_category = self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_category()]
         return s_category
 
     def return_preferences(self) -> str:
-        s_preferences = self.financial_path[self.goods.yaml_formGroup()][self.goods.yaml_preferencesV()]
+        s_preferences = self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_preferences()]
         return s_preferences
 
     def create_select(self, direction: str) -> OperationSelector:
@@ -74,7 +77,7 @@ class FormGroupJude(ConditionsJude):
         op_se = self.create_select(value)
         # 获取全部的options
         op_str = op_se.options_to_str()
-        ov_str = self.overall[self.goods.excle_including()]
+        ov_str = self.overall[self.cGoods.excle_including()]
         assert operator.eq(op_str, ov_str), information
         pass
 
@@ -87,7 +90,7 @@ class FormGroupJude(ConditionsJude):
         '''
         op_se = self.create_select(value)
         op_str = op_se.getSelectedOptions()
-        ov_str = self.overall[self.goods.excle_default()]
+        ov_str = self.overall[self.cGoods.excle_default()]
         assert operator.eq(op_str, ov_str), information
         pass
 
@@ -98,7 +101,7 @@ class FormGroupJude(ConditionsJude):
             # 设置option
             op_se.setSelectorText(value_str)
             # 点击搜索按钮
-            self._visible_css_selectop(self.financial_path[self.goods.yaml_formGroup()][self.goods.yaml_searchB()])
+            self._visible_css_selectop(self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_search()])
             # 重新設置text之後，界面會進行刷新此時driver對象也發生改變需要重新進行獲取
             op_se = self.create_select(value)
             # 判断当前显示的option是否为设置的option
@@ -183,26 +186,26 @@ class FormGroupJude(ConditionsJude):
 
     def jude_attribute_text(self, attribute, information):
         attribute = self._visible_css_selectop_text(
-            self.financial_path[self.goods.yaml_formGroup()][attribute])
-        ov_attribute = self.overall[self.goods.excle_default()]
+            self.financial[self.cGoods.yaml_formGroup()][attribute])
+        ov_attribute = self.overall[self.cGoods.excle_default()]
         assert operator.eq(attribute, ov_attribute), information
         pass
 
     def jude_input_conditions(self):
         attribute = self._visible_css_selectop_attribute(
-            self.financial_path[self.goods.yaml_formGroup()][self.goods.yaml_conditionsV()],
-            self.goods.yaml_placeholder())
-        ov_attribute = self.overall[self.goods.excle_default()]
+            self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_conditions()],
+            self.cGoods.yaml_placeholder())
+        ov_attribute = self.overall[self.cGoods.excle_default()]
         information = 'Wrong placeholder attribute value in input box.'
         assert operator.eq(attribute, ov_attribute), information
         pass
 
     def jude_button_search(self):
         information = 'Search button text judgement error...'
-        self.jude_attribute_text(self.goods.yaml_searchB(), information)
+        self.jude_attribute_text(self.cGoods.yaml_search(), information)
         pass
 
     def jude_button_export(self):
         information = 'Error in export button text judgement...'
-        self.jude_attribute_text(self.goods.yaml_exportB(), information)
+        self.jude_attribute_text(self.cGoods.yaml_export(), information)
         pass

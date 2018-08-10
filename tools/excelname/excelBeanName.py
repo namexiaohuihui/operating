@@ -54,6 +54,15 @@ class ExcelTitle(object):
     def wholeQueryStatement(self):
         return "sql"
 
+    def whole_city(self):
+        return '城市'
+
+    def whole_code(self):
+        return '编码'
+
+    def whole_configs(self):
+        return '配置'
+
     # ----------------------------共用的定义--------------------
     def yaml_dec(self):
         return 'dec'
@@ -75,6 +84,39 @@ class ExcelTitle(object):
 
     def yaml_attribute(self):
         return 'attribute'
+
+    def yaml_obj(self):
+        return 'obj'
+
+    def yaml_city_tab(self):
+        return 'citytab'
+
+    def yaml_label(self):
+        return 'label'
+
+    def yaml_active(self):
+        return 'active'
+
+    def yaml_formGroup(self):
+        return 'formGroup'
+
+    def yaml_status(self):
+        return 'status'
+
+    def yaml_category(self):
+        return 'category'
+
+    def yaml_preferences(self):
+        return 'preferences'
+
+    def yaml_conditions(self):
+        return 'conditions'
+
+    def yaml_search(self):
+        return 'search'
+
+    def yaml_export(self):
+        return 'export'
 
     #  -------------------------------------元素标签属性--------------------
     def ele_class(self):

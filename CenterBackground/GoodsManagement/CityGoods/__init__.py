@@ -30,3 +30,15 @@
 @time: 2018/7/31 10:42
 @desc:
 '''
+
+
+# 文件参数路径
+def add_key(value):
+    cityGoods['sheet'] = value
+    return cityGoods
+
+tab = 'tab'
+select = 'select'
+label = 'label'
+# 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
+cityGoods = {'menu': 'goods', 'module': 'citys', 'sheet': 'create', 'yaml': 'expression/GoodsPath.yaml'}

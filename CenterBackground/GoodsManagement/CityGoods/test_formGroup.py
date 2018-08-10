@@ -34,18 +34,20 @@ import os
 import inspect
 import unittest
 from CenterBackground.GoodsManagement.CityGoods.formGroupJude import FormGroupJude
+from CenterBackground.GoodsManagement import CityGoods
 
-form_group = FormGroupJude()
+form_group = FormGroupJude(CityGoods.select)
 
 
 class TestFormGroup(unittest.TestCase):
+
     def setUp(self):
         # 获取运行文件的类名
         self.basename = os.path.splitext(os.path.basename(__file__))[0]
         print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        form_group.openingProgram(self.basename, form_group.MODEL_WORKBOOK_CITY)
-        form_group._rou_interaction()
+        form_group.openingProgram(self.basename)
+        form_group._rou_background()
 
     def tearDown(self):
         form_group.driver.quit()
