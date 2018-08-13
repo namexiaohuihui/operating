@@ -63,6 +63,12 @@ class ExcelTitle(object):
     def whole_configs(self):
         return '配置'
 
+    def whole_including(self):
+        return '全部'
+
+    def whole_default(self):
+        return '默认'
+
     # ----------------------------共用的定义--------------------
     def yaml_dec(self):
         return 'dec'
@@ -117,6 +123,9 @@ class ExcelTitle(object):
 
     def yaml_export(self):
         return 'export'
+
+    def yaml_info(self):
+        return 'info'
 
     #  -------------------------------------元素标签属性--------------------
     def ele_class(self):

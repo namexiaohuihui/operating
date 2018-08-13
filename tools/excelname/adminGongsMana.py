@@ -35,8 +35,4 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 class CityGoodsPage(ExcelTitle):
 
-    def excle_including(self):
-        return '全部'
-
-    def excle_default(self):
-        return '默认'
+    pass

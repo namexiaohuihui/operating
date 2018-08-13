@@ -38,6 +38,7 @@ from CenterBackground.GoodsManagement.CityGoods.labelJude import LabelJude
 
 label = LabelJude(CityGoods.label)
 
+
 class TestGoodsLabel(unittest.TestCase):
 
     def setUp(self):
@@ -49,10 +50,16 @@ class TestGoodsLabel(unittest.TestCase):
         label._rou_background()
 
     def tearDown(self):
-        label.driver.quit()
+        # label.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
-    def test_nihaoma(self):
-        print("我一定都不好")
+    def test_table_hover(self):
         label.setFunctionName(inspect.stack()[0][3])
+        label.get_table_hover()
+        pass
+
+    def test_table_bordered(self):
+        label.setFunctionName(inspect.stack()[0][3])
+        label.get_execute()
+        pass
