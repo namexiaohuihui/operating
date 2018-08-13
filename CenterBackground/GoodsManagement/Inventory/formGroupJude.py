@@ -27,21 +27,21 @@
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
 @file: formGroupJude.py
-@time: 2018/8/6 14:34
+@time: 2018/8/13 17:02
 @desc:
 '''
 import operator
 from tools import StringCutting
 from tools.operationSelector import OperationSelector
-from CenterBackground.GoodsManagement import CityGoods
-from tools.excelname.adminGongsMana import CityGoodsPage
 from CenterBackground.judgmentVerification import JudgmentVerification
+from CenterBackground.GoodsManagement import Inventory
+from tools.excelname.adminGongsMana import CityGoodsPage
 
 
 class FormGroupJude(JudgmentVerification):
 
     def __init__(self, option):
-        JudgmentVerification.config_dist = CityGoods.add_key(option)
+        JudgmentVerification.config_dist = Inventory.add_key(option)
         JudgmentVerification.__init__(self)
         self.cGoods = CityGoodsPage()
         pass
@@ -67,6 +67,15 @@ class FormGroupJude(JudgmentVerification):
         op_se = OperationSelector(self.driver, direction)
         return op_se
 
+    def jude_attribute_text(self, att, information):
+        form_group = self.financial[self.cGoods.yaml_formGroup()]
+        attribute = self._visible_returns_selectop(
+            form_group['formSub'])
+        attribute = attribute[int(form_group[att]) - 1].text
+        ov_attribute = self.overall[self.cGoods.whole_default()]
+        assert operator.eq(attribute, ov_attribute), information
+        pass
+
     def value_options_jude(self, value: str, information: str):
         '''
         根据指定的路径获取select下面的全部option值
@@ -77,7 +86,7 @@ class FormGroupJude(JudgmentVerification):
         op_se = self.create_select(value)
         # 获取全部的options
         op_str = op_se.options_to_str()
-        ov_str = self.overall[self.cGoods.excle_including()]
+        ov_str = self.overall[self.cGoods.whole_including()]
         assert operator.eq(op_str, ov_str), information
         pass
 
@@ -90,7 +99,7 @@ class FormGroupJude(JudgmentVerification):
         '''
         op_se = self.create_select(value)
         op_str = op_se.getSelectedOptions()
-        ov_str = self.overall[self.cGoods.excle_default()]
+        ov_str = self.overall[self.cGoods.whole_default()]
         assert operator.eq(op_str, ov_str), information
         pass
 
@@ -108,31 +117,9 @@ class FormGroupJude(JudgmentVerification):
             op_str = op_se.getSelectedOptions()
             assert operator.eq(value_str, op_str), information
 
-    def get_statusSelect(self):
-        '''
-        状态select下的option数据值获取，并进行比较
-        :return:
-        '''
-        value = self.return_status()
-        information = 'The option value included in the status select is incorrect....'
-        self.value_options_jude(value, information)
-        pass
-
-    def get_statusDefault(self):
-        '''
-        状态select下option的默认值
-        :return:
-        '''
-        value = self.return_status()
-        information = 'The default value of option in status select is wrong...'
-        self.value_options_default(value, information)
-        pass
-
-    def get_statusTraverse(self):
-        value = self.return_status()
-        information = 'An error occurred while traversing the option value of the status select...'
-        self.value_option_traverse(value, information)
-        pass
+    def return_category(self) -> str:
+        s_category = self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_category()]
+        return s_category
 
     def get_categorySelect(self):
         '''
@@ -157,40 +144,6 @@ class FormGroupJude(JudgmentVerification):
         value = self.return_category()
         information = 'An error occurred while traversing the option value of the category select...'
         self.value_option_traverse(value, information)
-        pass
-
-    def get_preferencesSelect(self):
-        '''
-        对象select下的option数据值获取，并进行比较
-        :return:
-        '''
-        value = self.return_preferences()
-        information = 'Object select contains all option values that are incorrectly compared...'
-        self.value_options_jude(value, information)
-        pass
-
-    def get_preferencesDefault(self):
-        '''
-        对象select下option的默认值
-        :return:
-        '''
-        value = self.return_preferences()
-        information = 'The default value of option in object select is wrong...'
-        self.value_options_default(value, information)
-
-    def get_preferencesTraverse(self):
-        value = self.return_preferences()
-        information = 'An error occurred while traversing the option value of the preferences select...'
-        self.value_option_traverse(value, information)
-        pass
-
-    def jude_attribute_text(self, att, information):
-        form_group = self.financial[self.cGoods.yaml_formGroup()]
-        attribute = self._visible_returns_selectop(
-            form_group['formSub'])
-        attribute = attribute[int(form_group[att]) - 1].text
-        ov_attribute = self.overall[self.cGoods.whole_default()]
-        assert operator.eq(attribute, ov_attribute), information
         pass
 
     def jude_input_conditions(self):

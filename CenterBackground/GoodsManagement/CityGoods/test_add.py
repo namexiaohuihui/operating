@@ -26,41 +26,35 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: test_label.py
-@time: 2018/8/10 18:05
+@file: test_add.py
+@time: 2018/8/13 16:02
 @desc:
 '''
 import os
 import inspect
 import unittest
 from CenterBackground.GoodsManagement import CityGoods
-from CenterBackground.GoodsManagement.CityGoods.labelJude import LabelJude
+from CenterBackground.GoodsManagement.CityGoods.shelvesJude import ShelvesJude
 
 # 给ArgumentAdmin.yaml进行使用
-label = LabelJude(CityGoods.label)
+shelves = ShelvesJude(CityGoods.shelves)
 
-
-class TestGoodsLabel(unittest.TestCase):
-
+class TestShelvesGood(unittest.TestCase):
     def setUp(self):
         # 获取运行文件的类名
         self.basename = os.path.splitext(os.path.basename(__file__))[0]
         print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        label.openingProgram(self.basename)
-        label._rou_background()
+        shelves.openingProgram(self.basename)
+        shelves._rou_background()
 
     def tearDown(self):
-        # label.driver.quit()
+        # shelves.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
-    def test_table_hover(self):
-        label.setFunctionName(inspect.stack()[0][3])
-        label.get_table_hover()
+    def test_quit_shelves(self):
+        shelves.setFunctionName(inspect.stack()[0][3])
+        shelves.perform_quit_shelves()
         pass
 
-    def test_table_bordered(self):
-        label.setFunctionName(inspect.stack()[0][3])
-        label.get_execute()
-        pass

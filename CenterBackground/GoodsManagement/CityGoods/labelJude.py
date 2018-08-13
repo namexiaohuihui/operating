@@ -62,11 +62,9 @@ class LabelJude(JudgmentVerification):
             thead_tr.append(text)
         return thead_tr
 
-    def success_tbody(self, url):
-        print("----------", url)
+    def success_tbody(self, url, thead_tr):
         self.driver.get(url)
         soup = self.bs4_soup()
-        thead_tr = self.success_execute()
         tbody_class = soup.find('tbody').find_all('tr')
         tr_yield = self.traverseYield(thead_tr, tbody_class)
         for text in tr_yield:
@@ -115,11 +113,13 @@ class LabelJude(JudgmentVerification):
 
         self.tbody_list = []
         self.threads = []
-        queue = [i for i in range(1, pages)]  # 构造 url 链接 页码。
+        thead_tr = self.success_execute()
+
+        queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
         current = self.driver.current_url
         for qe in queue:
             url = current + '?page={}'.format(qe)
-            thread = threading.Thread(target=self.success_tbody, args=(url,))
+            thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
             thread.setDaemon(True)
             thread.start()
             self.threads.append(thread)
@@ -128,6 +128,5 @@ class LabelJude(JudgmentVerification):
         for th in self.threads:
             th.join()
 
-        import pprint
-        print(len(tbody_list))
-        pprint.pprint(tbody_list)
+        # 打印获取到的内容
+        print(self.tbody_list)

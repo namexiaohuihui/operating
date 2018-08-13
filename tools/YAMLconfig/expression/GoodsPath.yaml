@@ -11,8 +11,14 @@ formGroup:
   status: select[name='status']
   category: select[name='category']
   preferences: select[name='preferences']
-  conditions: form.form-inline > div:nth-child(4) > input
-  search: form.form-inline > div:nth-child(5) > button
-  export: form.form-inline > div:nth-child(6) > button
+  conditions: input.form-control
+  formSub: .btn.btn-default.btn-flat.formSub
+  search: 1
+  export: 2
+
+shelves:
+  title: .modal-title
+  quit: button.close
 
 info: div.dataTables_info
+add: .fa.fa-plus-square

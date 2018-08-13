@@ -937,8 +937,8 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
           _title表示的是该文件的分隔符。例如‘，’逗号
 
         通过pandas进行转换时：
-          _date表示的数据
-          _title表示的是需要对数据进行重新获取并转换成序列号的key。
+          _date 表示的数据
+          _title 表示标题
         :param name:
         :param sheet:
         """
@@ -994,11 +994,6 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         else:
             return self.conversion_column(self._data, None)
 
-    def conversion_column(self, df, columnLabel=None):
-        if columnLabel:
-            df = df.set_index([columnLabel])  # 设置df数据中的序列号
-        return df.fillna(value='')
-
     def conversionPandas(self, title="函数"):
         '''
         通过已读取的
@@ -1012,6 +1007,11 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
             return self.conversion_column(self._data, columnLabel)
         else:
             return self.conversion_column(self._data, None)
+
+    def conversion_column(self, df, columnLabel=None):
+        if columnLabel:
+            df = df.set_index([columnLabel])  # 设置df数据中的序列号
+        return df.fillna(value='')
 
 
 def sql_de_zhixing():

@@ -1,5 +1,15 @@
 # 更新此处的key值时，需要把用例所在包中init处的dict也进行更新
 
+
+# 例子：
+# promote:                    # 菜单的标识符
+#    father: 6                # 菜单在工程中的位置
+#    module: bulkgroup        # 定义在excelmodel.ini中，菜单的用例所在
+#    bulk:                    # 子模块的标识符
+#      module: bulk           # 在excelmodel.ini中，模块的用例所在
+#      child: 7               # 模块在菜单中的位置所在
+#      create: 创建            # 用例中标签的名字
+#
 promote:
   father: 6
   module: bulkgroup
@@ -17,3 +27,10 @@ goods:
     tab: 城市
     select: 筛选
     label: 页面
+    shelves: 上架
+  inventory:
+    module: inventory
+    child: 2
+    select: 筛选
+    label: 页面
+    add: 添加

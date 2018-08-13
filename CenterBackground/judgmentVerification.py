@@ -21,9 +21,10 @@ class JudgmentVerification(ComparedVerify):
     config_dist = ''
 
     def __init__(self):
-        # 获取yaml文件的数据，并根据menu来读取出相应的数据信息
+        # 获取init中定义的数据，并根据menu来读取出相应的参数
         self.argument = readYaml.read_expression()[self.config_dist['menu']]
-        # 根据子类要求的yaml路径来读取该页面的全部元素路径
+
+        # 根据init要求的yaml路径来读取该模块下全部元素路径
         self.financial = readYaml.read_expression(self.config_dist['yaml'])
         pass
 
@@ -200,9 +201,7 @@ class JudgmentVerification(ComparedVerify):
         # 读取用例的名称
         MODEI_CASE_POSITION = self.argument[self.config_dist['module']]['module']
         # 读取用例里面的标签
-        print(self.config_dist)
         exclefile = self.argument[self.config_dist['module']][self.config_dist['sheet']]
-        print(exclefile)
         self.overallExcelData = self._excel_Data(MODEI_KEY_POSITION, MODEI_CASE_POSITION, exclefile)
         pass
 
