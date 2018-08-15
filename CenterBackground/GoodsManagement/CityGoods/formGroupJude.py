@@ -35,17 +35,17 @@ from tools import StringCutting
 from tools.operationSelector import OperationSelector
 from CenterBackground.GoodsManagement import CityGoods
 from tools.excelname.adminGongsMana import CityGoodsPage
-from CenterBackground.judgmentVerification import JudgmentVerification
+from CenterBackground.judeVerification import JudgmentVerification
 
 
 class FormGroupJude(JudgmentVerification):
 
     def __init__(self, option):
-        JudgmentVerification.config_dist = CityGoods.add_key(option)
-        JudgmentVerification.__init__(self)
+        JudgmentVerification.__init__(self, CityGoods.add_key(option))
         self.cGoods = CityGoodsPage()
         pass
 
+    # 返回下拉框对象的元素
     def return_status(self) -> str:
         s_status = self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_status()]
         return s_status
@@ -67,17 +67,30 @@ class FormGroupJude(JudgmentVerification):
         op_se = OperationSelector(self.driver, direction)
         return op_se
 
+    def button_formSub(self, att):
+        form_group = self.financial[self.cGoods.yaml_formGroup()]
+        attribute = self._visible_returns_selectop(
+            form_group['formSub'])
+        attribute = attribute[int(form_group[att]) - 1]
+        return attribute
+
+    def jude_attribute_text(self, att, information):
+        attribute = self.button_formSub(att).text
+        ov_attribute = self.overall[self.cGoods.whole_default()]
+        assert operator.eq(attribute, ov_attribute), information
+        pass
+
     def value_options_jude(self, value: str, information: str):
         '''
         根据指定的路径获取select下面的全部option值
-        :param value:
-        :param information:
+        :param value: 下拉框对象。
+        :param information: 比较错误之后，抛出的信息。
         :return:
         '''
         op_se = self.create_select(value)
         # 获取全部的options
         op_str = op_se.options_to_str()
-        ov_str = self.overall[self.cGoods.excle_including()]
+        ov_str = self.overall[self.cGoods.whole_including()]
         assert operator.eq(op_str, ov_str), information
         pass
 
@@ -101,7 +114,7 @@ class FormGroupJude(JudgmentVerification):
             # 设置option
             op_se.setSelectorText(value_str)
             # 点击搜索按钮
-            self._visible_css_selectop(self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_search()])
+            self.button_formSub(self.cGoods.yaml_search()).click()
             # 重新設置text之後，界面會進行刷新此時driver對象也發生改變需要重新進行獲取
             op_se = self.create_select(value)
             # 判断当前显示的option是否为设置的option
@@ -183,15 +196,7 @@ class FormGroupJude(JudgmentVerification):
         information = 'An error occurred while traversing the option value of the preferences select...'
         self.value_option_traverse(value, information)
         pass
-
-    def jude_attribute_text(self, att, information):
-        form_group = self.financial[self.cGoods.yaml_formGroup()]
-        attribute = self._visible_returns_selectop(
-            form_group['formSub'])
-        attribute = attribute[int(form_group[att]) - 1].text
-        ov_attribute = self.overall[self.cGoods.whole_default()]
-        assert operator.eq(attribute, ov_attribute), information
-        pass
+        # 获取按钮对象
 
     def jude_input_conditions(self):
         attribute = self._visible_css_selectop_attribute(

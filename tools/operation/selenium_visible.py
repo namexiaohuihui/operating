@@ -40,7 +40,7 @@ class action_visible(object):
             return False
 
     def is_visible_css_selectop(self, driver, locator, timeout=5):
-        # 一直等待某元素可见，默认超时5秒，返回找到的单个元素组
+        # 一直等待某元素可见，默认超时5秒，返回找到的单个元素
         try:
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             return ele
@@ -223,7 +223,7 @@ class action_visible(object):
         browser.execute_script("window.scrollTo(0,0)")
 
     def scrollBar_buttom(self, browser):
-        sleep_Rest()
+        self.sleep_Rest()
         # 将滚动条移动到底部的意思
         browser.execute_script("window.scrollTo(0,document.body.scrollHeight)")
 

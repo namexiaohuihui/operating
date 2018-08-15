@@ -11,36 +11,36 @@ import re
 
 # 切割字符：strr字符，op指定切割的元素，num切割的数量，ber获取的数量
 def specified_cut_ber(strr, op, num, ber):
-    string = str.split(strr, op, num)[ber]
-    return string;
+    strr = str.split(strr, op, num)[ber]
+    return strr
 
 
 def specified_cut_num(strr, op, num):
-    string = str.split(strr, op, num)
-    return string;
+    strr = str.split(strr, op, num)
+    return strr
 
 
-def specified_cut(str, op):
-    string = str.split(op)
-    return string;
+def specified_cut(strr, op=','):
+    strr = str.split(strr, op)
+    return strr
 
 
 # 去除右边的空格:rstrip
 def spaces_right(str):
     str = str.rstrip()
-    return str;
+    return str
 
 
 # 去除左边的空格
 def spaces_left(str):
     str = str.lstrip()
-    return str;
+    return str
 
 
 # 去除两边的空格
 def spaces_sides(strr):
     strr = str.strip(strr)
-    return strr;
+    return strr
 
 
 # 用指定的字符代替现有的字符
@@ -182,14 +182,14 @@ def re_zip_code(str_text: str, pattern=r'[1-9]\d{5}(?!\d)'):
     re_group = searchObj.group()  # 返回已查到的数据信息
     return re_group
 
-#
-# text = str.split('每页显示10条，共24条记录', '，')[-1]
-#
-# text = int(re_zip_code(text,r'[1-9]\d'))
-# if (text%10) > 0:
-#     number = 1
-# else:
-#     number = 0
-# text = int((text/10)) + number
-# print(text)
+
+def filter_number(info_text: str) -> int:
+    info_text = str.split(info_text, '，')[-1]
+    # 对统计进行判断，计算出翻页的次数
+    info_text = int(re_zip_code(info_text, r'\d+'))
+    if (info_text % 10) > 0:
+        number = 1
+    else:
+        number = 0
+    info_text = int((info_text / 10)) + number
 

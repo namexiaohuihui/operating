@@ -17,10 +17,9 @@ from tools.extendBeantifulSoup import ExtendBeantifulSoup
 
 
 class JudgmentVerification(ComparedVerify):
-    # 文件全局配置对象
-    config_dist = ''
 
-    def __init__(self):
+    def __init__(self, config):
+        self.config_dist = config
         # 获取init中定义的数据，并根据menu来读取出相应的参数
         self.argument = readYaml.read_expression()[self.config_dist['menu']]
 
@@ -252,12 +251,12 @@ class JudgmentVerification(ComparedVerify):
         print("输入的内容: %s 输入的对象: %s 输入的地方: %s " % (information, eleInformation, caseTitle))
         self._visible_json_input(eleInformation, information)  # 通过元素id利用json进行输入输入
 
-    # -----------------------城市编码和那么的获取---------------------
+    # -----------------------城市编码和默认的获取---------------------
     def default_city_content(self, city_ele, result):
         '''默认进来页面是否为产品规定的'''
         for city in city_ele:
             if city.get_attribute('class') == 'active':
-                self._verify_operator(city.text, self.overall[result])
+                self.verify_operator(city.text, self.overall[result])
                 break
 
     def lable_code_name(self, city_ele, tag, bute) -> dict:
@@ -306,11 +305,10 @@ class JudgmentVerification(ComparedVerify):
         '''
         op_execl = OpenExcelPandas(data_list, key_title)
         data_df = op_execl.conversionPandas(column)  # 转换数据
-        # data_df = op_execl.conversion_column(data_df,list(data_df[column])) # 设置序列号
         if len(data_df.index) > 0:
-            print("mysql 不等于0")
+            print("list_to_pandas df data is not empty")
             pass
         else:
-            print("mysql 等于0")
+            print("list_to_pandas No data...")
             data_df = 0
         return data_df

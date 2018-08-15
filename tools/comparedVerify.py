@@ -52,7 +52,8 @@ class ComparedVerify(object):
         self.log.info("获得:  %s  类型 :  %s " % (excleValue, type(excleValue)))
         pass
 
-    def _verify_operator(self, reValue: object, excleValue: object) -> "通过assert断言形式进行比较":
+    def verify_operator(self, reValue: object, excleValue: object,
+                        information='verify_operator 数据比较错误，用例不通过处理。') -> "通过assert断言形式进行比较":
         """
         简单的数据比较：list、dict、str、int、bool等数据类型
         :param reValue:  数据源
@@ -60,9 +61,9 @@ class ComparedVerify(object):
         :return:
         """
         self.operator_dataframe(reValue, excleValue)
-        assert reValue == excleValue, "_verify_operator 数据比较错误，用例不通过处理。"
+        assert operator.eq(reValue, excleValue), information
 
-    def _verify_operator_dataframe(self, reValue: "pandas类型的数据源", excleValue: "pandas类型的比较源") -> ("dataFrame数据类型进行比较"):
+    def verify_dataframe(self, reValue: "pandas类型的数据源", excleValue: "pandas类型的比较源") -> ("dataFrame数据类型进行比较"):
         '''
         dataFrame数据类型进行比较
         :param reValue:  数据源

@@ -1,0 +1,8 @@
+前提：编写好相应的用例
+1.创建相应路径的包：
+2.在init文件中定义好ArgumentAdmin.yaml的key
+3.根据key值在ArgumentAdmin.yaml中定义好相应的配置信息
+4.expression文件夹中新建一个yaml用于存储元素路径
+5.编写用例文件(以test开头)以及判断文件（以jude结尾）、
+
+好像挺麻烦的

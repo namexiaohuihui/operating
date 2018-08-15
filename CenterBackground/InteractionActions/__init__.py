@@ -5,7 +5,7 @@ __author__ = 'DingDong'
 @time: 2018/5/24 16:49
 """
 
-from CenterBackground.judgmentVerification import JudgmentVerification
+from CenterBackground.judeVerification import JudgmentVerification
 from CenterBackground.InteractionActions.interactionNames import InteractionNames
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
 from tools.operationSelector import OperationSelector
@@ -107,7 +107,7 @@ class InteractionCoexistence(JudgmentVerification):
         time_content = self.select_content[se_path]
 
         # 比较时间下拉框：第一个参数为：文档记录的默认值，第二个参数为：界面获取的额数据
-        self._verify_operator(str.split(time_content[se_con], ','), optins)
+        self.verify_operator(str.split(time_content[se_con], ','), optins)
         return time_path, time_content
 
     def time_options_choose(self, time_path):
@@ -131,7 +131,7 @@ class InteractionCoexistence(JudgmentVerification):
         self.time_options_choose(time_path)
 
         # 比较时间输入框
-        self._verify_operator(str.split(time_content[self.names_key.yaml_choose()], ','),
+        self.verify_operator(str.split(time_content[self.names_key.yaml_choose()], ','),
                               [ran.text.strip() for ran in ranges_load])
 
     def value_placeholder(self, key):
@@ -144,7 +144,7 @@ class InteractionCoexistence(JudgmentVerification):
         place = self._visible_css_selectop_attribute(locator=self.select_path[key][placeholder], attr=placeholder)
 
         # 比较输入框中的默认值是否正确
-        self._verify_operator(self.select_content[key][placeholder], place)
+        self.verify_operator(self.select_content[key][placeholder], place)
 
     def order_lable_bs4(self, content, table, thead, td="th"):
         '''
@@ -472,7 +472,7 @@ class InteractionCoexistence(JudgmentVerification):
             self.select_content[self.names_key.yaml_citytab()][self.names_key.yaml_value()])
 
         # 4.两端数据比较
-        self._verify_operator(MYSQL_DF, LABLE_DF)
+        self.verify_operator(MYSQL_DF, LABLE_DF)
 
     def city_replace_active(self):
         '''
@@ -517,14 +517,14 @@ class InteractionCoexistence(JudgmentVerification):
         # 找到页面的内容
         optins = self._visible_returns_selectop(time_path[self.names_key.yaml_value()])
         # 比较两者之间
-        self._verify_operator(str.split(time_content[self.names_key.yaml_value()], ','),
+        self.verify_operator(str.split(time_content[self.names_key.yaml_value()], ','),
                               [op.text.strip() for op in optins])
 
     def area_verify_options(self, area_path, area_content, mana, option):
         manager = mana + "%s" % option
         MYSQL_DF = self.mysql_area_name(area_content[mana], area_content[manager])
         manager = OperationSelector(self.driver, area_path[mana]).getAllOptions()
-        self._verify_operator(MYSQL_DF, manager)
+        self.verify_operator(MYSQL_DF, manager)
 
     def select_area_region(self):
         # 区域下拉框的key
@@ -573,7 +573,7 @@ class InteractionCoexistence(JudgmentVerification):
     def order_whole_title(self):
         EBS_DF = self.order_lable_bs4(self.names_key.yaml_content(), self.names_key.yaml_table(), 'thead', "th")
         EBS_DF = list(EBS_DF.dataSet[0])
-        self._verify_operator(self.get_order_title(self.names_key.yaml_orderkey()), EBS_DF)
+        self.verify_operator(self.get_order_title(self.names_key.yaml_orderkey()), EBS_DF)
 
     def order_whole_page(self) -> "获取页面数据信息流程":
         '''
@@ -586,7 +586,7 @@ class InteractionCoexistence(JudgmentVerification):
         # self.path_tbody()
         # self.statement_query()
         self.start_thread_pool(funktion)
-        self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
+        self.verify_dataframe(self.MYSQL_DF, self.LABLE_DF)
 
     def screening_selector(self):
         filters = self.get_filters_excel()  # 读取excle表格的数据并转换成json数据
@@ -621,7 +621,7 @@ class InteractionCoexistence(JudgmentVerification):
         funktion = [{"func": self.path_tbody, "args": ''},
                     {"func": self.time_statement_query, "args": ti_days}]
         self.start_thread_pool(funktion)
-        self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
+        self.verify_dataframe(self.MYSQL_DF, self.LABLE_DF)
 
     def area_screening_conditions(self):
         # 下拉框统一筛选。没有参数的就不进行操作
@@ -632,7 +632,7 @@ class InteractionCoexistence(JudgmentVerification):
                     {"func": self.area_statement_query, "args": ""}]
 
         self.start_thread_pool(funktion)
-        self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
+        self.verify_dataframe(self.MYSQL_DF, self.LABLE_DF)
 
     def status_screening_conditions(self):
         '''
@@ -647,4 +647,4 @@ class InteractionCoexistence(JudgmentVerification):
                     {"func": self.status_statement_query(), "args": ""}]
 
         self.start_thread_pool(funktion)
-        self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
+        self.verify_dataframe(self.MYSQL_DF, self.LABLE_DF)

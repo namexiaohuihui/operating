@@ -37,7 +37,7 @@ class AnnouncementClass(DailyOperationSteps):
         OVE_DF = OVE_DF.split(",")
 
         # 比较界面爬取的数据以及excle界面读取的数据是否一致
-        self._verify_operator(EBS_DF, OVE_DF)
+        self.verify_operator(EBS_DF, OVE_DF)
         pass
 
     # -----------------------------------------用例直接使用只用于日常调用--------------------------

@@ -42,5 +42,33 @@ class CityGoodsPage(ExcelTitle):
 
     def page_quit(self):
         return 'quit'
+
     def page_add(self):
         return 'add'
+
+    def page_evaluation(self):
+        return 'evaluation'
+
+    def page_quality(self):
+        return 'quality'
+
+    def page_timeType(self):
+        return 'timeType'
+
+    def page_timename(self):
+        return 'timename'
+
+    def page_tabs(self):
+        return 'tabs'
+
+    def page_box(self):
+        return 'box'
+
+    def page_through(self):
+        return 'through'
+
+    def page_ranges(self):
+        return 'ranges'
+
+    def excle_time_zone(self):
+        return '时区'

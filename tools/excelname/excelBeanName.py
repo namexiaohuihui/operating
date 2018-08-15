@@ -134,32 +134,8 @@ class ExcelTitle(object):
     def ele_href(self):
         return 'href'
 
-    def ele_active(self):
-        return 'active'
+    def ele_next(self):
+        return 'next'
 
-
-# even 的地盘
-class even_auxiliary(ExcelTitle):
-    def even_account(self):
-        return "账号"
-
-    def even_password(self):
-        return "密码"
-
-
-class even_exclusiveService(ExcelTitle):
-    def password_past(self):
-        return "旧密码"
-
-    def password_establish(self):
-        return "新密码"
-
-    def password_confirm(self):
-        return "确认密码"
-
-
-if __name__ == '__main__':
-    from tools.excelname import ShopNoticeController as sn
-
-    print(sn.dailyDeadline)
-    print(sn.dailyCity(sn))
+    def ele_previous(self):
+        return 'previous'

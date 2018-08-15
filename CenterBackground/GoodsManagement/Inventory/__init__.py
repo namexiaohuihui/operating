@@ -34,8 +34,8 @@
 
 # 文件参数路径
 def add_key(value):
-    cityGoods['sheet'] = value
-    return cityGoods
+    INVENTORY['sheet'] = value
+    return INVENTORY
 
 
 # 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
@@ -54,4 +54,4 @@ add = 'add'
 
 
 '''
-cityGoods = {'menu': 'goods', 'module': 'inventory', 'sheet': 'create', 'yaml': 'expression/GoodsPath.yaml'}
+INVENTORY = {'menu': 'goods', 'module': 'inventory', 'sheet': 'create', 'yaml': 'expression/GoodsPath.yaml'}

@@ -20,5 +20,20 @@ shelves:
   title: .modal-title
   quit: button.close
 
+evaluation:
+  quality: select[name='service']
+  type: select[name='type']
+  timeType: select[name='timeType']
+  timename: .form-control.pull-right
+  ranges: div.ranges > ul > li
+  formSub: .btn.btn-default.btn-flat.btn-action
+  search: 1
+  export: 2
+  tabs: .nav.nav-tabs > li
+  box: .box-city>a
+
+
+
 info: div.dataTables_info
 add: .fa.fa-plus-square
+through: ul.pagination > li

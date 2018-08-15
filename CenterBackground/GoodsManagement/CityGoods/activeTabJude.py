@@ -8,15 +8,14 @@
 import operator
 from tools import StringCutting
 from CenterBackground.GoodsManagement import CityGoods
-from CenterBackground.judgmentVerification import JudgmentVerification
+from CenterBackground.judeVerification import JudgmentVerification
 from tools.excelname.adminGongsMana import CityGoodsPage
 
 
 class ActiveTabJude(JudgmentVerification):
 
     def __init__(self, option):
-        JudgmentVerification.config_dist = CityGoods.add_key(option)
-        JudgmentVerification.__init__(self)
+        JudgmentVerification.__init__(self, CityGoods.add_key(option))
         self.cGoods = CityGoodsPage()
         pass
 
@@ -77,7 +76,7 @@ class ActiveTabJude(JudgmentVerification):
         city_ele = self.get_label_tab()
         # 获取默认active
         for ele in city_ele:
-            if operator.eq(ele.get_attribute(self.cGoods.ele_class()), self.cGoods.ele_active()):
+            if operator.eq(ele.get_attribute(self.cGoods.ele_class()), self.cGoods.yaml_active()):
                 active_name = ele.text
                 # 产品要求的默认城市跟实际当中的默认城市是否一致
                 assert operator.eq(active_name, self.overall[self.cGoods.whole_city()]), '进入之后，默认值不对'
@@ -88,7 +87,7 @@ class ActiveTabJude(JudgmentVerification):
         city_ele = self.get_label_tab()
         # 获取默认active的code
         for ele in city_ele:
-            if operator.eq(ele.get_attribute(self.cGoods.ele_class()), self.cGoods.ele_active()):
+            if operator.eq(ele.get_attribute(self.cGoods.ele_class()), self.cGoods.yaml_active()):
                 active_code = self.father_re_child(ele)
                 # 比较默认城市的code值是否正确
                 assert operator.eq(int(active_code), int(self.overall[self.cGoods.whole_code()])), '进入之后，默认code不对'

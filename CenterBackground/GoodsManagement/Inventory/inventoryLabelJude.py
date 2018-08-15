@@ -26,30 +26,31 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: labelJude.py
-@time: 2018/8/10 18:06
+@file: inventoryLabelJude.py
+@time: 2018/8/14 14:12
 @desc:
 '''
+
 import time
 import operator
 import threading
 from bs4 import BeautifulSoup
 from tools import StringCutting
-from CenterBackground.GoodsManagement import CityGoods
+from CenterBackground.GoodsManagement import Inventory
 from CenterBackground.judeVerification import JudgmentVerification
 from tools.excelname.adminGongsMana import CityGoodsPage
 
 
-class LabelJude(JudgmentVerification):
+class InventoryLabelJude(JudgmentVerification):
 
     def __init__(self, option):
-        JudgmentVerification.__init__(self, CityGoods.add_key(option))
+        JudgmentVerification.__init__(self,Inventory.add_key(option))
         self.cGoods = CityGoodsPage()
         pass
 
     def bs4_soup(self):
         label_text = self.driver.page_source
-        soup = BeautifulSoup(label_text, "html.parser")
+        soup = BeautifulSoup(label_text, "lxml")
         return soup
 
     def traverseYield(self, thead_tr, tbody_class):
@@ -64,7 +65,9 @@ class LabelJude(JudgmentVerification):
             tr_td = tr.find_all('td')
             for tr_len in range(len(thead_tr)):
                 if tr_len == len(thead_tr) - 1:
-                    td_text = ' '.join([str.strip(a_text.text) for a_text in tr_td[tr_len].find_all('button')])
+                    text = tr_td[tr_len].find('a').text
+                    action = tr_td[tr_len].find('button')['data-action']
+                    td_text = '%s %s' % (text, action)
                 else:
                     td_text = str.strip(tr_td[tr_len].text)
                 tbody_tr[thead_tr[tr_len]] = td_text
@@ -72,7 +75,7 @@ class LabelJude(JudgmentVerification):
 
     def success_execute(self):
         soup = self.bs4_soup()
-        thead_th = soup.find('tr', class_='success').find_all('th')
+        thead_th = soup.find('tr').find_all('th')
         thead_tr = [str.strip(th.text) for th in thead_th]
         return thead_tr
 
@@ -85,21 +88,15 @@ class LabelJude(JudgmentVerification):
             self.tbody_list.append(text)
 
     # -------------------------用例直接调用处----------------------------
-    def get_table_hover(self):
-        soup = self.bs4_soup()
-        thead_tr = soup.find('thead').find('tr', class_='active')
-        text_center = thead_tr.find_all('th', class_='text-center')
-        text_center = [text.text for text in text_center]
-        text_center = ','.join(text_center)
-        excel_center = self.overall[self.cGoods.whole_including()]
-        assert operator.eq(text_center, excel_center), 'Page title is not displayed correctly.'
-        pass
 
     def get_success_execute(self):
         text_center = self.success_execute()
         excel_center = StringCutting.specified_cut(self.overall[self.cGoods.whole_including()])
-        assert operator.eq(text_center, excel_center), 'Thead title display is incorrectly displayed.'
-
+        print(text_center)
+        print(excel_center)
+        assert self.verify_dataframe(
+            text_center, excel_center), \
+            'Thead title display is incorrectly displayed.'
         pass
 
     def get_execute(self):
@@ -132,5 +129,4 @@ class LabelJude(JudgmentVerification):
         for th in self.threads:
             th.join()
 
-        # 打印获取到的内容
-        print(self.tbody_list)
+        self.log.log_ppriny(self.tbody_list[0])

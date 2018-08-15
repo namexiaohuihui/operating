@@ -98,7 +98,7 @@ class DiscountOperationSteps(SystemCoexistence, DiscountParameterNames):
         # 读取数据并转换成list
         re_name = list(re_df[title])
         # 执行比较的动作
-        self._verify_operator(re_name, content)
+        self.verify_operator(re_name, content)
 
     def floatToStr(self, count):
         if type(count) is float:
@@ -138,7 +138,7 @@ class DiscountOperationSteps(SystemCoexistence, DiscountParameterNames):
         """
         excleValue = self.excleValue()  # 获取excle中的数据
         # 数据比较
-        reEx = self._verify_operator(valueText, excleValue)
+        reEx = self.verify_operator(valueText, excleValue)
 
         self.log.info("执行用例的函数为： %s 数据库比较结果为: %s " % (self.FUNCTION_NAME, reEx))
 
@@ -223,7 +223,7 @@ class DiscountOperationSteps(SystemCoexistence, DiscountParameterNames):
         # 获取弹窗中的提示信息
         _content_text = self._visible_css_selectop_text(prompt)
         # 比较弹窗提示信息跟大大要求的是否一致
-        self._verify_operator(_content_text, self.overall[title])
+        self.verify_operator(_content_text, self.overall[title])
         # 弹窗中的按钮点击
         self._visible_css_selectop(button)
 

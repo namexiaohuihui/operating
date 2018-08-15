@@ -367,4 +367,4 @@ def get_popup_data_obtain(self, dn):
     daily_df["time"] = daily_df["time"].replace(" ", "")
 
     # 弹窗数据跟页面数据的比较情况
-    self._verify_operator(daily_keys, daily_df)
+    self.verify_operator(daily_keys, daily_df)

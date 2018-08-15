@@ -1,0 +1,20 @@
+# 平台
+tab: ul.nav.nav-tabs.nav-slot > li
+guize: button.btn.btn-default.btn-sm.J-rule
+add: ul.nav.nav-tabs.nav-slot > li:last
+status: select[name='status']
+watikitype: select[name='watikitype']
+type: select[name='type']
+placeholder: input[type='search']
+time: .form-control.pull-right
+left: 1
+right: 2
+formSub: .btn.btn-default.btn-flat.formSub
+search: 1
+export: 2
+
+# 商店
+
+# 已售平台
+
+# 已售商店

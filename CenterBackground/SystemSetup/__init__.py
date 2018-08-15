@@ -5,7 +5,7 @@ __author__ = 'DingDong'
 @time: 2018/1/23 9:55
 """
 
-from CenterBackground.judgmentVerification import JudgmentVerification
+from CenterBackground.judeVerification import JudgmentVerification
 
 
 class SystemCoexistence(JudgmentVerification):

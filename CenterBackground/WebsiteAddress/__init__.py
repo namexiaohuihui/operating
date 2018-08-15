@@ -30,7 +30,7 @@
 @time: 2018/7/30 17:07
 @desc:
 '''
-from CenterBackground.judgmentVerification import JudgmentVerification
+from CenterBackground.judeVerification import JudgmentVerification
 
 
 class WebsiteCoexistence(JudgmentVerification):

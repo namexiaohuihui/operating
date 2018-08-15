@@ -27,21 +27,20 @@
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
 @file: test_label.py
-@time: 2018/8/10 18:05
+@time: 2018/8/14 14:08
 @desc:
 '''
 import os
 import inspect
 import unittest
-from CenterBackground.GoodsManagement import CityGoods
-from CenterBackground.GoodsManagement.CityGoods.labelJude import LabelJude
+from CenterBackground.GoodsManagement import Inventory
+from CenterBackground.GoodsManagement.Inventory.inventoryLabelJude import InventoryLabelJude
 
 # 给ArgumentAdmin.yaml进行使用
-label = LabelJude(CityGoods.label)
+label = InventoryLabelJude(Inventory.label)
 
 
-class TestGoodsLabel(unittest.TestCase):
-
+class TestLabel(unittest.TestCase):
     def setUp(self):
         # 获取运行文件的类名
         self.basename = os.path.splitext(os.path.basename(__file__))[0]
@@ -55,10 +54,6 @@ class TestGoodsLabel(unittest.TestCase):
         print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
-    def test_table_hover(self):
-        label.setFunctionName(inspect.stack()[0][3])
-        label.get_table_hover()
-        pass
 
     def test_success(self):
         label.setFunctionName(inspect.stack()[0][3])

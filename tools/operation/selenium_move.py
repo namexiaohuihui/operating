@@ -89,4 +89,3 @@ def writeLog():
     basename = os.path.splitext(os.path.basename(__file__))[0]
     print("selenium_move,名为名=%s"% \
           basename,)
-    raise

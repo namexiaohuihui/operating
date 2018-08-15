@@ -128,7 +128,7 @@ class DailyOperationSteps(SystemCoexistence):
     def judgeAllContent(self) -> '用于比较页面数据跟查询之后的数据是否一致,没有返回值':
         if type(self.LABLE_DF) is DataFrame:
             # 比较两个数据是否一致
-            dfop = self._verify_operator_dataframe(self.MYSQL_DF, self.LABLE_DF)
+            dfop = self.verify_dataframe(self.MYSQL_DF, self.LABLE_DF)
 
         else:
             self.log.info("公告页面的tbody不存在 ----> %s" % inspect.stack()[0][3])
@@ -159,7 +159,7 @@ class DailyOperationSteps(SystemCoexistence):
         # 修改时间和操作
         self.default_modify_time()
         # 提交之后的数据跟用例的数据比较情况
-        self._verify_operator_dataframe(self.MYSQL_DF.iloc[0], self.LABLE_DF.iloc[0])
+        self.verify_dataframe(self.MYSQL_DF.iloc[0], self.LABLE_DF.iloc[0])
 
     def time_to_list(self):
         print("转换前的数据{}".format(self.LABLE_DF.iloc[0]))
@@ -178,7 +178,7 @@ class DailyOperationSteps(SystemCoexistence):
         # 3.2点击之后的返回信息
         _title = self._visible_css_selectop_text(dn.dail_title)
         # 3.3判断信息跟规定中的是否一致
-        self._verify_operator(_title, self.overall[dn.whole_verification()])
+        self.verify_operator(_title, self.overall[dn.whole_verification()])
         # 3.4点击OK确认按钮
         self._visible_css_selectop(dn.dail_determine)
 
@@ -425,7 +425,7 @@ class DailyOperationSteps(SystemCoexistence):
             print("弹窗没有内容，只有文字。")
 
         # 2.22判断是否一致
-        self._verify_operator(_title, _content)
+        self.verify_operator(_title, _content)
 
     def popup_title_content(self, bl_button=True) -> "二次确认弹窗的信息比较":
         # 点击停止/发布按钮，弹出二次确认弹窗

@@ -30,7 +30,7 @@
 @time: 2018/8/8 17:40
 @desc:
 '''
-from CenterBackground.judgmentVerification import JudgmentVerification
+from CenterBackground.judeVerification import JudgmentVerification
 from CenterBackground.PromotionalActivities import BulkGroup
 from tools.excelname.adminPromote import BulkSelector
 

@@ -34,3 +34,36 @@ goods:
     select: 筛选
     label: 页面
     add: 添加
+  evaluation:
+    module: evaluation
+    child: 3
+    select: 筛选
+    label: 页面
+    tap: 标题
+water:
+  father: 4
+  module: water
+  platform:
+    module: platform
+    child: 1
+    city: 城市
+    select: 筛选
+    page: 页面
+    add: 添加
+  platformsold:
+    module: platformsold
+    child: 3
+    city: 城市
+    select: 筛选
+    page: 页面
+  store:
+    module: store
+    child: 2
+    select: 筛选
+    page: 页面
+  storesold:
+    module: storesold
+    city: 城市
+    select: 筛选
+    page: 页面
+
