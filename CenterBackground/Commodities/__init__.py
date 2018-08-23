@@ -30,3 +30,29 @@
 @time: 2018/8/15 17:28
 @desc:
 '''
+
+
+# 文件参数路径
+def add_key(module, sheet):
+    INVENTORY['module'] = module
+    INVENTORY['sheet'] = sheet
+    return INVENTORY
+
+
+# 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
+platform = 'platform'
+storesold = 'storesold'
+
+# 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
+add = 'add'
+city = 'city'
+page = 'page'
+select = 'select'
+
+# 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
+INVENTORY = {
+    'menu': 'goods',  # 菜单标识符的定义
+    'module': 'storesold',  # 菜单中模块标识符的定义
+    'sheet': 'no data',  # 模块所对应的用例标签名
+    'yaml': 'expression/WaterProduct.yaml'  # 菜单所对应的yaml路径
+}

@@ -31,10 +31,9 @@
 @desc:
 '''
 import operator
-from tools import StringCutting
 from tools.operationSelector import OperationSelector
 from CenterBackground.GoodsManagement import CityGoods
-from tools.excelname.adminGongsMana import CityGoodsPage
+from tools.excelname.Center.gongsMana import CityGoodsPage
 from CenterBackground.judeVerification import JudgmentVerification
 
 

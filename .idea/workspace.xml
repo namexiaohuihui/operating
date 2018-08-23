@@ -2,117 +2,187 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/tools/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/configs/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/70486.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/platformTabs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CenterBackground/Commodities/commoditiesJude.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CenterBackground/Commodities/customTabs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/excelname/Center/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/excelname/Center/bundledItems.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/operating.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/operating.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageWeb/WebEven/AccountPrivacy.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageWeb/WebEven/AccountPrivacy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/namebean.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageWeb/WebEven/Auxiliary/namebean.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageWeb/WebEven/ExclusiveService/namebean.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageWeb/WebEven/ExclusiveService/namebean.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/web_wholedata.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/web_wholedata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/interactionNames.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/interactionNames.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageWeb/WebShop/SystemSetup/NoticeController/dailyLabelNames.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageWeb/WebShop/SystemSetup/NoticeController/dailyLabelNames.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageWeb/WebShop/SystemSetup/ParameterSetting/discountLabelNames.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageWeb/WebShop/SystemSetup/ParameterSetting/discountLabelNames.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageWeb/WebShop/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageWeb/WebShop/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageWeb/WebShop/judgmentVerification.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageWeb/WebShop/judgmentVerification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Store/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Store/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/activeTabJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/activeTabJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/formGroupJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/formGroupJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/labelJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/labelJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/shelvesJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/shelvesJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/groupJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/groupJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/labelJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/labelJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/tabsJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/tabsJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/formGroupJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/formGroupJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/inventoryLabelJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/inventoryLabelJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/interactionNames.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/interactionNames.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/PromotionalActivities/BulkGroup/createBulkJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/PromotionalActivities/BulkGroup/createBulkJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/SystemSetup/NoticeController/dailyLabelNames.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/SystemSetup/NoticeController/dailyLabelNames.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/SystemSetup/ParameterSetting/discountLabelNames.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/SystemSetup/ParameterSetting/discountLabelNames.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/PymysqlMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/PymysqlMain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/RewriteThread.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/RewriteThread.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/YAMLconfig/expression/WaterProduct.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/YAMLconfig/expression/WaterProduct.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excelname/adminGongsMana.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excelname/Center/gongsMana.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excelname/adminInteraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excelname/Center/Interaction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excelname/adminPromote.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excelname/Center/promote.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excelname/adminSystemsetup.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excelname/Center/systemsetup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excelname/excelBeanName.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excelname/excelBeanName.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/extendBeantifulSoup.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/extendBeantifulSoup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/openpyxlExcel.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/openpyxlExcel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/operationSelector.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operationSelector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/operationWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operationWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/JavaScript" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/JavaScript" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/git删除本地库.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/git删除本地库.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/iframe内嵌切换以及多窗口切换" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/iframe内嵌切换以及多窗口切换" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/linux指令.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/linux指令.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/python一些重要的语法" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/python一些重要的语法" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/selenium 定位" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/selenium 定位" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/字符操作pring_string" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/字符操作pring_string" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/异常" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/异常" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/文件操作operation_file" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/文件操作operation_file" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/日志打印logging_basicConfig" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/日志打印logging_basicConfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/框架.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/框架.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/浏览器截图screenshot" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/浏览器截图screenshot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/网址" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/网址" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/FileIntroduce/错误继承" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/错误继承" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/HexColor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/HexColor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operation/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/browser_establish.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/browser_establish.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/comparedVerify.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/comparedVerify.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/config/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/config/excelmodel.ini" beforeDir="false" afterPath="$PROJECT_DIR$/tools/configs/excelmodel.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/config/model.ini" beforeDir="false" afterPath="$PROJECT_DIR$/tools/configs/model.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/config/readModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/configs/readModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/excelname/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excelname/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/excelname/excelBeanName.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excelname/excelBeanName.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/excelname/shopInteraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excelname/shopInteraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/excelname/shopSystemsetup.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excelname/shopSystemsetup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/linuxOperating.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/linuxOperating.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/operation/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/operation/selenium_click.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operation/selenium_click.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/operation/selenium_input.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operation/selenium_input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/operation/selenium_move.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operation/selenium_move.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/operation/selenium_move_child.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operation/selenium_move_child.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/operation/selenium_visible.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operation/selenium_visible.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/operation/介绍" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operation/介绍" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/qrcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/qrcode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/timeFromat.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/timeFromat.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1925964948">
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="ini" value="17" />
+          <entry key="log" value="1" />
+          <entry key="py" value="677" />
+          <entry key="pytest介绍" value="4" />
+          <entry key="python一些重要的语法" value="1" />
+          <entry key="selenium 定位" value="2" />
+          <entry key="yaml" value="52" />
+          <entry key="yml" value="2" />
+          <entry key="文件操作operation_file" value="3" />
+          <entry key="步骤" value="2" />
+          <entry key="网址" value="1" />
+          <entry key="错误继承" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Ini" value="17" />
+          <entry key="PLAIN_TEXT" value="17" />
+          <entry key="Python" value="677" />
+          <entry key="YAML" value="54" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="28" />
+          <entry key="ini" value="100" />
+          <entry key="py" value="15604" />
+          <entry key="yaml" value="1125" />
+          <entry key="文件操作operation_file" value="141" />
+          <entry key="步骤" value="150" />
+          <entry key="错误继承" value="28" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Ini" value="100" />
+          <entry key="PLAIN_TEXT" value="347" />
+          <entry key="Python" value="15604" />
+          <entry key="YAML" value="1125" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="21" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.17" value="2" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="7" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="25" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="operating" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="web_wholedata.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/web_wholedata.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
+            <state relative-caret-position="420">
+              <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Platform/platformTabs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="705">
+              <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
               <folding>
-                <element signature="e#103#117#0" expanded="true" />
+                <element signature="e#969#984#0" expanded="true" />
+                <marker date="1534817624461" expanded="true" signature="1260:1261" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/__init__.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/commoditiesJude.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="575" column="26" lean-forward="true" selection-start-line="575" selection-start-column="26" selection-end-line="575" selection-end-column="26" />
+            <state relative-caret-position="448">
+              <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="46" />
               <folding>
-                <element signature="e#102#151#0" expanded="true" />
+                <element signature="e#972#1012#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comparedVerify.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/comparedVerify.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/customTabs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="263" column="23" selection-start-line="263" selection-start-column="23" selection-end-line="263" selection-end-column="23" />
+            <state relative-caret-position="600">
+              <caret line="106" column="26" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
               <folding>
-                <element signature="e#103#114#0" expanded="true" />
+                <element signature="e#967#1032#0" expanded="true" />
+                <marker date="1534837576864" expanded="true" signature="1627:1912" ph="..." />
+                <marker date="1534837576864" expanded="true" signature="1977:2982" ph="..." />
+                <marker date="1534837576864" expanded="true" signature="2542:2702" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RewriteThread.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/RewriteThread.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/activeTabJude.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+            <state relative-caret-position="235">
+              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/WaterProduct.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -130,68 +200,68 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>self.names_key.yaml_timeselect()</find>
-      <find>self.names_key.yaml_judge()</find>
-      <find>self.names_key.yaml_status()</find>
-      <find>self.names_key.yaml_order()</find>
-      <find>self.names_key.yaml_value()</find>
-      <find>天数未</find>
-      <find>页面数据为空</find>
-      <find>水票</find>
-      <find>新用户</find>
-      <find>goubni</find>
-      <find>class</find>
-      <find>pymysqls</find>
-      <find>open_workbook</find>
-      <find>Workbook</find>
-      <find>load_workbook</find>
-      <find>trr_Re['用户ID']</find>
-      <find>statement_query</find>
-      <find>Thread execution finished</find>
-      <find>utils.config</find>
-      <find>InteractionController</find>
-      <find>readModel</find>
-      <find>提交的参数----</find>
-      <find>提交的参数</find>
-      <find>多少天前</find>
-      <find>需要转化你json数据--&gt;</find>
-      <find>页面数据不为空</find>
-      <find>这回时间是</find>
-      <find>ti_days</find>
-      <find>self.ti_days</find>
-      <find>3</find>
+      <find>CityGoods</find>
+      <find>StringCutting</find>
+      <find>pages</find>
+      <find>operator</find>
+      <find>There is data that needs to be paged</find>
+      <find>ele_active</find>
+      <find>http.client.ResponseNotReady: Idle</find>
+      <find>list_to_pandas df data is not empty</find>
+      <find>元素名字</find>
+      <find>第一次的数据</find>
+      <find>第四次的数据</find>
+      <find>water</find>
+      <find>father</find>
+      <find>add</find>
+      <find>yaml_status</find>
+      <find>watikitype</find>
+      <find>type</find>
+      <find>placeholder</find>
+      <find>start</find>
+      <find>formSub</find>
+      <find>search</find>
+      <find>confirm</find>
+      <find>tabs</find>
+      <find>info</find>
+      <find>source</find>
+      <find>category</find>
+      <find>paginate</find>
+      <find>get</find>
+      <find>lambda</find>
+      <find>custom_d</find>
     </findStrings>
     <replaceStrings>
-      <replace>information</replace>
-      <replace>second</replace>
-      <replace>/</replace>
-      <replace>form.form-inline</replace>
-      <replace>items</replace>
-      <replace>item_status</replace>
-      <replace>|</replace>
-      <replace>results_sta</replace>
-      <replace>value_placeholder</replace>
-      <replace>key_title</replace>
-      <replace>row_data</replace>
-      <replace>results_items</replace>
-      <replace>\n\n</replace>
-      <replace>ex_ar</replace>
-      <replace>ex_st</replace>
-      <replace>ex_or</replace>
-      <replace>ex_by</replace>
-      <replace>ex_ot</replace>
-      <replace>self.names_key.yaml_timeselect()</replace>
-      <replace>self.names_key.yaml_area()</replace>
-      <replace>self.names_key.yaml_status()</replace>
-      <replace>self.names_key.yaml_order()</replace>
-      <replace>self.names_key.yaml_buyer()</replace>
-      <replace>self.names_key.yaml_value()</replace>
-      <replace>self.names_key.yaml_placeholder()</replace>
-      <replace>self.names_key.yaml_other()</replace>
-      <replace>peripheral</replace>
-      <replace>internal</replace>
-      <replace>'用户ID'</replace>
       <replace>ti_days</replace>
+      <replace>CHILD_TAGS_LOCATION</replace>
+      <replace>FATHER_TAGS_LOCATION</replace>
+      <replace>child_tags</replace>
+      <replace>father_tags</replace>
+      <replace>yaml_city_tab</replace>
+      <replace>form_group</replace>
+      <replace>td</replace>
+      <replace>create</replace>
+      <replace>read_filepath</replace>
+      <replace>id</replace>
+      <replace>pBulk</replace>
+      <replace>financial</replace>
+      <replace>argument</replace>
+      <replace>self.cGoods</replace>
+      <replace>cGoods</replace>
+      <replace>label</replace>
+      <replace>whole</replace>
+      <replace>shelves</replace>
+      <replace>group</replace>
+      <replace>connd</replace>
+      <replace>options_jude</replace>
+      <replace>default_jude</replace>
+      <replace>traverse_jude</replace>
+      <replace>verify_dataframe</replace>
+      <replace>verify_operator</replace>
+      <replace>box</replace>
+      <replace>info_text</replace>
+      <replace>yaml_active</replace>
+      <replace>active_d</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -201,84 +271,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ServerPHP/yamlDingWei/__init__.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/totalNames.yaml" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/InteractionNames.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/totalLableNanme" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/web_wholeinteraction.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/SystemSetup/NoticeController/__init__.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/SystemSetup/NoticeController/web_maintainNotice.py" />
-        <option value="$PROJECT_DIR$/utils/config/excelmodel.ini" />
-        <option value="$PROJECT_DIR$/ServerPHP/tangsong/domoTaothereTwo.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/SystemSetup/NoticeController/dailyOperationSteps.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/SystemSetup/__init__.py" />
-        <option value="$PROJECT_DIR$/utils/excelname/shopSystemsetup.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/totalLableNanme.yaml" />
-        <option value="$PROJECT_DIR$/utils/operation/selenium_visible.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/__init__.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/web_wholelabel.py" />
-        <option value="$PROJECT_DIR$/utils/operation/selenium_click.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/totalPathNames.yaml" />
-        <option value="$PROJECT_DIR$/tools/StringCutting.py" />
-        <option value="$PROJECT_DIR$/utils/FileIntroduce/错误继承" />
-        <option value="$PROJECT_DIR$/utils/excelname/shopInteraction.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/wholeActionsJudge.py" />
-        <option value="$PROJECT_DIR$/tools/extendBeantifulSoup.py" />
-        <option value="$PROJECT_DIR$/utils/config/model.ini" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/judgmentVerification.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/__init__.py" />
-        <option value="$PROJECT_DIR$/InterfaceProgram/DemoTest/menuDome.py" />
-        <option value="E:/Program Files/Python36/Lib/calendar.py" />
-        <option value="$PROJECT_DIR$/tools/DefinitionErrors.py" />
-        <option value="$PROJECT_DIR$/utils/timeFromat.py" />
-        <option value="$PROJECT_DIR$/utils/linuxOperating.py" />
-        <option value="$PROJECT_DIR$/demo/xxx.py" />
-        <option value="$PROJECT_DIR$/utils/comparedVerify.py" />
-        <option value="$PROJECT_DIR$/tools/operationSelector.py" />
-        <option value="$PROJECT_DIR$/PageWeb/__init__.py" />
-        <option value="$PROJECT_DIR$/utils/config/readModel.py" />
-        <option value="$PROJECT_DIR$/utils/configs/readModel.py" />
-        <option value="$PROJECT_DIR$/tools/PymysqlMain.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/.pytest_cache/labelJude.py" />
         <option value="$PROJECT_DIR$/tools/openpyxlExcel.py" />
-        <option value="$PROJECT_DIR$/tools/configs/readModel.py" />
-        <option value="$PROJECT_DIR$/run_all.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/web_wholedata.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/interactionNames.py" />
-        <option value="$PROJECT_DIR$/tools/excelname/shopInteraction.py" />
-        <option value="$PROJECT_DIR$/tools/excelname/shopSystemsetup.py" />
-        <option value="$PROJECT_DIR$/tools/configs/model.ini" />
-        <option value="$PROJECT_DIR$/tools/timeFromat.py" />
+        <option value="$PROJECT_DIR$/tools/FileIntroduce/错误继承" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/__init__.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_add.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/judgmentVerification.py" />
+        <option value="$PROJECT_DIR$/tools/configs/excelmodel.ini" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/test_activeTab.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/activeTabJude.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/test_formGroup.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/test_label.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/__init__.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/步骤" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_label.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/labelJude.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/shelvesJude.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/activeTabJude.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/inventoryLabelJude.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/formGroupJude.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/formGroupJude.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/groupJude.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_group.py" />
         <option value="$PROJECT_DIR$/tools/comparedVerify.py" />
-        <option value="$PROJECT_DIR$/tools/configs/__init__.py" />
-        <option value="$PROJECT_DIR$/tools/RewriteThread.py" />
-        <option value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/__init__.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/tabsJude.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_tabsBox.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/__init__.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_label.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/judeVerification.py" />
+        <option value="$PROJECT_DIR$/tools/operation/selenium_move.py" />
+        <option value="$PROJECT_DIR$/tools/operation/selenium_visible.py" />
+        <option value="$PROJECT_DIR$/tools/YAMLconfig/expression/GoodsPath.yaml" />
+        <option value="$PROJECT_DIR$/tools/StringCutting.py" />
+        <option value="$PROJECT_DIR$/tools/operation/selenium_click.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/adminGongsMana.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/labelJude.py" />
+        <option value="$PROJECT_DIR$/tools/YAMLconfig/expression/WaterProduct.yaml" />
+        <option value="$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/__init__.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/Store/__init__.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/__init__.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/Platform/__init__.py" />
+        <option value="$PROJECT_DIR$/run_all.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/__init__.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/excelBeanName.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/Center/promote.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/Center/Interaction.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/Center/commodities.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/Platform/platformTabs.py" />
+        <option value="$PROJECT_DIR$/tools/extendBeantifulSoup.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/commoditiesJude.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/customTabs.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="365" />
-    <option name="y" value="51" />
-    <option name="width" value="1405" />
-    <option name="height" value="961" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Python</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>PyArgumentListInspection</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
+    <option name="x" value="512" />
+    <option name="y" value="30" />
+    <option name="width" value="1368" />
+    <option name="height" value="1006" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -299,28 +350,33 @@
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="WebShop" type="462c0819:PsiDirectoryNode" />
+              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
+              <item name="Commodities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="WebShop" type="462c0819:PsiDirectoryNode" />
-              <item name="InteractionActions" type="462c0819:PsiDirectoryNode" />
+              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
+              <item name="Commodities" type="462c0819:PsiDirectoryNode" />
+              <item name="Platform" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="PageWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="WebShop" type="462c0819:PsiDirectoryNode" />
-              <item name="InteractionActions" type="462c0819:PsiDirectoryNode" />
-              <item name="WholeInteraction" type="462c0819:PsiDirectoryNode" />
+              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
+              <item name="GoodsManagement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
+              <item name="GoodsManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="CityGoods" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
@@ -331,7 +387,39 @@
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
-              <item name="configs" type="462c0819:PsiDirectoryNode" />
+              <item name="excelname" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="excelname" type="462c0819:PsiDirectoryNode" />
+              <item name="Center" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="FileIntroduce" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="operation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="YAMLconfig" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="YAMLconfig" type="462c0819:PsiDirectoryNode" />
+              <item name="expression" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -343,25 +431,25 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value=":&#9;null&#9;null" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="yaml&#10;XML" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\operating\tools" />
-      <recent name="E:\operating\utils\configs" />
-      <recent name="E:\operating\ServerPHP\yamlDingWei" />
-      <recent name="E:\operating\ServerPHP\yamlDingWei\pageelement" />
-      <recent name="E:\operating\PageWeb\WebEven" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\operating\CenterBackground\PromotionalActivities\BulkGroup" />
+      <recent name="E:\operating\tools\YAMLconfig\expression" />
+      <recent name="E:\operating\demo" />
+      <recent name="E:\operating\demo\.pytest_cache" />
       <recent name="E:\operating\PageWeb\WebShop\SystemSetup\NoticeController" />
-      <recent name="E:\operating\ServerPHP\pyfl" />
-      <recent name="E:\operating\report\js" />
-      <recent name="E:\operating\page_web\web_shop1\sign1" />
-      <recent name="E:\operating" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\operating\tools\excelname\Center" />
+      <recent name="E:\operating\CenterBackground\GoodsManagement\CityGoods" />
+      <recent name="E:\operating\tools\YAMLconfig\expression" />
+      <recent name="E:\operating\tools\YAMLconfig" />
+      <recent name="E:\operating\CenterBackground\GoodsManagement" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -376,26 +464,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for web_wholedata.InterationOrderLable.test_day_offline">
-    <configuration name="__init__ (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="operating" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools/configs" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/configs/__init__.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="timeFromat" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.customTabs">
+    <configuration name="StringCutting" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -407,99 +477,77 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/timeFromat.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/StringCutting.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="commoditiesJude" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/Commodities" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="SCRIPT_NAME" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CenterBackground/Commodities/commoditiesJude.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <method />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="operating" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
-    </configuration>
-    <configuration name="Unittests for web_wholedata.InterationOrderLable.test_area_screening" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="customTabs" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/Commodities" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;web_wholedata.InterationOrderLable.test_area_screening&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CenterBackground/Commodities/customTabs.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
-    <configuration name="Unittests for web_wholedata.InterationOrderLable.test_day_offline" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="test_file" type="PythonConfigurationType" factoryName="Python">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;web_wholedata.InterationOrderLable.test_day_offline&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
-    <configuration name="Unittests for web_wholedata.InterationOrderLable.test_whole_page" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="operating" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;web_wholedata.InterationOrderLable.test_whole_page&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/test_file.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <module name="operating" />
@@ -513,21 +561,53 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_label.TestLabel.test_seven_days" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="operating" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_label.TestLabel.test_seven_days&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in test_label.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="operating" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_label.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests for web_wholedata.InterationOrderLable.test_area_screening" />
-      <item itemvalue="Python tests.Unittests for web_wholedata.InterationOrderLable.test_day_offline" />
-      <item itemvalue="Python.__init__ (1)" />
-      <item itemvalue="Python tests.Unittests for web_wholedata.InterationOrderLable.test_whole_page" />
-      <item itemvalue="Python.timeFromat" />
+      <item itemvalue="Python.test_file" />
+      <item itemvalue="Python tests.pytest in test_label.py" />
+      <item itemvalue="Python tests.pytest for test_label.TestLabel.test_seven_days" />
+      <item itemvalue="Python.StringCutting" />
+      <item itemvalue="Python.commoditiesJude" />
+      <item itemvalue="Python.customTabs" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for web_wholedata.InterationOrderLable.test_day_offline" />
-        <item itemvalue="Python.__init__ (1)" />
-        <item itemvalue="Python tests.Unittests for web_wholedata.InterationOrderLable.test_whole_page" />
-        <item itemvalue="Python.timeFromat" />
-        <item itemvalue="Python tests.Unittests for web_wholedata.InterationOrderLable.test_area_screening" />
+        <item itemvalue="Python.customTabs" />
+        <item itemvalue="Python.commoditiesJude" />
+        <item itemvalue="Python tests.pytest for test_label.TestLabel.test_seven_days" />
+        <item itemvalue="Python.StringCutting" />
+        <item itemvalue="Python tests.pytest in test_label.py" />
       </list>
     </recent_temporary>
   </component>
@@ -545,35 +625,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_web_wholedata_InterationOrderLable_test_whole_page - 2018.06.28 at 17h 51m 18s.xml">
-      <configuration name="Unittests for web_wholedata.InterationOrderLable.test_whole_page" configurationId="tests" />
+    <history-entry file="pytest_for_test_label_TestLabel_test_seven_days - 2018.08.15 at 16h 48m 55s.xml">
+      <configuration name="pytest for test_label.TestLabel.test_seven_days" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_wholedata_InterationOrderLable_test_whole_page - 2018.06.28 at 18h 01m 53s.xml">
-      <configuration name="Unittests for web_wholedata.InterationOrderLable.test_whole_page" configurationId="tests" />
+    <history-entry file="pytest_for_test_label_TestLabel_test_seven_days - 2018.08.15 at 16h 49m 28s.xml">
+      <configuration name="pytest for test_label.TestLabel.test_seven_days" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_wholedata_InterationOrderLable_test_whole_page - 2018.06.28 at 18h 03m 48s.xml">
-      <configuration name="Unittests for web_wholedata.InterationOrderLable.test_whole_page" configurationId="tests" />
+    <history-entry file="pytest_for_test_label_TestLabel_test_seven_days - 2018.08.15 at 16h 50m 42s.xml">
+      <configuration name="pytest for test_label.TestLabel.test_seven_days" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_wholedata_InterationOrderLable_test_day_offline - 2018.06.28 at 18h 05m 57s.xml">
-      <configuration name="Unittests for web_wholedata.InterationOrderLable.test_day_offline" configurationId="tests" />
+    <history-entry file="pytest_for_test_label_TestLabel_test_seven_days - 2018.08.15 at 16h 55m 42s.xml">
+      <configuration name="pytest for test_label.TestLabel.test_seven_days" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_wholedata_InterationOrderLable_test_day_offline - 2018.06.28 at 18h 07m 00s.xml">
-      <configuration name="Unittests for web_wholedata.InterationOrderLable.test_day_offline" configurationId="tests" />
+    <history-entry file="pytest_for_test_label_TestLabel_test_seven_days - 2018.08.15 at 16h 56m 28s.xml">
+      <configuration name="pytest for test_label.TestLabel.test_seven_days" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_wholedata_InterationOrderLable_test_day_offline - 2018.06.28 at 18h 09m 22s.xml">
-      <configuration name="Unittests for web_wholedata.InterationOrderLable.test_day_offline" configurationId="tests" />
+    <history-entry file="pytest_for_test_label_TestLabel_test_seven_days - 2018.08.15 at 16h 57m 30s.xml">
+      <configuration name="pytest for test_label.TestLabel.test_seven_days" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_wholedata_InterationOrderLable_test_day_offline - 2018.06.28 at 18h 10m 28s.xml">
-      <configuration name="Unittests for web_wholedata.InterationOrderLable.test_day_offline" configurationId="tests" />
+    <history-entry file="pytest_for_test_label_TestLabel_test_seven_days - 2018.08.15 at 16h 57m 39s.xml">
+      <configuration name="pytest for test_label.TestLabel.test_seven_days" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_wholedata_InterationOrderLable_test_day_offline - 2018.06.28 at 18h 12m 50s.xml">
-      <configuration name="Unittests for web_wholedata.InterationOrderLable.test_day_offline" configurationId="tests" />
+    <history-entry file="pytest_for_test_label_TestLabel_test_seven_days - 2018.08.15 at 17h 01m 05s.xml">
+      <configuration name="pytest for test_label.TestLabel.test_seven_days" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_wholedata_InterationOrderLable_test_day_offline - 2018.06.28 at 18h 14m 43s.xml">
-      <configuration name="Unittests for web_wholedata.InterationOrderLable.test_day_offline" configurationId="tests" />
+    <history-entry file="pytest_for_test_label_TestLabel_test_seven_days - 2018.08.15 at 17h 03m 52s.xml">
+      <configuration name="pytest for test_label.TestLabel.test_seven_days" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_web_wholedata_InterationOrderLable_test_day_offline - 2018.06.28 at 18h 17m 23s.xml">
-      <configuration name="Unittests for web_wholedata.InterationOrderLable.test_day_offline" configurationId="tests" />
+    <history-entry file="pytest_for_test_label_TestLabel_test_seven_days - 2018.08.15 at 17h 11m 17s.xml">
+      <configuration name="pytest for test_label.TestLabel.test_seven_days" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -586,28 +666,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="365" y="51" width="1405" height="961" extended-state="0" />
+    <frame x="512" y="30" width="1368" height="1006" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.493266" visible="true" weight="0.1923921" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3288835" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3282572" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3180778" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3288835" />
-      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729468" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2826087" />
-      <window_info id="Structure" order="1" sideWeight="0.506734" side_tool="true" weight="0.1923921" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.39613527" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49053627" visible="true" weight="0.19877675" />
+      <window_info id="Structure" order="1" sideWeight="0.5094637" side_tool="true" weight="0.19266056" />
       <window_info id="Favorites" order="2" sideWeight="0.5038168" side_tool="true" weight="0.12872542" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.38647342" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="3" weight="0.32983023" />
-      <window_info anchor="right" x="0" y="0" width="371" height="802" id="Documentation" order="4" side_tool="true" weight="0.32944068" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.31707317" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49874687" visible="true" weight="0.27293578" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.38550058" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3288835" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5012531" side_tool="true" weight="0.4318508" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729468" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.39581037" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3288835" />
+      <window_info anchor="right" id="R Packages" order="0" weight="0.3298466" />
+      <window_info anchor="right" id="R Graphics" order="1" weight="0.3298466" />
+      <window_info anchor="right" id="Commander" order="2" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="right" id="Data View" order="5" weight="0.32983023" />
+      <window_info anchor="right" x="0" y="0" width="371" height="802" id="Documentation" order="6" side_tool="true" weight="0.32944068" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -629,296 +711,389 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="35" />
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="tests">
+        <watch expression="self" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1514532798/time.py">
+    <entry file="file://$PROJECT_DIR$/tools/Logger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-378">
-          <caret line="168" column="4" selection-start-line="168" selection-start-column="4" selection-end-line="168" selection-end-column="4" />
+        <state relative-caret-position="501">
+          <caret line="79" column="18" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/site-packages/paramiko/config.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/labelJude.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="414">
+          <caret line="119" column="8" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/site-packages/paramiko/client.py">
+    <entry file="file://$PROJECT_DIR$/tools/operation/selenium_input.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="219" column="20" selection-start-line="219" selection-start-column="8" selection-end-line="219" selection-end-column="20" />
+        <state relative-caret-position="-896">
+          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/__init__.py">
+    <entry file="file://$PROJECT_DIR$/tools/operation/selenium_move.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+        <state relative-caret-position="1007">
+          <caret line="90" column="20" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/DefinitionErrors.py">
+    <entry file="file://F:/Program Files/Python37/Lib/site-packages/_pytest/_code/source.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="34" column="46" lean-forward="true" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="46" />
+        <state relative-caret-position="201">
+          <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/web_wholelabel.py">
+    <entry file="file://$PROJECT_DIR$/demo/demo_re_bea.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
+        <state relative-caret-position="567">
+          <caret line="77" column="34" lean-forward="true" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/site-packages/selenium/webdriver/support/select.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-784">
-          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/operationSelector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1133">
-          <caret line="134" column="54" lean-forward="true" selection-start-line="134" selection-start-column="54" selection-end-line="134" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InterfaceProgram/DemoTest/menu_frm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1458">
-          <caret selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InterfaceProgram/DemoTest/menu_frm-multi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="9" selection-start-line="9" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/configs/excelmodel.ini">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/异常">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/网址">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/错误继承">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/框架.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/JavaScript">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/linux指令.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/selenium 定位">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/git删除本地库.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/python一些重要的语法">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/浏览器截图screenshot">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/operation/介绍">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/operation/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/operation/selenium_move.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/operation/selenium_click.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/operation/selenium_input.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/operation/selenium_visible.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6048">
-          <caret line="232" column="20" selection-start-line="232" selection-start-column="20" selection-end-line="232" selection-end-column="20" />
+        <state relative-caret-position="320">
+          <caret line="71" column="28" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/operation/selenium_move_child.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/qrcode.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/linuxOperating.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="57" column="11" lean-forward="true" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
+        <state relative-caret-position="-146" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/logs/Journal-2018_08_15.log" />
+    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/selenium 定位">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="43" column="6" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/HexColor.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/browser_establish.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/configs/readModel.py">
+    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/GoodsPath.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="285">
+          <caret line="15" selection-start-line="15" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Store/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="33" selection-start-line="33" selection-end-line="50" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_group.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="53" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/groupJude.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Platform/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_all.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/tabsJude.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="39" column="37" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/excelname/Center/gongsMana.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
           <folding>
-            <element signature="e#113#132#0" expanded="true" />
+            <marker date="1534323788693" expanded="true" signature="1193:1217" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/PymysqlMain.py">
+    <entry file="file://$PROJECT_DIR$/tools/excelname/Center/promote.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="268">
+          <caret line="31" column="3" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/excelname/Center/systemsetup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/excelname/excelBeanName.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="e#107#118#0" expanded="true" />
+            <marker date="1534816760966" expanded="true" signature="908:1133" ph="..." />
+            <marker date="1534816760966" expanded="true" signature="1896:1905" ph="..." />
+            <marker date="1534816760966" expanded="true" signature="1947:1956" ph="..." />
+            <marker date="1534816760966" expanded="true" signature="1998:2007" ph="..." />
+            <marker date="1534816760966" expanded="true" signature="2048:2057" ph="..." />
+            <marker date="1534816760966" expanded="true" signature="2095:2104" ph="..." />
+            <marker date="1534816760966" expanded="true" signature="2476:2804" ph="..." />
+            <marker date="1534816760966" expanded="true" signature="2624:2633" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/excelname/Center/Interaction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3762">
+          <caret line="198" column="11" selection-start-line="198" selection-start-column="11" selection-end-line="198" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/labelJude.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="44" column="26" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+          <folding>
+            <element signature="e#966#977#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/excelname/Center/bundledItems.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="18" />
+          <folding>
+            <marker date="1534817085793" expanded="true" signature="1054:1059" ph="..." />
+            <marker date="1534817085793" expanded="true" signature="1783:1792" ph="..." />
+            <marker date="1534817085793" expanded="true" signature="1833:1842" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_activeTab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/judeVerification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+          <folding>
+            <element signature="e#110#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/python一些重要的语法">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/564850176/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="4126" column="24" lean-forward="true" selection-start-line="4126" selection-start-column="24" selection-end-line="4126" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/operation/selenium_visible.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="133" column="42" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/StringCutting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="173" column="4" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/WaterProduct.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Platform/platformTabs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+          <folding>
+            <element signature="e#969#984#0" expanded="true" />
+            <marker date="1534817624461" expanded="true" signature="1260:1261" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/comparedVerify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="117" column="47" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="47" />
+          <folding>
+            <marker date="1534240998288" expanded="true" signature="3849:3850" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/openpyxlExcel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="15" selection-start-line="15" selection-end-line="24" selection-end-column="32" />
+        <state relative-caret-position="325">
+          <caret line="120" column="44" selection-start-line="120" selection-start-column="38" selection-end-line="120" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/operationSelector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/linuxOperating.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/extendBeantifulSoup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="134" column="28" lean-forward="true" selection-start-line="134" selection-start-column="28" selection-end-line="134" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/commoditiesJude.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="46" />
           <folding>
-            <element signature="e#568#577#0" expanded="true" />
+            <element signature="e#972#1012#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_all.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/activeTabJude.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        <state relative-caret-position="235">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/customTabs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="106" column="26" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
           <folding>
-            <element signature="e#15#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/interactionNames.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/excelname/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/excelname/excelBeanName.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/excelname/shopInteraction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/excelname/shopSystemsetup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/configs/model.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Program Files/Python36/Lib/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="827" column="8" selection-start-line="827" selection-start-column="8" selection-end-line="827" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/configs/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/RewriteThread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/wholeActionsJudge.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/timeFromat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/comparedVerify.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="263" column="23" selection-start-line="263" selection-start-column="23" selection-end-line="263" selection-end-column="23" />
-          <folding>
-            <element signature="e#103#114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/WholeInteraction/web_wholedata.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
-          <folding>
-            <element signature="e#103#117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageWeb/WebShop/InteractionActions/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="575" column="26" lean-forward="true" selection-start-line="575" selection-start-column="26" selection-end-line="575" selection-end-column="26" />
-          <folding>
-            <element signature="e#102#151#0" expanded="true" />
+            <element signature="e#967#1032#0" expanded="true" />
+            <marker date="1534837576864" expanded="true" signature="1627:1912" ph="..." />
+            <marker date="1534837576864" expanded="true" signature="1977:2982" ph="..." />
+            <marker date="1534837576864" expanded="true" signature="2542:2702" ph="..." />
           </folding>
         </state>
       </provider>

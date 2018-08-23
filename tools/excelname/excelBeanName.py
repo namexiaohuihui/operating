@@ -106,6 +106,24 @@ class ExcelTitle(object):
     def yaml_formGroup(self):
         return 'formGroup'
 
+    def yaml_father(self):
+        return 'father'
+
+    def yaml_module(self):
+        return 'module'
+
+    def yaml_child(self):
+        return 'child'
+
+    def yaml_select(self):
+        return 'select'
+
+    def yaml_page(self):
+        return 'page'
+
+    def yaml_add(self):
+        return 'add'
+
     def yaml_status(self):
         return 'status'
 
@@ -126,6 +144,24 @@ class ExcelTitle(object):
 
     def yaml_info(self):
         return 'info'
+
+    def yaml_start(self):
+        return 'start'
+
+    def yaml_end(self):
+        return 'end'
+
+    def yaml_checkbox(self):
+        return 'checkbox'
+
+    def yaml_next(self):
+        return 'next'
+
+    def yaml_thead(self):
+        return 'thead'
+
+    def yaml_tbody(self):
+        return 'tbody'
 
     #  -------------------------------------元素标签属性--------------------
     def ele_class(self):

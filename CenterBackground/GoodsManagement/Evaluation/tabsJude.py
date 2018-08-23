@@ -32,7 +32,7 @@
 '''
 from CenterBackground.judeVerification import JudgmentVerification
 from CenterBackground.GoodsManagement import Evaluation
-from tools.excelname.adminGongsMana import CityGoodsPage
+from tools.excelname.Center.gongsMana import CityGoodsPage
 
 
 class TabsJude(JudgmentVerification):

@@ -32,13 +32,12 @@
 '''
 
 import time
-import operator
 import threading
 from bs4 import BeautifulSoup
 from tools import StringCutting
 from CenterBackground.GoodsManagement import Inventory
 from CenterBackground.judeVerification import JudgmentVerification
-from tools.excelname.adminGongsMana import CityGoodsPage
+from tools.excelname.Center.gongsMana import CityGoodsPage
 
 
 class InventoryLabelJude(JudgmentVerification):

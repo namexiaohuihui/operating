@@ -154,14 +154,6 @@ class InteractionController(ExcelTitle):
         '''
         return 'secondminuteselect'
 
-    # -----------------------label中key的定义-------------------
-    def yaml_label(self):
-        '''
-        lable最外圈的key
-        :return:
-        '''
-        return 'label'
-
     # -----------------------area中key的定义--------------------
     def yaml_area(self):
         '''
@@ -199,12 +191,6 @@ class InteractionController(ExcelTitle):
         return 'region'
 
     # ------------------------------status中key 的定义---------------
-    def yaml_status(self):
-        '''
-        status中最外圈的key
-        :return:
-        '''
-        return 'status'
 
     def yaml_source(self):
         '''
@@ -252,20 +238,6 @@ class InteractionController(ExcelTitle):
         '''
         return 'button'
 
-    def yaml_search(self):
-        '''
-        搜索按钮
-        :return:
-        '''
-        return 'search'
-
-    def yaml_export(self):
-        '''
-        导出按钮
-        :return:
-        '''
-        return 'export'
-
     # ----------------------------------content中key的定义-------------------
     def yaml_content(self):
         '''
@@ -280,20 +252,6 @@ class InteractionController(ExcelTitle):
         :return:
         '''
         return 'table'
-
-    def yaml_thead(self):
-        '''
-        界面key信息
-        :return:
-        '''
-        return 'thead'
-
-    def yaml_tbody(self):
-        '''
-        界面value信息
-        :return:
-        '''
-        return 'tbody'
 
     # ----------------------------------record中key的定义-------------------
     def yaml_record(self):
@@ -324,10 +282,3 @@ class InteractionController(ExcelTitle):
         :return:
         '''
         return 'previous'
-
-    def yaml_next(self):
-        '''
-        下一页按钮
-        :return:
-        '''
-        return 'next'

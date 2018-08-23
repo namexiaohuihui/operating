@@ -9,7 +9,7 @@ import operator
 from tools import StringCutting
 from CenterBackground.GoodsManagement import CityGoods
 from CenterBackground.judeVerification import JudgmentVerification
-from tools.excelname.adminGongsMana import CityGoodsPage
+from tools.excelname.Center.gongsMana import CityGoodsPage
 
 
 class ActiveTabJude(JudgmentVerification):

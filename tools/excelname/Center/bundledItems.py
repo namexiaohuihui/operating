@@ -26,52 +26,58 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: adminPromote.py
-@time: 2018/8/10 11:59
+@file: commodities.py
+@time: 2018/8/20 18:02
 @desc:
 '''
 from tools.excelname.excelBeanName import ExcelTitle
 
 
-class BulkSelector(ExcelTitle):
+class BundledItems(ExcelTitle):
+    def yaml_water(self):
+        return 'water'
 
-    def yaml_popup(self):
-        return 'popup'
+    def yaml_platform(self):
+        return 'platform'
 
-    def yaml_add(self):
-        return 'add'
+    def yaml_platformsold(self):
+        return 'platformsold'
 
-    def yaml_watiki(self):
-        return 'watiki'
+    def yaml_store(self):
+        return 'store'
 
-    def yaml_goods(self):
-        return 'goods'
+    def yaml_storesold(self):
+        return 'storesold'
 
-    def yaml_gName(self):
-        return 'gName'
+    def yaml_watikitype(self):
+        return 'watikitype'
 
-    def yaml_price(self):
-        return 'price'
+    def yaml_formSub(self):
+        return 'formSub'
 
-    def yaml_number(self):
-        return 'number'
+    def yaml_confirm(self):
+        return 'confirm'
 
-    def yaml_end(self):
-        return 'end'
+    def yaml_prompt(self):
+        return 'prompt'
 
-    def yaml_name(self):
-        return 'name'
+    def yaml_ban(self):
+        return 'ban'
 
-    def yaml_originator(self):
-        return 'originator'
+    def yaml_shielding(self):
+        return 'shielding'
 
-    def yaml_default(self):
-        return 'default'
+    def yaml_remove(self):
+        return 'remove'
 
-    def yaml_primary(self):
-        return 'primary'
+    def yaml_tabs(self):
+        return 'tabs'
 
-    def yaml_option(self):
-        return 'option'
+    def yaml_source(self):
+        return 'source'
 
-    pass
+    def yaml_iptJ(self):
+        return 'iptJ'
+
+    def yaml_paginate(self):
+        return 'paginate'

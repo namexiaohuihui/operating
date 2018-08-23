@@ -31,11 +31,10 @@
 @desc:
 '''
 import operator
-from tools import StringCutting
 from tools.operationSelector import OperationSelector
 from CenterBackground.judeVerification import JudgmentVerification
 from CenterBackground.GoodsManagement import Inventory
-from tools.excelname.adminGongsMana import CityGoodsPage
+from tools.excelname.Center.gongsMana import CityGoodsPage
 
 
 class FormGroupJude(JudgmentVerification):

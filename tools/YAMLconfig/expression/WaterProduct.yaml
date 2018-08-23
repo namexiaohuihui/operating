@@ -1,20 +1,47 @@
 # 平台
-tab: ul.nav.nav-tabs.nav-slot > li
+# 城市tab
+slot: ul.nav.nav-tabs.nav-slot > li
+# 规则
 guize: button.btn.btn-default.btn-sm.J-rule
+# 添加
 add: ul.nav.nav-tabs.nav-slot > li:last
+# 下拉框
 status: select[name='status']
 watikitype: select[name='watikitype']
 type: select[name='type']
+# 输入框
 placeholder: input[type='search']
-time: .form-control.pull-right
-left: 1
-right: 2
+# 开始时间和结束时间的
+start: starttime
+end: endtime
+# 按钮
 formSub: .btn.btn-default.btn-flat.formSub
 search: 1
 export: 2
 
-# 商店
+# 商品
+checkbox: .check-all
+confirm: btn btn-default btn-sm confirm-btn
+prompt: btn btn-default btn-sm prompt-confirm-btn
+ban: 1
+shielding: 2
+remove: 3
 
-# 已售平台
+# 平台已售
+# 下拉框
+tabs: ul.nav.nav-tabs > li
+category: select[name='category']
+source: select[name='source']
 
-# 已售商店
+
+# 商店已售
+# 按钮
+iptJ: .btn.btn-default.btn-flat.btn-action.J_ipt
+
+# 界面
+info: dataTables_info
+paginate: pagination > li
+next: paginate_button next
+thead: thead
+tbody: tbody
+

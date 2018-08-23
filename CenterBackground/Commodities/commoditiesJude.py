@@ -26,26 +26,17 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: shelvesJude.py
-@time: 2018/8/13 16:12
+@file: commoditiesJude.py
+@time: 2018/8/20 16:27
 @desc:
 '''
-from CenterBackground.GoodsManagement import CityGoods
+from CenterBackground import Commodities
 from CenterBackground.judeVerification import JudgmentVerification
-from tools.excelname.Center.gongsMana import CityGoodsPage
+from tools.excelname.Center.bundledItems import BundledItems
 
 
-class ShelvesJude(JudgmentVerification):
-
-    def __init__(self, option):
-        JudgmentVerification.__init__(self, CityGoods.add_key(option))
-        self.cGoods = CityGoodsPage()
-        pass
-
-    def perform_quit_shelves(self):
-        self._visible_css_selectop(self.financial[self.cGoods.page_add()])
-        title_text = self._visible_css_selectop_text(
-            self.financial[self.cGoods.page_shelves()][self.cGoods.page_title()])
-        print("shelves----> %s " % title_text)
-        self._visible_css_selectop(
-            self.financial[self.cGoods.page_shelves()][self.cGoods.page_quit()])
+class CommoditiesJude(JudgmentVerification):
+    def __init__(self, module, sheet):
+        JudgmentVerification.__init__(self, Commodities.add_key(module, sheet))
+        self.bi = BundledItems()
+        self.driver.find_element_by_tag_name()

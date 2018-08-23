@@ -40,6 +40,7 @@ goods:
     select: 筛选
     label: 页面
     tap: 标题
+
 water:
   father: 4
   module: water

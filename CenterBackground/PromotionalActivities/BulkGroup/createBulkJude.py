@@ -32,7 +32,7 @@
 '''
 from CenterBackground.judeVerification import JudgmentVerification
 from CenterBackground.PromotionalActivities import BulkGroup
-from tools.excelname.adminPromote import BulkSelector
+from tools.excelname.Center.promote import BulkSelector
 
 
 class CreateBulkJude(JudgmentVerification):

@@ -6,7 +6,7 @@
 @项目名称:operating
 """
 
-from tools.excelname.adminSystemsetup import ShopParameterSetting
+from tools.excelname.Center.systemsetup import ShopParameterSetting
 
 
 # 该类主要设置一些常用的属性值以及参数

@@ -31,7 +31,7 @@
 @desc:
 '''
 
-from tools.excelname.adminInteraction import InteractionController
+from tools.excelname.Center.Interaction import InteractionController
 from tools.YAMLconfig import readYaml
 
 

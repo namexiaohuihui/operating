@@ -6,6 +6,13 @@ import unittest
 from tkinter import *
 from tkinter.messagebox import *
 
+
+
+#git config --global user.name “用户名”
+
+# git config --global user.email “邮箱”
+
+
 # 获取项目路径下的目录
 os.chdir('E:\\operating')
 # 将项目路径保存
