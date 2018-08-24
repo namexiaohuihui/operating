@@ -34,6 +34,12 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class BundledItems(ExcelTitle):
+    def yaml_slot(self):
+        return 'slot'
+
+    def yaml_rule(self):
+        return 'rule'
+
     def yaml_water(self):
         return 'water'
 

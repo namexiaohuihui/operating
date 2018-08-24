@@ -15,16 +15,31 @@ from tools.openpyxlExcel import OpenExcelPandas
 from tools.timeFromat import TimeFromat
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
 
+module = 'module'
+
 
 class JudgmentVerification(ComparedVerify):
 
-    def __init__(self, config):
+    def __init__(self, config, basename):
         self.config_dist = config
         # 获取init中定义的数据，并根据menu来读取出相应的参数
         self.argument = readYaml.read_expression()[self.config_dist['menu']]
 
         # 根据init要求的yaml路径来读取该模块下全部元素路径
         self.financial = readYaml.read_expression(self.config_dist['yaml'])
+
+        # 定义日志
+        self.log = Log(basename)
+        # 读取用例所在的位置
+        MODEI_KEY_POSITION = self.argument[module]
+        # 读取用例的名称
+        fa_mo = self.config_dist[module]
+
+        MODEI_CASE_POSITION = self.argument[fa_mo][module]
+        # 读取用例里面的标签
+        exclefile = self.argument[fa_mo][self.config_dist['sheet']]
+        self.overallExcelData = self._excel_Data(MODEI_KEY_POSITION, MODEI_CASE_POSITION, exclefile)
+
         pass
 
     # 设置菜单字目录上的标题
@@ -63,7 +78,7 @@ class JudgmentVerification(ComparedVerify):
         self.father_tags = self.argument['father']
         self._visible_css_selectop(self.father_tags)
 
-        self.child_tags = self.argument[self.config_dist['module']]['child']
+        self.child_tags = self.argument[self.config_dist[module]]['child']
         self._visible_css_selectop(self.child_tags)
         pass
 
@@ -183,7 +198,7 @@ class JudgmentVerification(ComparedVerify):
         # 调用自定义的浏览器接口
         self.driver = self._browser(option=options)
 
-    def openingProgram(self, basename):
+    def openingProgram(self):
         """
         定义log日志文件以及读取用例数据
         :param basename:  执行用例的文件名
@@ -193,15 +208,6 @@ class JudgmentVerification(ComparedVerify):
         self.option_browser()  # 打开浏览器
         self.ps_user_login()  # 用户登录
 
-        # 定义日志
-        self.log = Log(basename)
-        # 读取用例所在的位置
-        MODEI_KEY_POSITION = self.argument['module']
-        # 读取用例的名称
-        MODEI_CASE_POSITION = self.argument[self.config_dist['module']]['module']
-        # 读取用例里面的标签
-        exclefile = self.argument[self.config_dist['module']][self.config_dist['sheet']]
-        self.overallExcelData = self._excel_Data(MODEI_KEY_POSITION, MODEI_CASE_POSITION, exclefile)
         pass
 
     def _excel_Data(self, model_key, filename, SHEETNAME):

@@ -55,4 +55,3 @@ def read_parseyaml(fpath, fname):
             page = yaml.load(f)
             pageElements.update(page)
     return pageElements
-print(read_expression())

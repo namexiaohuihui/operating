@@ -10,8 +10,13 @@ import re
 
 
 # 切割字符：strr字符，op指定切割的元素，num切割的数量，ber获取的数量
-def specified_cut_ber(strr, op, num, ber):
+def specified_ber_num(strr, op, num, ber):
     strr = str.split(strr, op, num)[ber]
+    return strr
+
+
+def specified_cut_ber(strr, op=',', ber=0):
+    strr = str.split(str(strr), op)[ber]
     return strr
 
 
@@ -181,15 +186,3 @@ def re_zip_code(str_text: str, pattern=r'[1-9]\d{5}(?!\d)'):
     # re_span = searchObj.span()  # 返回已查到的数据信息所在位置
     re_group = searchObj.group()  # 返回已查到的数据信息
     return re_group
-
-
-def filter_number(info_text: str) -> int:
-    info_text = str.split(info_text, '，')[-1]
-    # 对统计进行判断，计算出翻页的次数
-    info_text = int(re_zip_code(info_text, r'\d+'))
-    if (info_text % 10) > 0:
-        number = 1
-    else:
-        number = 0
-    info_text = int((info_text / 10)) + number
-

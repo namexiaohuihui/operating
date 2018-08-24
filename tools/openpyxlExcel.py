@@ -952,8 +952,6 @@ class OpenExcelPandas(READEXCEL, PANDASDATA):
         # 将case中内容部分的数据（除标题以外的数据）读出
         # 将case中标题的全部内容读出
         self._data, self._title = self.coordinates_sheet_row_value()
-        print(self._data)
-        print(self._title)
         # 通过pandas将数据进行转换
         return self.conversionPandas(title)
 

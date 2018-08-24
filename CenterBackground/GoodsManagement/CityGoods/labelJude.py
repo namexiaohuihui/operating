@@ -134,3 +134,4 @@ class LabelJude(JudgmentVerification):
 
         # 打印获取到的内容
         print(self.tbody_list)
+        pass

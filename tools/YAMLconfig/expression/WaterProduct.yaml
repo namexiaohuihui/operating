@@ -2,7 +2,7 @@
 # 城市tab
 slot: ul.nav.nav-tabs.nav-slot > li
 # 规则
-guize: button.btn.btn-default.btn-sm.J-rule
+rule: button.btn.btn-default.btn-sm.J-rule
 # 添加
 add: ul.nav.nav-tabs.nav-slot > li:last
 # 下拉框

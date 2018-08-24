@@ -30,8 +30,14 @@
 @time: 2018/8/21 10:15
 @desc:
 '''
+import operator
 from tools.operation.selenium_visible import action_visible as av
 from tools import StringCutting
+
+_att = 'a'
+_href = 'href'
+_class = 'class'
+_active = 'active'
 
 
 class CustomTabs(object):
@@ -40,72 +46,116 @@ class CustomTabs(object):
     Parse the label attributes in the element to get the qualified code.
     '''
 
-    def __init__(self, driver):
+    def __init__(self, driver, parth):
         self.driver = driver
+        self.parth = parth
         pass
 
-    def visibles_tabs(self, parth):
+    def visibles_tabs(self):
         '''
-        is_visibles_css_selectop传入self并没有实际的意义。。。
-        如果不传就要实例化av对象
-        :param parth:
+        is_visibles_css_selectop传入self并没有实际的意义,如果不传就要实例化av对象
         :return:
         '''
-        self.ul_li = av.is_visibles_css_selectop(self, self.driver, parth)
+        self.ul_li = av.is_visibles_css_selectop(self, self.driver, self.parth)
 
-    def custom_keys(self, parth, att):
-        self.visibles_tabs(parth)
+    def active_tab(self):
+        '''
+        比较li标签的class值
+        :return:
+        '''
+        self.visibles_tabs()
+        for li in self.ul_li:
+            ac_at = li.get_attribute(_class)
+            if operator.eq(_active, ac_at):
+                return li
+        return 'active_tab: no li'
+
+    def city_code(self, li):
+        li_a = li.find_element_by_tag_name(_att)
+        li_a = li_a.get_attribute(_href)
+        li_a = StringCutting.re_zip_code(li_a)
+        return li_a
+
+    def custom_keys(self):
+        '''
+        全部城市和编码
+        :return:  城市为key，编码为value
+        '''
+        self.visibles_tabs()
         custom_d = {}
         for li in self.ul_li:
-            li_a = li.find_element_by_tag_name('a')
-            li_a = li_a.get_attribute(att)
+            li_a = li.find_element_by_tag_name(_att)
+            li_a = li_a.get_attribute(_href)
             custom_d[li_a.text.strip()] = StringCutting.re_zip_code(li_a)
         return custom_d
 
-    def instance_text(self, parth):
-        self.visibles_tabs(parth)
+    def active_keys(self):
+        '''
+        默认城市和编码
+        :return: 城市为key，编码为value
+        '''
+        li = self.active_tab()
+        li_a = li.find_element_by_tag_name(_att)
+        li_a = li_a.get_attribute(_href)
+        active_d = {li_a.text.strip(): StringCutting.re_zip_code(li_a)}
+        return active_d
+
+    def instance_citys(self):
+        '''
+        :param parth:
+        :return:  全部城市
+        '''
+        self.visibles_tabs()
         list_text = [li.text.strip() for li in self.ul_li]
         return list_text
 
-    def instance_code(self, parth, att):
-        self.visibles_tabs(parth)
-        list_code = []
-        for li in self.ul_li:
-            li_a = li.find_element_by_tag_name('a')
-            li_a = li_a.get_attribute(att)
-            li_a = StringCutting.re_zip_code(li_a)
-            li_code.append(li_a)
-        return list_code
-
-    def active_tab(self, parth, att):
+    def active_city(self):
         '''
-        找到页面中tabs中默认选取的对象
-        :param parth:
-        :param att:
+        默认城市
         :return:
         '''
-        self.visibles_tabs(parth)
-        for li in self.ul_li:
-            if 'active' in li.get_attribute(att):
-                break
-        return li
-
-    def active_keys(self, parth, att):
-        li = self.active_tab(parth, att)
-        active_d = {}
-        li_a = li.find_element_by_tag_name('a')
-        li_a = li_a.get_attribute(att)
-        active_d[li_a.text.strip()] = StringCutting.re_zip_code(li_a)
-        return active_d
-
-    def active_text(self, parth, att):
-        li = self.active_tab(parth, att)
+        li = self.active_tab()
         li_text = li.text.strip()
         return li_text
 
-    def active_code(self, parth, att):
-        li = self.active_tab(parth, att)
-        li_code = li.find_element_by_tag_name('a')
-        li_code = li_code.get_attribute(att)
-        li_code = StringCutting.re_zip_code(li_code)
+    def instance_codes(self):
+        '''
+        :return: 全部元素的编码
+        '''
+        self.visibles_tabs()
+        list_code = [self.city_code(li) for li in self.ul_li]
+        return list_code
+
+    def active_code(self):
+        '''
+        默认城市编码
+        :return:
+        '''
+        li = self.active_tab()
+        li_code = self.city_code(li)
         return li_code
+
+    def judge_source(self):
+        pass
+
+    def judge_citys(self, ov_default=True):
+        list_text = self.instance_citys()
+        assert operator.eq(True, ov_default), 'All labels in the title are misjudged.'
+        pass
+
+    def judge_city(self, ov_default):
+        ct_default = self.active_city()
+        assert operator.eq(ct_default, ov_default), 'The caption tabs element text is judged incorrectly.'
+        pass
+
+    def judge_codes(self, ov_default=True):
+        list_code = self.instance_codes()
+        print(list_code)
+        assert operator.eq(True, ov_default), 'All labels in the title are misjudged.'
+        pass
+
+    def judge_code(self, ov_default):
+        ct_default = self.active_code()
+        ov_default = StringCutting.specified_cut_ber(ov_default, '.')
+        assert operator.eq(ct_default, ov_default), 'The header label attribute is incorrect.'
+        pass

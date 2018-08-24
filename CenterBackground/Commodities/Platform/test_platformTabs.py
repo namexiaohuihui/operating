@@ -30,27 +30,45 @@
 @time: 2018/8/20 16:08
 @desc:
 '''
-import unittest
 import os
 import inspect
+import unittest
 from CenterBackground import Commodities
 from CenterBackground.Commodities.commoditiesJude import CommoditiesJude
 
+basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
-group = CommoditiesJude(Commodities.platform, Commodities.city)
+group = CommoditiesJude(Commodities.platform, Commodities.city, basename)
 
 
-class PlatformTabs(unittest.TestCase):
+class TestPlatformTabs(unittest.TestCase):
 
     def setUp(self):
-        # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        group.openingProgram(self.basename)
+        group.openingProgram()
         group._rou_background()
+        print("%s ---setup: 每个用例开始前后执行" % basename)
 
     def tearDown(self):
         group.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % self.basename)
+        print("%s ---teardown: 每个用例结束后执行" % basename)
+        pass
+
+    def test_active_city(self):
+        group.setFunctionName(inspect.stack()[0][3])
+        group.active_city()
+        pass
+    def test_active_code(self):
+        group.setFunctionName(inspect.stack()[0][3])
+        group.active_code()
+        pass
+
+    def test_already_citys(self):
+        group.setFunctionName(inspect.stack()[0][3])
+        group.already_citys()
+        pass
+
+    def test_already_codes(self):
+        group.setFunctionName(inspect.stack()[0][3])
+        group.already_codes()
         pass

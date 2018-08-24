@@ -8,10 +8,10 @@ __author__ = 'Administrator'
 import os
 from time import sleep
 from selenium.webdriver.common.action_chains import ActionChains
-import selenium.webdriver.support.expected_conditions as EC
-import selenium.webdriver.support.ui as ui
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
+import selenium.webdriver.support.ui as ui
+import selenium.webdriver.support.expected_conditions as EC
 
 from tools import DefinitionErrors as dError
 

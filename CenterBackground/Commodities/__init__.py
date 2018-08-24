@@ -51,8 +51,8 @@ select = 'select'
 
 # 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
 INVENTORY = {
-    'menu': 'goods',  # 菜单标识符的定义
-    'module': 'storesold',  # 菜单中模块标识符的定义
+    'menu': 'water',  # 菜单标识符的定义
+    'module': 'no data',  # 菜单中模块标识符的定义
     'sheet': 'no data',  # 模块所对应的用例标签名
     'yaml': 'expression/WaterProduct.yaml'  # 菜单所对应的yaml路径
 }
