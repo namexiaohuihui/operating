@@ -8,7 +8,7 @@ import time
 
 from python_utils import converters
 
-from tools.operationSelector import OperationSelector
+from tools.screeningdrop import ScreeningDrop
 
 
 def pupop_button(self, dn):
@@ -82,7 +82,7 @@ def set_popup_city(self, dn):
     if op_select is None:  # 如何为空就直接重赋值
         pass
     else:
-        OperationSelector(self.driver, dn.operation_select).setSelectorText(op_select)
+        ScreeningDrop(self.driver, dn.operation_select).setSelectorText(op_select)
     return op_select
 
 
@@ -172,7 +172,7 @@ def click_year_mon(self, status_time, first):
 
 
 def drop_down_select(self, hourselect, minuteselect, tm_dicts):
-    operSele = OperationSelector(self.driver, hourselect)
+    operSele = ScreeningDrop(self.driver, hourselect)
     # tm_data = ('tm_year', 'tm_mon', 'tm_mday', 'tm_hour', 'tm_min', 'tm_sec')
     print(tm_dicts['tm_hour'])
     print(tm_dicts['tm_min'])
@@ -349,7 +349,7 @@ def set_popup_all_data(self, dn):
 def get_popup_data_obtain(self, dn):
     # 获取弹窗的数据并跟页面数据进行比较
     choose = self._visible_css_selectop_text(dn.operation_choose)  # 公告类型
-    op_select = OperationSelector(self.driver, dn.operation_select).getSelectedOptions()
+    op_select = ScreeningDrop(self.driver, dn.operation_select).getSelectedOptions()
     dail = self._visible_css_selectop_attribute(dn.operation_dail_input)  # 标题
     content = self._visible_css_selectop_text(dn.operation_content_input)  # 公告内容
     # 公告日期,弹窗中的时间多出两个空格，不好进行比较所以去除

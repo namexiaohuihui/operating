@@ -261,9 +261,3 @@ class ComparedVerify(object):
             argu.join()
             inhalt.append(argu.get_result())
         return inhalt
-
-    def xxxxx(self, msg):
-        return msg
-
-    def yyyyy(self, msg):
-        return msg

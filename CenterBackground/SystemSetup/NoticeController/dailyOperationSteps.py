@@ -13,7 +13,7 @@ from CenterBackground.SystemSetup.NoticeController import popupWindows
 from CenterBackground.SystemSetup.NoticeController.dailyLabelNames import DailyLabelNames
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
 from tools.openpyxlExcel import PANDASDATA
-from tools.operationSelector import OperationSelector
+from tools.screeningdrop import ScreeningDrop
 
 
 dn = DailyLabelNames()
@@ -104,7 +104,7 @@ class DailyOperationSteps(SystemCoexistence):
 
     def getOperaSelect(self):
         # 找到城市下拉框
-        dl = OperationSelector(self.driver, dn.dail_city)
+        dl = ScreeningDrop(self.driver, dn.dail_city)
         # 筛选公告所在城市
         self.set_opeasselect(dl, dn.dailyCity())
 

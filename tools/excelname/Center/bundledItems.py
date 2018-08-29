@@ -58,6 +58,9 @@ class BundledItems(ExcelTitle):
     def yaml_watikitype(self):
         return 'watikitype'
 
+    def yaml_choose(self):
+        return 'choose'
+
     def yaml_formSub(self):
         return 'formSub'
 

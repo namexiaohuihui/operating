@@ -8,7 +8,7 @@ __author__ = 'DingDong'
 from CenterBackground.judeVerification import JudgmentVerification
 from CenterBackground.InteractionActions.interactionNames import InteractionNames
 from tools.extendBeantifulSoup import ExtendBeantifulSoup
-from tools.operationSelector import OperationSelector
+from tools.screeningdrop import ScreeningDrop
 
 basepath = os.path.dirname(os.path.realpath(__file__))
 
@@ -101,7 +101,7 @@ class InteractionCoexistence(JudgmentVerification):
     def whole_selector_options(self, se_path, se_con):
         # 找到下拉框
         time_path = self.select_path[se_path]
-        optins = OperationSelector(self.driver, time_path[se_con]).getAllOptions()
+        optins = ScreeningDrop(self.driver, time_path[se_con]).getAllOptions()
 
         # 找到文档中存储产品设置的默认值
         time_content = self.select_content[se_path]
@@ -414,7 +414,7 @@ class InteractionCoexistence(JudgmentVerification):
 
     def filters_selector(self, filters, peripheral, inside):
         filters_keys = filters.keys()
-        op_sele = OperationSelector(self.driver)
+        op_sele = ScreeningDrop(self.driver)
         if peripheral in filters_keys:  # 区域的东西
             print(filters[peripheral])
             time_path = self.select_path[peripheral]  # 元素所在的路径
@@ -523,7 +523,7 @@ class InteractionCoexistence(JudgmentVerification):
     def area_verify_options(self, area_path, area_content, mana, option):
         manager = mana + "%s" % option
         MYSQL_DF = self.mysql_area_name(area_content[mana], area_content[manager])
-        manager = OperationSelector(self.driver, area_path[mana]).getAllOptions()
+        manager = ScreeningDrop(self.driver, area_path[mana]).getAllOptions()
         self.verify_operator(MYSQL_DF, manager)
 
     def select_area_region(self):

@@ -70,8 +70,8 @@ class action_click(action_visible):
         try:
             element.click()
             self.sleep_Rest()
-        except:
-            print("元素点击的地方出现错误")
+        except Exception as  a:
+            print("元素点击的地方出现错误 %s " % a)
 
     def ele_confirm_prompt(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)

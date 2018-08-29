@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'DingDong'
 """
-@file: operationSelector.py
+@file: screeningdrop.py
 @time: 2018/4/10 11:17
 """
 import time
@@ -12,7 +12,7 @@ from tools.browser_establish import browser_confirm
 from tools.operation.selenium_visible import action_visible
 
 
-class OperationSelector(action_visible):
+class ScreeningDrop(action_visible):
     # ----------------------------------初始化参数------------------------
     def __init__(self, drivers, labelPath=None):
         # 赋值浏览器
@@ -130,7 +130,7 @@ class OperationSelector(action_visible):
         self.select.select_by_index(index)
         return selected
 
-    def setSelectorText(self, text):
+    def setSelectorText(self, text) -> str:
         """
         通过text值来设置selector中的option
         :param text: 需要设置新的option值所对应的text
@@ -219,15 +219,3 @@ class OperationSelector(action_visible):
         self.setSelectData(label)
         self.setSelectorText(text)
         time.sleep(0.5)
-
-
-if __name__ == '__main__':
-    from tools.operation.selenium_visible import action_visible
-
-    be = browser_confirm()
-    drivers = be.url_opens(r"F:\desktop\genghuan.html")
-    # time.sleep(2)
-    ele = action_visible().is_visible_css_selectop(drivers, '.form-control.staff')
-    print(ele)
-    ele.send_keys('55555555')
-    # drivers.close()

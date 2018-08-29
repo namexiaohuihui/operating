@@ -6,7 +6,7 @@ __author__ = 'DingDong'
 """
 # from CenterBackground.InteractionActions import WholeInteraction
 from CenterBackground.InteractionActions import InteractionCoexistence
-from tools.operationSelector import OperationSelector
+from tools.screeningdrop import ScreeningDrop
 import os
 
 class WholeActionsJudge(InteractionCoexistence):

@@ -34,7 +34,7 @@ import operator
 from CenterBackground import Commodities
 from CenterBackground.judeVerification import JudgmentVerification
 from tools.excelname.Center.bundledItems import BundledItems
-from .customTabs import CustomTabs
+from CenterBackground.Commodities.customTabs import CustomTabs
 
 
 class CommoditiesJude(JudgmentVerification):
@@ -64,10 +64,18 @@ class CommoditiesJude(JudgmentVerification):
         self.custom_tabs().judge_code(ov_default)
         pass
 
-    def already_citys(self):
-        self.custom_tabs().judge_citys()
+    def already_citys(self, reduce=0):
+        self.custom_tabs().judge_citys(reduce=reduce)
         pass
 
-    def already_codes(self):
-        self.custom_tabs().judge_codes()
+    def already_codes(self, reduce=0):
+        self.custom_tabs().judge_codes(reduce=reduce)
+        pass
+
+    def switch_city(self, reduce=0):
+        self.custom_tabs().judge_source(reduce=reduce)
+        pass
+
+    def switch_url(self, reduce=0):
+        self.custom_tabs().judge_source_url(reduce=reduce)
         pass

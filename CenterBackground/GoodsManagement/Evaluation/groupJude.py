@@ -33,7 +33,7 @@
 from CenterBackground.judeVerification import JudgmentVerification
 from CenterBackground.GoodsManagement import Evaluation
 from tools.excelname.Center.gongsMana import CityGoodsPage
-from tools.operationSelector import OperationSelector
+from tools.screeningdrop import ScreeningDrop
 
 
 class GroupJude(JudgmentVerification):
@@ -68,13 +68,13 @@ class GroupJude(JudgmentVerification):
         return value
 
     # -----------------------下拉框对象定义------------------------
-    def create_select(self, direction: str) -> OperationSelector:
+    def create_select(self, direction: str) -> ScreeningDrop:
         '''
         创建操作select的对象
         :param direction:
         :return:
         '''
-        op_se = OperationSelector(self.driver, direction)
+        op_se = ScreeningDrop(self.driver, direction)
         return op_se
 
     # ----------------------用例二级判断，可抽取到父类-------------------

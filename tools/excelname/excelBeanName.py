@@ -69,6 +69,9 @@ class ExcelTitle(object):
     def whole_default(self):
         return '默认'
 
+    def whole_keys(self):
+        return '类型'
+
     # ----------------------------共用的定义--------------------
     def yaml_dec(self):
         return 'dec'

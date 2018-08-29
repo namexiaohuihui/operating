@@ -1,19 +1,27 @@
 # 平台
+
 # 城市tab
 slot: ul.nav.nav-tabs.nav-slot > li
+
 # 规则
 rule: button.btn.btn-default.btn-sm.J-rule
+
 # 添加
 add: ul.nav.nav-tabs.nav-slot > li:last
+
 # 下拉框
 status: select[name='status']
-watikitype: select[name='watikitype']
-type: select[name='type']
+watiki: select[name='watikitype']
+preferences: select[name='preferences']
+choose: select[name='type']
+
 # 输入框
 placeholder: input[type='search']
+
 # 开始时间和结束时间的
-start: starttime
-end: endtime
+start: input[name='starttime']
+end: input[name='endtime']
+
 # 按钮
 formSub: .btn.btn-default.btn-flat.formSub
 search: 1
@@ -33,15 +41,13 @@ tabs: ul.nav.nav-tabs > li
 category: select[name='category']
 source: select[name='source']
 
-
 # 商店已售
 # 按钮
 iptJ: .btn.btn-default.btn-flat.btn-action.J_ipt
 
 # 界面
-info: dataTables_info
+info: div.dataTables_info
 paginate: pagination > li
 next: paginate_button next
 thead: thead
 tbody: tbody
-

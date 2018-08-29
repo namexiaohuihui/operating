@@ -42,6 +42,8 @@ group = CommoditiesJude(Commodities.platform, Commodities.city, basename)
 
 
 class TestPlatformTabs(unittest.TestCase):
+    # 定义头部button中，后面2位不需要
+    BUTTON_REDUCE_NUMBER = 2
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
@@ -58,6 +60,7 @@ class TestPlatformTabs(unittest.TestCase):
         group.setFunctionName(inspect.stack()[0][3])
         group.active_city()
         pass
+
     def test_active_code(self):
         group.setFunctionName(inspect.stack()[0][3])
         group.active_code()
@@ -65,10 +68,20 @@ class TestPlatformTabs(unittest.TestCase):
 
     def test_already_citys(self):
         group.setFunctionName(inspect.stack()[0][3])
-        group.already_citys()
+        group.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_already_codes(self):
         group.setFunctionName(inspect.stack()[0][3])
-        group.already_codes()
+        group.already_codes(reduce=self.BUTTON_REDUCE_NUMBER)
+        pass
+
+    def test_switch_city(self):
+        group.setFunctionName(inspect.stack()[0][3])
+        group.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        pass
+
+    def test_switch_url(self):
+        group.setFunctionName(inspect.stack()[0][3])
+        group.switch_url(reduce=self.BUTTON_REDUCE_NUMBER)
         pass

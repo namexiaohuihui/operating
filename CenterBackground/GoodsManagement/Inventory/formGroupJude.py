@@ -31,7 +31,7 @@
 @desc:
 '''
 import operator
-from tools.operationSelector import OperationSelector
+from tools.screeningdrop import ScreeningDrop
 from CenterBackground.judeVerification import JudgmentVerification
 from CenterBackground.GoodsManagement import Inventory
 from tools.excelname.Center.gongsMana import CityGoodsPage
@@ -56,13 +56,13 @@ class FormGroupJude(JudgmentVerification):
         s_preferences = self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_preferences()]
         return s_preferences
 
-    def create_select(self, direction: str) -> OperationSelector:
+    def create_select(self, direction: str) -> ScreeningDrop:
         '''
         创建操作select的对象
         :param direction:
         :return:
         '''
-        op_se = OperationSelector(self.driver, direction)
+        op_se = ScreeningDrop(self.driver, direction)
         return op_se
 
     # 获取按钮对象
