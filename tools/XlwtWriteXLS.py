@@ -7,8 +7,8 @@
 """
 import xlwt
 
-class EXCELXLWT:
 
+class EXCELXLWT:
     """
     font字体
     alignment对齐
@@ -16,7 +16,8 @@ class EXCELXLWT:
     pattern模式(设置背景)
     protection保护(没用过)
     """
-    def __init__(self,name = 'sheet1'):
+
+    def __init__(self, name='sheet1'):
         # 创建工作簿,并指定写入的格式
         self.workbook = xlwt.Workbook(encoding='utf8')  # 创建工作簿
 
@@ -26,19 +27,23 @@ class EXCELXLWT:
         # 初始化样式
         self.style = xlwt.XFStyle()
 
+    def FontStyle(self, name='Times New Roman', height=220, color=32, bold=False):
+        '''
+        font._weight = 0x02BC   :值为0x02BC时显示为粗体，其余值时不详
+        好像是设置偏移量:再有下划线做比较时，字体的下部分在下划线的上面
+        font.escapement = 300
+        以下是目前未知的属性
+        font.charset = color、font.outline = True、font.shadow = True
 
-    """
-    font._weight = 0x02BC   :值为0x02BC时显示为粗体，其余值时不详
-    好像是设置偏移量:再有下划线做比较时，字体的下部分在下划线的上面
-    font.escapement = 300
-    以下是目前未知的属性
-    font.charset = color、font.outline = True、font.shadow = True
-        
-    属性 ： 关系
-    bold:粗体（是否）/italic:斜体（是否）/struck_out:字体中横线(是否)
-    underline:下划线（大小）
-    """
-    def FontStyle(self,name = 'Times New Roman', height = 220,color = 32, bold=False):
+        属性 ： 关系
+        bold:粗体（是否）/italic:斜体（是否）/struck_out:字体中横线(是否)
+        underline:下划线（大小）
+        :param name:
+        :param height:
+        :param color:
+        :param bold:
+        :return:
+        '''
         font = xlwt.Font()  # 为样式创建字体
         # 字体类型：比如宋体、仿宋
         font.name = name
@@ -55,7 +60,8 @@ class EXCELXLWT:
     # NO_LINE没有
     # THIN实线
     """
-    def bordersFrame(self,color):
+
+    def bordersFrame(self, color):
         # 设置边框：上下左右的样式
         borders = xlwt.Borders()
         borders.left = color
@@ -68,6 +74,7 @@ class EXCELXLWT:
     """
     color
     """
+
     def timeStyle(self):
         import time
         now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
@@ -76,20 +83,22 @@ class EXCELXLWT:
     """
     设置宽度
     """
-    def Size_Width(self,width = 3333):
+
+    def Size_Width(self, width=3333):
         # 设置列的宽度
         self.sheet.col(0).width = width
 
-    #　目前不行
-    def Hyperlink(self,url = "http://www.baidu.com" ,name = "baidu"):
+    # 　目前不行
+    def Hyperlink(self, url="http://www.baidu.com", name="baidu"):
         # 添加超链接。。
         mula = xlwt.Formula('HYPERLINK("http://www.baidu.com";+"+name+"+)')
-        #　sheet1.write(0, 2, mula)
+        # 　sheet1.write(0, 2, mula)
 
     """
     设置格式背景颜色
     """
-    def backgroundPattern(self,color = 2):
+
+    def backgroundPattern(self, color=2):
         # 设置背景颜色
         pattern = xlwt.Pattern()
         # 设置背景颜色的模式
@@ -104,11 +113,11 @@ class EXCELXLWT:
         pattern.pattern_fore_colour = color
 
         self.style.pattern = pattern
-        #　sheet1.write(0, 3, 'Cell Contents', style1)
+        # 　sheet1.write(0, 3, 'Cell Contents', style1)
 
     def qitahanghaufjk(self):
         # 写入内容的方式
-        sheet1.write(0, i, row0[i])# 行列，内容
+        sheet1.write(0, i, row0[i])  # 行列，内容
         # 行，列，内容，写入的类型
         sheet1.write(0, i, row0[i], self.set_style('Times New Roman', 220, True))
         #   write_merge(x, x + m, y, w + n, string, sytle)
@@ -120,7 +129,7 @@ class EXCELXLWT:
 
 
 class demoTest:
-    def set_style(self,name, height, bold=False):
+    def set_style(self, name, height, bold=False):
         style = xlwt.XFStyle()  # 初始化样式
 
         font = xlwt.Font()  # 为样式创建字体
@@ -148,7 +157,7 @@ class demoTest:
 
         # 生成第一行
         for i in range(0, len(row0)):
-            sheet1.write(0, i, row0[i],  self.set_style('Times New Roman', 220, True))
+            sheet1.write(0, i, row0[i], self.set_style('Times New Roman', 220, True))
 
         # 生成第一列和最后一列(合并4行)
         i, j = 1, 0
@@ -162,13 +171,13 @@ class demoTest:
 
             即在22行合并第1,2列，合并后的单元格内容为"合计"，并设置了style。
             '''
-            sheet1.write_merge(i, i + 3, 0, 0, column0[j],  self.set_style('Arial', 220, True))  # 第一列
+            sheet1.write_merge(i, i + 3, 0, 0, column0[j], self.set_style('Arial', 220, True))  # 第一列
             sheet1.write_merge(i, i + 3, 7, 7)  # 最后一列"合计"
             i += 4
             j += 1
 
-        sheet1.write_merge(21, 21, 0, 1, u'合计',  self.set_style('Times New Roman', 220, True))
-        sheet1.write_merge(22, 22, 0, 5, u'测试',  self.set_style('Times New Roman', 220, True))
+        sheet1.write_merge(21, 21, 0, 1, u'合计', self.set_style('Times New Roman', 220, True))
+        sheet1.write_merge(22, 22, 0, 5, u'测试', self.set_style('Times New Roman', 220, True))
 
         # 生成第二列
         i = 0
@@ -181,11 +190,11 @@ class demoTest:
 
 
 if __name__ == '__main__':
+    demoTest.write_excel(demoTest())
     # generate_workbook()
     # read_excel()
-    #　demoTest.write_excel(demoTest)
-    ex = EXCELXLWT(name = 'name')
-    ex.FontStyle()
-    for i in range(5):
-        ex.sheet.write(i, 5, i, ex.style)
-    ex.workbook.save('nihao.xls')
+    # ex = EXCELXLWT(name = 'name')
+    # ex.FontStyle()
+    # for i in range(5):
+    #     ex.sheet.write(i, 5, i, ex.style)
+    # ex.workbook.save('nihao.xls')

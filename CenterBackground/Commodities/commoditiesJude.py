@@ -49,7 +49,8 @@ class CommoditiesJude(JudgmentVerification):
                 self.log.info('yes chuangjian self.ct')
                 pass
         except:
-            self.ct = CustomTabs(self.driver, self.financial[self.bi.yaml_slot()])
+            keys = self.overall[self.bi.whole_keys()]
+            self.ct = CustomTabs(self.driver, self.financial[keys])
             self.log.info('no chuangjian self.ct')
         finally:
             return self.ct

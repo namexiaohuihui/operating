@@ -35,15 +35,15 @@ import os
 import inspect
 import unittest
 from CenterBackground import Commodities
-from CenterBackground.Commodities.Platform.plarformsurface import PlarformSurface
+from CenterBackground.Commodities.Store.storesurface import StoreSurface
 from tools.excelname.Center.bundledItems import BundledItems
 from CenterBackground.Commodities.surfacejude import SurfaceJude
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-ps = PlarformSurface(Commodities.platform, Commodities.page, BASENAME, BundledItems)
+ps = StoreSurface(Commodities.store, Commodities.page, BASENAME, BundledItems)
 
 
-class TestPlatformLable(unittest.TestCase):
+class TestStoreLable(unittest.TestCase):
     def setUp(self):
         # 获取运行文件的类名
         self.basename = os.path.splitext(os.path.basename(__file__))[0]

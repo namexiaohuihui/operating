@@ -1,13 +1,9 @@
-# 平台
-
+# 平台管理
 # 城市tab
 slot: ul.nav.nav-tabs.nav-slot > li
 
 # 规则
 rule: button.btn.btn-default.btn-sm.J-rule
-
-# 添加
-add: ul.nav.nav-tabs.nav-slot > li:last
 
 # 下拉框
 status: select[name='status']
@@ -27,7 +23,7 @@ formSub: .btn.btn-default.btn-flat.formSub
 search: 1
 export: 2
 
-# 商品
+# 商品管理
 checkbox: .check-all
 confirm: btn btn-default btn-sm confirm-btn
 prompt: btn btn-default btn-sm prompt-confirm-btn
@@ -38,9 +34,10 @@ remove: 3
 # 平台已售
 # 下拉框
 tabs: ul.nav.nav-tabs > li
-category: select[name='category']
-source: select[name='source']
-
+category: category
+source: source
+firstlabel: label
+reservationtime: input[name='timename']
 # 商店已售
 # 按钮
 iptJ: .btn.btn-default.btn-flat.btn-action.J_ipt
@@ -51,3 +48,34 @@ paginate: pagination > li
 next: paginate_button next
 thead: thead
 tbody: tbody
+
+# 添加:发布弹窗中的子属性
+release:
+  release: ul.nav.nav-tabs.nav-slot > li:nth-last-child(2)                         # 发布按钮
+  closed: .modal-content > div.modal-header > button.close                         # 弹窗关闭按钮
+  special: ticktype1                                                               # 专用类型
+  general: ticktype2                                                               # 通用类型
+  supply: supplyId                                                                 # 商品输入框
+  supplyName: supplyName                                                           # 商品名称
+  supplystate: supplystate                                                         # 商品状态
+  sellprice: sellprice                                                             # 商品价格
+  packages: package_name                                                           # 套餐名
+  ticket: ticket_cid                                                               # 套餐下拉框
+  addticket: .addticket                                                            # 添加按钮
+  buynum: .form-control.intonum.buynum                                             # 买的数量
+  givenum: .form-control.intoprice.givenum                                         # 送的数量
+  del: .del                                                                        # 添加按钮旁边的关闭按钮
+  addsortsave: .addsortsave                                                        # 保存按钮
+  ticketnum: ticketnum                                                             # 数量
+  ticketprice: ticketprice                                                         # 单价
+  tickettotal: tickettotal                                                         # 总价
+  sales: sales                                                                     # 优惠价
+  settlenum: settlenum                                                             # 配送量
+  preferences: preferences                                                         # 参加按钮
+  usecity: usecity                                                                 # 区域
+  default: .modal-content > div.modal-footer > button:nth-child(1)                 # 取消
+  primary: waterticketBut                                                          # 确定
+  showSweetAlert: .sweet-alert.showSweetAlert.visible > p                          # 错误提示语
+  titleSweetAlert: .sweet-alert.showSweetAlert.visible > h2                        # 提示语标题
+  confirm: .confirm                                                                # 弹窗的关闭按钮
+

@@ -34,6 +34,7 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class BundledItems(ExcelTitle):
+
     def yaml_slot(self):
         return 'slot'
 
@@ -70,6 +71,9 @@ class BundledItems(ExcelTitle):
     def yaml_prompt(self):
         return 'prompt'
 
+    def yaml_release(self):
+        return 'release'
+
     def yaml_ban(self):
         return 'ban'
 
@@ -90,3 +94,75 @@ class BundledItems(ExcelTitle):
 
     def yaml_paginate(self):
         return 'paginate'
+
+    def yaml_closed(self):
+        return 'closed'
+
+    def yaml_special(self):
+        return 'special'
+
+    def yaml_general(self):
+        return 'general'
+
+    def yaml_supply(self):
+        return 'supply'
+
+    def yaml_supplyName(self):
+        return 'supplyName'
+
+    def yaml_supplystate(self):
+        return 'supplystate'
+
+    def yaml_sellprice(self):
+        return 'sellprice'
+
+    def yaml_packages(self):
+        return 'packages'
+
+    def yaml_ticket(self):
+        return 'ticket'
+
+    def yaml_addticket(self):
+        return 'addticket'
+
+    def yaml_buynum(self):
+        return 'buynum'
+
+    def yaml_givenum(self):
+        return 'givenum'
+
+    def yaml_del(self):
+        return 'del'
+
+    def yaml_addsortsave(self):
+        return 'addsortsave'
+
+    def yaml_ticketnum(self):
+        return 'ticketnum'
+
+    def yaml_ticketprice(self):
+        return 'ticketprice'
+
+    def yaml_tickettotal(self):
+        return 'tickettotal'
+
+    def yaml_sales(self):
+        return 'sales'
+
+    def yaml_settlenum(self):
+        return 'settlenum'
+
+    def yaml_preferences(self):
+        return 'preferences'
+
+    def yaml_usecity(self):
+        return 'usecity'
+
+    def yaml_primary(self):
+        return 'primary'
+
+    def yaml_showSweetAlert(self):
+        return 'showSweetAlert'
+
+    def yaml_titleSweetAlert(self):
+        return 'titleSweetAlert'

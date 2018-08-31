@@ -14,15 +14,18 @@ from tools.operation.selenium_visible import action_visible
 
 class ScreeningDrop(action_visible):
     # ----------------------------------初始化参数------------------------
-    def __init__(self, drivers, labelPath=None):
+    def __init__(self, drivers, labelPath=None,attr = 'id'):
         # 赋值浏览器
         self.drivers = drivers
         if labelPath:
-            self.setSelectData(labelPath)
+            self.setSelectData(labelPath,attr)
 
-    def setSelectData(self, labelPath):
-        # 找到select元素
-        selectEle = self.is_visible_css_selectop(self.drivers, labelPath)
+    def setSelectData(self, labelPath,attr='id'):
+        if attr.lower() == 'id':
+            # 找到select元素
+            selectEle = self.is_visible_id(self.drivers, labelPath)
+        else:
+            selectEle = self.is_visible_css_selectop(self.drivers, labelPath)
         self.select = Select(selectEle)
         # 装options的数据,不创建value的容器是因为很少使用value
         self.optionsList = []
@@ -116,9 +119,12 @@ class ScreeningDrop(action_visible):
         :param value:  需要设置新的option值所对应的value
         :return: 返回替换前的option
         """
-        selected = self.getSelectedOptions()
-        self.select.select_by_value(value)
-        return selected
+        try:
+            selected = self.getSelectedOptions()
+            self.select.select_by_value(value)
+            return selected
+        finally:
+            return 'There is no option %s in the select.' % value
 
     def setSelectorIndex(self, index):
         """
@@ -126,9 +132,12 @@ class ScreeningDrop(action_visible):
         :param index: 需要设置新的option值所对应的index
         :return:  返回替换前的option
         """
-        selected = self.getSelectedOptions()
-        self.select.select_by_index(index)
-        return selected
+        try:
+            selected = self.getSelectedOptions()
+            self.select.select_by_index(index)
+            return selected
+        finally:
+            return 'There is no option %s in the select.' % index
 
     def setSelectorText(self, text) -> str:
         """

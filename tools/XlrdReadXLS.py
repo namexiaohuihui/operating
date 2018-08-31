@@ -11,7 +11,7 @@ import xlrd
 
 
 class EXCELXLRD:
-    def __init__(self,_PATNNAME, sheet=0):
+    def __init__(self, _PATNNAME, sheet=0):
         # 判断文件是否存在
         if os.path.exists(_PATNNAME):
             self.excel = _PATNNAME
@@ -33,9 +33,8 @@ class EXCELXLRD:
             try:
                 # 根据索引获取sheet表
                 self.sheetbook = self.workbook.sheet_by_name(sheet)
-            except ValueError:
-                from tools import DefinitionErrors
-                raise DefinitionErrors('No sheet named <%r>' % sheet)
+            except ValueError as v:
+                print("%s-+-%s" % ('EXCELXLRD', v))
 
     # 返回该表总行数
     def rows_size(self):
@@ -46,11 +45,11 @@ class EXCELXLRD:
         return self.sheetbook.ncols
 
     # 返回指定行的内容
-    def rowsValues(self,row = 0):
-        return  self.sheetbook.col_values(row)
+    def rowsValues(self, row=0):
+        return self.sheetbook.col_values(row)
 
     # 返回指定列的内容
-    def colValues(self,col = 0):
+    def colValues(self, col=0):
         return self.sheetbook.col_values(col)
 
     # 返回全部合并的内容
@@ -91,12 +90,11 @@ class EXCELXLRD:
                         cols_list.append('null')
                 elif (self.sheetbook.cell(row, col).ctype == 1):  # 判断字符串类型
                     cols_list.append(self.sheetbook.cell(row, col).value)
-                else:# 其他类型的
+                else:  # 其他类型的
                     cols_list.append(self.sheetbook.cell(row, col).value)
                     # cols_list.append(self.sheetbook.cell(row, col).value.encode('utf-8'))
         rows_list.append(cols_list)
         return rows_list
-
 
     def canshufangfa(self):
         # 获取所有sheet
@@ -107,15 +105,16 @@ class EXCELXLRD:
         print(workbook.sheet_by_name(workbook.sheet_names()[0]))
         print(workbook.sheet_by_name(u'name'))
 
-        print("leixing %s" % self.sheet.cell(row, col).ctype) # 打印指定单元格的数据类型
+        print("leixing %s" % self.sheet.cell(row, col).ctype)  # 打印指定单元格的数据类型
 
         # 获取单元格内容
         print(self.sheet.cell(1, 0).value.encode('utf-8'))
-        print( self.sheet.cell_value(1, 0).encode('utf-8'))
+        print(self.sheet.cell_value(1, 0).encode('utf-8'))
         print(self.sheet.row(1)[0].value.encode('utf-8'))
 
+
 if __name__ == '__main__':
-    report_path = os.path.join(os.getcwd(),'nihao.xls')
+    report_path = os.path.join(os.getcwd(), 'nihao.xls')
     print(report_path)
     ex = EXCELXLRD(report_path)
     print(ex.EXCEL_Content())

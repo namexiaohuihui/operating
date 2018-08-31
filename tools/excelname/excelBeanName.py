@@ -36,8 +36,8 @@ class ExcelTitle(object):
     def whole_step(self):
         return "步骤"
 
-    def whole_input(self):
-        return "输入"
+    def whole_parameter(self):
+        return '参数'
 
     def whole_output(self):
         return "输出"

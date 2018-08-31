@@ -73,17 +73,10 @@ class ComparedVerify(object):
         self.operator_dataframe(reValue, excleValue)
         return operator.eq(reValue, excleValue)
 
-    def _verify_parameter(self, content):
-        if content is None:
-            content = ''
-        return content
-
-    def stringToValueBoolean(self, value):
-        _value = operator.eq(value, True)
-        return _value
+    def str_to_bool(self,value):
+        return True if value.lower() == 'true' else False
 
     def number_cutting(self, attribute: "某个需要切割的数据") -> "对字符串中的数据进行id切割":
-        print("{}------->公告的id数据 ".format(attribute))
         ribute = str.split(attribute, "/", 4)
         if "/" in ribute[4]:
             return str.split(ribute[4], "/")[0]

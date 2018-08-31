@@ -50,8 +50,8 @@ def spaces_sides(strr):
 
 # 用指定的字符代替现有的字符
 def spaces_replace(strr, op=' ', oa=''):
-    strr = str.replace(op, oa)
-    return strr;
+    strr = strr.replace(op, oa)
+    return strr
 
 
 # 指定位置进行切割数据,str数据，num开始位置，ber结束位置
@@ -59,7 +59,7 @@ def string_cutting(str, num=0, ber=0):
     if ber == 0:
         ber = len(str)
     str = str[num:ber]
-    return str;
+    return str
 
 
 # 在字符串str查找ing出现的位置.从number下标开始找,返回-1表示找不到

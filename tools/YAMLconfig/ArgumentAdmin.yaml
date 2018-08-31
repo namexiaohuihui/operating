@@ -50,7 +50,7 @@ water:
     city: 城市
     select: 筛选
     page: 页面
-    add: 添加
+    release: 添加
   platformsold:
     module: platformsold
     child: 3

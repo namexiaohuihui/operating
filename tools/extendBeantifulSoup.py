@@ -12,6 +12,7 @@ from tools.browser_establish import browser_confirm
 
 """
 通过路径来获取旗下子标签的数据信息
+https://blog.csdn.net/heartroll/article/details/79217315
 """
 
 

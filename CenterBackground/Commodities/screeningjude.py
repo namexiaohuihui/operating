@@ -59,7 +59,7 @@ class ScreeningJude(JudgmentVerification):
         :param direction:
         :return:
         '''
-        op_se = ScreeningDrop(self.driver, direction)
+        op_se = ScreeningDrop(self.driver, direction, 'css')
         return op_se
 
     def button_formSub(self, att: str):
@@ -120,10 +120,15 @@ class ScreeningJude(JudgmentVerification):
             # 点击搜索按钮
             self.button_formSub(self.bi.yaml_search()).click()
             # 重新設置text之後，界面會進行刷新此時driver對象也發生改變需要重新進行獲取
-            op_se = op_se.setSelectData(selectPath)
+            op_se = op_se.setSelectData(selectPath, 'css')
             # 判断当前显示的option是否为设置的option
             op_str = op_se.getSelectedOptions()
             assert operator.eq(value_str, op_str), 'Error appearing when iterating click option :　%s ' % selectPath
+
+    def select_option_value(self, selectPath):
+        op_se = self.create_select(selectPath)
+        prompt_value = op_se.setSelectorValue(self.overall[self.overall.whole_parameter()])
+        return prompt_value
 
     def attribute_value(self):
         '''
