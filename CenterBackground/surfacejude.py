@@ -41,6 +41,9 @@ from CenterBackground.judeVerification import JudgmentVerification
 
 
 class SurfaceJude(JudgmentVerification):
+    '''
+    页面数据以及页面标题获取并判断
+    '''
     def __init__(self, module, sheet, basename, centerName):
         '''
         定义模块数据信息
@@ -78,6 +81,17 @@ class SurfaceJude(JudgmentVerification):
         :param tbody_class:  页面内容展示项
         :return:
         '''
+        for tr in tbody_class:
+            tbody_tr = {}
+            thead_length = len(thead_tr)
+            for tr_len in range(thead_length):
+                tr_td = tr.find_all('td')
+                if tr_len == thead_length -1:
+                    td_text = [td.text for td in tr_td[tr_len].find('button')]
+                else:
+                    td_text = str.strip(tr_td[tr_len].text)
+                tbody_tr[thead_tr[tr_len]] = td_text
+            yield tbody_tr
         pass
 
     def success_execute(self):
@@ -87,6 +101,12 @@ class SurfaceJude(JudgmentVerification):
         return text_center
 
     def success_tbody(self, url, thead_tr):
+        self.driver.get(url)
+        soup = self.bs4_soup()
+        tbody_class = soup.find('tbody').find_all('tr')
+        tr_yield = self.traverseYield(thead_tr, tbody_class)
+        for text in tr_yield:
+            self.tbody_list.append(text)
         pass
 
     def title_execute(self):
@@ -96,8 +116,36 @@ class SurfaceJude(JudgmentVerification):
         '''
         text_center = self.success_execute()
         excel_center = StringCutting.specified_cut(self.overall[self.bi.whole_including()])
-        assert operator.eq(text_center, excel_center), 'Thead title display is incorrectly displayed.'
+        self.debugging_log(text_center, excel_center, 'Thead title display is incorrectly displayed.')
         pass
 
     def surface_execute(self):
+        pages = self.info_number()  # 获取into的总数据信息
+        self.log.info('There is data that needs to be paged: %s' % pages)
+
+        self.tbody_list = []
+        self.threads = []
+        thead_tr = self.success_execute()
+
+        queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
+        current = self.driver.current_url
+        for qe in range(1,3):
+            url = current + '&page={}'.format(qe)
+            thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
+            thread.setDaemon(True)
+            thread.start()
+            self.threads.append(thread)
+            time.sleep(1)
+
+        for th in self.threads:
+            th.join()
+
+        pass
+
+    def debugging_log(self, ct_default, ov_default, mesg):
+        print("--------------------------------")
+        print(ct_default, type(ct_default))
+        print(ov_default, type(ov_default))
+        print("--------------------------------")
+        assert operator.eq(ct_default, ov_default), mesg
         pass

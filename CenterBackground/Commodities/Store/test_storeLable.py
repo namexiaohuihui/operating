@@ -37,7 +37,6 @@ import unittest
 from CenterBackground import Commodities
 from CenterBackground.Commodities.Store.storesurface import StoreSurface
 from tools.excelname.Center.bundledItems import BundledItems
-from CenterBackground.Commodities.surfacejude import SurfaceJude
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
 ps = StoreSurface(Commodities.store, Commodities.page, BASENAME, BundledItems)

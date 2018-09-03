@@ -184,5 +184,5 @@ def re_zip_code(str_text: str, pattern=r'[1-9]\d{5}(?!\d)'):
     '''
     searchObj = re.search(pattern, str_text)
     # re_span = searchObj.span()  # 返回已查到的数据信息所在位置
-    re_group = searchObj.group()  # 返回已查到的数据信息
-    return re_group
+    # searchObj = searchObj.group()  # 返回已查到的数据信息
+    return searchObj.group() if searchObj else searchObj

@@ -82,7 +82,6 @@ class ComparedVerify(object):
             return str.split(ribute[4], "/")[0]
         else:
             return ribute[4]
-
     """
     #------------------获取浏览器部分------------------------------------
     """

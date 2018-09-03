@@ -26,7 +26,7 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: platformTabs.py
+@file: platformSoldTabs.py
 @time: 2018/8/20 16:08
 @desc:
 '''
@@ -34,16 +34,17 @@ import os
 import inspect
 import unittest
 from CenterBackground import Commodities
-from CenterBackground.Commodities.commoditiesJude import CommoditiesJude
+from tools.excelname.Center.bundledItems import BundledItems
+from CenterBackground.commoditiesJude import CommoditiesJude
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
-group = CommoditiesJude(Commodities.platformsold, Commodities.city, basename)
+group = CommoditiesJude(Commodities.platformsold, Commodities.city, basename,BundledItems)
 
 
 class TestPlatformSoldTabs(unittest.TestCase):
-    # 定义头部button中，后面2位不需要
-    BUTTON_REDUCE_NUMBER = 2
+    # 定义头部button中，后面不需要button的数量
+    BUTTON_REDUCE_NUMBER = 0
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据

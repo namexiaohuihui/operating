@@ -34,7 +34,7 @@ import os
 import inspect
 import unittest
 from CenterBackground import Commodities
-from CenterBackground.Commodities.screeningjude import ScreeningJude
+from CenterBackground.screeningjude import ScreeningJude
 from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]

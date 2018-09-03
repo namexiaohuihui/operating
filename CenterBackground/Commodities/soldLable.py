@@ -26,16 +26,14 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      StoreSurface.py
-@time:      2018/8/30 15:40
+@file:      soldLable.py
+@time:      2018/9/3 14:38
 @desc:
 '''
-import time
-import threading
 from CenterBackground.surfacejude import SurfaceJude
 
 
-class StoreSurface(SurfaceJude):
+class SoldLable(SurfaceJude):
     def __init__(self, module, sheet, basename, centerName):
         '''
         定义模块数据信息
@@ -58,42 +56,14 @@ class StoreSurface(SurfaceJude):
             tbody_tr = {}
             thead_length = len(thead_tr)
             for tr_len in range(thead_length):
-                if tr_len == 0:
-                    tr_th = tr.find('th')
-                    td_text = tr_th.input['value']
+                tr_td = tr.find_all('td')
+                if tr_len == thead_length - 1:
+                    td_text = [str.strip(a_text.text) for a_text in tr_td[tr_len].find_all('button')]
+                    td_a = tr_td[tr_len].find('a').text
+                    td_text.insert(0, td_a)
+                    td_text = ' '.join(td_text)
                 else:
-                    tr_td = tr.find_all('td')
-                    td_text = str.strip(tr_td[tr_len - 1].text)
+                    td_text = str.strip(tr_td[tr_len].text)
                 tbody_tr[thead_tr[tr_len]] = td_text
             yield tbody_tr
-
-    def success_tbody(self, url, thead_tr):
-        self.driver.get(url)
-        soup = self.bs4_soup()
-        tbody_class = soup.find('tbody').find_all('tr')
-        tr_yield = self.traverseYield(thead_tr, tbody_class)
-        for text in tr_yield:
-            self.tbody_list.append(text)
-
-    def surface_execute(self):
-        self.vai.scrollBar_buttom(self.driver)  # 界面滑动到浏览器底部
-        pages = self.info_number()  # 获取into的总数据信息
-        self.log.info('There is data that needs to be paged: %s' % pages)
-
-        self.tbody_list = []
-        self.threads = []
-        thead_tr = self.success_execute()
-
-        queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
-        current = self.driver.current_url
-        for qe in range(1, 2):
-            url = current + '?page={}'.format(qe)
-            thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
-            thread.setDaemon(True)
-            thread.start()
-            self.threads.append(thread)
-            time.sleep(1)
-
-        for th in self.threads:
-            th.join()
         pass

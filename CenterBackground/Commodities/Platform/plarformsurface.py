@@ -33,7 +33,7 @@
 import time
 import threading
 from tools import StringCutting
-from CenterBackground.Commodities.surfacejude import SurfaceJude
+from CenterBackground.surfacejude import SurfaceJude
 
 
 class PlarformSurface(SurfaceJude):
@@ -117,7 +117,7 @@ class PlarformSurface(SurfaceJude):
 
         queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
         current = self.driver.current_url
-        for qe in queue:
+        for qe in range(1,3):
             url = current + '&page={}'.format(qe)
             thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
             thread.setDaemon(True)

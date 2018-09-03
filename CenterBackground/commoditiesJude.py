@@ -30,28 +30,24 @@
 @time: 2018/8/20 16:27
 @desc:
 '''
-import operator
 from CenterBackground import Commodities
 from CenterBackground.judeVerification import JudgmentVerification
-from tools.excelname.Center.bundledItems import BundledItems
-from CenterBackground.Commodities.customTabs import CustomTabs
+from CenterBackground.customTabs import CustomTabs
 
 
 class CommoditiesJude(JudgmentVerification):
-    def __init__(self, module, sheet, basename):
+    '''
+    二次封装tabs进行判断
+    '''
+    def __init__(self, module, sheet, basename,centerName):
         JudgmentVerification.__init__(self, Commodities.add_key(module, sheet), basename)
-        self.bi = BundledItems()
+        self.bi = centerName()
         pass
 
     def custom_tabs(self):
         try:
-            if self.ct:
-                self.log.info('yes chuangjian self.ct')
-                pass
-        except:
             keys = self.overall[self.bi.whole_keys()]
             self.ct = CustomTabs(self.driver, self.financial[keys])
-            self.log.info('no chuangjian self.ct')
         finally:
             return self.ct
 
@@ -80,3 +76,4 @@ class CommoditiesJude(JudgmentVerification):
     def switch_url(self, reduce=0):
         self.custom_tabs().judge_source_url(reduce=reduce)
         pass
+

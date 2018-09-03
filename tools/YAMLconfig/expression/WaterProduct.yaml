@@ -32,12 +32,13 @@ shielding: 2
 remove: 3
 
 # 平台已售
-# 下拉框
+# 城市、下拉框和输入框
 tabs: ul.nav.nav-tabs > li
-category: category
-source: source
-firstlabel: label
+category: select[id='category']
+source: select[id='source']
+firstlabel: select[id='label']
 reservationtime: input[name='timename']
+
 # 商店已售
 # 按钮
 iptJ: .btn.btn-default.btn-flat.btn-action.J_ipt

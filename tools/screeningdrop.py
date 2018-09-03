@@ -23,6 +23,7 @@ class ScreeningDrop(action_visible):
     def setSelectData(self, labelPath,attr='id'):
         if attr.lower() == 'id':
             # 找到select元素
+            print('zou id le ma')
             selectEle = self.is_visible_id(self.drivers, labelPath)
         else:
             selectEle = self.is_visible_css_selectop(self.drivers, labelPath)

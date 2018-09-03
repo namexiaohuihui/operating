@@ -37,7 +37,6 @@ import unittest
 from CenterBackground import Commodities
 from CenterBackground.Commodities.Platform.plarformsurface import PlarformSurface
 from tools.excelname.Center.bundledItems import BundledItems
-from CenterBackground.Commodities.surfacejude import SurfaceJude
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
 ps = PlarformSurface(Commodities.platform, Commodities.page, BASENAME, BundledItems)

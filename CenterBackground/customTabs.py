@@ -179,21 +179,39 @@ class CustomTabs(object):
 
     def judge_citys(self, reduce=0, ov_default=True):
         list_text = self.instance_citys(reduce)
-        assert operator.eq(True, ov_default), 'All labels in the title are misjudged.'
+        self.debugging_log(True, ov_default, 'All labels in the title are misjudged.')
         return list_text
 
     def judge_city(self, ov_default):
         ct_default = self.active_city()
-        assert operator.eq(ct_default, ov_default), 'The caption tabs element text is judged incorrectly.'
+        self.debugging_log(ct_default, ov_default, 'The caption tabs element text is judged incorrectly.')
         pass
 
     def judge_codes(self, reduce=0, ov_default=True):
         list_code = self.instance_codes(reduce)
-        assert operator.eq(True, ov_default), 'All labels in the title are misjudged.'
+        self.debugging_log(True, ov_default, 'All labels in the title are misjudged.')
         return list_code
 
     def judge_code(self, ov_default):
         ct_default = self.active_code()
-        ov_default = StringCutting.specified_cut_ber(ov_default, '.')
-        assert operator.eq(ct_default, ov_default), 'The header label attribute is incorrect.'
+        ov_default = self.data_to_determine(ov_default)
+        self.debugging_log(ct_default, ov_default, 'The header label attribute is incorrect.')
         pass
+
+    def debugging_log(self, ct_default, ov_default, mesg):
+        print("--------------------------------")
+        print(ct_default, type(ct_default))
+        print(ov_default, type(ov_default))
+        print("--------------------------------")
+        assert operator.eq(ct_default, ov_default), mesg
+        pass
+
+    def data_to_determine(self, strData):
+        '''
+        之所以需要对数据转换成int在转str：
+        从excle读取的int是float，需要转成整数然后再转成str进行判断
+        :param strData:
+        :return:
+        '''
+        print('Data read from the excel table : %s' % strData)
+        return str(int(strData)) if strData else None

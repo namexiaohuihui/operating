@@ -64,6 +64,7 @@ water:
     page: 页面
   storesold:
     module: storesold
+    child: 4
     city: 城市
     select: 筛选
     page: 页面
