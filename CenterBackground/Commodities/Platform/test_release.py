@@ -38,7 +38,8 @@ from CenterBackground.Commodities.Platform.releasewater import ReleaseWatiki
 from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-rw = ReleaseWatiki(Commodities.add_key(Commodities.platform, Commodities.release), BASENAME, BundledItems)
+config = Commodities.add_key(Commodities.platform, Commodities.release)
+rw = ReleaseWatiki(config, BASENAME, BundledItems)
 
 
 class TestReleaseWater(unittest.TestCase):
@@ -82,5 +83,5 @@ class TestReleaseWater(unittest.TestCase):
 
     def test_releaseSuccess(self):
         rw.setFunctionName(inspect.stack()[0][3])
-        rw.test_releaseSuccess()
+        rw.releaseSuccess()
         pass

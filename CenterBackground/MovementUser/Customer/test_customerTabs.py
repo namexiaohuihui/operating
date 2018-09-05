@@ -26,64 +26,61 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: platformTabs.py
+@file: test_customerTabs.py
 @time: 2018/8/20 16:08
 @desc:
 '''
+import time
+start = time.time()
+print('1',start)
 import os
 import inspect
 import unittest
-from CenterBackground import Commodities
+from CenterBackground import MovementUser
 from CenterBackground.commoditiesJude import CommoditiesJude
-from tools.excelname.Center.bundledItems import BundledItems
+from tools.excelname.Center.consumers import Consumers
 
+print('2', time.time() - start)
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
-config = Commodities.add_key(Commodities.platform, Commodities.city)
-group = CommoditiesJude(config, basename, BundledItems)
+config = MovementUser.add_key(MovementUser.customer, MovementUser.city)
+cust = CommoditiesJude(config, basename, Consumers)
 
-
-class TestPlatformTabs(unittest.TestCase):
+print('3',time.time() - start)
+class TestCustomerTabs(unittest.TestCase):
     # 定义头部button中，后面2位不需要
-    BUTTON_REDUCE_NUMBER = 2
+    BUTTON_REDUCE_NUMBER = 1
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        group.openingProgram()
-        group._rou_background()
+        cust.openingProgram()
+        cust._rou_background()
+        print('4',time.time() - start)
         print("%s ---setup: 每个用例开始前后执行" % basename)
 
     def tearDown(self):
-        group.driver.quit()
+        cust.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % basename)
+        print('6', time.time() - start)
         pass
 
-    def test_active_city(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.active_city()
+    def test_active_tab(self):
+        cust.setFunctionName(inspect.stack()[0][3])
+        cust.active_city()
+        print('5',time.time() - start)
         pass
 
-    def test_active_code(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.active_code()
+    def test_already_tabs(self):
+        cust.setFunctionName(inspect.stack()[0][3])
+        cust.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
-    def test_already_citys(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
-        pass
-
-    def test_already_codes(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.already_codes(reduce=self.BUTTON_REDUCE_NUMBER)
-        pass
-
-    def test_switch_city(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+    def test_switch_tab(self):
+        cust.setFunctionName(inspect.stack()[0][3])
+        cust.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.switch_url(reduce=self.BUTTON_REDUCE_NUMBER)
+        cust.setFunctionName(inspect.stack()[0][3])
+        cust.switch_url(reduce=self.BUTTON_REDUCE_NUMBER)
         pass

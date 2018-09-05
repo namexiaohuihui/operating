@@ -39,7 +39,8 @@ from tools.excelname.Center.bundledItems import BundledItems
 from CenterBackground.Commodities.soldLable import SoldLable
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-ps = SoldLable(Commodities.platformsold, Commodities.page, BASENAME, BundledItems)
+config = Commodities.add_key(Commodities.platformsold, Commodities.page)
+ps = SoldLable(config, BASENAME, BundledItems)
 
 
 class TestPlatformSoldLable(unittest.TestCase):

@@ -36,7 +36,7 @@ from CenterBackground.surfacejude import SurfaceJude
 
 
 class StoreSurface(SurfaceJude):
-    def __init__(self, module, sheet, basename, centerName):
+    def __init__(self, config, basename, centerName):
         '''
         定义模块数据信息
         :param module:   元素模块
@@ -44,7 +44,7 @@ class StoreSurface(SurfaceJude):
         :param basename:  执行程序的文件名
         :param centerName:  元素所在的类
         '''
-        SurfaceJude.__init__(self, module, sheet, basename, centerName)
+        SurfaceJude.__init__(self,config, basename, centerName)
         pass
 
     def traverseYield(self, thead_tr, tbody_class):

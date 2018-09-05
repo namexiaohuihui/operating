@@ -166,6 +166,18 @@ class ExcelTitle(object):
     def yaml_tbody(self):
         return 'tbody'
 
+    def yaml_closed(self):
+        return 'closed'
+
+    def yaml_showSweetAlert(self):
+        return 'showSweetAlert'
+
+    def yaml_titleSweetAlert(self):
+        return 'titleSweetAlert'
+
+    def yaml_confirm(self):
+        return 'confirm'
+
     #  -------------------------------------元素标签属性--------------------
     def ele_class(self):
         return 'class'

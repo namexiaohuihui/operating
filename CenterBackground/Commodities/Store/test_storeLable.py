@@ -39,7 +39,8 @@ from CenterBackground.Commodities.Store.storesurface import StoreSurface
 from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-ps = StoreSurface(Commodities.store, Commodities.page, BASENAME, BundledItems)
+config = Commodities.add_key(Commodities.store, Commodities.page)
+ps = StoreSurface(config, BASENAME, BundledItems)
 
 
 class TestStoreLable(unittest.TestCase):

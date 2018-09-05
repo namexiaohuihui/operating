@@ -39,8 +39,8 @@ class CommoditiesJude(JudgmentVerification):
     '''
     二次封装tabs进行判断
     '''
-    def __init__(self, module, sheet, basename,centerName):
-        JudgmentVerification.__init__(self, Commodities.add_key(module, sheet), basename)
+    def __init__(self, config, basename,centerName):
+        JudgmentVerification.__init__(self, config, basename)
         self.bi = centerName()
         pass
 

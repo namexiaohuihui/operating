@@ -39,7 +39,8 @@ from CenterBackground.Commodities.Platform.plarformsurface import PlarformSurfac
 from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-ps = PlarformSurface(Commodities.platform, Commodities.page, BASENAME, BundledItems)
+config = Commodities.add_key(Commodities.platform, Commodities.page)
+ps = PlarformSurface(config, BASENAME, BundledItems)
 
 
 class TestPlatformLable(unittest.TestCase):

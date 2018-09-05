@@ -40,6 +40,7 @@ from CenterBackground.judeVerification import JudgmentVerification
 # 时间元素的标签属性
 _placeholder = 'placeholder'
 
+
 # 元素是根据id还是根据css来定位
 
 class ScreeningJude(JudgmentVerification):
@@ -47,14 +48,15 @@ class ScreeningJude(JudgmentVerification):
     select二次封装并进行判断
     '''
     attrEle = 'css'
-    def __init__(self, module, sheet, basename, centerName):
+
+    def __init__(self, config, basename, centerName):
         '''
         定义模块数据信息
         :param module:   元素模块
         :param sheet:   用例标签名
         :param basename:  执行程序的文件名
         '''
-        JudgmentVerification.__init__(self, Commodities.add_key(module, sheet), basename)
+        JudgmentVerification.__init__(self, config, basename)
         self.bi = centerName()
         pass
 
@@ -67,19 +69,21 @@ class ScreeningJude(JudgmentVerification):
         op_se = ScreeningDrop(self.driver, direction, self.attrEle)
         return op_se
 
-    def button_formSub(self, att: str):
+    def button_formSub(self, formSub, att: str):
         '''
         根据按钮位置来进行点击
-        :param att:  按钮所在位置的key值
+        :param formSub:  按钮的key值
+        :param att: 按钮的位置
         :return:
         '''
-        attribute = self._visible_returns_selectop(self.financial[self.bi.yaml_formSub()])
+
+        attribute = self._visible_returns_selectop(self.financial[formSub])
         attribute = attribute[int(self.financial[att]) - 1]
         return attribute
 
-    def searchExport(self):
+    def searchExport(self, formSub):
         att = self.overall[self.bi.whole_keys()]
-        op_str = self.button_formSub(att).text
+        op_str = self.button_formSub(formSub, att).text
         ov_str = self.overall[self.bi.whole_default()]
         self.debugging_log(op_str, ov_str, 'Obtain all options values incorrectly %s' % att)
 
@@ -90,7 +94,7 @@ class ScreeningJude(JudgmentVerification):
         :param information: 比较错误之后，抛出的信息。
         :return:
         '''
-        selectPath =self.financial[selectPath]
+        selectPath = self.financial[selectPath]
         op_se = self.create_select(selectPath)
         # 获取全部的options
         op_str = op_se.options_to_str()
@@ -113,7 +117,7 @@ class ScreeningJude(JudgmentVerification):
         self.debugging_log(op_str, ov_str, msg)
         pass
 
-    def value_option_traverse(self, selectPath):
+    def value_option_traverse(self, formSub, selectPath):
         '''
 
         :param selectPath: 元素的路径
@@ -126,7 +130,7 @@ class ScreeningJude(JudgmentVerification):
             # 设置option
             op_se.setSelectorText(value_str)
             # 点击搜索按钮
-            self.button_formSub(self.bi.yaml_search()).click()
+            self.button_formSub(formSub, self.bi.yaml_search()).click()
             # 重新設置text之後，界面會進行刷新此時driver對象也發生改變需要重新進行獲取
             op_se = op_se.setSelectData(selectPath, self.attrEle)
             # 判断当前显示的option是否为设置的option

@@ -136,7 +136,7 @@ class ReleaseWatiki(JudgmentVerification):
         assert type(prompt_value) is str, prompt_value  # 判断还没做
         pass
 
-    def test_releaseSuccess(self):
+    def releaseSuccess(self):
         release = self.click_release()
         # 1.读取参数
         ov_parameter = self.overall[self.bi.whole_parameter()]
@@ -169,6 +169,9 @@ class ReleaseWatiki(JudgmentVerification):
             else:
                 print('你都输入啥东西呢? %s' % ov_pa['type'])
 
+        # 8.点击弹窗中的确认按钮
         self.vac.id_confirm_prompt(self.driver, release[self.bi.yaml_primary()])
+        # 9.判断提交之后接口返回的弹窗标题
         self.operator_titleAlert()
+        # 10.点击提交之后接口返回弹窗中的确定按钮
         self.vac.css_click(self.driver, release[self.bi.yaml_confirm()])

@@ -53,7 +53,7 @@ tbody: tbody
 # 添加:发布弹窗中的子属性
 release:
   release: ul.nav.nav-tabs.nav-slot > li:nth-last-child(2)                         # 发布按钮
-  closed: .modal-content > div.modal-header > button.close                         # 弹窗关闭按钮
+  closed: div.modal-content > div.modal-header > button.close                      # 弹窗关闭按钮
   special: ticktype1                                                               # 专用类型
   general: ticktype2                                                               # 通用类型
   supply: supplyId                                                                 # 商品输入框

@@ -30,3 +30,17 @@
 @time: 2018/8/8 17:32
 @desc:
 '''
+
+
+# 文件参数路径
+def add_key(value):
+    bulkGroup['sheet'] = value
+    return bulkGroup
+
+
+tab = 'tab'
+select = 'select'
+label = 'label'
+create = 'create'
+
+bulkGroup = {'menu': 'promote', 'module': 'bulk', 'sheet': '需要设置', 'yaml': 'expression/BulkGroup.yaml'}

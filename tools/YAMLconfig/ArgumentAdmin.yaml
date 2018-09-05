@@ -68,4 +68,29 @@ water:
     city: 城市
     select: 筛选
     page: 页面
+buyer:
+  father: 5
+  module: buyer
+  customer:
+    module: customer
+    child: 1
+    city: 城市
+    select: 筛选
+    page: 页面
+    release: 注册
+  supporters:
+    module: supporters
+    child: 2
+  sweating:
+    module: sweating
+    child: 3
+  fixedPoint:
+    module: fixedPoint
+    child: 4
+  confluence:
+    module: confluence
+    child: 5
+  dominator:
+    module: dominator
+    child: 6
 

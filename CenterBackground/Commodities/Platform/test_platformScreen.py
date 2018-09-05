@@ -39,7 +39,8 @@ from CenterBackground.screeningjude import ScreeningJude
 from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-sj = ScreeningJude(Commodities.platform, Commodities.select, BASENAME, BundledItems)
+config = Commodities.add_key(Commodities.platform, Commodities.select)
+sj = ScreeningJude(config, BASENAME, BundledItems)
 
 
 class TestPlatformScreen(unittest.TestCase):
@@ -67,7 +68,7 @@ class TestPlatformScreen(unittest.TestCase):
 
     def test_statusTraverse(self):
         sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(selectPath=sj.overall[sj.bi.whole_keys()])
+        sj.value_option_traverse(formSub = sj.bi.yaml_formSub(),selectPath=sj.overall[sj.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－类型－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -83,7 +84,7 @@ class TestPlatformScreen(unittest.TestCase):
 
     def test_watikiTraverse(self):
         sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(selectPath=sj.overall[sj.bi.whole_keys()])
+        sj.value_option_traverse(formSub = sj.bi.yaml_formSub(),selectPath=sj.overall[sj.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－优惠－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -99,7 +100,7 @@ class TestPlatformScreen(unittest.TestCase):
 
     def test_preferencesTraverse(self):
         sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(selectPath=sj.overall[sj.bi.whole_keys()])
+        sj.value_option_traverse(formSub = sj.bi.yaml_formSub(),selectPath=sj.overall[sj.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -116,7 +117,7 @@ class TestPlatformScreen(unittest.TestCase):
 
     def test_chooseTraverse(self):
         sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(selectPath=sj.overall[sj.bi.whole_keys()])
+        sj.value_option_traverse(formSub = sj.bi.yaml_formSub(),selectPath=sj.overall[sj.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－其他－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -138,10 +139,10 @@ class TestPlatformScreen(unittest.TestCase):
 
     def test_button_search(self):
         sj.setFunctionName(inspect.stack()[0][3])
-        sj.searchExport()
+        sj.searchExport(formSub = sj.bi.yaml_formSub())
         pass
 
     def test_button_export(self):
         sj.setFunctionName(inspect.stack()[0][3])
-        sj.searchExport()
+        sj.searchExport(formSub = sj.bi.yaml_formSub())
         pass

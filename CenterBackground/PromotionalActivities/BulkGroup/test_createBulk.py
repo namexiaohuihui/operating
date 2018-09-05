@@ -36,9 +36,9 @@ import unittest
 import pytest
 
 from CenterBackground.PromotionalActivities.BulkGroup.createBulkJude import CreateBulkJude
-from CenterBackground.PromotionalActivities import BulkGroup
+from CenterBackground import PromotionalActivities
 
-create = CreateBulkJude(BulkGroup.create)
+create = CreateBulkJude(PromotionalActivities.create)
 
 
 class TestCreateBulk(unittest.TestCase):
@@ -47,7 +47,7 @@ class TestCreateBulk(unittest.TestCase):
         self.basename = os.path.splitext(os.path.basename(__file__))[0]
         print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        create.openingProgram(self.basename)
+        create.openingProgram()
         create._rou_background()
 
     def tearDown(self):

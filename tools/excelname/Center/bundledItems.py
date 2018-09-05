@@ -65,9 +65,6 @@ class BundledItems(ExcelTitle):
     def yaml_formSub(self):
         return 'formSub'
 
-    def yaml_confirm(self):
-        return 'confirm'
-
     def yaml_prompt(self):
         return 'prompt'
 
@@ -94,9 +91,6 @@ class BundledItems(ExcelTitle):
 
     def yaml_paginate(self):
         return 'paginate'
-
-    def yaml_closed(self):
-        return 'closed'
 
     def yaml_special(self):
         return 'special'
@@ -152,17 +146,8 @@ class BundledItems(ExcelTitle):
     def yaml_settlenum(self):
         return 'settlenum'
 
-    def yaml_preferences(self):
-        return 'preferences'
-
     def yaml_usecity(self):
         return 'usecity'
 
     def yaml_primary(self):
         return 'primary'
-
-    def yaml_showSweetAlert(self):
-        return 'showSweetAlert'
-
-    def yaml_titleSweetAlert(self):
-        return 'titleSweetAlert'

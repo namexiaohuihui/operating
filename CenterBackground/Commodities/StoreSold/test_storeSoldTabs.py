@@ -40,7 +40,8 @@ import time
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
-group = CommoditiesJude(Commodities.storesold, Commodities.city, basename, BundledItems)
+config = Commodities.add_key(Commodities.storesold, Commodities.city)
+group = CommoditiesJude(config, basename, BundledItems)
 
 
 class TestStoreSoldTabs(unittest.TestCase):

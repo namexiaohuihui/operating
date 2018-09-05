@@ -23,11 +23,10 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
                佛祖保佑         永无BUG
-@author:  ln_company
-@license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
-@software: PyCharm
-@file: __init__.py.py
-@time: 2018/8/8 17:33
+@author:    ln_company
+@license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
+@Software:  PyCharm
+@file:      __init__.py.py
+@time:      2018/9/4 11:58
 @desc:
 '''
-

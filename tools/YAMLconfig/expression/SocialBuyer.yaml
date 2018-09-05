@@ -1,0 +1,92 @@
+# Common definition : tab
+tabs: ul.nav.nav-tabs > li                                        # tabs
+
+# Common definition : box
+box: .box-city                                                    # box
+
+# Common definition : add
+add: .box-tools                                                   # Add button
+
+# Common definition : select
+interest: select[name='interest']                                 # Pay attention to  status
+approve: select[name='pstatus']                                   # Certification state
+status: select[name='status']                                     # Using a state
+workstatus: select[name='workstatus']                             #
+source: select[name='source']                                     # Source type
+city: select[name='city']                                         # In the area
+choose: select[name='type']                                       # Really do not understand how to explain
+level: select[name='level']　　　　　　　　　　　　　　　　           #
+province: select[name='province']
+
+# Common definition : input
+placeholder: input[type='search']
+
+# Common definition : time
+start: input[name='starttime']
+end: input[name='endtime']
+
+# Common definition : button
+iptJ: .btn.btn-default.btn-flat.btn-action.J_ipt
+search: 1
+export: 2
+
+# Common definition : info
+info: div.dataTables_info
+
+# Common definition : Popup window
+phone: input[name='phone']
+password: input[name='password']
+default: .modal-footer > button:nth-child(1)                                     # Cancel button in popover
+primary: .btn.btn-primary                                                        # Confirm the position in the popover
+nickname: input[name='name']
+address: input[name='phone']
+loginpass: input[name='loginpass']
+withdrawpass: input[name='withdrawpass']
+account: input[name='account']
+bank: select[name='bank']
+cardID: input[name='cardID']
+cardadr: input[name='cardadr']
+userstate: input[name='userstate']
+normal: 1
+titles: 2
+remarks: input[name='remarks']
+
+level: input[name='level']
+servant: 1
+controls: 2
+blindBB: 3
+shop: select[name='shop']
+usersort: input[name='usersort']
+ordinary: 1
+privilege: 2
+licencesort: input[name='licencesort']
+isno: 1
+are: 2
+remarks: input[name='remarks']
+
+begintime: input[id='begintime']
+endtime: input[id='endtime']
+
+# Common definition : The second time Popup window
+showSweetAlert: .sweet-alert.showSweetAlert.visible > p                          # Error message
+titleSweetAlert: .sweet-alert.showSweetAlert.visible > h2                        # The prompt title returned
+confirm: .confirm                                                                # The close button of the popover
+
+#　Customer page parameter definition :
+register: .btn.btn-default.btn-sm.modal-btn                                      # Registered users
+closed: div.modal-content > div.modal-header > button.close                      # Popup close button
+
+#　Supporters page parameter definition : Temporarily no
+
+#　Sweating page parameter definition :
+tobig: 1
+beginnumber: input[id='beginnumber']
+increase: 2
+worktime: 3
+
+
+#　FixedPoint page parameter definition : Temporarily no
+
+#　Confluence page parameter definition : Temporarily no
+
+#　Dominator page parameter definition : Temporarily no

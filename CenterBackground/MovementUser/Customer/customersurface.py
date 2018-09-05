@@ -26,24 +26,17 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      surfacejude.py
-@time:      2018/8/28 18:09
+@file:      plarformsurface.py
+@time:      2018/8/30 15:40
 @desc:
 '''
-import operator
 import time
 import threading
-from bs4 import BeautifulSoup
 from tools import StringCutting
-from CenterBackground import Commodities
-
-from CenterBackground.judeVerification import JudgmentVerification
+from CenterBackground.surfacejude import SurfaceJude
 
 
-class SurfaceJude(JudgmentVerification):
-    '''
-    页面数据以及页面标题获取并判断
-    '''
+class Customersurface(SurfaceJude):
     def __init__(self, config, basename, centerName):
         '''
         定义模块数据信息
@@ -52,27 +45,8 @@ class SurfaceJude(JudgmentVerification):
         :param basename:  执行程序的文件名
         :param centerName:  元素所在的类
         '''
-        JudgmentVerification.__init__(self, config, basename)
-        self.bi = centerName()
+        SurfaceJude.__init__(self, config, basename, centerName)
         pass
-
-    def bs4_soup(self):
-        label_text = self.driver.page_source
-        soup = BeautifulSoup(label_text, "html.parser")
-        return soup
-
-    def info_number(self):
-        # 读取info的数据并把int数据切割
-        info_text = self._visible_css_selectop_text(self.financial[self.bi.yaml_info()])
-        pages = str.split(info_text, '，')[-1]
-
-        pages = int(StringCutting.re_zip_code(pages, r'[1-9]\d'))
-        if (pages % 10) > 0:
-            number = 1
-        else:
-            number = 0
-        pages = int((pages / 10)) + number
-        return pages
 
     def traverseYield(self, thead_tr, tbody_class):
         '''
@@ -86,37 +60,12 @@ class SurfaceJude(JudgmentVerification):
             thead_length = len(thead_tr)
             for tr_len in range(thead_length):
                 tr_td = tr.find_all('td')
-                if tr_len == thead_length -1:
-                    td_text = [StringCutting.spaces_replace(td.text) for td in tr_td[tr_len].find_all('button')]
+                if tr_len == thead_length - 1:
+                    td_text = StringCutting.spaces_replace(tr_td[tr_len].find('a').text)
                 else:
                     td_text = StringCutting.spaces_replace(tr_td[tr_len].text)
                 tbody_tr[thead_tr[tr_len]] = td_text
             yield tbody_tr
-        pass
-
-    def success_execute(self):
-        soup = self.bs4_soup()
-        thead_th = soup.find('thead').find('tr').find_all('th')
-        text_center = [str.strip(th.text) for th in thead_th]
-        return text_center
-
-    def success_tbody(self, url, thead_tr):
-        self.driver.get(url)
-        soup = self.bs4_soup()
-        tbody_class = soup.find('tbody').find_all('tr')
-        tr_yield = self.traverseYield(thead_tr, tbody_class)
-        for text in tr_yield:
-            self.tbody_list.append(text)
-        pass
-
-    def title_execute(self):
-        '''
-        获取页面标题
-        :return:
-        '''
-        text_center = self.success_execute()
-        excel_center = StringCutting.specified_cut(self.overall[self.bi.whole_including()])
-        self.debugging_log(text_center, excel_center, 'Thead title display is incorrectly displayed.')
         pass
 
     def surface_execute(self):
@@ -129,8 +78,8 @@ class SurfaceJude(JudgmentVerification):
 
         queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
         current = self.driver.current_url
-        for qe in range(1,3):
-            url = current + '&page={}'.format(qe)
+        for qe in range(1, 3):
+            url = current + '?page={}'.format(qe)
             thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
             thread.setDaemon(True)
             thread.start()
@@ -139,13 +88,6 @@ class SurfaceJude(JudgmentVerification):
 
         for th in self.threads:
             th.join()
-
-        pass
-
-    def debugging_log(self, ct_default, ov_default, mesg):
-        print("--------------------------------")
-        print(ct_default, type(ct_default))
-        print(ov_default, type(ov_default))
-        print("--------------------------------")
-        assert operator.eq(ct_default, ov_default), mesg
+            pass
+        print(self.tbody_list)
         pass

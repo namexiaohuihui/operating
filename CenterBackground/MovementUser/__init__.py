@@ -26,31 +26,36 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      soldScreen.py
-@time:      2018/9/3 11:27
+@file:      __init__.py.py
+@time:      2018/9/4 11:40
 @desc:
 '''
-from CenterBackground.screeningjude import ScreeningJude
 
 
-class SoldScreen(ScreeningJude):
+def add_key(module, sheet):
+    INVENTORY['module'] = module
+    INVENTORY['sheet'] = sheet
+    return INVENTORY
 
-    def __init__(self,config, basename, centerName):
-        '''
-        定义模块数据信息
-        :param module:   元素模块
-        :param sheet:   用例标签名
-        :param basename:  执行程序的文件名
-        '''
-        ScreeningJude.__init__(self, config, basename, centerName)
-        pass
 
-    def button_formSub(self, att: str):
-        '''
-        根据按钮位置来进行点击
-        :param att:  按钮所在位置的key值
-        :return:
-        '''
-        attribute = self._visible_returns_selectop(self.financial[self.bi.yaml_iptJ()])
-        attribute = attribute[int(self.financial[att]) - 1]
-        return attribute
+# 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
+customer = 'customer'
+supporters = 'supporters'
+sweating = 'sweating'
+fixedPoint = 'fixedPoint'
+confluence = 'confluence'
+dominator = 'dominator'
+
+# 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
+city = 'city'
+select = 'select'
+page = 'page'
+release = 'release'
+
+# 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
+INVENTORY = {
+    'menu': 'buyer',  # 菜单标识符的定义
+    'module': 'no data',  # 菜单中模块标识符的定义
+    'sheet': 'no data',  # 模块所对应的用例标签名
+    'yaml': 'expression/SocialBuyer.yaml'  # 菜单所对应的yaml路径
+}

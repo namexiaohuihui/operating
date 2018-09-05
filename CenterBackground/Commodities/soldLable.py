@@ -30,11 +30,11 @@
 @time:      2018/9/3 14:38
 @desc:
 '''
+from tools import StringCutting
 from CenterBackground.surfacejude import SurfaceJude
 
-
 class SoldLable(SurfaceJude):
-    def __init__(self, module, sheet, basename, centerName):
+    def __init__(self,config, basename, centerName):
         '''
         定义模块数据信息
         :param module:   元素模块
@@ -42,7 +42,7 @@ class SoldLable(SurfaceJude):
         :param basename:  执行程序的文件名
         :param centerName:  元素所在的类
         '''
-        SurfaceJude.__init__(self, module, sheet, basename, centerName)
+        SurfaceJude.__init__(self, config, basename, centerName)
         pass
 
     def traverseYield(self, thead_tr, tbody_class):
@@ -63,6 +63,7 @@ class SoldLable(SurfaceJude):
                     td_text.insert(0, td_a)
                     td_text = ' '.join(td_text)
                 else:
+                    td_text = StringCutting.spaces_replace(tr_td[tr_len].text)
                     td_text = str.strip(tr_td[tr_len].text)
                 tbody_tr[thead_tr[tr_len]] = td_text
             yield tbody_tr

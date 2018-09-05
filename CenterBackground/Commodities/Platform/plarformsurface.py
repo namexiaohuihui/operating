@@ -37,7 +37,7 @@ from CenterBackground.surfacejude import SurfaceJude
 
 
 class PlarformSurface(SurfaceJude):
-    def __init__(self, module, sheet, basename, centerName):
+    def __init__(self, config, basename, centerName):
         '''
         定义模块数据信息
         :param module:   元素模块
@@ -45,7 +45,7 @@ class PlarformSurface(SurfaceJude):
         :param basename:  执行程序的文件名
         :param centerName:  元素所在的类
         '''
-        SurfaceJude.__init__(self, module, sheet, basename, centerName)
+        SurfaceJude.__init__(self, config, basename, centerName)
         pass
 
     def traverseYield(self, thead_tr, tbody_class):
@@ -98,33 +98,34 @@ class PlarformSurface(SurfaceJude):
                 tbody_tr[thead_tr[tr_len]] = td_text
             yield tbody_tr
 
-    def success_tbody(self, url, thead_tr):
-        self.driver.get(url)
-        soup = self.bs4_soup()
-        tbody_class = soup.find('tbody').find_all('tr')
-        tr_yield = self.traverseYield(thead_tr, tbody_class)
-        for text in tr_yield:
-            self.tbody_list.append(text)
-
+    # def success_tbody(self, url, thead_tr):
+    #     self.driver.get(url)
+    #     soup = self.bs4_soup()
+    #     tbody_class = soup.find('tbody').find_all('tr')
+    #     tr_yield = self.traverseYield(thead_tr, tbody_class)
+    #     for text in tr_yield:
+    #         self.tbody_list.append(text)
+    #     pass
     def surface_execute(self):
         self.vai.scrollBar_buttom(self.driver)  # 界面滑动到浏览器底部
-        pages = self.info_number()  # 获取into的总数据信息
-        self.log.info('There is data that needs to be paged: %s' % pages)
-
-        self.tbody_list = []
-        self.threads = []
-        thead_tr = self.success_execute()
-
-        queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
-        current = self.driver.current_url
-        for qe in range(1,3):
-            url = current + '&page={}'.format(qe)
-            thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
-            thread.setDaemon(True)
-            thread.start()
-            self.threads.append(thread)
-            time.sleep(1)
-
-        for th in self.threads:
-            th.join()
+        SurfaceJude.surface_execute(self)
+        # pages = self.info_number()  # 获取into的总数据信息
+        # self.log.info('There is data that needs to be paged: %s' % pages)
+        #
+        # self.tbody_list = []
+        # self.threads = []
+        # thead_tr = self.success_execute()
+        #
+        # queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
+        # current = self.driver.current_url
+        # for qe in range(1,3):
+        #     url = current + '&page={}'.format(qe)
+        #     thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
+        #     thread.setDaemon(True)
+        #     thread.start()
+        #     self.threads.append(thread)
+        #     time.sleep(1)
+        #
+        # for th in self.threads:
+        #     th.join()
         pass

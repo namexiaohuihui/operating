@@ -38,7 +38,8 @@ from CenterBackground.Commodities.soldScreen import SoldScreen
 from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-sj = SoldScreen(Commodities.storesold, Commodities.select, BASENAME, BundledItems)
+config = Commodities.add_key(Commodities.storesold, Commodities.select)
+sj = SoldScreen(config, BASENAME, BundledItems)
 
 
 class TestStoreScreen(unittest.TestCase):
@@ -67,7 +68,7 @@ class TestStoreScreen(unittest.TestCase):
 
     def test_statusTraverse(self):
         sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(selectPath=sj.overall[sj.bi.whole_keys()])
+        sj.value_option_traverse(formSub=sj.bi.yaml_formSub(), selectPath=sj.overall[sj.bi.whole_keys()])
         pass
 
         # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -84,7 +85,7 @@ class TestStoreScreen(unittest.TestCase):
 
     def test_chooseTraverse(self):
         sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(selectPath=sj.overall[sj.bi.whole_keys()])
+        sj.value_option_traverse(formSub=sj.bi.yaml_formSub(), selectPath=sj.overall[sj.bi.whole_keys()])
         pass
 
         # －－－－－－－－－－－－－－－－－－－－－－－－其他－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -106,10 +107,10 @@ class TestStoreScreen(unittest.TestCase):
 
     def test_button_search(self):
         sj.setFunctionName(inspect.stack()[0][3])
-        sj.searchExport()
+        sj.searchExport(formSub=sj.bi.yaml_formSub())
         pass
 
     def test_button_export(self):
         sj.setFunctionName(inspect.stack()[0][3])
-        sj.searchExport()
+        sj.searchExport(formSub=sj.bi.yaml_formSub())
         pass
