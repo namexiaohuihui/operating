@@ -38,6 +38,7 @@ _att = 'a'
 _href = 'href'
 _class = 'class'
 _active = 'active'
+_on = 'on'
 
 
 class CustomTypeError(Exception):
@@ -77,7 +78,8 @@ class CustomTabs(object):
             length = len(self.ul_li) - 1
             self.ul_li.pop(length)
 
-    def active_tab(self, reduce=0):
+
+    def active_tab(self, _class, reduce=0):
         '''
         比较li标签的class值
         :return:
@@ -85,9 +87,10 @@ class CustomTabs(object):
         self.visibles_tabs(reduce)
         for li in self.ul_li:
             ac_at = li.get_attribute(_class)
-            if operator.eq(_active, ac_at):
+            self.debugging_log(ac_at,_class,55)
+            if operator.eq(_active, ac_at) or operator.eq(_on, ac_at):
                 return li
-        return 'active_tab: no li'
+        raise CustomTypeError('active_tab: no li')
 
     def city_code(self, li):
         li_a = li.find_element_by_tag_name(_att)
@@ -108,12 +111,12 @@ class CustomTabs(object):
             custom_d[li_a.text.strip()] = StringCutting.re_zip_code(li_a)
         return custom_d
 
-    def active_keys(self):
+    def active_keys(self,tag):
         '''
         默认城市和编码
         :return: 城市为key，编码为value
         '''
-        li = self.active_tab()
+        li = self.active_tab(tag)
         li_a = li.find_element_by_tag_name(_att)
         li_a = li_a.get_attribute(_href)
         active_d = {li_a.text.strip(): StringCutting.re_zip_code(li_a)}
@@ -128,12 +131,12 @@ class CustomTabs(object):
         list_text = [li.text.strip() for li in self.ul_li]
         return list_text
 
-    def active_city(self):
+    def active_city(self,tag):
         '''
         默认城市
         :return:
         '''
-        li = self.active_tab()
+        li = self.active_tab(tag)
         li_text = li.text.strip()
         return li_text
 
@@ -145,12 +148,12 @@ class CustomTabs(object):
         list_code = [self.city_code(li) for li in self.ul_li]
         return list_code
 
-    def active_code(self):
+    def active_code(self,tag):
         '''
         默认城市编码
         :return:
         '''
-        li = self.active_tab()
+        li = self.active_tab(tag)
         li_code = self.city_code(li)
         return li_code
 
@@ -162,7 +165,7 @@ class CustomTabs(object):
             self.visibles_tabs(reduce)
         pass
 
-    def judge_source_url(self, reduce):
+    def judge_source_url(self,tag, reduce):
         list_text = self.judge_citys(reduce)  # 读取全部的城市
         length = len(self.ul_li)  # 读取数据长度
         self.visibles_tabs(reduce)
@@ -173,7 +176,7 @@ class CustomTabs(object):
             # 输入网址
             self.driver.get(li_a)
             # 数据比较
-            self.judge_city(list_text[l])
+            self.judge_city(tag,list_text[l])
             self.visibles_tabs(reduce)
         pass
 
@@ -182,8 +185,8 @@ class CustomTabs(object):
         self.debugging_log(True, ov_default, 'All labels in the title are misjudged.')
         return list_text
 
-    def judge_city(self, ov_default):
-        ct_default = self.active_city()
+    def judge_city(self,tag, ov_default):
+        ct_default = self.active_city(tag)
         self.debugging_log(ct_default, ov_default, 'The caption tabs element text is judged incorrectly.')
         pass
 
@@ -192,8 +195,8 @@ class CustomTabs(object):
         self.debugging_log(True, ov_default, 'All labels in the title are misjudged.')
         return list_code
 
-    def judge_code(self, ov_default):
-        ct_default = self.active_code()
+    def judge_code(self,tag, ov_default):
+        ct_default = self.active_code(tag)
         ov_default = self.data_to_determine(ov_default)
         self.debugging_log(ct_default, ov_default, 'The header label attribute is incorrect.')
         pass
@@ -205,6 +208,7 @@ class CustomTabs(object):
         print("--------------------------------")
         assert operator.eq(ct_default, ov_default), mesg
         pass
+
 
     def data_to_determine(self, strData):
         '''

@@ -39,49 +39,49 @@ from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
 config = Commodities.add_key(Commodities.platform, Commodities.release)
-rw = ReleaseWatiki(config, BASENAME, BundledItems)
+rWatiki = ReleaseWatiki(config, BASENAME, BundledItems)
 
 
 class TestReleaseWater(unittest.TestCase):
     def setUp(self):
         # 获取运行文件的类名
         self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        rw.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        rWatiki.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        rw.openingProgram()
-        rw._rou_background()
+        rWatiki.openingProgram()
+        rWatiki._rou_background()
 
     def tearDown(self):
-        rw.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
-        rw.driver.quit()
+        rWatiki.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
+        rWatiki.driver.quit()
         pass
 
     def test_popupclosed(self):
-        rw.setFunctionName(inspect.stack()[0][3])
-        rw.close_popup()
+        rWatiki.setFunctionName(inspect.stack()[0][3])
+        rWatiki.close_popup()
         pass
 
     def test_buttoncancel(self):
-        rw.setFunctionName(inspect.stack()[0][3])
-        rw.close_popup()
+        rWatiki.setFunctionName(inspect.stack()[0][3])
+        rWatiki.close_popup()
         pass
 
     def test_optionsave(self):
-        rw.setFunctionName(inspect.stack()[0][3])
-        rw.show_sweetAlert()
+        rWatiki.setFunctionName(inspect.stack()[0][3])
+        rWatiki.show_sweetAlert()
         pass
 
     def test_optioncancel(self):
-        rw.setFunctionName(inspect.stack()[0][3])
-        rw.click_information()
+        rWatiki.setFunctionName(inspect.stack()[0][3])
+        rWatiki.click_information()
         pass
 
     def test_optionpackages(self):
-        rw.setFunctionName(inspect.stack()[0][3])
-        rw.ticket_choose()
+        rWatiki.setFunctionName(inspect.stack()[0][3])
+        rWatiki.ticket_choose()
         pass
 
     def test_releaseSuccess(self):
-        rw.setFunctionName(inspect.stack()[0][3])
-        rw.releaseSuccess()
+        rWatiki.setFunctionName(inspect.stack()[0][3])
+        rWatiki.releaseSuccess()
         pass

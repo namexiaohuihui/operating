@@ -39,7 +39,8 @@ class CommoditiesJude(JudgmentVerification):
     '''
     二次封装tabs进行判断
     '''
-    def __init__(self, config, basename,centerName):
+
+    def __init__(self, config, basename, centerName):
         JudgmentVerification.__init__(self, config, basename)
         self.bi = centerName()
         pass
@@ -51,14 +52,14 @@ class CommoditiesJude(JudgmentVerification):
         finally:
             return self.ct
 
-    def active_city(self):
+    def active_city(self,tag):
         ov_default = self.overall[self.bi.whole_city()]
-        self.custom_tabs().judge_city(ov_default)
+        self.custom_tabs().judge_city(tag, ov_default)
         pass
 
-    def active_code(self):
+    def active_code(self,tag):
         ov_default = self.overall[self.bi.whole_code()]
-        self.custom_tabs().judge_code(ov_default)
+        self.custom_tabs().judge_code(tag, ov_default)
         pass
 
     def already_citys(self, reduce=0):
@@ -73,7 +74,6 @@ class CommoditiesJude(JudgmentVerification):
         self.custom_tabs().judge_source(reduce=reduce)
         pass
 
-    def switch_url(self, reduce=0):
-        self.custom_tabs().judge_source_url(reduce=reduce)
+    def switch_url(self,tag, reduce=0):
+        self.custom_tabs().judge_source_url(tag, reduce=reduce)
         pass
-

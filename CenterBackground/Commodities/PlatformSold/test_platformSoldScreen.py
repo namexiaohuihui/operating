@@ -40,119 +40,125 @@ from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
 config = Commodities.add_key(Commodities.platformsold, Commodities.select)
-sj = SoldScreen(config, BASENAME, BundledItems)
+screen = SoldScreen(config, BASENAME, BundledItems)
+
 
 class TestPlatformSoldScreen(unittest.TestCase):
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        sj.openingProgram()
-        sj._rou_background()
+        screen.openingProgram()
+        screen._rou_background()
         print("%s ---setup: 每个用例开始前后执行" % BASENAME)
 
     def tearDown(self):
-        sj.driver.quit()
+        screen.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % BASENAME)
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－类型－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_categorySelect(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_options_jude(selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_options_jude(selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     def test_categoryDefault(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_options_default(selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_options_default(selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     def test_categoryTraverse(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(formSub = sj.bi.yaml_formSub(),selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_option_traverse(formSub=screen.bi.yaml_formSub(),
+                                     selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－来源－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_sourceSelect(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_options_jude(selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_options_jude(selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     def test_sourceDefault(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_options_default(selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_options_default(selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     def test_sourceTraverse(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(formSub = sj.bi.yaml_formSub(),selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_option_traverse(formSub=screen.bi.yaml_formSub(),
+                                     selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
 
     def test_statusSelect(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_options_jude(selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_options_jude(selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     def test_statusDefault(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_options_default(selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_options_default(selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     def test_statusTraverse(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(formSub = sj.bi.yaml_formSub(),selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_option_traverse(formSub=screen.bi.yaml_formSub(),
+                                     selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－标签－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_firstlabelSelect(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_options_jude(selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_options_jude(selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     def test_firstlabelDefault(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_options_default(selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_options_default(selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     def test_firstlabelTraverse(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(formSub = sj.bi.yaml_formSub(),selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_option_traverse(formSub=screen.bi.yaml_formSub(),
+                                     selectPath=screen.overall[screen.bi.whole_keys()])
         pass
-
 
     # －－－－－－－－－－－ －－－－－－－－－－－－－混乱－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_chooseSelect(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_options_jude(selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_options_jude(selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     def test_chooseDefault(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_options_default(selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_options_default(selectPath=screen.overall[screen.bi.whole_keys()])
         pass
 
     def test_chooseTraverse(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.value_option_traverse(formSub = sj.bi.yaml_formSub(),selectPath=sj.overall[sj.bi.whole_keys()])
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.value_option_traverse(formSub=screen.bi.yaml_formSub(),
+                                     selectPath=screen.overall[screen.bi.whole_keys()])
         pass
+
     # －－－－－－－－－－－－－－－－－－－－－－－－其他－－－－－－－－－－－－－－－－－－－－－－－－－－
 
     def test_conditionsInput(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.attribute_value()
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.attribute_value()
         pass
 
     def test_reservationtime(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.attribute_value()
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.attribute_value()
         pass
 
     def test_button_search(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.searchExport(formSub = sj.bi.yaml_formSub())
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.searchExport(formSub=screen.bi.yaml_formSub())
         pass
 
     def test_button_export(self):
-        sj.setFunctionName(inspect.stack()[0][3])
-        sj.searchExport(formSub = sj.bi.yaml_formSub())
+        screen.setFunctionName(inspect.stack()[0][3])
+        screen.searchExport(formSub=screen.bi.yaml_formSub())
         pass

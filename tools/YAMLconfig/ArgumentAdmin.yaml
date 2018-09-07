@@ -81,9 +81,17 @@ buyer:
   supporters:
     module: supporters
     child: 2
+    select: 筛选
+    page: 页面
   sweating:
     module: sweating
     child: 3
+    city: 城市
+    select: 筛选
+    page: 页面
+    release: 注册
+    warktime: 时间
+    bigorders: 订单
   fixedPoint:
     module: fixedPoint
     child: 4

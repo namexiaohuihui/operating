@@ -2,7 +2,7 @@
 tabs: ul.nav.nav-tabs > li                                        # tabs
 
 # Common definition : box
-box: .box-city                                                    # box
+box: .box-city > a                                                # box
 
 # Common definition : add
 add: .box-tools                                                   # Add button

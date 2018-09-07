@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
+'''
                        _oo0oo_
                       o8888888o
                       88" . "88
@@ -26,11 +26,11 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_customerScreen.py
+@file:      test_storeScreen.py
 @time:      2018/8/28 10:10
 @Site :     
 @desc:
-"""
+'''
 import os
 import inspect
 import unittest
@@ -39,11 +39,11 @@ from CenterBackground.screeningjude import ScreeningJude
 from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = MovementUser.add_key(MovementUser.customer, MovementUser.select)
+config = MovementUser.add_key(MovementUser.supporters, MovementUser.select)
 sJude = ScreeningJude(config, BASENAME, BundledItems)
 
 
-class TestCustomerScreen(unittest.TestCase):
+class TestStoreScreen(unittest.TestCase):
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
         sJude.openingProgram()
@@ -53,38 +53,6 @@ class TestCustomerScreen(unittest.TestCase):
     def tearDown(self):
         sJude.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % BASENAME)
-        pass
-
-    # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
-    def test_interestSelect(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_jude(selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    def test_interestDefault(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_default(selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    def test_interestTraverse(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub=sJude.bi.yaml_iptJ(), selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    # －－－－－－－－－－－－－－－－－－－－－－－－认证－－－－－－－－－－－－－－－－－－－－－－－－－－
-    def test_approveSelect(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_jude(selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    def test_approveDefault(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_default(selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    def test_approveTraverse(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub=sJude.bi.yaml_iptJ(), selectPath=sJude.overall[sJude.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -99,38 +67,6 @@ class TestCustomerScreen(unittest.TestCase):
         pass
 
     def test_statusTraverse(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub=sJude.bi.yaml_iptJ(), selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    # －－－－－－－－－－－－－－－－－－－－－－－－类型－－－－－－－－－－－－－－－－－－－－－－－－－－
-    def test_sourceSelect(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_jude(selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    def test_sourceDefault(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_default(selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    def test_sourceTraverse(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub=sJude.bi.yaml_iptJ(), selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    # －－－－－－－－－－－－－－－－－－－－－－－－城市－－－－－－－－－－－－－－－－－－－－－－－－－－
-    def test_citySelect(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_jude(selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    def test_cityDefault(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_default(selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    def test_cityTraverse(self):
         sJude.setFunctionName(inspect.stack()[0][3])
         sJude.value_option_traverse(formSub=sJude.bi.yaml_iptJ(), selectPath=sJude.overall[sJude.bi.whole_keys()])
         pass
@@ -177,3 +113,7 @@ class TestCustomerScreen(unittest.TestCase):
         sJude.setFunctionName(inspect.stack()[0][3])
         sJude.searchExport(formSub=sJude.bi.yaml_iptJ())
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_platformLable.py
+@file:      test_storeLable.py.py
 @time:      2018/8/28 18:07
 @Site :     
 @desc:
@@ -34,13 +34,15 @@
 import os
 import inspect
 import unittest
-from CenterBackground import Commodities
-from CenterBackground.Commodities.Store.storesurface import StoreSurface
+from CenterBackground import MovementUser
+from CenterBackground.MovementUser.Customer.customersurface import Customersurface
 from tools.excelname.Center.bundledItems import BundledItems
+from CenterBackground.Commodities.soldLable import SoldLable
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = Commodities.add_key(Commodities.store, Commodities.page)
-surface = StoreSurface(config, BASENAME, BundledItems)
+config = MovementUser.add_key(MovementUser.supporters, MovementUser.page)
+
+sLable = SoldLable(config, BASENAME, BundledItems)
 
 
 class TestStoreLable(unittest.TestCase):
@@ -49,20 +51,24 @@ class TestStoreLable(unittest.TestCase):
         self.basename = os.path.splitext(os.path.basename(__file__))[0]
         print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        surface.openingProgram()
-        surface._rou_background()
+        sLable.openingProgram()
+        sLable._rou_background()
 
     def tearDown(self):
-        surface.driver.quit()
+        sLable.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        surface.setFunctionName(inspect.stack()[0][3])
-        surface.title_execute()
+        sLable.setFunctionName(inspect.stack()[0][3])
+        sLable.title_execute()
         pass
 
     def test_showSurface(self):
-        surface.setFunctionName(inspect.stack()[0][3])
-        surface.surface_execute()
+        sLable.setFunctionName(inspect.stack()[0][3])
+        sLable.surface_execute()
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

@@ -44,6 +44,7 @@ class SurfaceJude(JudgmentVerification):
     '''
     页面数据以及页面标题获取并判断
     '''
+
     def __init__(self, config, basename, centerName):
         '''
         定义模块数据信息
@@ -86,7 +87,7 @@ class SurfaceJude(JudgmentVerification):
             thead_length = len(thead_tr)
             for tr_len in range(thead_length):
                 tr_td = tr.find_all('td')
-                if tr_len == thead_length -1:
+                if tr_len == thead_length - 1:
                     td_text = [StringCutting.spaces_replace(td.text) for td in tr_td[tr_len].find_all('button')]
                 else:
                     td_text = StringCutting.spaces_replace(tr_td[tr_len].text)
@@ -129,7 +130,7 @@ class SurfaceJude(JudgmentVerification):
 
         queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
         current = self.driver.current_url
-        for qe in range(1,3):
+        for qe in range(1, 3):
             url = current + '&page={}'.format(qe)
             thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
             thread.setDaemon(True)
@@ -139,8 +140,12 @@ class SurfaceJude(JudgmentVerification):
 
         for th in self.threads:
             th.join()
-
         pass
+
+    def debugging_ppint(self, oppara):
+        print("/*******************************/")
+        print(oppara, type(oppara))
+        print("/*******************************/")
 
     def debugging_log(self, ct_default, ov_default, mesg):
         print("--------------------------------")

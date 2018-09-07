@@ -40,7 +40,7 @@ from CenterBackground.commoditiesJude import CommoditiesJude
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
 config = Commodities.add_key(Commodities.platformsold, Commodities.city)
-group = CommoditiesJude(config, basename,BundledItems)
+commJ = CommoditiesJude(config, basename,BundledItems)
 
 
 class TestPlatformSoldTabs(unittest.TestCase):
@@ -49,41 +49,41 @@ class TestPlatformSoldTabs(unittest.TestCase):
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        group.openingProgram()
-        group._rou_background()
+        commJ.openingProgram()
+        commJ._rou_background()
         print("%s ---setup: 每个用例开始前后执行" % basename)
 
     def tearDown(self):
-        group.driver.quit()
+        commJ.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
     def test_active_city(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.active_city()
+        commJ.setFunctionName(inspect.stack()[0][3])
+        commJ.active_city()
         pass
 
     def test_active_code(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.active_code()
+        commJ.setFunctionName(inspect.stack()[0][3])
+        commJ.active_code()
         pass
 
     def test_already_citys(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        commJ.setFunctionName(inspect.stack()[0][3])
+        commJ.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_already_codes(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.already_codes(reduce=self.BUTTON_REDUCE_NUMBER)
+        commJ.setFunctionName(inspect.stack()[0][3])
+        commJ.already_codes(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_city(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        commJ.setFunctionName(inspect.stack()[0][3])
+        commJ.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
-        group.setFunctionName(inspect.stack()[0][3])
-        group.switch_url(reduce=self.BUTTON_REDUCE_NUMBER)
+        commJ.setFunctionName(inspect.stack()[0][3])
+        commJ.switch_url(reduce=self.BUTTON_REDUCE_NUMBER)
         pass

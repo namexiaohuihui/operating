@@ -40,7 +40,7 @@ from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
 config = Commodities.add_key(Commodities.platform, Commodities.page)
-ps = PlarformSurface(config, BASENAME, BundledItems)
+surface = PlarformSurface(config, BASENAME, BundledItems)
 
 
 class TestPlatformLable(unittest.TestCase):
@@ -49,20 +49,20 @@ class TestPlatformLable(unittest.TestCase):
         self.basename = os.path.splitext(os.path.basename(__file__))[0]
         print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        ps.openingProgram()
-        ps._rou_background()
+        surface.openingProgram()
+        surface._rou_background()
 
     def tearDown(self):
-        ps.driver.quit()
+        surface.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        ps.setFunctionName(inspect.stack()[0][3])
-        ps.title_execute()
+        surface.setFunctionName(inspect.stack()[0][3])
+        surface.title_execute()
         pass
 
     def test_showSurface(self):
-        ps.setFunctionName(inspect.stack()[0][3])
-        ps.surface_execute()
+        surface.setFunctionName(inspect.stack()[0][3])
+        surface.surface_execute()
         pass

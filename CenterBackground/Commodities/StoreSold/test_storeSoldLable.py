@@ -40,7 +40,7 @@ from CenterBackground.Commodities.soldLable import SoldLable
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
 config = Commodities.add_key(Commodities.platformsold, Commodities.page)
-ps = SoldLable(config, BASENAME, BundledItems)
+sLabel = SoldLable(config, BASENAME, BundledItems)
 
 
 class TestPlatformSoldLable(unittest.TestCase):
@@ -49,20 +49,20 @@ class TestPlatformSoldLable(unittest.TestCase):
         self.basename = os.path.splitext(os.path.basename(__file__))[0]
         print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        ps.openingProgram()
-        ps._rou_background()
+        sLabel.openingProgram()
+        sLabel._rou_background()
 
     def tearDown(self):
-        ps.driver.quit()
+        sLabel.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        ps.setFunctionName(inspect.stack()[0][3])
-        ps.title_execute()
+        sLabel.setFunctionName(inspect.stack()[0][3])
+        sLabel.title_execute()
         pass
 
     def test_showSurface(self):
-        ps.setFunctionName(inspect.stack()[0][3])
-        ps.surface_execute()
+        sLabel.setFunctionName(inspect.stack()[0][3])
+        sLabel.surface_execute()
         pass
