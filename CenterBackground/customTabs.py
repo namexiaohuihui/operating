@@ -63,6 +63,7 @@ class CustomTabs(object):
           :return:
         '''
         self.ul_li = self.ac.is_visibles_css_selectop(self.driver, self.parth)
+        print('1 %s ' % self.ul_li)
         if type(self.ul_li) is bool:
             raise CustomTypeError("You can't find the tabs element.")
 
@@ -74,10 +75,10 @@ class CustomTabs(object):
         '''
         self.is_visibles()
         reduce = int(reduce)
+        print('2 %s ' % reduce)
         for l in range(reduce):
             length = len(self.ul_li) - 1
             self.ul_li.pop(length)
-
 
     def active_tab(self, _class, reduce=0):
         '''
@@ -87,7 +88,6 @@ class CustomTabs(object):
         self.visibles_tabs(reduce)
         for li in self.ul_li:
             ac_at = li.get_attribute(_class)
-            self.debugging_log(ac_at,_class,55)
             if operator.eq(_active, ac_at) or operator.eq(_on, ac_at):
                 return li
         raise CustomTypeError('active_tab: no li')
@@ -111,7 +111,7 @@ class CustomTabs(object):
             custom_d[li_a.text.strip()] = StringCutting.re_zip_code(li_a)
         return custom_d
 
-    def active_keys(self,tag):
+    def active_keys(self, tag):
         '''
         默认城市和编码
         :return: 城市为key，编码为value
@@ -131,7 +131,7 @@ class CustomTabs(object):
         list_text = [li.text.strip() for li in self.ul_li]
         return list_text
 
-    def active_city(self,tag):
+    def active_city(self, tag):
         '''
         默认城市
         :return:
@@ -148,7 +148,7 @@ class CustomTabs(object):
         list_code = [self.city_code(li) for li in self.ul_li]
         return list_code
 
-    def active_code(self,tag):
+    def active_code(self, tag):
         '''
         默认城市编码
         :return:
@@ -158,25 +158,43 @@ class CustomTabs(object):
         return li_code
 
     def judge_source(self, reduce=0):
+        '''
+        长度来遍历点击
+        :param reduce:
+        :return:
+        '''
         self.visibles_tabs(reduce)
         length = len(self.ul_li)
+        print(length)
         for l in range(length):
             self.ac.element_click(self.ul_li[l])
             self.visibles_tabs(reduce)
         pass
 
-    def judge_source_url(self,tag, reduce):
+    def judge_source_url(self, tag, reduce):
+        '''
+
+        :param tag: 元素标签默认值属性
+        :param reduce:  需要扣除的个数
+        :return:
+        '''
         list_text = self.judge_citys(reduce)  # 读取全部的城市
         length = len(self.ul_li)  # 读取数据长度
         self.visibles_tabs(reduce)
         for l in range(length):
             # 读取默认值对象的href属性
-            li_a = self.ul_li[l].find_element_by_tag_name(_att)
+            li_a = self.ul_li[l]
+            print('4 %s ' % li_a.tag_name)
+            # 如果元素标签为a，那么就直接获取参数值，否则元素标签就是为li那么就要获取旗下的a标签然后在获取参数值
+            if li_a.tag_name == _att:
+                pass
+            else:
+                li_a = self.ul_li[l].find_element_by_tag_name(_att)
             li_a = li_a.get_attribute(_href)
             # 输入网址
             self.driver.get(li_a)
             # 数据比较
-            self.judge_city(tag,list_text[l])
+            self.judge_city(tag, list_text[l])
             self.visibles_tabs(reduce)
         pass
 
@@ -185,7 +203,7 @@ class CustomTabs(object):
         self.debugging_log(True, ov_default, 'All labels in the title are misjudged.')
         return list_text
 
-    def judge_city(self,tag, ov_default):
+    def judge_city(self, tag, ov_default):
         ct_default = self.active_city(tag)
         self.debugging_log(ct_default, ov_default, 'The caption tabs element text is judged incorrectly.')
         pass
@@ -195,7 +213,7 @@ class CustomTabs(object):
         self.debugging_log(True, ov_default, 'All labels in the title are misjudged.')
         return list_code
 
-    def judge_code(self,tag, ov_default):
+    def judge_code(self, tag, ov_default):
         ct_default = self.active_code(tag)
         ov_default = self.data_to_determine(ov_default)
         self.debugging_log(ct_default, ov_default, 'The header label attribute is incorrect.')
@@ -208,7 +226,6 @@ class CustomTabs(object):
         print("--------------------------------")
         assert operator.eq(ct_default, ov_default), mesg
         pass
-
 
     def data_to_determine(self, strData):
         '''

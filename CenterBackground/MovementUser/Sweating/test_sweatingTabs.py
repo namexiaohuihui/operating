@@ -86,7 +86,7 @@ class TestSweatingTabs(unittest.TestCase):
 
     def test_switch_url(self):
         cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.switch_url(customTabs._href, reduce=self.BUTTON_REDUCE_NUMBER)
+        cJude.switch_url(customTabs._class, reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_active_box(self):
@@ -101,12 +101,12 @@ class TestSweatingTabs(unittest.TestCase):
 
     def test_switch_box(self):
         cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        cJude.switch_city()
         pass
 
     def test_switch_href(self):
         cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.switch_url(customTabs._href, reduce=self.BUTTON_REDUCE_NUMBER)
+        cJude.switch_url(customTabs._class)
         pass
 
 

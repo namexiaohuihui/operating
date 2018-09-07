@@ -104,7 +104,6 @@ class browser_confirm(object):
             self.ie_browser()
 
         self.browser.maximize_window()
-
         # 输入网址
         self.browser.get(url)
         # 等待网页加载，加载时间为10s，加载完就跳过
@@ -115,7 +114,7 @@ class browser_confirm(object):
 
     def dingdong_mobile_opens(self, url):
         options = self.mobile_phone_mode()
-        self.url_opens(url, options)
+        self.url_opens(url, options = options)
 
     def mobile_phone_mode(self):
         '''
