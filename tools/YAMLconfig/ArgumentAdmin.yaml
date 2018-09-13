@@ -68,6 +68,7 @@ water:
     city: 城市
     select: 筛选
     page: 页面
+
 buyer:
   father: 5
   module: buyer
@@ -111,3 +112,37 @@ buyer:
     page: 页面
     release: 注册
 
+generalize:
+  father: 6
+  module: generalize
+  focus:
+    module: focus
+    child: 1
+  invite:
+    module: invite
+    child: 2
+  timelimit:
+    module: timelimit
+    child: 3
+  batch:
+    module: batch
+    child: 4
+  akey:
+    module: akey
+    child: 5
+    explain: This function has been perfected
+  receive:
+    module: receive
+    child: 6
+  redpacket:
+    module: redpacket
+    child: 7
+  discounts:
+    module: discounts
+    child: 8
+  popup:
+    module: popup
+    child: 9
+  meaning:
+    module: popup
+    child: 10

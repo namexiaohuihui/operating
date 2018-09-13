@@ -31,6 +31,7 @@
 @desc:
 '''
 
+
 def add_key(module, sheet):
     INVENTORY['module'] = module
     INVENTORY['sheet'] = sheet
@@ -38,12 +39,16 @@ def add_key(module, sheet):
 
 
 # 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
-customer = 'customer'
-supporters = 'supporters'
-sweating = 'sweating'
-fixedPoint = 'fixedPoint'
-confluence = 'confluence'
-dominator = 'dominator'
+focus = 'focus'
+invite = 'invite'
+timelimit = 'timelimit'
+batch = 'batch'
+akey = 'akey'
+receive = 'receive'
+redpacket = 'redpacket'
+discounts = 'discounts'
+popup = 'popup'
+meaning = 'meaning'
 
 # 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
 city = 'city'
@@ -58,6 +63,5 @@ INVENTORY = {
     'menu': 'buyer',  # 菜单标识符的定义
     'module': 'no data',  # 菜单中模块标识符的定义
     'sheet': 'no data',  # 模块所对应的用例标签名
-    'yaml': 'expression/SocialBuyer.yaml'  # 菜单所对应的yaml路径
+    'yaml': 'expression/Popularize.yaml'  # 菜单所对应的yaml路径
 }
-

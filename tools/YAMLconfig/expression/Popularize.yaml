@@ -1,0 +1,60 @@
+# Common definition : tab
+tab: .nav.nav-tabs > li                                                          # At the top of thetab
+
+# Common definition : box
+box: .box-city > a                                                               # At the top of thebox
+
+# Common definition : info
+info: div.dataTables_info
+
+# Common definition : input
+placeholder: input[type='search']
+
+# focus
+square: .box-tools > button:nth-child(1)                                         # add butoon
+desktop: .box-tools > button:nth-child(2)                                        # reading button
+rulesexplain: .btn.btn-default.btn-sm.explain                                    # Rule description
+focustitle: input[name='title']                                                  # focus title input box
+focusurl: input[name='jump_url']                                                 # focus url input box
+reservationtime: input[id='reservationtime']                                     # Extended effective time
+sort: input[name='sort']                                                         # sort
+imagefile: .btn.btn-default.btn-file                                             # Picture upload button
+cancel: .modal-footer > button:nth-child(1)                                      # popup cancel button
+determine: .modal-footer > button:nth-child(2)                                   # popup determine button
+
+# invite
+city: select[name='city']                                                        # citys select
+iptJ: .btn.btn-default.btn-flat.btn-action.J_ipt                                 #
+search: 1
+export: 2
+sidebar: .sidebar.clearfix > div > a                                             # contrast / detail  / effect
+contrast: 1
+detail: 2
+effect: 3
+
+# timelimit
+slot: .nav.nav-tabs.nav-slot > li                                                # It's not like your TAB
+activity: .nav.nav-tabs.nav-slot > li:nth-last-child(1)                          # Add new activities
+status: select[name='status']                                                    # Using a state
+choose: select[name='type']                                                      # Really do not understand how to explain
+limitsearch: .btn.btn-default.btn-flat.formSub                                   # A separate search button
+
+# batch
+chooses: select[name='types']
+
+# receive
+
+# redpacket
+redpacket: ul.nav.nav-tabs > li:nth-last-child(1)                                # Create red envelope button
+
+# discounts
+
+# popup
+
+# meaning
+start: input[name='starttime']                                                   # start time input box
+end: input[name='endtime']                                                       # end time input box
+
+
+
+
