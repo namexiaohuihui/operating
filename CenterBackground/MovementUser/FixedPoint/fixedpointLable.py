@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
                        _oo0oo_
                       o8888888o
                       88" . "88
@@ -26,15 +26,14 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      soldLable.py
-@time:      2018/9/3 14:38
+@file:      fixedpointLable.py
+@time:      2018/9/11 17:31
 @desc:
-'''
-from tools import StringCutting
+"""
 from CenterBackground.surfacejude import SurfaceJude
 
 
-class SoldLable(SurfaceJude):
+class FixedpointLable(SurfaceJude):
     INSERTION_SITE = 0
 
     def __init__(self, config, basename, centerName):
@@ -50,7 +49,6 @@ class SoldLable(SurfaceJude):
 
     def traverseYield(self, thead_tr, tbody_class):
         '''
-
         :param thead_tr:  页面内容标题
         :param tbody_class:  页面内容展示项
         :return:

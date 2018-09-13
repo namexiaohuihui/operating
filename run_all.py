@@ -6,17 +6,16 @@ import unittest
 from tkinter import *
 from tkinter.messagebox import *
 
-
-
-#git config --global user.name “用户名”
+# git config --global user.name “用户名”
 
 # git config --global user.email “邮箱”
 
 
 # 获取项目路径下的目录
-os.chdir('E:\\operating')
+path_project = os.path.split(os.path.abspath(__file__))[0]
+os.chdir(path_project)
 # 将项目路径保存
-sys.path.append('E:\\operating')
+sys.path.append(path_project)
 # import HTMLTestReportCN
 
 # 获取当前文件所在目录
@@ -96,7 +95,7 @@ def shangyigebanben():
 
 def jiemianyunxing():
     # https://blog.csdn.net/u011061889/article/details/79440349
-	# https://pythonhosted.org/PyInstaller/
+    # https://pythonhosted.org/PyInstaller/
     # pip install pyinstaller
     # pyinstaller test.py
     def callback():
@@ -115,7 +114,7 @@ if __name__ == '__main__':
     # shangyigebanben()
 
     # 加载用例
-    all_case = add_case(r"CenterBackground")
+    all_case = add_case(r"CenterBackground\MovementUser\Dominator")
     # 生成测试报告的路径
     run_case(all_case)
     # 获取最新的而测试报告文件

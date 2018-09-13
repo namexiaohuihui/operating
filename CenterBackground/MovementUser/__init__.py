@@ -51,6 +51,8 @@ city = 'city'
 select = 'select'
 page = 'page'
 release = 'release'
+bigorders = 'bigorders'
+warktime = 'warktime'
 
 # 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
 INVENTORY = {

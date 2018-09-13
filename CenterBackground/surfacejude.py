@@ -67,7 +67,7 @@ class SurfaceJude(JudgmentVerification):
         info_text = self._visible_css_selectop_text(self.financial[self.bi.yaml_info()])
         pages = str.split(info_text, '，')[-1]
 
-        pages = int(StringCutting.re_zip_code(pages, r'[1-9]\d'))
+        pages = int(StringCutting.re_zip_code(pages, "\d+"))
         if (pages % 10) > 0:
             number = 1
         else:
@@ -88,9 +88,9 @@ class SurfaceJude(JudgmentVerification):
             for tr_len in range(thead_length):
                 tr_td = tr.find_all('td')
                 if tr_len == thead_length - 1:
-                    td_text = [StringCutting.spaces_replace(td.text) for td in tr_td[tr_len].find_all('button')]
+                    td_text = [td.text.replace(" ", "").replace("\n", "") for td in tr_td[tr_len].find_all('button')]
                 else:
-                    td_text = StringCutting.spaces_replace(tr_td[tr_len].text)
+                    td_text = tr_td[tr_len].text.replace(" ", "").replace("\n", "")
                 tbody_tr[thead_tr[tr_len]] = td_text
             yield tbody_tr
         pass
@@ -116,7 +116,7 @@ class SurfaceJude(JudgmentVerification):
         :return:
         '''
         text_center = self.success_execute()
-        excel_center = StringCutting.specified_cut(self.overall[self.bi.whole_including()])
+        excel_center = str.split(self.overall[self.bi.whole_including()], ',')
         self.debugging_log(text_center, excel_center, 'Thead title display is incorrectly displayed.')
         pass
 
@@ -140,6 +140,8 @@ class SurfaceJude(JudgmentVerification):
 
         for th in self.threads:
             th.join()
+        import pprint
+        pprint.pprint(self.tbody_list)
         pass
 
     def debugging_ppint(self, oppara):

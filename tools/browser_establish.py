@@ -38,6 +38,11 @@ r'''
 '''
 
 driver_path = 'E:\drivers\Drivers'
+
+
+# https://www.jianshu.com/p/82b0fdb5d2b8
+# https://blog.csdn.net/chufazhe/article/details/51145834
+# https://www.flash.cn/
 # __new__创建一个对象，__init__实例化一个对象
 class browser_confirm(object):
     BROWSER_NAME = ""
@@ -56,7 +61,8 @@ class browser_confirm(object):
     # 调用函数，实现打开谷歌浏览器的步骤
     def chrome_browser(self, options=None):
         try:
-            self.browser = webdriver.Chrome(executable_path=os.path.join(driver_path,'chromedriver238-67.exe'))
+            self.browser = webdriver.Chrome(executable_path=os.path.join(driver_path, 'chromedriver238-67.exe'),
+                                            chrome_options=options)
             # self.browser = webdriver.Chrome(executable_path=os.path.join(driver_path,'chromedriver239-68.exe'))
             self.BROWSER_NAME = "无options的谷歌"
             # 实现全局变量的引用
@@ -77,7 +83,7 @@ class browser_confirm(object):
             self.writeLog()
 
     # 调用函数，实现打开火狐浏览器的步骤
-    def firefox_browser(self):
+    def firefox_browser(self, options=None):
         try:
             # 实现全局变量的引用
             firefoxBin = os.path.abspath(r"E:\Program Files\Mozilla Firefox\firefox.exe")
@@ -87,19 +93,17 @@ class browser_confirm(object):
             firefoxgeckobdriver = os.path.abspath(os.path.join(driver_path, 'geckodriver64.exe'))
             # os.environ["webdriver.path"] = firefoxgeckobdriver
 
-            self.browser = webdriver.Firefox(executable_path=firefoxgeckobdriver)
+            self.browser = webdriver.Firefox(options, executable_path=firefoxgeckobdriver)
         except Exception as msg:
             self.writeLog()
-
-        return self.browser
 
     # 运行浏览器
     def url_opens(self, url=None, liulanqi='chrome', options=None):
         # 创建浏览器对象
         if 'chrome' == liulanqi or 'Chrome' == liulanqi:
-            self.chrome_browser()
+            self.chrome_browser(options)
         elif 'firefox' == liulanqi or 'Firefox' == liulanqi:
-            self.firefox_browser()
+            self.firefox_browser(options)
         else:
             self.ie_browser()
 
@@ -114,18 +118,16 @@ class browser_confirm(object):
 
     def dingdong_mobile_opens(self, url):
         options = self.mobile_phone_mode()
-        self.url_opens(url, options = options)
+        self.url_opens(url, options=options)
 
     def mobile_phone_mode(self):
         '''
-        将谷歌浏览器设置为手机模式
-
+        Set the Google browser to mobile mode
         :return:
         '''
         try:
             from selenium.webdriver.chrome.options import Options
             # 有效的移动设备Galaxy S5.Nexus 5X.Nexus 6P
-
             # mobile_emulation = {"deviceName": "iPhone 7"}
 
             mobile_emulation = {
@@ -139,10 +141,40 @@ class browser_confirm(object):
         except:
             self.writeLog()
 
+    def chrome_prefs_flash(self):
+        '''
+        When the Google browser runs, flash is not loaded
+        :return:
+        '''
+        try:
+            from selenium.webdriver.chrome.options import Options
+
+            prefs = {
+                "profile.managed_default_content_settings.images": 1,
+                "profile.content_settings.plugin_whitelist.adobe-flash-player": 1,
+                "profile.content_settings.exceptions.plugins.*,*.per_resource.adobe-flash-player": 1
+            }
+
+            options = Options()
+            options.add_experimental_option("prefs", prefs)
+            return options
+        except:
+            self.writeLog()
+
+    def firefox_prefs_flash(self):
+        '''
+        When firefox runs, flash is not loaded
+        :return:
+        '''
+        try:
+            options = webdriver.FirefoxProfile()
+            # 其中plugin.state.flash后的数值可以为0,1,2； 0：禁止，1：询问，2：允许。
+            options.set_preference("plugin.state.flash", 2)
+            return options
+        except:
+            self.writeLog()
+
     def writeLog(self):
-        # 执行文件的文件名
         basename = os.path.splitext(os.path.basename(__file__))[0]
 
-        # 调用错误类
         dError.error_mess(basename)
-

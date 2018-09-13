@@ -60,6 +60,9 @@ class ScreeningJude(JudgmentVerification):
         self.bi = centerName()
         pass
 
+    def designated_box(self):
+        pass
+
     def create_select(self, direction: str) -> ScreeningDrop:
         '''
         创建操作select的对象

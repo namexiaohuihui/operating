@@ -1,21 +1,21 @@
 # Common definition : tab
-tabs: ul.nav.nav-tabs > li                                        # tabs
+tabs: ul.nav.nav-tabs > li                                                       # tabs
 
 # Common definition : box
-box: .box-city > a                                                # box
+box: .box-city > a                                                               # box
 
 # Common definition : add
-add: .box-tools                                                   # Add button
+add: .box-tools                                                                  # confluence and dominator add button
 
 # Common definition : select
-interest: select[name='interest']                                 # Pay attention to  status
-approve: select[name='pstatus']                                   # Certification state
-status: select[name='status']                                     # Using a state
-workstatus: select[name='workstatus']                             #
-source: select[name='source']                                     # Source type
-city: select[name='city']                                         # In the area
-choose: select[name='type']                                       # Really do not understand how to explain
-level: select[name='level']　　　　　　　　　　　　　　　　           #
+interest: select[name='interest']                                                # Pay attention to  status
+approve: select[name='pstatus']                                                  # Certification state
+status: select[name='status']                                                    # Using a state
+workstatus: select[name='workstatus']                                            #
+source: select[name='source']                                                    # Source type
+city: select[name='city']                                                        # In the area
+choose: select[name='type']                                                      # Really do not understand how to explain
+ranklevel: select[name='level']　　　　　　　　　　　　　　　　                      #
 province: select[name='province']
 
 # Common definition : input
@@ -34,38 +34,39 @@ export: 2
 info: div.dataTables_info
 
 # Common definition : Popup window
-phone: input[name='phone']
+title: .modal-title                                                              # Popup window title
+phone: input[name='phone']                                                       # Mobile input box
 password: input[name='password']
 default: .modal-footer > button:nth-child(1)                                     # Cancel button in popover
 primary: .btn.btn-primary                                                        # Confirm the position in the popover
-nickname: input[name='name']
-address: input[name='phone']
-loginpass: input[name='loginpass']
+nickname: input[name='name']                                                     # The user name
+address: input[name='address']
+loginpass: input[name='loginpass']                                               # A supporter's login password
 withdrawpass: input[name='withdrawpass']
 account: input[name='account']
 bank: select[name='bank']
 cardID: input[name='cardID']
 cardadr: input[name='cardadr']
-userstate: input[name='userstate']
+
+userstate: input[name='userstate']                                               # Account status
 normal: 1
 titles: 2
-remarks: input[name='remarks']
+remarks: input[name='remarks']                                                   # Document operation notes
 
-level: input[name='level']
+level: input[name='level']                                                       # Level to choose
 servant: 1
 controls: 2
 blindBB: 3
-shop: select[name='shop']
-usersort: input[name='usersort']
+shop: select[name='shop']                                                        # Default binding point
+usersort: input[name='usersort']                                                 # Order type
 ordinary: 1
 privilege: 2
-licencesort: input[name='licencesort']
+licencesort: input[name='licencesort']                                           # license
 isno: 1
 are: 2
-remarks: input[name='remarks']
 
-begintime: input[id='begintime']
-endtime: input[id='endtime']
+begintime: input[id='begintime']                                                 # Start time
+endtime: input[id='endtime']                                                     # Finish time
 
 # Common definition : The second time Popup window
 showSweetAlert: .sweet-alert.showSweetAlert.visible > p                          # Error message
@@ -73,19 +74,20 @@ titleSweetAlert: .sweet-alert.showSweetAlert.visible > h2                       
 confirm: .confirm                                                                # The close button of the popover
 
 #　Customer page parameter definition :
-register: .btn.btn-default.btn-sm.modal-btn                                      # Registered users
 closed: div.modal-content > div.modal-header > button.close                      # Popup close button
 
-#　Supporters page parameter definition : Temporarily no
+#　Supporters page parameter definition :
+suregister: ul.nav.nav-tabs > li:nth-last-child(1)                               # Add a new god
 
 #　Sweating page parameter definition :
-tobig: 1
-beginnumber: input[id='beginnumber']
-increase: 2
-worktime: 3
+beginnumber: input[id='beginnumber']                                             # Large customer throughput
+bigorders: ul.nav.nav-tabs > li:nth-last-child(3)                                # Set a large number
+increase: ul.nav.nav-tabs > li:nth-last-child(2)                                 # Registered users
+worktime: ul.nav.nav-tabs > li:nth-last-child(1)                                 # Set hours
 
 
 #　FixedPoint page parameter definition : Temporarily no
+affiliated: select[name='key']                                                   # business partner
 
 #　Confluence page parameter definition : Temporarily no
 

@@ -174,11 +174,17 @@ class Consumers(ExcelTitle):
     def yaml_register(self):
         return 'register'
 
+    def yaml_suregister(self):
+        return 'ysuregister'
+
     def yaml_tobig(self):
         return 'tobig'
 
     def yaml_beginnumber(self):
         return 'beginnumber'
+
+    def yaml_bigorders(self):
+        return 'bigorders'
 
     def yaml_increase(self):
         return 'increase'

@@ -247,6 +247,17 @@ class JudgmentVerification(ComparedVerify):
         pass
 
     # -----------------------输入项--------------------------------------
+    def designated_tab_box(self, designated, number):
+        '''
+        进入指定的box或者tab页面
+        :param designated:  box或者tab的key
+        :param number:  box或者tab所在的位置
+        :return:
+        '''
+        designated = "%s:nth-child(%s)" % (self.financial[designated], number)
+        self.vac.css_click(self.driver, designated)
+        pass
+
     def confirmInput(self, caseTitle, eleInformation):
         """获取用例数据之后并进行输入操作"""
         title = self.overall[caseTitle]  # 根据用例title来读取数据

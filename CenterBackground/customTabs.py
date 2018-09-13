@@ -63,7 +63,6 @@ class CustomTabs(object):
           :return:
         '''
         self.ul_li = self.ac.is_visibles_css_selectop(self.driver, self.parth)
-        print('1 %s ' % self.ul_li)
         if type(self.ul_li) is bool:
             raise CustomTypeError("You can't find the tabs element.")
 
@@ -75,7 +74,6 @@ class CustomTabs(object):
         '''
         self.is_visibles()
         reduce = int(reduce)
-        print('2 %s ' % reduce)
         for l in range(reduce):
             length = len(self.ul_li) - 1
             self.ul_li.pop(length)
@@ -184,7 +182,6 @@ class CustomTabs(object):
         for l in range(length):
             # 读取默认值对象的href属性
             li_a = self.ul_li[l]
-            print('4 %s ' % li_a.tag_name)
             # 如果元素标签为a，那么就直接获取参数值，否则元素标签就是为li那么就要获取旗下的a标签然后在获取参数值
             if li_a.tag_name == _att:
                 pass
@@ -219,10 +216,28 @@ class CustomTabs(object):
         self.debugging_log(ct_default, ov_default, 'The header label attribute is incorrect.')
         pass
 
+    def box_code(self, li_a):
+        li_a = li_a.get_attribute(_href)
+        li_a = StringCutting.re_zip_code(li_a)
+        return li_a
+
+    def judge_box_code(self, tag, ov_default):
+        ct_default = self.active_tab(tag)
+        ct_default = self.box_code(ct_default)
+        ov_default = self.data_to_determine(ov_default)
+        self.debugging_log(ct_default, ov_default, 'The header label attribute is incorrect.')
+        pass
+
+    def judge_box_codes(self, reduce, ov_default=True):
+        self.visibles_tabs(reduce)
+        list_code = [self.box_code(li) for li in self.ul_li]
+        self.debugging_log(True, ov_default, 'The header label attribute is incorrect.')
+        return list_code
+
     def debugging_log(self, ct_default, ov_default, mesg):
         print("--------------------------------")
-        print(ct_default, type(ct_default))
-        print(ov_default, type(ov_default))
+        print('moren', ct_default, type(ct_default))
+        print('duqu', ov_default, type(ov_default))
         print("--------------------------------")
         assert operator.eq(ct_default, ov_default), mesg
         pass

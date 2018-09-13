@@ -73,7 +73,7 @@ class ComparedVerify(object):
         self.operator_dataframe(reValue, excleValue)
         return operator.eq(reValue, excleValue)
 
-    def str_to_bool(self,value):
+    def str_to_bool(self, value):
         return True if value.lower() == 'true' else False
 
     def number_cutting(self, attribute: "某个需要切割的数据") -> "对字符串中的数据进行id切割":
@@ -82,6 +82,7 @@ class ComparedVerify(object):
             return str.split(ribute[4], "/")[0]
         else:
             return ribute[4]
+
     """
     #------------------获取浏览器部分------------------------------------
     """
@@ -165,6 +166,7 @@ class ComparedVerify(object):
         :param status:  期望单选的状态
         :return:
         """
+        status = self.str_to_bool(status)
         print("单选框不用进行点击") if operator.eq(check.is_selected(), status) else self.vac.element_click(check)  # 元素点击
 
     """

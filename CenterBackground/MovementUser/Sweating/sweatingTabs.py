@@ -38,6 +38,10 @@ class SweatingTabs(CommoditiesJude):
         CommoditiesJude.__init__(self, config, basename, centerName)
         pass
     def activeBox(self):
+        '''
+        比较默认的box
+        :return:
+        '''
         ov_default = self.overall[self.bi.whole_city()]
         self.custom_tabs().judge_city(ov_default)
         pass

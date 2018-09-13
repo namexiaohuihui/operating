@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_sweatingScreen.py
+@file:      test_confluenceScreen.py
 @time:      2018/8/28 10:10
 @Site :     
 @desc:
@@ -39,11 +39,11 @@ from CenterBackground.screeningjude import ScreeningJude
 from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = MovementUser.add_key(MovementUser.sweating, MovementUser.select)
+config = MovementUser.add_key(MovementUser.confluence, MovementUser.select)
 sJude = ScreeningJude(config, BASENAME, BundledItems)
 
 
-class TestSweatingScreen(unittest.TestCase):
+class TestConfluenceScreen(unittest.TestCase):
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
         sJude.openingProgram()
@@ -72,35 +72,21 @@ class TestSweatingScreen(unittest.TestCase):
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－工作－－－－－－－－－－－－－－－－－－－－－－－－－－
-    def test_workstatusSelect(self):
+    def test_citySelect(self):
         sJude.setFunctionName(inspect.stack()[0][3])
         sJude.value_options_jude(selectPath=sJude.overall[sJude.bi.whole_keys()])
         pass
 
-    def test_workstatusDefault(self):
+    def test_cityDefault(self):
         sJude.setFunctionName(inspect.stack()[0][3])
         sJude.value_options_default(selectPath=sJude.overall[sJude.bi.whole_keys()])
         pass
 
-    def test_workstatusTraverse(self):
+    def test_cityTraverse(self):
         sJude.setFunctionName(inspect.stack()[0][3])
         sJude.value_option_traverse(formSub=sJude.bi.yaml_iptJ(), selectPath=sJude.overall[sJude.bi.whole_keys()])
         pass
-    # －－－－－－－－－－－－－－－－－－－－－－－－等级－－－－－－－－－－－－－－－－－－－－－－－－－－
-    def test_levelSelect(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_jude(selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
 
-    def test_levelDefault(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_default(selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
-
-    def test_levelTraverse(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub=sJude.bi.yaml_iptJ(), selectPath=sJude.overall[sJude.bi.whole_keys()])
-        pass
     # －－－－－－－－－－－－－－－－－－－－－－－－很乱－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_chooseSelect(self):
         sJude.setFunctionName(inspect.stack()[0][3])

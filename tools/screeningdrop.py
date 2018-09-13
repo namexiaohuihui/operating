@@ -14,16 +14,16 @@ from tools.operation.selenium_visible import action_visible
 
 class ScreeningDrop(action_visible):
     # ----------------------------------初始化参数------------------------
-    def __init__(self, drivers, labelPath=None,attr = 'id'):
+    def __init__(self, drivers, labelPath=None, attr='id'):
         # 赋值浏览器
         self.drivers = drivers
         if labelPath:
-            self.setSelectData(labelPath,attr)
+            self.setSelectData(labelPath, attr)
 
-    def setSelectData(self, labelPath,attr='id'):
+    def setSelectData(self, labelPath, attr='id'):
+        print('yuansu leixing wei %s' % attr)
         if attr.lower() == 'id':
             # 找到select元素
-            print('zou id le ma')
             selectEle = self.is_visible_id(self.drivers, labelPath)
         else:
             selectEle = self.is_visible_css_selectop(self.drivers, labelPath)
@@ -153,8 +153,9 @@ class ScreeningDrop(action_visible):
                 pass
             else:
                 self.select.select_by_visible_text(text)
-        except:
-            print("This parameter is not found in the drop-down box %s" % text)
+                time.sleep(2)
+        except Exception as a :
+            print("This parameter is not found in the drop-down box %s --- %s" % (text,a))
         finally:
             return selected
 

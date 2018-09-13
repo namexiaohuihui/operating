@@ -26,21 +26,38 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: __init__.py.py
+@file: __init__.py
 @time: 2018/8/8 17:32
 @desc:
 '''
 
+def add_key(module, sheet):
+    INVENTORY['module'] = module
+    INVENTORY['sheet'] = sheet
+    return INVENTORY
 
-# 文件参数路径
-def add_key(value):
-    bulkGroup['sheet'] = value
-    return bulkGroup
 
+# 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
+customer = 'customer'
+supporters = 'supporters'
+sweating = 'sweating'
+fixedPoint = 'fixedPoint'
+confluence = 'confluence'
+dominator = 'dominator'
 
-tab = 'tab'
+# 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
+city = 'city'
 select = 'select'
-label = 'label'
-create = 'create'
+page = 'page'
+release = 'release'
+bigorders = 'bigorders'
+warktime = 'warktime'
 
-bulkGroup = {'menu': 'promote', 'module': 'bulk', 'sheet': '需要设置', 'yaml': 'expression/BulkGroup.yaml'}
+# 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
+INVENTORY = {
+    'menu': 'buyer',  # 菜单标识符的定义
+    'module': 'no data',  # 菜单中模块标识符的定义
+    'sheet': 'no data',  # 模块所对应的用例标签名
+    'yaml': 'expression/SocialBuyer.yaml'  # 菜单所对应的yaml路径
+}
+

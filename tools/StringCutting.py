@@ -176,13 +176,14 @@ def regular(str_text: str, pattern='^select') -> bool:
         return False
 
 
-def re_zip_code(str_text: str, pattern=r'[1-9]\d{5}(?!\d)'):
+def re_zip_code(str_text: str, pattern="[1-9]\d{5}(?!\d)"):
     '''
     re.search匹配整个字符串，直到找到一个匹配
     :param str_text: 需要匹配的字符
     :return:
     '''
     searchObj = re.search(pattern, str_text)
+    # searchObj = re.findall(pattern,str_text)
     # re_span = searchObj.span()  # 返回已查到的数据信息所在位置
     # searchObj = searchObj.group()  # 返回已查到的数据信息
     return searchObj.group() if searchObj else searchObj

@@ -95,10 +95,19 @@ buyer:
   fixedPoint:
     module: fixedPoint
     child: 4
+    city: 城市
+    select: 筛选
+    page: 页面
   confluence:
     module: confluence
     child: 5
+    select: 筛选
+    page: 页面
+    release: 注册
   dominator:
     module: dominator
     child: 6
+    select: 筛选
+    page: 页面
+    release: 注册
 

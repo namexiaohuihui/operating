@@ -749,7 +749,7 @@ class PANDASDATA:
                 list_max.append(list_data)
                 return list_max
         else:
-            print('你确定自己输入正确了?、、、')
+            print('openpyxlExcel 你确定自己输入正确了?、、、')
 
     def zip_col(self, df, index=1, number=None):
         '''
