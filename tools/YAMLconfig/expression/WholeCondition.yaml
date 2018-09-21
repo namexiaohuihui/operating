@@ -1,0 +1,22 @@
+tabs: .nav.nav-tabs > li                                                                              # city title
+timetype: select[name='time_type']                                                                    # time select
+timeinput: select[name='time']                                                                        # time input
+usersort: input.usersort                                                                              # order label multi-select
+choole: select[name='type']                                                                           # A lot of stuff you don't know
+status: select[name='status']                                                                         # status select
+orderkey: select[name='key']                                                                          # order is id
+orderinput: form.form-inline > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > input   # order input
+buyerkey: select[name='buyer_key']                                                                    # buyer key
+buyerinput: form.form-inline > div:nth-child(3) > div:nth-child(3) > div > div:nth-child(2) > input   # buyer input
+otherkey: select[name='other_key']                                                                    # other key
+otherinput: form.form-inline > div:nth-child(3) > div:nth-child(4) > div > div:nth-child(2) > input   # other input
+formSub: form.form-inline > div.row.orderscreen > div                                                 # button obeict
+search: 1
+export: 2
+generate: 3
+single: form.form-inline > div:nth-child(3) > div:nth-child(5) > div > div > input                    # Send a single number
+info: div.dataTables_info                                                                             # Entry instructions
+phone: input[name='phone']                                                                            # phone input
+span: input[id='userName']                                                                            # nicename show
+phoneFormBut: button[id='phoneFormBut']                                                               # Help users place orders
+modalBut: button[id='modalBut']                                                                       # cancel button

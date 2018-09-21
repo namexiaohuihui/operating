@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
                        _oo0oo_
                       o8888888o
                       88" . "88
@@ -23,29 +23,10 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
                佛祖保佑         永无BUG
-@author: 70486
-@license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
-@software: PyCharm
-@file: interactionNames.py
-@time: 2018/7/30 17:52
+@author:    ln_company
+@license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
+@Software:  PyCharm
+@file:      test_collectivelable.py
+@time:      2018/9/19 16:43
 @desc:
-'''
-
-from tools.excelname.Center.Interaction import InteractionController
-from tools.YAMLconfig import readYaml
-
-
-class InteractionNames(InteractionController):
-
-    def read_parseyaml(self, fpath, name):
-        '''
-        指定文件路径以及文件名来读取数据信息
-        :param fpath: 文件路径
-        :param name: 文件名称
-        :return:
-        '''
-        return readYaml.read_filepath(fpath, name)
-
-
-if __name__ == '__main__':
-    print(InteractionNames().read_parseyaml("totalLableNanme.yaml"))
+"""
