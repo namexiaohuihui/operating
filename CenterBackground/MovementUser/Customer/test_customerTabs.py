@@ -66,7 +66,7 @@ class TestCustomerTabs(unittest.TestCase):
 
     def test_active_tab(self):
         cust.setFunctionName(inspect.stack()[0][3])
-        cust.active_city()
+        cust.active_city('class')
         print('5',time.time() - start)
         pass
 
@@ -82,5 +82,5 @@ class TestCustomerTabs(unittest.TestCase):
 
     def test_switch_url(self):
         cust.setFunctionName(inspect.stack()[0][3])
-        cust.switch_url(reduce=self.BUTTON_REDUCE_NUMBER)
+        cust.switch_url('class',reduce=self.BUTTON_REDUCE_NUMBER)
         pass

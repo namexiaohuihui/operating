@@ -30,3 +30,43 @@
 @time:      2018/9/19 16:43
 @desc:
 """
+import os
+import inspect
+import unittest
+from CenterBackground import InteractionActions
+from CenterBackground.InteractionActions.samedayorder import SameDayOrder
+from tools.excelname.Center.Interaction import InteractionController
+
+BASENAME = os.path.splitext(os.path.basename(__file__))[0]
+config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.page)
+
+sLable = SameDayOrder(config, BASENAME, InteractionController)
+
+
+class TestCollectiveLable(unittest.TestCase):
+    def setUp(self):
+        # 获取运行文件的类名
+        self.basename = os.path.splitext(os.path.basename(__file__))[0]
+        print("%s ---setup: 每个用例开始前后执行" % self.basename)
+        # 打开浏览器，定义log日志。读取excle文档数据
+        sLable.openingProgram()
+        sLable._rou_background()
+
+    def tearDown(self):
+        sLable.driver.quit()
+        print("%s ---teardown: 每个用例结束后执行" % self.basename)
+        pass
+
+    def test_showTitle(self):
+        sLable.setFunctionName(inspect.stack()[0][3])
+        sLable.title_execute()
+        pass
+
+    def test_showSurface(self):
+        sLable.setFunctionName(inspect.stack()[0][3])
+        sLable.surface_execute()
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

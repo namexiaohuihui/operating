@@ -58,10 +58,6 @@ class CustomTabs(object):
         pass
 
     def is_visibles(self):
-        '''
-          is_visibles_css_selectop传入self并没有实际的意义,如果不传就要实例化ac对象
-          :return:
-        '''
         self.ul_li = self.ac.is_visibles_css_selectop(self.driver, self.parth)
         if type(self.ul_li) is bool:
             raise CustomTypeError("You can't find the tabs element.")
@@ -80,7 +76,8 @@ class CustomTabs(object):
 
     def active_tab(self, _class, reduce=0):
         '''
-        比较li标签的class值
+        比较li标签的class值.
+        找到li中默认展示的值
         :return:
         '''
         self.visibles_tabs(reduce)
@@ -91,6 +88,11 @@ class CustomTabs(object):
         raise CustomTypeError('active_tab: no li')
 
     def city_code(self, li):
+        """
+        切割城市的code值
+        :param li:
+        :return:
+        """
         li_a = li.find_element_by_tag_name(_att)
         li_a = li_a.get_attribute(_href)
         li_a = StringCutting.re_zip_code(li_a)
@@ -171,14 +173,14 @@ class CustomTabs(object):
 
     def judge_source_url(self, tag, reduce):
         '''
-
+        遍历点击标签元素
         :param tag: 元素标签默认值属性
         :param reduce:  需要扣除的个数
         :return:
         '''
         list_text = self.judge_citys(reduce)  # 读取全部的城市
         length = len(self.ul_li)  # 读取数据长度
-        self.visibles_tabs(reduce)
+        self.visibles_tabs(reduce) # 剔除不符合的数据
         for l in range(length):
             # 读取默认值对象的href属性
             li_a = self.ul_li[l]
@@ -186,7 +188,8 @@ class CustomTabs(object):
             if li_a.tag_name == _att:
                 pass
             else:
-                li_a = self.ul_li[l].find_element_by_tag_name(_att)
+                li_a = li_a.find_element_by_tag_name(_att)
+                # li_a = self.ul_li[l].find_element_by_tag_name(_att)
             li_a = li_a.get_attribute(_href)
             # 输入网址
             self.driver.get(li_a)

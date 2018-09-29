@@ -99,7 +99,7 @@ class ScreeningJude(JudgmentVerification):
         '''
         selectPath = self.financial[selectPath]
         op_se = self.create_select(selectPath)
-        # 获取全部的options
+        # 获取全部的options并将list格式转换成str
         op_str = op_se.options_to_str()
         ov_str = self.overall[self.bi.whole_including()]
         msg = 'Obtain all options values incorrectly %s' % selectPath

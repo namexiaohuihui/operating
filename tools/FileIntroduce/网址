@@ -42,12 +42,6 @@ https://shankargarg.wordpress.com/2016/02/25/create-an-appium-project-by-integra
 完美用例书写:
 http://www.cnblogs.com/xianjie0318/p/6512932.html
 
-虫师unittest:
-http://www.cnblogs.com/fnng/p/4662797.html
-
-测试报告HTML书写：
-http://www.cnblogs.com/AlwinXu/p/5558325.html
-
 mysql:
 https://www.techonthenet.com/mysql/exists.php
 
@@ -85,4 +79,4 @@ pycharm插件
 https://www.zhihu.com/question/37787004?sort=created
 
 json通过 *path的方式来解析
-https://pypi.python.org/pypi/jmespath,
+https://pypi.python.org/pypi/jmespath

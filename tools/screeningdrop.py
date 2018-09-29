@@ -5,9 +5,8 @@ __author__ = 'DingDong'
 @time: 2018/4/10 11:17
 """
 import time
-
+from selenium.common.exceptions import UnexpectedTagNameException
 from selenium.webdriver.support.select import Select
-
 from tools.browser_establish import browser_confirm
 from tools.operation.selenium_visible import action_visible
 
@@ -15,22 +14,30 @@ from tools.operation.selenium_visible import action_visible
 class ScreeningDrop(action_visible):
     # ----------------------------------初始化参数------------------------
     def __init__(self, drivers, labelPath=None, attr='id'):
-        # 赋值浏览器
+        """
+        创建select操作的对象
+        :param drivers:  浏览器对象
+        :param labelPath:  元素位置
+        :param attr:  元素类型：css还是id
+        """
         self.drivers = drivers
         if labelPath:
             self.setSelectData(labelPath, attr)
 
     def setSelectData(self, labelPath, attr='id'):
-        print('yuansu leixing wei %s' % attr)
-        if attr.lower() == 'id':
-            # 找到select元素
-            selectEle = self.is_visible_id(self.drivers, labelPath)
-        else:
-            selectEle = self.is_visible_css_selectop(self.drivers, labelPath)
-        self.select = Select(selectEle)
-        # 装options的数据,不创建value的容器是因为很少使用value
-        self.optionsList = []
-        return self
+        try:
+            print('yuansu leixing wei %s' % attr)
+            if attr.lower() == 'id':
+                # 找到select元素
+                selectEle = self.is_visible_id(self.drivers, labelPath)
+            else:
+                selectEle = self.is_visible_css_selectop(self.drivers, labelPath)
+            self.select = Select(selectEle)
+            # 装options的数据,不创建value的容器是因为很少使用value
+            self.optionsList = []
+            return self
+        except UnexpectedTagNameException:
+            print("The incoming element path is not a select.")
 
     # --------------------------------参数类型转换----------------------
     def options_to_str(self):
@@ -154,8 +161,8 @@ class ScreeningDrop(action_visible):
             else:
                 self.select.select_by_visible_text(text)
                 time.sleep(2)
-        except Exception as a :
-            print("This parameter is not found in the drop-down box %s --- %s" % (text,a))
+        except Exception as a:
+            print("This parameter is not found in the drop-down box %s --- %s" % (text, a))
         finally:
             return selected
 

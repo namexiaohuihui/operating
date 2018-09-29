@@ -27,7 +27,6 @@ class JudgmentVerification(ComparedVerify):
 
         # 根据init要求的yaml路径来读取该模块下全部元素路径
         self.financial = readYaml.read_expression(self.config_dist['yaml'])
-
         # 定义日志
         self.log = Log(basename)
         # 读取用例所在的位置

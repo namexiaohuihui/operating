@@ -31,8 +31,8 @@
 @desc:
 '''
 from CenterBackground import Commodities
-from CenterBackground.judeVerification import JudgmentVerification
 from CenterBackground.customTabs import CustomTabs
+from CenterBackground.judeVerification import JudgmentVerification
 
 
 class CommoditiesJude(JudgmentVerification):
@@ -41,6 +41,11 @@ class CommoditiesJude(JudgmentVerification):
     '''
 
     def __init__(self, config, basename, centerName):
+        '''
+        :param config: 头文件所在位置
+        :param basename: 执行用例的文件名
+        :param centerName: 参数定义的类对象
+        '''
         JudgmentVerification.__init__(self, config, basename)
         self.bi = centerName()
         pass

@@ -177,8 +177,13 @@ class ExcelTitle(object):
 
     def yaml_confirm(self):
         return 'confirm'
+
     def yaml_title(self):
         return 'title'
+
+    def yaml_condition(self):
+        return 'condition'
+
     #  -------------------------------------元素标签属性--------------------
     def ele_class(self):
         return 'class'

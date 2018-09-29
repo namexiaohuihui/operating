@@ -45,7 +45,7 @@ config = MovementUser.add_key(MovementUser.sweating, MovementUser.page)
 sLable = SurfaceJude(config, BASENAME, BundledItems)
 
 
-class TestStoreLable(unittest.TestCase):
+class TestSweatingLable(unittest.TestCase):
     def setUp(self):
         # 获取运行文件的类名
         self.basename = os.path.splitext(os.path.basename(__file__))[0]

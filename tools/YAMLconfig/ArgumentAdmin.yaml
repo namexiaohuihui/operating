@@ -10,13 +10,17 @@
 #      child: 7               # 模块在菜单中的位置所在
 #      create: 创建            # 用例中标签的名字
 #
-promote:
-  father: 6
-  module: bulkgroup
-  bulk:
-    module: bulk
-    child: 7
-    create: 创建
+
+indent:
+  father: 2
+  module: indent
+  collective:
+    module: collective
+    child: 1
+    city: 城市
+    select: 筛选
+    page: 页面
+    views: 查看
 
 goods:
   father: 3
