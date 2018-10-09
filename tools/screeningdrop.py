@@ -26,7 +26,6 @@ class ScreeningDrop(action_visible):
 
     def setSelectData(self, labelPath, attr='id'):
         try:
-            print('yuansu leixing wei %s' % attr)
             if attr.lower() == 'id':
                 # 找到select元素
                 selectEle = self.is_visible_id(self.drivers, labelPath)

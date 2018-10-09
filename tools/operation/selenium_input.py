@@ -65,6 +65,7 @@ class action_input(action_visible):
             self.ele_clear_keys(ele, parameter)
         else:
             self.error_log(browser)
+
     def css_input_number(self, browser, css, parameter, number=0):
         ele = self.is_visibles_css_selectop(browser, css)
         if ele != False:  # 判断是否出现
@@ -92,12 +93,26 @@ class action_input(action_visible):
         for _key, _value in combination.items():
             self.css_input(browser, _value, _key)
 
+    def ele_js_cursor_save(self, browser, ordinal, parameter):
+        """
+        先通过css找到元素,之后在通过JS对value进行写入
+        :param browser: 浏览器对象
+        :param ordinal: 需要写入元素的路径
+        :param parameter: 需要输入的对象
+        :return:
+        """
+        try:
+            ordinal = self.is_visible_css_selectop(browser, ordinal)
+            browser.execute_script("\'" + ordinal + "\'.value=\'" + parameter + "\';")
+            self.sleep_Rest()
+        except:
+            self.error_log(browser)
+
     def id_js_input(self, browser, ordinal, parameter):
-        # 通过id进行js输入
+        # 光标选择元素之后,通过id对js的value输入
         try:
             self.focus_id(browser, ordinal)
             self.id_js_cursor_save(browser, ordinal, parameter)
-            # browser.execute_script("document.getElementById(\'" + ordinal + "\').value=\'" + parameter + "\';")
             self.sleep_Rest()
             self.blur_id(browser, ordinal)
         except:

@@ -41,28 +41,28 @@ class action_click(action_visible):
 
     def id_click(self, browser, prompt):
         ele = self.is_visible_id(browser, prompt)
-        if ele != False:  # 判断是否出现
+        if ele is not False:  # 判断是否出现
             self.element_click(ele)
         else:
             self.error_log(browser)
 
     def name_click(self, browser, prompt):
         ele = self.is_visible_name(browser, prompt)
-        if ele != False:  # 判断是否出现
+        if ele is not False:  # 判断是否出现
             self.element_click(ele)
         else:
             self.error_log(browser)
 
     def xpath_click(self, browser, prompt):
         ele = self.is_visible_xpath(browser, prompt)
-        if ele != False:  # 判断是否出现
+        if ele is not False:  # 判断是否出现
             self.element_click(ele)
         else:
             self.error_log(browser)
 
     def css_click(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
-        if ele != False:  # 判断是否出现
+        if ele is not False:  # 判断是否出现
             self.element_click(ele)
         return ele
 
@@ -72,13 +72,13 @@ class action_click(action_visible):
 
     def ele_confirm_prompt(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
-        if ele != False:  # 判断是否出现
+        if ele is not False:  # 判断是否出现
             browser.execute_script("arguments[0].click();", ele)
         else:
             self.error_log(browser)
 
     def id_confirm_prompt(self, browser, prompt):
-        if self.is_visible_id(browser, prompt) != False:
+        if self.is_visible_id(browser, prompt) is not False:
             browser.execute_script("document.getElementById(\'" + prompt + "\').click();")
         else:
             function = inspect.stack()[0][3]  # 执行函数的函数名
@@ -93,7 +93,7 @@ class action_click(action_visible):
 
     def touchActions_selectop_prompt(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
-        if ele != False:
+        if ele is not False:
             self.touchActions_tap(browser, ele)
         else:
             self.error_log(browser)
@@ -128,7 +128,7 @@ class action_click(action_visible):
 
     def return_css_click(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
-        if ele != False:  # 判断是否出现
+        if ele is not False:  # 判断是否出现
             ele.click()
         else:
             self.error_log(browser)

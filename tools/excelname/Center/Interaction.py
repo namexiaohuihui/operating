@@ -81,3 +81,9 @@ class InteractionController(ExcelTitle):
 
     def yaml_modalBut(self):
         return 'modalBut'
+
+    def yaml_headersort(self):
+        return 'headersort'
+
+    def yaml_exportsort(self):
+        return 'exportsort'
