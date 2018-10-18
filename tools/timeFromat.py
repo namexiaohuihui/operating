@@ -10,6 +10,19 @@ import calendar
 import datetime
 import time
 
+today = '今日'
+yesterday = '昨日'
+seven_day = '最近7日'
+thirty_day = '最近30日'
+add_day = '全部'
+
+
+def zero_day(zero):
+    if zero == "00":
+        return "0"
+    else:
+        return zero
+
 
 class TimeFromat(object):
 
@@ -62,18 +75,119 @@ class TimeFromat(object):
         enmd = self.timeToStamp(cutting[1])
         return sttus, enmd
 
-    def today_to_stamp(self, day):
+    def value_time_start_end(self, start_time, end_time):
+        """
+        开始时间戳和结束时间戳
+        并转成时间格式
+        :param day_time:
+        :return:
+        """
+        # 将时间戳转成时间
+        start_time = time.localtime(start_time)
+        end_time = time.localtime(end_time)
+        # 拼接开始时间和结束时间,别问为什么程序设计如此
+        return start_time, end_time
+
+    def today_to_stamp(self, day=0):
+        """
+        计算指定日期开始时间戳和当天时间戳
+        :param day:  +-N
+        :return:
+        """
         # 今天日期
         today = datetime.date.today()
         yes_time = today + datetime.timedelta(days=int(day))  # 指定某天的日期
-        # print("多少天前: %s 以及最前的那天 %s" % (day, yes_time))
-        # 今天开始时间戳
+        print("多少天前: %s 以及最前的那天 %s" % (day, yes_time))
+        # 指定日期的开始时间戳
         today_start_time = int(time.mktime(time.strptime(str(yes_time), '%Y-%m-%d')))
 
-        # 今天结束时间戳(当前时间)
+        # 当前时间
         today_end_time = self.currentToStamp()
+        return today_start_time, today_end_time
+
+    def todat_to_stamp_day(self, day):
+        """
+        当前时间到N天的数据
+        :param day:  +-N
+        :return:
+        """
+        # 当前时间
+        today_end_time = self.currentToStamp()
+        # 86400为一天的秒数
+        today_start_time = today_end_time + (day * 86400)
+        return today_start_time, today_end_time
+
+    def today_to_specified(self, day=0):
+        """
+        指定某天的开始时间戳和结束时间戳
+        :param day:  +-N
+        :return:
+        """
+        # 今天日期
+        today = datetime.date.today()
+        yes_time = today + datetime.timedelta(days=int(day))  # 指定某天的日期
+        print("多少天前: %s 以及最前的那天 %s" % (day, yes_time))
+        # 指定日期的开始时间戳
+        today_start_time = int(time.mktime(time.strptime(str(yes_time), '%Y-%m-%d')))
+
+        # 某天开始时间戳+86399 = 某天结束时间的时间戳
+        today_end_time = today_start_time + 86399
 
         return today_start_time, today_end_time
+
+    def today_to_past(self, day=0):
+        """
+        过去时间到昨天范围的时间戳
+        :param day:
+        :return:
+        """
+        # 今天日期
+        today = datetime.date.today()
+
+        # 指定某天的日期
+        yes_time = today + datetime.timedelta(days=int(day))
+
+        # 指定日期的开始时间戳
+        today_start_time = int(time.mktime(time.strptime(str(yes_time), '%Y-%m-%d')))
+
+        # 昨天结束时间戳
+        today_end_time = int(
+            time.mktime(time.strptime(str(today + datetime.timedelta(days=int(-1))), '%Y-%m-%d'))) + 86399
+
+        return today_start_time, today_end_time
+
+    def day_time_date(self, day_value: str):
+        if "至" in day_value:  # 设置的时间为自定义那么直接返回,不需要进行判断
+            return day_value
+
+        if day_value == today:
+            start_time, end_time = self.today_to_stamp(0)
+            pass
+
+        elif day_value == yesterday:
+            start_time, end_time = self.today_to_specified(-1)
+            pass
+
+        elif day_value == seven_day:
+            start_time, end_time = self.todat_to_stamp_day(-6)
+            pass
+
+        elif day_value == thirty_day:
+            start_time, end_time = self.todat_to_stamp_day(-29)
+            pass
+
+        elif day_value == add_day:
+            start_time, end_time = self.todat_to_stamp_day(-365)
+
+        # 设置的时间不是为自定义时需要进行转换在返回
+        start_time, end_time = self.value_time_start_end(start_time, end_time)
+        start_time = {"year": time.strftime('%Y-%m-%d', start_time),
+                      "time": zero_day(time.strftime('%H', start_time)),
+                      "seconds": time.strftime('%M', start_time)}
+        end_time = {"year": time.strftime('%Y-%m-%d', end_time),
+                    "time": zero_day(time.strftime('%H', end_time)),
+                    "seconds": time.strftime('%M', end_time)}
+        return start_time, end_time
 
     def rizhi(self, years=0):
         '''
@@ -91,6 +205,10 @@ class TimeFromat(object):
         return y_calendar
 
     def times_format(self):
+        """
+        根据时间输出指定格式的数据
+        :return:
+        """
         format = time.strftime('%a, %d %b %y %H:%M', time.localtime())
         return format
 
@@ -115,4 +233,12 @@ class TimeFromat(object):
 
 
 if __name__ == '__main__':
-    print(TimeFromat().today_to_stamp(0))
+    seven_day = '最近7日'
+    thirty_day = '最近30日'
+    add_day = '全部'
+    ti = TimeFromat()
+    print(ti.day_time_date("昨日"))
+    # print(ti.todat_to_stamp_day(2))
+    # start, end = ti.today_to_stamp(1)
+    # print(ti.stampToTime(start))
+    # print(ti.stampToTime(end))

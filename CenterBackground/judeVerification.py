@@ -141,6 +141,7 @@ class JudgmentVerification(ComparedVerify):
         self.log.fun_name = self.FUNCTION_NAME
         # self.log.functionName(self.FUNCTION_NAME)
         # 根据df标签序号获取用例
+        self.log.info(self.overallExcelData)
         self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
         self.ti = TimeFromat()
 

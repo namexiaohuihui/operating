@@ -31,12 +31,20 @@ class ScreeningDrop(action_visible):
                 selectEle = self.is_visible_id(self.drivers, labelPath)
             else:
                 selectEle = self.is_visible_css_selectop(self.drivers, labelPath)
-            self.select = Select(selectEle)
-            # 装options的数据,不创建value的容器是因为很少使用value
-            self.optionsList = []
+            self.ele_select(selectEle)
             return self
         except UnexpectedTagNameException:
             print("The incoming element path is not a select.")
+
+    def ele_select(self, selectEle):
+        """
+        通过元素来创建下拉对象
+        :return:
+        """
+        self.select = Select(selectEle)
+        # 装options的数据,不创建value的容器是因为很少使用value
+        self.optionsList = []
+        return self
 
     # --------------------------------参数类型转换----------------------
     def options_to_str(self):
@@ -85,6 +93,7 @@ class ScreeningDrop(action_visible):
         else:
             self.__getOptions__()
             pass
+        print(self.optionsList)
         return self.optionsList
 
     def getAllValue(self):

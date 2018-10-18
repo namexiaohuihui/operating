@@ -1,0 +1,13 @@
+test_dayreplace:
+  city: 全部
+  formSub:
+    action: search
+    test: 搜索
+    parameter: True
+  del:  默认为cssselect格式来获取元素
+  condition:
+    status:
+      status:
+        type: select
+        ele: css
+        parameter: 等待配送

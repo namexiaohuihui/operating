@@ -1,6 +1,8 @@
+# 筛选条件
 tabs: .nav.nav-tabs > li                                                                              # city title
 timetype: select[name='time_type']                                                                    # time select
 timeinput: reservationtime                                                                            # time input,Be sure to get an id or you'll get an error
+timesuccess: .applyBtn.btn.btn-small.btn-sm.btn-success
 usersort: form.form-inline > div:nth-child(2) > div:nth-child(2) > div > div >label                   # order label multi-select
 labelreserve: input[name='label_reserve']
 labelnewuser: input[name='label_newuser']
@@ -33,3 +35,13 @@ modalBut: button[id='modalBut']                                                 
 
 headersort: div.headersort > div.modal-footer > span > label > input
 exportsort: button[id='exportsortBut']
+
+# 页面操作
+btnclose: .btn.btn-danger.btn-sm.prompt-confirm-btn                                                   #
+closecancel: .cancel
+closeconfirm: .sa-confirm-button-container
+btndanger: .table.table-striped > tbody > tr:nth-child(%s) > td:last-child > button
+dangercancel: div.modal-content > div.modal-footer > button.btn.btn-default
+btnreplace: .table.table-striped > tbody > tr:nth-child(%s) > td:last-child > a
+btnrecord: .table.table-striped > tbody > tr:nth-child(%s) > td:last-child > button:last-child
+closerecord: button.close

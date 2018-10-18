@@ -26,8 +26,8 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_collectiveView.py
-@time:      2018/9/27 17:25
+@file:      test_detailsorder.py
+@time:      2018/10/18 10:50
 @desc:
 """
 import os
@@ -39,12 +39,12 @@ from tools.excelname.Center.Interaction import InteractionController
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.views)
+config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.details)
 
 ovj = OperationViewJude(config, basename, InteractionController)
 
 
-class TestCollectiveView(unittest.TestCase):
+class TestDetailsOrder(unittest.TestCase):
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
         ovj.openingProgram()
@@ -56,58 +56,15 @@ class TestCollectiveView(unittest.TestCase):
         print("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_showtimetoday(self):
+    def test_daydetails(self):
         """
         查看下单时间为当天的订单
         :return:
         """
         ovj.setFunctionName(inspect.stack()[0][3])
         ovj.release_success()
-        pass
-
-    def test_yesterdayorder(self):
-        """
-        查看下单时间为昨天的订单
-        :return:
-        """
-        ovj.setFunctionName(inspect.stack()[0][3])
-        ovj.release_success()
-        pass
-
-    def test_sevendayorder(self):
-        """
-        查看下单时间为七天的订单
-        :return:
-        """
-        ovj.setFunctionName(inspect.stack()[0][3])
-        ovj.release_success()
-        pass
-
-    def test_thirtydayorder(self):
-        """
-        查看下单时间为30的订单
-        :return:
-        """
-        ovj.setFunctionName(inspect.stack()[0][3])
-        ovj.release_success()
-        pass
-
-    def test_yeardayorder(self):
-        """
-        查看下单时间为全部的订单
-        :return:
-        """
-        ovj.setFunctionName(inspect.stack()[0][3])
-        ovj.release_success()
-        pass
-
-    def test_customtoday(self):
-        """
-        查看下单时间为自定义的订单
-        :return:
-        """
-        ovj.setFunctionName(inspect.stack()[0][3])
-        ovj.release_success()
+        # 找到td通过子元素的text来找到信息
+        ovj.details_order_types()
         pass
 
 

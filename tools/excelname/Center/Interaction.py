@@ -28,6 +28,9 @@ class InteractionController(ExcelTitle):
     def yaml_timeinput(self):
         return 'timeinput'
 
+    def yaml_timesuccess(self):
+        return 'timesuccess'
+
     def yaml_usersort(self):
         return 'usersort'
 
@@ -87,3 +90,27 @@ class InteractionController(ExcelTitle):
 
     def yaml_exportsort(self):
         return 'exportsort'
+
+    def yaml_btnclose(self):
+        return 'btnclose'
+
+    def yaml_closecancel(self):
+        return 'closecancel'
+
+    def yaml_closeconfirm(self):
+        return 'closeconfirm'
+
+    def yaml_btndanger(self):
+        return 'btndanger'
+
+    def yaml_dangercancel(self):
+        return 'dangercancel'
+
+    def yaml_btnreplace(self):
+        return 'btnreplace'
+
+    def yaml_btnrecord(self):
+        return 'btnrecord'
+
+    def yaml_closerecord(self):
+        return 'closerecord'
