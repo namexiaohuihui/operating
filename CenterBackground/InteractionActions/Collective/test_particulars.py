@@ -26,8 +26,8 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_detailsorder.py
-@time:      2018/10/18 10:50
+@file:      test_particulars.py
+@time:      2018/10/19 11:40
 @desc:
 """
 import os
@@ -39,35 +39,57 @@ from tools.excelname.Center.Interaction import InteractionController
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.details)
-details_o = OperationViewJude(config, basename, InteractionController)
-print("--------------")
-print(config)
-print(details_o)
-print("--------------")
+config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.particulars)
+parti_c = OperationViewJude(config, basename, InteractionController)
 
 
-class TestDetailsOrder(unittest.TestCase):
+class TestParticulars(unittest.TestCase):
+    """
+    记录
+    """
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        details_o.openingProgram()
-        details_o._rou_background()
+        parti_c.openingProgram()
+        parti_c._rou_background()
         print("%s ---setup: 每个用例开始前后执行" % basename)
 
     def tearDown(self):
-        details_o.driver.close()
+        parti_c.driver.close()
         print("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_daydetails(self):
+    def test_closecancel(self):
         """
-        查看下单时间为当天的订单
+        详情页面点击关闭
         :return:
         """
-        details_o.setFunctionName(inspect.stack()[0][3])
-        details_o.release_success()
-        # 找到td通过子元素的text来找到信息
-        details_o.details_order_types()
+        parti_c.setFunctionName(inspect.stack()[0][3])
+        parti_c.release_success()
+        parti_c.details_order_types()
+        parti_c.close_cancel()
+        pass
+
+    def test_appointmentcancel(self):
+        """
+        详情页面点击转预约
+        :return:
+        """
+        parti_c.setFunctionName(inspect.stack()[0][3])
+        parti_c.release_success()
+        parti_c.details_order_types()
+        parti_c.appointmen_cancel()
+        pass
+
+    def test_replacecancel(self):
+        """
+        详情页面点击关闭更换
+        :return:
+        """
+        parti_c.setFunctionName(inspect.stack()[0][3])
+        parti_c.release_success()
+        parti_c.details_order_types()
+        parti_c.replace_cancel()
         pass
 
 

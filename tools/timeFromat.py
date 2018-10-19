@@ -156,11 +156,14 @@ class TimeFromat(object):
 
         return today_start_time, today_end_time
 
-    def day_time_date(self, day_value: str):
+    def day_time_date(self, day_value):
         if "至" in day_value:  # 设置的时间为自定义那么直接返回,不需要进行判断
-            return day_value
+            day_value = str.split(day_value, "至")
+            day_value = [t.rstrip().lstrip() for t in day_value]
+            start_time = self.timeToStamp(day_value[0])
+            end_time = self.timeToStamp(day_value[1])
 
-        if day_value == today:
+        elif day_value == today:
             start_time, end_time = self.today_to_stamp(0)
             pass
 
@@ -187,6 +190,8 @@ class TimeFromat(object):
         end_time = {"year": time.strftime('%Y-%m-%d', end_time),
                     "time": zero_day(time.strftime('%H', end_time)),
                     "seconds": time.strftime('%M', end_time)}
+        print(start_time)
+        print(end_time)
         return start_time, end_time
 
     def rizhi(self, years=0):
@@ -233,12 +238,12 @@ class TimeFromat(object):
 
 
 if __name__ == '__main__':
-    seven_day = '最近7日'
-    thirty_day = '最近30日'
-    add_day = '全部'
-    ti = TimeFromat()
-    print(ti.day_time_date("昨日"))
-    # print(ti.todat_to_stamp_day(2))
-    # start, end = ti.today_to_stamp(1)
-    # print(ti.stampToTime(start))
-    # print(ti.stampToTime(end))
+    time1 = "2018-07-28 11:55:09 至 2018-07-28 11:55:09"
+    time1 = str.split(time1, "至")
+    print(time1)
+    ti1 = TimeFromat()
+    time1 = [t.rstrip().lstrip() for t in time1]
+    t2 = ti1.timeToStamp(time1[0])
+    t3 = ti1.timeToStamp(time1[1])
+    print(t2)
+    print(t3)

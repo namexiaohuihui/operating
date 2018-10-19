@@ -114,3 +114,6 @@ class InteractionController(ExcelTitle):
 
     def yaml_closerecord(self):
         return 'closerecord'
+
+    def yaml_handle(self):
+        return 'handle'

@@ -33,26 +33,29 @@
 import os
 import inspect
 import unittest
-from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 from CenterBackground import InteractionActions
+from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 from tools.excelname.Center.Interaction import InteractionController
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
 config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.close)
-
-ovj = OperationViewJude(config, basename, InteractionController)
+close_o = OperationViewJude(config, basename, InteractionController)
+print("--------------")
+print(config)
+print(close_o)
+print("--------------")
 
 
 class TestCloseOrder(unittest.TestCase):
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        ovj.openingProgram()
-        ovj._rou_background()
+        close_o.openingProgram()
+        close_o._rou_background()
         print("%s ---setup: 每个用例开始前后执行" % basename)
 
     def tearDown(self):
-        ovj.driver.close()
+        close_o.driver.close()
         print("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
@@ -61,9 +64,9 @@ class TestCloseOrder(unittest.TestCase):
         查看下单时间为当天的订单
         :return:
         """
-        ovj.setFunctionName(inspect.stack()[0][3])
-        ovj.release_success()
-        ovj.close_order_types()
+        close_o.setFunctionName(inspect.stack()[0][3])
+        close_o.release_success()
+        close_o.close_order_types()
         pass
 
 

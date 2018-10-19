@@ -37,11 +37,14 @@ headersort: div.headersort > div.modal-footer > span > label > input
 exportsort: button[id='exportsortBut']
 
 # 页面操作
-btnclose: .btn.btn-danger.btn-sm.prompt-confirm-btn                                                   #
-closecancel: .cancel
-closeconfirm: .sa-confirm-button-container
-btndanger: .table.table-striped > tbody > tr:nth-child(%s) > td:last-child > button
-dangercancel: div.modal-content > div.modal-footer > button.btn.btn-default
-btnreplace: .table.table-striped > tbody > tr:nth-child(%s) > td:last-child > a
-btnrecord: .table.table-striped > tbody > tr:nth-child(%s) > td:last-child > button:last-child
+btnclose: .btn.btn-danger.btn-sm.prompt-confirm-btn                                                   # close windows
+closecancel: .cancel                                                                                  # cancel close windows
+closeconfirm: .sa-confirm-button-container                                                            # determine close windows
+btndanger: .table.table-striped > tbody > tr:nth-child(%s) > td:last-child > button                   # zhuan yuyue and genghuan
+dangercancel: div.modal-content > div.modal-footer > button.btn.btn-default                           # zhuan yuyue and genghuan de quxaio button
+btnreplace: .table.table-striped > tbody > tr:nth-child(%s) > td:last-child > a                       # chakan xiangqing
+btnrecord: .table.table-striped > tbody > tr:nth-child(%s) > td:last-child > button:last-child        # dingdan jilu
 closerecord: button.close
+
+# 明细操作
+handle: .estate > button                                                                              # zhuan yuyue and genghuan

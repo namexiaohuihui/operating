@@ -14,6 +14,7 @@ def add_key(module, sheet):
 
 # 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
 collective = 'collective'
+single = 'single'
 
 # 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
 city = 'city'
@@ -25,6 +26,7 @@ transfer = 'transfer'
 replace = 'replace'
 details = 'details'
 record = 'record'
+particulars = 'particulars'
 
 # 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
 INVENTORY = {

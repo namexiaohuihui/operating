@@ -85,7 +85,7 @@ def transformation_upper_lower(str, bl):
         str = str.upper()
     else:
         str = str.lower()
-    return str;
+    return str
 
 
 # 在str中追加ing内容。n为追加的长度
@@ -93,19 +93,19 @@ def additional_len(str, ing, n=0):
     if n == 0:
         n = len(ing)
     str += ing[0:n]
-    return str;
+    return str
 
 
 # str中将n之前的数据替换成ch，m为需要多少个ch
 def replace_specified(str, ch, n=0, m=1):
     str = n * ch + str[m:]
-    return str;
+    return str
 
 
 # 翻转字符串
 def string_flip(str):
     str = str[::-1]
-    return str;
+    return str
 
 
 # 在str数组中将ing的进行替换
@@ -116,12 +116,12 @@ def string_join(str, ing):
 
 # 将s中的字符和数字在fomart中出现过的全部筛选出
 def OnlyCharNum(s):
-    s2 = s.lower();
+    s2 = s.lower()
     fomart = 'abcdefghijklmnopqrstuvwxyz0123456789'
     for c in s2:
         if not c in fomart:
-            s = s.replace(c, '');
-    return s;
+            s = s.replace(c, '')
+    return s
 
 
 # len：返回字符串、列表、字典、元组等长度
@@ -129,7 +129,7 @@ def OnlyCharNum(s):
 # list() 函数是对象迭代器，把对象转为一个列表。返回的变量类型为列表。
 def thleng(str):
     kk = len(str)
-    return kk;
+    return kk
 
 
 # range(x):表示从0到x，不包括x
@@ -144,7 +144,7 @@ def range_range(msg=0, para=99):
 # 传入需要提取的参数。正则将非数字的其他字符全部替换。然后将替换之后的数字返回
 def extract_number(visible, extract=""):
     matchObj = re.sub("\D", "", visible)
-    return matchObj;
+    return matchObj
 
 
 # 退出时来个提示,一般主程序中使用此退出.

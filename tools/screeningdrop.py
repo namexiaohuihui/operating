@@ -168,7 +168,7 @@ class ScreeningDrop(action_visible):
                 pass
             else:
                 self.select.select_by_visible_text(text)
-                time.sleep(2)
+                time.sleep(1)
         except Exception as a:
             print("This parameter is not found in the drop-down box %s --- %s" % (text, a))
         finally:

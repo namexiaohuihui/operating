@@ -216,7 +216,7 @@ class OperationViewJude(JudgmentVerification):
             _close = self.financial[self.bi.yaml_closecancel()]
             self.vac.css_click(self.driver, _close)
         else:
-            print("没有关闭按钮")
+            self.log.info("没有关闭按钮")
 
     def transfer_order_types(self):
         """
@@ -225,7 +225,6 @@ class OperationViewJude(JudgmentVerification):
         """
         # 找到转预约按钮
         _transfer = self.financial[self.bi.yaml_btndanger()] % 1
-        print(_transfer)
         _transfer = self.vac.is_visibles_css_selectop(self.driver, _transfer)
         if _transfer:
             # 关闭弹窗
@@ -235,8 +234,9 @@ class OperationViewJude(JudgmentVerification):
                     self.vac.element_click(tr)
                     cancel = self.financial[self.bi.yaml_dangercancel()]
                     self.vac.css_click(self.driver, cancel)
+                    break
                 else:
-                    self.log.info("no appear To make an appointment to")
+                    self.log.info("no appear To make an appointment to %s:" % tr.text)
             else:
                 self.log.info("没有转预约按钮")
 
@@ -257,8 +257,9 @@ class OperationViewJude(JudgmentVerification):
                     self.vac.element_click(tr)
                     cancel = self.financial[self.bi.yaml_dangercancel()]
                     self.vac.css_click(self.driver, cancel)
+                    break
                 else:
-                    self.log.info("no appear Change of delivery man")
+                    self.log.info("no appear Change of delivery man %s:" % tr.text)
         else:
             self.log.info("没有更换配送员按钮")
 
@@ -271,7 +272,6 @@ class OperationViewJude(JudgmentVerification):
         _details = self.financial[self.bi.yaml_btnreplace()] % 1
         _details = self.vac.css_click(self.driver, _details)
         if _details:
-            # 返回上一页
             if self.vac.is_visible_css_selectop(self.driver, ".page-header").text == "订单明细":
                 self.log.info("订单明细 yes")
             else:
@@ -294,3 +294,54 @@ class OperationViewJude(JudgmentVerification):
             self.vac.css_click(self.driver, _record)
         else:
             self.log.info("没有记录按钮")
+        pass
+
+    def close_cancel(self):
+        _close = self.financial[self.bi.yaml_btnclose()]
+        _close = self.vac.css_click(self.driver, _close)
+        if _close:
+            # 关闭弹窗
+            _close = self.financial[self.bi.yaml_closecancel()]
+            self.vac.sleep_Rest(3)
+            self.vac.css_click(self.driver, _close)
+        else:
+            self.log.info("详情页面没有关闭按钮")
+        pass
+
+    def appointmen_cancel(self):
+        _transfer = self.financial[self.bi.yaml_handle()]
+        _transfer = self.vac.is_visibles_css_selectop(self.driver, _transfer)
+        if _transfer:
+            # 转预约
+            for tr in _transfer:
+                if tr.text == "转预约":
+                    self.log.info("click order %s " % tr.text)
+                    self.vac.element_click(tr)
+                    self.vac.sleep_Rest(3)
+                    cancel = self.financial[self.bi.yaml_dangercancel()]
+                    self.vac.css_click(self.driver, cancel)
+                    break
+                else:
+                    self.log.info("no appointmen_cancel To make an appointment to %s:" % tr.text)
+            else:
+                self.log.info("详情页面没有转预约按钮")
+        pass
+
+    def replace_cancel(self):
+        _transfer = self.financial[self.bi.yaml_handle()]
+        _transfer = self.vac.is_visibles_css_selectop(self.driver, _transfer)
+        if _transfer:
+            # 更换
+            for tr in _transfer:
+                if tr.text == "更换配送员":
+                    self.log.info("click order %s " % tr.text)
+                    self.vac.element_click(tr)
+                    self.vac.sleep_Rest(3)
+                    cancel = self.financial[self.bi.yaml_dangercancel()]
+                    self.vac.css_click(self.driver, cancel)
+                    break
+                else:
+                    self.log.info("no appear To make an appointment to %s:" % tr.text)
+            else:
+                self.log.info("详情页面没有更换按钮")
+        pass

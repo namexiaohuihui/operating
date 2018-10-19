@@ -31,8 +31,9 @@
 @desc:
 """
 import time
+
 start = time.time()
-print('1',start)
+print('1', start)
 import os
 import inspect
 import unittest
@@ -46,7 +47,13 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.city)
 cust = CommoditiesJude(config, basename, InteractionController)
 
-print('3',time.time() - start)
+print('3', time.time() - start)
+print("--------------")
+print(config)
+print(cust)
+print("--------------")
+
+
 class TestCollectiveTabs(unittest.TestCase):
     # 定义头部button中，后面2位不需要
     BUTTON_REDUCE_NUMBER = 0
@@ -55,7 +62,7 @@ class TestCollectiveTabs(unittest.TestCase):
         # 打开浏览器，定义log日志。读取excle文档数据
         cust.openingProgram()
         cust._rou_background()
-        print('4',time.time() - start)
+        print('4', time.time() - start)
         print("%s ---setup: 每个用例开始前后执行" % basename)
 
     def tearDown(self):
@@ -67,7 +74,7 @@ class TestCollectiveTabs(unittest.TestCase):
     def test_active_tab(self):
         cust.setFunctionName(inspect.stack()[0][3])
         cust.active_city('class')
-        print('5',time.time() - start)
+        print('5', time.time() - start)
         pass
 
     def test_already_tabs(self):
@@ -82,5 +89,5 @@ class TestCollectiveTabs(unittest.TestCase):
 
     def test_switch_url(self):
         cust.setFunctionName(inspect.stack()[0][3])
-        cust.switch_url('class',reduce=self.BUTTON_REDUCE_NUMBER)
+        cust.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass

@@ -24,20 +24,21 @@ class ComparedVerify(object):
     vac = action_click()
     vai = action_input()
 
-    def __new__(cls, *args, **kw):
-        """
-        单例类判断。如果该类创建过就不需要重新创建了
-        单例类的用法：
-        用于连接两个类之间的数据数据。
-        通过第三方来传递信息
-        :param args:
-        :param kw:
-        :return:
-        """
-        if not hasattr(cls, '_instance'):
-            orig = super(ComparedVerify, cls)
-            cls._instance = orig.__new__(cls)
-        return cls._instance
+    # def __new__(cls, *args, **kw):
+    #     """
+    #     不能用单例类:一旦使用了单例类那么子类都是单类的形式
+    #     单例类判断。如果该类创建过就不需要重新创建了
+    #     单例类的用法：
+    #     用于连接两个类之间的数据数据。
+    #     通过第三方来传递信息
+    #     :param args:
+    #     :param kw:
+    #     :return:
+    #     """
+    #     if not hasattr(cls, '_instance'):
+    #         orig = super(ComparedVerify, cls)
+    #         cls._instance = orig.__new__(cls)
+    #     return cls._instance
 
     # 在字符串str查找ing出现的位置.从number下标开始找,返回-1表示找不到
     def string_lookup_find(self, str, ing, number=0):
