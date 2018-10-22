@@ -35,6 +35,7 @@ import time
 import os
 import inspect
 import unittest
+from CenterBackground import customTabs
 from CenterBackground import InteractionActions
 from CenterBackground.commoditiesJude import CommoditiesJude
 from tools.excelname.Center.Interaction import InteractionController
@@ -44,7 +45,7 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.single, InteractionActions.city)
+config = InteractionActions.add_key(InteractionActions.dispatch, InteractionActions.city)
 sw_tab = CommoditiesJude(config, basename, InteractionController)
 
 
@@ -87,16 +88,22 @@ class TestCollectiveTabs(unittest.TestCase):
         sw_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
-
     def test_active_box(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.active_city(customTabs._class)
+        """
+        进入默认的box
+        :return:
+        """
+        sw_tab.setFunctionName(inspect.stack()[0][3])
+        sw_tab.active_city(customTabs._class)
         pass
 
-
-    def test_active_all(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.already_citys()
+    def test_active_switch(self):
+        """
+        切换box
+        :return:
+        """
+        sw_tab.setFunctionName(inspect.stack()[0][3])
+        sw_tab.switch_city()
         pass
 
 

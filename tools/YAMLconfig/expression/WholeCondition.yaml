@@ -51,3 +51,12 @@ handle: .estate > button                                                        
 
 
 # Scheduling box-city
+box: .box-city > a                                                                                    # box-city switch
+disorderI: form.form-inline > div:nth-child(4) > div:nth-child(1) > div > div:nth-child(2) > input
+disbuyerI: form.form-inline > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > input
+deliverykey: select[name='deliveryman_key']
+disdeliveryI: form.form-inline > div:nth-child(4) > div:nth-child(3) > div > div:nth-child(2) > input
+dissingleI: form.form-inline > div:nth-child(4) > div:nth-child(4) > div > div > input
+
+
+disusersort: form.form-inline > div:nth-child(3) > div:nth-child(2) > div > div > span

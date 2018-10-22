@@ -51,23 +51,37 @@ class CommoditiesJude(JudgmentVerification):
         pass
 
     def custom_tabs(self):
-        try:
-            keys = self.overall[self.bi.whole_keys()]
-            self.ct = CustomTabs(self.driver, self.financial[keys])
-        finally:
-            return self.ct
+        """
+        统一实例化city操作对象
+        :return:
+        """
+        # 读取元素的类型
+        keys = self.overall[self.bi.whole_keys()]
+        # 根据类型读取相应的数据信息
+        self.ct = CustomTabs(self.driver, self.financial[keys])
+        return self.ct
 
-    def active_city(self,tag):
+    def active_city(self, tag):
+        """
+        比较默认显示的模块
+        :param tag:
+        :return:
+        """
         ov_default = self.overall[self.bi.whole_city()]
         self.custom_tabs().judge_city(tag, ov_default)
         pass
 
-    def active_code(self,tag):
+    def active_code(self, tag):
         ov_default = self.overall[self.bi.whole_code()]
         self.custom_tabs().judge_code(tag, ov_default)
         pass
 
     def already_citys(self, reduce=0):
+        """
+        读取全部city的数据信息
+        :param reduce:
+        :return:
+        """
         self.custom_tabs().judge_citys(reduce=reduce)
         pass
 
@@ -76,9 +90,20 @@ class CommoditiesJude(JudgmentVerification):
         pass
 
     def switch_city(self, reduce=0):
+        """
+        循环点击city/box出现的项
+        :param reduce:
+        :return:
+        """
         self.custom_tabs().judge_source(reduce=reduce)
         pass
 
-    def switch_url(self,tag, reduce=0):
+    def switch_url(self, tag, reduce=0):
+        """
+        解析city/box绑定连接,利用url原理循环进入
+        :param tag:
+        :param reduce:
+        :return:
+        """
         self.custom_tabs().judge_source_url(tag, reduce=reduce)
         pass

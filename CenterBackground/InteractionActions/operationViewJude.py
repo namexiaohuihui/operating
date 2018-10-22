@@ -251,7 +251,6 @@ class OperationViewJude(JudgmentVerification):
         """
         # 找到更换配送员按钮
         _transfer = self.financial[self.bi.yaml_btndanger()] % 1
-        print(_transfer)
         _transfer = self.vac.is_visibles_css_selectop(self.driver, _transfer)
         if _transfer:
             # 更换配送员弹窗

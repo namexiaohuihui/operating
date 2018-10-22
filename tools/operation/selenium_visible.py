@@ -154,13 +154,18 @@ class action_visible(object):
             return False
 
     def _visible_selectop_text(self, driver, locator, timeout=5):
-        # 判断元素是否存在，如果存在就进行获取元素的text属性
-        try:
-            _ele = self.is_visible_css_selectop(driver, locator, timeout)
-            text = _ele.text
-            return text
-        except TimeoutException:
-            return False
+        """
+        判断元素是否存在，如果存在就进行获取元素的text属性
+        :param driver:  浏览器对象
+        :param locator: 元素路径
+        :param timeout: 超时时间
+        :return:
+        """
+        _ele = self.is_visible_css_selectop(driver, locator, timeout)
+        if _ele:
+            return _ele.text
+        else:
+            return _ele
 
     # --------------------------其他一些等待条件的使用-----------------
     def _visible_text_css(self, driver, locator, text, timeout=5):

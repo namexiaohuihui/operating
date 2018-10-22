@@ -117,3 +117,24 @@ class InteractionController(ExcelTitle):
 
     def yaml_handle(self):
         return 'handle'
+
+    def yaml_box(self):
+        return 'box'
+
+    def yaml_disorderI(self):
+        return 'disorderI'
+
+    def yaml_disbuyerI(self):
+        return 'disbuyerI'
+
+    def yaml_deliverykey(self):
+        return 'deliverykey'
+
+    def yaml_disdeliveryI(self):
+        return 'disdeliveryI'
+
+    def yaml_dissingleI(self):
+        return 'dissingleI'
+
+    def yaml_disusersort(self):
+        return 'disusersort'

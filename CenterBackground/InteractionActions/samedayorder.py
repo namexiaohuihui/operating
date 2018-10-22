@@ -78,28 +78,31 @@ class SameDayOrder(SurfaceJude):
 
     def surface_execute(self):
         pages = self.info_number()  # 获取into的总数据信息
-        self.log.info('There is data that needs to be paged: %s' % pages)
+        if pages:
+            self.log.info('There is data that needs to be paged: %s' % pages)
 
-        self.tbody_list = []
-        self.threads = []
-        thead_tr = self.success_execute()
+            self.tbody_list = []
+            self.threads = []
+            thead_tr = self.success_execute()
 
-        queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
-        # 对当前url进行切割
-        current = self.driver.current_url
-        # current = str.split(current, '?', 1)
-        # together = current[1].split('&', 1)
+            queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
+            # 对当前url进行切割
+            current = self.driver.current_url
+            # current = str.split(current, '?', 1)
+            # together = current[1].split('&', 1)
 
-        for qe in range(1, 3):
-            # url = current[0] + '?page={}&'.format(qe) + together[1]
-            url = current + '?page={}&'.format(qe)
-            thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
-            thread.setDaemon(True)
-            thread.start()
-            self.threads.append(thread)
-            time.sleep(1)
+            for qe in range(1, 3):
+                # url = current[0] + '?page={}&'.format(qe) + together[1]
+                url = current + '?page={}&'.format(qe)
+                thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
+                thread.setDaemon(True)
+                thread.start()
+                self.threads.append(thread)
+                time.sleep(1)
 
-        for th in self.threads:
-            th.join()
-            pass
+            for th in self.threads:
+                th.join()
+                pass
+        else:
+            self.log.info("label no data !.....")
         pass

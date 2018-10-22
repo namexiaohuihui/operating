@@ -39,7 +39,7 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.dispatch, InteractionActions.select)
+config = InteractionActions.add_key(InteractionActions.single, InteractionActions.select)
 
 slVerity = SelectLableVerify(config, basename, InteractionController)
 
@@ -73,6 +73,23 @@ class TestCollectiveScreen(unittest.TestCase):
         pass
 
     def test_timetypeTraverse(self):
+        slVerity.setFunctionName(inspect.stack()[0][3])
+        slVerity.value_option_traverse(formSub=slVerity.bi.yaml_formSub(),
+                                       selectPath=slVerity.overall[slVerity.bi.whole_keys()])
+        pass
+
+    # －－－－－－－－－－－－－－－－－－－－－－－－其他－－－－－－－－－－－－－－－－－－－－－－－－－－
+    def test_chooseSelect(self):
+        slVerity.setFunctionName(inspect.stack()[0][3])
+        slVerity.value_options_jude(selectPath=slVerity.overall[slVerity.bi.whole_keys()])
+        pass
+
+    def test_chooseDefault(self):
+        slVerity.setFunctionName(inspect.stack()[0][3])
+        slVerity.value_options_default(selectPath=slVerity.overall[slVerity.bi.whole_keys()])
+        pass
+
+    def test_chooseTraverse(self):
         slVerity.setFunctionName(inspect.stack()[0][3])
         slVerity.value_option_traverse(formSub=slVerity.bi.yaml_formSub(),
                                        selectPath=slVerity.overall[slVerity.bi.whole_keys()])
@@ -112,18 +129,18 @@ class TestCollectiveScreen(unittest.TestCase):
                                        selectPath=slVerity.overall[slVerity.bi.whole_keys()])
         pass
 
-    # －－－－－－－－－－－－－－－－－－－－－－－－配送－－－－－－－－－－－－－－－－－－－－－－－－－－
-    def test_deliverySelect(self):
+    # －－－－－－－－－－－－－－－－－－－－－－－－键值－－－－－－－－－－－－－－－－－－－－－－－－－－
+    def test_otherkeySelect(self):
         slVerity.setFunctionName(inspect.stack()[0][3])
         slVerity.value_options_jude(selectPath=slVerity.overall[slVerity.bi.whole_keys()])
         pass
 
-    def test_deliveryDefault(self):
+    def test_otherkeyDefault(self):
         slVerity.setFunctionName(inspect.stack()[0][3])
         slVerity.value_options_default(selectPath=slVerity.overall[slVerity.bi.whole_keys()])
         pass
 
-    def test_deliveryTraverse(self):
+    def test_otherkeyTraverse(self):
         slVerity.setFunctionName(inspect.stack()[0][3])
         slVerity.value_option_traverse(formSub=slVerity.bi.yaml_formSub(),
                                        selectPath=slVerity.overall[slVerity.bi.whole_keys()])
@@ -162,12 +179,7 @@ class TestCollectiveScreen(unittest.TestCase):
         slVerity.attribute_value()
         pass
 
-    def test_deliveryInput(self):
-        slVerity.setFunctionName(inspect.stack()[0][3])
-        slVerity.attribute_value()
-        pass
-
-    def test_singleInput(self):
+    def test_otherInput(self):
         slVerity.setFunctionName(inspect.stack()[0][3])
         slVerity.attribute_value()
         pass

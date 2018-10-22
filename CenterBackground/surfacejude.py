@@ -65,15 +65,18 @@ class SurfaceJude(JudgmentVerification):
     def info_number(self):
         # 读取info的数据并把int数据切割
         info_text = self._visible_css_selectop_text(self.financial[self.bi.yaml_info()])
-        pages = str.split(info_text, '，')[-1]
+        if info_text:
+            pages = str.split(info_text, '，')[-1]
 
-        pages = int(StringCutting.re_zip_code(pages, "\d+"))
-        if (pages % 10) > 0:
-            number = 1
+            pages = int(StringCutting.re_zip_code(pages, "\d+"))
+            if (pages % 10) > 0:
+                number = 1
+            else:
+                number = 0
+            pages = int((pages / 10)) + number
+            return pages
         else:
-            number = 0
-        pages = int((pages / 10)) + number
-        return pages
+            return info_text
 
     def traverseYield(self, thead_tr, tbody_class):
         '''

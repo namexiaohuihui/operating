@@ -54,8 +54,8 @@ class SelectLableVerify(ScreeningJude):
         # 找到页面数据
         obj_lable = self.overall[self.bi.whole_keys()]
         obj_lable = self.financial[obj_lable]
-
         obj_lable = [la.text.replace(" ", "") for la in self.vac.is_visibles_css_selectop(self.driver, obj_lable)]
+
         # 读取用户数据
         ov_str = self.overall[self.bi.whole_including()]
         ov_str = ov_str.split(',')

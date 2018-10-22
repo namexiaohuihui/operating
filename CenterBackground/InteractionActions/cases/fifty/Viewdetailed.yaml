@@ -115,6 +115,10 @@ test_customtoday:
               type: checkbox
               ele: css
               parameter: True
+          labelwatiki:
+              type: checkbox
+              ele: css
+              parameter: False
       areas:
           manager:
               type: select
@@ -128,12 +132,17 @@ test_customtoday:
               type: select
               ele: css
               parameter: 铁道站
+      status:
+          choose:
+              type: select
+              ele: css
+              parameter: 店铺
       orders:
           orderkey:
               type: select
               ele: css
               parameter: 商品ID
-          disorderI:
+          orderinput:
               type: input
               ele: css
               parameter: 大野支援上路
@@ -142,21 +151,16 @@ test_customtoday:
               type: select
               ele: css
               parameter: 收货人手机
-          disbuyerI:
+          buyerinput:
               type: input
               ele: css
               parameter: 大野支援中路
-      delivery:
-          deliverykey:
+      others:
+          otherkey:
               type: select
               ele: css
-              parameter: 配送员ID
-          disdeliveryI:
+              parameter: 供应商ID
+          otherinput:
               type: input
               ele: css
               parameter: 大野支援下路
-      single:
-          dissingleI:
-              type: input
-              ele: css
-              parameter: 我的野被反了

@@ -52,6 +52,11 @@ class CustomTabs(object):
     '''
 
     def __init__(self, driver, parth):
+        """
+        初始化对象
+        :param driver:
+        :param parth:  元素路径
+        """
         self.driver = driver
         self.parth = parth
         self.ac = action_click()
@@ -180,7 +185,7 @@ class CustomTabs(object):
         '''
         list_text = self.judge_citys(reduce)  # 读取全部的城市
         length = len(self.ul_li)  # 读取数据长度
-        self.visibles_tabs(reduce) # 剔除不符合的数据
+        self.visibles_tabs(reduce)  # 剔除不符合的数据
         for l in range(length):
             # 读取默认值对象的href属性
             li_a = self.ul_li[l]
@@ -242,6 +247,7 @@ class CustomTabs(object):
         print('moren', ct_default, type(ct_default))
         print('duqu', ov_default, type(ov_default))
         print("--------------------------------")
+        # 暂时先这样,因为把统计数也加到里面去了
         assert operator.eq(ct_default, ov_default), mesg
         pass
 
