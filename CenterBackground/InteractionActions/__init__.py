@@ -3,10 +3,17 @@ __author__ = 'DingDong'
 """
 @file: __init__.py
 @time: 2018/5/24 16:49
+file keys Defined in the
 """
 
 
-def add_key(module, sheet):
+def add_key(module: str, sheet: str):
+    """
+    set dict module and sheet in value
+    :param module:
+    :param sheet:
+    :return:
+    """
     INVENTORY['module'] = module
     INVENTORY['sheet'] = sheet
     return INVENTORY
@@ -15,6 +22,7 @@ def add_key(module, sheet):
 # 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
 collective = 'collective'
 single = 'single'
+dispatch = 'dispatch'
 
 # 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
 city = 'city'

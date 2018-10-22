@@ -74,3 +74,55 @@ def read_parseyaml(yaml_file_path):
             page = yaml.load(f)
             pageElements.update(page)
     return pageElements
+
+# ll = r"E:\operating\CenterBackground\InteractionActions\cases\single\Viewdetailed.yaml"
+# pageElements = read_parseyaml(ll)
+# print(pageElements)
+
+
+def df_conversion(self, df, data_type='itertuples'):
+    '''
+    df转换成list的方法，然后给excle输入
+    :param df: 通过pandas转换出来的df数据
+    :param data_type: 指定转换的方法
+    :return:
+    '''
+    """
+    data_type是判断你需要那类方式:运行效率
+    itertuples > enumerate > iterrows > range(index)/iloc
+    """
+    if data_type == 'enumerate':
+        list_max = []
+        for i, row in enumerate(df.values):
+            list_data = []
+            for r in row:
+                list_data.append(r.value)
+            list_max.append(list_data)
+            return list_max
+    elif data_type == 'iterrows':
+        list_max = []
+        for i, row in df.iterrows():
+            list_data = []
+            for r in row:
+                list_data.append(r.value)
+            list_max.append(list_data)
+            return list_max
+    elif data_type == 'itertuples':
+        list_max = []
+        for row in df.itertuples():
+            list_data = []
+            for r in range(1, len(row)):
+                list_data.append(row[r].value)
+            list_max.append(list_data)
+            return list_max
+    elif data_type == 'iloc':
+        list_max = []
+        for number in range(len(df)):
+            list_data = []
+            row = df.iloc[number]
+            for r in range(len(row)):
+                list_data.append(row[r].value)
+            list_max.append(list_data)
+            return list_max
+    else:
+        print('openpyxlExcel 你确定自己输入正确了?、、、')

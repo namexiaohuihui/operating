@@ -217,6 +217,9 @@ class TimeFromat(object):
         format = time.strftime('%a, %d %b %y %H:%M', time.localtime())
         return format
 
+    def dormancy_time(self, sp: int = 0.5):
+        time.sleep(sp)
+
     def neizhidefangfa(self):
         # 英文格式的时间输出: Wed Jun 27 12:00:04 2018
         print(time.asctime(time.localtime(time.time())))

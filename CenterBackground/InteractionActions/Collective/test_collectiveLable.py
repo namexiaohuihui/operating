@@ -38,30 +38,25 @@ from CenterBackground.InteractionActions.samedayorder import SameDayOrder
 from tools.excelname.Center.Interaction import InteractionController
 from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 
-BASENAME = os.path.splitext(os.path.basename(__file__))[0]
+basepath = os.path.split(os.path.dirname(__file__))[1]
+basename = os.path.splitext(os.path.basename(__file__))[0]
+basename = basepath + "-" + basename
 config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.page)
 
-sLable = SameDayOrder(config, BASENAME, InteractionController)
-sLable1 = OperationViewJude(config, BASENAME, InteractionController)
-print("--------------")
-print(config)
-print(sLable)
-print(sLable1)
-print("--------------")
+sLable = SameDayOrder(config, base, InteractionController)
+
 
 
 class TestCollectiveLable(unittest.TestCase):
     def setUp(self):
-        # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
         sLable.openingProgram()
         sLable._rou_background()
+        print("%s ---setup: 每个用例开始前后执行" % basename)
 
     def tearDown(self):
         sLable.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % self.basename)
+        print("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
     def test_showTitle(self):

@@ -88,5 +88,17 @@ class TestCollectiveTabs(unittest.TestCase):
         pass
 
 
+    def test_active_box(self):
+        cJude.setFunctionName(inspect.stack()[0][3])
+        cJude.active_city(customTabs._class)
+        pass
+
+
+    def test_active_all(self):
+        cJude.setFunctionName(inspect.stack()[0][3])
+        cJude.already_citys()
+        pass
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

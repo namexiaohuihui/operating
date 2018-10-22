@@ -48,3 +48,6 @@ closerecord: button.close
 
 # 明细操作
 handle: .estate > button                                                                              # zhuan yuyue and genghuan
+
+
+# Scheduling box-city

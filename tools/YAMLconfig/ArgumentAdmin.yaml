@@ -29,7 +29,20 @@ indent:
     particulars: 明细
   single:
     module: single
-    child: 1
+    child: 2
+    city: 城市
+    select: 筛选
+    page: 页面
+    views: 查看
+    close: 关闭
+    transfer: 转预约
+    replace: 更换
+    details: 详情
+    record: 记录
+    particulars: 明细
+  dispatch:
+    module: single
+    child: 3
     city: 城市
     select: 筛选
     page: 页面

@@ -111,68 +111,72 @@ class OperationViewJude(JudgmentVerification):
             if case_city is city_v:
                 self.vac.element_click(city_k)
 
-        # 3.根据相应的key值对数据进行操作,1遍历执行元素的动作
-        case_con = case_value[self.bi.yaml_condition()]
-        para_key = case_con.keys()
+        # 3.根据相应的key值对数据进行操作,遍历执行元素的动作
 
-        for ov in para_key:
-            # 4.根据key值旗下的value值
-            ov_pa = case_con[ov]
-            pa_key = ov_pa.keys()
-            # 5. 找到元素的keys值,该值为可在路径yaml表中找到元素的路径
-            for pa in pa_key:
-                # ov_key = 依次元素的路径,ov_value = 设置的参数,ov_ty = 以及该元素的类型
-                ov_key = self.financial[pa]
-                case_pa = ov_pa[pa]
-                ov_value = case_pa[_parameter]
-                ov_ty = case_pa[_type].lower()
+        if self.bi.yaml_condition() in case_value.keys():
+            case_con = case_value[self.bi.yaml_condition()]
+            para_key = case_con.keys()
 
-                if ov_ty == _click:
-                    # 根据元素进行点击
-                    self.vac.css_click(self.driver, ov_key)
-                    continue
+            for ov in para_key:
+                # 4.根据key值旗下的value值
+                ov_pa = case_con[ov]
+                pa_key = ov_pa.keys()
+                # 5. 找到元素的keys值,该值为可在路径yaml表中找到元素的路径
+                for pa in pa_key:
+                    # ov_key = 依次元素的路径,ov_value = 设置的参数,ov_ty = 以及该元素的类型
+                    ov_key = self.financial[pa]
+                    case_pa = ov_pa[pa]
+                    ov_value = case_pa[_parameter]
+                    ov_ty = case_pa[_type].lower()
 
-                elif ov_ty == _input:  # 根据元素进行输出操作
+                    if ov_ty == _click:
+                        # 根据元素进行点击
+                        self.vac.css_click(self.driver, ov_key)
+                        continue
 
-                    if pa == _timeinput:  # 如果为时间输入框就要的单独处理
-                        start_time, end_time = self.ti.day_time_date(ov_value)
-                        # 点击输入框
-                        self.vac.id_click(self.driver, ov_key)
+                    elif ov_ty == _input:  # 根据元素进行输出操作
 
-                        # 输入日期:开始和结束
-                        mimi = self.vac.is_visibles_css_selectop(self.driver, ".input-mini")
-                        self.vai.ele_clear_keys(mimi[0], start_time["year"])
-                        self.vai.ele_clear_keys(mimi[1], end_time["year"])
+                        if pa == _timeinput:  # 如果为时间输入框就要的单独处理
+                            start_time, end_time = self.ti.day_time_date(ov_value)
+                            # 点击输入框
+                            self.vac.id_click(self.driver, ov_key)
 
-                        # 小时下拉框:开始和结束
-                        self.time_day_select(".hourselect", 0, start_time["time"])
-                        self.time_day_select(".hourselect", 1, end_time["time"])
+                            # 输入日期:开始和结束
+                            mimi = self.vac.is_visibles_css_selectop(self.driver, ".input-mini")
+                            self.vai.ele_clear_keys(mimi[0], start_time["year"])
+                            self.vai.ele_clear_keys(mimi[1], end_time["year"])
 
-                        # 下拉分:开始和结束
-                        self.time_day_select(".minuteselect", 0, start_time["seconds"])
-                        self.time_day_select(".minuteselect", 1, end_time["seconds"])
+                            # 小时下拉框:开始和结束
+                            self.time_day_select(".hourselect", 0, start_time["time"])
+                            self.time_day_select(".hourselect", 1, end_time["time"])
 
-                        # 弹窗的确定按钮
-                        self.vac.css_click(self.driver, self.financial[self.bi.yaml_timesuccess()])
-                        pass
+                            # 下拉分:开始和结束
+                            self.time_day_select(".minuteselect", 0, start_time["seconds"])
+                            self.time_day_select(".minuteselect", 1, end_time["seconds"])
+
+                            # 弹窗的确定按钮
+                            self.vac.css_click(self.driver, self.financial[self.bi.yaml_timesuccess()])
+                            pass
+                        else:
+                            self.vai.css_input(self.driver, ov_key, ov_value)
+                            pass
+                        continue
+
+                    elif ov_ty == _select:  # 根据元素来设置相应的options值
+                        ScreeningDrop(self.driver, ov_key, case_pa['ele']).setSelectorText(ov_value)
+                        continue
+
+                    elif ov_ty == 'checkbox':
+                        # 根据元素来选择相应的单选框
+                        checkbox = self.vac.is_visible_css_selectop(self.driver, ov_key)
+                        self.visibleRadioSelected(checkbox, ov_value)
+                        continue
+
                     else:
-                        self.vai.css_input(self.driver, ov_key, ov_value)
-                        pass
-                    continue
-
-                elif ov_ty == _select:  # 根据元素来设置相应的options值
-                    ScreeningDrop(self.driver, ov_key, case_pa['ele']).setSelectorText(ov_value)
-                    continue
-
-                elif ov_ty == 'checkbox':
-                    # 根据元素来选择相应的单选框
-                    checkbox = self.vac.is_visible_css_selectop(self.driver, ov_key)
-                    self.visibleRadioSelected(checkbox, ov_value)
-                    continue
-
-                else:
-                    self.log.info(_print % ov_ty)
-                    continue
+                        self.log.info(_print % ov_ty)
+                        continue
+        else:
+            self.log.info("This use case has no condition parameter key value...")
 
         # 最后一步,点击查询还是点击导出
         ele_formSub = self.vai.is_visibles_css_selectop(self.driver, self.financial['formSub'])
@@ -238,7 +242,7 @@ class OperationViewJude(JudgmentVerification):
                 else:
                     self.log.info("no appear To make an appointment to %s:" % tr.text)
             else:
-                self.log.info("没有转预约按钮")
+                assert True is False,"没有转预约按钮"
 
     def replace_order_types(self):
         """
@@ -260,8 +264,9 @@ class OperationViewJude(JudgmentVerification):
                     break
                 else:
                     self.log.info("no appear Change of delivery man %s:" % tr.text)
+                    continue
         else:
-            self.log.info("没有更换配送员按钮")
+            assert True is False, "没有更换配送员按钮"
 
     def details_order_types(self):
         """
@@ -273,11 +278,11 @@ class OperationViewJude(JudgmentVerification):
         _details = self.vac.css_click(self.driver, _details)
         if _details:
             if self.vac.is_visible_css_selectop(self.driver, ".page-header").text == "订单明细":
-                self.log.info("订单明细 yes")
+                assert True is True, "订单明细 yes"
             else:
-                self.log.info("订单明细 no")
+                assert True is False, "订单明细 no"
         else:
-            self.log.info("没有详情按钮")
+            assert True is False, "没有详情按钮"
 
     def record_order_types(self):
         """
@@ -293,7 +298,7 @@ class OperationViewJude(JudgmentVerification):
             _record = self.financial[self.bi.yaml_closerecord()]
             self.vac.css_click(self.driver, _record)
         else:
-            self.log.info("没有记录按钮")
+            assert True is False, "没有记录按钮"
         pass
 
     def close_cancel(self):
@@ -305,7 +310,7 @@ class OperationViewJude(JudgmentVerification):
             self.vac.sleep_Rest(3)
             self.vac.css_click(self.driver, _close)
         else:
-            self.log.info("详情页面没有关闭按钮")
+            assert True is False, "详情页面没有关闭按钮"
         pass
 
     def appointmen_cancel(self):
@@ -324,7 +329,7 @@ class OperationViewJude(JudgmentVerification):
                 else:
                     self.log.info("no appointmen_cancel To make an appointment to %s:" % tr.text)
             else:
-                self.log.info("详情页面没有转预约按钮")
+                assert True is False, "详情页面没有转预约按钮"
         pass
 
     def replace_cancel(self):
@@ -343,5 +348,5 @@ class OperationViewJude(JudgmentVerification):
                 else:
                     self.log.info("no appear To make an appointment to %s:" % tr.text)
             else:
-                self.log.info("详情页面没有更换按钮")
+                assert True is False, "详情页面没有更换按钮"
         pass

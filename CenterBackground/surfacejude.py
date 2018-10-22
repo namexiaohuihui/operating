@@ -151,8 +151,8 @@ class SurfaceJude(JudgmentVerification):
 
     def debugging_log(self, ct_default, ov_default, mesg):
         print("--------------------------------")
-        print(ct_default, type(ct_default))
-        print(ov_default, type(ov_default))
+        # print(ct_default, type(ct_default))
+        # print(ov_default, type(ov_default))
         print("--------------------------------")
         assert operator.eq(ct_default, ov_default), mesg
         pass

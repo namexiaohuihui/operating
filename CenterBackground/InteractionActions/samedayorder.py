@@ -102,6 +102,4 @@ class SameDayOrder(SurfaceJude):
         for th in self.threads:
             th.join()
             pass
-        import pprint
-        pprint.pprint(self.tbody_list)
         pass

@@ -37,16 +37,14 @@ from CenterBackground.InteractionActions.operationViewJude import OperationViewJ
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
+basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
+basename = basepath + "-" + basename
 # 传入子集的key，以及Excel文档中的sheet名字
 config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.transfer)
 
 ovj = OperationViewJude(config, basename, InteractionController)
 
-print("--------------")
-print(config)
-print(ovj)
-print("--------------")
 
 
 class TestTransferOrder(unittest.TestCase):

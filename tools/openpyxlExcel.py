@@ -209,7 +209,7 @@ class READEXCEL:
                 col_max_col = len(col_cell) 行的长度
                 col_max_row = len(col_cell[0]) 列的长度
             '''
-        return content;
+        return content
 
     def attribute_template(self, emplate=None):
         """

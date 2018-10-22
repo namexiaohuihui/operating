@@ -27,16 +27,22 @@ class JudgmentVerification(ComparedVerify):
 
         # 根据init要求的yaml路径来读取该模块下全部元素路径
         self.financial = readYaml.read_expression(self.config_dist['yaml'])
+
         # 定义日志
         self.log = Log(basename)
+
         # 读取用例所在的位置
         MODEI_KEY_POSITION = self.argument[module]
+
         # 读取用例的名称
         fa_mo = self.config_dist[module]
 
+        # 读取用例的模块
         MODEI_CASE_POSITION = self.argument[fa_mo][module]
+
         # 读取用例里面的标签
         exclefile = self.argument[fa_mo][self.config_dist['sheet']]
+
         self.overallExcelData = self._excel_Data(MODEI_KEY_POSITION, MODEI_CASE_POSITION, exclefile)
 
         pass
@@ -139,8 +145,11 @@ class JudgmentVerification(ComparedVerify):
         # 记录目前执行的函数名（也可以认为目前执行的用例）
         self.FUNCTION_NAME = funtion
         self.log.fun_name = self.FUNCTION_NAME
+
         # 根据df标签序号获取用例
         self.overall = self.overallExcelData.loc[self.FUNCTION_NAME]
+
+        # 创建时间对象
         self.ti = TimeFromat()
 
     # --------------------------------正则的使用--------------------------
@@ -215,9 +224,11 @@ class JudgmentVerification(ComparedVerify):
         consyst = conmodel.get("excel", model_key)
         excelname = conmodel.get("excel", filename)
         file_path = os.path.join(consyst, excelname)
+
         # 读取相应路径中的数据
         read = OpenExcelPandas(file_path, sheet=SHEETNAME)
         excelData = read.internal_read_excel()
+
         return excelData
 
     def get_account_account_password(self):

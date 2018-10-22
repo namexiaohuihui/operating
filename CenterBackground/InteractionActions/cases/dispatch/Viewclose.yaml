@@ -1,4 +1,4 @@
-test_dayrecord:
+test_dayWaiting:
   city: 全部
   formSub:
     action: search
