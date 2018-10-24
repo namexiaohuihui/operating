@@ -41,7 +41,7 @@ basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.single, InteractionActions.transfer)
+config = InteractionActions.add_key(InteractionActions.fifty, InteractionActions.transfer)
 
 trans_o = OperationViewJude(config, basename, InteractionController)
 

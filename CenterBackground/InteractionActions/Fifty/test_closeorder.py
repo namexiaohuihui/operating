@@ -42,11 +42,14 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.single, InteractionActions.close)
+config = InteractionActions.add_key(InteractionActions.fifty, InteractionActions.close)
 close_o = OperationViewJude(config, basename, InteractionController)
 
 
 class TestCloseOrder(unittest.TestCase):
+    """
+    关闭
+    """
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
         close_o.openingProgram()

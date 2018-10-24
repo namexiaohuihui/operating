@@ -190,8 +190,8 @@ class TimeFromat(object):
         end_time = {"year": time.strftime('%Y-%m-%d', end_time),
                     "time": zero_day(time.strftime('%H', end_time)),
                     "seconds": time.strftime('%M', end_time)}
-        print(start_time)
-        print(end_time)
+        # print(start_time)
+        # print(end_time)
         return start_time, end_time
 
     def rizhi(self, years=0):

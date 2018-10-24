@@ -109,11 +109,19 @@ class action_input(action_visible):
             self.error_log(browser)
 
     def id_js_input(self, browser, ordinal, parameter):
-        # 光标选择元素之后,通过id对js的value输入
+        """
+        通过js找到相应的id对象并对其进行输入操作
+        1.光标选择需要输入value的对象
+        2.执行js输入
+        3.光标从已选择的对象移出
+        :param browser: 浏览器对象
+        :param ordinal: 需要执行输入的对象
+        :param parameter: 输入的value
+        :return:
+        """
         try:
             self.focus_id(browser, ordinal)
             self.id_js_cursor_save(browser, ordinal, parameter)
-            self.sleep_Rest()
             self.blur_id(browser, ordinal)
         except:
             self.error_log(browser)
@@ -135,6 +143,8 @@ class action_input(action_visible):
         browser.execute_script("document.getElementById(\'" + ordinal + "\').blur();")
 
     def focus_id(self, browser, ordinal):
+        # 防止找不到元素对象,加个延迟
+        self.sleep_Rest(0.5)
         # 光标移动到id为ordinal的元素上
         browser.execute_script("document.getElementById(\'" + ordinal + "\').focus();")
 

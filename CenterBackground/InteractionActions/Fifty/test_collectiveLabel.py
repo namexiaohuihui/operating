@@ -42,12 +42,15 @@ basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
-config = InteractionActions.add_key(InteractionActions.single, InteractionActions.page)
+config = InteractionActions.add_key(InteractionActions.fifty, InteractionActions.page)
 
 sLable = SameDayOrder(config, basename, InteractionController)
 
 
 class TestCollectiveLabel(unittest.TestCase):
+    """
+    页面展示项的标题
+    """
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
         sLable.openingProgram()

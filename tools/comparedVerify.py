@@ -182,7 +182,7 @@ class ComparedVerify(object):
         :return:
         """
         status = self.str_to_bool(status)
-        print("元素为:%s,需要点击的状态为%s,不用点击." % (check, status)) \
+        print("元素为:%s,需要点击的状态为%s,不用点击." % (check.text, status)) \
             if operator.eq(check.is_selected(), status) else self.vac.element_click(check)  # 元素点击
 
 

@@ -39,7 +39,7 @@ from tools.excelname.Center.Interaction import InteractionController
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.fifty, InteractionActions.views)
+config = InteractionActions.add_key(InteractionActions.carriage, InteractionActions.views)
 tive_v = OperationViewJude(config, basename, InteractionController)
 
 

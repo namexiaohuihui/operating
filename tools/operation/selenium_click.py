@@ -35,9 +35,11 @@ from tools.operation.selenium_visible import action_visible
 
                佛祖保佑         永无BUG
 '''
+import os
 
 
 class action_click(action_visible):
+    basename = os.path.splitext(os.path.basename(__file__))[0]
 
     def id_click(self, browser, prompt):
         ele = self.is_visible_id(browser, prompt)
@@ -78,18 +80,19 @@ class action_click(action_visible):
             self.error_log(browser)
 
     def id_confirm_prompt(self, browser, prompt):
-        if self.is_visible_id(browser, prompt) is not False:
+        try:
             browser.execute_script("document.getElementById(\'" + prompt + "\').click();")
-        else:
+        except Exception as a:
             function = inspect.stack()[0][3]  # 执行函数的函数名
-            print("%s :没有找到这个元素: %s" % (function, prompt))
+            print("该函数(%s,%s,%s)出现了(%s)错误" % (self.basename, function, prompt, a))
 
     def css_confirm_prompt(self, browser, prompt):
         try:
-            browser.execute_script("document.getElementsByClassName(\'" + prompt + "\').click();")
-        except:
+            self.sleep_Rest()
+            browser.execute_script("document.querySelector(\'" + prompt + "\').click();")
+        except Exception as a:
             function = inspect.stack()[0][3]  # 执行函数的函数名
-            print("%s :没有找到这个元素: %s" % (function, prompt))
+            print("%s :没有找到这个元素: %s \n %s" % (function, prompt, a))
 
     def touchActions_selectop_prompt(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)

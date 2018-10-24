@@ -1,3 +1,7 @@
+https://www.jb51.net/article/116460.htm
+http://www.runoob.com/jsref/met-document-queryselector.html
+http://blog.csdn.net/stalwartwill/article/details/26498603
+https://www.cnblogs.com/yanbigfeg/p/7346325.html
 
 1、JavaScript点击
 
@@ -27,9 +31,6 @@ browser.execute_script("name_text = document.getElementById('name_text');" + "na
 6.滚动条移动
 driver.execute_script("window.scrollTo(0,0)") # 顶部
 driver.execute_script("window.scrollTo(0,document.body.scrollHeight)") #底部
-
-http://blog.csdn.net/stalwartwill/article/details/26498603
-
 
 摘自JavaScript权威指南（jQuery根据样式选择器查找元素的终极方式是 先用getElementsByTagName(*)获取所有DOM元素，然后根据样式选择器对所有DOM元素进行筛选）
 
@@ -69,6 +70,11 @@ http://blog.csdn.net/stalwartwill/article/details/26498603
     3）兼容性：IE8及其以下版本的浏览器未实现getElementsByClassName方法
 
 5、通过CSS选择器选取元素
+    1）使用方法：document.querySelector("selector"),上下文可以是document，也可以是一个元素。
+        其中，selector为合法的CSS选择器
+    2）说明：a. 返回值是一个nodeList集合（区别于Array）,参数是选择器，如："div .className"。
+    3）兼容性：IE8及其以下版本的浏览器只支持CSS2标准的选择器语法,返回值只获取到一个元素。
+
     1）使用方法：document.querySelectorAll("selector")
         其中，selector为合法的CSS选择器
     2）说明：a. 返回值是一个nodeList集合（区别于Array）

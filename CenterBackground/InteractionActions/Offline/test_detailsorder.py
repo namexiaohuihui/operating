@@ -26,15 +26,15 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_closeorder.py
-@time:      2018/10/16 17:18
+@file:      test_detailsorder.py
+@time:      2018/10/18 10:50
 @desc:
 """
 import os
 import inspect
 import unittest
-from CenterBackground import InteractionActions
 from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
+from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
@@ -42,34 +42,35 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.single, InteractionActions.close)
-close_o = OperationViewJude(config, basename, InteractionController)
+config = InteractionActions.add_key(InteractionActions.offline, InteractionActions.details)
+details_o = OperationViewJude(config, basename, InteractionController)
 
 
-class TestCloseOrder(unittest.TestCase):
+class TestDetailsOrder(unittest.TestCase):
     """
-    关闭
+    订单详情
     """
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        close_o.openingProgram()
-        close_o._rou_background()
-        close_o.log.info("%s : The use case begins execution" % basename)
+        details_o.openingProgram()
+        details_o._rou_background()
+        details_o.log.info("%s : The use case begins execution" % basename)
         pass
 
     def tearDown(self):
-        close_o.driver.quit()
-        close_o.log.info("%s : The use case is done" % basename)
+        details_o.driver.quit()
+        details_o.log.info("%s : The use case is done" % basename)
         pass
 
-    def test_dayWaiting(self):
+    def test_daydetails(self):
         """
         查看下单时间为当天的订单
         :return:
         """
-        close_o.setFunctionName(inspect.stack()[0][3])
-        close_o.release_success()
-        close_o.close_order_types()
+        details_o.setFunctionName(inspect.stack()[0][3])
+        details_o.release_success()
+        # 找到td通过子元素的text来找到信息
+        details_o.details_order_types()
         pass
 
 

@@ -26,50 +26,53 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_closeorder.py
-@time:      2018/10/16 17:18
+@file:      test_collectivelable.py
+@time:      2018/9/19 16:43
 @desc:
 """
 import os
 import inspect
 import unittest
 from CenterBackground import InteractionActions
-from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
+from CenterBackground.InteractionActions.samedayorder import SameDayOrder
 from tools.excelname.Center.Interaction import InteractionController
+from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
-# 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.single, InteractionActions.close)
-close_o = OperationViewJude(config, basename, InteractionController)
+config = InteractionActions.add_key(InteractionActions.single, InteractionActions.page)
+
+sLable = SameDayOrder(config, basename, InteractionController)
 
 
-class TestCloseOrder(unittest.TestCase):
+class TestCollectiveLable(unittest.TestCase):
     """
-    关闭
+    页面展示项的标题
     """
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        close_o.openingProgram()
-        close_o._rou_background()
-        close_o.log.info("%s : The use case begins execution" % basename)
+        sLable.openingProgram()
+        sLable._rou_background()
+
+        sLable.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         pass
+
 
     def tearDown(self):
-        close_o.driver.quit()
-        close_o.log.info("%s : The use case is done" % basename)
+        sLable.driver.quit()
+        sLable.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_dayWaiting(self):
-        """
-        查看下单时间为当天的订单
-        :return:
-        """
-        close_o.setFunctionName(inspect.stack()[0][3])
-        close_o.release_success()
-        close_o.close_order_types()
+    def test_showTitle(self):
+        sLable.setFunctionName(inspect.stack()[0][3])
+        sLable.title_execute()
+        pass
+
+    def test_showSurface(self):
+        sLable.setFunctionName(inspect.stack()[0][3])
+        sLable.surface_execute()
         pass
 
 

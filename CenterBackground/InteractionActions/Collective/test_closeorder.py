@@ -46,6 +46,9 @@ close_o = OperationViewJude(config, base, InteractionController)
 
 
 class TestCloseOrder(unittest.TestCase):
+    """
+    关闭
+    """
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
         close_o.openingProgram()

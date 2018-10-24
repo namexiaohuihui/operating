@@ -23,6 +23,9 @@ def add_key(module: str, sheet: str):
 collective = 'collective'
 single = 'single'
 dispatch = 'dispatch'
+fifty = 'fifty'
+carriage = 'carriage'
+offline = 'offline'
 
 # 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
 city = 'city'
@@ -35,6 +38,7 @@ replace = 'replace'
 details = 'details'
 record = 'record'
 particulars = 'particulars'
+release = 'release'
 
 # 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
 INVENTORY = {

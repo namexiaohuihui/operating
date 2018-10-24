@@ -85,6 +85,9 @@ class JudgmentVerification(ComparedVerify):
 
         self.child_tags = self.argument[self.config_dist[module]]['child']
         self._visible_css_selectop(self.child_tags)
+
+        print("当前url:%s" % self.driver.current_url)
+
         pass
 
     def tbody_td_data(self, content, button_next, title_key):
