@@ -89,7 +89,7 @@ class pymysqls(object):
                     row[index[i][0]] = res[i]
                 result.append(row)
                 # print("selects_list %s" % row)
-            return result;
+            return result
         except:
             import traceback
             error = traceback.format_exc()

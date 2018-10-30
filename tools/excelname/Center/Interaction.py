@@ -138,3 +138,51 @@ class InteractionController(ExcelTitle):
 
     def yaml_disusersort(self):
         return 'disusersort'
+
+    def yaml_of_generate(self):
+        return 'of_generate'
+
+    def yaml_of_userName(self):
+        return 'of_userName'
+
+    def yaml_of_default(self):
+        return 'of_default'
+
+    def yaml_of_phone(self):
+        return 'of_phone'
+
+    def yaml_of_phbut(self):
+        return 'of_phbut'
+
+    def yaml_of_money(self):
+        return 'of_money'
+
+    def yaml_addgoods(self):
+        return 'addgoods'
+
+    def yaml_of_add(self):
+        return 'of_add'
+
+    def yaml_of_tb(self):
+        return 'of_tb'
+
+    def yaml_of_addbut(self):
+        return 'of_addbut'
+
+    def yaml_of_info(self):
+        return 'of_info'
+
+    def yaml_of_inor(self):
+        return 'of_inor'
+
+    def yaml_of_ofbut(self):
+        return 'of_ofbut'
+
+    def yaml_information(self):
+        return "information"
+
+    def yaml_parameter(self):
+        return "parameter"
+
+    def yaml_way(self):
+        return "way"

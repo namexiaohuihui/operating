@@ -184,104 +184,91 @@ class ComparedVerify(object):
         status = self.str_to_bool(status)
         print("元素为:%s,需要点击的状态为%s,不用点击." % (check.text, status)) \
             if operator.eq(check.is_selected(), status) else self.vac.element_click(check)  # 元素点击
+        pass
 
-
-"""
-    #--------------------数据库查询-----------------------------------------
-"""
-
-
-def create_database(self):
     """
-    数据库查询及内容返回
-    :return:  返回查询到的内容
+        #--------------------数据库查询-----------------------------------------
     """
-    pm = pymysqls()
-    pm.connects_readModel()
 
-    return pm
+    def create_database(self):
+        """
+        数据库查询及内容返回
+        :return:  返回查询到的内容
+        """
+        pm = pymysqls()
+        pm.connects_readModel()
 
+        return pm
 
-def mysql_single_selects(self, sql):
-    pm = self.create_database()
-    print("sql --------> {}".format(sql))
-    result = pm.single_cross_selects(sql)
-    pm.closes()
+    def mysql_single_selects(self, sql):
+        pm = self.create_database()
+        print("mysql_single_selects --------> {}".format(sql))
+        result = pm.single_cross_selects(sql)
+        pm.closes()
+        return result
 
-    return result
+    def mysqlTotalSelects(self, sql):
+        pm = self.create_database()
+        print("mysqlTotalSelects --------> {}".format(sql))
+        result = pm.total_vertical_selects(sql)
+        pm.closes()
+        return result
 
+    """
+    #--------------------json数据的转换-----------------------------------------
+    """
 
-def mysqlTotalSelects(self, sql):
-    pm = self.create_database()
-    result = pm.total_vertical_selects(sql)
-    pm.closes()
+    def strTodict(self, title):
+        # print("需要转化你json数据--> %s" % title)
+        return json.loads(title) if title is not None else "json中loads错误了"
 
-    return result
+    def astTodict(self, title):
+        return ast.literal_eval(title) if title is not None else "json中loads错误了"
 
+    def evalTodict(self, title):
+        return eval(title)
 
-"""
-#--------------------json数据的转换-----------------------------------------
-"""
+    """
+    #--------------------其他一些配置部分-----------------------------------------
+    """
 
+    def sleep_time(self, times=1):
+        time.sleep(times)
 
-def strTodict(self, title):
-    # print("需要转化你json数据--> %s" % title)
-    return json.loads(title) if title is not None else "json中loads错误了"
+    def abnormal_exit(self, msg: str = "页面没有数据"):
+        try:
+            sys.exit(0)
+        except:
+            print("%s ,程序强制退出" % msg)
 
+    def error_log(self, function):
+        # 执行文件的文件名
+        basename = os.path.splitext(os.path.basename(__file__))[0]
 
-def astTodict(self, title):
-    # d1 = eval(title)也可以
-    return ast.literal_eval(title) if title is not None else "json中loads错误了"
+        # 拼接名字
+        name_tion = basename + "_" + function
 
+        # 调用错误类
+        dError.error_output(name_tion, self.driver)
 
-"""
-#--------------------其他一些配置部分-----------------------------------------
-"""
+    def skip_waiting(self, funktion):
+        # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
+        # print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+        faden = []  # 该列表存放已经开启的线程
+        for para in funktion:  # 遍历函数开启线程
+            # th是内置的函数
+            threads = th(para['func'], para['args'])
+            threads.start()
+            faden.append(threads)
+        return faden
 
+    def start_thread_pool(self, funktion):  # 开启线程池
+        faden = self.skip_waiting(funktion)
+        return self.start_thread_row(faden)
 
-def sleep_time(self, times=1):
-    time.sleep(times)
-
-
-def abnormal_exit(self, msg: str = "页面没有数据"):
-    try:
-        sys.exit(0)
-    except:
-        print("%s ,程序强制退出" % msg)
-
-
-def error_log(self, function):
-    # 执行文件的文件名
-    basename = os.path.splitext(os.path.basename(__file__))[0]
-
-    # 拼接名字
-    name_tion = basename + "_" + function
-
-    # 调用错误类
-    dError.error_output(name_tion, self.driver)
-
-
-def skip_waiting(self, funktion):
-    # https://www.cnblogs.com/qualitysong/archive/2011/05/27/2060246.html
-    # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
-    # print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
-    faden = []  # 该列表存放已经开启的线程
-    for para in funktion:  # 遍历函数开启线程
-        # th是内置的函数
-        threads = th(para['func'], para['args'])
-        threads.start()
-        faden.append(threads)
-    return faden
-
-
-def start_thread_pool(self, funktion):  # 开启线程池
-    faden = self.skip_waiting(funktion)
-    return self.start_thread_row(faden)
-
-
-def start_thread_row(self, faden):
-    inhalt = []  # 该列表存放所执行线程中return的值
-    for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
-        argu.join()
-        inhalt.append(argu.get_result())
-    return inhalt
+    def start_thread_row(self, faden):
+        inhalt = []  # 该列表存放所执行线程中return的值
+        for argu in faden:  # 开启的线程中，进行阻塞，当子线程完成之后才继续下一步
+            argu.join()
+            inhalt.append(argu.get_result())
+        return inhalt

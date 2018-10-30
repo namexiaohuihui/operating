@@ -32,7 +32,6 @@
 """
 import os
 import operator
-from tools.YAMLconfig import readYaml
 from tools.screeningdrop import ScreeningDrop
 from CenterBackground.customTabs import CustomTabs
 from CenterBackground.judeVerification import JudgmentVerification
@@ -58,17 +57,6 @@ class OperationViewJude(JudgmentVerification):
         JudgmentVerification.__init__(self, config, basename)
         self.bi = center_name()
         pass
-
-    def read_yaml_case(self, file_name, case_key):
-        """
-        I don't know what I'm writing, but I know it works.
-        通过文件来读取相应的key值,最后进行
-        :param file_name: excel定义的默认参数
-        :param case_key: 用例函数名
-        :return:
-        """
-        case_value = readYaml.read_expression_key(file_name, case_key)
-        return case_value
 
     def time_day_select(self, hour, value, part):
         """
@@ -107,13 +95,14 @@ class OperationViewJude(JudgmentVerification):
         city_text = dict(zip(self.ct.ul_li, ul_text))
         # 2.3找到城市
         case_city = case_value[self.bi.yaml_city()]
+        print(case_city)
         for city_k, city_v in city_text.items():
-            if case_city is city_v:
+            if case_city == city_v:
                 self.vac.element_click(city_k)
+                break
 
-        # 3.根据相应的key值对数据进行操作,遍历执行元素的动作
-
-        if self.bi.yaml_condition() in case_value.keys():
+        # 3.根据相应的key值对数据进行操作,遍历执行元素的动作(判断此参数的key是否出现)
+        if self.bi.yaml_condition() in case_value:
             case_con = case_value[self.bi.yaml_condition()]
             para_key = case_con.keys()
 
@@ -272,7 +261,7 @@ class OperationViewJude(JudgmentVerification):
         进入详情页,暂时不做任何交互
         :return:
         """
-        # 找到险情按钮
+        # 找到详情按钮
         _details = self.financial[self.bi.yaml_btnreplace()] % 1
         _details = self.vac.css_click(self.driver, _details)
         if _details:

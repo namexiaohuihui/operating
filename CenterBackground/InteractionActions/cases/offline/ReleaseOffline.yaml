@@ -1,0 +1,101 @@
+#模块分:
+#    1.系统环境: 城市
+#    2.信息输入框:
+#       输入框  用户信息判断  点击按钮
+#    3.个人信息验证: 手机和昵称
+#    4.收货地址:
+#        判断已知的地址   添加为止的地址
+#    5.支付方式选择: 水票支付 货到付款
+#    6.添加商品: 检验可选的商品名称和prire,默认添加第一个商品.
+#    7.判断添加的商品: 数量和价格
+#    8.送达时间: 检验日期和可选时间。
+#    9.备注: 订单备注  操作备注
+#    10.按钮: 提交还是取消
+#information:
+#    type: click                      操作类型为点击
+#    ele: id                          元素对象的路径为id
+#    way: js                          执行元素点击时使用js
+#    parameter: of_phbut              需要点击的元素
+#    of_phone:
+#        type: input                  操作类型为输入
+#        ele: id                      元素对象的路径为id
+#        way: js                      执行元素输入时使用js
+#        parameter: 243617            元素输入的内容
+#    nike:
+#        type: judge                  操作类型为判断
+#        ele: mysql                   元素对象为mysql
+#        way: ['phone','nickname']    定义df的key
+#        parameter: select            mysql的执行语句
+
+test_defaultSingleGood:
+  city: 南宁市
+  del:  利用js来执行动作,包含id或者css写法
+  formSub:
+      parameter: of_ofbut
+      type: click
+      ele: id
+      way: js
+  information:
+      type: click
+      ele: id
+      way: js
+      parameter: of_phbut
+      of_phone:
+          type: input
+          ele: id
+          way: js
+          parameter: 243617
+      nike:
+          type: judge
+          ele: mysql
+          way: ['phone','nickname']
+          parameter:  select u.phone as 'phone',b.nickname as 'nickname' from lnsm_user as u left join lnsm_buyer as b on u.id = b.buyer_id where u.type = 1 AND u.id = %s ;
+  addgoods:
+      type: click
+      ele: css
+      way: js
+      parameter: of_phbut
+      pay:
+          type: click
+          ele: css
+          way: css
+          parameter: pay_money # pay_watiki or pay_money
+      of_add:
+          type: click
+          ele: css
+          way: js
+          parameter: of_add
+      of_tb:
+          type: click
+          ele: css
+          way: js
+          parameter: "{1:2,2:1}"
+      of_addbut:
+          type: click
+          ele: id
+          way: js
+          parameter: of_addbut
+  info:
+        of_info:
+            type: input
+            ele: id
+            way: js
+            parameter: 操作备注
+        of_inor:
+            type: input
+            ele: id
+            way: js
+            parameter: 订单备注
+test_ungenerate:
+    city: 南宁市
+  del:  利用js来执行动作,包含id或者css写法
+  formSub:
+      parameter: of_ofbut
+      type: click
+      ele: id
+      way: js
+  information:
+      type: click
+      ele: id
+      way: js
+      parameter: of_phbut

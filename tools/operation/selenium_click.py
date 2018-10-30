@@ -64,7 +64,8 @@ class action_click(action_visible):
 
     def css_click(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
-        if ele is not False:  # 判断是否出现
+        # 判断是否出现
+        if ele is not False:
             self.element_click(ele)
         return ele
 
@@ -80,6 +81,12 @@ class action_click(action_visible):
             self.error_log(browser)
 
     def id_confirm_prompt(self, browser, prompt):
+        """
+        通过id进行js点击
+        :param browser:
+        :param prompt:
+        :return:
+        """
         try:
             browser.execute_script("document.getElementById(\'" + prompt + "\').click();")
         except Exception as a:
@@ -87,6 +94,12 @@ class action_click(action_visible):
             print("该函数(%s,%s,%s)出现了(%s)错误" % (self.basename, function, prompt, a))
 
     def css_confirm_prompt(self, browser, prompt):
+        """
+        输入元素路径通过js进行点击
+        :param browser:
+        :param prompt:
+        :return:
+        """
         try:
             self.sleep_Rest()
             browser.execute_script("document.querySelector(\'" + prompt + "\').click();")
@@ -113,7 +126,7 @@ class action_click(action_visible):
 
     def Interface_sliding(self, driver):
         # 实行上下滑动的效果
-        screen = self.get_size()
+        screen = self.get_size(driver)
 
         x1 = screen[0] * 0.5
         y1 = screen[1] * 0.75
@@ -125,11 +138,70 @@ class action_click(action_visible):
         TouchActions(driver).tap(element).perform()
         self.sleep_Rest()
 
-    """
-    点击之后将element对象进行返回
-    """
+    def differentiate_ele_click(self, browser, case_info, ordinal):
+        info_bool = False
+        if case_info['ele'] == 'id':
+            self.id_click(browser, ordinal)
+            info_bool = True
+            pass
+        elif case_info['ele'] == 'css':
+
+            self.css_click(browser, ordinal)
+            info_bool = True
+            pass
+        else:
+            print("differentiate_ele_click在css中没有css找到way")
+            pass
+        return info_bool
+
+    def differentiate_js_click(self, browser, case_info, ordinal):
+        info_bool = False
+        if case_info['ele'] == 'id':
+            self.id_confirm_prompt(browser, ordinal)
+            info_bool = True
+            pass
+        elif case_info['ele'] == 'css':
+            self.css_confirm_prompt(browser, ordinal)
+            info_bool = True
+            pass
+        else:
+            print("differentiate_js_click在js中没有找到way")
+            pass
+        return info_bool
+
+    def ele_click_and_mode(self, browser, case_info, ordinal):
+        """
+        判断相应的元素类型来执行动作
+        :param browser: 浏览器对象
+        :param case_info: 需要判断的数据
+        :param ordinal: 元素路径
+        :param parameter: 输入的内容
+        :return:
+        """
+        case_info = case_info
+        info_bool = False  # 检验程序是否需要执行下去
+
+        if case_info['way'] == 'js':
+            info_bool = self.differentiate_js_click(browser, case_info, ordinal)
+
+        elif case_info['way'] == 'css':
+            info_bool = self.differentiate_ele_click(browser, case_info, ordinal)
+
+        else:
+            print("ele_input_and_mode在way中没有数据信息")
+            pass
+
+        # 删除这个参数
+        del case_info
+        return info_bool
 
     def return_css_click(self, browser, prompt):
+        """
+        点击之后将element对象进行返回
+        :param browser:
+        :param prompt:
+        :return:
+        """
         ele = self.is_visible_css_selectop(browser, prompt)
         if ele is not False:  # 判断是否出现
             ele.click()

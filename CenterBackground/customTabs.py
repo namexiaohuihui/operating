@@ -63,6 +63,10 @@ class CustomTabs(object):
         pass
 
     def is_visibles(self):
+        """
+        判断城市tab是否出现
+        :return:
+        """
         self.ul_li = self.ac.is_visibles_css_selectop(self.driver, self.parth)
         if type(self.ul_li) is bool:
             raise CustomTypeError("You can't find the tabs element.")

@@ -70,31 +70,10 @@ class TestReleaseOffline(unittest.TestCase):
         :return:
         """
         generate.setFunctionName(inspect.stack()[0][3])
-        # 生成订单
-        generate.vac.css_confirm_prompt(generate.driver, ".btn.btn-default.modal-btn")
-        # 账号输入
-        generate.vai.id_js_input(generate.driver, "phone", "243617")
-        # 提交信息
-        generate.vac.id_confirm_prompt(generate.driver, "phoneFormBut")
-        # 货到付款
-        generate.vac.css_click(generate.driver, "input[class='paytype'][value='2']")
-        # 添加商品弹窗
-        generate.vac.css_confirm_prompt(generate.driver, ".col-md-12.J-addgood > div")
-        # 添加商品按钮
-        generate.vac.css_confirm_prompt(generate.driver,
-                                        "tbody > tr:nth-child(1) > td.handbtn > div > span.changnum.increase")
-        # 确认选择的商品
-        generate.vac.id_confirm_prompt(generate.driver, "addgoodsBut")
+        generate.operating_environment()
 
-        # 输入备注
-        note_info = "订单生成时间:%s" % generate.ti.currentToTime()
-        generate.vai.id_js_input(generate.driver, "noteoperation", note_info)
-        # 提交本次请求
-        generate.vac.id_confirm_prompt(generate.driver, "orderFormBut")
-        # 提交成功之后,确认提交成功弹窗
-        generate.ti.dormancy_time(1)
-        generate.vac.css_confirm_prompt(generate.driver, "button.confirm")
-
-
+    def test_ungenerate(self):
+        generate.setFunctionName(inspect.stack()[0][3])
+        generate.operating_environment()
 if __name__ == '__main__':
     unittest.main(verbosity=2)

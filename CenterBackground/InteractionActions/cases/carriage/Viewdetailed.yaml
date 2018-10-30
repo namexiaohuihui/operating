@@ -90,7 +90,7 @@ test_yeardayorder:
               parameter: 全部
 
 test_customtoday:
-  city: 全部
+  city: 南宁市
   formSub:
       action: export
       test: 搜索

@@ -67,25 +67,19 @@ ftsingleI: form.form-inline > div:nth-child(3) > div:nth-child(5) > div > div > 
 ftotherI: form.form-inline > div:nth-child(3) > div:nth-child(6) > div > div:nth-child(2) > input
 
 # offline
-generate: .btn.btn-default.modal-btn
-# 生成订单
-of_re: .btn.btn-default.modal-btn                                                                      # Generate order button
-# 账号输入
-of_phone: phone                                                                                        # User information input box
-# 提交信息
-of_phbut: phoneFormBut                                                                                 # Submit user information input box
-# 货到付款
-of_qian: input[class='paytype'][value='2']                                                             # Check box for cash on delivery
-# 添加商品弹窗
-of_add: .col-md-12.J-addgood > div                                                                     # Add item popover
-# 添加商品按钮
-of_tb: tbody > tr:nth-child(1) > td.handbtn > div > span.changnum.increase                             # Add item button
-# 确认选择的商品
-of_addbut: addgoodsBut                                                                                 # Submit add item popover
+of_generate: .btn.btn-default.modal-btn
+of_userName: userName
 
-# 输入备注
+of_re: .btn.btn-default.modal-btn                                                                      # Generate order button
+of_phone: phone                                                                                        # User information input box
+of_phbut: phoneFormBut                                                                                 # Submit user information input box
+pay_watiki: input[class='paytype'][value='1']
+pay_money: input[class='paytype'][value='2']                                                             # Check box for cash on delivery
+of_add: .col-md-12.J-addgood > div                                                                     # Add item popover
+of_tb: tbody > tr:nth-child(%s) > td.handbtn > div > span.changnum.increase                             # Add item button
+of_addbut: addgoodsBut                                                                                 # Submit add item popover
 of_info: noteoperation                                                                                 # Note input box for order operation
-# 提交本次请求
+of_inor: noteorder
 of_ofbut: orderFormBut
 
 

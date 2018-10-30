@@ -155,6 +155,17 @@ class JudgmentVerification(ComparedVerify):
         # 创建时间对象
         self.ti = TimeFromat()
 
+    def read_yaml_case(self, file_name, case_key):
+        """
+        I don't know what I'm writing, but I know it works.
+        通过文件来读取相应的key值,最后进行
+        :param file_name: excel定义的默认参数
+        :param case_key: 用例函数名
+        :return:
+        """
+        case_value = readYaml.read_expression_key(file_name, case_key)
+        return case_value
+
     # --------------------------------正则的使用--------------------------
     def re_cutting_data(self, attr):
         cutting = re.search(r'[1-9]\d{5}(?!\d)', attr)
