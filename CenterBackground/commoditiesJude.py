@@ -67,13 +67,27 @@ class CommoditiesJude(JudgmentVerification):
         :param tag:
         :return:
         """
-        ov_default = self.overall[self.bi.whole_city()]
-        self.custom_tabs().judge_city(tag, ov_default)
+        try:
+            ov_default = self.overall[self.bi.whole_city()]
+            self.custom_tabs().judge_city(tag, ov_default)
+        except KeyError as a:
+            raise KeyError("用例上的类型参数没有设置内容 %s" % ov_default)
+        finally:
+            del ov_default
         pass
 
     def active_code(self, tag):
         ov_default = self.overall[self.bi.whole_code()]
         self.custom_tabs().judge_code(tag, ov_default)
+        pass
+
+    def div_a_city_code(self, tag):
+        """
+        城市标签位置处于div>a下面时的读取方式
+        :return:
+        """
+        ov_default = self.overall[self.bi.whole_code()]
+        self.custom_tabs().judge_diva_code(tag, ov_default)
         pass
 
     def already_citys(self, reduce=0):
@@ -87,6 +101,14 @@ class CommoditiesJude(JudgmentVerification):
 
     def already_codes(self, reduce=0):
         self.custom_tabs().judge_codes(reduce=reduce)
+        pass
+
+    def div_a_city_codes(self, reduce=0):
+        """
+        城市标签位置处于div>a下面时的读取方式
+        :return:
+        """
+        self.custom_tabs().judge_diva_codes(reduce=reduce)
         pass
 
     def switch_city(self, reduce=0):

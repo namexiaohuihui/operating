@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_collectiveView.py
+@file:      test_schedulingView.py
 @time:      2018/9/27 17:25
 @desc:
 """
@@ -39,11 +39,11 @@ from tools.excelname.Center.Interaction import InteractionController
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.fifty, InteractionActions.views)
+config = InteractionActions.add_key(InteractionActions.dispatch, InteractionActions.views)
 tive_v = OperationViewJude(config, basename, InteractionController)
 
 
-class TestCollectiveView(unittest.TestCase):
+class TestschedulingView(unittest.TestCase):
     """
     通过筛选查看页面数据
     """

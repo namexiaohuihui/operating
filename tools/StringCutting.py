@@ -14,7 +14,8 @@ def specified_ber_num(strr, op, num, ber):
     strr = str.split(strr, op, num)[ber]
     return strr
 
-def specified_cut_ber(strr, op=',', ber=0):
+
+def specified_cut_ber(strr, op=',', ber: int = 0):
     strr = str.split(str(strr), op)[ber]
     return strr
 
@@ -186,5 +187,3 @@ def re_zip_code(str_text: str, pattern="[1-9]\d{5}(?!\d)"):
     # re_span = searchObj.span()  # 返回已查到的数据信息所在位置
     # searchObj = searchObj.group()  # 返回已查到的数据信息
     return searchObj.group() if searchObj else searchObj
-
-

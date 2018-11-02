@@ -107,6 +107,16 @@ class CustomTabs(object):
         li_a = StringCutting.re_zip_code(li_a)
         return li_a
 
+    def diva_city_code(self, li):
+        """
+        专门对div>a进行处理操作
+        :param li:
+        :return:
+        """
+        li_a = li.get_attribute(_href)
+        li_a = StringCutting.specified_cut_ber(li_a, "=", -1)
+        return li_a
+
     def custom_keys(self, reduce=0):
         '''
         全部城市和编码
@@ -209,6 +219,7 @@ class CustomTabs(object):
 
     def judge_citys(self, reduce=0, ov_default=True):
         list_text = self.instance_citys(reduce)
+        print(list_text)
         self.debugging_log(True, ov_default, 'All labels in the title are misjudged.')
         return list_text
 
@@ -222,10 +233,36 @@ class CustomTabs(object):
         self.debugging_log(True, ov_default, 'All labels in the title are misjudged.')
         return list_code
 
+    def judge_diva_codes(self, reduce=0, ov_default=True):
+        self.visibles_tabs(reduce)
+        list_code = [self.diva_city_code(li) for li in self.ul_li]
+        self.debugging_log(True, ov_default, 'All labels in the title are misjudged.')
+        return list_code
+
     def judge_code(self, tag, ov_default):
         ct_default = self.active_code(tag)
         ov_default = self.data_to_determine(ov_default)
         self.debugging_log(ct_default, ov_default, 'The header label attribute is incorrect.')
+        pass
+
+    def judge_diva_code(self, tag, ov_default):
+        """
+        单独did>A的写法
+        找到默认显示的对象,读取该对象中的url。
+        切分数据信息
+        :param tag:
+        :param ov_default:
+        :return:
+        """
+        # 默认对象
+        li = self.active_tab(tag)
+        # 读取对象的指定值
+        ct_default = self.diva_city_code(li)
+        # 专门处理
+        ov_default = StringCutting.specified_cut_ber(ov_default, ".")
+
+        self.debugging_log(ct_default, ov_default, 'The header label attribute is incorrect.')
+
         pass
 
     def box_code(self, li_a):

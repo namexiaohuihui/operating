@@ -23,7 +23,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_collectiveScreen.py
+@file:      test_schedulingScreen.py
 @time:      2018/9/25 16:43
 @desc:
 """
@@ -39,12 +39,12 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.select)
+config = InteractionActions.add_key(InteractionActions.dispatch, InteractionActions.select)
 
 slVerity = SelectLableVerify(config, basename, InteractionController)
 
 
-class TestCollectiveScreen(unittest.TestCase):
+class TestSchedulingScreen(unittest.TestCase):
     """
     条件筛选
     """
@@ -73,23 +73,6 @@ class TestCollectiveScreen(unittest.TestCase):
         pass
 
     def test_timetypeTraverse(self):
-        slVerity.setFunctionName(inspect.stack()[0][3])
-        slVerity.value_option_traverse(formSub=slVerity.bi.yaml_formSub(),
-                                       selectPath=slVerity.overall[slVerity.bi.whole_keys()])
-        pass
-
-    # －－－－－－－－－－－－－－－－－－－－－－－－其他－－－－－－－－－－－－－－－－－－－－－－－－－－
-    def test_chooseSelect(self):
-        slVerity.setFunctionName(inspect.stack()[0][3])
-        slVerity.value_options_jude(selectPath=slVerity.overall[slVerity.bi.whole_keys()])
-        pass
-
-    def test_chooseDefault(self):
-        slVerity.setFunctionName(inspect.stack()[0][3])
-        slVerity.value_options_default(selectPath=slVerity.overall[slVerity.bi.whole_keys()])
-        pass
-
-    def test_chooseTraverse(self):
         slVerity.setFunctionName(inspect.stack()[0][3])
         slVerity.value_option_traverse(formSub=slVerity.bi.yaml_formSub(),
                                        selectPath=slVerity.overall[slVerity.bi.whole_keys()])
@@ -175,11 +158,6 @@ class TestCollectiveScreen(unittest.TestCase):
         pass
 
     def test_buyerInput(self):
-        slVerity.setFunctionName(inspect.stack()[0][3])
-        slVerity.attribute_value()
-        pass
-
-    def test_otherInput(self):
         slVerity.setFunctionName(inspect.stack()[0][3])
         slVerity.attribute_value()
         pass

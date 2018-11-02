@@ -207,6 +207,11 @@ generalize:
   focus:
     module: focus
     child: 1
+    city: 城市
+    page: 页面
+    rules: 规则
+    preview: 预览
+    add: 添加
   invite:
     module: invite
     child: 2

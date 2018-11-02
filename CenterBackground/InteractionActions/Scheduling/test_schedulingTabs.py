@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_collectiveTabs.py
+@file:      test_schedulingTabs.py
 @time:      2018/9/19 16:44
 @desc:
 """
@@ -49,7 +49,7 @@ config = InteractionActions.add_key(InteractionActions.dispatch, InteractionActi
 sw_tab = CommoditiesJude(config, basename, InteractionController)
 
 
-class TestCollectiveTabs(unittest.TestCase):
+class TestSchedulingTabs(unittest.TestCase):
     """
     城市tab切换用例所在地
     """

@@ -23,7 +23,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_collectiveScreen.py
+@file:      test_carriageScreen.py
 @time:      2018/9/25 16:43
 @desc:
 """
@@ -39,12 +39,12 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.offline, InteractionActions.select)
+config = InteractionActions.add_key(InteractionActions.carriage, InteractionActions.select)
 
 slVerity = SelectLableVerify(config, basename, InteractionController)
 
 
-class TestCollectiveScreen(unittest.TestCase):
+class TestCarriageScreen(unittest.TestCase):
     """
     条件筛选
     """

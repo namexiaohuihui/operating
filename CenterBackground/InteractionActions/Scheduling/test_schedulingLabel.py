@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_collectivelabel.py
+@file:      test_schedulinglabel.py
 @time:      2018/9/19 16:43
 @desc:
 """
@@ -42,15 +42,16 @@ basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
-config = InteractionActions.add_key(InteractionActions.carriage, InteractionActions.page)
+config = InteractionActions.add_key(InteractionActions.dispatch, InteractionActions.page)
 
 sLable = SameDayOrder(config, basename, InteractionController)
 
 
-class TestCollectiveLabel(unittest.TestCase):
+class TestschedulingLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
         sLable.openingProgram()
@@ -59,18 +60,25 @@ class TestCollectiveLabel(unittest.TestCase):
         sLable.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         pass
 
-
     def tearDown(self):
         sLable.driver.quit()
         sLable.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
     def test_showTitle(self):
+        """
+        内容标题
+        :return:
+        """
         sLable.setFunctionName(inspect.stack()[0][3])
         sLable.title_execute()
         pass
 
     def test_showSurface(self):
+        """
+        读取内容
+        :return:
+        """
         sLable.setFunctionName(inspect.stack()[0][3])
         sLable.surface_execute()
         pass

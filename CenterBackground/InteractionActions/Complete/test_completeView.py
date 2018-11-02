@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_collectiveView.py
+@file:      test_completeView.py
 @time:      2018/9/27 17:25
 @desc:
 """
@@ -43,7 +43,7 @@ config = InteractionActions.add_key(InteractionActions.complete, InteractionActi
 tive_v = OperationViewJude(config, basename, InteractionController)
 
 
-class TestCollectiveView(unittest.TestCase):
+class TestCompleteView(unittest.TestCase):
     """
     通过筛选查看页面数据
     """

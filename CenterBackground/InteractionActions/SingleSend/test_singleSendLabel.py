@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_collectivelabel.py
+@file:      test_singleSendlabel.py
 @time:      2018/9/19 16:43
 @desc:
 """
@@ -42,12 +42,12 @@ basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
-config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.page)
+config = InteractionActions.add_key(InteractionActions.single, InteractionActions.page)
 
 sLable = SameDayOrder(config, basename, InteractionController)
 
 
-class TestCollectiveLabel(unittest.TestCase):
+class TestsingleSendLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
