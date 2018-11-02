@@ -29,27 +29,28 @@
 
 test_defaultSingleGood:
   city: 南宁市
-  del:  利用js来执行动作,包含id或者css写法
+  del: 利用js来执行动作,包含id或者css写法
   formSub:
       parameter: of_ofbut
       type: click
       ele: id
       way: js
   information:
-      type: click
-      ele: id
-      way: js
-      parameter: of_phbut
       of_phone:
           type: input
           ele: id
           way: js
-          parameter: 243617
+          parameter: 2655926
       nike:
           type: judge
           ele: mysql
           way: ['phone','nickname']
           parameter:  select u.phone as 'phone',b.nickname as 'nickname' from lnsm_user as u left join lnsm_buyer as b on u.id = b.buyer_id where u.type = 1 AND u.id = %s ;
+      of_phbut:
+          type: click
+          ele: id
+          way: js
+          parameter: of_phbut
   addgoods:
       type: click
       ele: css
@@ -87,15 +88,49 @@ test_defaultSingleGood:
             way: js
             parameter: 订单备注
 test_ungenerate:
-    city: 南宁市
-  del:  利用js来执行动作,包含id或者css写法
+  city: 南宁市
+  del: 利用js来执行动作,包含id或者css写法
   formSub:
       parameter: of_ofbut
       type: click
       ele: id
       way: js
   information:
+      of_phbut:
+          type: click
+          ele: id
+          way: js
+          parameter: of_phbut
+test_purecharacter:
+  city: 南宁市
+  del: 利用js来执行动作,包含id或者css写法
+  formSub:
+      parameter: of_ofbut
       type: click
       ele: id
       way: js
-      parameter: of_phbut
+  information:
+      of_phone:
+          type: input
+          ele: id
+          way: js
+          parameter: 输入中文
+      of_phbut:
+          type: click
+          ele: id
+          way: js
+          parameter: of_phbut
+test_closewindows:
+  city: 南宁市
+  del: 利用js来执行动作,包含id或者css写法
+  formSub:
+      parameter: of_ofbut
+      type: click
+      ele: id
+      way: js
+  information:
+      of_phbut:
+          type: click
+          ele: css
+          way: js
+          parameter: of_defaule

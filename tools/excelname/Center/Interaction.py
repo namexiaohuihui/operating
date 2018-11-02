@@ -145,6 +145,12 @@ class InteractionController(ExcelTitle):
     def yaml_of_userName(self):
         return 'of_userName'
 
+    def yaml_of_usermsg(self):
+        return 'of_usermsg'
+
+    def yaml_of_p(self):
+        return 'of_p'
+
     def yaml_of_default(self):
         return 'of_default'
 
@@ -177,6 +183,9 @@ class InteractionController(ExcelTitle):
 
     def yaml_of_ofbut(self):
         return 'of_ofbut'
+
+    def yaml_of_defaule(self):
+        return 'of_defaule'
 
     def yaml_information(self):
         return "information"

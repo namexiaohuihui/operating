@@ -1,0 +1,180 @@
+test_showtimetoday:
+  city: 全部
+  formSub:
+      action: export
+      test: 导出
+      parameter: True
+  del:  默认为cssselect格式来获取元素
+  condition:
+      ordertime:
+          timetype:
+              type: select
+              ele: css
+              parameter: 下单时间
+          timeinput:
+              type: input
+              ele: css
+              parameter: 今日
+
+
+test_yesterdayorder:
+  city: 全部
+  formSub:
+      action: export
+      test: 搜索
+      parameter: True
+  del:  默认为cssselect格式来获取元素
+  condition:
+      ordertime:
+          timetype:
+              type: select
+              ele: css
+              parameter: 下单时间
+          timeinput:
+              type: input
+              ele: css
+              parameter: 昨日
+
+test_sevendayorder:
+  city: 全部
+  formSub:
+      action: export
+      test: 搜索
+      parameter: True
+  del:  默认为cssselect格式来获取元素
+  condition:
+      ordertime:
+          timetype:
+              type: select
+              ele: css
+              parameter: 下单时间
+          timeinput:
+              type: input
+              ele: css
+              parameter: 最近7日
+
+test_thirtydayorder:
+  city: 全部
+  formSub:
+      action: export
+      test: 搜索
+      parameter: True
+  del:  默认为cssselect格式来获取元素
+  condition:
+      ordertime:
+          timetype:
+              type: select
+              ele: css
+              parameter: 下单时间
+          timeinput:
+              type: input
+              ele: css
+              parameter: 最近30日
+
+test_yeardayorder:
+  city: 全部
+  formSub:
+      action: export
+      test: 搜索
+      parameter: True
+  del:  默认为cssselect格式来获取元素
+  condition:
+      ordertime:
+          timetype:
+              type: select
+              ele: css
+              parameter: 下单时间
+          timeinput:
+              type: input
+              ele: css
+              parameter: 全部
+
+test_customtoday:
+  city: 全部
+  formSub:
+      action: export
+      test: 搜索
+      parameter: True
+  del:  默认为cssselect格式来获取元素
+  condition:
+      ordertime:
+          timetype:
+              type: select
+              ele: css
+              parameter: 下单时间
+          timeinput:
+              type: input
+              ele: css
+              parameter: 2018-07-28 11:55:09 至 2018-07-28 11:55:09
+      usersort:
+          labelreserve:
+              type: checkbox
+              ele: css
+              parameter: True
+          labelgroupbuy:
+              type: checkbox
+              ele: css
+              parameter: True
+          labelwatiki:
+              type: checkbox
+              ele: css
+              parameter: False
+      areas:
+          manager:
+              type: select
+              ele: css
+              parameter: 刘钢
+          director:
+              type: select
+              ele: css
+              parameter: 周安喜
+          area:
+              type: select
+              ele: css
+              parameter: 铁道站
+      status:
+          choose:
+              type: select
+              ele: css
+              parameter: 店铺
+      orders:
+          orderkey:
+              type: select
+              ele: css
+              parameter: 商品ID
+          orderinput:
+              type: input
+              ele: css
+              parameter: 大野支援上路
+      buyers:
+          buyerkey:
+              type: select
+              ele: css
+              parameter: 收货人手机
+          buyerinput:
+              type: input
+              ele: css
+              parameter: 大野支援中路
+      delivery:
+          deliverykey:
+              type: select
+              ele: css
+              parameter: 配送员ID
+          ftdeliveryI:
+              type: input
+              ele: css
+              parameter: 大野支援下路
+      single:
+          ftsingleI:
+              type: input
+              ele: css
+              parameter: 我的野被反了
+      others:
+          otherkey:
+              type: select
+              ele: css
+              parameter: 供应商ID
+          ftotherI:
+              type: input
+              ele: css
+              parameter: 稳住,后期我们能赢

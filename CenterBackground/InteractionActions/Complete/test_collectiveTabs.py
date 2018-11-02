@@ -26,16 +26,17 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_releaseOffline.py
-@time:      2018/10/23 17:33
+@file:      test_collectiveTabs.py
+@time:      2018/9/19 16:44
 @desc:
 """
+import time
+
 import os
 import inspect
 import unittest
-from .offlineGenerate import OfflineGenerate
-from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 from CenterBackground import InteractionActions
+from CenterBackground.commoditiesJude import CommoditiesJude
 from tools.excelname.Center.Interaction import InteractionController
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
@@ -43,59 +44,47 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.offline, InteractionActions.release)
-generate = OfflineGenerate(config, basename, InteractionController)
+config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.city)
+sw_tab = CommoditiesJude(config, basename, InteractionController)
 
 
-class TestReleaseOffline(unittest.TestCase):
+class TestCollectiveTabs(unittest.TestCase):
     """
-    发布内容
+    城市tab切换用例所在地
     """
+    # 定义头部button中，后面N位不需要
+    BUTTON_REDUCE_NUMBER = 0
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        generate.openingProgram()
-        generate._rou_background()
-        generate.log.info("%s : The use case begins execution" % basename)
+        sw_tab.openingProgram()
+        sw_tab._rou_background()
+        sw_tab.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         pass
 
     def tearDown(self):
-        # generate.driver.quit()
-        generate.log.info("%s : The use case is done" % basename)
+        sw_tab.driver.quit()
+        sw_tab.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_defaultSingleGood(self):
-        """
-        默认流程发布单个商品
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
-
-    def test_ungenerate(self):
-        """
-        直接点击
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
-
-    def test_purecharacter(self):
-        """
-        输入中文
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
+    def test_active_tab(self):
+        sw_tab.setFunctionName(inspect.stack()[0][3])
+        sw_tab.active_city('class')
         pass
 
-    def test_closewindows(self):
-        """
-        点击取消
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.defaule_environment()
+    def test_already_tabs(self):
+        sw_tab.setFunctionName(inspect.stack()[0][3])
+        sw_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        pass
+
+    def test_switch_tab(self):
+        sw_tab.setFunctionName(inspect.stack()[0][3])
+        sw_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        pass
+
+    def test_switch_url(self):
+        sw_tab.setFunctionName(inspect.stack()[0][3])
+        sw_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
 

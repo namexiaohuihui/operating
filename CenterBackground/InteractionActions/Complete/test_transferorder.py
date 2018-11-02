@@ -26,14 +26,13 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_releaseOffline.py
-@time:      2018/10/23 17:33
+@file:      test_transferorder.py
+@time:      2018/10/17 16:36
 @desc:
 """
 import os
 import inspect
 import unittest
-from .offlineGenerate import OfflineGenerate
 from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
@@ -41,61 +40,37 @@ from tools.excelname.Center.Interaction import InteractionController
 basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
-
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.offline, InteractionActions.release)
-generate = OfflineGenerate(config, basename, InteractionController)
+config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.transfer)
+
+trans_o = OperationViewJude(config, basename, InteractionController)
 
 
-class TestReleaseOffline(unittest.TestCase):
+class TestTransferOrder(unittest.TestCase):
     """
-    发布内容
+    转预约功能的订单
     """
-
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        generate.openingProgram()
-        generate._rou_background()
-        generate.log.info("%s : The use case begins execution" % basename)
+        trans_o.openingProgram()
+        trans_o._rou_background()
+        trans_o.log.info("%s : The use case begins execution" % basename)
         pass
 
     def tearDown(self):
-        # generate.driver.quit()
-        generate.log.info("%s : The use case is done" % basename)
+        trans_o.driver.quit()
+        trans_o.log.info("%s : The use case is done" % basename)
         pass
 
-    def test_defaultSingleGood(self):
+    def test_dayTransfer(self):
         """
-        默认流程发布单个商品
+        查看下单时间为当天的订单
         :return:
         """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
-
-    def test_ungenerate(self):
-        """
-        直接点击
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
-
-    def test_purecharacter(self):
-        """
-        输入中文
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
-        pass
-
-    def test_closewindows(self):
-        """
-        点击取消
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.defaule_environment()
+        trans_o.setFunctionName(inspect.stack()[0][3])
+        trans_o.release_success()
+        # 找到td通过子元素的text来找到信息
+        trans_o.transfer_order_types()
         pass
 
 

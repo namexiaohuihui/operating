@@ -26,76 +26,92 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_releaseOffline.py
-@time:      2018/10/23 17:33
+@file:      test_collectiveView.py
+@time:      2018/9/27 17:25
 @desc:
 """
 import os
 import inspect
 import unittest
-from .offlineGenerate import OfflineGenerate
 from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.offline, InteractionActions.release)
-generate = OfflineGenerate(config, basename, InteractionController)
+config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.views)
+tive_v = OperationViewJude(config, basename, InteractionController)
 
 
-class TestReleaseOffline(unittest.TestCase):
+class TestCollectiveView(unittest.TestCase):
     """
-    发布内容
+    通过筛选查看页面数据
     """
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        generate.openingProgram()
-        generate._rou_background()
-        generate.log.info("%s : The use case begins execution" % basename)
+        tive_v.openingProgram()
+        tive_v._rou_background()
+        tive_v.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         pass
 
     def tearDown(self):
-        # generate.driver.quit()
-        generate.log.info("%s : The use case is done" % basename)
+        tive_v.driver.quit()
+        tive_v.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_defaultSingleGood(self):
+    def test_showtimetoday(self):
         """
-        默认流程发布单个商品
+        查看下单时间为当天的订单
         :return:
         """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
-
-    def test_ungenerate(self):
-        """
-        直接点击
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
-
-    def test_purecharacter(self):
-        """
-        输入中文
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
+        tive_v.setFunctionName(inspect.stack()[0][3])
+        tive_v.release_success()
         pass
 
-    def test_closewindows(self):
+    def test_yesterdayorder(self):
         """
-        点击取消
+        查看下单时间为昨天的订单
         :return:
         """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.defaule_environment()
+        tive_v.setFunctionName(inspect.stack()[0][3])
+        tive_v.release_success()
+        pass
+
+    def test_sevendayorder(self):
+        """
+        查看下单时间为七天的订单
+        :return:
+        """
+        tive_v.setFunctionName(inspect.stack()[0][3])
+        tive_v.release_success()
+        pass
+
+    def test_thirtydayorder(self):
+        """
+        查看下单时间为30的订单
+        :return:
+        """
+        tive_v.setFunctionName(inspect.stack()[0][3])
+        tive_v.release_success()
+        pass
+
+    def test_yeardayorder(self):
+        """
+        查看下单时间为全部的订单
+        :return:
+        """
+        tive_v.setFunctionName(inspect.stack()[0][3])
+        tive_v.release_success()
+        pass
+
+    def test_customtoday(self):
+        """
+        查看下单时间为自定义的订单
+        :return:
+        """
+        tive_v.setFunctionName(inspect.stack()[0][3])
+        tive_v.release_success()
         pass
 
 

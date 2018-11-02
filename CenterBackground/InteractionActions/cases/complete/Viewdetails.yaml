@@ -1,0 +1,7 @@
+test_daydetails:
+  city: 全部
+  formSub:
+    action: search
+    test: 搜索
+    parameter: True
+  del:  默认为cssselect格式来获取元素

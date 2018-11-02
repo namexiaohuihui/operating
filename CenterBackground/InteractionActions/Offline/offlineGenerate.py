@@ -56,6 +56,19 @@ class OfflineGenerate(JudgmentVerification):
         self.bi = center_name()
         pass
 
+    def prompt_hint_error(self):
+        visible_p = self.vac.is_visible_css_selectop(self.driver,
+                                                     self.financial[self.bi.yaml_of_p()])
+        if visible_p:
+            self.log.info("输入错误之后提示信息: %s" % visible_p.text)
+            self.log.info("输入错误之后提示信息: %s" % self.overall[self.bi.whole_output()])
+            assert operator.eq(visible_p.text, self.overall[self.bi.whole_output()]), "错误提示框:内容提示错误"
+            self.vac.css_confirm_prompt(self.driver, self.financial[self.bi.yaml_confirm()])
+            info_bool = visible_p.text
+        else:
+            info_bool = True
+        return info_bool
+
     def read_offline_case(self):
         # 1.读取用例设置的参数位置
         ov_para = self.overall[self.bi.whole_parameter()]
@@ -92,8 +105,11 @@ class OfflineGenerate(JudgmentVerification):
         return case_value
 
     def click_and_mode(self, mode, key):
+        self.ti.dormancy_time(0.5)
         mode = mode[key]
         ordinal = mode[self.bi.yaml_parameter()]
+        print(mode)
+        print(self.financial[ordinal])
         self.vac.ele_click_and_mode(self.driver, mode, self.financial[ordinal])
         del mode
 
@@ -119,6 +135,7 @@ class OfflineGenerate(JudgmentVerification):
         functionName = inspect.stack()[0][3]
         case_value = case_value
         info_bool = False  # 检验程序是否需要执行下去
+        hint_bool = True  # 校验是否需要点击下单,输入中文之后焦点移除，此时已经对弹窗进行操作.后面就不需要再次操作
         info_mation = self.bi.yaml_information()
 
         if info_mation in case_value:  # 判断信息输入框是否出现
@@ -126,45 +143,86 @@ class OfflineGenerate(JudgmentVerification):
             # 提取对象输入框的信息
             info_mation = self.bi.yaml_of_phone()
 
-            # 判断输入信息是否存在
+            # 输入框信息判断
             if info_mation in case_con:
                 case_info = case_con[info_mation]
                 # 用户输入的信息
                 self.vai.ele_input_and_mode(self.driver, case_info, self.financial[info_mation])
-                # 获取输入的信息
-                info_msg = case_info[self.bi.yaml_parameter()]
+                try:
+                    # 获取输入的信息
+                    info_msg = case_info[self.bi.yaml_parameter()]
+                    # 根据输入的信息判断买家昵称或者输入不符合要求的数据信息
+                    if int(info_msg):
+                        # 读取买家昵称
+                        nametext = self.vac.is_visible_id(self.driver,
+                                                          self.financial[self.bi.yaml_of_userName()]).text
+                        usermsg = self.vac.is_visible_id(self.driver,
+                                                         self.financial[self.bi.yaml_of_usermsg()]).text
+                        if nametext:
+                            if 'nike' in case_con:
+                                case_info = case_con['nike']
+                                # 执行sql查询
+                                info_mysql = case_info[self.bi.yaml_parameter()] % info_msg
+                                result = self.mysqlTotalSelects(info_mysql)
+                                # 读取名字
+                                nickname = result[0].get('nickname')
+                                assert operator.eq(nickname, nametext), '用户名比较错误'
+                                pass
+                            else:
+                                self.log.info("%s没有验证的sql: %s" % (functionName, case_info[self.bi.yaml_parameter()]))
+                                pass
+                        else:
+                            info_bool = 666
+                            self.log.info("用户为新用户%s" % usermsg)
+                        pass
+                    else:
+                        self.log.info("输入的信息不是手机号和ID")
+                except Exception:
+                    print("输入中文发生错误: %s" % functionName)
+                    info_bool = self.prompt_hint_error()
 
-                # 如果错误提示框出现那么就返回结束进程
-                if 'nike' in case_con:
-                    case_info = case_con['nike']
-                    # 执行sql查询
-                    info_mysql = case_info[self.bi.yaml_parameter()] % info_msg
-                    result = self.mysqlTotalSelects(info_mysql)
-                    # 读取名字
-                    nickname = result[0].get('nickname')
-                    nametext = self.vac.is_visible_id(self.driver,
-                                                      self.financial[self.bi.yaml_of_userName()]).text
-                    assert operator.eq(nickname, nametext), '用户名比较错误'
-                    info_bool = True
+                    if type(info_bool) is str:
+                        info_bool = info_bool
+                        pass
+                    else:
+                        self.log.info("弹窗没有出现不需要进行比较")
+                        pass
+                    # 关闭弹窗之后应设置
+                    hint_bool = False
                     pass
-                else:
-                    self.log.info("operating_environment输入内容有误: %s" % case_info[self.bi.yaml_parameter()])
-                pass
+
                 del case_info
-                # 执行点击动作
-                if info_bool:
-                    self.click_and_mode(case_value, self.bi.yaml_information())
-                    # self.vac.ele_click_and_mode(
-                    #     self.driver, case_con, self.financial[self.bi.yaml_of_phbut()]
-                    # )
-                else:
-                    # 信息错误或者没填写信息时的判断
-                    pass
-
             else:
                 self.log.info("用户用例中没有信息-%s" % functionName)
+                pass
+
+            # 执行点击下单动作
+            button_but = self.bi.yaml_of_phbut()
+            if button_but in case_con:
+                print("没有计入 %s " % hint_bool)
+                # 输入中文内容出现错误弹窗
+                if hint_bool:
+                    # 点击下单
+                    self.click_and_mode(case_con, button_but)
+                    info_bool = self.prompt_hint_error()
+                    print(info_bool)
+                else:
+                    print("错误弹窗不需要出现两次")
+            else:
+                self.log.info("点击按钮不存在")
+
+            if not info_bool:
+                # 信息错误或者没填写信息时的判断
+                print("用户不输入信息")
+                pass
+            else:
+                self.log.info("%s用户信息验证成功" % (functionName))
+                pass
+
         else:
+            # 直接点击关闭弹窗
             self.log.info("没有用户验证用例-%s" % functionName)
+
         del case_value
         return info_bool
 
@@ -238,7 +296,9 @@ class OfflineGenerate(JudgmentVerification):
 
         # 信息弹窗的输入
         info_bool = self.information_input(case_value)
-        if info_bool:
+
+        if (info_bool) and (type(info_bool) is bool):
+            self.log.info("operating_environment 判断为老用户")
             # 判断添加商品的用例
             self.add_goods_click(case_value)
 
@@ -247,7 +307,27 @@ class OfflineGenerate(JudgmentVerification):
 
             # 弹窗的确认
             self.windows_confirm(case_value)
-        else:
-            assert False, "没有执行输入指令,程序提前结束"
+            pass
 
+        elif type(info_bool) is int:
+            self.log.info("operating_environment 判断为新用户")
+            pass
+
+        elif type(info_bool) is str:
+            self.log.info("operating_environment 输入错误:%s" % info_bool)
+            pass
+
+        else:
+            assert False, "没有执行输入指令,程序提前结束或者没有进入合适的流程 %s" % info_bool
+
+        del case_value
+
+    def defaule_environment(self):
+        case_value = self.entrance_city()
+        case_con = case_value[self.bi.yaml_information()]
+
+
+        button_but = self.bi.yaml_of_phbut()
+        if button_but in case_con:
+            self.click_and_mode(case_con, button_but)
         del case_value

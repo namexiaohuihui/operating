@@ -26,76 +26,74 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_releaseOffline.py
-@time:      2018/10/23 17:33
+@file:      test_particulars.py
+@time:      2018/10/19 11:40
 @desc:
 """
 import os
 import inspect
 import unittest
-from .offlineGenerate import OfflineGenerate
 from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
+basePath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
+basename = basePath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.offline, InteractionActions.release)
-generate = OfflineGenerate(config, basename, InteractionController)
+config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.particulars)
+parti_c = OperationViewJude(config, basename, InteractionController)
 
 
-class TestReleaseOffline(unittest.TestCase):
+class TestParticulars(unittest.TestCase):
     """
-    发布内容
+    详情页进行操作
     """
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        generate.openingProgram()
-        generate._rou_background()
-        generate.log.info("%s : The use case begins execution" % basename)
+        parti_c.openingProgram()
+        parti_c._rou_background()
+        parti_c.log.info("%s : The use case begins execution" % basename)
         pass
 
     def tearDown(self):
-        # generate.driver.quit()
-        generate.log.info("%s : The use case is done" % basename)
+        parti_c.driver.quit()
+        parti_c.log.info("%s : The use case is done" % basename)
         pass
 
-    def test_defaultSingleGood(self):
+    def test_closecancel(self):
         """
-        默认流程发布单个商品
+        详情页面点击关闭
         :return:
         """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
-
-    def test_ungenerate(self):
-        """
-        直接点击
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
-
-    def test_purecharacter(self):
-        """
-        输入中文
-        :return:
-        """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
+        parti_c.setFunctionName(inspect.stack()[0][3])
+        parti_c.release_success()
+        parti_c.details_order_types()
+        parti_c.close_cancel()
         pass
 
-    def test_closewindows(self):
+    def test_appointmentcancel(self):
         """
-        点击取消
+        详情页面点击转预约
         :return:
         """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.defaule_environment()
+        parti_c.setFunctionName(inspect.stack()[0][3])
+        parti_c.release_success()
+        parti_c.details_order_types()
+        parti_c.appointmen_cancel()
+        pass
+
+    def test_replacecancel(self):
+        """
+        详情页面点击更换
+        :return:
+        """
+        parti_c.setFunctionName(inspect.stack()[0][3])
+        parti_c.release_success()
+        parti_c.details_order_types()
+        parti_c.replace_cancel()
         pass
 
 

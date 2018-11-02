@@ -69,7 +69,7 @@ ftotherI: form.form-inline > div:nth-child(3) > div:nth-child(6) > div > div:nth
 # offline
 of_generate: .btn.btn-default.modal-btn
 of_userName: userName
-
+of_usermsg: usermsg
 of_re: .btn.btn-default.modal-btn                                                                      # Generate order button
 of_phone: phone                                                                                        # User information input box
 of_phbut: phoneFormBut                                                                                 # Submit user information input box
@@ -81,6 +81,9 @@ of_addbut: addgoodsBut                                                          
 of_info: noteoperation                                                                                 # Note input box for order operation
 of_inor: noteorder
 of_ofbut: orderFormBut
+of_defaule: div.modal-content > div > div.modal-footer > button.btn.btn-default
+
+of_p: .sweet-alert.showSweetAlert.visible > p
 
 
 

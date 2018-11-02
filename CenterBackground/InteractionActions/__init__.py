@@ -26,6 +26,7 @@ dispatch = 'dispatch'
 fifty = 'fifty'
 carriage = 'carriage'
 offline = 'offline'
+complete = 'complete'
 
 # 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
 city = 'city'
