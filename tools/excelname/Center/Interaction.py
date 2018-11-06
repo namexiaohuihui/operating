@@ -189,9 +189,3 @@ class InteractionController(ExcelTitle):
 
     def yaml_information(self):
         return "information"
-
-    def yaml_parameter(self):
-        return "parameter"
-
-    def yaml_way(self):
-        return "way"

@@ -85,20 +85,21 @@ class OfflineGenerate(JudgmentVerification):
 
         # 2.进入指定的城市
         self.ct = CustomTabs(self.driver, self.financial[self.bi.yaml_tabs()])
-        self.ct.is_visibles()
-
-        # 2.1读取全部的城市text
-        ul_text = [ul.text for ul in self.ct.ul_li]
-
-        # 2.2将元素和城市text通过dict形式存储
-        city_text = dict(zip(ul_text, self.ct.ul_li))
-
-        # 2.3找到城市
-        case_city = case_value[self.bi.yaml_city()]
-        if case_city in city_text:
-            self.vac.element_click(city_text[case_city])
-        else:
-            self.log.info("进入的城市不存在: %s %s" % (functionName, case_city))
+        self.ct.into_the_city2(self.vac,case_value[self.bi.yaml_city()])
+        # self.ct.is_visibles()
+        #
+        # # 2.1读取全部的城市text
+        # ul_text = [ul.text for ul in self.ct.ul_li]
+        #
+        # # 2.2将元素和城市text通过dict形式存储
+        # city_text = dict(zip(ul_text, self.ct.ul_li))
+        #
+        # # 2.3找到城市
+        # case_city = case_value[self.bi.yaml_city()]
+        # if case_city in city_text:
+        #     self.vac.element_click(city_text[case_city])
+        # else:
+        #     self.log.info("进入的城市不存在: %s %s" % (functionName, case_city))
 
         # 2.4 点击生成按钮,弹窗生成框
         self.vac.css_confirm_prompt(self.driver, self.financial[self.bi.yaml_of_generate()])

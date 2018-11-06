@@ -34,19 +34,57 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class Generalize(ExcelTitle):
-    def yaml_nav_tabs(self):
-        return "nav_tabs"
+    # ---------------------foucs-------------------
+    def yaml_tabs(self):
+        return "tabs"
 
-    def yaml_box_city(self):
-        return "box_city"
+    def yaml_city(self):
+        return "city"
 
-    def yaml_add_modal(self):
-        return "add_modal"
+    def yaml_add_assist(self):
+        return "add_assist"
 
-    def yaml_preview_modal(self):
-        return "preview_modal"
+    def yaml_preview_assist(self):
+        return "preview_assist"
 
-    def yaml_rules_modal(self):
-        return "rules_modal"
+    def yaml_preview_close(self):
+        return "preview_close"
+
+    def yaml_rules_assist(self):
+        return "rules_assist"
+
+    def yaml_rules_close(self):
+        return "rules_close"
+
+    def yaml_modift_assist(self):
+        return "modift_assist"
+
+    def yaml_delect_assist(self):
+        return "delect_assist"
+
+    def yaml_cancel_assist(self):
+        return "cancel_assist"
+
+    def yaml_determine_assist(self):
+        return "determine_assist"
+
+    def yaml_operate(self):
+        return "operate"
+
+    def yaml_modify(self):
+        return "modify"
+
+    def yaml_pupop(self):
+        return "pupop"
+
+    # -----------------------img---------------------
+    def yaml_box_title(self):
+        return "box_title"
+
+    def yaml_img(self):
+        return "img"
+
+    def yaml_img_save(self):
+        return "img_save"
 
     pass

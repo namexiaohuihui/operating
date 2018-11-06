@@ -1,0 +1,17 @@
+test_addCancel:
+  city: 南宁市
+  tabs: 首页焦点
+  del:  点击添加弹窗中的取消按钮
+  operate:
+    del: 元素操作对象
+    modify:
+          del: 进入添加弹窗
+          type: click
+          ele: css
+          way: js
+          parameter: add_assist
+    pupop:
+          type: click
+          ele: css
+          way: js
+          parameter: determine_assist

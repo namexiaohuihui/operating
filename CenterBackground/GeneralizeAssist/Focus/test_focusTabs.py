@@ -35,7 +35,7 @@ import inspect
 import unittest
 from CenterBackground import GeneralizeAssist
 from CenterBackground.commoditiesJude import CommoditiesJude
-from tools.excelname.Center.consumers import Consumers
+from tools.excelname.Center.generalize import Generalize
 from CenterBackground import customTabs
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
@@ -44,7 +44,7 @@ basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
 config = GeneralizeAssist.add_key(GeneralizeAssist.focus, GeneralizeAssist.city)
-fJude = CommoditiesJude(config, basename, Consumers)
+fJude = CommoditiesJude(config, basename, Generalize)
 
 
 class TestFocusTabs(unittest.TestCase):
@@ -112,5 +112,6 @@ class TestFocusTabs(unittest.TestCase):
         fJude.switch_url(customTabs._class)
         pass
 
-    if __name__ == '__main__':
-        unittest.main(verbosity=2)
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

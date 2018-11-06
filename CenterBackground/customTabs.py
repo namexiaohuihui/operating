@@ -301,3 +301,42 @@ class CustomTabs(object):
         '''
         print('Data read from the excel table : %s' % strData)
         return str(int(strData)) if strData else None
+
+    def into_the_city(self, vac, case_city):
+        """
+        指定城市进行点击
+        :param vac:  点击操作对象
+        :param case_city:  需要点击的城市名
+        :return:
+        """
+        self.is_visibles()
+        # 2.1读取全部的城市text
+        ul_text = [ul.text for ul in self.ul_li]
+        # 2.2将元素和城市text通过dict形式存储
+        city_text = dict(zip(self.ul_li, ul_text))
+        # 2.3找到城市
+        for city_k, city_v in city_text.items():
+            if case_city == city_v:
+                vac.element_click(city_k)
+                break
+
+    def into_the_city2(self, vac, case_city):
+        """
+        指定城市进行点击
+        :param vac:  点击操作对象
+        :param case_city:  需要点击的城市名
+        :return:
+        """
+        self.is_visibles()
+
+        # 2.1读取全部的城市text
+        ul_text = [ul.text for ul in self.ul_li]
+
+        # 2.2将元素和城市text通过dict形式存储
+        city_text = dict(zip(ul_text, self.ul_li))
+
+        # 2.3找到城市
+        if case_city in city_text:
+            vac.element_click(city_text[case_city])
+        else:
+            print("进入的城市不存在: %s %s" % ("into_the_city2", case_city))

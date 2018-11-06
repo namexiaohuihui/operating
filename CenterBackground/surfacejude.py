@@ -80,18 +80,18 @@ class SurfaceJude(JudgmentVerification):
 
     def traverseYield(self, thead_tr, tbody_class):
         '''
-
         :param thead_tr:  页面内容标题
         :param tbody_class:  页面内容展示项
         :return:
         '''
+        _button = "button"
         for tr in tbody_class:
             tbody_tr = {}
             thead_length = len(thead_tr)
             for tr_len in range(thead_length):
                 tr_td = tr.find_all('td')
                 if tr_len == thead_length - 1:
-                    td_text = [td.text.replace(" ", "").replace("\n", "") for td in tr_td[tr_len].find_all('button')]
+                    td_text = [td.text.replace(" ", "").replace("\n", "") for td in tr_td[tr_len].find_all(_button)]
                 else:
                     td_text = tr_td[tr_len].text.replace(" ", "").replace("\n", "")
                 tbody_tr[thead_tr[tr_len]] = td_text
@@ -124,14 +124,24 @@ class SurfaceJude(JudgmentVerification):
         pass
 
     def surface_execute(self):
+        """
+        1.根据分页信息判断需要获取数据的页面数量
+        2.通过线程来执行获取任务
+        :return:
+        """
+        # 1.根据info获取当前分页的总数
         pages = self.info_number()  # 获取into的总数据信息
         self.log.info('There is data that needs to be paged: %s' % pages)
 
         self.tbody_list = []
         self.threads = []
-        thead_tr = self.success_execute()
 
         queue = [i for i in range(1, pages + 1)]  # 构造 url 链接 页码。
+
+        # 2.获取页面内容的key
+        thead_tr = self.success_execute()
+
+        # 3.通过线程来获取内容
         current = self.driver.current_url
         for qe in range(1, 3):
             url = current + '&page={}'.format(qe)

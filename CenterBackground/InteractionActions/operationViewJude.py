@@ -60,7 +60,7 @@ class OperationViewJude(JudgmentVerification):
 
     def time_day_select(self, hour, value, part):
         """
-        啥子操作
+        傻子操作方式:对时间下拉框进行操作
         :param hour:
         :param part:
         :return:
@@ -86,20 +86,23 @@ class OperationViewJude(JudgmentVerification):
         ov_para = os.path.join(os.path.dirname(os.path.realpath(__file__)), ov_para)
         case_value = self.read_yaml_case(file_name=ov_para, case_key=self.FUNCTION_NAME)
 
-        # 2.进入指定的城市
+        # 2. 点击城市
         self.ct = CustomTabs(self.driver, self.financial[self.bi.yaml_tabs()])
-        self.ct.is_visibles()
-        # 2.1读取全部的城市text
-        ul_text = [ul.text for ul in self.ct.ul_li]
-        # 2.2将元素和城市text通过dict形式存储
-        city_text = dict(zip(self.ct.ul_li, ul_text))
-        # 2.3找到城市
-        case_city = case_value[self.bi.yaml_city()]
-        print(case_city)
-        for city_k, city_v in city_text.items():
-            if case_city == city_v:
-                self.vac.element_click(city_k)
-                break
+        self.ct.into_the_city(self.vac, case_value[self.bi.yaml_city()])
+
+        # # 2.根据tab 读取相应的城市数据
+        # self.ct = CustomTabs(self.driver, self.financial[self.bi.yaml_tabs()])
+        # self.ct.is_visibles()
+        # # 2.1读取全部的城市text
+        # ul_text = [ul.text for ul in self.ct.ul_li]
+        # # 2.2将元素和城市text通过dict形式存储
+        # city_text = dict(zip(self.ct.ul_li, ul_text))
+        # # 2.3找到城市
+        # case_city = case_value[self.bi.yaml_city()]
+        # for city_k, city_v in city_text.items():
+        #     if case_city == city_v:
+        #         self.vac.element_click(city_k)
+        #         break
 
         # 3.根据相应的key值对数据进行操作,遍历执行元素的动作(判断此参数的key是否出现)
         if self.bi.yaml_condition() in case_value:
@@ -231,7 +234,7 @@ class OperationViewJude(JudgmentVerification):
                 else:
                     self.log.info("no appear To make an appointment to %s:" % tr.text)
             else:
-                assert True is False,"没有转预约按钮"
+                assert True is False, "没有转预约按钮"
 
     def replace_order_types(self):
         """

@@ -1,6 +1,28 @@
-focus: focus项目
-nav_tabs: ul.nav.nav-tabs > li
-box_city: div.box-city > a
-add_modal: button.btn.btn-default.btn-sm.modal-btn
-preview_modal: button.btn.btn-info.btn-sm.modal-btn
-rules_modal: button.btn.btn-default.btn-sm.explain
+# focus 菜单页面的元素标签
+tabs: ul.nav.nav-tabs > li # 标题
+city: div.box-city > a # 城市
+add_assist: div.box-tools > button:nth-child(1) # 添加
+preview_assist: button.btn.btn-info.btn-sm.modal-btn # 预览
+preview_close: div.modal.fade.in > div > div > div.modal-header > button # 预览关闭
+rules_assist: button.btn.btn-default.btn-sm.explain # 规则
+rules_close: div.modal.fade.in > div > div > div.modal-header > button # 规则关闭
+
+# 修改
+modift_assist: tbody > tr:nth-child(1) > td:nth-child(6) > button:nth-child(1)
+# 删除
+delect_assist: tbody > tr:nth-child(1) > td:nth-child(6) > button:nth-child(2)
+
+# 编辑和新增弹窗
+# 取消
+cancel_assist: .modal-footer > button.btn.btn-default
+# 确定
+determine_assist: .modal-footer > button.btn.btn-primary
+
+# 删除弹窗
+cancel_dl: button.cancel
+confirm_dl: button.confirm
+
+# Background 菜单页面的元素标签
+box_title: .box-title
+img: uppicsrc
+img_save: updateImgs

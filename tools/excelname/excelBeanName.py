@@ -184,6 +184,18 @@ class ExcelTitle(object):
     def yaml_condition(self):
         return 'condition'
 
+    def yaml_ele(self):
+        return "ele"
+
+    def yaml_way(self):
+        return "way"
+
+    def yaml_parameter(self):
+        return "parameter"
+
+    def yaml_button(self):
+        return "button"
+
     #  -------------------------------------元素标签属性--------------------
     def ele_class(self):
         return 'class'

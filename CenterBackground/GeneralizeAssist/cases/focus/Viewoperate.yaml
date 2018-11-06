@@ -1,0 +1,35 @@
+test_modifyCancel:
+  city: 南宁市
+  tabs: 首页焦点
+  del:  点击修改弹窗中的取消按钮
+  operate:
+    del: 元素操作对象
+    modify:
+          del: 进入修改弹窗
+          type: click
+          ele: css
+          way: js
+          parameter: modift_assist
+    pupop:
+          type: click
+          ele: css
+          way: js
+          parameter: cancel_assist
+
+test_deleteCancel:
+  city: 南宁市
+  tabs: 首页焦点
+  del:  点击删除弹窗中的取消按钮
+  operate:
+    del: 元素操作对象
+    modify:
+          del: 进入删除弹窗
+          type: click
+          ele: css
+          way: js
+          parameter: delect_assist
+    pupop:
+          type: click
+          ele: css
+          way: js
+          parameter: cancel_dl

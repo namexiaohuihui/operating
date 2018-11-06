@@ -26,34 +26,23 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      __init__.py.py
-@time:      2018/11/2 11:03
+@file:      photograph.py
+@time:      2018/11/6 11:55
 @desc:
 """
+from CenterBackground.judeVerification import JudgmentVerification
 
 
-def add_key(module, sheet):
-    INVENTORY['module'] = module
-    INVENTORY['sheet'] = sheet
-    return INVENTORY
-
-
-# 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
-focus = 'focus'
-img = 'img'
-
-# 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
-city = 'city'
-page = 'page'
-operate = 'operate'
-add = 'add'
-preview = 'preview'
-rules = 'rules'
-
-# 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
-INVENTORY = {
-    'menu': 'generalize',  # 菜单标识符的定义
-    'module': 'no data',  # 菜单中模块标识符的定义
-    'sheet': 'no data',  # 模块所对应的用例标签名
-    'yaml': 'expression/GeneralizeAssist.yaml'  # 菜单所对应的yaml路径
-}
+class PhotoGraph(JudgmentVerification):
+    """
+    图片对象操作类
+    """
+    def __init__(self, config, basename, centerName):
+        '''
+        :param config: 头文件所在位置
+        :param basename: 执行用例的文件名
+        :param centerName: 参数定义的类对象
+        '''
+        JudgmentVerification.__init__(self, config, basename)
+        self.bi = centerName()
+        pass

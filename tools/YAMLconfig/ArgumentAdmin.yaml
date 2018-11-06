@@ -209,34 +209,39 @@ generalize:
     child: 1
     city: 城市
     page: 页面
+    operate: 操作
     rules: 规则
     preview: 预览
     add: 添加
+  img:
+    module: img
+    child: 2
+    page: 上传
   invite:
     module: invite
-    child: 2
+    child: 3
   timelimit:
     module: timelimit
-    child: 3
+    child:
   batch:
     module: batch
-    child: 4
+    child:
   akey:
     module: akey
-    child: 5
+    child:
     explain: This function has been perfected
   receive:
     module: receive
-    child: 6
+    child:
   redpacket:
     module: redpacket
-    child: 7
+    child:
   discounts:
     module: discounts
-    child: 8
+    child:
   popup:
     module: popup
-    child: 9
+    child:
   meaning:
     module: popup
-    child: 10
+    child:

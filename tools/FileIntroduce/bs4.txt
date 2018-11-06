@@ -1,0 +1,4 @@
+https://www.cnblogs.com/hanmk/p/8724162.html
+bs.contents             # 返回子标签
+bs.name                 # 返回标签名
+bs.find("img")["src"]   # 子标签为img的src属性值
