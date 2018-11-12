@@ -54,8 +54,6 @@ class Consumers(ExcelTitle):
         return 'dominator'
 
     # 　Configure the key used in the SocialBuyer.yaml　 file
-    def yaml_tabs(self):
-        return 'tabs'
 
     def yaml_box(self):
         return 'box'
@@ -71,9 +69,6 @@ class Consumers(ExcelTitle):
 
     def yaml_source(self):
         return 'source'
-
-    def yaml_city(self):
-        return 'city'
 
     def yaml_choose(self):
         return 'choose'

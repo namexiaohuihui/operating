@@ -73,6 +73,12 @@ class ExcelTitle(object):
         return '类型'
 
     # ----------------------------共用的定义--------------------
+    def yaml_tabs(self):
+        return "tabs"
+
+    def yaml_city(self):
+        return "city"
+
     def yaml_dec(self):
         return 'dec'
 

@@ -80,8 +80,6 @@ class BundledItems(ExcelTitle):
     def yaml_remove(self):
         return 'remove'
 
-    def yaml_tabs(self):
-        return 'tabs'
 
     def yaml_source(self):
         return 'source'

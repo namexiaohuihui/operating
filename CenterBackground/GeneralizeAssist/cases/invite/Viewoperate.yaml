@@ -1,0 +1,90 @@
+test_modifyAccess:
+  tabs: 推广效果
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: tr_detailed
+    valueText:
+      type: text
+      ele: css
+      text: 推广详细
+      parameter: box_title
+
+
+test_newbuyerAccess:
+  tabs: 推广效果
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: box_buyer
+    valueText:
+      type: text
+      ele: css
+      text: 新用户明细
+      parameter: box_title
+
+test_orderAccess:
+  tabs: 推广效果
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: box_order
+    valueText:
+      type: text
+      ele: css
+      text: 推广订单明细
+      parameter: box_title
+
+test_effectAccess:
+  tabs: 邀请人管理
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: tr_effect
+    valueText:
+      type: text
+      ele: css
+      text: 个人推广效果
+      parameter: box_title
+
+test_memberAccess:
+  tabs: 邀请人管理
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: tr_member
+    valueText:
+      type: text
+      ele: css
+      text: 个人推广效果
+      parameter: box_title
+
+test_addAccess:
+  tabs: 邀请人管理
+  del:  打开相应的弹窗
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: tr_add
+    valueText:
+      type: text
+      ele: css
+      text: 绑定红包
+      parameter: modal_title

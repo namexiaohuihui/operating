@@ -1,5 +1,12 @@
-# focus 菜单页面的元素标签
 tabs: ul.nav.nav-tabs > li # 标题
+info: div.dataTables_info
+typeselect: select[name='type'] # 下拉
+statusselect: select[name='status'] # 下拉
+keyinput: input[name='key'] # invite and secKill 输入框
+modal_title: h4.modal-title # 弹窗标题
+inputplace: input[type='search'] # 输入框
+
+# focus The element label for the menu page
 city: div.box-city > a # 城市
 add_assist: div.box-tools > button:nth-child(1) # 添加
 preview_assist: button.btn.btn-info.btn-sm.modal-btn # 预览
@@ -22,7 +29,42 @@ determine_assist: .modal-footer > button.btn.btn-primary
 cancel_dl: button.cancel
 confirm_dl: button.confirm
 
-# Background 菜单页面的元素标签
-box_title: .box-title
+# Background The element label for the menu page
+box_title: h3.box-title
 img: uppicsrc
 img_save: updateImgs
+
+# 3Invite The element label for the menu page
+cityselect: select[name='city'] # 下拉
+
+# 3.1推广效果页面
+formSub: button.btn.btn-default.btn-flat.btn-action.J_ipt     # 按钮
+search: 1
+export: 2
+invite_t:
+timeinput: input.form-control.pull-right # 时间输入框
+tr_new: tbody > tr:nth-child(1) > td:nth-child(4) > a # tr里面的新用户跳转
+tr_order: tbody > tr:nth-child(1) > td:nth-child(5) > a # tr里面的订单跳转
+tr_detailed: tbody > tr:nth-child(1) > td:nth-child(8) > a # tr里面的详细跳转
+
+# 3.1.1顶部跳转
+box_contrast: div.box-body > div.row > div.col-xs-12 >div.sidebar.clearfix> div.pull-right > a:nth-child(1)
+box_buyer: div.box-body > div.row > div.col-xs-12 >div.sidebar.clearfix> div.pull-right > a:nth-child(2)
+box_order: div.box-body > div.row > div.col-xs-12 >div.sidebar.clearfix> div.pull-right > a:nth-child(3)
+
+# 3.2邀请人页面
+
+checkbox: input[name='ids[]'][class='userid'] # 单选框
+checkall: tfoot > tr > td:nth-child(1) > label > input # 全选
+invite_default: li.box-tools > button:nth-child(1) # 设置默认值
+invite_add: li.box-tools > button:nth-child(2) # 添加新人
+setearn: buton.btn.btn-default.btn-sm.setearnings # 批量修改钱
+settime: btn.btn-default.btn-sm.settime # 批量修改时间
+tr_member: tbody > tr:nth-child(1) > td:nth-child(2) > a # tr名称
+tr_add: td > button.btn.btn-default.btn-sm.modal-btn # tr添加
+tr_effect: td > a.btn.btn-default.btn-sm # tr 效果
+
+# 3.3 秒杀页面
+slot: ul.nav.nav-tabs.nav-slot > li
+add_seckill: li > button.btn.btn-default.btn-sm.modal-btn
+search_sk: button.btn.btn-default.btn-flat.formSub

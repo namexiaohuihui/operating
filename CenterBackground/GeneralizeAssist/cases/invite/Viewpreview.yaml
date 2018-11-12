@@ -1,0 +1,14 @@
+test_previewAccess:
+  tabs: 推广效果
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: box_buyer
+    valueText:
+      type: text
+      ele: css
+      text: 新用户明细
+      parameter: box_title

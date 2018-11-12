@@ -161,6 +161,7 @@ class JudgmentVerification(ComparedVerify):
         :param case_key: 用例函数名
         :return:
         """
+        self.log.info("从%s中获取%s数据信息" % (file_name, case_key))
         case_value = readYaml.read_expression_key(file_name, case_key)
         return case_value
 

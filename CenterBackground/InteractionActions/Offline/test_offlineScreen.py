@@ -30,9 +30,9 @@
 import os
 import inspect
 import unittest
-from CenterBackground.InteractionActions.selectlableverify import SelectLableVerify
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
+from CenterBackground.InteractionActions.selectlableverify import SelectLableVerify
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]

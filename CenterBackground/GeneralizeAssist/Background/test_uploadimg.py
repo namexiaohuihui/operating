@@ -96,14 +96,18 @@ class TestFocusTabs(unittest.TestCase):
         assert img_save, "%s---提交按钮不见了" % (photo.FUNCTION_NAME)
         pass
 
-    def alert_click(self,fun_name):
+    def alert_click(self, fun_name):
+        """
+        当提示flash没安装时,点击alert上面的确认按钮
+        :param fun_name:
+        :return:
+        """
         dialog_box = photo.driver.switch_to_alert()
         print(dialog_box.text)
         dialog_box.accept()
 
         photo.setFunctionName(fun_name)
         photo.ti.dormancy_time(2)
-
 
 
 if __name__ == '__main__':

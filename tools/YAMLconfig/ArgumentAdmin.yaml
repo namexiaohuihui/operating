@@ -220,9 +220,23 @@ generalize:
   invite:
     module: invite
     child: 3
-  timelimit:
-    module: timelimit
-    child:
+    tabs: 标题
+    select: 筛选
+    page: 页面
+    operate: 操作
+    contrast: 对比
+    preview: 新用户
+    rules: 订单
+    default: 默认
+    add: 添加
+  secKill:
+    module: secKill
+    child: 4
+    tabs: 标题
+    select: 筛选
+    page: 页面
+    operate: 操作
+    add: 添加
   batch:
     module: batch
     child:

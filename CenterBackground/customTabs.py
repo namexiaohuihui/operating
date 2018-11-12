@@ -94,7 +94,7 @@ class CustomTabs(object):
             ac_at = li.get_attribute(_class)
             if operator.eq(_active, ac_at) or operator.eq(_on, ac_at):
                 return li
-        raise CustomTypeError('active_tab: no li')
+        raise CustomTypeError("active_tab: no li! No li found! You didn't write LI")
 
     def city_code(self, li):
         """
@@ -178,7 +178,7 @@ class CustomTabs(object):
 
     def judge_source(self, reduce=0):
         '''
-        长度来遍历点击
+        遍历点击
         :param reduce:
         :return:
         '''
@@ -319,6 +319,8 @@ class CustomTabs(object):
             if case_city == city_v:
                 vac.element_click(city_k)
                 break
+        pass
+
 
     def into_the_city2(self, vac, case_city):
         """

@@ -1,0 +1,14 @@
+test_appendAccess:
+  tabs: 邀请人管理
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: invite_add
+    valueText:
+      type: text
+      ele: css
+      text: 添加邀请人
+      parameter: modal_title

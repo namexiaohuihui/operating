@@ -4,3 +4,7 @@ lambda ambda:expression
 
 排序函数 sorted 支持接收一个函数作为参数，该参数作为 sorted 的排序依据
 
+random.sample(value:str,number:int)
+从指定的的value参数中,生成number位的list.
+
+

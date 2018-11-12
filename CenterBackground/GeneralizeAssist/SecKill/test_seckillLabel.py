@@ -26,15 +26,16 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_previewfocus.py
-@time:      2018/11/6 11:43
+@file:      test_seckillLabel.py
+@time:      2018/9/19 16:43
 @desc:
 """
 import os
 import inspect
 import unittest
+
 from CenterBackground import GeneralizeAssist
-from CenterBackground.GeneralizeAssist.Focus.operateJude import OperateJude
+from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.generalize import Generalize
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
@@ -42,31 +43,36 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.focus, GeneralizeAssist.preview)
+config = GeneralizeAssist.add_key(GeneralizeAssist.secKill, GeneralizeAssist.page)
+s_label = SurfaceJude(config, basename, Generalize)
 
-f_pre = OperateJude(config, basename, Generalize)
 
-
-class TestPreviewFocus(unittest.TestCase):
+class TestSecKillLabel(unittest.TestCase):
     """
-    预览
+    页面展示项的标题
     """
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        f_pre.openingProgram()
-        f_pre._rou_background()
+        s_label.openingProgram()
+        s_label._rou_background()
 
-        f_pre.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        s_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         pass
 
     def tearDown(self):
-        f_pre.driver.quit()
-        f_pre.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        s_label.driver.quit()
+        s_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_previewCancel(self):
-        f_pre.setFunctionName(inspect.stack()[0][3])
-        f_pre.conditions_screening()
+    def test_showTitle(self):
+        s_label.setFunctionName(inspect.stack()[0][3])
+        s_label.title_execute()
+        pass
+
+    def test_showSurface(self):
+        s_label.setFunctionName(inspect.stack()[0][3])
+        s_label.surface_execute()
         pass
 
 

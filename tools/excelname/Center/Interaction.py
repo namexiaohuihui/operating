@@ -19,8 +19,6 @@ class InteractionController(ExcelTitle):
     也有些是忘记写备注...
     """
 
-    def yaml_tabs(self):
-        return 'tabs'
 
     def yaml_timetype(self):
         return 'timetype'
@@ -43,8 +41,6 @@ class InteractionController(ExcelTitle):
     def yaml_area(self):
         return 'area'
 
-    def yaml_city(self):
-        return 'city'
 
     def yaml_choole(self):
         return 'choole'

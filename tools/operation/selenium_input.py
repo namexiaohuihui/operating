@@ -222,4 +222,9 @@ class action_input(action_visible):
         # 执行输入的操作
         ele.clear()
         ele.send_keys(parameter)
+        # 缺少输入的信息比较: 获取value属性值或者元素本身的text来比较.例如:
+        # if ele.get_attribute('value') == parameter
+        # print('bijiaozhegnque')
+        # else:
+        # print('bijiocuowu')
         self.sleep_Rest()

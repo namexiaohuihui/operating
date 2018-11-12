@@ -34,12 +34,8 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class Generalize(ExcelTitle):
-    # ---------------------foucs-------------------
-    def yaml_tabs(self):
-        return "tabs"
 
-    def yaml_city(self):
-        return "city"
+    # ---------------------foucs-------------------
 
     def yaml_add_assist(self):
         return "add_assist"
@@ -86,5 +82,84 @@ class Generalize(ExcelTitle):
 
     def yaml_img_save(self):
         return "img_save"
+
+    # ----------------------Invite--------------------
+    def yaml_cityselect(self):
+        return "cityselect"
+
+    def yaml_keyinput(self):
+        return "keyinput"
+
+    def yaml_formSub(self):
+        return "formSub"
+
+    def yaml_timeinput(self):
+        return "timeinput"
+
+    def yaml_tr_new(self):
+        return "tr_new"
+
+    def yaml_tr_order(self):
+        return "tr_order"
+
+    def yaml_tr_detailed(self):
+        return "tr_detailed"
+
+    def yaml_box_contrast(self):
+        return "box_contrast"
+
+    def yaml_box_buyer(self):
+        return "box_buyer"
+
+    def yaml_box_order(self):
+        return "box_order"
+
+    def yaml_typeselect(self):
+        return "typeselect"
+
+    def yaml_statusselect(self):
+        return "statusselect"
+
+    def yaml_inputplace(self):
+        return "inputplace"
+
+    def yaml_checkall(self):
+        return "checkall"
+
+    def yaml_invite_default(self):
+        return "invite_default"
+
+    def yaml_invite_add(self):
+        return "invite_add"
+
+    def yaml_setearn(self):
+        return "setearn"
+
+    def yaml_settime(self):
+        return "settime"
+
+    def yaml_tr_member(self):
+        return "tr_member"
+
+    def yaml_tr_add(self):
+        return "tr_add"
+
+    def yaml_tr_effect(self):
+        return "tr_effect"
+
+    def yaml_value_text(self):
+        return "valueText"
+
+    def yaml_modal_title(self):
+        return "modal_title"
+
+    def yaml_slot(self):
+        return "slot"
+
+    def yaml_add_seckill(self):
+        return "add_seckill"
+
+    def yaml_search_sk(self):
+        return "search_sk"
 
     pass

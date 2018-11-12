@@ -36,6 +36,7 @@ import threading
 from bs4 import BeautifulSoup
 from tools import StringCutting
 from CenterBackground import Commodities
+from CenterBackground.customTabs import CustomTabs
 
 from CenterBackground.judeVerification import JudgmentVerification
 
@@ -55,6 +56,16 @@ class SurfaceJude(JudgmentVerification):
         '''
         JudgmentVerification.__init__(self, config, basename)
         self.bi = centerName()
+        pass
+
+    def designated_box(self, keys, box: str):
+        """
+        进入指定的tab或者城市
+        :return:
+        """
+        # 根据类型读取相应的数据信息
+        self.ct = CustomTabs(self.driver, self.financial[keys])
+        self.ct.into_the_city(self.vac, box)
         pass
 
     def bs4_soup(self):
@@ -120,6 +131,10 @@ class SurfaceJude(JudgmentVerification):
         '''
         text_center = self.success_execute()
         excel_center = str.split(self.overall[self.bi.whole_including()], ',')
+        self.log.info("--------------------")
+        self.log.info(text_center)
+        self.log.info(excel_center)
+        self.log.info("--------------------")
         self.debugging_log(text_center, excel_center, 'Thead title display is incorrectly displayed.')
         pass
 

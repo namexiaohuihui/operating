@@ -1,0 +1,14 @@
+test_contrastAccess:
+  tabs: 推广效果
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: box_contrast
+    valueText:
+      type: text
+      ele: css
+      text: 推广详细
+      parameter: box_title

@@ -26,47 +26,71 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_previewfocus.py
-@time:      2018/11/6 11:43
+@file:      test_operateinvire.py
+@time:      2018/11/9 11:20
 @desc:
 """
 import os
 import inspect
 import unittest
 from CenterBackground import GeneralizeAssist
-from CenterBackground.GeneralizeAssist.Focus.operateJude import OperateJude
 from tools.excelname.Center.generalize import Generalize
+from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.focus, GeneralizeAssist.preview)
+config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.operate)
+i_jude = InviteOperateJude(config, basename, Generalize)
 
-f_pre = OperateJude(config, basename, Generalize)
 
-
-class TestPreviewFocus(unittest.TestCase):
+class TestOperateinvire(unittest.TestCase):
     """
-    预览
+    invite页面中tbody内容的跳转
     """
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        f_pre.openingProgram()
-        f_pre._rou_background()
-
-        f_pre.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        i_jude.openingProgram()
+        i_jude._rou_background()
+        i_jude.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         pass
 
     def tearDown(self):
-        f_pre.driver.quit()
-        f_pre.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        i_jude.driver.quit()
+        i_jude.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_previewCancel(self):
-        f_pre.setFunctionName(inspect.stack()[0][3])
-        f_pre.conditions_screening()
+    def test_modifyAccess(self):
+        i_jude.setFunctionName(inspect.stack()[0][3])
+        i_jude.conditions_screening()
+        pass
+
+    def test_newbuyerAccess(self):
+        i_jude.setFunctionName(inspect.stack()[0][3])
+        i_jude.conditions_screening()
+        pass
+
+    def test_orderAccess(self):
+        i_jude.setFunctionName(inspect.stack()[0][3])
+        i_jude.conditions_screening()
+        pass
+
+    def test_effectAccess(self):
+        i_jude.setFunctionName(inspect.stack()[0][3])
+        i_jude.conditions_screening()
+        pass
+
+    def test_memberAccess(self):
+        i_jude.setFunctionName(inspect.stack()[0][3])
+        i_jude.conditions_screening()
+        pass
+
+    def test_addAccess(self):
+        i_jude.setFunctionName(inspect.stack()[0][3])
+        i_jude.conditions_screening()
         pass
 
 

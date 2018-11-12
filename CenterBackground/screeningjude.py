@@ -34,7 +34,7 @@
 import operator
 from tools.screeningdrop import ScreeningDrop
 from CenterBackground import Commodities
-
+from CenterBackground.customTabs import CustomTabs
 from CenterBackground.judeVerification import JudgmentVerification
 
 # 时间元素的标签属性
@@ -60,7 +60,14 @@ class ScreeningJude(JudgmentVerification):
         self.bi = centerName()
         pass
 
-    def designated_box(self):
+    def designated_box(self, keys, box: str):
+        """
+        进入指定的tab或者城市
+        :return:
+        """
+        # 根据类型读取相应的数据信息
+        self.ct = CustomTabs(self.driver, self.financial[keys])
+        self.ct.into_the_city(self.vac, box)
         pass
 
     def create_select(self, direction: str) -> ScreeningDrop:
@@ -148,7 +155,7 @@ class ScreeningJude(JudgmentVerification):
 
     def attribute_value(self):
         '''
-        找到指定元素对应属性的值
+        找到元素中的placeholder属性值
         :return:
         '''
         timePath = self.overall[self.bi.whole_keys()]
@@ -157,6 +164,19 @@ class ScreeningJude(JudgmentVerification):
         ov_str = self.overall[self.bi.whole_default()]
         msg = 'Error in time entry box :　%s ' % timePath
         self.debugging_log(op_str, ov_str, msg)
+        pass
+
+    def test_value(self):
+        """
+        判断指定元素的test是否正确
+        :return:
+        """
+        locator = self.overall[self.bi.whole_keys()]
+        locator = self.financial[locator]
+        ct_default = self._visible_css_selectop_text(locator)
+        ov_default = self.overall[self.bi.whole_default()]
+        msg = 'Error in text entry key : %s ' % locator
+        self.debugging_log(ct_default, ov_default, msg)
         pass
 
     def debugging_log(self, ct_default, ov_default, mesg):
