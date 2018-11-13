@@ -245,16 +245,26 @@ generalize:
     page: 页面
     operate: 操作
     add: 添加
-  akey:
-    module: akey
-    child:
+  promote:
+    module: promote
+    child: 7
+    tabs: 标题
     explain: This function has been perfected
   receive:
     module: receive
-    child:
+    child: 8
+    select: 筛选
+    page: 页面
+    operate: 操作
+    add: 添加
   redpacket:
     module: redpacket
-    child:
+    child: 9
+    tabs: 标题
+    select: 筛选
+    page: 页面
+    operate: 操作
+    add: 添加
   discounts:
     module: discounts
     child:

@@ -1,0 +1,13 @@
+test_appendAccess:
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: add_receive
+    valueText:
+      type: text
+      ele: css
+      text: 创建活动二维码
+      parameter: modal_title

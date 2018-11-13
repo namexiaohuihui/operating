@@ -1,0 +1,14 @@
+test_appendAccess:
+  tabs: 红包设置
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: add_activity
+    valueText:
+      type: text
+      ele: css
+      text: 添加新活动
+      parameter: modal_title

@@ -77,3 +77,6 @@ export_mu: button.btn.btn-default.btn-flat.btn-action.J_ipt # 导出按钮
 gn_mu: tbody > tr:nth-child(1) > td:nth-child(4) > a # 商品名称
 effect_mu: a.btn.btn-sm.btn-default # 操作效果
 title_mu: section.content-header > h1 # 进入商品详情页之后的标题
+
+# 8.1 领取
+add_receive: div > button.btn.btn-default.btn-sm.modal-btn

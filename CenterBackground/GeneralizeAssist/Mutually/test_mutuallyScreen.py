@@ -32,7 +32,6 @@ import inspect
 import unittest
 from CenterBackground import GeneralizeAssist
 from tools.excelname.Center.generalize import Generalize
-from CenterBackground.InteractionActions.selectlableverify import SelectLableVerify
 from CenterBackground.GeneralizeAssist.SecKill.secsillLableVerify import SecKillLableVerify
 
 basepath = os.path.split(os.path.dirname(__file__))[1]

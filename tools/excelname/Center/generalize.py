@@ -162,4 +162,7 @@ class Generalize(ExcelTitle):
     def yaml_search_sk(self):
         return "search_sk"
 
+    def yaml_add_receive(self):
+        return "add_receive"
+
     pass
