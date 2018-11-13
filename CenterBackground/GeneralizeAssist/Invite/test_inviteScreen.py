@@ -145,7 +145,7 @@ class TestInviteScreen(unittest.TestCase):
         i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
         i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.get_lable_text()
+        i_screen.attribute_value()
         pass
 
     def test_buyer_search(self):

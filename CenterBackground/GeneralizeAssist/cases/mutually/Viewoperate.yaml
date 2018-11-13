@@ -1,0 +1,28 @@
+test_goodnameAccess:
+  tabs: 邀请人管理
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: gn_mu
+    valueText:
+      type: text
+      ele: css
+      text: 商品管理
+      parameter: title_mu
+test_effectAccess:
+  tabs: 邀请人管理
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: effect_mu
+    valueText:
+      type: text
+      ele: css
+      text: 团购效果
+      parameter: box_title

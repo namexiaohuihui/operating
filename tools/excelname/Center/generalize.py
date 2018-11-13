@@ -156,8 +156,8 @@ class Generalize(ExcelTitle):
     def yaml_slot(self):
         return "slot"
 
-    def yaml_add_seckill(self):
-        return "add_seckill"
+    def yaml_add_activity(self):
+        return "add_activity"
 
     def yaml_search_sk(self):
         return "search_sk"

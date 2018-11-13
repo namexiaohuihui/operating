@@ -10,5 +10,5 @@ test_appendAccess:
     valueText:
       type: text
       ele: css
-      text: 添加新活动
+      text: 添加团购
       parameter: modal_title

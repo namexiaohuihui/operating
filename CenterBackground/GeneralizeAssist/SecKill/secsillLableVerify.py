@@ -58,7 +58,8 @@ class SecKillLableVerify(ScreeningJude):
             op_se.setSelectorText(value_str)
 
             # 点击搜索按钮
-            att = self.financial[self.bi.yaml_search_sk()]
+            att = self.overall[self.bi.whole_keys()]
+            att = self.financial[att]
             self._visible_css_selectop(att)
 
             # 重新設置text之後，界面會進行刷新此時driver對象也發生改變需要重新進行獲取

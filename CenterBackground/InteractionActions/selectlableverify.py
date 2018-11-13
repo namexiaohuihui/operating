@@ -46,7 +46,7 @@ class SelectLableVerify(ScreeningJude):
 
     def get_lable_text(self):
         '''
-        获得多选对象的全部值
+        读取单选框/多选框对象的text
         self.overall存的是用例数据
         self.financial存的是元素对象路径数据
         :return:

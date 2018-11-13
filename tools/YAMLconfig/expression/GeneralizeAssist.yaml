@@ -1,4 +1,6 @@
-tabs: ul.nav.nav-tabs > li # 标题
+# 标题的两种写入方式
+tabs: ul.nav.nav-tabs > li # 页面头部为类型切换
+slot: ul.nav.nav-tabs.nav-slot > li # 页面头部tab为城市
 info: div.dataTables_info
 typeselect: select[name='type'] # 下拉
 statusselect: select[name='status'] # 下拉
@@ -64,7 +66,14 @@ tr_member: tbody > tr:nth-child(1) > td:nth-child(2) > a # tr名称
 tr_add: td > button.btn.btn-default.btn-sm.modal-btn # tr添加
 tr_effect: td > a.btn.btn-default.btn-sm # tr 效果
 
-# 3.3 秒杀页面
-slot: ul.nav.nav-tabs.nav-slot > li
-add_seckill: li > button.btn.btn-default.btn-sm.modal-btn
+# 4.1 秒杀页面
+add_activity: li > button.btn.btn-default.btn-sm.modal-btn
 search_sk: button.btn.btn-default.btn-flat.formSub
+
+# 5.1 团购
+msgselect: select[name='types'] # 商品信息下拉
+search_mu: button.btn.btn-default.btn-flat.formSub.J_ipt # 查看按钮
+export_mu: button.btn.btn-default.btn-flat.btn-action.J_ipt # 导出按钮
+gn_mu: tbody > tr:nth-child(1) > td:nth-child(4) > a # 商品名称
+effect_mu: a.btn.btn-sm.btn-default # 操作效果
+title_mu: section.content-header > h1 # 进入商品详情页之后的标题

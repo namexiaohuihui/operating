@@ -158,10 +158,13 @@ class ScreeningJude(JudgmentVerification):
         找到元素中的placeholder属性值
         :return:
         '''
+        # 1. 找到界面数据
         timePath = self.overall[self.bi.whole_keys()]
         timePath = self.financial[timePath]  # 元素路径
         op_str = self.vai._visible_selectop_attribute(self.driver, timePath, _placeholder)  # 将属性转成对象
+        # 2. 找到产品规定的数据
         ov_str = self.overall[self.bi.whole_default()]
+        # 3. 数据比较
         msg = 'Error in time entry box :　%s ' % timePath
         self.debugging_log(op_str, ov_str, msg)
         pass

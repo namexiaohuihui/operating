@@ -215,11 +215,11 @@ generalize:
     add: 添加
   img:
     module: img
-    child: 2
+    child: 3
     page: 上传
   invite:
     module: invite
-    child: 3
+    child: 4
     tabs: 标题
     select: 筛选
     page: 页面
@@ -231,15 +231,20 @@ generalize:
     add: 添加
   secKill:
     module: secKill
-    child: 4
+    child: 5
     tabs: 标题
     select: 筛选
     page: 页面
     operate: 操作
     add: 添加
-  batch:
-    module: batch
-    child:
+  mutually:
+    module: mutually
+    child: 6
+    tabs: 标题
+    select: 筛选
+    page: 页面
+    operate: 操作
+    add: 添加
   akey:
     module: akey
     child:
