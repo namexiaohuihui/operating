@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_appendReceive.py
+@file:      test_appendredpacket.py
 @time:      2018/11/12 10:51
 @desc:
 """
@@ -42,11 +42,11 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.receive, GeneralizeAssist.add)
+config = GeneralizeAssist.add_key(GeneralizeAssist.redpacket, GeneralizeAssist.add)
 r_jude = InviteOperateJude(config, basename, Generalize)
 
 
-class TestAppendReceive(unittest.TestCase):
+class TestAppendRedPacket(unittest.TestCase):
     """
        invite页面中默认跳转
        """
@@ -63,7 +63,12 @@ class TestAppendReceive(unittest.TestCase):
         r_jude.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_appendAccess(self):
+    def test_appendred(self):
+        r_jude.setFunctionName(inspect.stack()[0][3])
+        r_jude.conditions_screening()
+        pass
+
+    def test_appendcode(self):
         r_jude.setFunctionName(inspect.stack()[0][3])
         r_jude.conditions_screening()
         pass

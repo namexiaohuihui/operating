@@ -312,8 +312,10 @@ class CustomTabs(object):
         self.is_visibles()
         # 2.1读取全部的城市text
         ul_text = [ul.text for ul in self.ul_li]
+
         # 2.2将元素和城市text通过dict形式存储
         city_text = dict(zip(self.ul_li, ul_text))
+
         # 2.3找到城市
         for city_k, city_v in city_text.items():
             if case_city == city_v:

@@ -32,7 +32,7 @@ import inspect
 import unittest
 from CenterBackground import GeneralizeAssist
 from tools.excelname.Center.generalize import Generalize
-from CenterBackground.InteractionActions.selectlableverify import SelectLableVerify
+from CenterBackground.screeningjude import ScreeningJude
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
@@ -40,7 +40,7 @@ basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
 config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.select)
-i_screen = SelectLableVerify(config, basename, Generalize)
+i_screen = ScreeningJude(config, basename, Generalize)
 
 
 class TestInviteScreen(unittest.TestCase):

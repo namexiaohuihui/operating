@@ -1,4 +1,4 @@
-test_appendAccess:
+test_appendred:
   tabs: 红包设置
   del:  进入指定的页面
   operate:
@@ -10,5 +10,19 @@ test_appendAccess:
     valueText:
       type: text
       ele: css
-      text: 添加新活动
+      text: 创建红包
+      parameter: modal_title
+test_appendcode:
+  tabs: 兑换码
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: add_activity
+    valueText:
+      type: text
+      ele: css
+      text: 生成兑换码
       parameter: modal_title

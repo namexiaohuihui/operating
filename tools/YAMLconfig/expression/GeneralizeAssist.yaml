@@ -80,3 +80,7 @@ title_mu: section.content-header > h1 # 进入商品详情页之后的标题
 
 # 8.1 领取
 add_receive: div > button.btn.btn-default.btn-sm.modal-btn
+
+# 9.1 红包
+start_time: input[id='starttime']
+end_time: input[id='endtime']

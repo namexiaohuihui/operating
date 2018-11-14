@@ -28,7 +28,6 @@ class Log():
         # self.formatter = logging.Formatter('[%(asctime)s] - %(name)s - %(filename)s] - %(levelname)s: %(message)s')
         self.formatter = logging.Formatter('[%(asctime)s] - %(name)s] - %(levelname)s: %(message)s',
                                            datefmt='%Y-%m-%d %H:%M:%S')
-        # self.function = "Undefined function"
         self.fun_name = "Undefined function"
 
     def __console(self, level, message):
@@ -53,9 +52,11 @@ class Log():
             self.logger.warning(message)
         elif level == 'error':
             self.logger.error(message)
+
         # 这两行代码是为了避免日志输出重复问题
         self.logger.removeHandler(ch)
         self.logger.removeHandler(fh)
+
         # 关闭打开的文件
         fh.close()
 
@@ -84,7 +85,11 @@ class Log():
 
 
 if __name__ == "__main__":
-    basename = "112"
-    logs = Log()
-    logs.fun_name = "biaer "
-    logs.info(basename)
+    # basename = "112"
+    # logs = Log()
+    # logs.fun_name = "biaer "
+    # logs.debug(basename)
+    # logs.info(basename)
+    # logs.warning(basename)
+    # logs.error(basename)
+    pass

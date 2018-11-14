@@ -43,7 +43,7 @@ basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
 config = GeneralizeAssist.add_key(GeneralizeAssist.redpacket, GeneralizeAssist.tabs)
-r_tab = CommoditiesJude(config, basename, Generalize)
+rp_tab = CommoditiesJude(config, basename, Generalize)
 
 
 class TestRedpacketTabs(unittest.TestCase):
@@ -55,14 +55,14 @@ class TestRedpacketTabs(unittest.TestCase):
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        r_tab.openingProgram()
-        r_tab._rou_background()
-        r_tab.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        rp_tab.openingProgram()
+        rp_tab._rou_background()
+        rp_tab.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         pass
 
     def tearDown(self):
-        r_tab.driver.quit()
-        r_tab.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        rp_tab.driver.quit()
+        rp_tab.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
     def test_active_tab(self):
@@ -70,8 +70,8 @@ class TestRedpacketTabs(unittest.TestCase):
         寻找默认值
         :return:
         """
-        r_tab.setFunctionName(inspect.stack()[0][3])
-        r_tab.active_city('class')
+        rp_tab.setFunctionName(inspect.stack()[0][3])
+        rp_tab.active_city('class')
         pass
 
     def test_already_tabs(self):
@@ -79,8 +79,8 @@ class TestRedpacketTabs(unittest.TestCase):
         比较tabs中的全部信息
         :return:
         """
-        r_tab.setFunctionName(inspect.stack()[0][3])
-        r_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        rp_tab.setFunctionName(inspect.stack()[0][3])
+        rp_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_tab(self):
@@ -88,8 +88,8 @@ class TestRedpacketTabs(unittest.TestCase):
         遍历点击tab
         :return:
         """
-        r_tab.setFunctionName(inspect.stack()[0][3])
-        r_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        rp_tab.setFunctionName(inspect.stack()[0][3])
+        rp_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
@@ -97,8 +97,8 @@ class TestRedpacketTabs(unittest.TestCase):
         通过tabs的url进行切换
         :return:
         """
-        r_tab.setFunctionName(inspect.stack()[0][3])
-        r_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
+        rp_tab.setFunctionName(inspect.stack()[0][3])
+        rp_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
 
