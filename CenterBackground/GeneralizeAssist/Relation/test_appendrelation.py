@@ -26,8 +26,8 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_operatemutually.py
-@time:      2018/11/9 11:20
+@file:      test_appendrelation.py
+@time:      2018/11/12 10:51
 @desc:
 """
 import os
@@ -42,38 +42,46 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.mutually, GeneralizeAssist.operate)
-m_operate = InviteOperateJude(config, basename, Generalize)
+config = GeneralizeAssist.add_key(GeneralizeAssist.relation, GeneralizeAssist.add)
+r_append = InviteOperateJude(config, basename, Generalize)
 
 
-class TestOperateMutually(unittest.TestCase):
+class TestAppendRelation(unittest.TestCase):
     """
-    invite页面中tbody内容的跳转
-    """
+       invite页面中默认跳转
+       """
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        m_operate.openingProgram()
-        m_operate._rou_background()
-        m_operate.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        r_append.openingProgram()
+        r_append._rou_background()
+        r_append.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         pass
 
     def tearDown(self):
-        m_operate.driver.quit()
-        m_operate.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        r_append.driver.quit()
+        r_append.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_goodnameAccess(self):
-        m_operate.setFunctionName(inspect.stack()[0][3])
-        m_operate.conditions_screening()
+    def test_ongoingRelation(self):
+        r_append.setFunctionName(inspect.stack()[0][3])
+        r_append.conditions_screening()
         pass
 
-    def test_effectAccess(self):
-        m_operate.setFunctionName(inspect.stack()[0][3])
-        m_operate.conditions_screening()
+    def test_ongoingOpenlist(self):
+        r_append.setFunctionName(inspect.stack()[0][3])
+        r_append.conditions_screening()
         pass
 
+    def test_historyRelation(self):
+        r_append.setFunctionName(inspect.stack()[0][3])
+        r_append.conditions_screening()
+        pass
 
+    def test_historyOpenlist(self):
+        r_append.setFunctionName(inspect.stack()[0][3])
+        r_append.conditions_screening()
+        pass
 
 
 if __name__ == '__main__':

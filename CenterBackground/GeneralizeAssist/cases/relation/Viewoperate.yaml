@@ -1,0 +1,107 @@
+test_ongoingUser:
+  del:  默认页面不需要tabs
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_user
+    valueText:
+      type: text
+      ele: css
+      text: 用户详细
+      parameter: box_title
+test_ongoingOrder:
+  del:  默认页面不需要tabs
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_order
+    valueText:
+      type: text
+      ele: css
+      text: 订单管理
+      parameter: title_mu
+test_ongoingWatiki:
+  del:  默认页面不需要tabs
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_watiki
+    valueText:
+      type: text
+      ele: css
+      text: 水票订单管理
+      parameter: title_mu
+test_ongoingAlter:
+  del:  默认页面不需要tabs
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_alter
+    valueText:
+      type: text
+      ele: id
+      text: 修改客户
+      parameter: rela_modal_title
+test_ongoingHandle:
+  del:  默认页面不需要tabs
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_handle
+    valueText:
+      type: text
+      ele: id
+      text: 操作记录
+      parameter: rela_modal_title
+test_historyUser:
+  tabs: 历史数据
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_user
+    valueText:
+      type: text
+      ele: css
+      text: 用户详细
+      parameter: box_title
+test_historyOrder:
+  tabs: 历史数据
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_order
+    valueText:
+      type: text
+      ele: css
+      text: 订单管理
+      parameter: title_mu
+test_historyWatiki:
+  tabs: 历史数据
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_watiki
+    valueText:
+      type: text
+      ele: css
+      text: 水票订单管理
+      parameter: title_mu

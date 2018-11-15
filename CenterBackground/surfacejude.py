@@ -96,11 +96,12 @@ class SurfaceJude(JudgmentVerification):
         :return:
         '''
         _button = "button"
-        for tr in tbody_class:
+        thead_length = len(thead_tr) # 判断一共会出现td的长度
+        for tr in tbody_class: # 遍历获取不同的tr
             tbody_tr = {}
-            thead_length = len(thead_tr)
-            for tr_len in range(thead_length):
+            for tr_len in range(thead_length): # 遍历读取tr中不同的td
                 tr_td = tr.find_all('td')
+                # 最好一个td时,应查询td下面的button数据并读取相应的数据信息
                 if tr_len == thead_length - 1:
                     td_text = [td.text.replace(" ", "").replace("\n", "") for td in tr_td[tr_len].find_all(_button)]
                 else:

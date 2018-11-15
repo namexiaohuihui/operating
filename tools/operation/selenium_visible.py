@@ -7,11 +7,11 @@ __author__ = 'Administrator'
 
 import os
 from time import sleep
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by import By
 import selenium.webdriver.support.ui as ui
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 import selenium.webdriver.support.expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
 from tools import DefinitionErrors as dError
 
@@ -153,15 +153,16 @@ class action_visible(object):
         except TimeoutException:
             return False
 
-    def _visible_selectop_text(self, driver, locator, timeout=5):
-        """
-        判断元素是否存在，如果存在就进行获取元素的text属性
-        :param driver:  浏览器对象
-        :param locator: 元素路径
-        :param timeout: 超时时间
-        :return:
-        """
-        _ele = self.is_visible_css_selectop(driver, locator, timeout)
+    def differentiate_element_text(self, browser, info_case, locator):
+        _id = 'id'
+        _css = 'css'
+        if info_case == _id:
+            _ele = self.is_visible_id(browser, locator)
+        elif info_case == _css:
+            _ele = self.is_visible_css_selectop(browser, locator)
+        else:
+            raise Exception("differentiate_element_text:你写的ele判断有误")
+
         if _ele:
             return _ele.text
         else:

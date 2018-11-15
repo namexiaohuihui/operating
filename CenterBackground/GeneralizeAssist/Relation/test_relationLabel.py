@@ -26,53 +26,69 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_operatemutually.py
-@time:      2018/11/9 11:20
+@file:      test_relationLabel.py
+@time:      2018/9/19 16:43
 @desc:
 """
 import os
 import inspect
 import unittest
+
 from CenterBackground import GeneralizeAssist
+from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.generalize import Generalize
-from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.mutually, GeneralizeAssist.operate)
-m_operate = InviteOperateJude(config, basename, Generalize)
+config = GeneralizeAssist.add_key(GeneralizeAssist.relation, GeneralizeAssist.page)
+rt_label = SurfaceJude(config, basename, Generalize)
 
 
-class TestOperateMutually(unittest.TestCase):
+class TestRelationLabel(unittest.TestCase):
     """
-    invite页面中tbody内容的跳转
+    页面展示项的标题
     """
+    INVITE_DESIGNATED_HISTORY = "历史数据"
+    INVITE_DESIGNATED_TABS = rt_label.bi.yaml_tabs()
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        m_operate.openingProgram()
-        m_operate._rou_background()
-        m_operate.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        rt_label.openingProgram()
+        rt_label._rou_background()
+
+        rt_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         pass
 
     def tearDown(self):
-        m_operate.driver.quit()
-        m_operate.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        rt_label.driver.quit()
+        rt_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_goodnameAccess(self):
-        m_operate.setFunctionName(inspect.stack()[0][3])
-        m_operate.conditions_screening()
+
+    def test_ongoingTitle(self):
+        rt_label.setFunctionName(inspect.stack()[0][3])
+        rt_label.title_execute()
         pass
 
-    def test_effectAccess(self):
-        m_operate.setFunctionName(inspect.stack()[0][3])
-        m_operate.conditions_screening()
+    def test_ongoingSurface(self):
+        rt_label.setFunctionName(inspect.stack()[0][3])
+        rt_label.surface_execute()
         pass
 
+    def test_historyTitle(self):
+        rt_label.setFunctionName(inspect.stack()[0][3])
+        rt_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_HISTORY)
+        rt_label.title_execute()
+        pass
+
+    def test_historySurface(self):
+        rt_label.setFunctionName(inspect.stack()[0][3])
+        rt_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_HISTORY)
+        rt_label.surface_execute()
+        pass
 
 
 

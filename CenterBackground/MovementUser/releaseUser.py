@@ -65,7 +65,8 @@ class ReleaseUser(JudgmentVerification):
         '''
         ov_sweet = self.overall[para]
         ex_sweet = self.financial[sweet]
-        ex_sweet = self.vac._visible_selectop_text(self.driver, ex_sweet)
+        info_css = 'css'
+        ex_sweet = self.vac.differentiate_element_text(self.driver, info_css, ex_sweet)
         self.log.info('ini element text : %s ' % ov_sweet)
         self.log.info('Excle parameter literals : %s ' % ex_sweet)
         self.debugging_log(ov_sweet, ex_sweet, 'options showSweetAlert jude error')

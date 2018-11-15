@@ -165,4 +165,31 @@ class Generalize(ExcelTitle):
     def yaml_add_receive(self):
         return "add_receive"
 
+    def yaml_status_ent(self):
+        return "status_ent"
+
+    def yaml_rela_user(self):
+        return "rela_user"
+
+    def yaml_rela_order(self):
+        return "rela_order"
+
+    def yaml_rela_watiki(self):
+        return "rela_watiki"
+
+    def yaml_rela_alter(self):
+        return "rela_alter"
+
+    def yaml_rela_handle(self):
+        return "rela_handle"
+
+    def yaml_rela_add(self):
+        return "rela_add"
+
+    def yaml_rela_list(self):
+        return "rela_list"
+
+    def yaml_rela_modal_h4(self):
+        return "rela_modal_h4"
+
     pass

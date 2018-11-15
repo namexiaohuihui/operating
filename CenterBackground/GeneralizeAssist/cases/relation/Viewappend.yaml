@@ -1,0 +1,54 @@
+test_ongoingRelation:
+  del:  默认页面不需要tabs
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_add
+    valueText:
+      type: text
+      ele: id
+      text: 添加客户
+      parameter: rela_modal_title
+test_ongoingOpenlist:
+  del:  默认页面不需要tabs
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_list
+    valueText:
+      type: text
+      ele: css
+      text: 列表说明
+      parameter: rela_modal_h4
+test_historyRelation:
+  tabs: 历史数据
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_add
+    valueText:
+      type: text
+      ele: id
+      text: 添加客户
+      parameter: rela_modal_title
+test_historyOpenlist:
+  tabs: 历史数据
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: rela_list
+    valueText:
+      type: text
+      ele: css
+      text: 列表说明
+      parameter: rela_modal_h4

@@ -265,12 +265,24 @@ generalize:
     page: 页面
     operate: 操作
     add: 添加
-  discounts:
-    module: discounts
-    child:
-  popup:
-    module: popup
-    child:
-  meaning:
-    module: popup
-    child:
+  feedback:
+    module: feedback
+    child: 10
+    tabs: 标题
+    page: 页面
+    operate: 操作
+  entrance:
+    module: entrance
+    child: 11
+    select: 筛选
+    page: 页面
+    operate: 操作
+    add: 添加
+  relation:
+    module: relation
+    child: 12
+    tabs: 标题
+    select: 筛选
+    page: 页面
+    operate: 操作
+    add: 添加

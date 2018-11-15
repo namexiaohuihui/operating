@@ -114,7 +114,7 @@ if __name__ == '__main__':
     # shangyigebanben()
 
     # 加载用例
-    all_case = add_case(r"CenterBackground\InteractionActions\Scheduling","test_*.py")
+    all_case = add_case(r"CenterBackground\GeneralizeAssist\Relation","test_relationScreen.py")
     # 生成测试报告的路径
     run_case(all_case)
     # 获取最新的而测试报告文件

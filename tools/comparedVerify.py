@@ -138,7 +138,8 @@ class ComparedVerify(object):
 
     def _visible_css_selectop_text(self, locator):
         # 判断元素是否存在，如果存在就进行获取元素的text属性
-        _text = self.vai._visible_selectop_text(self.driver, locator)
+        info_css = 'css'
+        _text = self.vai.differentiate_element_text(self.driver, info_css, locator)
         return _text
 
     def _visible_css_selectop_attribute(self, locator, attr="value"):

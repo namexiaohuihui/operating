@@ -84,3 +84,17 @@ add_receive: div > button.btn.btn-default.btn-sm.modal-btn
 # 9.1 红包
 start_time: input[id='starttime']
 end_time: input[id='endtime']
+
+# 11.1 弹窗
+status_ent: select[id='status']
+
+# 12.1 关系
+rela_user: tbody > tr:nth-child(1) > td:nth-child(2) > a
+rela_order: tbody > tr:nth-child(1) > td:nth-child(7) > a
+rela_watiki: tbody > tr:nth-child(1) > td:nth-child(10) > a
+rela_alter: tbody > tr:nth-child(1) > td:nth-child(13) > button:nth-child(1)
+rela_handle: tbody > tr:nth-child(1) > td:nth-child(13) > button:nth-child(2)
+rela_add: li.box-tools > button.btn.btn-default.btn-sm.modal-btn
+rela_list: li.box-tools > button.btn.btn-default.btn-sm.lookExplain
+rela_modal_title: myModalLabel
+rela_modal_h4: div.modal.fade.in > div > div > div.modal-header > h4

@@ -85,6 +85,12 @@ class InviteOperateJude(JudgmentVerification):
         del mode
 
     def conditions_screening(self):
+        """
+        1. 根据tab/city进行相应的tabs/citys页面
+        2. 点击指定的元素跳转到相应的数据页面
+        3. 判断数据页面的标题是否正确
+        :return:
+        """
         functionName = inspect.stack()[0][3]
         # 1.读取用例设置的参数位置
         ov_para = self.overall[self.bi.whole_parameter()]
@@ -111,7 +117,8 @@ class InviteOperateJude(JudgmentVerification):
             valueText = case_operate[self.bi.yaml_value_text()]
             # 3.2 读取parameter中保存的title内容
             box_title = valueText[self.bi.yaml_parameter()]
-            box_title = self._visible_css_selectop_text(self.financial[box_title])
+            box_title = self.vac.differentiate_element_text(self.driver,valueText['ele'],
+                                                self.financial[box_title])
             # 3.3 获取产品的title
             valueText = valueText["text"]
             # 3.4 执行断言比较

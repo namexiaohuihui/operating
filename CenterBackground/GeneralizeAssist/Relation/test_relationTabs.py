@@ -26,54 +26,80 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_operatemutually.py
-@time:      2018/11/9 11:20
+@file:      test_relationTabs.py
+@time:      2018/9/19 16:44
 @desc:
 """
 import os
 import inspect
 import unittest
 from CenterBackground import GeneralizeAssist
+from CenterBackground.commoditiesJude import CommoditiesJude
 from tools.excelname.Center.generalize import Generalize
-from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.mutually, GeneralizeAssist.operate)
-m_operate = InviteOperateJude(config, basename, Generalize)
+config = GeneralizeAssist.add_key(GeneralizeAssist.relation, GeneralizeAssist.tabs)
+r_tab = CommoditiesJude(config, basename, Generalize)
 
 
-class TestOperateMutually(unittest.TestCase):
+class TestRelationTabs(unittest.TestCase):
     """
-    invite页面中tbody内容的跳转
+    城市tab切换用例所在地
     """
+    # 定义头部button中，后面N位不需要
+    BUTTON_REDUCE_NUMBER = 2
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        m_operate.openingProgram()
-        m_operate._rou_background()
-        m_operate.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        r_tab.openingProgram()
+        r_tab._rou_background()
+        r_tab.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         pass
 
     def tearDown(self):
-        m_operate.driver.quit()
-        m_operate.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        r_tab.driver.quit()
+        r_tab.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_goodnameAccess(self):
-        m_operate.setFunctionName(inspect.stack()[0][3])
-        m_operate.conditions_screening()
+    def test_active_tab(self):
+        """
+        寻找默认值
+        :return:
+        """
+        r_tab.setFunctionName(inspect.stack()[0][3])
+        r_tab.active_city('class')
         pass
 
-    def test_effectAccess(self):
-        m_operate.setFunctionName(inspect.stack()[0][3])
-        m_operate.conditions_screening()
+    def test_already_tabs(self):
+        """
+        比较tabs中的全部信息
+        :return:
+        """
+        r_tab.setFunctionName(inspect.stack()[0][3])
+        r_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
+    def test_switch_tab(self):
+        """
+        遍历点击tab
+        :return:
+        """
+        r_tab.setFunctionName(inspect.stack()[0][3])
+        r_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        pass
 
+    def test_switch_url(self):
+        """
+        通过tabs的url进行切换
+        :return:
+        """
+        r_tab.setFunctionName(inspect.stack()[0][3])
+        r_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
+        pass
 
 
 if __name__ == '__main__':

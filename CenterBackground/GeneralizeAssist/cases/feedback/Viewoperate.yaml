@@ -1,0 +1,14 @@
+test_watikiAccess:
+  tabs: 邀请人管理
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: tr_add
+    valueText:
+      type: text
+      ele: css
+      text: 查看水票
+      parameter: modal_title

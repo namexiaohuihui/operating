@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_appendjump.py
+@file:      test_appendmutually.py
 @time:      2018/11/12 10:51
 @desc:
 """
@@ -46,7 +46,7 @@ config = GeneralizeAssist.add_key(GeneralizeAssist.mutually, GeneralizeAssist.ad
 m_jude = InviteOperateJude(config, basename, Generalize)
 
 
-class TestAppendjump(unittest.TestCase):
+class TestAppendMutually(unittest.TestCase):
     """
        invite页面中默认跳转
        """
@@ -59,7 +59,7 @@ class TestAppendjump(unittest.TestCase):
         pass
 
     def tearDown(self):
-        # m_jude.driver.quit()
+        m_jude.driver.quit()
         m_jude.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
