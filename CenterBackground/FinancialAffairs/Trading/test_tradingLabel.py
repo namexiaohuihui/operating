@@ -26,53 +26,54 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_feedbackLabel.py
+@file:      test_tradinglabel.py
 @time:      2018/9/19 16:43
 @desc:
 """
 import os
 import inspect
 import unittest
-
-from CenterBackground import GeneralizeAssist
+from CenterBackground import FinancialAffairs
+from tools.excelname.Center.financial import Financial
 from CenterBackground.mutuallyJude import MutuallyJude
-from tools.excelname.Center.generalize import Generalize
 
+# 读取文件所在路径及文件名
 basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.feedback, GeneralizeAssist.page)
-f_label = MutuallyJude(config, basename, Generalize)
+# 读取配置文件
+config = FinancialAffairs.add_key(FinancialAffairs.trading, FinancialAffairs.page)
+
+# 实例化用例操作类
+tra_sur = MutuallyJude(config, basename, Financial)
 
 
-class TestFeedbackLabel(unittest.TestCase):
+class TestTradingLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        f_label.openingProgram()
-        f_label._rou_background()
-
-        f_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        tra_sur.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        tra_sur.openingProgram()
+        tra_sur._rou_background()
         pass
 
     def tearDown(self):
-        f_label.driver.quit()
-        f_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        tra_sur.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        tra_sur.driver.quit()
         pass
 
-    def test_showTitle(self):
-        f_label.setFunctionName(inspect.stack()[0][3])
-        f_label.title_execute()
+    def test_tradingTitle(self):
+        tra_sur.setFunctionName(inspect.stack()[0][3])
+        tra_sur.title_execute()
         pass
 
-    def test_showSurface(self):
-        f_label.setFunctionName(inspect.stack()[0][3])
-        f_label.surface_execute()
+    def test_tradingSurface(self):
+        tra_sur.setFunctionName(inspect.stack()[0][3])
+        tra_sur.surface_execute()
         pass
 
 

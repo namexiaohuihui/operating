@@ -286,3 +286,42 @@ generalize:
     page: 页面
     operate: 操作
     add: 添加
+financial:
+  father: 7
+  module: financial
+  trading:
+    module: trading
+    child: 1
+    select: 筛选
+    page: 页面
+  balance:
+    module: balance
+    child: 2
+    city: 城市
+    select: 筛选
+    page: 页面
+  money:
+    module: money
+    child: 3
+    select: 筛选
+    page: 页面
+  deposit:
+    module: deposit
+    child: 4
+    city: 城市
+    select: 筛选
+    page: 页面
+mcroLetter:
+  father: 8
+  module: mcroLetter
+  worktime:
+    module: worktime
+    child: 1
+    tabs: 标题
+    page: 页面
+  message:
+    module: message
+    child: 2
+  consult:
+    module: consult
+    child: 3

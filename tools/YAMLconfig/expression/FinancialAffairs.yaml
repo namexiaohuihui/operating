@@ -1,0 +1,22 @@
+start_time: input[id='starttime'] # 开始时间
+end_time: input[id='endtime'] # 结束时间
+formSub: button.btn.btn-default.btn-flat.btn-action.J_ipt     # 按钮
+search: 1
+export: 2
+inputplace: input[type='search'] # 关键字输入框
+info: div.dataTables_info # 底部数据条
+# 1.1 None
+typeselect: select[name='type']
+keyselect: select[name='key']
+
+# 2.1 None
+tabs: ul.nav.nav-tabs > li
+statusselect: select[name='status']
+utypeselect: select[name='utype']
+
+# 3.1 None
+inputtime: input[type='text'] # 时间输入框
+mon_sub: button.btn.btn-default.btn-flat.J_ipt     # 只有你这个页面的按钮才这样
+mon_search: 1
+mon_export: 2
+

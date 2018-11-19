@@ -90,9 +90,6 @@ class Generalize(ExcelTitle):
     def yaml_keyinput(self):
         return "keyinput"
 
-    def yaml_formSub(self):
-        return "formSub"
-
     def yaml_timeinput(self):
         return "timeinput"
 

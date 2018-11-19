@@ -41,8 +41,6 @@ if __name__ == '__main__':
     # conf.read(configPath)
     # host = conf.get("database", "host")
     # print(host)
-    connn = establish_con("excelmodel")
-    syst = connn.get("excel", "systemsetup")
-    dail = connn.get("excel", "dailybulletin")
-    excel = os.path.join(syst, dail)
-    print(excel)
+    connn = establish_con("E:\drivers\CasePlan\excelmodel.ini")
+
+    print(connn.get("excel", "mcroLetter"))

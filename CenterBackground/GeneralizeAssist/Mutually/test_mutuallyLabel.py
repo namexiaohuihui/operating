@@ -35,7 +35,7 @@ import inspect
 import unittest
 
 from CenterBackground import GeneralizeAssist
-from CenterBackground.GeneralizeAssist.Mutually.mutuallyJude import MutuallyJude
+from CenterBackground.mutuallyJude import MutuallyJude
 from tools.excelname.Center.generalize import Generalize
 
 basepath = os.path.split(os.path.dirname(__file__))[1]

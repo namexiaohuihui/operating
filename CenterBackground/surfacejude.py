@@ -169,13 +169,13 @@ class SurfaceJude(JudgmentVerification):
 
         for th in self.threads:
             th.join()
-        import pprint
-        pprint.pprint(self.tbody_list)
+        self.debugging_ppint(self.tbody_list)
         pass
 
     def debugging_ppint(self, oppara):
         print("/*******************************/")
-        print(oppara, type(oppara))
+        import pprint
+        pprint.pprint(oppara)
         print("/*******************************/")
 
     def debugging_log(self, ct_default, ov_default, mesg):

@@ -1,0 +1,7 @@
+# worktime
+tabs: .nav.nav-tabs > li                                                          # At the top of thetab
+wt_check: form > label                                                            # worktime page is checkout object
+amstart: amstart
+amsend: amsend
+pmstart: pmstart
+pmsend: pmsend

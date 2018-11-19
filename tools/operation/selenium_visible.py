@@ -153,7 +153,14 @@ class action_visible(object):
         except TimeoutException:
             return False
 
-    def differentiate_element_text(self, browser, info_case, locator):
+    def differentiate_element_exist(self, browser, info_case, locator):
+        """
+        根据类型来读取元素
+        :param browser:
+        :param info_case:
+        :param locator:
+        :return:
+        """
         _id = 'id'
         _css = 'css'
         if info_case == _id:
@@ -162,7 +169,17 @@ class action_visible(object):
             _ele = self.is_visible_css_selectop(browser, locator)
         else:
             raise Exception("differentiate_element_text:你写的ele判断有误")
+        return _ele
 
+    def differentiate_element_text(self, browser, info_case, locator):
+        """
+        根据传入的数据信息来区分是id还是css的方式然后来读取元素的text
+        :param browser:
+        :param info_case:
+        :param locator:
+        :return:
+        """
+        _ele = self.differentiate_element_exist(browser, info_case, locator)
         if _ele:
             return _ele.text
         else:

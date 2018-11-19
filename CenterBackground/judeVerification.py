@@ -231,7 +231,13 @@ class JudgmentVerification(ComparedVerify):
         pass
 
     def _excel_Data(self, model_key, filename, SHEETNAME):
-
+        """
+        读取配置文件Ini所在地的内容
+        :param model_key:
+        :param filename:
+        :param SHEETNAME:
+        :return:
+        """
         # 获取excel路径
         conmodel = readModel.establish_con(model="excelmodel")
         consyst = conmodel.get("excel", model_key)

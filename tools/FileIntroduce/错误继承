@@ -73,3 +73,8 @@ ValueError: I/O operation on closed file.
 
 http.client.CannotSendRequest: Request-sent
 原因：网络请求太快了，需要加个休眠的时间
+
+
+TypeError: 'NoneType' object is not iterable
+原因:读取yaml内容时,yaml文档没有数据.
+方法:在yaml里面随意写入一些数据信息

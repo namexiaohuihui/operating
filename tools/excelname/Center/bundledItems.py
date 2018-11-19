@@ -62,9 +62,6 @@ class BundledItems(ExcelTitle):
     def yaml_choose(self):
         return 'choose'
 
-    def yaml_formSub(self):
-        return 'formSub'
-
     def yaml_prompt(self):
         return 'prompt'
 
@@ -79,7 +76,6 @@ class BundledItems(ExcelTitle):
 
     def yaml_remove(self):
         return 'remove'
-
 
     def yaml_source(self):
         return 'source'

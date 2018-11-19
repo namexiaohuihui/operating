@@ -145,6 +145,9 @@ class ExcelTitle(object):
     def yaml_conditions(self):
         return 'conditions'
 
+    def yaml_formSub(self):
+        return 'formSub'
+
     def yaml_search(self):
         return 'search'
 

@@ -34,6 +34,10 @@ from CenterBackground.surfacejude import SurfaceJude
 
 
 class MutuallyJude(SurfaceJude):
+    """
+    td项中最后一个值可以直接获取,不需要进行数据判断
+    """
+
     def traverseYield(self, thead_tr, tbody_class):
         '''
         :param thead_tr:  页面内容标题
@@ -45,7 +49,7 @@ class MutuallyJude(SurfaceJude):
             thead_length = len(thead_tr)
             for tr_len in range(thead_length):
                 tr_td = tr.find_all('td')
-                td_text = tr_td[tr_len].text.replace(" ", "").replace("\n", "")
+                td_text = tr_td[tr_len].text.replace(" ", "").replace("\n", "").replace("\t", "")
                 tbody_tr[thead_tr[tr_len]] = td_text
             yield tbody_tr
         pass

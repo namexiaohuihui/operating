@@ -60,8 +60,6 @@ class InteractionController(ExcelTitle):
     def yaml_otherinput(self):
         return 'otherinput'
 
-    def yaml_formSub(self):
-        return 'formSub'
 
     def yaml_generate(self):
         return 'generate'
