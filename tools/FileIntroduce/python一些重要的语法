@@ -7,4 +7,8 @@ lambda ambda:expression
 random.sample(value:str,number:int)
 从指定的的value参数中,生成number位的list.
 
+yield关键字定义的迭代器也被称为"生成器"
+
+排序函数 sorted 支持接收一个函数作为参数，该参数作为 sorted 的排序依据
+
 
