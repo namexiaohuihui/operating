@@ -60,12 +60,15 @@ class OperateJude(JudgmentVerification):
         self.vac.ele_click_and_mode(self.driver, mode, ordinal)
         del mode
 
-    def conditions_screening(self):
+    def conditions_screening(self, _para=None):
         functionName = inspect.stack()[0][3]
         # 1.读取用例设置的参数位置
         ov_para = self.overall[self.bi.whole_parameter()]
         # 1.1 根据文件名和key来解析相应的数据
-        ov_para = os.path.join(os.path.split(os.path.dirname(__file__))[0], ov_para)
+        if _para:
+            ov_para = os.path.join(_para, ov_para)
+        else:
+            ov_para = os.path.join(os.path.split(os.path.dirname(__file__))[0], ov_para)
         case_value = self.read_yaml_case(file_name=ov_para, case_key=self.FUNCTION_NAME)
 
         # 2.0 切换焦点

@@ -1,0 +1,12 @@
+test_releasenews:
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: open_news
+    valueText:
+      type: text
+      ele: css
+      text: 新闻标题
+      parameter: box_title

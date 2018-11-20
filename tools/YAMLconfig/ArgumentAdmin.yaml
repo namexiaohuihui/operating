@@ -322,6 +322,29 @@ mcroLetter:
   message:
     module: message
     child: 2
+    page: 页面
   consult:
     module: consult
     child: 3
+    select: 筛选
+    page: 页面
+website:
+  father: 9
+  module: website
+  parameter:
+    module: parameter
+    child: 1
+    tabs: 标题
+    page: 页面
+    add: 添加
+  journalism:
+    module: journalism
+    child: 2
+    select: 筛选
+    page: 页面
+    add: 添加
+  trademark:
+    module: trademark
+    child: 3
+    page: 页面
+    add: 添加

@@ -1,0 +1,26 @@
+test_focus_home:
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: add_focus
+    valueText:
+      type: text
+      ele: css
+      text: 添加官网焦点广告
+      parameter: modal_title
+test_focus_friendship:
+  tabs: 友情链接
+  del:  进入指定的页面
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: add_focus
+    valueText:
+      type: text
+      ele: css
+      text: 添加链接
+      parameter: modal_title

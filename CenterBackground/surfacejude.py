@@ -75,19 +75,24 @@ class SurfaceJude(JudgmentVerification):
 
     def info_number(self):
         # 读取info的数据并把int数据切割
-        info_text = self._visible_css_selectop_text(self.financial[self.bi.yaml_info()])
-        if info_text:
-            pages = str.split(info_text, '，')[-1]
+        info_text = self.bi.yaml_info()
+        if info_text in self.financial:
+            info_text = self._visible_css_selectop_text(self.financial[info_text])
+            if info_text:
+                pages = str.split(info_text, '，')[-1]
 
-            pages = int(StringCutting.re_zip_code(pages, "\d+"))
-            if (pages % 10) > 0:
-                number = 1
+                pages = int(StringCutting.re_zip_code(pages, "\d+"))
+                if (pages % 10) > 0:
+                    number = 1
+                else:
+                    number = 0
+                pages = int((pages / 10)) + number
+                return pages
             else:
-                number = 0
-            pages = int((pages / 10)) + number
-            return pages
+                return info_text
         else:
-            return info_text
+            self.log.debug("页面没有翻页按钮.")
+            return False
 
     def traverseYield(self, thead_tr, tbody_class):
         '''
@@ -96,11 +101,11 @@ class SurfaceJude(JudgmentVerification):
         :return:
         '''
         _button = "button"
-        thead_length = len(thead_tr) # 判断一共会出现td的长度
-        for tr in tbody_class: # 遍历获取不同的tr
+        thead_length = len(thead_tr)  # 判断一共会出现td的长度
+        for tr in tbody_class:  # 遍历获取不同的tr
             tbody_tr = {}
-            for tr_len in range(thead_length): # 遍历读取tr中不同的td
-                tr_td = tr.find_all('td')
+            tr_td = tr.find_all('td')
+            for tr_len in range(thead_length):  # 遍历读取tr中不同的td
                 # 最好一个td时,应查询td下面的button数据并读取相应的数据信息
                 if tr_len == thead_length - 1:
                     td_text = [td.text.replace(" ", "").replace("\n", "") for td in tr_td[tr_len].find_all(_button)]
@@ -159,6 +164,7 @@ class SurfaceJude(JudgmentVerification):
 
         # 3.通过线程来获取内容
         current = self.driver.current_url
+        # 如果界面只有一行数据的话,执行下面遍历操作就会出现IndexError: list index out of range
         for qe in range(1, 3):
             url = current + '&page={}'.format(qe)
             thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))

@@ -34,6 +34,9 @@ from CenterBackground.screeningjude import ScreeningJude
 
 
 class SecKillLableVerify(ScreeningJude):
+    """
+    搜索按钮名字是单独独立的
+    """
     def __init__(self, config, basename, centerName):
         '''
         定义模块数据信息
@@ -71,7 +74,7 @@ class SecKillLableVerify(ScreeningJude):
 
     def searchExport(self, formSub):
         """
-        获取按钮的信息
+        读取指定元素的text与产品定义的是否一致
         :param formSub:
         :return:
         """

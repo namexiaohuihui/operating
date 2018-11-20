@@ -26,42 +26,32 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      mcroletterwechat.py
-@time:      2018/11/19 10:45
+@file:      __init__.py.py
+@time:      2018/11/19 18:02
 @desc:
 """
-from tools.excelname.excelBeanName import ExcelTitle
+def add_key(module, sheet):
+    INVENTORY['module'] = module
+    INVENTORY['sheet'] = sheet
+    return INVENTORY
 
 
-class McroLetterWechat(ExcelTitle):
-    def yaml_wt_check(self):
-        return "wt_check"
+# 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
+parameter = 'parameter'
+journalism = 'journalism'
+trademark = 'trademark'
 
-    def yaml_amstart(self):
-        return "amstart"
 
-    def yaml_amsend(self):
-        return "amsend"
+# 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
+tabs = 'tabs'
+select = 'select'
+page = 'page'
+add = 'add'
 
-    def yaml_pmstart(self):
-        return "pmstart"
-
-    def yaml_pmsend(self):
-        return "pmsend"
-
-    def yaml_statusselect(self):
-        return "statusselect"
-
-    def yaml_typeselect(self):
-        return "typeselect"
-
-    def yaml_starttime(self):
-        return "starttime"
-
-    def yaml_endtime(self):
-        return "endtime"
-
-    def yaml_inputplace(self):
-        return "inputplace"
-
-    pass
+# 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
+INVENTORY = {
+    'menu': 'website',  # 菜单标识符的定义
+    'module': 'no data',  # 菜单中模块标识符的定义
+    'sheet': 'no data',  # 模块所对应的用例标签名
+    'yaml': 'expression/OfficialWebsite.yaml'  # 菜单所对应的yaml路径
+}

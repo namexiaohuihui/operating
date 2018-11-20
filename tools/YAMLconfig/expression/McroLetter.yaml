@@ -5,3 +5,12 @@ amstart: amstart
 amsend: amsend
 pmstart: pmstart
 pmsend: pmsend
+
+# leave message
+statusselect: select[name='status']
+typeselect: select[name='type']
+starttime: input[name='starttime']
+endtime: input[name='endtime']
+formSub: button.btn.btn-default.btn-flat.btn-action.J_ipt
+search: 1
+inputplace: input[type='search'] # 输入框

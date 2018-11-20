@@ -1,0 +1,11 @@
+tabs: ul.nav.nav-tabs > li
+add_focus: div > button.btn.btn-default.btn-sm.modal-btn
+modal_title: h4.modal-title
+# 1.2
+statusselect: select[name='status']
+search: button.btn.btn-default.btn-flat.formSub
+#search: 1
+inputplace: input[type='search'] # 输入框
+box_title: h3.box-title
+open_news: div.box-tools >a.btn.btn-default
+

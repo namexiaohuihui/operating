@@ -26,42 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      mcroletterwechat.py
-@time:      2018/11/19 10:45
+@file:      __init__.py.py
+@time:      2018/11/20 18:31
 @desc:
 """
-from tools.excelname.excelBeanName import ExcelTitle
-
-
-class McroLetterWechat(ExcelTitle):
-    def yaml_wt_check(self):
-        return "wt_check"
-
-    def yaml_amstart(self):
-        return "amstart"
-
-    def yaml_amsend(self):
-        return "amsend"
-
-    def yaml_pmstart(self):
-        return "pmstart"
-
-    def yaml_pmsend(self):
-        return "pmsend"
-
-    def yaml_statusselect(self):
-        return "statusselect"
-
-    def yaml_typeselect(self):
-        return "typeselect"
-
-    def yaml_starttime(self):
-        return "starttime"
-
-    def yaml_endtime(self):
-        return "endtime"
-
-    def yaml_inputplace(self):
-        return "inputplace"
-
-    pass

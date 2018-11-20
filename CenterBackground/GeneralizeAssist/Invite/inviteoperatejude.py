@@ -84,7 +84,7 @@ class InviteOperateJude(JudgmentVerification):
         self.vac.ele_click_and_mode(self.driver, mode, ordinal)
         del mode
 
-    def conditions_screening(self):
+    def conditions_screening(self, _para):
         """
         1. 根据tab/city进行相应的tabs/citys页面
         2. 点击指定的元素跳转到相应的数据页面
@@ -95,7 +95,10 @@ class InviteOperateJude(JudgmentVerification):
         # 1.读取用例设置的参数位置
         ov_para = self.overall[self.bi.whole_parameter()]
         # 1.1 根据文件名和key来解析相应的数据
-        ov_para = os.path.join(os.path.split(os.path.dirname(__file__))[0], ov_para)
+        if _para:
+            ov_para = os.path.join(_para, ov_para)
+        else:
+            ov_para = os.path.join(os.path.split(os.path.dirname(__file__))[0], ov_para)
         case_value = self.read_yaml_case(file_name=ov_para, case_key=self.FUNCTION_NAME)
 
         # 2.0: toggle focus - if the tabs element exists, toggle where it exists
@@ -117,8 +120,8 @@ class InviteOperateJude(JudgmentVerification):
             valueText = case_operate[self.bi.yaml_value_text()]
             # 3.2 读取parameter中保存的title内容
             box_title = valueText[self.bi.yaml_parameter()]
-            box_title = self.vac.differentiate_element_text(self.driver,valueText['ele'],
-                                                self.financial[box_title])
+            box_title = self.vac.differentiate_element_text(self.driver, valueText['ele'],
+                                                            self.financial[box_title])
             # 3.3 获取产品的title
             valueText = valueText["text"]
             # 3.4 执行断言比较
