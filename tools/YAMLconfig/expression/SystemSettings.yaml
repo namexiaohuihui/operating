@@ -1,0 +1,21 @@
+tabs: ul.nav.nav-tabs > li          # top title element
+modal_title: h4.modal-title
+box_title: h3.box-title
+release: .box-tools > .btn.btn-default.btn-sm.modal-btn
+statusselect: select[name='status']
+# 2.x
+cityselect: select[name='city']
+formSub: button.btn.btn-default.btn-flat.btn-action.J_ipt
+search: 1
+# 5.x
+datatatle: ul.todo-list.ui-sortable > li
+categoty_add: button.btn.btn-primary.btn-sm.modal-btn
+# 6.x
+typeselect: select[name='type']
+keyselect: select[name='key']
+othersearch: input[type='search']
+# 7.x
+taskType: select[name='taskType']
+othertext: input[type='text']
+#8.x
+fight_time: .form-control.pull-right

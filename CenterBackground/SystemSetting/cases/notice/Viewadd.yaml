@@ -1,0 +1,26 @@
+test_adddaily:
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: release
+    valueText:
+      type: text
+      ele: css
+      text: 添加公告
+      parameter: modal_title
+test_addmaintain:
+  tabs: 维护公告
+  del:  查看弹窗内容
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: release
+    valueText:
+      type: text
+      ele: css
+      text: 添加公告
+      parameter: modal_title

@@ -1,0 +1,12 @@
+test_addancient:
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: release
+    valueText:
+      type: text
+      ele: css
+      text: 开通新城市
+      parameter: modal_title

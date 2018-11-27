@@ -1,0 +1,12 @@
+test_addbrand:
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: release
+    valueText:
+      type: text
+      ele: css
+      text: 添加品牌
+      parameter: modal_title

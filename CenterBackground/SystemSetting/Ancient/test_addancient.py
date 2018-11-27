@@ -26,52 +26,47 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_offlinelabel.py
-@time:      2018/9/19 16:43
+@file:      test_addancient.py
+@time:      2018/11/6 11:03
 @desc:
 """
 import os
 import inspect
 import unittest
-from CenterBackground import InteractionActions
-from CenterBackground.InteractionActions.samedayorder import SameDayOrder
-from tools.excelname.Center.Interaction import InteractionController
+from CenterBackground import SystemSetting
+from tools.excelname.Center.systemparameter import SystemParameter
+from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
 basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
-config = InteractionActions.add_key(InteractionActions.offline, InteractionActions.page)
+# 传入子集的key，以及Excel文档中的sheet名字
+config = SystemSetting.add_key(SystemSetting.ancient, SystemSetting.release)
+n_operate = InviteOperateJude(config, basename, SystemParameter)
 
-sLable = SameDayOrder(config, basename, InteractionController)
 
-
-class TestofflineLabel(unittest.TestCase):
+class TestAddAncient(unittest.TestCase):
     """
-    页面展示项的标题
+    点击某个按钮,获取弹窗的标题
     """
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        sLable.openingProgram()
-        sLable._rou_background()
-
-        sLable.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        n_operate.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        n_operate.openingProgram()
+        n_operate._rou_background()
         pass
-
 
     def tearDown(self):
-        sLable.driver.quit()
-        sLable.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        n_operate.driver.quit()
+        n_operate.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
-    def test_showTitle(self):
-        sLable.setFunctionName(inspect.stack()[0][3])
-        sLable.title_execute()
-        pass
-
-    def test_showSurface(self):
-        sLable.setFunctionName(inspect.stack()[0][3])
-        sLable.surface_execute()
+    def test_addancient(self):
+        n_operate.setFunctionName(inspect.stack()[0][3])
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        n_operate.conditions_screening(ov_para)
         pass
 
 

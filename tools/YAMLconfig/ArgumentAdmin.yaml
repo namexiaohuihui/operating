@@ -348,3 +348,47 @@ website:
     child: 3
     page: 页面
     add: 添加
+system:
+  father: 10
+  module: system
+  settings:
+    module: settings
+    child: 1
+    tabs: 标题
+  notice:
+    module: notice
+    child: 2
+    tabs: 标题
+    select: 筛选
+    page: 页面
+    release: 添加
+  navigation:
+    module: navigation
+    child: 3
+    tabs: 标题
+  ancient:
+    module: ancient
+    child: 4
+    page: 页面
+    release: 添加
+  category:
+    module: category
+    child: 5
+    page: 页面
+    release: 添加
+  brand:
+    module: brand
+    child: 6
+    select: 筛选
+    page: 页面
+    release: 添加
+  task:
+    module: task
+    child: 7
+    select: 筛选
+    page: 页面
+  SMSquery:
+    module: SMSquery
+    child: 8
+    select: 筛选
+    page: 页面

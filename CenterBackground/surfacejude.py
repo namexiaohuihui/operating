@@ -122,13 +122,17 @@ class SurfaceJude(JudgmentVerification):
         return text_center
 
     def success_tbody(self, url, thead_tr):
-        self.driver.get(url)
-        soup = self.bs4_soup()
-        tbody_class = soup.find('tbody').find_all('tr')
-        tr_yield = self.traverseYield(thead_tr, tbody_class)
-        for text in tr_yield:
-            self.tbody_list.append(text)
-        pass
+        try:
+            self.driver.get(url)
+            soup = self.bs4_soup()
+            tbody_class = soup.find('tbody').find_all('tr')
+            tr_yield = self.traverseYield(thead_tr, tbody_class)
+            for text in tr_yield:
+                self.tbody_list.append(text)
+            pass
+        except AttributeError:
+            self.log.error("tbody布局中只有一个tr所以在find_all('tr'),的时候出现错误."
+                           "AttributeError: 'NoneType' object has no attribute 'find_all'")
 
     def title_execute(self):
         '''

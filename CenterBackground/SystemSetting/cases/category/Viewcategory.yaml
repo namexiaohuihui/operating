@@ -1,0 +1,12 @@
+test_addcategory:
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: categoty_add
+    valueText:
+      type: text
+      ele: css
+      text: 类目编辑
+      parameter: modal_title

@@ -107,7 +107,7 @@ class TimeFromat(object):
 
     def todat_to_stamp_day(self, day):
         """
-        当前时间到N天的数据
+        当前时间到N天的时间戳数据
         :param day:  +-N
         :return:
         """
@@ -217,7 +217,21 @@ class TimeFromat(object):
         format = time.strftime('%a, %d %b %y %H:%M', time.localtime())
         return format
 
+    def at_the_present_day(self):
+        """
+        返回当天的年月日
+        :return:
+        """
+        y_m_d = datetime.date.today()
+        y_m_d = str(y_m_d)
+        return y_m_d
+
     def dormancy_time(self, sp: int = 0.5):
+        """
+        延迟
+        :param sp:
+        :return:
+        """
         time.sleep(sp)
 
     def neizhidefangfa(self):
@@ -241,12 +255,5 @@ class TimeFromat(object):
 
 
 if __name__ == '__main__':
-    time1 = "2018-07-28 11:55:09 至 2018-07-28 11:55:09"
-    time1 = str.split(time1, "至")
-    print(time1)
-    ti1 = TimeFromat()
-    time1 = [t.rstrip().lstrip() for t in time1]
-    t2 = ti1.timeToStamp(time1[0])
-    t3 = ti1.timeToStamp(time1[1])
-    print(t2)
-    print(t3)
+    # t1 = TimeFromat()
+    pass
