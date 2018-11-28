@@ -36,7 +36,6 @@ import unittest
 from CenterBackground import Commodities
 from tools.excelname.Center.bundledItems import BundledItems
 from CenterBackground.commoditiesJude import CommoditiesJude
-import time
 
 basename = os.path.splitext(os.path.basename(__file__))[0]
 # 传入子集的key，以及Excel文档中的sheet名字
@@ -57,7 +56,6 @@ class TestStoreSoldTabs(unittest.TestCase):
     def tearDown(self):
         group.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % basename)
-        time.sleep(3)
         pass
 
     def test_active_city(self):

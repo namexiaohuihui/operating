@@ -205,6 +205,12 @@ class ExcelTitle(object):
     def yaml_button(self):
         return "button"
 
+    def yaml_operate(self):
+        return "operate"
+
+    def yaml_value_text(self):
+        return "valueText"
+
     #  -------------------------------------元素标签属性--------------------
     def ele_class(self):
         return 'class'

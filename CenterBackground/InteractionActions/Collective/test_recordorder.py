@@ -43,10 +43,6 @@ basename = basepath + "-" + basename
 # 传入子集的key，以及Excel文档中的sheet名字
 config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.record)
 record_o = OperationViewJude(config, basename, InteractionController)
-print("--------------")
-print(config)
-print(record_o)
-print("--------------")
 
 
 class TestRecordOrder(unittest.TestCase):

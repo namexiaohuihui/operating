@@ -26,24 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      officialwebsite.py
-@time:      2018/11/19 17:48
+@file:      __init__.py.py
+@time:      2018/11/27 18:07
 @desc:
 """
-from tools.excelname.excelBeanName import ExcelTitle
-
-
-class OfficialWebsite(ExcelTitle):
-    def yaml_add_focus(self):
-        return "add_focus"
-
-    def yaml_modal_title(self):
-        return "modal_title"
-
-    def yaml_box_title(self):
-        return "box_title"
-
-    def yaml_open_news(self):
-        return "open_news"
-
-    pass

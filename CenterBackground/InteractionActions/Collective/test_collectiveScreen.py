@@ -42,10 +42,7 @@ config = InteractionActions.add_key(InteractionActions.collective, InteractionAc
 
 slVerity = SelectLableVerify(config, basename, InteractionController)
 
-print("--------------")
-print(config)
-print(slVerity)
-print("--------------")
+
 class TestCollectiveScreen(unittest.TestCase):
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
@@ -54,7 +51,7 @@ class TestCollectiveScreen(unittest.TestCase):
         print("%s ---setup: 每个用例开始前后执行" % basename)
 
     def tearDown(self):
-        # slVerity.driver.quit()
+        slVerity.driver.quit()
         slVerity.driver.close()
         print("%s ---teardown: 每个用例结束后执行" % basename)
         pass

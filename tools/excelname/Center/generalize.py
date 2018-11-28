@@ -64,9 +64,6 @@ class Generalize(ExcelTitle):
     def yaml_determine_assist(self):
         return "determine_assist"
 
-    def yaml_operate(self):
-        return "operate"
-
     def yaml_modify(self):
         return "modify"
 
@@ -143,9 +140,6 @@ class Generalize(ExcelTitle):
 
     def yaml_tr_effect(self):
         return "tr_effect"
-
-    def yaml_value_text(self):
-        return "valueText"
 
     def yaml_modal_title(self):
         return "modal_title"

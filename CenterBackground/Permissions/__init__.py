@@ -26,24 +26,29 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      officialwebsite.py
-@time:      2018/11/19 17:48
+@file:      __init__.py.py
+@time:      2018/11/27 18:07
 @desc:
 """
-from tools.excelname.excelBeanName import ExcelTitle
+def add_key(module, sheet):
+    INVENTORY['module'] = module
+    INVENTORY['sheet'] = sheet
+    return INVENTORY
 
 
-class OfficialWebsite(ExcelTitle):
-    def yaml_add_focus(self):
-        return "add_focus"
+# 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
+jurisdiction = 'jurisdiction'
+department = 'department'
 
-    def yaml_modal_title(self):
-        return "modal_title"
 
-    def yaml_box_title(self):
-        return "box_title"
+# 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
+page = 'page'
+add = 'add'
 
-    def yaml_open_news(self):
-        return "open_news"
-
-    pass
+# 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
+INVENTORY = {
+    'menu': 'permissions',  # 菜单标识符的定义
+    'module': 'no data',  # 菜单中模块标识符的定义
+    'sheet': 'no data',  # 模块所对应的用例标签名
+    'yaml': 'expression/Permissions.yaml'  # 菜单所对应的yaml路径
+}

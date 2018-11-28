@@ -50,7 +50,7 @@ class TestStoreScreen(unittest.TestCase):
         print("%s ---setup: 每个用例开始前后执行" % BASENAME)
 
     def tearDown(self):
-        # sJude.driver.quit()
+        sJude.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % BASENAME)
         pass
 

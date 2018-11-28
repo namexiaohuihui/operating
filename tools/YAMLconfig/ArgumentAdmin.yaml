@@ -200,7 +200,6 @@ buyer:
     select: 筛选
     page: 页面
     release: 注册
-
 generalize:
   father: 6
   module: generalize
@@ -392,3 +391,16 @@ system:
     child: 8
     select: 筛选
     page: 页面
+permissions:
+  father: 11
+  module: permissions
+  jurisdiction:
+    module: jurisdiction
+    child: 1
+    page: 页面
+    add: 添加
+  department:
+    module: department
+    child: 2
+    page: 页面
+    add: 添加

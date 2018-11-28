@@ -1,0 +1,12 @@
+test_addjurisdiction:
+  operate:
+    del: 没备注
+    type: click
+    ele: css
+    way: js
+    parameter: release_add
+    valueText:
+      type: text
+      ele: css
+      text: 添加管理员
+      parameter: modal_title

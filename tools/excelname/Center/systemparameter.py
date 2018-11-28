@@ -46,12 +46,6 @@ class SystemParameter(ExcelTitle):
     def yaml_modal_title(self):
         return "modal_title"
 
-    def yaml_operate(self):
-        return "operate"
-
-    def yaml_value_text(self):
-        return "valueText"
-
     def yaml_box_title(self):
         return "box_title"
 

@@ -59,7 +59,7 @@ class TestAppendjump(unittest.TestCase):
         pass
 
     def tearDown(self):
-        # i_jude.driver.quit()
+        i_jude.driver.quit()
         i_jude.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
