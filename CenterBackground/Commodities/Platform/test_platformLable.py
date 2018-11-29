@@ -35,34 +35,45 @@ import os
 import inspect
 import unittest
 from CenterBackground import Commodities
-from CenterBackground.Commodities.Platform.plarformsurface import PlarformSurface
 from tools.excelname.Center.bundledItems import BundledItems
-
-BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = Commodities.add_key(Commodities.platform, Commodities.page)
-surface = PlarformSurface(config, BASENAME, BundledItems)
+from CenterBackground.Commodities.Platform.plarformsurface import PlarformSurface
 
 
 class TestPlatformLable(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + basename
+        config = Commodities.add_key(Commodities.platform, Commodities.page)
+        cls.surface = PlarformSurface(config, cls.basename, BundledItems)
+
     def setUp(self):
         # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.surface.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        surface.openingProgram()
-        surface._rou_background()
+        self.surface.openingProgram()
+        self.surface._rou_background()
 
     def tearDown(self):
-        surface.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % self.basename)
+        self.surface.driver.quit()
+        self.surface.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
+    # @classmethod
+    # def tearDownClass(cls):
+    #     del cls.surface
+
     def test_showTitle(self):
-        surface.setFunctionName(inspect.stack()[0][3])
-        surface.title_execute()
+        self.surface.setFunctionName(inspect.stack()[0][3])
+        self.surface.title_execute()
         pass
 
     def test_showSurface(self):
-        surface.setFunctionName(inspect.stack()[0][3])
-        surface.surface_execute()
+        self.surface.setFunctionName(inspect.stack()[0][3])
+        self.surface.surface_execute()
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

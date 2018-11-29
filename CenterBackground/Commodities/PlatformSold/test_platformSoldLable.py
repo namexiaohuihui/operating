@@ -38,31 +38,44 @@ from CenterBackground import Commodities
 from tools.excelname.Center.bundledItems import BundledItems
 from CenterBackground.Commodities.soldLable import SoldLable
 
-BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = Commodities.add_key(Commodities.platformsold, Commodities.page)
-sLable = SoldLable(config, BASENAME, BundledItems)
-
 
 class TestPlatformSoldLable(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + basename
+        config = Commodities.add_key(Commodities.platform, Commodities.page)
+        cls.sLable = SoldLable(config, cls.basename, BundledItems)
+
     def setUp(self):
         # 获取运行文件的类名
         self.basename = os.path.splitext(os.path.basename(__file__))[0]
         print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        sLable.openingProgram()
-        sLable._rou_background()
+        self.sLable.openingProgram()
+        self.sLable._rou_background()
 
     def tearDown(self):
-        sLable.driver.quit()
+        self.sLable.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
+    # @classmethod
+    # def tearDownClass(cls):
+    #     del cls.sLable
+
     def test_showTitle(self):
-        sLable.setFunctionName(inspect.stack()[0][3])
-        sLable.title_execute()
+        self.sLable.setFunctionName(inspect.stack()[0][3])
+        self.sLable.title_execute()
         pass
 
     def test_showSurface(self):
-        sLable.setFunctionName(inspect.stack()[0][3])
-        sLable.surface_execute()
+        self.sLable.setFunctionName(inspect.stack()[0][3])
+        self.sLable.surface_execute()
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

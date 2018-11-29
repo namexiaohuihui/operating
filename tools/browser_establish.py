@@ -61,9 +61,9 @@ class browser_confirm(object):
     # 调用函数，实现打开谷歌浏览器的步骤
     def chrome_browser(self, options=None):
         try:
-            self.browser = webdriver.Chrome(executable_path=os.path.join(driver_path, 'chromedriver238-67.exe'),
+            import sys
+            self.browser = webdriver.Chrome(executable_path=os.path.join(driver_path, 'chromedriver239-68.exe'),
                                             chrome_options=options)
-            # self.browser = webdriver.Chrome(executable_path=os.path.join(driver_path,'chromedriver239-68.exe'))
             self.BROWSER_NAME = "无options的谷歌"
             # 实现全局变量的引用
         except WebDriverException as msg:
@@ -122,6 +122,7 @@ class browser_confirm(object):
 
     def mobile_phone_mode(self):
         '''
+        谷歌设置手机模式
         Set the Google browser to mobile mode
         :return:
         '''
@@ -143,6 +144,7 @@ class browser_confirm(object):
 
     def chrome_prefs_flash(self):
         '''
+        谷歌禁止弹窗提示flash无法使用
         When the Google browser runs, flash is not loaded
         :return:
         '''
@@ -163,6 +165,7 @@ class browser_confirm(object):
 
     def firefox_prefs_flash(self):
         '''
+        火狐禁止弹窗提示flash无法使用
         When firefox runs, flash is not loaded
         :return:
         '''

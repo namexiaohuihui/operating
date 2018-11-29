@@ -39,6 +39,7 @@ from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
 config = Commodities.add_key(Commodities.store, Commodities.select)
+global sJude
 sJude = ScreeningJude(config, BASENAME, BundledItems)
 
 

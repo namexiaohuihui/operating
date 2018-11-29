@@ -5,37 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultLabel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultScreen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/McroLetter/Message/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/McroLetter/Message/test_messageLabel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Journalism/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Journalism/test_addjournalism.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Journalism/test_journalismLabel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Journalism/test_journalismScreen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Parameter/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Parameter/test_parameterLabel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Parameter/test_parameterTabs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Parameter/test_websitefocus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Trademark/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Trademark/test_addtrademark.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/Trademark/test_trademarkLabel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/cases/journalism/Viewadd.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/cases/parameter/Viewadd.yaml.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CenterBackground/Website/cases/trademark/Viewadd.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/YAMLconfig/expression/OfficialWebsite.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/excelname/Center/officialwebsite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/nihao1/2test_nihaotwo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/nihao1/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/nihao1/test_nihaoone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/shaleba/2test_shalebatwo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/shaleba/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/shaleba/test_shalebaone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/shenme2/2test_shenmetwo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/shenme2/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/shenme2/test_shenmeone.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/operateJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/operateJude.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/inviteoperatejude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/inviteoperatejude.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/secsillLableVerify.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/secsillLableVerify.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/plarformsurface.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/plarformsurface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformLable.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformLable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/test_platformSoldLable.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/test_platformSoldLable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Store/test_storeLable.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Store/test_storeLable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Store/test_storeScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Store/test_storeScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldLable.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldLable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CenterBackground/surfacejude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/surfacejude.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/YAMLconfig/expression/McroLetter.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/YAMLconfig/expression/McroLetter.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/excelname/Center/mcroletterwechat.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excelname/Center/mcroletterwechat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo_chandao.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/demo_chandao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/FileIntroduce/框架unittest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/框架unittest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/browser_establish.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/browser_establish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/linuxOperating.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/linuxOperating.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -119,38 +111,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ArgumentAdmin.yaml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml">
+      <file leaf-file-name="run_all.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/run_all.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="342" column="14" lean-forward="true" selection-start-line="342" selection-start-column="14" selection-end-line="342" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_addtrademark.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CenterBackground/Website/Trademark/test_addtrademark.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OfficialWebsite.yaml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/OfficialWebsite.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Viewadd.yaml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CenterBackground/Website/cases/trademark/Viewadd.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="137">
+              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+              <folding>
+                <element signature="e#15#24#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -168,68 +136,68 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>type</find>
+      <find>slVerity</find>
+      <find>status</find>
+      <find>n_Verity</find>
+      <find>n_label</find>
+      <find>t_label</find>
+      <find>tabs_jude</find>
+      <find>department</find>
+      <find>management</find>
+      <find>a_label</find>
+      <find>n_operate</find>
+      <find>j_operate</find>
+      <find>p_mana</find>
+      <find>value</find>
+      <find>yaml_operate</find>
+      <find>新创建报告文件所在位置</find>
+      <find>最新报告地方</find>
+      <find>Time Elapsed</find>
+      <find>walk</find>
+      <find>listdir</find>
+      <find>isdir</find>
+      <find>wqe</find>
+      <find>sdfsd</find>
+      <find>map</find>
+      <find>platform</find>
+      <find>surface</find>
+      <find>sLabel</find>
+      <find>cls</find>
       <find>sLable</find>
-      <find>dataTables_info</find>
-      <find>GeneralizeAssist</find>
-      <find>key</find>
-      <find>tra_screen</find>
-      <find>tra_sur</find>
-      <find>levelname</find>
-      <find>yaml_formSub</find>
-      <find>bala_screen</find>
-      <find>m_tab</find>
-      <find>bala_sur</find>
-      <find>TypeError: 'NoneType' object is not iterable</find>
-      <find>b_tab</find>
-      <find>i_label</find>
-      <find>lam</find>
-      <find>wt_label</find>
-      <find>button.btn.btn-default.btn-flat.btn-action.J_ipt</find>
-      <find>r_screen</find>
-      <find>msg_label</find>
-      <find>wt_tab</find>
-      <find>f_page</find>
-      <find>fi</find>
-      <find>designated_box</find>
-      <find>f_add</find>
-      <find>foc</find>
-      <find>p_add</find>
-      <find>seck</find>
-      <find>formSub</find>
-      <find>f_operate</find>
-      <find>p_page</find>
+      <find>BASENAME</find>
     </findStrings>
     <replaceStrings>
-      <replace>rela</replace>
-      <replace>rela_modal_title</replace>
-      <replace>r_append</replace>
-      <replace>GeneralizeAssist</replace>
+      <replace>f_operate</replace>
+      <replace>t_page</replace>
+      <replace>system_p</replace>
+      <replace>n_tap</replace>
+      <replace>SystemSetting</replace>
+      <replace>city</replace>
+      <replace>status</replace>
+      <replace>n_label</replace>
+      <replace>n_operate</replace>
+      <replace>a_label</replace>
+      <replace>c_label</replace>
+      <replace>c_operate</replace>
       <replace>type</replace>
       <replace>key</replace>
-      <replace>tra_screen</replace>
-      <replace>tra_sur</replace>
-      <replace>FinancialAffairs</replace>
-      <replace>status</replace>
-      <replace>bala_screen</replace>
-      <replace>bala_sur</replace>
-      <replace>mon_screen</replace>
-      <replace>mon_sur</replace>
-      <replace>yaml_mon_sub</replace>
-      <replace>d_tab</replace>
-      <replace>d_screen</replace>
-      <replace>b_tab</replace>
-      <replace>d_sur</replace>
-      <replace>wt_tab</replace>
-      <replace>wt_label</replace>
-      <replace>msg_label</replace>
-      <replace>c_screen</replace>
-      <replace>c_label</replace>
-      <replace>p_tab</replace>
-      <replace>p_page</replace>
-      <replace>p_add</replace>
-      <replace>f_operate</replace>
+      <replace>n_Verity</replace>
+      <replace>brand_V</replace>
+      <replace>task</replace>
+      <replace>tabs_jude</replace>
+      <replace>t_label</replace>
+      <replace>sms_mutually</replace>
+      <replace>sms_srceen</replace>
+      <replace>p_mana</replace>
       <replace>j_operate</replace>
-      <replace>t_page</replace>
+      <replace>d_mana</replace>
+      <replace>d_operate</replace>
+      <replace>sJude</replace>
+      <replace>self.surface</replace>
+      <replace>cls.sLabel</replace>
+      <replace>self</replace>
+      <replace>self.sLable</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -239,65 +207,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Trading/test_tradingScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/test_balanceScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Trading/test_tradingLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/balance_handle_button.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/test_balanceLabel.py" />
-        <option value="$PROJECT_DIR$/tools/Logger.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Money/test_moneyLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/handlebutton.py" />
-        <option value="$PROJECT_DIR$/tools/excelname/Center/financial.py" />
-        <option value="$PROJECT_DIR$/tools/YAMLconfig/expression/FinancialAffairs.yaml" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Money/test_moneyScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/test_balanceTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/mutuallyJude.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/__init__.py" />
-        <option value="$PROJECT_DIR$/tools/excelname/Center/mcroletter.py" />
-        <option value="$PROJECT_DIR$/tools/FileIntroduce/错误继承" />
-        <option value="$PROJECT_DIR$/tools/configs/readModel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/judeVerification.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeTabs.py" />
-        <option value="$PROJECT_DIR$/tools/operation/selenium_visible.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/Message/test_messageLabel.py" />
-        <option value="$PROJECT_DIR$/tools/YAMLconfig/expression/McroLetter.yaml" />
-        <option value="$PROJECT_DIR$/tools/excelname/Center/mcroletterwechat.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_worktimeLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultLabel.py" />
-        <option value="$PROJECT_DIR$/tools/YAMLconfig/expression/officialwebsite.yaml" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/__init__.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/Parameter/test_parameterTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/surfacejude.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/cases/seckill/Viewappend.yaml" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/Parameter/test_parameterLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/case/parameter/Viewparticulars.yaml" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/operateJude.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/inviteoperatejude.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/Parameter/test_websitefocus.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/secsillLableVerify.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/Journalism/test_addjournalism.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/Center/permissions.py" />
+        <option value="$PROJECT_DIR$/tools/YAMLconfig/expression/permissions.yaml" />
+        <option value="$PROJECT_DIR$/CenterBackground/Permissions/cases/department/department.yaml" />
+        <option value="$PROJECT_DIR$/CenterBackground/Permissions/__init__.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/Center/management.yaml.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Permissions/Jurisdiction/test_addancient.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Permissions/Jurisdiction/test_jurisdictionLabel.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Permissions/Department/test_departmentLabel.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Permissions/Department/test_adddepartment.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Permissions/Jurisdiction/test_addjurisdiction.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/Center/management.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/Center/systemparameter.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/excelBeanName.py" />
+        <option value="$PROJECT_DIR$/tools/excelname/Center/generalize.py" />
         <option value="$PROJECT_DIR$/tools/excelname/Center/officialwebsite.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/cases/journalism/Viewadd.yaml" />
+        <option value="$PROJECT_DIR$/CenterBackground/Permissions/cases/department/Viewdepartment.yaml" />
+        <option value="$PROJECT_DIR$/CenterBackground/Permissions/cases/jurisdiction/Viewjurisdiction.yaml" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldTabs.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_carriageLabel.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_appendseckill.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Customer/test_customerTabs.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Customer/test_releaseBuyer.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_recordorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_collectiveScreen.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendLabel.py" />
+        <option value="G:/Program Files/Python/Lib/HTMLTestRunner.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformScreen.py" />
+        <option value="$PROJECT_DIR$/demo/demo_chandao.py" />
+        <option value="$PROJECT_DIR$/demo/shaleba/test_shalebatwo.py" />
+        <option value="$PROJECT_DIR$/demo/nihao1/test_nihaotwo.py" />
+        <option value="G:/Program Files/Python/Lib/unittest/loader.py" />
+        <option value="$PROJECT_DIR$/tools/FileIntroduce/框架unittest.txt" />
+        <option value="$PROJECT_DIR$/tools/linuxOperating.py" />
+        <option value="$PROJECT_DIR$/tools/DefinitionErrors.py" />
+        <option value="$PROJECT_DIR$/tools/browser_establish.py" />
+        <option value="$PROJECT_DIR$/demo/nihao1/test_nihaoone.py" />
+        <option value="$PROJECT_DIR$/demo/nihao1/2test_nihaotwo.py" />
+        <option value="$PROJECT_DIR$/demo/shaleba/2test_shalebatwo.py" />
+        <option value="$PROJECT_DIR$/demo/shaleba/test_shalebaone.py" />
+        <option value="$PROJECT_DIR$/demo/shenme2/2test_shenmetwo.py" />
+        <option value="$PROJECT_DIR$/demo/shenme2/test_shenmeone.py" />
+        <option value="$PROJECT_DIR$/demo/demotest/demotest1.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/Store/test_storeScreen.py" />
         <option value="$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/Journalism/test_journalismLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/Journalism/test_journalismScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/Trademark/test_trademarkLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/Trademark/test_addtrademark.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Website/cases/trademark/Viewadd.yaml" />
-        <option value="$PROJECT_DIR$/tools/YAMLconfig/expression/OfficialWebsite.yaml" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/Platform/plarformsurface.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformLable.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/test_platformSoldLable.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/Store/test_storeLable.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldLable.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/surfacejude.py" />
+        <option value="$PROJECT_DIR$/run_all.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="310" />
-    <option name="y" value="220" />
-    <option name="width" value="1550" />
-    <option name="height" value="849" />
+    <option name="x" value="504" />
+    <option name="y" value="113" />
+    <option name="width" value="1397" />
+    <option name="height" value="895" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -324,59 +292,35 @@
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
+              <item name="Commodities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="cases" type="462c0819:PsiDirectoryNode" />
+              <item name="Commodities" type="462c0819:PsiDirectoryNode" />
+              <item name="Platform" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="cases" type="462c0819:PsiDirectoryNode" />
-              <item name="journalism" type="462c0819:PsiDirectoryNode" />
+              <item name="Commodities" type="462c0819:PsiDirectoryNode" />
+              <item name="PlatformSold" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="cases" type="462c0819:PsiDirectoryNode" />
-              <item name="parameter" type="462c0819:PsiDirectoryNode" />
+              <item name="Commodities" type="462c0819:PsiDirectoryNode" />
+              <item name="Store" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="cases" type="462c0819:PsiDirectoryNode" />
-              <item name="trademark" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="Journalism" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="Parameter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
-              <item name="Website" type="462c0819:PsiDirectoryNode" />
-              <item name="Trademark" type="462c0819:PsiDirectoryNode" />
+              <item name="Commodities" type="462c0819:PsiDirectoryNode" />
+              <item name="StoreSold" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
@@ -388,13 +332,6 @@
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
               <item name="YAMLconfig" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-              <item name="YAMLconfig" type="462c0819:PsiDirectoryNode" />
-              <item name="expression" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -412,19 +349,19 @@
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\operating\CenterBackground\Website\Trademark" />
-      <recent name="E:\operating\CenterBackground\Website\cases\trademark" />
-      <recent name="E:\operating\CenterBackground\Website\Journalism" />
-      <recent name="E:\operating\CenterBackground\Website\cases\journalism" />
-      <recent name="E:\operating\CenterBackground\Website\Parameter" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\operating\CenterBackground\SystemSetting\Category" />
+      <recent name="E:\operating\CenterBackground\SystemSetting\Ancient" />
       <recent name="E:\operating\CenterBackground" />
       <recent name="E:\operating\CenterBackground\InteractionActions\cases" />
       <recent name="E:\operating\tools\excelname\Center" />
-      <recent name="E:\operating\CenterBackground\GoodsManagement\CityGoods" />
-      <recent name="E:\operating\tools\YAMLconfig\expression" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\operating\demo\demotest" />
+      <recent name="E:\operating\demo\shenme2" />
+      <recent name="E:\operating\demo\shaleba" />
+      <recent name="E:\operating\demo\nihao1" />
+      <recent name="E:\operating\CenterBackground\Permissions\Department" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -439,7 +376,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in Trademark">
+  <component name="RunManager" selected="Python.run_all">
+    <configuration name="run_all" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="operating" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_all.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="test_file" type="PythonConfigurationType" factoryName="Python">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -458,69 +413,56 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="Unittests for test_journalismScreen.TestSecKillScreen.test_button_search" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for CenterBackground.Commodities.Platform.test_platformScreen.TestPlatformScreen.test_button_export" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/Website/Journalism" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/Commodities/Platform" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_journalismScreen.TestSecKillScreen.test_button_search&quot;" />
+      <option name="_new_target" value="&quot;CenterBackground.Commodities.Platform.test_platformScreen.TestPlatformScreen.test_button_export&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Unittests in Trademark" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in test_nihaoone.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/Website/Trademark" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo/nihao1" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/CenterBackground/Website/Trademark&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/demo/nihao1/test_nihaoone.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <configuration name="Unittests in test_addjournalism.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in test_platformLable.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/Website/Journalism" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/Commodities/Platform" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/CenterBackground/Website/Journalism/test_addjournalism.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformLable.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <configuration name="Unittests in test_journalismLabel.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in test_platformScreen.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/Website/Journalism" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/Commodities/Platform" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/CenterBackground/Website/Journalism/test_journalismLabel.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration name="Unittests in test_journalismScreen.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="operating" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/Website/Journalism" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/CenterBackground/Website/Journalism/test_journalismScreen.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformScreen.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -538,19 +480,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.test_file" />
-      <item itemvalue="Python tests.Unittests in test_journalismScreen.py" />
-      <item itemvalue="Python tests.Unittests for test_journalismScreen.TestSecKillScreen.test_button_search" />
-      <item itemvalue="Python tests.Unittests in test_journalismLabel.py" />
-      <item itemvalue="Python tests.Unittests in test_addjournalism.py" />
-      <item itemvalue="Python tests.Unittests in Trademark" />
+      <item itemvalue="Python.run_all" />
+      <item itemvalue="Python tests.Unittests for CenterBackground.Commodities.Platform.test_platformScreen.TestPlatformScreen.test_button_export" />
+      <item itemvalue="Python tests.Unittests in test_platformScreen.py" />
+      <item itemvalue="Python tests.Unittests in test_platformLable.py" />
+      <item itemvalue="Python tests.Unittests in test_nihaoone.py" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in Trademark" />
-        <item itemvalue="Python tests.Unittests in test_addjournalism.py" />
-        <item itemvalue="Python tests.Unittests in test_journalismLabel.py" />
-        <item itemvalue="Python tests.Unittests in test_journalismScreen.py" />
-        <item itemvalue="Python tests.Unittests for test_journalismScreen.TestSecKillScreen.test_button_search" />
+        <item itemvalue="Python.run_all" />
+        <item itemvalue="Python tests.Unittests in test_nihaoone.py" />
+        <item itemvalue="Python tests.Unittests in test_platformLable.py" />
+        <item itemvalue="Python tests.Unittests in test_platformScreen.py" />
+        <item itemvalue="Python tests.Unittests for CenterBackground.Commodities.Platform.test_platformScreen.TestPlatformScreen.test_button_export" />
       </list>
     </recent_temporary>
   </component>
@@ -576,35 +518,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_websitefocus_py - 2018.11.20 at 17h 55m 06s.xml">
-      <configuration name="Unittests in test_websitefocus.py" configurationId="tests" />
+    <history-entry file="Unittests_in_Jurisdiction - 2018.11.28 at 12h 05m 09s.xml">
+      <configuration name="Unittests in Jurisdiction" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_websitefocus_py - 2018.11.20 at 17h 55m 44s.xml">
-      <configuration name="Unittests in test_websitefocus.py" configurationId="tests" />
+    <history-entry file="Unittests_in_Jurisdiction - 2018.11.28 at 12h 06m 56s.xml">
+      <configuration name="Unittests in Jurisdiction" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_journalismScreen_py - 2018.11.20 at 18h 14m 02s.xml">
-      <configuration name="Unittests in test_journalismScreen.py" configurationId="tests" />
+    <history-entry file="Unittests_in_Department - 2018.11.28 at 12h 06m 56s.xml">
+      <configuration name="Unittests in Department" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_journalismScreen_py - 2018.11.20 at 18h 16m 33s.xml">
-      <configuration name="Unittests in test_journalismScreen.py" configurationId="tests" />
+    <history-entry file="Unittests_for_test_platformLable_TestPlatformLable_test_showTitle - 2018.11.29 at 10h 23m 47s.xml">
+      <configuration name="Unittests for test_platformLable.TestPlatformLable.test_showTitle" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_journalismScreen_TestSecKillScreen_test_button_search - 2018.11.20 at 18h 18m 31s.xml">
-      <configuration name="Unittests for test_journalismScreen.TestSecKillScreen.test_button_search" configurationId="tests" />
+    <history-entry file="Unittests_for_test_platformScreen_TestPlatformScreen_test_button_export - 2018.11.29 at 10h 26m 39s.xml">
+      <configuration name="Unittests for test_platformScreen.TestPlatformScreen.test_button_export" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_journalismScreen_py - 2018.11.20 at 18h 20m 27s.xml">
-      <configuration name="Unittests in test_journalismScreen.py" configurationId="tests" />
+    <history-entry file="Unittests_for_test_platformScreen_TestPlatformScreen_test_button_export - 2018.11.29 at 10h 27m 46s.xml">
+      <configuration name="Unittests for test_platformScreen.TestPlatformScreen.test_button_export" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_journalismLabel_py - 2018.11.20 at 18h 23m 07s.xml">
-      <configuration name="Unittests in test_journalismLabel.py" configurationId="tests" />
+    <history-entry file="Unittests_for_test_platformScreen_TestPlatformScreen_test_button_export - 2018.11.29 at 10h 28m 14s.xml">
+      <configuration name="Unittests for test_platformScreen.TestPlatformScreen.test_button_export" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_addjournalism_py - 2018.11.20 at 18h 27m 34s.xml">
-      <configuration name="Unittests in test_addjournalism.py" configurationId="tests" />
+    <history-entry file="Unittests_in_test_platformLable_py - 2018.11.29 at 10h 29m 00s.xml">
+      <configuration name="Unittests in test_platformLable.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_addjournalism_py - 2018.11.20 at 18h 29m 38s.xml">
-      <configuration name="Unittests in test_addjournalism.py" configurationId="tests" />
+    <history-entry file="Unittests_in_test_platformScreen_py - 2018.11.29 at 10h 32m 28s.xml">
+      <configuration name="Unittests in test_platformScreen.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Trademark - 2018.11.20 at 18h 36m 14s.xml">
-      <configuration name="Unittests in Trademark" configurationId="tests" />
+    <history-entry file="Unittests_in_test_nihaoone_py - 2018.11.29 at 16h 45m 11s.xml">
+      <configuration name="Unittests in test_nihaoone.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -617,18 +559,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="310" y="220" width="1550" height="849" extended-state="0" />
+    <frame x="504" y="113" width="1397" height="895" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4909091" visible="true" weight="0.16534391" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4909091" visible="true" weight="0.1839588" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3288835" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5012531" side_tool="true" weight="0.4318508" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3276316" />
-      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32729468" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49874687" weight="0.38826814" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32677165" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49874687" visible="true" weight="0.30971128" />
       <window_info id="Structure" order="1" sideWeight="0.5123457" side_tool="true" weight="0.17421603" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.39581037" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.39501312" />
       <window_info id="Favorites" order="2" sideWeight="0.5090909" side_tool="true" weight="0.17421603" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.49581006" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.49473685" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
@@ -667,7 +610,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="35" />
+      <option name="time" value="37" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="tests">
@@ -676,362 +619,333 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools/excelname/excelBeanName.py">
+    <entry file="file://$PROJECT_DIR$/demo/demo_image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="150" column="8" selection-start-line="150" selection-start-column="8" selection-end-line="150" selection-end-column="8" />
+        <state relative-caret-position="-420" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/demo_chandao.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="93" column="53" selection-start-line="93" selection-start-column="53" selection-end-line="93" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/__init__.py">
+    <entry file="file://$PROJECT_DIR$/demo/demo_re_bea.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="-60" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/test_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-191" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/test_baidu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_worktimeLabel.py" />
-    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/Message/test_messageLabel.py">
+    <entry file="file://$PROJECT_DIR$/demo/test_demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-171">
-          <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+        <state relative-caret-position="-351" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/xiaomi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/SystemSetting/Brand/test_addbrand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="66" column="55" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultScreen.py">
+    <entry file="file://$PROJECT_DIR$/方式.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/readYaml.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1163">
-          <caret line="81" column="55" lean-forward="true" selection-start-line="81" selection-start-column="55" selection-end-line="81" selection-end-column="55" />
+        <state relative-caret-position="-51">
+          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/MovementUser/__init__.py">
+    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/文件操作operation_file">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="63" lean-forward="true" selection-start-line="34" selection-end-line="63" />
+        <state relative-caret-position="-1245">
+          <caret line="50" column="12" selection-start-line="50" selection-end-line="50" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultLabel.py">
+    <entry file="file://G:/Program Files/Python/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="78" column="30" lean-forward="true" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+        <state relative-caret-position="-476">
+          <caret line="449" column="4" selection-start-line="449" selection-start-column="4" selection-end-line="449" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeTabs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-737">
-          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_focusLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="88" column="89" lean-forward="true" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/focussurface.py">
+    <entry file="file://G:/Program Files/Python/Lib/HTMLTestRunner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
+          <caret line="716" column="17" lean-forward="true" selection-start-line="716" selection-start-column="17" selection-end-line="716" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/mutuallyJude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/BulkGroup.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/operationViewJude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="201" column="8" selection-start-line="201" selection-start-column="8" selection-end-line="201" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/cases/focus/Viewoadd.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_closeorder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/cases/seckill/Viewappend.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/excelname/Center/mcroletterwechat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/Parameter/test_parameterTabs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-517">
-          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_focusTabs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1920" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_addfocus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/cases/invite/Viewappend.yaml">
+    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/框架unittest.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
-          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="2" selection-end-column="15" />
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/openpyxlExcel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="124" column="77" selection-start-line="124" selection-start-column="74" selection-end-line="124" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/linuxOperating.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/screeningjude.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1925">
+          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/RewriteThread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-431">
+          <caret line="24" column="38" lean-forward="true" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/logs/ERROR-2018_11_29.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="-2106" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/DefinitionErrors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/Program Files/Python/Lib/unittest/loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="343" selection-start-line="343" selection-end-line="343" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/browser_establish.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="104" column="21" selection-start-line="104" selection-start-column="14" selection-end-line="104" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/nihao1/test_nihaoone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/nihao1/2test_nihaotwo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/shaleba/2test_shalebatwo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/shaleba/test_shalebaone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/shenme2/2test_shenmetwo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/shenme2/test_shenmeone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geckodriver.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="123">
+          <caret line="37" column="83" lean-forward="true" selection-start-line="37" selection-start-column="83" selection-end-line="37" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/demotest/demotest2.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/demotest/demotest3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/demotest/demotest1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="135" column="10" selection-start-line="135" selection-start-column="2" selection-end-line="135" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/comparedVerify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding>
+            <element signature="e#103#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/judeVerification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-480" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldTabs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Store/test_storeScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/test_platformSoldTabs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-420" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/test_platformSoldScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_release.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformTabs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="50" column="13" lean-forward="true" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Platform/releasewater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Platform/plarformsurface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/test_platformSoldLable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="66" column="13" selection-start-line="64" selection-start-column="11" selection-end-line="66" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Store/test_storeLable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldLable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="57" column="23" lean-forward="true" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CenterBackground/surfacejude.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        <state relative-caret-position="273">
+          <caret line="197" column="12" lean-forward="true" selection-start-line="197" selection-start-column="12" selection-end-line="197" selection-end-column="12" />
           <folding>
             <element signature="e#983#998#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/Parameter/test_parameterLabel.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformLable.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="101" column="25" selection-start-line="101" selection-start-column="25" selection-end-line="101" selection-end-column="25" />
+        <state relative-caret-position="133">
+          <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_all.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
           <folding>
-            <element signature="e#987#996#0" expanded="true" />
+            <element signature="e#15#24#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/readYaml.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/judeVerification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="164" selection-start-line="164" selection-end-line="164" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/operateJude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="77" column="21" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_appendmutually.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/excelname/Center/generalize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="146" column="3" selection-start-line="146" selection-start-column="3" selection-end-line="150" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/cases/parameter/Viewadd.yaml.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_operatefeedback.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-295">
-          <caret line="45" selection-start-line="45" selection-end-line="45" selection-end-column="59" />
-          <folding>
-            <element signature="e#992#1001#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/Parameter/test_websitefocus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="e#985#994#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/GeneralizeAssist.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="42" column="7" selection-start-line="42" selection-end-line="42" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/comparedVerify.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/McroLetter.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/Program Files/Python/Lib/site-packages/pandas/core/indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="1784" selection-start-line="1784" selection-end-line="1784" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/screeningjude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="189" selection-start-line="189" selection-end-line="189" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_secKillScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="104" column="19" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/inviteoperatejude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="86" column="8" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/secsillLableVerify.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-292">
-          <caret line="49" column="43" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/cases/journalism/Viewadd.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/excelname/Center/officialwebsite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="52" column="25" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/Journalism/test_journalismLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="48" column="11" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
-          <folding>
-            <element signature="e#987#996#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/Journalism/test_addjournalism.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="65" column="61" lean-forward="true" selection-start-line="65" selection-start-column="61" selection-end-line="65" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/Journalism/test_journalismScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-          <folding>
-            <element signature="e#988#997#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/Trademark/test_trademarkLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="342" column="14" lean-forward="true" selection-start-line="342" selection-start-column="14" selection-end-line="342" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/cases/trademark/Viewadd.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/OfficialWebsite.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Website/Trademark/test_addtrademark.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
         </state>
       </provider>
     </entry>

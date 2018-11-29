@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_platformSoldLable.py
+@file:      test_storeSoldLable.py
 @time:      2018/8/28 18:07
 @Site :     
 @desc:
@@ -38,31 +38,42 @@ from CenterBackground import Commodities
 from tools.excelname.Center.bundledItems import BundledItems
 from CenterBackground.Commodities.soldLable import SoldLable
 
-BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = Commodities.add_key(Commodities.platformsold, Commodities.page)
-sLabel = SoldLable(config, BASENAME, BundledItems)
 
+class TestStoreSoldLable(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + basename
+        config = Commodities.add_key(Commodities.platform, Commodities.page)
+        cls.sLabel = SoldLable(config, cls.basename, BundledItems)
 
-class TestPlatformSoldLable(unittest.TestCase):
     def setUp(self):
         # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
         print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        sLabel.openingProgram()
-        sLabel._rou_background()
+        self.sLabel.openingProgram()
+        self.sLabel._rou_background()
 
     def tearDown(self):
-        sLabel.driver.quit()
+        self.sLabel.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
+    # @classmethod
+    # def tearDownClass(cls):
+    #     del cls.sLabel
+
     def test_showTitle(self):
-        sLabel.setFunctionName(inspect.stack()[0][3])
-        sLabel.title_execute()
+        self.sLabel.setFunctionName(inspect.stack()[0][3])
+        self.sLabel.title_execute()
         pass
 
     def test_showSurface(self):
-        sLabel.setFunctionName(inspect.stack()[0][3])
-        sLabel.surface_execute()
+        self.sLabel.setFunctionName(inspect.stack()[0][3])
+        self.sLabel.surface_execute()
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

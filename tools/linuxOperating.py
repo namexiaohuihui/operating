@@ -10,6 +10,23 @@ import traceback
 import paramiko
 
 
+def jiemianyunxing():
+    # https://blog.csdn.net/u011061889/article/details/79440349
+    # https://pythonhosted.org/PyInstaller/
+    # pip install pyinstaller
+    # pyinstaller test.py
+    def callback():
+        if askyesno('Verify', 'zhen de yao tuichu ma ?'):
+            showwarning('Yes', 'duidi, jiushi yao tuichu')
+        else:
+            showinfo('No', 'tuichuchengg')
+
+    errmsg = 'sorry, anniiu wufashiyong'
+    Button(text='Quit', command=callback).pack(fill=X)
+    Button(text='spam', command=(lambda: showerror('span', errmsg))).pack(fill=X)
+    mainloop()
+
+
 class LinuxOperating(object):
     def __init__(self, l_dict):
         self.hostname = l_dict["host"]  # The Linux port

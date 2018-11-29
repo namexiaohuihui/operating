@@ -38,21 +38,25 @@ from CenterBackground import Commodities
 from CenterBackground.screeningjude import ScreeningJude
 from tools.excelname.Center.bundledItems import BundledItems
 
-BASENAME = os.path.splitext(os.path.basename(__file__))[0]
+basepath = os.path.split(os.path.dirname(__file__))[1]
+basename = os.path.splitext(os.path.basename(__file__))[0]
+basename = basepath + "-" + basename
+
 config = Commodities.add_key(Commodities.platform, Commodities.select)
-sJude = ScreeningJude(config, BASENAME, BundledItems)
+sJude = ScreeningJude(config, basename, BundledItems)
 
 
 class TestPlatformScreen(unittest.TestCase):
     def setUp(self):
+        # 获取运行文件的类名
+        sJude.log.info("%s ---setup: 每个用例开始前后执行" % basename)
         # 打开浏览器，定义log日志。读取excle文档数据
         sJude.openingProgram()
         sJude._rou_background()
-        print("%s ---setup: 每个用例开始前后执行" % BASENAME)
 
     def tearDown(self):
         sJude.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % BASENAME)
+        sJude.log.info("%s ---teardown: 每个用例结束后执行" % basename)
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -68,7 +72,7 @@ class TestPlatformScreen(unittest.TestCase):
 
     def test_statusTraverse(self):
         sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub = sJude.bi.yaml_formSub(),selectPath=sJude.overall[sJude.bi.whole_keys()])
+        sJude.value_option_traverse(formSub=sJude.bi.yaml_formSub(), selectPath=sJude.overall[sJude.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－类型－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -84,7 +88,7 @@ class TestPlatformScreen(unittest.TestCase):
 
     def test_watikiTraverse(self):
         sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub = sJude.bi.yaml_formSub(),selectPath=sJude.overall[sJude.bi.whole_keys()])
+        sJude.value_option_traverse(formSub=sJude.bi.yaml_formSub(), selectPath=sJude.overall[sJude.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－优惠－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -100,7 +104,7 @@ class TestPlatformScreen(unittest.TestCase):
 
     def test_preferencesTraverse(self):
         sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub = sJude.bi.yaml_formSub(),selectPath=sJude.overall[sJude.bi.whole_keys()])
+        sJude.value_option_traverse(formSub=sJude.bi.yaml_formSub(), selectPath=sJude.overall[sJude.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -117,7 +121,7 @@ class TestPlatformScreen(unittest.TestCase):
 
     def test_chooseTraverse(self):
         sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub = sJude.bi.yaml_formSub(),selectPath=sJude.overall[sJude.bi.whole_keys()])
+        sJude.value_option_traverse(formSub=sJude.bi.yaml_formSub(), selectPath=sJude.overall[sJude.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－其他－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -139,10 +143,14 @@ class TestPlatformScreen(unittest.TestCase):
 
     def test_button_search(self):
         sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.searchExport(formSub = sJude.bi.yaml_formSub())
+        sJude.searchExport(formSub=sJude.bi.yaml_formSub())
         pass
 
     def test_button_export(self):
         sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.searchExport(formSub = sJude.bi.yaml_formSub())
+        sJude.searchExport(formSub=sJude.bi.yaml_formSub())
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

@@ -90,8 +90,8 @@ url2 = '{}/**'.format(url)
 driver = browser_confirm().url_opens(url)
 
 time.sleep(1)
-driver.find_element_by_name('username').send_keys('yangfang')
-driver.find_element_by_name('password').send_keys('123456')
+driver.find_element_by_name('username').send_keys('--')
+driver.find_element_by_name('password').send_keys('--')
 driver.find_element_by_id('loginBtn').click()
 time.sleep(1)
 threads = []

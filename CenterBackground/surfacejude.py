@@ -139,13 +139,17 @@ class SurfaceJude(JudgmentVerification):
         获取页面标题
         :return:
         '''
+        # text_center = None
+        # excel_center = None
         text_center = self.success_execute()
         excel_center = str.split(self.overall[self.bi.whole_including()], ',')
-        self.log.info("--------------------")
-        self.log.info(text_center)
-        self.log.info(excel_center)
-        self.log.info("--------------------")
+        print("----------------------------")
+        print(text_center)
+        print(excel_center)
+        print("----------------------------")
         self.debugging_log(text_center, excel_center, 'Thead title display is incorrectly displayed.')
+        del text_center
+        del excel_center
         pass
 
     def surface_execute(self):
@@ -189,9 +193,9 @@ class SurfaceJude(JudgmentVerification):
         print("/*******************************/")
 
     def debugging_log(self, ct_default, ov_default, mesg):
-        print("--------------------------------")
-        # print(ct_default, type(ct_default))
-        # print(ov_default, type(ov_default))
-        print("--------------------------------")
         assert operator.eq(ct_default, ov_default), mesg
+        # del ct_default, ov_default
         pass
+
+    # def __del__(self):
+    #     del self
