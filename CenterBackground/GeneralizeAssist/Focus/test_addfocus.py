@@ -37,35 +37,37 @@ from CenterBackground import GeneralizeAssist
 from CenterBackground.GeneralizeAssist.Focus.operateJude import OperateJude
 from tools.excelname.Center.generalize import Generalize
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.focus, GeneralizeAssist.add)
-
-f_add = OperateJude(config, basename, Generalize)
-
 
 class TestOperateDelect(unittest.TestCase):
-    def setUp(self):
-        # 打开浏览器，定义log日志。读取excle文档数据
-        f_add.openingProgram()
-        f_add._rou_background()
 
-        f_add.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.focus, GeneralizeAssist.add)
+
+        cls.f_add = OperateJude(config, cls.basename, Generalize)
+
+    def setUp(self):
+        # 获取运行文件的类名
+        self.f_add.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        # 打开浏览器，定义log日志。读取excle文档数据
+        self.f_add.openingProgram()
+        self.f_add._rou_background()
 
     def tearDown(self):
-        f_add.driver.quit()
-        f_add.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.f_add.driver.quit()
+        self.f_add.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_addCancel(self):
-        f_add.setFunctionName(inspect.stack()[0][3])
-        f_add.conditions_screening()
+        self.f_add.setFunctionName(inspect.stack()[0][3])
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.f_add.conditions_screening(ov_para)
         pass
-
 
 
 if __name__ == '__main__':

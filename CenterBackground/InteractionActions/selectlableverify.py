@@ -34,15 +34,6 @@ from CenterBackground.screeningjude import ScreeningJude
 
 
 class SelectLableVerify(ScreeningJude):
-    def __init__(self, config, basename, centerName):
-        '''
-        订单页面select和lable的选择以及判断
-        :param module:   元素模块
-        :param sheet:   用例标签名
-        :param basename:  执行程序的文件名
-        '''
-        ScreeningJude.__init__(self, config, basename, centerName)
-        pass
 
     def get_lable_text(self):
         '''

@@ -38,41 +38,41 @@ from CenterBackground import GeneralizeAssist
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.generalize import Generalize
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.entrance, GeneralizeAssist.page)
-e_label = SurfaceJude(config, basename, Generalize)
-
 
 class TestEntranceLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
-    def setUp(self):
-        # 打开浏览器，定义log日志。读取excle文档数据
-        e_label.openingProgram()
-        e_label._rou_background()
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        # I pass in the key of the subset, and the sheet name in the Excel document
+        config = GeneralizeAssist.add_key(GeneralizeAssist.entrance, GeneralizeAssist.page)
+        cls.e_label = SurfaceJude(config, cls.basename, Generalize)
 
-        e_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+    def setUp(self):
+        # 获取运行文件的类名
+        self.e_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        # 打开浏览器，定义log日志。读取excle文档数据
+        self.e_label.openingProgram()
+        self.e_label._rou_background()
 
     def tearDown(self):
-        e_label.driver.quit()
-        e_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.e_label.driver.quit()
+        self.e_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        e_label.setFunctionName(inspect.stack()[0][3])
-        e_label.title_execute()
+        self.e_label.setFunctionName(inspect.stack()[0][3])
+        self.e_label.title_execute()
         pass
 
     def test_showSurface(self):
-        e_label.setFunctionName(inspect.stack()[0][3])
-        e_label.surface_execute()
+        self.e_label.setFunctionName(inspect.stack()[0][3])
+        self.e_label.surface_execute()
         pass
 
 

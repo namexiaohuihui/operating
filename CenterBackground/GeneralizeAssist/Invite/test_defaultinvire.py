@@ -37,35 +37,38 @@ from CenterBackground import GeneralizeAssist
 from tools.excelname.Center.generalize import Generalize
 from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.default)
-i_jude = InviteOperateJude(config, basename, Generalize)
-
 
 class TestDefaultInvire(unittest.TestCase):
     """
        invite页面中默认跳转
        """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.add)
+        cls.i_jude = InviteOperateJude(config, cls.basename, Generalize)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.i_jude.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        i_jude.openingProgram()
-        i_jude._rou_background()
-        i_jude.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.i_jude.openingProgram()
+        self.i_jude._rou_background()
 
     def tearDown(self):
-        i_jude.driver.quit()
-        i_jude.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.i_jude.driver.quit()
+        self.i_jude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_defaultAccess(self):
-        i_jude.setFunctionName(inspect.stack()[0][3])
-        i_jude.conditions_screening()
+        self.i_jude.setFunctionName(inspect.stack()[0][3])
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.i_jude.conditions_screening(ov_para)
         pass
 
 

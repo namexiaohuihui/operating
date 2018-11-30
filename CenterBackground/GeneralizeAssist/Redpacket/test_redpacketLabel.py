@@ -38,69 +38,71 @@ from CenterBackground import GeneralizeAssist
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.generalize import Generalize
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.redpacket, GeneralizeAssist.page)
-rp_label = SurfaceJude(config, basename, Generalize)
-
 
 class TestRedPacketLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
+
     INVITE_DESIGNATED_CODE = "兑换码"
     INVITE_DESIGNATED_RACORD = "红包发放记录"
-    INVITE_DESIGNATED_TABS = rp_label.bi.yaml_tabs()
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.redpacket, GeneralizeAssist.page)
+        cls.rp_label = SurfaceJude(config, cls.basename, Generalize)
+
+        cls.INVITE_DESIGNATED_TABS = cls.rp_label.bi.yaml_tabs()
 
     def setUp(self):
+        # 获取运行文件的类名
+        self.rp_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        rp_label.openingProgram()
-        rp_label._rou_background()
-
-        rp_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.rp_label.openingProgram()
+        self.rp_label._rou_background()
 
     def tearDown(self):
-        rp_label.driver.quit()
-        rp_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.rp_label.driver.quit()
+        self.rp_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
-
     def test_settingTitle(self):
-        rp_label.setFunctionName(inspect.stack()[0][3])
-        rp_label.title_execute()
+        self.rp_label.setFunctionName(inspect.stack()[0][3])
+        self.rp_label.title_execute()
         pass
 
     def test_settingSurface(self):
-        rp_label.setFunctionName(inspect.stack()[0][3])
-        rp_label.surface_execute()
+        self.rp_label.setFunctionName(inspect.stack()[0][3])
+        self.rp_label.surface_execute()
         pass
 
     def test_codeTitle(self):
-        rp_label.setFunctionName(inspect.stack()[0][3])
-        rp_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_CODE)
-        rp_label.title_execute()
+        self.rp_label.setFunctionName(inspect.stack()[0][3])
+        self.rp_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_CODE)
+        self.rp_label.title_execute()
         pass
 
     def test_codeSurface(self):
-        rp_label.setFunctionName(inspect.stack()[0][3])
-        rp_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_CODE)
-        rp_label.surface_execute()
+        self.rp_label.setFunctionName(inspect.stack()[0][3])
+        self.rp_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_CODE)
+        self.rp_label.surface_execute()
         pass
 
     def test_recordTitle(self):
-        rp_label.setFunctionName(inspect.stack()[0][3])
-        rp_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_RACORD)
-        rp_label.title_execute()
+        self.rp_label.setFunctionName(inspect.stack()[0][3])
+        self.rp_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_RACORD)
+        self.rp_label.title_execute()
         pass
 
     def test_recordSurface(self):
-        rp_label.setFunctionName(inspect.stack()[0][3])
-        rp_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_RACORD)
-        rp_label.surface_execute()
+        self.rp_label.setFunctionName(inspect.stack()[0][3])
+        self.rp_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_RACORD)
+        self.rp_label.surface_execute()
         pass
 
 

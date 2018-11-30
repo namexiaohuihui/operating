@@ -63,8 +63,8 @@ class CommoditiesJude(JudgmentVerification):
 
     def active_city(self, tag):
         """
-        比较默认显示的模块
-        :param tag:
+        比较默认显示的城市
+        :param tag: 元素标签默认值的读取元素
         :return:
         """
         try:
@@ -77,6 +77,11 @@ class CommoditiesJude(JudgmentVerification):
         pass
 
     def active_code(self, tag):
+        """
+        比较默认显示的区域
+        :param tag: 元素标签默认值的读取元素
+        :return:
+        """
         ov_default = self.overall[self.bi.whole_code()]
         self.custom_tabs().judge_code(tag, ov_default)
         pass

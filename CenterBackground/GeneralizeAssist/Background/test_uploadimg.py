@@ -38,27 +38,28 @@ from CenterBackground.GeneralizeAssist.Background.photograph import PhotoGraph
 from tools.excelname.Center.generalize import Generalize
 from CenterBackground import customTabs
 
-# Path and file name splicing
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# I pass in the key of the subset, and the sheet name in the Excel document
-config = GeneralizeAssist.add_key(GeneralizeAssist.img, GeneralizeAssist.page)
-photo = PhotoGraph(config, basename, Generalize)
-
 
 class TestFocusTabs(unittest.TestCase):
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        # I pass in the key of the subset, and the sheet name in the Excel document
+        config = GeneralizeAssist.add_key(GeneralizeAssist.img, GeneralizeAssist.page)
+        cls.photo = PhotoGraph(config, cls.basename, Generalize)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.photo.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        photo.openingProgram()
-        photo._rou_background()
-        print("%s ---setup: 每个用例开始前后执行" % basename)
+        self.photo.openingProgram()
+        self.photo._rou_background()
 
     def tearDown(self):
-        photo.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % basename)
+        self.photo.driver.quit()
+        self.photo.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_survivalTitle(self):
@@ -67,9 +68,9 @@ class TestFocusTabs(unittest.TestCase):
         :return:
         """
         self.alert_click(inspect.stack()[0][3])
-        box_title = photo.financial[photo.bi.yaml_box_title()]
-        box_title = photo.vac.is_visible_css_selectop(photo.driver, box_title)
-        assert box_title, "%s---没有读取到标题" % (photo.FUNCTION_NAME)
+        box_title = self.photo.financial[self.photo.bi.yaml_box_title()]
+        box_title = self.photo.vac.is_visible_css_selectop(self.photo.driver, box_title)
+        assert box_title, "%s---没有读取到标题" % (self.photo.FUNCTION_NAME)
         pass
 
     def test_survivalImg(self):
@@ -78,11 +79,11 @@ class TestFocusTabs(unittest.TestCase):
         :return:
         """
         self.alert_click(inspect.stack()[0][3])
-        img_photo = photo.financial[photo.bi.yaml_img()]
-        img_photo = photo.vac.is_visible_id(photo.driver, img_photo)
-        assert img_photo, "%s---没有找到图片" % (photo.FUNCTION_NAME)
-        img_photo = img_photo.get_attribute("src")
-        photo.log.info("图片src属性值为:%s" % img_photo)
+        img_self.photo = self.photo.financial[self.photo.bi.yaml_img()]
+        img_self.photo = self.photo.vac.is_visible_id(self.photo.driver, img_self.photo)
+        assert img_self.photo, "%s---没有找到图片" % (self.photo.FUNCTION_NAME)
+        img_self.photo = img_self.photo.get_attribute("src")
+        self.photo.log.info("图片src属性值为:%s" % img_self.photo)
         pass
 
     def test_survivalSave(self):
@@ -91,9 +92,9 @@ class TestFocusTabs(unittest.TestCase):
         :return:
         """
         self.alert_click(inspect.stack()[0][3])
-        img_save = photo.financial[photo.bi.yaml_img_save()]
-        img_save = photo.vac.is_visible_id(photo.driver, img_save)
-        assert img_save, "%s---提交按钮不见了" % (photo.FUNCTION_NAME)
+        img_save = self.photo.financial[self.photo.bi.yaml_img_save()]
+        img_save = self.photo.vac.is_visible_id(self.photo.driver, img_save)
+        assert img_save, "%s---提交按钮不见了" % (self.photo.FUNCTION_NAME)
         pass
 
     def alert_click(self, fun_name):
@@ -102,12 +103,12 @@ class TestFocusTabs(unittest.TestCase):
         :param fun_name:
         :return:
         """
-        dialog_box = photo.driver.switch_to_alert()
+        dialog_box = self.photo.driver.switch_to_alert()
         print(dialog_box.text)
         dialog_box.accept()
 
-        photo.setFunctionName(fun_name)
-        photo.ti.dormancy_time(2)
+        self.photo.setFunctionName(fun_name)
+        self.photo.ti.dormancy_time(2)
 
 
 if __name__ == '__main__':

@@ -37,50 +37,52 @@ from CenterBackground import GeneralizeAssist
 from tools.excelname.Center.generalize import Generalize
 from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.relation, GeneralizeAssist.add)
-r_append = InviteOperateJude(config, basename, Generalize)
-
 
 class TestAppendRelation(unittest.TestCase):
     """
        invite页面中默认跳转
        """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.relation, GeneralizeAssist.add)
+        cls.r_append = InviteOperateJude(config, cls.basename, Generalize)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.r_append.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        r_append.openingProgram()
-        r_append._rou_background()
-        r_append.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.r_append.openingProgram()
+        self.r_append._rou_background()
 
     def tearDown(self):
-        r_append.driver.quit()
-        r_append.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.r_append.driver.quit()
+        self.r_append.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_ongoingRelation(self):
-        r_append.setFunctionName(inspect.stack()[0][3])
-        r_append.conditions_screening()
+        self.r_append.setFunctionName(inspect.stack()[0][3])
+        self.r_append.conditions_screening()
         pass
 
     def test_ongoingOpenlist(self):
-        r_append.setFunctionName(inspect.stack()[0][3])
-        r_append.conditions_screening()
+        self.r_append.setFunctionName(inspect.stack()[0][3])
+        self.r_append.conditions_screening()
         pass
 
     def test_historyRelation(self):
-        r_append.setFunctionName(inspect.stack()[0][3])
-        r_append.conditions_screening()
+        self.r_append.setFunctionName(inspect.stack()[0][3])
+        self.r_append.conditions_screening()
         pass
 
     def test_historyOpenlist(self):
-        r_append.setFunctionName(inspect.stack()[0][3])
-        r_append.conditions_screening()
+        self.r_append.setFunctionName(inspect.stack()[0][3])
+        self.r_append.conditions_screening()
         pass
 
 

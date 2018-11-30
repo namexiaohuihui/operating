@@ -37,43 +37,45 @@ from CenterBackground import FinancialAffairs
 from tools.excelname.Center.financial import Financial
 from CenterBackground.FinancialAffairs.Balance.handlebutton import HandleButton
 
-# 读取文件所在路径及文件名
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 读取配置文件
-config = FinancialAffairs.add_key(FinancialAffairs.money, FinancialAffairs.page)
-
-# 实例化用例操作类
-mon_sur = HandleButton(config, basename, Financial)
-
 
 class TestMoneyLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
+    @classmethod
+    def setUpClass(cls):
+        # 读取文件所在路径及文件名
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 读取配置文件
+        config = FinancialAffairs.add_key(FinancialAffairs.money, FinancialAffairs.page)
+
+        # 实例化用例操作类
+        cls.mon_sur = HandleButton(config, cls.basename, Financial)
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        mon_sur.log.debug("%s ---setup: 每个用例开始前后执行" % basename)
-        mon_sur.openingProgram()
-        mon_sur._rou_background()
+        self.mon_sur.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.mon_sur.openingProgram()
+        self.mon_sur._rou_background()
         pass
 
     def tearDown(self):
-        mon_sur.log.info("%s ---teardown: 每个用例结束后执行" % basename)
-        mon_sur.driver.quit()
+        self.mon_sur.driver.quit()
+        self.mon_sur.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_balanceTitle(self):
-        mon_sur.setFunctionName(inspect.stack()[0][3])
-        mon_sur.title_execute()
+        self.mon_sur.setFunctionName(inspect.stack()[0][3])
+        self.mon_sur.title_execute()
         pass
 
     def test_balanceSurface(self):
-        mon_sur.setFunctionName(inspect.stack()[0][3])
-        mon_sur.surface_execute()
+        self.mon_sur.setFunctionName(inspect.stack()[0][3])
+        self.mon_sur.surface_execute()
         pass
 
 

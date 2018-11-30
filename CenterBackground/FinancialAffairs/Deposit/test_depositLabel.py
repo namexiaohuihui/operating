@@ -37,43 +37,42 @@ from CenterBackground import FinancialAffairs
 from tools.excelname.Center.financial import Financial
 from CenterBackground.mutuallyJude import MutuallyJude
 
-# 读取文件所在路径及文件名
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 读取配置文件
-config = FinancialAffairs.add_key(FinancialAffairs.deposit, FinancialAffairs.page)
-
-# 实例化用例操作类
-d_sur = MutuallyJude(config, basename, Financial)
-
 
 class TestDepositLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = FinancialAffairs.add_key(FinancialAffairs.deposit, FinancialAffairs.page)
+        cls.d_sur = MutuallyJude(config, cls.basename, Financial)
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        d_sur.log.debug("%s ---setup: 每个用例开始前后执行" % basename)
-        d_sur.openingProgram()
-        d_sur._rou_background()
+        self.d_sur.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.d_sur.openingProgram()
+        self.d_sur._rou_background()
         pass
 
     def tearDown(self):
-        d_sur.log.info("%s ---teardown: 每个用例结束后执行" % basename)
-        d_sur.driver.quit()
+        self.d_sur.driver.quit()
+        self.d_sur.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_balanceTitle(self):
-        d_sur.setFunctionName(inspect.stack()[0][3])
-        d_sur.title_execute()
+        self.d_sur.setFunctionName(inspect.stack()[0][3])
+        self.d_sur.title_execute()
         pass
 
     def test_balanceSurface(self):
-        d_sur.setFunctionName(inspect.stack()[0][3])
-        d_sur.surface_execute()
+        self.d_sur.setFunctionName(inspect.stack()[0][3])
+        self.d_sur.surface_execute()
         pass
 
 

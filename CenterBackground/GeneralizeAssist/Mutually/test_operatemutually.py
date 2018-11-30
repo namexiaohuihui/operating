@@ -37,43 +37,45 @@ from CenterBackground import GeneralizeAssist
 from tools.excelname.Center.generalize import Generalize
 from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.mutually, GeneralizeAssist.operate)
-m_operate = InviteOperateJude(config, basename, Generalize)
-
 
 class TestOperateMutually(unittest.TestCase):
     """
     invite页面中tbody内容的跳转
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.mutually, GeneralizeAssist.operate)
+        cls.m_operate = InviteOperateJude(config, cls.basename, Generalize)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.m_operate.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        m_operate.openingProgram()
-        m_operate._rou_background()
-        m_operate.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.m_operate.openingProgram()
+        self.m_operate._rou_background()
 
     def tearDown(self):
-        m_operate.driver.quit()
-        m_operate.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.m_operate.driver.quit()
+        self.m_operate.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_goodnameAccess(self):
-        m_operate.setFunctionName(inspect.stack()[0][3])
-        m_operate.conditions_screening()
+        self.m_operate.setFunctionName(inspect.stack()[0][3])
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.m_operate.conditions_screening(ov_para)
         pass
 
     def test_effectAccess(self):
-        m_operate.setFunctionName(inspect.stack()[0][3])
-        m_operate.conditions_screening()
+        self.m_operate.setFunctionName(inspect.stack()[0][3])
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.m_operate.conditions_screening(ov_para)
         pass
-
-
 
 
 if __name__ == '__main__':

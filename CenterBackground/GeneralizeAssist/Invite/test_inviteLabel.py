@@ -38,55 +38,58 @@ from CenterBackground import GeneralizeAssist
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.generalize import Generalize
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.page)
-i_label = SurfaceJude(config, basename, Generalize)
-
 
 class TestInviteLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
+
     INVITE_DESIGNATED_BOX = "邀请人管理"
-    INVITE_DESIGNATED_TABS = i_label.bi.yaml_tabs()
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.page)
+        cls.i_label = InviteOperateJude(config, cls.basename, Generalize)
+
+        cls.INVITE_DESIGNATED_TABS = cls.i_label.bi.yaml_tabs()
 
     def setUp(self):
+        # 获取运行文件的类名
+        self.i_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        i_label.openingProgram()
-        i_label._rou_background()
-
-        i_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.i_label.openingProgram()
+        self.i_label._rou_background()
 
     def tearDown(self):
-        i_label.driver.quit()
-        i_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.i_label.driver.quit()
+        self.i_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        i_label.setFunctionName(inspect.stack()[0][3])
-        i_label.title_execute()
+        self.i_label.setFunctionName(inspect.stack()[0][3])
+        self.i_label.title_execute()
         pass
 
     def test_showSurface(self):
-        i_label.setFunctionName(inspect.stack()[0][3])
-        i_label.surface_execute()
+        self.i_label.setFunctionName(inspect.stack()[0][3])
+        self.i_label.surface_execute()
         pass
 
     def test_buyerTitle(self):
-        i_label.setFunctionName(inspect.stack()[0][3])
-        i_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_label.title_execute()
+        self.i_label.setFunctionName(inspect.stack()[0][3])
+        self.i_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_label.title_execute()
         pass
 
     def test_buyerSurface(self):
-        i_label.setFunctionName(inspect.stack()[0][3])
-        i_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_label.surface_execute()
+        self.i_label.setFunctionName(inspect.stack()[0][3])
+        self.i_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_label.surface_execute()
         pass
 
 

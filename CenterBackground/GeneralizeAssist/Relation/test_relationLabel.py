@@ -38,58 +38,57 @@ from CenterBackground import GeneralizeAssist
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.generalize import Generalize
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.relation, GeneralizeAssist.page)
-rt_label = SurfaceJude(config, basename, Generalize)
-
 
 class TestRelationLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
     INVITE_DESIGNATED_HISTORY = "历史数据"
-    INVITE_DESIGNATED_TABS = rt_label.bi.yaml_tabs()
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.relation, GeneralizeAssist.page)
+        cls.rt_label = SurfaceJude(config, cls.basename, Generalize)
+        cls.INVITE_DESIGNATED_TABS = cls.rt_label.bi.yaml_tabs()
 
     def setUp(self):
+        # 获取运行文件的类名
+        self.rt_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        rt_label.openingProgram()
-        rt_label._rou_background()
-
-        rt_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.rt_label.openingProgram()
+        self.rt_label._rou_background()
 
     def tearDown(self):
-        rt_label.driver.quit()
-        rt_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.rt_label.driver.quit()
+        self.rt_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
-
     def test_ongoingTitle(self):
-        rt_label.setFunctionName(inspect.stack()[0][3])
-        rt_label.title_execute()
+        self.rt_label.setFunctionName(inspect.stack()[0][3])
+        self.rt_label.title_execute()
         pass
 
     def test_ongoingSurface(self):
-        rt_label.setFunctionName(inspect.stack()[0][3])
-        rt_label.surface_execute()
+        self.rt_label.setFunctionName(inspect.stack()[0][3])
+        self.rt_label.surface_execute()
         pass
 
     def test_historyTitle(self):
-        rt_label.setFunctionName(inspect.stack()[0][3])
-        rt_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_HISTORY)
-        rt_label.title_execute()
+        self.rt_label.setFunctionName(inspect.stack()[0][3])
+        self.rt_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_HISTORY)
+        self.rt_label.title_execute()
         pass
 
     def test_historySurface(self):
-        rt_label.setFunctionName(inspect.stack()[0][3])
-        rt_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_HISTORY)
-        rt_label.surface_execute()
+        self.rt_label.setFunctionName(inspect.stack()[0][3])
+        self.rt_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_HISTORY)
+        self.rt_label.surface_execute()
         pass
-
 
 
 if __name__ == '__main__':

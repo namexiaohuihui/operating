@@ -37,15 +37,6 @@ class SecKillLableVerify(ScreeningJude):
     """
     搜索按钮名字是单独独立的
     """
-    def __init__(self, config, basename, centerName):
-        '''
-        定义模块数据信息
-        :param module:   元素模块
-        :param sheet:   用例标签名
-        :param basename:  执行程序的文件名
-        '''
-        ScreeningJude.__init__(self, config, basename, centerName)
-        pass
 
     def value_option_traverse(self, formSub, selectPath):
         '''

@@ -34,62 +34,61 @@ from CenterBackground import GeneralizeAssist
 from tools.excelname.Center.generalize import Generalize
 from CenterBackground.screeningjude import ScreeningJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.entrance, GeneralizeAssist.select)
-
-e_screen = ScreeningJude(config, basename, Generalize)
-
 
 class TestEntranceScreen(unittest.TestCase):
     """
     条件筛选
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        # I pass in the key of the subset, and the sheet name in the Excel document
+        config = GeneralizeAssist.add_key(GeneralizeAssist.entrance, GeneralizeAssist.select)
+
+        cls.e_screen = ScreeningJude(config, cls.basename, Generalize)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.e_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        e_screen.openingProgram()
-        e_screen._rou_background()
-        e_screen.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.e_screen.openingProgram()
+        self.e_screen._rou_background()
 
     def tearDown(self):
-        e_screen.driver.quit()
-        e_screen.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.e_screen.driver.quit()
+        self.e_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
-
 
     # －－－－－－－－－－－－－－－－－－－－－－－－其他页面的状态－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_statusSelect(self):
-        e_screen.setFunctionName(inspect.stack()[0][3])
-        e_screen.value_options_jude(selectPath=e_screen.overall[e_screen.bi.whole_keys()])
+        self.e_screen.setFunctionName(inspect.stack()[0][3])
+        self.e_screen.value_options_jude(selectPath=self.e_screen.overall[self.e_screen.bi.whole_keys()])
         pass
 
     def test_statusDefault(self):
-        e_screen.setFunctionName(inspect.stack()[0][3])
-        e_screen.value_options_default(selectPath=e_screen.overall[e_screen.bi.whole_keys()])
+        self.e_screen.setFunctionName(inspect.stack()[0][3])
+        self.e_screen.value_options_default(selectPath=self.e_screen.overall[self.e_screen.bi.whole_keys()])
         pass
 
     def test_statusTraverse(self):
-        e_screen.setFunctionName(inspect.stack()[0][3])
-        e_screen.value_option_traverse(formSub=e_screen.bi.yaml_formSub(),
-                                       selectPath=e_screen.overall[e_screen.bi.whole_keys()])
+        self.e_screen.setFunctionName(inspect.stack()[0][3])
+        self.e_screen.value_option_traverse(formSub=self.e_screen.bi.yaml_formSub(),
+                                            selectPath=self.e_screen.overall[self.e_screen.bi.whole_keys()])
         pass
 
     # -----------------------------------------其他页面的输入框和按钮-------------------------------------------------
     def test_otherInput(self):
-        e_screen.setFunctionName(inspect.stack()[0][3])
-        e_screen.attribute_value()
+        self.e_screen.setFunctionName(inspect.stack()[0][3])
+        self.e_screen.attribute_value()
         pass
 
     def test_button_search(self):
-        e_screen.setFunctionName(inspect.stack()[0][3])
-        e_screen.searchExport(formSub=e_screen.bi.yaml_formSub())
+        self.e_screen.setFunctionName(inspect.stack()[0][3])
+        self.e_screen.searchExport(formSub=self.e_screen.bi.yaml_formSub())
         pass
-
 
 
 if __name__ == '__main__':

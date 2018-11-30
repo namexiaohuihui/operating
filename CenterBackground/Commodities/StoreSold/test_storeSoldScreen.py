@@ -34,83 +34,94 @@ import os
 import inspect
 import unittest
 from CenterBackground import Commodities
-from CenterBackground.Commodities.soldScreen import SoldScreen
+from CenterBackground.screeningjude import ScreeningJude
 from tools.excelname.Center.bundledItems import BundledItems
-
-BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = Commodities.add_key(Commodities.storesold, Commodities.select)
-screen = SoldScreen(config, BASENAME, BundledItems)
 
 
 class TestStoreScreen(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + basename
+        config = Commodities.add_key(Commodities.storesold, Commodities.select)
+        cls.screen = ScreeningJude(config, cls.basename, BundledItems)
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        screen.openingProgram()
-        screen._rou_background()
-        print("%s ---setup: 每个用例开始前后执行" % BASENAME)
+        self.screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.screen.openingProgram()
+        self.screen._rou_background()
+        pass
 
     def tearDown(self):
-        screen.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % BASENAME)
+        self.screen.driver.quit()
+        self.screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
         # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
 
     def test_statusSelect(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.value_options_jude(selectPath=screen.overall[screen.bi.whole_keys()])
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.value_options_jude(selectPath=self.screen.overall[self.screen.bi.whole_keys()])
         pass
 
     def test_statusDefault(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.value_options_default(selectPath=screen.overall[screen.bi.whole_keys()])
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.value_options_default(selectPath=self.screen.overall[self.screen.bi.whole_keys()])
         pass
 
     def test_statusTraverse(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.value_option_traverse(formSub=screen.bi.yaml_formSub(), selectPath=screen.overall[screen.bi.whole_keys()])
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.value_option_traverse(formSub=self.screen.bi.yaml_iptJ(),
+                                          selectPath=self.screen.overall[self.screen.bi.whole_keys()])
         pass
 
         # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
 
     def test_chooseSelect(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.value_options_jude(selectPath=screen.overall[screen.bi.whole_keys()])
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.value_options_jude(selectPath=self.screen.overall[self.screen.bi.whole_keys()])
         pass
 
     def test_chooseDefault(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.value_options_default(selectPath=screen.overall[screen.bi.whole_keys()])
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.value_options_default(selectPath=self.screen.overall[self.screen.bi.whole_keys()])
         pass
 
     def test_chooseTraverse(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.value_option_traverse(formSub=screen.bi.yaml_formSub(), selectPath=screen.overall[screen.bi.whole_keys()])
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.value_option_traverse(formSub=self.screen.bi.yaml_iptJ(),
+                                          selectPath=self.screen.overall[self.screen.bi.whole_keys()])
         pass
 
         # －－－－－－－－－－－－－－－－－－－－－－－－其他－－－－－－－－－－－－－－－－－－－－－－－－－－
 
     def test_conditionsInput(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.attribute_value()
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.attribute_value()
         pass
 
     def test_startTime(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.attribute_value()
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.attribute_value()
         pass
 
     def test_endTime(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.attribute_value()
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.attribute_value()
         pass
 
     def test_button_search(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.searchExport(formSub=screen.bi.yaml_formSub())
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.searchExport(formSub=self.screen.bi.yaml_iptJ())
         pass
 
     def test_button_export(self):
-        screen.setFunctionName(inspect.stack()[0][3])
-        screen.searchExport(formSub=screen.bi.yaml_formSub())
+        self.screen.setFunctionName(inspect.stack()[0][3])
+        self.screen.searchExport(formSub=self.screen.bi.yaml_iptJ())
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

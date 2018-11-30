@@ -37,14 +37,6 @@ from CenterBackground import GeneralizeAssist
 from CenterBackground.commoditiesJude import CommoditiesJude
 from tools.excelname.Center.generalize import Generalize
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.mutually, GeneralizeAssist.tabs)
-m_tab = CommoditiesJude(config, basename, Generalize)
-
 
 class TestMutuallyTabs(unittest.TestCase):
     """
@@ -53,16 +45,26 @@ class TestMutuallyTabs(unittest.TestCase):
     # 定义头部button中，后面N位不需要
     BUTTON_REDUCE_NUMBER = 1
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.mutually, GeneralizeAssist.tabs)
+        cls.m_tab = CommoditiesJude(config, cls.basename, Generalize)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.m_tab.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        m_tab.openingProgram()
-        m_tab._rou_background()
-        m_tab.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.m_tab.openingProgram()
+        self.m_tab._rou_background()
 
     def tearDown(self):
-        m_tab.driver.quit()
-        m_tab.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.m_tab.driver.quit()
+        self.m_tab.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_active_tab(self):
@@ -70,8 +72,8 @@ class TestMutuallyTabs(unittest.TestCase):
         寻找默认值
         :return:
         """
-        m_tab.setFunctionName(inspect.stack()[0][3])
-        m_tab.active_city('class')
+        self.m_tab.setFunctionName(inspect.stack()[0][3])
+        self.m_tab.active_city('class')
         pass
 
     def test_already_tabs(self):
@@ -79,8 +81,8 @@ class TestMutuallyTabs(unittest.TestCase):
         比较tabs中的全部信息
         :return:
         """
-        m_tab.setFunctionName(inspect.stack()[0][3])
-        m_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.m_tab.setFunctionName(inspect.stack()[0][3])
+        self.m_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_tab(self):
@@ -88,8 +90,8 @@ class TestMutuallyTabs(unittest.TestCase):
         遍历点击tab
         :return:
         """
-        m_tab.setFunctionName(inspect.stack()[0][3])
-        m_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.m_tab.setFunctionName(inspect.stack()[0][3])
+        self.m_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
@@ -97,8 +99,8 @@ class TestMutuallyTabs(unittest.TestCase):
         通过tabs的url进行切换
         :return:
         """
-        m_tab.setFunctionName(inspect.stack()[0][3])
-        m_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
+        self.m_tab.setFunctionName(inspect.stack()[0][3])
+        self.m_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
 

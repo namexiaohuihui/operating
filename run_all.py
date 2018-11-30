@@ -171,11 +171,11 @@ if __name__ == '__main__':
     file_name = r'CenterBackground'
     all_dir = list_dir(file_name)
     print(all_dir)
-    # dir = os.path.join(file_name, all_dir[0])
-    # run_main(dir)
-    for dir in all_dir:
-        if "__pycache__" in dir:
-            continue
-        else:
-            dir = os.path.join(file_name, dir)
-            run_main(dir)
+    dir = os.path.join(file_name, all_dir[1])
+    run_main(dir)
+    # for dir in all_dir:
+    #     if "__pycache__" in dir:
+    #         continue
+    #     else:
+    #         dir = os.path.join(file_name, dir)
+    #         run_main(dir)

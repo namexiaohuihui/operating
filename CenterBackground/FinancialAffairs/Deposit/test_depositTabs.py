@@ -37,14 +37,6 @@ from CenterBackground import FinancialAffairs
 from tools.excelname.Center.financial import Financial
 from CenterBackground.commoditiesJude import CommoditiesJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = FinancialAffairs.add_key(FinancialAffairs.deposit, FinancialAffairs.city)
-d_tab = CommoditiesJude(config, basename, Financial)
-
 
 class TestDepositTabs(unittest.TestCase):
     """
@@ -53,16 +45,26 @@ class TestDepositTabs(unittest.TestCase):
     # 定义头部button中，后面N位不需要
     BUTTON_REDUCE_NUMBER = 0
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = FinancialAffairs.add_key(FinancialAffairs.deposit, FinancialAffairs.city)
+        cls.d_tab = CommoditiesJude(config, cls.basename, Financial)
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        d_tab.openingProgram()
-        d_tab._rou_background()
-        d_tab.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        self.d_tab.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.d_tab.openingProgram()
+        self.d_tab._rou_background()
         pass
 
     def tearDown(self):
-        d_tab.driver.quit()
-        d_tab.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.d_tab.driver.quit()
+        self.d_tab.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_active_tab(self):
@@ -70,8 +72,8 @@ class TestDepositTabs(unittest.TestCase):
         寻找默认值
         :return:
         """
-        d_tab.setFunctionName(inspect.stack()[0][3])
-        d_tab.active_city('class')
+        self.d_tab.setFunctionName(inspect.stack()[0][3])
+        self.d_tab.active_city('class')
         pass
 
     def test_already_tabs(self):
@@ -79,8 +81,8 @@ class TestDepositTabs(unittest.TestCase):
         比较tabs中的全部信息
         :return:
         """
-        d_tab.setFunctionName(inspect.stack()[0][3])
-        d_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.d_tab.setFunctionName(inspect.stack()[0][3])
+        self.d_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_tab(self):
@@ -88,8 +90,8 @@ class TestDepositTabs(unittest.TestCase):
         遍历点击tab
         :return:
         """
-        d_tab.setFunctionName(inspect.stack()[0][3])
-        d_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.d_tab.setFunctionName(inspect.stack()[0][3])
+        self.d_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
@@ -97,8 +99,8 @@ class TestDepositTabs(unittest.TestCase):
         通过tabs的url进行切换
         :return:
         """
-        d_tab.setFunctionName(inspect.stack()[0][3])
-        d_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
+        self.d_tab.setFunctionName(inspect.stack()[0][3])
+        self.d_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
 

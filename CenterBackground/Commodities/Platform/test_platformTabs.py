@@ -60,12 +60,12 @@ class TestPlatformTabs(unittest.TestCase):
 
     def test_active_city(self):
         cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.active_city()
+        cJude.active_city('class')
         pass
 
     def test_active_code(self):
         cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.active_code()
+        cJude.active_code('class')
         pass
 
     def test_already_citys(self):
@@ -85,5 +85,15 @@ class TestPlatformTabs(unittest.TestCase):
 
     def test_switch_url(self):
         cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.switch_url(reduce=self.BUTTON_REDUCE_NUMBER)
+        cJude.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
+
+
+if __name__ == '__main__':
+    suite = unittest.TestSuite()
+    loader = TestLoader()
+    loader.testMethodPrefix = 'ab'
+    test_cases = unittest.TestLoader().loadTestsFromTestCase(TestPlatformTabs)
+    suite.addTests(test_cases)
+    runner = unittest.TextTestRunner(verbosity=2)
+    runner.run(suite)

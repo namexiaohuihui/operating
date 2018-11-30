@@ -37,81 +37,107 @@ from CenterBackground import Commodities
 from CenterBackground.screeningjude import ScreeningJude
 from tools.excelname.Center.bundledItems import BundledItems
 
-BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = Commodities.add_key(Commodities.store, Commodities.select)
-global sJude
-sJude = ScreeningJude(config, BASENAME, BundledItems)
-
 
 class TestStoreScreen(unittest.TestCase):
-    def setUp(self):
-        # 打开浏览器，定义log日志。读取excle文档数据
-        sJude.openingProgram()
-        sJude._rou_background()
-        print("%s ---setup: 每个用例开始前后执行" % BASENAME)
+    @classmethod
+    def setUpClass(cls):
+        # 读取包名
+        basedir = os.path.split(os.path.dirname(__file__))[1]
+        # 读取文件名
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basedir + "-" + cls.basename
 
-    def tearDown(self):
-        sJude.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % BASENAME)
+        # 读取配置所在文件
+        config = Commodities.add_key(Commodities.store, Commodities.select)
+        cls.sJude = ScreeningJude(config, cls.basename, BundledItems)
         pass
 
-        # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
+    def setUp(self):
+        # 打开浏览器，定义log日志。读取excle文档数据
+        self.sJude.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.sJude.openingProgram()
+        self.sJude._rou_background()
+        # 定义后面使用的参数,到时候会进行回收
+        pass
 
+    def tearDown(self):
+        self.sJude.driver.quit()
+        self.sJude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
+        pass
+
+
+    # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_statusSelect(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_jude(selectPath=sJude.overall[sJude.bi.whole_keys()])
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+
+        # 定义后面使用的参数,到时候会进行回收
+        select_path = self.sJude.overall[self.sJude.bi.whole_keys()]
+        self.sJude.value_options_jude(selectPath=select_path)
         pass
 
     def test_statusDefault(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_default(selectPath=sJude.overall[sJude.bi.whole_keys()])
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+        select_path = self.sJude.overall[self.sJude.bi.whole_keys()]
+        self.sJude.value_options_default(selectPath=select_path)
         pass
 
     def test_statusTraverse(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub = sJude.bi.yaml_formSub(),selectPath=sJude.overall[sJude.bi.whole_keys()])
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+        select_path = self.sJude.overall[self.sJude.bi.whole_keys()]
+        form_sub = self.sJude.bi.yaml_formSub()
+        self.sJude.value_option_traverse(formSub=form_sub, selectPath=select_path)
         pass
 
         # －－－－－－－－－－－－－－－－－－－－－－－－其他－－－－－－－－－－－－－－－－－－－－－－－－－－
 
     def test_chooseSelect(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_jude(selectPath=sJude.overall[sJude.bi.whole_keys()])
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+        select_path = self.sJude.overall[self.sJude.bi.whole_keys()]
+        self.sJude.value_options_jude(selectPath=select_path)
         pass
 
     def test_chooseDefault(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_options_default(selectPath=sJude.overall[sJude.bi.whole_keys()])
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+        select_path = self.sJude.overall[self.sJude.bi.whole_keys()]
+        self.sJude.value_options_default(selectPath=select_path)
         pass
 
     def test_chooseTraverse(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.value_option_traverse(formSub = sJude.bi.yaml_formSub(),selectPath=sJude.overall[sJude.bi.whole_keys()])
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+        select_path = self.sJude.overall[self.sJude.bi.whole_keys()]
+        form_sub = self.sJude.bi.yaml_formSub()
+        self.sJude.value_option_traverse(formSub=form_sub, selectPath=select_path)
         pass
 
         # －－－－－－－－－－－－－－－－－－－－－－－－其他－－－－－－－－－－－－－－－－－－－－－－－－－－
 
     def test_conditionsInput(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.attribute_value()
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+        self.sJude.attribute_value()
         pass
 
     def test_startTime(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.attribute_value()
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+        self.sJude.attribute_value()
         pass
 
     def test_endTime(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.attribute_value()
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+        self.sJude.attribute_value()
         pass
 
     def test_button_search(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.searchExport(formSub = sJude.bi.yaml_formSub())
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+        form_sub = self.sJude.bi.yaml_formSub()
+        self.sJude.searchExport(formSub=form_sub)
         pass
 
     def test_button_export(self):
-        sJude.setFunctionName(inspect.stack()[0][3])
-        sJude.searchExport(formSub = sJude.bi.yaml_formSub())
+        self.sJude.setFunctionName(inspect.stack()[0][3])
+        form_sub = self.sJude.bi.yaml_formSub()
+        self.sJude.searchExport(formSub=form_sub)
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

@@ -60,10 +60,6 @@ class TestStoreSoldLable(unittest.TestCase):
         print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
-    # @classmethod
-    # def tearDownClass(cls):
-    #     del cls.sLabel
-
     def test_showTitle(self):
         self.sLabel.setFunctionName(inspect.stack()[0][3])
         self.sLabel.title_execute()

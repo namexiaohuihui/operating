@@ -34,95 +34,97 @@ from CenterBackground import FinancialAffairs
 from tools.excelname.Center.financial import Financial
 from CenterBackground.screeningjude import ScreeningJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = FinancialAffairs.add_key(FinancialAffairs.deposit, FinancialAffairs.select)
-
-d_screen = ScreeningJude(config, basename, Financial)
-
 
 class TestDepositScreen(unittest.TestCase):
     """
     条件筛选
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = FinancialAffairs.add_key(FinancialAffairs.deposit, FinancialAffairs.select)
+
+        cls.d_screen = ScreeningJude(config, cls.basename, Financial)
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        d_screen.openingProgram()
-        d_screen._rou_background()
-        d_screen.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        self.d_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.d_screen.openingProgram()
+        self.d_screen._rou_background()
         pass
 
     def tearDown(self):
-        d_screen.driver.quit()
-        d_screen.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.d_screen.driver.quit()
+        self.d_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_utypeSelect(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.value_options_jude(selectPath=d_screen.overall[d_screen.bi.whole_keys()])
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.value_options_jude(selectPath=self.d_screen.overall[self.d_screen.bi.whole_keys()])
         pass
 
     def test_utypeDefault(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.value_options_default(selectPath=d_screen.overall[d_screen.bi.whole_keys()])
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.value_options_default(selectPath=self.d_screen.overall[self.d_screen.bi.whole_keys()])
         pass
 
     def test_utypeTraverse(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.value_option_traverse(formSub=d_screen.bi.yaml_formSub(),
-                                       selectPath=d_screen.overall[d_screen.bi.whole_keys()])
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.value_option_traverse(formSub=self.d_screen.bi.yaml_formSub(),
+                                            selectPath=self.d_screen.overall[self.d_screen.bi.whole_keys()])
         pass
 
     def test_typeSelect(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.value_options_jude(selectPath=d_screen.overall[d_screen.bi.whole_keys()])
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.value_options_jude(selectPath=self.d_screen.overall[self.d_screen.bi.whole_keys()])
         pass
 
     def test_typeDefault(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.value_options_default(selectPath=d_screen.overall[d_screen.bi.whole_keys()])
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.value_options_default(selectPath=self.d_screen.overall[self.d_screen.bi.whole_keys()])
         pass
 
     def test_typeTraverse(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.value_option_traverse(formSub=d_screen.bi.yaml_formSub(),
-                                       selectPath=d_screen.overall[d_screen.bi.whole_keys()])
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.value_option_traverse(formSub=self.d_screen.bi.yaml_formSub(),
+                                            selectPath=self.d_screen.overall[self.d_screen.bi.whole_keys()])
         pass
 
     def test_statusSelect(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.value_options_jude(selectPath=d_screen.overall[d_screen.bi.whole_keys()])
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.value_options_jude(selectPath=self.d_screen.overall[self.d_screen.bi.whole_keys()])
         pass
 
     def test_statusDefault(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.value_options_default(selectPath=d_screen.overall[d_screen.bi.whole_keys()])
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.value_options_default(selectPath=self.d_screen.overall[self.d_screen.bi.whole_keys()])
         pass
 
     def test_statusTraverse(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.value_option_traverse(formSub=d_screen.bi.yaml_formSub(),
-                                       selectPath=d_screen.overall[d_screen.bi.whole_keys()])
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.value_option_traverse(formSub=self.d_screen.bi.yaml_formSub(),
+                                            selectPath=self.d_screen.overall[self.d_screen.bi.whole_keys()])
         pass
 
     # -----------------------------------------其他页面的输入框和按钮-------------------------------------------------
     def test_otherInput(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.attribute_value()
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.attribute_value()
         pass
 
     def test_button_search(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.searchExport(formSub=d_screen.bi.yaml_formSub())
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.searchExport(formSub=self.d_screen.bi.yaml_formSub())
         pass
 
     def test_button_export(self):
-        d_screen.setFunctionName(inspect.stack()[0][3])
-        d_screen.searchExport(formSub=d_screen.bi.yaml_formSub())
+        self.d_screen.setFunctionName(inspect.stack()[0][3])
+        self.d_screen.searchExport(formSub=self.d_screen.bi.yaml_formSub())
         pass
 
 

@@ -37,43 +37,43 @@ from CenterBackground import FinancialAffairs
 from tools.excelname.Center.financial import Financial
 from CenterBackground.FinancialAffairs.Balance.handlebutton import HandleButton
 
-# 读取文件所在路径及文件名
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 读取配置文件
-config = FinancialAffairs.add_key(FinancialAffairs.balance, FinancialAffairs.page)
-
-# 实例化用例操作类
-bala_sur = HandleButton(config, basename, Financial)
-
 
 class TestBalanceLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        # 读取配置文件
+        config = FinancialAffairs.add_key(FinancialAffairs.balance, FinancialAffairs.page)
+
+        # 实例化用例操作类
+        cls.bala_sur = HandleButton(config, cls.basename, Financial)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.bala_sur.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        bala_sur.log.debug("%s ---setup: 每个用例开始前后执行" % basename)
-        bala_sur.openingProgram()
-        bala_sur._rou_background()
-        pass
+        self.bala_sur.openingProgram()
+        self.bala_sur._rou_background()
 
     def tearDown(self):
-        bala_sur.log.info("%s ---teardown: 每个用例结束后执行" % basename)
-        bala_sur.driver.quit()
+        self.bala_sur.driver.quit()
+        self.bala_sur.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_balanceTitle(self):
-        bala_sur.setFunctionName(inspect.stack()[0][3])
-        bala_sur.title_execute()
+        self.bala_sur.setFunctionName(inspect.stack()[0][3])
+        self.bala_sur.title_execute()
         pass
 
     def test_balanceSurface(self):
-        bala_sur.setFunctionName(inspect.stack()[0][3])
-        bala_sur.surface_execute()
+        self.bala_sur.setFunctionName(inspect.stack()[0][3])
+        self.bala_sur.bala_sur_execute()
         pass
 
 

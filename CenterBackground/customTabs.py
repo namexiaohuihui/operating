@@ -323,7 +323,6 @@ class CustomTabs(object):
                 break
         pass
 
-
     def into_the_city2(self, vac, case_city):
         """
         指定城市进行点击

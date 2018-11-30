@@ -46,6 +46,7 @@ _placeholder = 'placeholder'
 class ScreeningJude(JudgmentVerification):
     '''
     select二次封装并进行判断
+    导出和搜索按钮为formSub时,使用该函数
     '''
     attrEle = 'css'
 
@@ -86,7 +87,6 @@ class ScreeningJude(JudgmentVerification):
         :param att: 按钮的位置
         :return:
         '''
-
         attribute = self._visible_returns_selectop(self.financial[formSub])
         attribute = attribute[int(self.financial[att]) - 1]
         return attribute
@@ -139,8 +139,10 @@ class ScreeningJude(JudgmentVerification):
         for value_str in op_list:
             # 设置option
             op_se.setSelectorText(value_str)
+
             # 点击搜索按钮
             self.button_formSub(formSub, self.bi.yaml_search()).click()
+
             # 重新設置text之後，界面會進行刷新此時driver對象也發生改變需要重新進行獲取
             op_se = op_se.setSelectData(selectPath, self.attrEle)
             # 判断当前显示的option是否为设置的option
@@ -184,8 +186,8 @@ class ScreeningJude(JudgmentVerification):
 
     def debugging_log(self, ct_default, ov_default, mesg):
         print("--------------------------------")
-        print("label",ct_default, type(ct_default))
-        print("Pm",ov_default, type(ov_default))
+        print("label", ct_default, type(ct_default))
+        print("Pm", ov_default, type(ov_default))
         print("--------------------------------")
         assert operator.eq(ct_default, ov_default), mesg
         pass

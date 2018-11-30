@@ -37,53 +37,61 @@ from CenterBackground import Commodities
 from tools.excelname.Center.bundledItems import BundledItems
 from CenterBackground.commoditiesJude import CommoditiesJude
 
-basename = os.path.splitext(os.path.basename(__file__))[0]
-# 传入子集的key，以及Excel文档中的sheet名字
-config = Commodities.add_key(Commodities.platformsold, Commodities.city)
-commJ = CommoditiesJude(config, basename,BundledItems)
-
 
 class TestPlatformSoldTabs(unittest.TestCase):
     # 定义头部button中，后面不需要button的数量
     BUTTON_REDUCE_NUMBER = 0
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + basename
+        config = Commodities.add_key(Commodities.platformsold, Commodities.city)
+        cls.commJ = CommoditiesJude(config, cls.basename, BundledItems)
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        commJ.openingProgram()
-        commJ._rou_background()
-        print("%s ---setup: 每个用例开始前后执行" % basename)
+        self.commJ.log.debug("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.commJ.openingProgram()
+        self.commJ._rou_background()
+        pass
 
     def tearDown(self):
-        commJ.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % basename)
+        self.commJ.driver.quit()
+        self.commJ.log.debug("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_active_city(self):
-        commJ.setFunctionName(inspect.stack()[0][3])
-        commJ.active_city()
+        self.commJ.setFunctionName(inspect.stack()[0][3])
+        self.commJ.active_city('class')
         pass
 
     def test_active_code(self):
-        commJ.setFunctionName(inspect.stack()[0][3])
-        commJ.active_code()
+        self.commJ.setFunctionName(inspect.stack()[0][3])
+        self.commJ.active_code('class')
         pass
 
     def test_already_citys(self):
-        commJ.setFunctionName(inspect.stack()[0][3])
-        commJ.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.commJ.setFunctionName(inspect.stack()[0][3])
+        self.commJ.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_already_codes(self):
-        commJ.setFunctionName(inspect.stack()[0][3])
-        commJ.already_codes(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.commJ.setFunctionName(inspect.stack()[0][3])
+        self.commJ.already_codes(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_city(self):
-        commJ.setFunctionName(inspect.stack()[0][3])
-        commJ.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.commJ.setFunctionName(inspect.stack()[0][3])
+        self.commJ.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
-        commJ.setFunctionName(inspect.stack()[0][3])
-        commJ.switch_url(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.commJ.setFunctionName(inspect.stack()[0][3])
+        self.commJ.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

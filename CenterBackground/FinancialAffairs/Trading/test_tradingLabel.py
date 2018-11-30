@@ -37,43 +37,45 @@ from CenterBackground import FinancialAffairs
 from tools.excelname.Center.financial import Financial
 from CenterBackground.mutuallyJude import MutuallyJude
 
-# 读取文件所在路径及文件名
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 读取配置文件
-config = FinancialAffairs.add_key(FinancialAffairs.trading, FinancialAffairs.page)
-
-# 实例化用例操作类
-tra_sur = MutuallyJude(config, basename, Financial)
-
 
 class TestTradingLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
+    @classmethod
+    def setUpClass(cls):
+        # 读取文件所在路径及文件名
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 读取配置文件
+        config = FinancialAffairs.add_key(FinancialAffairs.trading, FinancialAffairs.page)
+
+        # 实例化用例操作类
+        cls.tra_sur = MutuallyJude(config, cls.basename, Financial)
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        tra_sur.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        tra_sur.openingProgram()
-        tra_sur._rou_background()
+        self.tra_sur.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.tra_sur.openingProgram()
+        self.tra_sur._rou_background()
         pass
 
     def tearDown(self):
-        tra_sur.log.info("%s ---teardown: 每个用例结束后执行" % basename)
-        tra_sur.driver.quit()
+        self.tra_sur.driver.quit()
+        self.tra_sur.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_tradingTitle(self):
-        tra_sur.setFunctionName(inspect.stack()[0][3])
-        tra_sur.title_execute()
+        self.tra_sur.setFunctionName(inspect.stack()[0][3])
+        self.tra_sur.title_execute()
         pass
 
     def test_tradingSurface(self):
-        tra_sur.setFunctionName(inspect.stack()[0][3])
-        tra_sur.surface_execute()
+        self.tra_sur.setFunctionName(inspect.stack()[0][3])
+        self.tra_sur.surface_execute()
         pass
 
 

@@ -34,14 +34,6 @@ from CenterBackground import FinancialAffairs
 from tools.excelname.Center.financial import Financial
 from CenterBackground.screeningjude import ScreeningJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = FinancialAffairs.add_key(FinancialAffairs.balance, FinancialAffairs.select)
-
-bala_screen = ScreeningJude(config, basename, Financial)
 
 
 class TestBalanceScreen(unittest.TestCase):
@@ -49,80 +41,90 @@ class TestBalanceScreen(unittest.TestCase):
     条件筛选
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        # 读取配置文件, 传入子集的key，以及Excel文档中的sheet名字
+        config = FinancialAffairs.add_key(FinancialAffairs.balance, FinancialAffairs.select)
+
+        cls.bala_screen = ScreeningJude(config, cls.basename, Financial)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.bala_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        bala_screen.openingProgram()
-        bala_screen._rou_background()
-        bala_screen.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.bala_screen.openingProgram()
+        self.bala_screen._rou_background()
 
     def tearDown(self):
-        bala_screen.driver.quit()
-        bala_screen.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.bala_screen.driver.quit()
+        self.bala_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_utypeSelect(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.value_options_jude(selectPath=bala_screen.overall[bala_screen.bi.whole_keys()])
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.value_options_jude(selectPath=self.bala_screen.overall[self.bala_screen.bi.whole_keys()])
         pass
 
     def test_utypeDefault(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.value_options_default(selectPath=bala_screen.overall[bala_screen.bi.whole_keys()])
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.value_options_default(selectPath=self.bala_screen.overall[self.bala_screen.bi.whole_keys()])
         pass
 
     def test_utypeTraverse(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.value_option_traverse(formSub=bala_screen.bi.yaml_formSub(),
-                                          selectPath=bala_screen.overall[bala_screen.bi.whole_keys()])
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.value_option_traverse(formSub=self.bala_screen.bi.yaml_formSub(),
+                                               selectPath=self.bala_screen.overall[self.bala_screen.bi.whole_keys()])
         pass
 
     def test_typeSelect(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.value_options_jude(selectPath=bala_screen.overall[bala_screen.bi.whole_keys()])
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.value_options_jude(selectPath=self.bala_screen.overall[self.bala_screen.bi.whole_keys()])
         pass
 
     def test_typeDefault(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.value_options_default(selectPath=bala_screen.overall[bala_screen.bi.whole_keys()])
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.value_options_default(selectPath=self.bala_screen.overall[self.bala_screen.bi.whole_keys()])
         pass
 
     def test_typeTraverse(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.value_option_traverse(formSub=bala_screen.bi.yaml_formSub(),
-                                          selectPath=bala_screen.overall[bala_screen.bi.whole_keys()])
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.value_option_traverse(formSub=self.bala_screen.bi.yaml_formSub(),
+                                               selectPath=self.bala_screen.overall[self.bala_screen.bi.whole_keys()])
         pass
 
     def test_statusSelect(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.value_options_jude(selectPath=bala_screen.overall[bala_screen.bi.whole_keys()])
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.value_options_jude(selectPath=self.bala_screen.overall[self.bala_screen.bi.whole_keys()])
         pass
 
     def test_statusDefault(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.value_options_default(selectPath=bala_screen.overall[bala_screen.bi.whole_keys()])
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.value_options_default(selectPath=self.bala_screen.overall[self.bala_screen.bi.whole_keys()])
         pass
 
     def test_statusTraverse(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.value_option_traverse(formSub=bala_screen.bi.yaml_formSub(),
-                                          selectPath=bala_screen.overall[bala_screen.bi.whole_keys()])
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.value_option_traverse(formSub=self.bala_screen.bi.yaml_formSub(),
+                                               selectPath=self.bala_screen.overall[self.bala_screen.bi.whole_keys()])
         pass
 
     # -----------------------------------------其他页面的输入框和按钮-------------------------------------------------
     def test_otherInput(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.attribute_value()
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.attribute_value()
         pass
 
     def test_button_search(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.searchExport(formSub=bala_screen.bi.yaml_formSub())
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.searchExport(formSub=self.bala_screen.bi.yaml_formSub())
         pass
 
     def test_button_export(self):
-        bala_screen.setFunctionName(inspect.stack()[0][3])
-        bala_screen.searchExport(formSub=bala_screen.bi.yaml_formSub())
+        self.bala_screen.setFunctionName(inspect.stack()[0][3])
+        self.bala_screen.searchExport(formSub=self.bala_screen.bi.yaml_formSub())
         pass
 
 

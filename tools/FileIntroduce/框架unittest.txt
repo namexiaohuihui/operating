@@ -22,3 +22,25 @@ unittest.skipIf(condition, reason)、unittest.skipUnless(condition,
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestMathFunc))
 
 6.在Python2.2以后可以使用@classmethod装饰器来创建类方法.
+
+
+7.unittest运行方式：https://docs.python.org/3/library/unittest.html
+    7.1 unittest.main(version=2)
+    7.2 python -m unittest test_module1 test_module2
+    7.3 python -m unittest test_module.TestClass
+    7.4 python -m unittest test_module.TestClass.test_method
+    7.5 python -m unittest tests/test_something.py
+    7.6
+        runner = unittest.TextTestRunner()
+        suite = unittest.TestSuite()
+        suite.addTest(WidgetTestCase('test_default_widget_size'))
+        suite.addTest(WidgetTestCase('test_widget_resize'))
+        runner.run(suite)
+    7.7
+        suite = unittest.TestSuite()
+        loader = TestLoader()
+        loader.testMethodPrefix = 'ab'
+        test_cases1 = unittest.TestLoader().loadTestsFromTestCase(TestPlatformTabs)
+        suite.addTests(test_cases1)
+        runner = unittest.TextTestRunner(verbosity=2)
+        runner.run(suite)

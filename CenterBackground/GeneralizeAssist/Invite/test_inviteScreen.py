@@ -34,146 +34,149 @@ from CenterBackground import GeneralizeAssist
 from tools.excelname.Center.generalize import Generalize
 from CenterBackground.screeningjude import ScreeningJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.select)
-i_screen = ScreeningJude(config, basename, Generalize)
-
 
 class TestInviteScreen(unittest.TestCase):
     """
     条件筛选
     """
     INVITE_DESIGNATED_BOX = "邀请人管理"
-    INVITE_DESIGNATED_TABS = i_screen.bi.yaml_tabs()
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.select)
+        cls.i_screen = ScreeningJude(config, cls.basename, Generalize)
+
+        cls.INVITE_DESIGNATED_TABS = cls.i_screen.bi.yaml_tabs()
 
     def setUp(self):
+        # 获取运行文件的类名
+        self.i_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        i_screen.openingProgram()
-        i_screen._rou_background()
-        i_screen.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.i_screen.openingProgram()
+        self.i_screen._rou_background()
 
     def tearDown(self):
-        i_screen.driver.quit()
-        i_screen.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.i_screen.driver.quit()
+        self.i_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－默认页面的城市－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_citysDefault(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
-        i_screen.value_options_default(selectPath=i_screen.overall[i_screen.bi.whole_keys()])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.value_options_default(selectPath=self.i_screen.overall[self.i_screen.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－默认页面的按钮－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_button_search(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
-        i_screen.searchExport(formSub=i_screen.bi.yaml_formSub())
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.searchExport(formSub=self.i_screen.bi.yaml_formSub())
         pass
 
     def test_button_export(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
-        i_screen.searchExport(formSub=i_screen.bi.yaml_formSub())
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.searchExport(formSub=self.i_screen.bi.yaml_formSub())
         pass
 
     def test_box_contrast(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
-        i_screen.test_value()
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.test_value()
         pass
 
     def test_box_buyer(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
-        i_screen.test_value()
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.test_value()
         pass
 
     def test_box_order(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
-        i_screen.test_value()
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.test_value()
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－其他页面的类型－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_typeSelect(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.value_options_jude(selectPath=i_screen.overall[i_screen.bi.whole_keys()])
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.value_options_jude(selectPath=self.i_screen.overall[self.i_screen.bi.whole_keys()])
         pass
 
     def test_typeDefault(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.value_options_default(selectPath=i_screen.overall[i_screen.bi.whole_keys()])
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.value_options_default(selectPath=self.i_screen.overall[self.i_screen.bi.whole_keys()])
         pass
 
     def test_typeTraverse(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.value_option_traverse(formSub=i_screen.bi.yaml_formSub(),
-                                       selectPath=i_screen.overall[i_screen.bi.whole_keys()])
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.value_option_traverse(formSub=self.i_screen.bi.yaml_formSub(),
+                                            selectPath=self.i_screen.overall[self.i_screen.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－其他页面的状态－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_statusSelect(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.value_options_jude(selectPath=i_screen.overall[i_screen.bi.whole_keys()])
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.value_options_jude(selectPath=self.i_screen.overall[self.i_screen.bi.whole_keys()])
         pass
 
     def test_statusDefault(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.value_options_default(selectPath=i_screen.overall[i_screen.bi.whole_keys()])
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.value_options_default(selectPath=self.i_screen.overall[self.i_screen.bi.whole_keys()])
         pass
 
     def test_statusTraverse(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.value_option_traverse(formSub=i_screen.bi.yaml_formSub(),
-                                       selectPath=i_screen.overall[i_screen.bi.whole_keys()])
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.value_option_traverse(formSub=self.i_screen.bi.yaml_formSub(),
+                                            selectPath=self.i_screen.overall[self.i_screen.bi.whole_keys()])
         pass
 
     # -----------------------------------------其他页面的输入框和按钮-------------------------------------------------
     def test_otherInput(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.attribute_value()
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.attribute_value()
         pass
 
     def test_buyer_search(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.searchExport(formSub=i_screen.bi.yaml_formSub())
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.searchExport(formSub=self.i_screen.bi.yaml_formSub())
         pass
 
     def test_buyer_export(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.searchExport(formSub=i_screen.bi.yaml_formSub())
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.searchExport(formSub=self.i_screen.bi.yaml_formSub())
         pass
 
     def test_invite_default(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.test_value()
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.test_value()
         pass
 
     def test_invite_add(self):
-        i_screen.setFunctionName(inspect.stack()[0][3])
+        self.i_screen.setFunctionName(inspect.stack()[0][3])
         # 先进入指定的box
-        i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
-        i_screen.test_value()
+        self.i_screen.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_BOX)
+        self.i_screen.test_value()
         pass
 
 

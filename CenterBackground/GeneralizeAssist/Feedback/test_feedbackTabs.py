@@ -37,14 +37,6 @@ from CenterBackground import GeneralizeAssist
 from CenterBackground.commoditiesJude import CommoditiesJude
 from tools.excelname.Center.generalize import Generalize
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.feedback, GeneralizeAssist.tabs)
-f_tab = CommoditiesJude(config, basename, Generalize)
-
 
 class TestFeedbackTabs(unittest.TestCase):
     """
@@ -53,16 +45,25 @@ class TestFeedbackTabs(unittest.TestCase):
     # 定义头部button中，后面N位不需要
     BUTTON_REDUCE_NUMBER = 0
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        # I pass in the key of the subset, and the sheet name in the Excel document
+        config = GeneralizeAssist.add_key(GeneralizeAssist.feedback, GeneralizeAssist.tabs)
+        cls.f_tab = CommoditiesJude(config, cls.basename, Generalize)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.f_tab.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        f_tab.openingProgram()
-        f_tab._rou_background()
-        f_tab.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.f_tab.openingProgram()
+        self.f_tab._rou_background()
 
     def tearDown(self):
-        f_tab.driver.quit()
-        f_tab.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.f_tab.driver.quit()
+        self.f_tab.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_active_tab(self):
@@ -71,7 +72,7 @@ class TestFeedbackTabs(unittest.TestCase):
         :return:
         """
         f_tab.setFunctionName(inspect.stack()[0][3])
-        f_tab.active_city('class')
+        self.f_tab.active_city('class')
         pass
 
     def test_already_tabs(self):
@@ -79,8 +80,8 @@ class TestFeedbackTabs(unittest.TestCase):
         比较tabs中的全部信息
         :return:
         """
-        f_tab.setFunctionName(inspect.stack()[0][3])
-        f_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.f_tab.setFunctionName(inspect.stack()[0][3])
+        self.f_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_tab(self):
@@ -88,8 +89,8 @@ class TestFeedbackTabs(unittest.TestCase):
         遍历点击tab
         :return:
         """
-        f_tab.setFunctionName(inspect.stack()[0][3])
-        f_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.f_tab.setFunctionName(inspect.stack()[0][3])
+        self.f_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
@@ -97,8 +98,8 @@ class TestFeedbackTabs(unittest.TestCase):
         通过tabs的url进行切换
         :return:
         """
-        f_tab.setFunctionName(inspect.stack()[0][3])
-        f_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
+        self.f_tab.setFunctionName(inspect.stack()[0][3])
+        self.f_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
 

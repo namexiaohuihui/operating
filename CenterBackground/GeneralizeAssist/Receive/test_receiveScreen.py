@@ -34,78 +34,79 @@ from CenterBackground import GeneralizeAssist
 from tools.excelname.Center.generalize import Generalize
 from CenterBackground.screeningjude import ScreeningJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.receive, GeneralizeAssist.select)
-r_screen = ScreeningJude(config, basename, Generalize)
-
 
 class TestReceiveScreen(unittest.TestCase):
     """
     条件筛选
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.receive, GeneralizeAssist.select)
+        cls.r_screen = ScreeningJude(config, cls.basename, Generalize)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.r_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        r_screen.openingProgram()
-        r_screen._rou_background()
-        r_screen.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        self.r_screen.openingProgram()
+        self.r_screen._rou_background()
 
     def tearDown(self):
-        r_screen.driver.quit()
-        r_screen.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.r_screen.driver.quit()
+        self.r_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－其他页面的状态－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_statusSelect(self):
-        r_screen.setFunctionName(inspect.stack()[0][3])
-        r_screen.value_options_jude(selectPath=r_screen.overall[r_screen.bi.whole_keys()])
+        self.r_screen.setFunctionName(inspect.stack()[0][3])
+        self.r_screen.value_options_jude(selectPath=self.r_screen.overall[self.r_screen.bi.whole_keys()])
         pass
 
     def test_statusDefault(self):
-        r_screen.setFunctionName(inspect.stack()[0][3])
-        r_screen.value_options_default(selectPath=r_screen.overall[r_screen.bi.whole_keys()])
+        self.r_screen.setFunctionName(inspect.stack()[0][3])
+        self.r_screen.value_options_default(selectPath=self.r_screen.overall[self.r_screen.bi.whole_keys()])
         pass
 
     def test_statusTraverse(self):
-        r_screen.setFunctionName(inspect.stack()[0][3])
-        r_screen.value_option_traverse(formSub=r_screen.bi.yaml_formSub(),
-                                       selectPath=r_screen.overall[r_screen.bi.whole_keys()])
+        self.r_screen.setFunctionName(inspect.stack()[0][3])
+        self.r_screen.value_option_traverse(formSub=self.r_screen.bi.yaml_formSub(),
+                                            selectPath=self.r_screen.overall[self.r_screen.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－单个其他类型的选择－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_typeSelect(self):
-        r_screen.setFunctionName(inspect.stack()[0][3])
-        r_screen.value_options_jude(selectPath=r_screen.overall[r_screen.bi.whole_keys()])
+        self.r_screen.setFunctionName(inspect.stack()[0][3])
+        self.r_screen.value_options_jude(selectPath=self.r_screen.overall[self.r_screen.bi.whole_keys()])
         pass
 
     def test_typeDefault(self):
-        r_screen.setFunctionName(inspect.stack()[0][3])
-        r_screen.value_options_default(selectPath=r_screen.overall[r_screen.bi.whole_keys()])
+        self.r_screen.setFunctionName(inspect.stack()[0][3])
+        self.r_screen.value_options_default(selectPath=self.r_screen.overall[self.r_screen.bi.whole_keys()])
         pass
 
     def test_typeTraverse(self):
-        r_screen.setFunctionName(inspect.stack()[0][3])
-        r_screen.value_option_traverse(formSub=r_screen.bi.yaml_formSub(),
-                                       selectPath=r_screen.overall[r_screen.bi.whole_keys()])
+        self.r_screen.setFunctionName(inspect.stack()[0][3])
+        self.r_screen.value_option_traverse(formSub=self.r_screen.bi.yaml_formSub(),
+                                            selectPath=self.r_screen.overall[self.r_screen.bi.whole_keys()])
         pass
 
     # -----------------------------------------其他页面的输入框和按钮-------------------------------------------------
     def test_otherInput(self):
-        r_screen.setFunctionName(inspect.stack()[0][3])
-        r_screen.attribute_value()
+        self.r_screen.setFunctionName(inspect.stack()[0][3])
+        self.r_screen.attribute_value()
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－按钮－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_button_search(self):
-        r_screen.setFunctionName(inspect.stack()[0][3])
-        r_screen.searchExport(formSub=r_screen.bi.yaml_formSub())
+        self.r_screen.setFunctionName(inspect.stack()[0][3])
+        self.r_screen.searchExport(formSub=self.r_screen.bi.yaml_formSub())
         pass
-
 
 
 if __name__ == '__main__':

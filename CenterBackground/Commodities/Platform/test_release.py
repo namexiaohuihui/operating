@@ -85,3 +85,7 @@ class TestReleaseWater(unittest.TestCase):
         rWatiki.setFunctionName(inspect.stack()[0][3])
         rWatiki.releaseSuccess()
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

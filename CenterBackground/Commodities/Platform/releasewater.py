@@ -81,13 +81,23 @@ class ReleaseWatiki(JudgmentVerification):
         pass
 
     def operator_sweetAlert(self, sweet, para):
+        bool_sweet = False
         ov_sweet = self.overall[para]
         ex_sweet = self.financial[self.bi.yaml_release()][sweet]
         info_css = 'css'
-        ex_sweet = self.vac.differentiate_element_text(self.driver,info_css, ex_sweet)
-        self.log.info('options showSweetAlert jude error %s ' % ov_sweet)
-        self.log.info('options showSweetAlert jude error %s ' % ex_sweet)
-        assert operator.eq(ov_sweet, ex_sweet), 'options showSweetAlert jude error'
+        try:
+            ex_sweet = self.vac.differentiate_element_text(self.driver, info_css, ex_sweet)
+            self.log.info('options showSweetAlert jude error %s ' % ov_sweet)
+            self.log.info('options showSweetAlert jude error %s ' % ex_sweet)
+            assert operator.eq(ov_sweet, ex_sweet), 'options showSweetAlert jude error'
+            bool_sweet = True
+        except:
+            if "错误提示！" == ex_sweet:
+                error_sweet = self.financial[self.bi.yaml_release()][self.bi.yaml_showSweetAlert()]
+                error_sweet = self.vac.differentiate_element_text(self.driver, info_css, error_sweet)
+                self.log.error("错误信息为:%s" % error_sweet)
+        finally:
+            assert True is bool_sweet, "options showSweetAlert jude error --- finally"
         pass
 
     def operator_showAlert(self):
@@ -170,9 +180,11 @@ class ReleaseWatiki(JudgmentVerification):
             else:
                 print('你都输入啥东西呢? %s' % ov_pa['type'])
 
-        # 8.点击弹窗中的确认按钮
+        # 8.点击添加弹窗中的提交按钮
         self.vac.id_confirm_prompt(self.driver, release[self.bi.yaml_primary()])
+
         # 9.判断提交之后接口返回的弹窗标题
         self.operator_titleAlert()
+
         # 10.点击提交之后接口返回弹窗中的确定按钮
         self.vac.css_click(self.driver, release[self.bi.yaml_confirm()])

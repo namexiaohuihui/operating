@@ -38,41 +38,42 @@ from CenterBackground import GeneralizeAssist
 from CenterBackground.mutuallyJude import MutuallyJude
 from tools.excelname.Center.generalize import Generalize
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = GeneralizeAssist.add_key(GeneralizeAssist.receive, GeneralizeAssist.page)
-r_label = MutuallyJude(config, basename, Generalize)
-
 
 class TestReceiveLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
-    def setUp(self):
-        # 打开浏览器，定义log日志。读取excle文档数据
-        r_label.openingProgram()
-        r_label._rou_background()
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
 
-        r_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        pass
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GeneralizeAssist.add_key(GeneralizeAssist.receive, GeneralizeAssist.page)
+        cls.r_label = MutuallyJude(config, cls.basename, Generalize)
+
+    def setUp(self):
+        # 获取运行文件的类名
+        self.r_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        # 打开浏览器，定义log日志。读取excle文档数据
+        self.r_label.openingProgram()
+        self.r_label._rou_background()
 
     def tearDown(self):
-        r_label.driver.quit()
-        r_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.r_label.driver.quit()
+        self.r_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        r_label.setFunctionName(inspect.stack()[0][3])
-        r_label.title_execute()
+        self.r_label.setFunctionName(inspect.stack()[0][3])
+        self.r_label.title_execute()
         pass
 
     def test_showSurface(self):
-        r_label.setFunctionName(inspect.stack()[0][3])
-        r_label.surface_execute()
+        self.r_label.setFunctionName(inspect.stack()[0][3])
+        self.r_label.surface_execute()
         pass
 
 
