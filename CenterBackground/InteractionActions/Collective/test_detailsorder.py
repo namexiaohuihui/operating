@@ -37,25 +37,26 @@ from CenterBackground.InteractionActions.operationViewJude import OperationViewJ
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-# 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.details)
-details_o = OperationViewJude(config, basename, InteractionController)
-
-
 
 class TestDetailsOrder(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.details)
+        cls.details_o = OperationViewJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.details_o.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        details_o.openingProgram()
-        details_o._rou_background()
-        print("%s ---setup: 每个用例开始前后执行" % basename)
+        self.details_o.openingProgram()
+        self.details_o._rou_background()
 
     def tearDown(self):
-        details_o.driver.close()
-        print("%s ---teardown: 每个用例结束后执行" % basename)
+        self.details_o.driver.quit()
+        self.details_o.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_daydetails(self):
@@ -63,10 +64,10 @@ class TestDetailsOrder(unittest.TestCase):
         查看下单时间为当天的订单
         :return:
         """
-        details_o.setFunctionName(inspect.stack()[0][3])
-        details_o.release_success()
+        self.details_o.setFunctionName(inspect.stack()[0][3])
+        self.details_o.release_success()
         # 找到td通过子元素的text来找到信息
-        details_o.details_order_types()
+        self.details_o.details_order_types()
         pass
 
 

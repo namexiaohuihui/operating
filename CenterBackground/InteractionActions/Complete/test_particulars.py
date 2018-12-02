@@ -37,30 +37,31 @@ from CenterBackground.InteractionActions.operationViewJude import OperationViewJ
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
-basePath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basePath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.particulars)
-parti_c = OperationViewJude(config, basename, InteractionController)
-
 
 class TestParticulars(unittest.TestCase):
     """
     详情页进行操作
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.particulars)
+        cls.parti_c = OperationViewJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.parti_c.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        parti_c.openingProgram()
-        parti_c._rou_background()
-        parti_c.log.info("%s : The use case begins execution" % basename)
+        self.parti_c.openingProgram()
+        self.parti_c._rou_background()
         pass
 
     def tearDown(self):
-        parti_c.driver.quit()
-        parti_c.log.info("%s : The use case is done" % basename)
+        self.parti_c.driver.quit()
+        self.parti_c.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_closecancel(self):
@@ -68,10 +69,10 @@ class TestParticulars(unittest.TestCase):
         详情页面点击关闭
         :return:
         """
-        parti_c.setFunctionName(inspect.stack()[0][3])
-        parti_c.release_success()
-        parti_c.details_order_types()
-        parti_c.close_cancel()
+        self.parti_c.setFunctionName(inspect.stack()[0][3])
+        self.parti_c.release_success()
+        self.parti_c.parti_crder_types()
+        self.parti_c.close_cancel()
         pass
 
     def test_appointmentcancel(self):
@@ -79,10 +80,10 @@ class TestParticulars(unittest.TestCase):
         详情页面点击转预约
         :return:
         """
-        parti_c.setFunctionName(inspect.stack()[0][3])
-        parti_c.release_success()
-        parti_c.details_order_types()
-        parti_c.appointmen_cancel()
+        self.parti_c.setFunctionName(inspect.stack()[0][3])
+        self.parti_c.release_success()
+        self.parti_c.parti_crder_types()
+        self.parti_c.appointmen_cancel()
         pass
 
     def test_replacecancel(self):
@@ -90,10 +91,10 @@ class TestParticulars(unittest.TestCase):
         详情页面点击更换
         :return:
         """
-        parti_c.setFunctionName(inspect.stack()[0][3])
-        parti_c.release_success()
-        parti_c.details_order_types()
-        parti_c.replace_cancel()
+        self.parti_c.setFunctionName(inspect.stack()[0][3])
+        self.parti_c.release_success()
+        self.parti_c.parti_crder_types()
+        self.parti_c.replace_cancel()
         pass
 
 

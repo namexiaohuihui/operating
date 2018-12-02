@@ -37,30 +37,30 @@ from CenterBackground.InteractionActions.operationViewJude import OperationViewJ
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
-basePath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basePath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.dispatch, InteractionActions.record)
-record_o = OperationViewJude(config, basename, InteractionController)
-
-
 class TestRecordOrder(unittest.TestCase):
     """
     记录
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = InteractionActions.add_key(InteractionActions.dispatch, InteractionActions.record)
+        cls.record_o = OperationViewJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.record_o.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        record_o.openingProgram()
-        record_o._rou_background()
-        record_o.log.info("%s : The use case begins execution" % basename)
+        self.record_o.openingProgram()
+        self.record_o._rou_background()
         pass
 
     def tearDown(self):
-        record_o.driver.quit()
-        record_o.log.info("%s : The use case is done" % basename)
+        self.record_o.driver.quit()
+        self.record_o.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_dayrecord(self):
@@ -68,10 +68,10 @@ class TestRecordOrder(unittest.TestCase):
         查看下单时间为当天的订单
         :return:
         """
-        record_o.setFunctionName(inspect.stack()[0][3])
-        record_o.release_success()
+        self.record_o.setFunctionName(inspect.stack()[0][3])
+        self.record_o.release_success()
         # 找到td通过子元素的text来找到信息
-        record_o.record_order_types()
+        self.record_o.record_order_types()
         pass
 
 

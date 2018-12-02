@@ -41,10 +41,14 @@ from tools.excelname.Center.gongsMana import CityGoodsPage
 
 
 class InventoryLabelJude(JudgmentVerification):
-
-    def __init__(self, option):
-        JudgmentVerification.__init__(self,Inventory.add_key(option))
-        self.cGoods = CityGoodsPage()
+    def __init__(self, config, basename, centerName):
+        '''
+        :param config: 头文件所在位置
+        :param basename: 执行用例的文件名
+        :param centerName: 参数定义的类对象
+        '''
+        JudgmentVerification.__init__(self, config, basename)
+        self.bi = centerName()
         pass
 
     def bs4_soup(self):
@@ -90,7 +94,7 @@ class InventoryLabelJude(JudgmentVerification):
 
     def get_success_execute(self):
         text_center = self.success_execute()
-        excel_center = StringCutting.specified_cut(self.overall[self.cGoods.whole_including()])
+        excel_center = StringCutting.specified_cut(self.overall[self.bi.whole_including()])
         print(text_center)
         print(excel_center)
         assert self.verify_dataframe(
@@ -100,7 +104,7 @@ class InventoryLabelJude(JudgmentVerification):
 
     def get_execute(self):
 
-        info_text = self._visible_css_selectop_text(self.financial[self.cGoods.yaml_info()])
+        info_text = self._visible_css_selectop_text(self.financial[self.bi.yaml_info()])
         pages = str.split(info_text, '，')[-1]
 
         pages = int(StringCutting.re_zip_code(pages, r'[1-9]\d'))

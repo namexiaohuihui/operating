@@ -31,24 +31,27 @@
 @desc:
 '''
 from CenterBackground.judeVerification import JudgmentVerification
-from CenterBackground.GoodsManagement import Evaluation
-from tools.excelname.Center.gongsMana import CityGoodsPage
 from tools.screeningdrop import ScreeningDrop
 
 
 class GroupJude(JudgmentVerification):
-    def __init__(self, option):
-        JudgmentVerification.__init__(self, Evaluation.add_key(option))
-        self.cGoods = CityGoodsPage()
-        pass
 
+    def __init__(self, config, basename, centerName):
+        '''
+        :param config: 头文件所在位置
+        :param basename: 执行用例的文件名
+        :param centerName: 参数定义的类对象
+        '''
+        JudgmentVerification.__init__(self, config, basename)
+        self.bi = centerName()
+        pass
     # -----------------------统一返回元素的位置----------
     def quality_direction(self):
         '''
         返回quality元素对应的路径
         :return:
         '''
-        value = self.financial[self.cGoods.page_evaluation()][self.cGoods.page_quality()]
+        value = self.financial[self.bi.page_evaluation()][self.bi.page_quality()]
         return value
 
     def cond_direction(self):
@@ -56,7 +59,7 @@ class GroupJude(JudgmentVerification):
         返回cond元素对应的路径
         :return:
         '''
-        value = self.financial[self.cGoods.page_evaluation()][self.cGoods.yaml_type()]
+        value = self.financial[self.bi.page_evaluation()][self.bi.yaml_type()]
         return value
 
     def time_direction(self):
@@ -64,7 +67,7 @@ class GroupJude(JudgmentVerification):
         返回time元素对应的路径
         :return:
         '''
-        value = self.financial[self.cGoods.page_evaluation()][self.cGoods.page_timeType()]
+        value = self.financial[self.bi.page_evaluation()][self.bi.page_timeType()]
         return value
 
     # -----------------------下拉框对象定义------------------------
@@ -79,7 +82,7 @@ class GroupJude(JudgmentVerification):
 
     # ----------------------用例二级判断，可抽取到父类-------------------
     def button_formSub(self, att):
-        form_group = self.financial[self.cGoods.page_evaluation()]
+        form_group = self.financial[self.bi.page_evaluation()]
         attribute = self._visible_returns_selectop(
             form_group['formSub'])
         attribute = attribute[int(form_group[att]) - 1]
@@ -87,7 +90,7 @@ class GroupJude(JudgmentVerification):
 
     def jude_attribute_text(self, att, information):
         attribute = self.button_formSub(att).text
-        ov_attribute = self.overall[self.cGoods.whole_default()]
+        ov_attribute = self.overall[self.bi.whole_default()]
         assert self.verify_dataframe(attribute, ov_attribute), information
         pass
 
@@ -96,7 +99,7 @@ class GroupJude(JudgmentVerification):
         op_str = self.create_select(value).options_to_str()
 
         # 获取用例设置全部的options值
-        ov_str = self.overall[self.cGoods.whole_including()]
+        ov_str = self.overall[self.bi.whole_including()]
 
         assert self.verify_dataframe(op_str, ov_str), information
 
@@ -105,7 +108,7 @@ class GroupJude(JudgmentVerification):
         op_str = self.create_select(value).getSelectedOptions()
 
         # 获取用例设置全部的options值
-        ov_str = self.overall[self.cGoods.whole_default()]
+        ov_str = self.overall[self.bi.whole_default()]
 
         assert self.verify_dataframe(op_str, ov_str), information
 
@@ -118,7 +121,7 @@ class GroupJude(JudgmentVerification):
             # 设置option
             op_se.setSelectorText(value_str)
             # 点击搜索按钮
-            self.button_formSub(self.cGoods.yaml_search()).click()
+            self.button_formSub(self.bi.yaml_search()).click()
 
             # 重新設置option之後，界面會進行刷新此時driver對象也發生改變需要重新進行獲取
             op_se = self.create_select(value)
@@ -204,10 +207,10 @@ class GroupJude(JudgmentVerification):
     def get_conditionsInput(self):
         # 读取输入框上显示的内容
         attribute = self._visible_css_selectop_attribute(
-            self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_conditions()],
-            self.cGoods.yaml_placeholder())
+            self.financial[self.bi.yaml_formGroup()][self.bi.yaml_conditions()],
+            self.bi.yaml_placeholder())
         # 读取用例默认应显示的内容
-        ov_attribute = self.overall[self.cGoods.whole_default()]
+        ov_attribute = self.overall[self.bi.whole_default()]
         # 错误时的提示信息
         information = 'Wrong placeholder attribute value in input box.'
         # 比较用例和输入框显示的内容是否一致
@@ -217,9 +220,9 @@ class GroupJude(JudgmentVerification):
     def get_timename(self):
         # 读取输入框上显示的内容
         attribute = self._visible_css_selectop_attribute(
-            self.financial[self.cGoods.page_evaluation()][self.cGoods.page_timename()])
+            self.financial[self.bi.page_evaluation()][self.bi.page_timename()])
         # 读取用例默认应显示的内容
-        ov_attribute = self.overall[self.cGoods.whole_default()]
+        ov_attribute = self.overall[self.bi.whole_default()]
         # 错误时的提示信息
         information = 'Wrong timename attribute value in input box.'
         # 比较用例和输入框显示的内容是否一致
@@ -228,10 +231,10 @@ class GroupJude(JudgmentVerification):
 
     def jude_button_search(self):
         information = 'Search button text judgement error...'
-        self.jude_attribute_text(self.cGoods.yaml_search(), information)
+        self.jude_attribute_text(self.bi.yaml_search(), information)
         pass
 
     def jude_button_export(self):
         information = 'Error in export button text judgement...'
-        self.jude_attribute_text(self.cGoods.yaml_export(), information)
+        self.jude_attribute_text(self.bi.yaml_export(), information)
         pass

@@ -33,28 +33,39 @@
 import os
 import inspect
 import unittest
-from CenterBackground.GoodsManagement import CityGoods
+from CenterBackground import GoodsManagement
+from tools.excelname.Center.gongsMana import CityGoodsPage
 from CenterBackground.GoodsManagement.CityGoods.shelvesJude import ShelvesJude
 
-# 给ArgumentAdmin.yaml进行使用
-shelves = ShelvesJude(CityGoods.shelves)
 
 class TestShelvesGood(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GoodsManagement.add_key(GoodsManagement.citys, GoodsManagement.shelves)
+        cls.shelves = ShelvesJude(config, cls.basename, CityGoodsPage)
+
     def setUp(self):
         # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.shelves.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        shelves.openingProgram(self.basename)
-        shelves._rou_background()
+        self.shelves.openingProgram()
+        self.shelves._rou_background()
 
     def tearDown(self):
-        # shelves.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % self.basename)
+        self.shelves.driver.quit()
+        self.shelves.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_quit_shelves(self):
-        shelves.setFunctionName(inspect.stack()[0][3])
-        shelves.perform_quit_shelves()
+        self.shelves.setFunctionName(inspect.stack()[0][3])
+        self.shelves.perform_quit_shelves()
         pass
 
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

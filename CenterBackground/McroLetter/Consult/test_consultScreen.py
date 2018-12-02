@@ -34,84 +34,84 @@ from CenterBackground import McroLetter
 from CenterBackground.screeningjude import ScreeningJude
 from tools.excelname.Center.mcroletterwechat import McroLetterWechat
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = McroLetter.add_key(McroLetter.consult, McroLetter.select)
-
-c_screen = ScreeningJude(config, basename, McroLetterWechat)
-
 
 class TestConsultScreen(unittest.TestCase):
     """
     条件筛选
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = McroLetter.add_key(McroLetter.consult, McroLetter.select)
+        cls.c_screen = ScreeningJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.c_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        c_screen.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        c_screen.openingProgram()
-        c_screen._rou_background()
+        self.c_screen.openingProgram()
+        self.c_screen._rou_background()
         pass
 
     def tearDown(self):
-        c_screen.driver.quit()
-        c_screen.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.c_screen.driver.quit()
+        self.c_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－进行中的数据信息－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_statusSelect(self):
-        c_screen.setFunctionName(inspect.stack()[0][3])
-        c_screen.value_options_jude(selectPath=c_screen.overall[c_screen.bi.whole_keys()])
+        self.c_screen.setFunctionName(inspect.stack()[0][3])
+        self.c_screen.value_options_jude(selectPath=self.c_screen.overall[self.c_screen.bi.whole_keys()])
         pass
 
     def test_statusDefault(self):
-        c_screen.setFunctionName(inspect.stack()[0][3])
-        c_screen.value_options_default(selectPath=c_screen.overall[c_screen.bi.whole_keys()])
+        self.c_screen.setFunctionName(inspect.stack()[0][3])
+        self.c_screen.value_options_default(selectPath=self.c_screen.overall[self.c_screen.bi.whole_keys()])
         pass
 
     def test_statusTraverse(self):
-        c_screen.setFunctionName(inspect.stack()[0][3])
-        c_screen.value_option_traverse(formSub=c_screen.bi.yaml_formSub(),
-                                       selectPath=c_screen.overall[c_screen.bi.whole_keys()])
+        self.c_screen.setFunctionName(inspect.stack()[0][3])
+        self.c_screen.value_option_traverse(formSub=self.c_screen.bi.yaml_formSub(),
+                                            selectPath=self.c_screen.overall[self.c_screen.bi.whole_keys()])
         pass
 
     def test_typeSelect(self):
-        c_screen.setFunctionName(inspect.stack()[0][3])
-        c_screen.value_options_jude(selectPath=c_screen.overall[c_screen.bi.whole_keys()])
+        self.c_screen.setFunctionName(inspect.stack()[0][3])
+        self.c_screen.value_options_jude(selectPath=self.c_screen.overall[self.c_screen.bi.whole_keys()])
         pass
 
     def test_typeDefault(self):
-        c_screen.setFunctionName(inspect.stack()[0][3])
-        c_screen.value_options_default(selectPath=c_screen.overall[c_screen.bi.whole_keys()])
+        self.c_screen.setFunctionName(inspect.stack()[0][3])
+        self.c_screen.value_options_default(selectPath=self.c_screen.overall[self.c_screen.bi.whole_keys()])
         pass
 
     def test_typeTraverse(self):
-        c_screen.setFunctionName(inspect.stack()[0][3])
-        c_screen.value_option_traverse(formSub=c_screen.bi.yaml_formSub(),
-                                       selectPath=c_screen.overall[c_screen.bi.whole_keys()])
+        self.c_screen.setFunctionName(inspect.stack()[0][3])
+        self.c_screen.value_option_traverse(formSub=self.c_screen.bi.yaml_formSub(),
+                                            selectPath=self.c_screen.overall[self.c_screen.bi.whole_keys()])
         pass
 
     def test_otherInput(self):
-        c_screen.setFunctionName(inspect.stack()[0][3])
-        c_screen.attribute_value()
+        self.c_screen.setFunctionName(inspect.stack()[0][3])
+        self.c_screen.attribute_value()
         pass
 
     def test_starttime(self):
-        c_screen.setFunctionName(inspect.stack()[0][3])
-        c_screen.attribute_value()
+        self.c_screen.setFunctionName(inspect.stack()[0][3])
+        self.c_screen.attribute_value()
         pass
 
     def test_endtime(self):
-        c_screen.setFunctionName(inspect.stack()[0][3])
-        c_screen.attribute_value()
+        self.c_screen.setFunctionName(inspect.stack()[0][3])
+        self.c_screen.attribute_value()
         pass
 
     def test_button_search(self):
-        c_screen.setFunctionName(inspect.stack()[0][3])
-        c_screen.searchExport(formSub=c_screen.bi.yaml_formSub())
+        self.c_screen.setFunctionName(inspect.stack()[0][3])
+        self.c_screen.searchExport(formSub=self.c_screen.bi.yaml_formSub())
         pass
 
 

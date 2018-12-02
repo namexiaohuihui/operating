@@ -37,41 +37,42 @@ from CenterBackground import McroLetter
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.mcroletterwechat import McroLetterWechat
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = McroLetter.add_key(McroLetter.consult, McroLetter.page)
-c_label = SurfaceJude(config, basename, McroLetterWechat)
-
 
 class TestConsultLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = McroLetter.add_key(McroLetter.consult, McroLetter.page)
+        cls.c_label = SurfaceJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.c_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        c_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        c_label.openingProgram()
-        c_label._rou_background()
+        self.c_label.openingProgram()
+        self.c_label._rou_background()
         pass
 
     def tearDown(self):
-        c_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
-        c_label.driver.quit()
+        self.c_label.driver.quit()
+        self.c_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        c_label.setFunctionName(inspect.stack()[0][3])
-        c_label.title_execute()
+        self.c_label.setFunctionName(inspect.stack()[0][3])
+        self.c_label.title_execute()
         pass
 
     @unittest.skip("test_showSurface 跳过,open_id错误导致页面无法正常显示出数据信息")
     def test_showSurface(self):
-        c_label.setFunctionName(inspect.stack()[0][3])
-        c_label.surface_execute()
+        self.c_label.setFunctionName(inspect.stack()[0][3])
+        self.c_label.surface_execute()
         pass
 
 

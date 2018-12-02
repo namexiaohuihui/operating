@@ -30,3 +30,30 @@
 @time: 2018/7/31 16:46
 @desc:
 '''
+def add_key(module, sheet):
+    INVENTORY['module'] = module
+    INVENTORY['sheet'] = sheet
+    return INVENTORY
+
+
+# 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
+evaluation = 'evaluation'
+inventory = 'inventory'
+citys = 'citys'
+
+
+
+# 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
+select = 'select'
+label = 'label'
+tap = 'tap'
+tab = 'tab'
+shelves = 'shelves'
+
+# 更新此处的key时，需要把ArgumentAdmin.yaml的key值也进行修改
+INVENTORY = {
+    'menu': 'generalize',  # 菜单标识符的定义
+    'module': 'no data',  # 菜单中模块标识符的定义
+    'sheet': 'no data',  # 模块所对应的用例标签名
+    'yaml': 'expression/GeneralizeAssist.yaml'  # 菜单所对应的yaml路径
+}

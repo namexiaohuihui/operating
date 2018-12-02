@@ -37,15 +37,20 @@ from tools.excelname.Center.gongsMana import CityGoodsPage
 
 class ShelvesJude(JudgmentVerification):
 
-    def __init__(self, option):
-        JudgmentVerification.__init__(self, CityGoods.add_key(option))
-        self.cGoods = CityGoodsPage()
+    def __init__(self, config, basename, centerName):
+        '''
+        :param config: 头文件所在位置
+        :param basename: 执行用例的文件名
+        :param centerName: 参数定义的类对象
+        '''
+        JudgmentVerification.__init__(self, config, basename)
+        self.bi = centerName()
         pass
 
     def perform_quit_shelves(self):
-        self._visible_css_selectop(self.financial[self.cGoods.page_add()])
+        self._visible_css_selectop(self.financial[self.bi.page_add()])
         title_text = self._visible_css_selectop_text(
-            self.financial[self.cGoods.page_shelves()][self.cGoods.page_title()])
+            self.financial[self.bi.page_shelves()][self.bi.page_title()])
         print("shelves----> %s " % title_text)
         self._visible_css_selectop(
-            self.financial[self.cGoods.page_shelves()][self.cGoods.page_quit()])
+            self.financial[self.bi.page_shelves()][self.bi.page_quit()])

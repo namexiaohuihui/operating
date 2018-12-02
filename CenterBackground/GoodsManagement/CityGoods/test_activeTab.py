@@ -33,25 +33,32 @@
 import os
 import inspect
 import unittest
-from CenterBackground.GoodsManagement import CityGoods
+from CenterBackground import GoodsManagement
+from tools.excelname.Center.gongsMana import CityGoodsPage
 from CenterBackground.GoodsManagement.CityGoods.activeTabJude import ActiveTabJude
-
-city_tab = ActiveTabJude(CityGoods.tab)
 
 
 class TestCityTab(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GoodsManagement.add_key(GoodsManagement.citys, GoodsManagement.tab)
+        cls.city_tab = ActiveTabJude(config, cls.basename, CityGoodsPage)
 
     def setUp(self):
         # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.city_tab.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        city_tab.openingProgram(self.basename)
-        city_tab._rou_background()
+        self.city_tab.openingProgram()
+        self.city_tab._rou_background()
 
     def tearDown(self):
-        city_tab.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % self.basename)
+        self.city_tab.driver.quit()
+        self.city_tab.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_already_citys(self):
@@ -68,8 +75,8 @@ class TestCityTab(unittest.TestCase):
         获取全部城市的code
         :return:
         '''
-        city_tab.setFunctionName(inspect.stack()[0][3])
-        city_tab.get_already_codes()
+        self.city_tab.setFunctionName(inspect.stack()[0][3])
+        self.city_tab.get_already_codes()
         pass
 
     def test_active_city(self):
@@ -77,8 +84,8 @@ class TestCityTab(unittest.TestCase):
         寻找默认展开项
         :return:
         '''
-        city_tab.setFunctionName(inspect.stack()[0][3])
-        city_tab.get_active_city()
+        self.city_tab.setFunctionName(inspect.stack()[0][3])
+        self.city_tab.get_active_city()
         pass
 
     def test_active_code(self):
@@ -86,8 +93,8 @@ class TestCityTab(unittest.TestCase):
         寻找默认展开项的编码
         :return:
         '''
-        city_tab.setFunctionName(inspect.stack()[0][3])
-        city_tab.get_active_code()
+        self.city_tab.setFunctionName(inspect.stack()[0][3])
+        self.city_tab.get_active_code()
         pass
 
     def test_switch_city(self):
@@ -95,8 +102,8 @@ class TestCityTab(unittest.TestCase):
         点击全部的tab项
         :return:
         '''
-        city_tab.setFunctionName(inspect.stack()[0][3])
-        city_tab.click_switch_city()
+        self.city_tab.setFunctionName(inspect.stack()[0][3])
+        self.city_tab.click_switch_city()
         pass
 
     def test_switch_url(self):
@@ -104,8 +111,8 @@ class TestCityTab(unittest.TestCase):
         通过url来切换
         :return:
         '''
-        city_tab.setFunctionName(inspect.stack()[0][3])
-        city_tab.click_switch_code()
+        self.city_tab.setFunctionName(inspect.stack()[0][3])
+        self.city_tab.click_switch_code()
         pass
 
     def switch_switch(self):
@@ -115,3 +122,7 @@ class TestCityTab(unittest.TestCase):
         print(os.path.splitext(os.path.basename(__file__))[0])
         print(inspect.stack()[0][3])
         print("------------")
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

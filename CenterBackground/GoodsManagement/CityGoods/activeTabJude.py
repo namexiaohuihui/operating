@@ -7,16 +7,18 @@
 """
 import operator
 from tools import StringCutting
-from CenterBackground.GoodsManagement import CityGoods
 from CenterBackground.judeVerification import JudgmentVerification
-from tools.excelname.Center.gongsMana import CityGoodsPage
 
 
 class ActiveTabJude(JudgmentVerification):
-
-    def __init__(self, option):
-        JudgmentVerification.__init__(self, CityGoods.add_key(option))
-        self.cGoods = CityGoodsPage()
+    def __init__(self, config, basename, centerName):
+        '''
+        :param config: 头文件所在位置
+        :param basename: 执行用例的文件名
+        :param centerName: 参数定义的类对象
+        '''
+        JudgmentVerification.__init__(self, config, basename)
+        self.bi = centerName()
         pass
 
     def get_label_tab(self):
@@ -25,17 +27,17 @@ class ActiveTabJude(JudgmentVerification):
         :return:
         '''
         city_ele = self._visible_returns_selectop(
-            self.financial[self.cGoods.yaml_city_tab()][self.cGoods.yaml_value()])
+            self.financial[self.bi.yaml_city_tab()][self.bi.yaml_value()])
         return city_ele
 
     def father_screening_child(self, compare, information):
         # 返回指定css路径的对象
         city_obj = self._visible_return_selectop(
-            self.financial[self.cGoods.yaml_city_tab()][self.cGoods.yaml_obj()])
+            self.financial[self.bi.yaml_city_tab()][self.bi.yaml_obj()])
 
         # 通过css获取该对象下面指定的子元素
         city_active = city_obj.find_element_by_css_selector(
-            self.financial[self.cGoods.yaml_city_tab()][self.cGoods.yaml_active()])
+            self.financial[self.bi.yaml_city_tab()][self.bi.yaml_active()])
 
         assert operator.eq(compare, city_active.text), information
         pass
@@ -43,8 +45,8 @@ class ActiveTabJude(JudgmentVerification):
     def father_re_child(self, ele):
         # 父类通过指定的元素名来找到子元素，子元素获取指定属性值，通过正则解析出数字
         subclass_a = ele.find_element_by_tag_name(
-            self.financial[self.cGoods.yaml_city_tab()][self.cGoods.yaml_label()])
-        active_code = subclass_a.get_attribute(self.cGoods.ele_href())
+            self.financial[self.bi.yaml_city_tab()][self.bi.yaml_label()])
+        active_code = subclass_a.get_attribute(self.bi.ele_href())
         active_code = StringCutting.re_zip_code(active_code)
         return active_code
 
@@ -56,7 +58,7 @@ class ActiveTabJude(JudgmentVerification):
         city_list = []
         city_ele = self.get_label_tab()
         for ele in city_ele:
-            if ele.get_attribute(self.cGoods.ele_class()) != 'pull-right':
+            if ele.get_attribute(self.bi.ele_class()) != 'pull-right':
                 city_list.append(ele.text)
         print('全部的数据信息:----> %s' % city_list)
         pass
@@ -66,7 +68,7 @@ class ActiveTabJude(JudgmentVerification):
         city_ele = self.get_label_tab()
         # 遍历读取全部对象的code值
         for ele in city_ele:
-            if ele.get_attribute(self.cGoods.ele_class()) != 'pull-right':
+            if ele.get_attribute(self.bi.ele_class()) != 'pull-right':
                 active_code = self.father_re_child(ele)
                 city_list.append(active_code)
         print('全部的数据信息的code:----> %s' % city_list)
@@ -76,10 +78,10 @@ class ActiveTabJude(JudgmentVerification):
         city_ele = self.get_label_tab()
         # 获取默认active
         for ele in city_ele:
-            if operator.eq(ele.get_attribute(self.cGoods.ele_class()), self.cGoods.yaml_active()):
+            if operator.eq(ele.get_attribute(self.bi.ele_class()), self.bi.yaml_active()):
                 active_name = ele.text
                 # 产品要求的默认城市跟实际当中的默认城市是否一致
-                assert operator.eq(active_name, self.overall[self.cGoods.whole_city()]), '进入之后，默认值不对'
+                assert operator.eq(active_name, self.overall[self.bi.whole_city()]), '进入之后，默认值不对'
                 break
         print('默认展开的数据:----> %s' % active_name)
 
@@ -87,10 +89,10 @@ class ActiveTabJude(JudgmentVerification):
         city_ele = self.get_label_tab()
         # 获取默认active的code
         for ele in city_ele:
-            if operator.eq(ele.get_attribute(self.cGoods.ele_class()), self.cGoods.yaml_active()):
+            if operator.eq(ele.get_attribute(self.bi.ele_class()), self.bi.yaml_active()):
                 active_code = self.father_re_child(ele)
                 # 比较默认城市的code值是否正确
-                assert operator.eq(int(active_code), int(self.overall[self.cGoods.whole_code()])), '进入之后，默认code不对'
+                assert operator.eq(int(active_code), int(self.overall[self.bi.whole_code()])), '进入之后，默认code不对'
                 break
         print('默认数据的code:----> %s' % active_code)
 
@@ -103,7 +105,7 @@ class ActiveTabJude(JudgmentVerification):
         city_ele = self.get_label_tab()
         # 获取全部不等于添加按钮的对象信息
         for ele in city_ele:
-            if ele.get_attribute(self.cGoods.ele_class()) != 'pull-right':
+            if ele.get_attribute(self.bi.ele_class()) != 'pull-right':
                 city_list.append(ele.text)
 
         for ele_number in range(len(city_list)):
@@ -125,10 +127,10 @@ class ActiveTabJude(JudgmentVerification):
 
         # 读取这些对象的全部数据信息
         for ele in city_ele:
-            if ele.get_attribute(self.cGoods.ele_class()) != 'pull-right':
+            if ele.get_attribute(self.bi.ele_class()) != 'pull-right':
                 subclass_a = ele.find_element_by_tag_name(
-                    self.financial[self.cGoods.yaml_city_tab()][self.cGoods.yaml_label()])
-                city_list[ele.text] = subclass_a.get_attribute(self.cGoods.ele_href())
+                    self.financial[self.bi.yaml_city_tab()][self.bi.yaml_label()])
+                city_list[ele.text] = subclass_a.get_attribute(self.bi.ele_href())
 
         # 遍历的同时执行判断
         for key, value in city_list.items():

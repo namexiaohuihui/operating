@@ -37,14 +37,6 @@ from CenterBackground import McroLetter
 from tools.excelname.Center.mcroletterwechat import McroLetterWechat
 from CenterBackground.commoditiesJude import CommoditiesJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = McroLetter.add_key(McroLetter.worktime, McroLetter.tabs)
-wt_tab = CommoditiesJude(config, basename, McroLetterWechat)
-
 
 class TestBalanceTabs(unittest.TestCase):
     """
@@ -53,16 +45,25 @@ class TestBalanceTabs(unittest.TestCase):
     # 定义头部button中，后面N位不需要
     BUTTON_REDUCE_NUMBER = 0
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = McroLetter.add_key(McroLetter.worktime, McroLetter.tabs)
+        cls.wt_tab = CommoditiesJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.wt_tab.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        wt_tab.openingProgram()
-        wt_tab._rou_background()
-        wt_tab.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        self.wt_tab.openingProgram()
+        self.wt_tab._rou_background()
         pass
 
     def tearDown(self):
-        wt_tab.driver.quit()
-        wt_tab.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.wt_tab.driver.quit()
+        self.wt_tab.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_active_tab(self):
@@ -70,8 +71,8 @@ class TestBalanceTabs(unittest.TestCase):
         寻找默认值
         :return:
         """
-        wt_tab.setFunctionName(inspect.stack()[0][3])
-        wt_tab.active_city('class')
+        self.wt_tab.setFunctionName(inspect.stack()[0][3])
+        self.wt_tab.active_city('class')
         pass
 
     def test_already_tabs(self):
@@ -79,8 +80,8 @@ class TestBalanceTabs(unittest.TestCase):
         比较tabs中的全部信息
         :return:
         """
-        wt_tab.setFunctionName(inspect.stack()[0][3])
-        wt_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.wt_tab.setFunctionName(inspect.stack()[0][3])
+        self.wt_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_tab(self):
@@ -88,8 +89,8 @@ class TestBalanceTabs(unittest.TestCase):
         遍历点击tab
         :return:
         """
-        wt_tab.setFunctionName(inspect.stack()[0][3])
-        wt_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.wt_tab.setFunctionName(inspect.stack()[0][3])
+        self.wt_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
@@ -97,8 +98,8 @@ class TestBalanceTabs(unittest.TestCase):
         通过tabs的url进行切换
         :return:
         """
-        wt_tab.setFunctionName(inspect.stack()[0][3])
-        wt_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
+        self.wt_tab.setFunctionName(inspect.stack()[0][3])
+        self.wt_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
 

@@ -35,18 +35,20 @@ import operator
 import threading
 from bs4 import BeautifulSoup
 from tools import StringCutting
-from CenterBackground.GoodsManagement import CityGoods
 from CenterBackground.judeVerification import JudgmentVerification
-from tools.excelname.Center.gongsMana import CityGoodsPage
 
 
 class LabelJude(JudgmentVerification):
 
-    def __init__(self, option):
-        JudgmentVerification.__init__(self, CityGoods.add_key(option))
-        self.cGoods = CityGoodsPage()
+    def __init__(self, config, basename, centerName):
+        '''
+        :param config: 头文件所在位置
+        :param basename: 执行用例的文件名
+        :param centerName: 参数定义的类对象
+        '''
+        JudgmentVerification.__init__(self, config, basename)
+        self.bi = centerName()
         pass
-
     def bs4_soup(self):
         label_text = self.driver.page_source
         soup = BeautifulSoup(label_text, "html.parser")
@@ -91,20 +93,20 @@ class LabelJude(JudgmentVerification):
         text_center = thead_tr.find_all('th', class_='text-center')
         text_center = [text.text for text in text_center]
         text_center = ','.join(text_center)
-        excel_center = self.overall[self.cGoods.whole_including()]
+        excel_center = self.overall[self.bi.whole_including()]
         assert operator.eq(text_center, excel_center), 'Page title is not displayed correctly.'
         pass
 
     def get_success_execute(self):
         text_center = self.success_execute()
-        excel_center = StringCutting.specified_cut(self.overall[self.cGoods.whole_including()])
+        excel_center = StringCutting.specified_cut(self.overall[self.bi.whole_including()])
         assert operator.eq(text_center, excel_center), 'Thead title display is incorrectly displayed.'
 
         pass
 
     def get_execute(self):
 
-        info_text = self._visible_css_selectop_text(self.financial[self.cGoods.yaml_info()])
+        info_text = self._visible_css_selectop_text(self.financial[self.bi.yaml_info()])
         pages = str.split(info_text, '，')[-1]
 
         pages = int(StringCutting.re_zip_code(pages, r'[1-9]\d'))

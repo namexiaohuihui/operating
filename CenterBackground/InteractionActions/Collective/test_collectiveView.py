@@ -37,24 +37,26 @@ from CenterBackground.InteractionActions.operationViewJude import OperationViewJ
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-# 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.views)
-tive_v = OperationViewJude(config, basename, InteractionController)
-
 
 class TestCollectiveView(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.views)
+        cls.tive_v = OperationViewJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.tive_v.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        tive_v.openingProgram()
-        tive_v._rou_background()
-        print("%s ---setup: 每个用例开始前后执行" % basename)
+        self.tive_v.openingProgram()
+        self.tive_v._rou_background()
 
     def tearDown(self):
-        tive_v.driver.close()
-        print("%s ---teardown: 每个用例结束后执行" % basename)
+        self.tive_v.driver.quit()
+        self.tive_v.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showtimetoday(self):
@@ -62,8 +64,8 @@ class TestCollectiveView(unittest.TestCase):
         查看下单时间为当天的订单
         :return:
         """
-        tive_v.setFunctionName(inspect.stack()[0][3])
-        tive_v.release_success()
+        self.tive_v.setFunctionName(inspect.stack()[0][3])
+        self.tive_v.release_success()
         pass
 
     def test_yesterdayorder(self):
@@ -71,8 +73,8 @@ class TestCollectiveView(unittest.TestCase):
         查看下单时间为昨天的订单
         :return:
         """
-        tive_v.setFunctionName(inspect.stack()[0][3])
-        tive_v.release_success()
+        self.tive_v.setFunctionName(inspect.stack()[0][3])
+        self.tive_v.release_success()
         pass
 
     def test_sevendayorder(self):
@@ -80,8 +82,8 @@ class TestCollectiveView(unittest.TestCase):
         查看下单时间为七天的订单
         :return:
         """
-        tive_v.setFunctionName(inspect.stack()[0][3])
-        tive_v.release_success()
+        self.tive_v.setFunctionName(inspect.stack()[0][3])
+        self.tive_v.release_success()
         pass
 
     def test_thirtydayorder(self):
@@ -89,8 +91,8 @@ class TestCollectiveView(unittest.TestCase):
         查看下单时间为30的订单
         :return:
         """
-        tive_v.setFunctionName(inspect.stack()[0][3])
-        tive_v.release_success()
+        self.tive_v.setFunctionName(inspect.stack()[0][3])
+        self.tive_v.release_success()
         pass
 
     def test_yeardayorder(self):
@@ -98,17 +100,17 @@ class TestCollectiveView(unittest.TestCase):
         查看下单时间为全部的订单
         :return:
         """
-        tive_v.setFunctionName(inspect.stack()[0][3])
-        tive_v.release_success()
+        self.tive_v.setFunctionName(inspect.stack()[0][3])
+        self.tive_v.release_success()
         pass
 
-    def test_customtoday(self):
+    def test_tive_vomtoday(self):
         """
         查看下单时间为自定义的订单
         :return:
         """
-        tive_v.setFunctionName(inspect.stack()[0][3])
-        tive_v.release_success()
+        self.tive_v.setFunctionName(inspect.stack()[0][3])
+        self.tive_v.release_success()
         pass
 
 

@@ -31,14 +31,18 @@
 @desc:
 '''
 from CenterBackground.judeVerification import JudgmentVerification
-from CenterBackground.GoodsManagement import Evaluation
-from tools.excelname.Center.gongsMana import CityGoodsPage
+
 
 
 class TabsJude(JudgmentVerification):
-    def __init__(self, option):
-        JudgmentVerification.__init__(self, Evaluation.add_key(option))
-        self.cGoods = CityGoodsPage()
+    def __init__(self, config, basename, centerName):
+        '''
+        :param config: 头文件所在位置
+        :param basename: 执行用例的文件名
+        :param centerName: 参数定义的类对象
+        '''
+        JudgmentVerification.__init__(self, config, basename)
+        self.bi = centerName()
         pass
 
     # --------------------------------------------------------
@@ -47,11 +51,11 @@ class TabsJude(JudgmentVerification):
     # --------------------------------------------------------
     def get_tabs_active(self):
         # 根据界面元素，获取相应的text
-        locator = self.financial[self.cGoods.page_evaluation()][self.cGoods.page_tabs()]
+        locator = self.financial[self.bi.page_evaluation()][self.bi.page_tabs()]
         locator = '%s.active' % locator
         label_tabs = self.vac.is_visible_css_selectop(self.driver, locator)
         # 获取用例设置的数据信息
-        excle_tabs = self.overall[self.cGoods.whole_default()]
+        excle_tabs = self.overall[self.bi.whole_default()]
         information = 'The tabs element defaults to jump.'
 
         self.verify_operator(label_tabs.text, excle_tabs, information)
@@ -59,18 +63,18 @@ class TabsJude(JudgmentVerification):
 
     def get_tabs_text(self):
         # 获取界面元素，并将list存储的text转成str
-        locator = self.financial[self.cGoods.page_evaluation()][self.cGoods.page_tabs()]
+        locator = self.financial[self.bi.page_evaluation()][self.bi.page_tabs()]
         label_tabs = self.vac.is_visibles_css_selectop(self.driver, locator)
         label_tabs = [str.strip(tabs.text) for tabs in label_tabs]
         # 获取用例设置的数据信息
-        excle_tabs = self.overall[self.cGoods.whole_including()]
+        excle_tabs = self.overall[self.bi.whole_including()]
         information = 'The caption tabs element text is judged incorrectly.'
 
         self.verify_operator(','.join(label_tabs), excle_tabs, information)
         pass
 
     def get_tabs_switch(self):
-        locator = self.financial[self.cGoods.page_evaluation()][self.cGoods.page_tabs()]
+        locator = self.financial[self.bi.page_evaluation()][self.bi.page_tabs()]
         label_tabs = self.vac.is_visibles_css_selectop(self.driver, locator)
         for tabs in range(len(label_tabs)):
             self.vac.element_click(label_tabs[tabs])
@@ -82,11 +86,11 @@ class TabsJude(JudgmentVerification):
     # --------------------------------------------------------
     def get_box_active(self):
         # 根据界面元素，获取相应的text
-        locator = self.financial[self.cGoods.page_evaluation()][self.cGoods.page_box()]
+        locator = self.financial[self.bi.page_evaluation()][self.bi.page_box()]
         locator = '%s.on' % locator
         label_tabs = self.vac.is_visible_css_selectop(self.driver, locator)
         # 获取用例设置的数据信息
-        excle_tabs = self.overall[self.cGoods.whole_default()]
+        excle_tabs = self.overall[self.bi.whole_default()]
         information = 'The box element defaults to jump.'
 
         self.verify_operator(label_tabs.text, excle_tabs, information)
@@ -94,18 +98,18 @@ class TabsJude(JudgmentVerification):
 
     def get_box_text(self):
         # 获取界面元素，并将list存储的text转成str
-        locator = self.financial[self.cGoods.page_evaluation()][self.cGoods.page_box()]
+        locator = self.financial[self.bi.page_evaluation()][self.bi.page_box()]
         label_tabs = self.vac.is_visibles_css_selectop(self.driver, locator)
         label_tabs = [str.strip(tabs.text) for tabs in label_tabs]
         # 获取用例设置的数据信息
-        excle_tabs = self.overall[self.cGoods.whole_including()]
+        excle_tabs = self.overall[self.bi.whole_including()]
         information = 'The caption box element text is judged incorrectly.'
 
         self.verify_operator(','.join(label_tabs), excle_tabs, information)
         pass
 
     def get_box_switch(self):
-        locator = self.financial[self.cGoods.page_evaluation()][self.cGoods.page_box()]
+        locator = self.financial[self.bi.page_evaluation()][self.bi.page_box()]
         label_tabs = self.vac.is_visibles_css_selectop(self.driver, locator)
         for tabs in range(len(label_tabs)):
             self.vac.element_click(label_tabs[tabs])

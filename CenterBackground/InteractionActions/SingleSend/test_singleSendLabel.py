@@ -38,40 +38,41 @@ from CenterBackground.InteractionActions.samedayorder import SameDayOrder
 from tools.excelname.Center.Interaction import InteractionController
 from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-config = InteractionActions.add_key(InteractionActions.single, InteractionActions.page)
-
-sLable = SameDayOrder(config, basename, InteractionController)
-
 
 class TestsingleSendLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = InteractionActions.add_key(InteractionActions.single, InteractionActions.page)
+        cls.sLable = SameDayOrder(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.sLable.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        sLable.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        sLable.openingProgram()
-        sLable._rou_background()
+        self.sLable.openingProgram()
+        self.sLable._rou_background()
         pass
 
-
     def tearDown(self):
-        sLable.driver.quit()
-        sLable.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.sLable.driver.quit()
+        self.sLable.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        sLable.setFunctionName(inspect.stack()[0][3])
-        sLable.title_execute()
+        self.sLable.setFunctionName(inspect.stack()[0][3])
+        self.sLable.title_execute()
         pass
 
     def test_showSurface(self):
-        sLable.setFunctionName(inspect.stack()[0][3])
-        sLable.surface_execute()
+        self.sLable.setFunctionName(inspect.stack()[0][3])
+        self.sLable.surface_execute()
         pass
 
 

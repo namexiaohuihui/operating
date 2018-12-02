@@ -33,27 +33,30 @@
 import operator
 from tools.screeningdrop import ScreeningDrop
 from CenterBackground.judeVerification import JudgmentVerification
-from CenterBackground.GoodsManagement import Inventory
-from tools.excelname.Center.gongsMana import CityGoodsPage
 
 
 class FormGroupJude(JudgmentVerification):
 
-    def __init__(self, option):
-        JudgmentVerification.__init__(self, Inventory.add_key(option))
-        self.cGoods = CityGoodsPage()
+    def __init__(self, config, basename, centerName):
+        '''
+        :param config: 头文件所在位置
+        :param basename: 执行用例的文件名
+        :param centerName: 参数定义的类对象
+        '''
+        JudgmentVerification.__init__(self, config, basename)
+        self.bi = centerName()
         pass
 
     def return_status(self) -> str:
-        s_status = self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_status()]
+        s_status = self.financial[self.bi.yaml_formGroup()][self.bi.yaml_status()]
         return s_status
 
     def return_category(self) -> str:
-        s_category = self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_category()]
+        s_category = self.financial[self.bi.yaml_formGroup()][self.bi.yaml_category()]
         return s_category
 
     def return_preferences(self) -> str:
-        s_preferences = self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_preferences()]
+        s_preferences = self.financial[self.bi.yaml_formGroup()][self.bi.yaml_preferences()]
         return s_preferences
 
     def create_select(self, direction: str) -> ScreeningDrop:
@@ -67,7 +70,7 @@ class FormGroupJude(JudgmentVerification):
 
     # 获取按钮对象
     def button_formSub(self, att):
-        form_group = self.financial[self.cGoods.yaml_formGroup()]
+        form_group = self.financial[self.bi.yaml_formGroup()]
         attribute = self._visible_returns_selectop(
             form_group['formSub'])
         attribute = attribute[int(form_group[att]) - 1]
@@ -75,7 +78,7 @@ class FormGroupJude(JudgmentVerification):
 
     def jude_attribute_text(self, att, information):
         attribute = self.button_formSub(att).text
-        ov_attribute = self.overall[self.cGoods.whole_default()]
+        ov_attribute = self.overall[self.bi.whole_default()]
         assert operator.eq(attribute, ov_attribute), information
         pass
 
@@ -89,7 +92,7 @@ class FormGroupJude(JudgmentVerification):
         op_se = self.create_select(value)
         # 获取全部的options
         op_str = op_se.options_to_str()
-        ov_str = self.overall[self.cGoods.whole_including()]
+        ov_str = self.overall[self.bi.whole_including()]
         assert operator.eq(op_str, ov_str), information
         pass
 
@@ -102,7 +105,7 @@ class FormGroupJude(JudgmentVerification):
         '''
         op_se = self.create_select(value)
         op_str = op_se.getSelectedOptions()
-        ov_str = self.overall[self.cGoods.whole_default()]
+        ov_str = self.overall[self.bi.whole_default()]
         assert operator.eq(op_str, ov_str), information
         pass
 
@@ -114,7 +117,7 @@ class FormGroupJude(JudgmentVerification):
             op_se.setSelectorText(value_str)
             # 点击搜索按钮
             # 获取按钮对象
-            self.button_formSub(self.cGoods.yaml_search()).click()
+            self.button_formSub(self.bi.yaml_search()).click()
             # 重新設置text之後，界面會進行刷新此時driver對象也發生改變需要重新進行獲取
             op_se = self.create_select(value)
             # 判断当前显示的option是否为设置的option
@@ -148,19 +151,19 @@ class FormGroupJude(JudgmentVerification):
 
     def jude_input_conditions(self):
         attribute = self._visible_css_selectop_attribute(
-            self.financial[self.cGoods.yaml_formGroup()][self.cGoods.yaml_conditions()],
-            self.cGoods.yaml_placeholder())
-        ov_attribute = self.overall[self.cGoods.whole_default()]
+            self.financial[self.bi.yaml_formGroup()][self.bi.yaml_conditions()],
+            self.bi.yaml_placeholder())
+        ov_attribute = self.overall[self.bi.whole_default()]
         information = 'Wrong placeholder attribute value in input box.'
         assert operator.eq(attribute, ov_attribute), information
         pass
 
     def jude_button_search(self):
         information = 'Search button text judgement error...'
-        self.jude_attribute_text(self.cGoods.yaml_search(), information)
+        self.jude_attribute_text(self.bi.yaml_search(), information)
         pass
 
     def jude_button_export(self):
         information = 'Error in export button text judgement...'
-        self.jude_attribute_text(self.cGoods.yaml_export(), information)
+        self.jude_attribute_text(self.bi.yaml_export(), information)
         pass

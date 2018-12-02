@@ -38,13 +38,6 @@ from CenterBackground.InteractionActions.operationViewJude import OperationViewJ
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.offline, InteractionActions.release)
-generate = OfflineGenerate(config, basename, InteractionController)
 
 
 class TestReleaseOffline(unittest.TestCase):
@@ -52,16 +45,25 @@ class TestReleaseOffline(unittest.TestCase):
     发布内容
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = InteractionActions.add_key(InteractionActions.offline, InteractionActions.release)
+        cls.generate = OfflineGenerate(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.generate.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        generate.openingProgram()
-        generate._rou_background()
-        generate.log.info("%s : The use case begins execution" % basename)
+        self.generate.openingProgram()
+        self.generate._rou_background()
         pass
 
     def tearDown(self):
-        # generate.driver.quit()
-        generate.log.info("%s : The use case is done" % basename)
+        self.generate.driver.quit()
+        self.generate.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_defaultSingleGood(self):
@@ -69,24 +71,24 @@ class TestReleaseOffline(unittest.TestCase):
         默认流程发布单个商品
         :return:
         """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
+        self.generate.setFunctionName(inspect.stack()[0][3])
+        self.generate.operating_environment()
 
     def test_ungenerate(self):
         """
         直接点击
         :return:
         """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
+        self.generate.setFunctionName(inspect.stack()[0][3])
+        self.generate.operating_environment()
 
     def test_purecharacter(self):
         """
         输入中文
         :return:
         """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.operating_environment()
+        self.generate.setFunctionName(inspect.stack()[0][3])
+        self.generate.operating_environment()
         pass
 
     def test_closewindows(self):
@@ -94,8 +96,8 @@ class TestReleaseOffline(unittest.TestCase):
         点击取消
         :return:
         """
-        generate.setFunctionName(inspect.stack()[0][3])
-        generate.defaule_environment()
+        self.generate.setFunctionName(inspect.stack()[0][3])
+        self.generate.defaule_environment()
         pass
 
 

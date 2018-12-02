@@ -5,81 +5,105 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/releasewater.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/releasewater.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_release.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_release.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/test_platformSoldScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/test_platformSoldScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/test_platformSoldTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/PlatformSold/test_platformSoldTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/Store/test_storeScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/Store/test_storeScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldLable.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldLable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/Commodities/soldScreen.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/test_balanceLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/test_balanceLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/test_balanceScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/test_balanceScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/test_balanceTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/test_balanceTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Money/test_moneyLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Money/test_moneyLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Money/test_moneyScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Money/test_moneyScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Trading/test_tradingLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Trading/test_tradingLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Trading/test_tradingScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Trading/test_tradingScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Background/test_uploadimg.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Background/test_uploadimg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Entrance/test_entranceLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Entrance/test_entranceLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Entrance/test_entranceScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Entrance/test_entranceScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_feedbackLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_feedbackLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_feedbackTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_feedbackTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_operatefeedback.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_operatefeedback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_addfocus.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_addfocus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_focusLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_focusLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_focusTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_focusTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_operatedelect.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_operatedelect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_previewfocus.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_previewfocus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_rulesfocus.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_rulesfocus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_appendinvite.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_appendinvite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_contrastinvite.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_contrastinvite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_defaultinvire.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_defaultinvire.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_operateinvire.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_operateinvire.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_previewinvire.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_previewinvire.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_rulesinvire.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_rulesinvire.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_appendmutually.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_appendmutually.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_operatemutually.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_operatemutually.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Promote/test_promateTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Promote/test_promateTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_appendReceive.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_appendReceive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_receiveLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_receiveLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_receiveScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_receiveScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_appendredpacket.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_appendredpacket.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_appendrelation.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_appendrelation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_operatererelation.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_operatererelation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/secsillLableVerify.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/secsillLableVerify.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_appendseckill.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_appendseckill.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_secKillScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_secKillScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_seckillLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_seckillLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_seckillTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_seckillTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/selectlableverify.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/selectlableverify.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/commoditiesJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/commoditiesJude.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/customTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/customTabs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/screeningjude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/screeningjude.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/FileIntroduce/框架unittest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/FileIntroduce/框架unittest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/activeTabJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/activeTabJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/formGroupJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/formGroupJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/labelJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/labelJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/shelvesJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/shelvesJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_activeTab.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_activeTab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_add.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_add.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_formGroup.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_formGroup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_label.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_label.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/groupJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/groupJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/labelJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/labelJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/tabsJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/tabsJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_group.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_group.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_label.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_label.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_tabsBox.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_tabsBox.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/formGroupJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/formGroupJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/inventoryLabelJude.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/inventoryLabelJude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/test_formGroup.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/test_formGroup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/test_label.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/Inventory/test_label.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/GoodsManagement/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/GoodsManagement/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_carriageLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_carriageLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_carriageScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_carriageScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_carriageTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_carriageTabs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_carriageView.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_carriageView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_closeorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_closeorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_detailsorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_detailsorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_particulars.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_particulars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_recordorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_recordorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_replaceorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_replaceorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_transferorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Carriage/test_transferorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_closeorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_closeorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_collectiveLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_collectiveLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_collectiveScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_collectiveScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_collectiveTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_collectiveTabs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_collectiveView.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_collectiveView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_detailsorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_detailsorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_particulars.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_particulars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_recordorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_recordorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_replaceorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_replaceorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_transferorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Collective/test_transferorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_closeorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_closeorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_completeLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_completeLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_completeScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_completeScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_completeTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_completeTabs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_completeView.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_completeView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_detailsorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_detailsorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_particulars.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_particulars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_recordorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_recordorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_replaceorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_replaceorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_transferorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_transferorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_closeorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_closeorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_detailsorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_detailsorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyTabs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyView.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_particulars.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_particulars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_recordorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_recordorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_replaceorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_replaceorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_transferorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_transferorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_detailsorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_detailsorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineTabs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineView.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_particulars.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_particulars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_recordorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_recordorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_releaseOffline.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_releaseOffline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_replaceorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_replaceorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_transferorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_transferorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_closeorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_closeorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_detailsorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_detailsorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_particulars.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_particulars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_recordorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_recordorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_replaceorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_replaceorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingTabs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingView.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_transferorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_transferorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_closeorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_closeorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_detailsorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_detailsorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_particulars.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_particulars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_recordorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_recordorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_replaceorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_replaceorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendTabs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendView.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_transferorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_transferorder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/McroLetter/Message/test_messageLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/McroLetter/Message/test_messageLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeTabs.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeTabs.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,11 +115,11 @@
         <counts>
           <entry key="ini" value="17" />
           <entry key="log" value="1" />
-          <entry key="py" value="677" />
+          <entry key="py" value="828" />
           <entry key="pytest介绍" value="4" />
           <entry key="python一些重要的语法" value="1" />
           <entry key="selenium 定位" value="2" />
-          <entry key="yaml" value="52" />
+          <entry key="yaml" value="53" />
           <entry key="yml" value="2" />
           <entry key="文件操作operation_file" value="3" />
           <entry key="步骤" value="2" />
@@ -107,15 +131,15 @@
         <counts>
           <entry key="Ini" value="17" />
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="Python" value="677" />
-          <entry key="YAML" value="54" />
+          <entry key="Python" value="828" />
+          <entry key="YAML" value="55" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="28" />
           <entry key="ini" value="100" />
-          <entry key="py" value="15604" />
+          <entry key="py" value="16546" />
           <entry key="yaml" value="1125" />
           <entry key="文件操作operation_file" value="141" />
           <entry key="步骤" value="150" />
@@ -126,16 +150,16 @@
         <counts>
           <entry key="Ini" value="100" />
           <entry key="PLAIN_TEXT" value="347" />
-          <entry key="Python" value="15604" />
+          <entry key="Python" value="16546" />
           <entry key="YAML" value="1125" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -150,7 +174,7 @@
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.5" value="7" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="26" />
         </counts>
       </usages-collector>
     </session>
@@ -159,7 +183,17 @@
     <favorites_list name="operating" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CenterBackground/MovementUser/Confluence/test_confluenceLable.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-650">
+              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -172,68 +206,68 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>f_add</find>
-      <find>f_page</find>
-      <find>fJude</find>
-      <find>f_oper</find>
-      <find>f_pre</find>
-      <find>self.self.f_pre</find>
-      <find>cls</find>
-      <find>sw_tab</find>
-      <find>m_jude</find>
-      <find>m_label</find>
-      <find>self.self.m_label</find>
-      <find>self.m_label</find>
-      <find>m_screen</find>
-      <find>m_tab</find>
-      <find>p_tab</find>
-      <find>r_label</find>
-      <find>r_jude</find>
-      <find>rp_label</find>
-      <find>rp_screen</find>
-      <find>rp_tab</find>
-      <find>r_append</find>
-      <find>m_operate</find>
-      <find>rt_label</find>
-      <find>r_screen</find>
-      <find>r_tab</find>
-      <find>i_jude</find>
       <find>s_label</find>
       <find>i_screen</find>
       <find>s_tab</find>
       <find>f_tab</find>
+      <find>evaluation</find>
+      <find>group</find>
+      <find>box</find>
+      <find>city_tab</find>
+      <find>shelves</find>
+      <find>self.cGoods</find>
+      <find>form_group</find>
+      <find>label</find>
+      <find>cust</find>
+      <find>ovj</find>
+      <find>generate</find>
+      <find>close_o</find>
+      <find>details_o</find>
+      <find>parti_c</find>
+      <find>record_o</find>
+      <find>replace_o</find>
+      <find>sLable</find>
+      <find>slVerity</find>
+      <find>sw_tab</find>
+      <find>tive_v</find>
+      <find>trans_o</find>
+      <find>c_label</find>
+      <find>c_screen</find>
+      <find>msg_label</find>
+      <find>wt_label</find>
+      <find>wt_tab</find>
     </findStrings>
     <replaceStrings>
-      <replace>cls.i_label</replace>
-      <replace>self</replace>
+      <replace>self.box</replace>
+      <replace>self.city_tab</replace>
+      <replace>shelves</replace>
+      <replace>form_group</replace>
+      <replace>self.bi</replace>
+      <replace>label</replace>
+      <replace>self.form_group</replace>
+      <replace>self.label</replace>
+      <replace>record_o</replace>
+      <replace>sLable</replace>
+      <replace>self.cust</replace>
+      <replace>self.ovj</replace>
+      <replace>parti_c</replace>
+      <replace>self.generate</replace>
+      <replace>trans_o</replace>
+      <replace>self.close_o</replace>
+      <replace>self.details_o</replace>
+      <replace>self.parti_c</replace>
+      <replace>self.record_o</replace>
+      <replace>self.replace_o</replace>
+      <replace>self.sLable</replace>
+      <replace>self.slVerity</replace>
       <replace>self.sw_tab</replace>
-      <replace>self.m_jude</replace>
-      <replace>m_operate</replace>
-      <replace>m_label</replace>
-      <replace>self.m_label</replace>
-      <replace>m_screen</replace>
-      <replace>self.m_screen</replace>
-      <replace>m_tab</replace>
-      <replace>self.m_tab</replace>
-      <replace>self.p_tab</replace>
-      <replace>r_label</replace>
-      <replace>self.r_label</replace>
-      <replace>self.r_jude</replace>
-      <replace>self.rp_label</replace>
-      <replace>self.rp_screen</replace>
-      <replace>self.rp_tab</replace>
-      <replace>r_append</replace>
-      <replace>self.r_append</replace>
-      <replace>self.m_operate</replace>
-      <replace>self.rt_label</replace>
-      <replace>r_screen</replace>
-      <replace>self.r_screen</replace>
-      <replace>self.r_tab</replace>
-      <replace>self.i_jude</replace>
-      <replace>self.s_label</replace>
-      <replace>self.i_screen</replace>
-      <replace>self.s_tab</replace>
-      <replace>f_operate</replace>
+      <replace>self.tive_v</replace>
+      <replace>self.trans_o</replace>
+      <replace>self.c_label</replace>
+      <replace>self.c_screen</replace>
+      <replace>self.msg_label</replace>
+      <replace>self.wt_label</replace>
+      <replace>self.wt_tab</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -243,65 +277,64 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Balance/test_balanceTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Money/test_moneyLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Money/test_moneyScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Trading/test_tradingLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/FinancialAffairs/Trading/test_tradingScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Background/test_uploadimg.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Entrance/test_entranceLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Entrance/test_entranceScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_feedbackLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_feedbackTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_operatefeedback.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_addfocus.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_focusLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_focusTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_operatedelect.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_previewfocus.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_rulesfocus.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_appendinvite.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_contrastinvite.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_defaultinvire.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_operateinvire.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_previewinvire.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_rulesinvire.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_appendmutually.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_operatemutually.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Promote/test_promateTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_appendReceive.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_receiveLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_receiveScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_appendredpacket.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_appendrelation.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_operatererelation.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_appendseckill.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_seckillLabel.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_secKillScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_seckillTabs.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_completeView.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_detailsorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_particulars.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_recordorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_replaceorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_transferorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_closeorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_detailsorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyLabel.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyScreen.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyTabs.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyView.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_particulars.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_recordorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_replaceorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_transferorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_detailsorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineLabel.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineScreen.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineTabs.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineView.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_particulars.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_recordorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_releaseOffline.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_replaceorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_transferorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_closeorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_detailsorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_particulars.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_recordorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_replaceorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingLabel.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingScreen.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingTabs.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingView.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_transferorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_closeorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_detailsorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_particulars.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_recordorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_replaceorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendLabel.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendScreen.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendTabs.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendView.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_transferorder.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultLabel.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultScreen.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/Message/test_messageLabel.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeLabel.py" />
+        <option value="$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeTabs.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="405" />
-    <option name="y" value="80" />
-    <option name="width" value="1397" />
-    <option name="height" value="895" />
+    <option name="x" value="4" />
+    <option name="width" value="1344" />
+    <option name="height" value="740" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -323,6 +356,49 @@
               <item name="operating" type="462c0819:PsiDirectoryNode" />
               <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
+              <item name="McroLetter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
+              <item name="McroLetter" type="462c0819:PsiDirectoryNode" />
+              <item name="WorkTime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
+              <item name="MovementUser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
+              <item name="MovementUser" type="462c0819:PsiDirectoryNode" />
+              <item name="Confluence" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
+              <item name="Website" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
+              <item name="operating" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="YAMLconfig" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -336,7 +412,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="yaml&#10;XML" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount" />
   </component>
   <component name="RecentsManager">
@@ -385,6 +461,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="test_file" type="PythonConfigurationType" factoryName="Python">
       <module name="operating" />
@@ -403,6 +482,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="Unittests for test_release.TestReleaseWater.test_releaseSuccess" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
@@ -416,6 +498,7 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_release.TestReleaseWater.test_releaseSuccess&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
     </configuration>
     <configuration name="Unittests for test_storeSoldScreen.TestStoreScreen.test_button_export" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
@@ -429,6 +512,7 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_storeSoldScreen.TestStoreScreen.test_button_export&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
     </configuration>
     <configuration name="Unittests for test_storeSoldScreen.TestStoreScreen.test_button_search" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
@@ -442,6 +526,7 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_storeSoldScreen.TestStoreScreen.test_button_search&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
     </configuration>
     <configuration name="Unittests for test_storeSoldScreen.TestStoreScreen.test_chooseTraverse" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
@@ -455,6 +540,7 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_storeSoldScreen.TestStoreScreen.test_chooseTraverse&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <module name="operating" />
@@ -468,6 +554,7 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.test_file" />
@@ -550,29 +637,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="405" y="80" width="1397" height="895" extended-state="0" />
+    <frame x="4" y="0" width="1344" height="740" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4909091" visible="true" weight="0.1839588" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4909091" visible="true" weight="0.1891271" />
+      <window_info id="Structure" order="1" sideWeight="0.5123457" side_tool="true" weight="0.17421603" />
+      <window_info id="Favorites" order="2" sideWeight="0.5090909" side_tool="true" weight="0.17421603" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.31683168" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49874687" weight="0.29396325" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.49343833" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3288835" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5012531" side_tool="true" weight="0.4318508" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3276316" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32677165" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49874687" weight="0.29396325" />
-      <window_info id="Structure" order="1" sideWeight="0.5123457" side_tool="true" weight="0.17421603" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.39501312" />
-      <window_info id="Favorites" order="2" sideWeight="0.5090909" side_tool="true" weight="0.17421603" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.49343833" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3276316" />
+      <window_info anchor="right" id="R Packages" order="0" weight="0.3298466" />
+      <window_info anchor="right" id="R Graphics" order="1" weight="0.3298466" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
-      <window_info anchor="right" id="R Graphics" order="1" weight="0.3298466" />
-      <window_info anchor="right" id="R Packages" order="0" weight="0.3298466" />
-      <window_info anchor="right" x="0" y="0" width="371" height="802" id="Documentation" order="6" side_tool="true" weight="0.32944068" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.31707317" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="right" id="Data View" order="5" weight="0.32983023" />
+      <window_info anchor="right" x="0" y="0" width="371" height="802" id="Documentation" order="6" side_tool="true" weight="0.32944068" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -594,7 +681,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositTabs.py</url>
-          <line>61</line>
+          <line>63</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
@@ -605,7 +692,6 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="42" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="tests">
@@ -614,358 +700,363 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositLabel.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_detailsorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+        <state relative-caret-position="150">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositScreen.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_particulars.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+        <state relative-caret-position="125">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositTabs.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_recordorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="51" column="52" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
+        <state>
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/FinancialAffairs/Money/test_moneyLabel.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_replaceorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+        <state relative-caret-position="25">
+          <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/FinancialAffairs/Money/test_moneyScreen.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_transferorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+        <state relative-caret-position="75">
+          <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/FinancialAffairs/Trading/test_tradingLabel.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_closeorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+        <state relative-caret-position="25">
+          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/FinancialAffairs/Trading/test_tradingScreen.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_detailsorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+        <state relative-caret-position="300">
+          <caret line="63" column="17" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Background/test_uploadimg.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyLabel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+        <state relative-caret-position="250">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Entrance/test_entranceLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Entrance/test_entranceScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_feedbackLabel.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyScreen.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_feedbackTabs.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyTabs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="51" column="52" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
+        <state relative-caret-position="150">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Feedback/test_operatefeedback.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyView.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="44" column="13" lean-forward="true" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        <state relative-caret-position="175">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_addfocus.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_particulars.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+        <state relative-caret-position="325">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_focusLabel.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_recordorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+        <state relative-caret-position="225">
+          <caret line="44" column="7" lean-forward="true" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_focusTabs.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_replaceorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+        <state relative-caret-position="50">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_operatedelect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_previewfocus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Focus/test_rulesfocus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_appendinvite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_contrastinvite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_defaultinvire.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteLabel.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_transferorder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="52" column="52" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteScreen.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_detailsorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+        <state relative-caret-position="50">
+          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_inviteTabs.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineLabel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="52" column="52" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
+        <state relative-caret-position="75">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_operateinvire.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+        <state relative-caret-position="75">
+          <caret line="40" column="3" lean-forward="true" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_previewinvire.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineTabs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+        <state relative-caret-position="166">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Invite/test_rulesinvire.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineView.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_appendmutually.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_mutuallyTabs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="51" column="52" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Mutually/test_operatemutually.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Promote/test_promateTabs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="51" column="52" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_appendReceive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
+        <state relative-caret-position="175">
           <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_receiveLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Receive/test_receiveScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_appendredpacket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="53" column="52" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketTabs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="51" column="52" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_appendrelation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_operatererelation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="51" column="52" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationTabs.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_particulars.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="51" column="52" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/secsillLableVerify.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_recordorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_appendseckill.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+        <state relative-caret-position="50">
+          <caret line="43" column="7" lean-forward="true" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_seckillLabel.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_releaseOffline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+        <state relative-caret-position="350">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#992#1001#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_secKillScreen.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_replaceorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+        <state relative-caret-position="350">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/SecKill/test_seckillTabs.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_transferorder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="51" column="52" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
+        <state relative-caret-position="100">
+          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_closeorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="43" column="7" lean-forward="true" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_detailsorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_particulars.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_recordorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_replaceorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingLabel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="38" column="7" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingTabs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="44" column="7" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_schedulingView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Scheduling/test_transferorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_closeorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="42" column="6" lean-forward="true" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_detailsorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_particulars.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_recordorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_replaceorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendLabel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendTabs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_singleSendView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="43" column="7" lean-forward="true" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/SingleSend/test_transferorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultLabel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/Message/test_messageLabel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeLabel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/WorkTime/test_worktimeTabs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/MovementUser/Confluence/test_confluenceLable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-650">
+          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
         </state>
       </provider>
     </entry>

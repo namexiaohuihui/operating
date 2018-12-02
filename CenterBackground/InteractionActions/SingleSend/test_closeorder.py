@@ -37,29 +37,30 @@ from CenterBackground import InteractionActions
 from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 from tools.excelname.Center.Interaction import InteractionController
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.single, InteractionActions.close)
-close_o = OperationViewJude(config, basename, InteractionController)
-
 
 class TestCloseOrder(unittest.TestCase):
     """
     关闭
     """
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = InteractionActions.add_key(InteractionActions.single, InteractionActions.close)
+        cls.close_o = OperationViewJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.close_o.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        close_o.openingProgram()
-        close_o._rou_background()
-        close_o.log.info("%s : The use case begins execution" % basename)
+        self.close_o.openingProgram()
+        self.close_o._rou_background()
         pass
 
     def tearDown(self):
-        close_o.driver.quit()
-        close_o.log.info("%s : The use case is done" % basename)
+        self.close_o.driver.quit()
+        self.close_o.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_dayWaiting(self):
@@ -67,9 +68,9 @@ class TestCloseOrder(unittest.TestCase):
         查看下单时间为当天的订单
         :return:
         """
-        close_o.setFunctionName(inspect.stack()[0][3])
-        close_o.release_success()
-        close_o.close_order_types()
+        self.close_o.setFunctionName(inspect.stack()[0][3])
+        self.close_o.release_success()
+        self.close_o.close_order_types()
         pass
 
 

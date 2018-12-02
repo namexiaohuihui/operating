@@ -33,25 +33,32 @@
 import os
 import inspect
 import unittest
+from CenterBackground import GoodsManagement
+from tools.excelname.Center.gongsMana import CityGoodsPage
 from CenterBackground.GoodsManagement.CityGoods.formGroupJude import FormGroupJude
-from CenterBackground.GoodsManagement import CityGoods
-
-form_group = FormGroupJude(CityGoods.select)
 
 
 class TestFormGroup(unittest.TestCase):
 
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GoodsManagement.add_key(GoodsManagement.citys, GoodsManagement.select)
+        cls.form_group = FormGroupJude(config, cls.basename, CityGoodsPage)
+
     def setUp(self):
         # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.form_group.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        form_group.openingProgram(self.basename)
-        form_group._rou_background()
+        self.form_group.openingProgram()
+        self.form_group._rou_background()
 
     def tearDown(self):
-        form_group.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % self.basename)
+        self.form_group.driver.quit()
+        self.form_group.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     # ----------------------------状态筛选框-------------------------------
@@ -60,8 +67,8 @@ class TestFormGroup(unittest.TestCase):
         执行获取状态全部optios值的用例
         :return:
         '''
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.get_statusSelect()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.get_statusSelect()
         pass
 
     def test_statusDefault(self):
@@ -69,8 +76,8 @@ class TestFormGroup(unittest.TestCase):
         执行状态默认值的用例
         :return:
         '''
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.get_statusDefault()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.get_statusDefault()
         pass
 
     def test_statusTraverse(self):
@@ -78,8 +85,8 @@ class TestFormGroup(unittest.TestCase):
         执行遍历选择状态中全部option值的用例
         :return:
         '''
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.get_statusTraverse()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.get_statusTraverse()
         pass
 
     # ----------------------------类目筛选框-------------------------------
@@ -88,8 +95,8 @@ class TestFormGroup(unittest.TestCase):
         执行获取类目全部optios值的用例
         :return:
         '''
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.get_categorySelect()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.get_categorySelect()
         pass
 
     def test_categoryDefault(self):
@@ -97,8 +104,8 @@ class TestFormGroup(unittest.TestCase):
         执行类目默认值的用例
         :return:
         '''
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.get_categoryDefault()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.get_categoryDefault()
         pass
 
     def test_categoryTraverse(self):
@@ -106,8 +113,8 @@ class TestFormGroup(unittest.TestCase):
         执行遍历选择类目中全部option值的用例
         :return:
         '''
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.get_categoryTraverse()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.get_categoryTraverse()
         pass
 
     # ----------------------------对象筛选框-------------------------------
@@ -116,8 +123,8 @@ class TestFormGroup(unittest.TestCase):
         执行获取对象全部optios值的用例
         :return:
         '''
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.get_preferencesSelect()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.get_preferencesSelect()
         pass
 
     def test_preferencesDefault(self):
@@ -125,8 +132,8 @@ class TestFormGroup(unittest.TestCase):
         执行对象默认值的用例
         :return:
         '''
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.get_preferencesDefault()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.get_preferencesDefault()
         pass
 
     def test_preferencesTraverse(self):
@@ -134,22 +141,26 @@ class TestFormGroup(unittest.TestCase):
         执行遍历选择对象中全部option值的用例
         :return:
         '''
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.get_preferencesTraverse()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.get_preferencesTraverse()
         pass
 
     # ----------------------------輸入框以及按鈕-------------------------------
     def test_conditionsInput(self):
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.jude_input_conditions()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.jude_input_conditions()
         pass
 
     def test_button_search(self):
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.jude_button_search()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.jude_button_search()
         pass
 
     def test_button_export(self):
-        form_group.setFunctionName(inspect.stack()[0][3])
-        form_group.jude_button_export()
+        self.form_group.setFunctionName(inspect.stack()[0][3])
+        self.form_group.jude_button_export()
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

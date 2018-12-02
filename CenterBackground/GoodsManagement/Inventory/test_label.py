@@ -33,34 +33,44 @@
 import os
 import inspect
 import unittest
-from CenterBackground.GoodsManagement import Inventory
+from CenterBackground import GoodsManagement
+from tools.excelname.Center.gongsMana import CityGoodsPage
 from CenterBackground.GoodsManagement.Inventory.inventoryLabelJude import InventoryLabelJude
-
-# 给ArgumentAdmin.yaml进行使用
-label = InventoryLabelJude(Inventory.label)
 
 
 class TestLabel(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+
+        # 传入子集的key，以及Excel文档中的sheet名字
+        config = GoodsManagement.add_key(GoodsManagement.inventory, GoodsManagement.label)
+        cls.label = InventoryLabelJude(config, cls.basename, CityGoodsPage)
+
     def setUp(self):
         # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        label.openingProgram(self.basename)
-        label._rou_background()
+        self.label.openingProgram()
+        self.label._rou_background()
 
     def tearDown(self):
-        # label.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % self.basename)
+        self.label.driver.quit()
+        self.label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
-
     def test_success(self):
-        label.setFunctionName(inspect.stack()[0][3])
-        label.get_success_execute()
+        self.label.setFunctionName(inspect.stack()[0][3])
+        self.label.get_success_execute()
         pass
 
     def test_table_bordered(self):
-        label.setFunctionName(inspect.stack()[0][3])
-        label.get_execute()
+        self.label.setFunctionName(inspect.stack()[0][3])
+        self.label.get_execute()
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

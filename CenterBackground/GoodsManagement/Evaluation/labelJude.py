@@ -33,18 +33,20 @@
 import time
 import threading
 from bs4 import BeautifulSoup
-
 from CenterBackground.judeVerification import JudgmentVerification
-from CenterBackground.GoodsManagement import Evaluation
-from tools.excelname.Center.gongsMana import CityGoodsPage
 
 
 class LabelJude(JudgmentVerification):
-    def __init__(self, option):
-        JudgmentVerification.__init__(self, Evaluation.add_key(option))
-        self.cGoods = CityGoodsPage()
-        pass
 
+    def __init__(self, config, basename, centerName):
+        '''
+        :param config: 头文件所在位置
+        :param basename: 执行用例的文件名
+        :param centerName: 参数定义的类对象
+        '''
+        JudgmentVerification.__init__(self, config, basename)
+        self.bi = centerName()
+        pass
     def bs4_soup(self):
         label_text = self.driver.page_source
         soup = BeautifulSoup(label_text, "html.parser")
@@ -89,7 +91,7 @@ class LabelJude(JudgmentVerification):
     def get_success_execute(self):
         text_center = self.success_execute()
         text_center = ','.join(text_center)
-        excel_center = self.overall[self.cGoods.whole_including()]
+        excel_center = self.overall[self.bi.whole_including()]
         assert self.verify_dataframe(text_center, excel_center), 'Page title is not displayed correctly.'
         pass
 
@@ -107,7 +109,7 @@ class LabelJude(JudgmentVerification):
         # 界面滑动到底部
         # self.vac.scrollBar_buttom(self.driver)
         for page in range(2):
-            throughs = self._visible_returns_selectop(self.financial[self.cGoods.page_through()])
+            throughs = self._visible_returns_selectop(self.financial[self.bi.page_through()])
             last = len(throughs) - 1
             thread = threading.Thread(target=self.success_tbody, args=(thead_tr,))
             thread.setDaemon(True)
@@ -116,7 +118,7 @@ class LabelJude(JudgmentVerification):
             time.sleep(1)
 
             # 如果最后一个按钮为下一页，那么就进行获取数据并点击
-            if self.cGoods.ele_next() in throughs[last].get_attribute(self.cGoods.ele_class()):
+            if self.bi.ele_next() in throughs[last].get_attribute(self.bi.ele_class()):
                 pass
             else:
                 break
@@ -137,17 +139,17 @@ class LabelJude(JudgmentVerification):
         df.to_csv("foo.csv", index=False, encoding="gbk")
 
     def get_seven_days(self):
-        locator = self.financial[self.cGoods.page_evaluation()][self.cGoods.page_timename()]
+        locator = self.financial[self.bi.page_evaluation()][self.bi.page_timename()]
         self.vac.css_click(self.driver, locator)
-        locator = self.financial[self.cGoods.page_evaluation()][self.cGoods.page_ranges()]
+        locator = self.financial[self.bi.page_evaluation()][self.bi.page_ranges()]
         ele = self.vac.is_visibles_css_selectop(self.driver, locator)
         for e in range(len(ele)):
-            if ele[e].text == self.overall[self.cGoods.excle_time_zone()]:
+            if ele[e].text == self.overall[self.bi.excle_time_zone()]:
                 self.vac.element_click(ele[e])
                 break
         # 点击搜索按钮
         from CenterBackground.GoodsManagement.Evaluation.groupJude import GroupJude
-        self.vac.element_click(GroupJude.button_formSub(self, self.cGoods.yaml_search()))
+        self.vac.element_click(GroupJude.button_formSub(self, self.bi.yaml_search()))
         tbodyT = self.driver.find_element_by_tag_name('tbody').text.strip()
         if tbodyT:
             self.get_execute()
