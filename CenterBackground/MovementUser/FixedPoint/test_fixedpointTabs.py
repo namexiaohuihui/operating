@@ -38,76 +38,81 @@ from CenterBackground.MovementUser.Sweating.sweatingTabs import SweatingTabs
 from tools.excelname.Center.consumers import Consumers
 from CenterBackground import customTabs
 
-basename = os.path.splitext(os.path.basename(__file__))[0]
-# 传入子集的key，以及Excel文档中的sheet名字
-config = MovementUser.add_key(MovementUser.fixedPoint, MovementUser.city)
-cJude = SweatingTabs(config, basename, Consumers)
-
 
 class TestFixedpointTabs(unittest.TestCase):
     # 定义头部button中，后面2位不需要
     BUTTON_REDUCE_NUMBER = 0
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = MovementUser.add_key(MovementUser.fixedPoint, MovementUser.city)
+        cls.cJude = SweatingTabs(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.cJude.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        cJude.openingProgram()
-        cJude._rou_background()
-        print("%s ---setup: 每个用例开始前后执行" % basename)
+        self.cJude.openingProgram()
+        self.cJude._rou_background()
+        pass
 
     def tearDown(self):
-        cJude.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % basename)
+        self.cJude.driver.quit()
+        self.cJude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_active_city(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.active_city(customTabs._class)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.active_city(customTabs._class)
         pass
 
     def test_active_code(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        ov_default = cJude.overall[cJude.bi.whole_code()]
-        cJude.custom_tabs().judge_box_code(customTabs._class, ov_default)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        ov_default = self.cJude.overall[self.cJude.bi.whole_code()]
+        self.cJude.custom_tabs().judge_box_code(customTabs._class, ov_default)
         pass
 
     def test_already_citys(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_already_codes(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.custom_tabs().judge_box_codes(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.custom_tabs().judge_box_codes(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_city(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.switch_url(customTabs._class, reduce=self.BUTTON_REDUCE_NUMBER)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.switch_url(customTabs._class, reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_active_box(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.active_city(customTabs._class)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.active_city(customTabs._class)
         pass
 
     def test_active_all(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.already_citys()
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.already_citys()
         pass
 
     def test_switch_box(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.switch_city()
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.switch_city()
         pass
 
     def test_switch_href(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.switch_url(customTabs._class)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.switch_url(customTabs._class)
         pass
 
 

@@ -37,36 +37,37 @@ from CenterBackground import Permissions
 from tools.excelname.Center.management import RightOfManagement
 from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = Permissions.add_key(Permissions.department, Permissions.add)
-d_operate = InviteOperateJude(config, basename, RightOfManagement)
-
 
 class TestAddDepartment(unittest.TestCase):
     """
     点击某个按钮,获取弹窗的标题
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = Permissions.add_key(Permissions.department, Permissions.add)
+        cls.d_operate = InviteOperateJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.d_operate.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        d_operate.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        d_operate.openingProgram()
-        d_operate._rou_background()
+        self.d_operate.openingProgram()
+        self.d_operate._rou_background()
         pass
 
     def tearDown(self):
-        d_operate.driver.quit()
-        d_operate.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.d_operate.driver.quit()
+        self.d_operate.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_adddepartment(self):
-        d_operate.setFunctionName(inspect.stack()[0][3])
+        self.d_operate.setFunctionName(inspect.stack()[0][3])
         ov_para = os.path.split(os.path.dirname(__file__))[0]
-        d_operate.conditions_screening(ov_para)
+        self.d_operate.conditions_screening(ov_para)
         pass
 
 

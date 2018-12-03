@@ -38,31 +38,39 @@ from CenterBackground import MovementUser
 from CenterBackground.MovementUser.Customer.customersurface import Customersurface
 from tools.excelname.Center.bundledItems import BundledItems
 
-BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = MovementUser.add_key(MovementUser.customer, MovementUser.page)
-cust = Customersurface(config, BASENAME, BundledItems)
-
 
 class TestPlatformLable(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = MovementUser.add_key(MovementUser.customer, MovementUser.page)
+        cls.cust = Customersurface(config, cls.basename, InteractionController)
+
     def setUp(self):
         # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.cust.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        cust.openingProgram()
-        cust._rou_background()
+        self.cust.openingProgram()
+        self.cust._rou_background()
+        pass
 
     def tearDown(self):
-        cust.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % self.basename)
+        self.cust.driver.quit()
+        self.cust.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        cust.setFunctionName(inspect.stack()[0][3])
-        cust.title_execute()
+        self.cust.setFunctionName(inspect.stack()[0][3])
+        self.cust.title_execute()
         pass
 
     def test_showSurface(self):
-        cust.setFunctionName(inspect.stack()[0][3])
-        cust.surface_execute()
+        self.cust.setFunctionName(inspect.stack()[0][3])
+        self.cust.surface_execute()
         pass
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

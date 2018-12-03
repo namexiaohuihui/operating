@@ -41,35 +41,44 @@ basepath = os.path.split(os.path.dirname(__file__))[1]
 basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
-config = Permissions.add_key(Permissions.jurisdiction, Permissions.page)
-
-p_mana = SurfaceJude(config, basename, RightOfManagement)
+(config, basename, RightOfManagement)
 
 
 class TestJurisdictionLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = Permissions.add_key(Permissions.jurisdiction, Permissions.page)
+
+        cls.p_mana = SurfaceJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.p_mana.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        p_mana.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        p_mana.openingProgram()
-        p_mana._rou_background()
+        self.p_mana.openingProgram()
+        self.p_mana._rou_background()
         pass
 
     def tearDown(self):
-        p_mana.driver.quit()
-        p_mana.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.p_mana.driver.quit()
+        self.p_mana.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        p_mana.setFunctionName(inspect.stack()[0][3])
-        p_mana.title_execute()
+        self.p_mana.setFunctionName(inspect.stack()[0][3])
+        self.p_mana.title_execute()
         pass
 
     def test_showSurface(self):
-        p_mana.setFunctionName(inspect.stack()[0][3])
-        p_mana.surface_execute()
+        self.p_mana.setFunctionName(inspect.stack()[0][3])
+        self.p_mana.surface_execute()
         pass
 
 

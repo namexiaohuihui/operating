@@ -38,49 +38,53 @@ from CenterBackground.Commodities.soldLable import SoldLable
 from tools.excelname.Center.bundledItems import BundledItems
 from CenterBackground.MovementUser.Customer.customersurface import Customersurface
 
-BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = MovementUser.add_key(MovementUser.fixedPoint, MovementUser.page)
-
-sLable = SoldLable(config, BASENAME, BundledItems)
 
 _box = 'box'
 _tabs = 'tabs'
 class TestStoreLable(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = MovementUser.add_key(MovementUser.fixedPoint, MovementUser.page)
+        cls.sLable = SoldLable(config, cls.basename, InteractionController)
+
     def setUp(self):
         # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        print("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.sLable.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        sLable.openingProgram()
-        sLable._rou_background()
+        self.sLable.openingProgram()
+        self.sLable._rou_background()
+        pass
 
     def tearDown(self):
-        sLable.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % self.basename)
+        self.sLable.driver.quit()
+        self.sLable.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        sLable.setFunctionName(inspect.stack()[0][3])
-        sLable.title_execute()
+        self.sLable.setFunctionName(inspect.stack()[0][3])
+        self.sLable.title_execute()
         pass
 
     def test_showSurface(self):
-        sLable.setFunctionName(inspect.stack()[0][3])
-        sLable.INSERTION_SITE = 2
-        sLable.surface_execute()
+        self.sLable.setFunctionName(inspect.stack()[0][3])
+        self.sLable.INSERTION_SITE = 2
+        self.sLable.surface_execute()
         pass
 
     def test_affiliatedTitle(self):
-        sLable.setFunctionName(inspect.stack()[0][3])
-        sLable.designated_tab_box(_tabs, 3)
-        sLable.title_execute()
+        self.sLable.setFunctionName(inspect.stack()[0][3])
+        self.sLable.designated_tab_box(_tabs, 3)
+        self.sLable.title_execute()
         pass
 
     def test_affiliatedSurface(self):
-        sLable.setFunctionName(inspect.stack()[0][3])
-        sLable.INSERTION_SITE = -1
-        sLable.designated_tab_box(_tabs, 3)
-        sLable.surface_execute()
+        self.sLable.setFunctionName(inspect.stack()[0][3])
+        self.sLable.INSERTION_SITE = -1
+        self.sLable.designated_tab_box(_tabs, 3)
+        self.sLable.surface_execute()
         pass
 
 

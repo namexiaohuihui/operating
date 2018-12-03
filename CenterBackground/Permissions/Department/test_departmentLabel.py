@@ -37,41 +37,43 @@ from CenterBackground import Permissions
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.management import RightOfManagement
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-config = Permissions.add_key(Permissions.department, Permissions.page)
-
-d_mana = SurfaceJude(config, basename, RightOfManagement)
-
 
 class TestDepartmentLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = Permissions.add_key(Permissions.department, Permissions.page)
+
+        cls.d_mana = SurfaceJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.d_mana.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        d_mana.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        d_mana.openingProgram()
-        d_mana._rou_background()
+        self.d_mana.openingProgram()
+        self.d_mana._rou_background()
         pass
 
     def tearDown(self):
-        d_mana.driver.quit()
-        d_mana.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.d_mana.driver.quit()
+        self.d_mana.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        d_mana.setFunctionName(inspect.stack()[0][3])
-        d_mana.title_execute()
+        self.d_mana.setFunctionName(inspect.stack()[0][3])
+        self.d_mana.title_execute()
         pass
 
     def test_showSurface(self):
-        d_mana.setFunctionName(inspect.stack()[0][3])
-        d_mana.surface_execute()
+        self.d_mana.setFunctionName(inspect.stack()[0][3])
+        self.d_mana.surface_execute()
         pass
-
 
 
 if __name__ == '__main__':

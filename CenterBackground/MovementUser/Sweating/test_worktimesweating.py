@@ -37,39 +37,44 @@ from CenterBackground import MovementUser
 from CenterBackground.MovementUser.Sweating.setSweating import WorktimeSweating
 from tools.excelname.Center.consumers import Consumers
 
-basename = os.path.splitext(os.path.basename(__file__))[0]
-# 传入子集的key，以及Excel文档中的sheet名字
-config = MovementUser.add_key(MovementUser.sweating, MovementUser.warktime)
-release = WorktimeSweating(config, basename, Consumers)
-
 
 class TestWorktimeWweating(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = MovementUser.add_key(MovementUser.sweating, MovementUser.warktime)
+        cls.release = WorktimeSweating(config, cls.basename, InteractionController)
+
     def setUp(self):
         # 获取运行文件的类名
+        self.release.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        release.openingProgram()
-        release._rou_background()
-        release.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        self.release.openingProgram()
+        self.release._rou_background()
+        pass
 
     def tearDown(self):
-        release.log.info("%s ---teardown: 每个用例结束后执行" % basename)
-        release.driver.quit()
+        self.release.driver.quit()
+        self.release.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_popupclosed(self):
-        release.setFunctionName(inspect.stack()[0][3])
-        release.close_popup()
+        self.release.setFunctionName(inspect.stack()[0][3])
+        self.release.close_popup()
 
         pass
 
     def test_buttoncancel(self):
-        release.setFunctionName(inspect.stack()[0][3])
-        release.close_popup()
+        self.release.setFunctionName(inspect.stack()[0][3])
+        self.release.close_popup()
         pass
 
     def test_releaseSuccess(self):
-        release.setFunctionName(inspect.stack()[0][3])
-        release.releaseSuccess()
+        self.release.setFunctionName(inspect.stack()[0][3])
+        self.release.releaseSuccess()
         pass
 
 
