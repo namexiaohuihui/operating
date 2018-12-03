@@ -37,36 +37,36 @@ from CenterBackground import SystemSetting
 from tools.excelname.Center.systemparameter import SystemParameter
 from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = SystemSetting.add_key(SystemSetting.category, SystemSetting.release)
-c_operate = InviteOperateJude(config, basename, SystemParameter)
-
-
 class TestAddCategory(unittest.TestCase):
     """
     点击某个按钮,获取弹窗的标题
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = SystemSetting.add_key(SystemSetting.category, SystemSetting.release)
+        cls.c_operate = InviteOperateJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.c_operate.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        c_operate.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        c_operate.openingProgram()
-        c_operate._rou_background()
+        self.c_operate.openingProgram()
+        self.c_operate._rou_background()
         pass
 
     def tearDown(self):
-        c_operate.driver.quit()
-        c_operate.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.c_operate.driver.quit()
+        self.c_operate.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_addcategory(self):
-        c_operate.setFunctionName(inspect.stack()[0][3])
+        self.c_operate.setFunctionName(inspect.stack()[0][3])
         ov_para = os.path.split(os.path.dirname(__file__))[0]
-        c_operate.conditions_screening(ov_para)
+        self.c_operate.conditions_screening(ov_para)
         pass
 
 

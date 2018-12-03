@@ -37,12 +37,6 @@ from CenterBackground import Permissions
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.management import RightOfManagement
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-(config, basename, RightOfManagement)
-
 
 class TestJurisdictionLabel(unittest.TestCase):
     """
@@ -80,7 +74,6 @@ class TestJurisdictionLabel(unittest.TestCase):
         self.p_mana.setFunctionName(inspect.stack()[0][3])
         self.p_mana.surface_execute()
         pass
-
 
 
 if __name__ == '__main__':

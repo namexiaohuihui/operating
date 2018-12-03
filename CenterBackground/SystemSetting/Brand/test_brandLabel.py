@@ -37,42 +37,43 @@ from CenterBackground import SystemSetting
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.systemparameter import SystemParameter
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-config = SystemSetting.add_key(SystemSetting.brand, SystemSetting.page)
-
-n_label = SurfaceJude(config, basename, SystemParameter)
-
 
 class TestBrandLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
     INVITE_DESIGNATED_BOX = "友情链接"
-    INVITE_DESIGNATED_TABS = n_label.bi.yaml_tabs()
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = SystemSetting.add_key(SystemSetting.brand, SystemSetting.page)
+        cls.n_label = SurfaceJude(config, cls.basename, InteractionController)
+        cls.INVITE_DESIGNATED_TABS = cls.n_label.bi.yaml_tabs()
 
     def setUp(self):
+        # 获取运行文件的类名
+        self.n_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        n_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        n_label.openingProgram()
-        n_label._rou_background()
+        self.n_label.openingProgram()
+        self.n_label._rou_background()
         pass
 
     def tearDown(self):
-        n_label.driver.quit()
-        n_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.n_label.driver.quit()
+        self.n_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        n_label.setFunctionName(inspect.stack()[0][3])
-        n_label.title_execute()
+        self.n_label.setFunctionName(inspect.stack()[0][3])
+        self.n_label.title_execute()
         pass
 
     def test_showSurface(self):
-        n_label.setFunctionName(inspect.stack()[0][3])
-        n_label.surface_execute()
+        self.n_label.setFunctionName(inspect.stack()[0][3])
+        self.n_label.surface_execute()
         pass
 
 
