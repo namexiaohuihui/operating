@@ -37,41 +37,43 @@ from CenterBackground import SystemSetting
 from CenterBackground.mutuallyJude import MutuallyJude
 from tools.excelname.Center.systemparameter import SystemParameter
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-config = SystemSetting.add_key(SystemSetting.task, SystemSetting.page)
-
-t_label = MutuallyJude(config, basename, SystemParameter)
-
 
 class TestTabsLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = SystemSetting.add_key(SystemSetting.task, SystemSetting.page)
+
+        cls.t_label = MutuallyJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.t_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        t_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        t_label.openingProgram()
-        t_label._rou_background()
+        self.t_label.openingProgram()
+        self.t_label._rou_background()
         pass
 
     def tearDown(self):
-        t_label.driver.quit()
-        t_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.t_label.driver.quit()
+        self.t_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        t_label.setFunctionName(inspect.stack()[0][3])
-        t_label.title_execute()
+        self.t_label.setFunctionName(inspect.stack()[0][3])
+        self.t_label.title_execute()
         pass
 
     def test_showSurface(self):
-        t_label.setFunctionName(inspect.stack()[0][3])
-        t_label.surface_execute()
+        self.t_label.setFunctionName(inspect.stack()[0][3])
+        self.t_label.surface_execute()
         pass
-
 
 
 if __name__ == '__main__':

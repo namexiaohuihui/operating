@@ -39,51 +39,57 @@ basename = os.path.splitext(os.path.basename(__file__))[0]
 basename = basepath + "-" + basename
 
 # 传入子集的key，以及Excel文档中的sheet名字
-config = SystemSetting.add_key(SystemSetting.SMSquery, SystemSetting.select)
-
-sms_srceen = ScreeningJude(config, basename, SystemParameter)
+(config, basename, SystemParameter)
 
 
 class TestSMSScreen(unittest.TestCase):
     """
     条件筛选
     """
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = SystemSetting.add_key(SystemSetting.SMSquery, SystemSetting.select)
+        cls.sms_srceen = ScreeningJude(config, cls.basename, InteractionController)
 
     def setUp(self):
+        # 获取运行文件的类名
+        self.sms_srceen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        sms_srceen.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        sms_srceen.openingProgram()
-        sms_srceen._rou_background()
+        self.sms_srceen.openingProgram()
+        self.sms_srceen._rou_background()
         pass
 
     def tearDown(self):
-        sms_srceen.driver.quit()
-        sms_srceen.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.sms_srceen.driver.quit()
+        self.sms_srceen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_otherInput(self):
-        sms_srceen.setFunctionName(inspect.stack()[0][3])
-        sms_srceen.attribute_value()
+        self.sms_srceen.setFunctionName(inspect.stack()[0][3])
+        self.sms_srceen.attribute_value()
         pass
 
     def test_button_search(self):
-        sms_srceen.setFunctionName(inspect.stack()[0][3])
-        sms_srceen.searchExport(formSub=sms_srceen.bi.yaml_formSub())
+        self.sms_srceen.setFunctionName(inspect.stack()[0][3])
+        self.sms_srceen.searchExport(formSub=self.sms_srceen.bi.yaml_formSub())
         pass
 
     def test_fight_time(self):
-        sms_srceen.setFunctionName(inspect.stack()[0][3])
+        self.sms_srceen.setFunctionName(inspect.stack()[0][3])
         # 1. 找到界面数据
-        timePath = sms_srceen.overall[sms_srceen.bi.whole_keys()]
-        timePath = sms_srceen.financial[timePath]  # 元素路径
-        op_str = sms_srceen.vai._visible_selectop_attribute(sms_srceen.driver, timePath)  # 将属性转成对象
+        timePath = self.sms_srceen.overall[self.sms_srceen.bi.whole_keys()]
+        timePath = self.sms_srceen.financial[timePath]  # 元素路径
+        op_str = self.sms_srceen.vai._visible_selectop_attribute(self.sms_srceen.driver, timePath)  # 将属性转成对象
 
         # 2. 找到产品规定的数据
-        ov_str = sms_srceen.ti.at_the_present_day()
+        ov_str = self.sms_srceen.ti.at_the_present_day()
 
         # 3. 数据比较
         msg = 'Error in time entry box :　%s ' % timePath
-        sms_srceen.debugging_log(op_str, ov_str, msg)
+        self.sms_srceen.debugging_log(op_str, ov_str, msg)
         pass
 
 

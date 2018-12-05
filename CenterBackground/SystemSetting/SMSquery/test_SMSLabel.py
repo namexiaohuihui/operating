@@ -37,35 +37,37 @@ from CenterBackground import SystemSetting
 from CenterBackground.mutuallyJude import MutuallyJude
 from tools.excelname.Center.systemparameter import SystemParameter
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-config = SystemSetting.add_key(SystemSetting.SMSquery, SystemSetting.page)
-
-sms_mutually = MutuallyJude(config, basename, SystemParameter)
-
 
 class TestTabsLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = SystemSetting.add_key(SystemSetting.SMSquery, SystemSetting.page)
+
+        cls.sms_mutually = MutuallyJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.sms_mutually.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        sms_mutually.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        sms_mutually.openingProgram()
-        sms_mutually._rou_background()
+        self.sms_mutually.openingProgram()
+        self.sms_mutually._rou_background()
         pass
 
     def tearDown(self):
-        sms_mutually.driver.quit()
-        sms_mutually.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.sms_mutually.driver.quit()
+        self.sms_mutually.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showTitle(self):
-        sms_mutually.setFunctionName(inspect.stack()[0][3])
-        sms_mutually.title_execute()
+        self.sms_mutually.setFunctionName(inspect.stack()[0][3])
+        self.sms_mutually.title_execute()
         pass
 
 

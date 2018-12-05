@@ -34,59 +34,60 @@ from CenterBackground import SystemSetting
 from CenterBackground.screeningjude import ScreeningJude
 from tools.excelname.Center.systemparameter import SystemParameter
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = SystemSetting.add_key(SystemSetting.task, SystemSetting.select)
-
-tabs_jude = ScreeningJude(config, basename, SystemParameter)
-
 
 class TestTabsScreen(unittest.TestCase):
     """
     条件筛选
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = SystemSetting.add_key(SystemSetting.task, SystemSetting.select)
+
+        cls.tabs_jude = ScreeningJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.tabs_jude.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        tabs_jude.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        tabs_jude.openingProgram()
-        tabs_jude._rou_background()
+        self.tabs_jude.openingProgram()
+        self.tabs_jude._rou_background()
         pass
 
     def tearDown(self):
-        tabs_jude.driver.quit()
-        tabs_jude.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.tabs_jude.driver.quit()
+        self.tabs_jude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_taskSelect(self):
-        tabs_jude.setFunctionName(inspect.stack()[0][3])
-        tabs_jude.value_options_jude(selectPath=tabs_jude.overall[tabs_jude.bi.whole_keys()])
+        self.tabs_jude.setFunctionName(inspect.stack()[0][3])
+        self.tabs_jude.value_options_jude(selectPath=self.tabs_jude.overall[self.tabs_jude.bi.whole_keys()])
         pass
 
     def test_taskDefault(self):
-        tabs_jude.setFunctionName(inspect.stack()[0][3])
-        tabs_jude.value_options_default(selectPath=tabs_jude.overall[tabs_jude.bi.whole_keys()])
+        self.tabs_jude.setFunctionName(inspect.stack()[0][3])
+        self.tabs_jude.value_options_default(selectPath=self.tabs_jude.overall[self.tabs_jude.bi.whole_keys()])
         pass
 
     @unittest.skip("test_taskTraverse按钮对象不存在先不处理")
     def test_taskTraverse(self):
-        tabs_jude.setFunctionName(inspect.stack()[0][3])
-        tabs_jude.value_option_traverse(formSub=tabs_jude.bi.yaml_formSub(),
-                                        selectPath=tabs_jude.overall[tabs_jude.bi.whole_keys()])
+        self.tabs_jude.setFunctionName(inspect.stack()[0][3])
+        self.tabs_jude.value_option_traverse(formSub=self.tabs_jude.bi.yaml_formSub(),
+                                        selectPath=self.tabs_jude.overall[self.tabs_jude.bi.whole_keys()])
         pass
 
     def test_otherInput(self):
-        tabs_jude.setFunctionName(inspect.stack()[0][3])
-        tabs_jude.attribute_value()
+        self.tabs_jude.setFunctionName(inspect.stack()[0][3])
+        self.tabs_jude.attribute_value()
         pass
 
     @unittest.skip("test_button_search按钮对象不存在先不处理")
     def test_button_search(self):
-        tabs_jude.setFunctionName(inspect.stack()[0][3])
-        tabs_jude.searchExport(formSub=tabs_jude.bi.yaml_formSub())
+        self.tabs_jude.setFunctionName(inspect.stack()[0][3])
+        self.tabs_jude.searchExport(formSub=self.tabs_jude.bi.yaml_formSub())
         pass
 
 

@@ -37,14 +37,6 @@ from CenterBackground import SystemSetting
 from CenterBackground.commoditiesJude import CommoditiesJude
 from tools.excelname.Center.systemparameter import SystemParameter
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = SystemSetting.add_key(SystemSetting.notice, SystemSetting.tabs)
-n_tap = CommoditiesJude(config, basename, SystemParameter)
-
 
 class TestNoticeTabs(unittest.TestCase):
     """
@@ -53,16 +45,25 @@ class TestNoticeTabs(unittest.TestCase):
     # 定义头部button中，后面N位不需要
     BUTTON_REDUCE_NUMBER = 0
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = SystemSetting.add_key(SystemSetting.notice, SystemSetting.tabs)
+        cls.n_tap = CommoditiesJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.n_tap.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        n_tap.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        n_tap.openingProgram()
-        n_tap._rou_background()
+        self.n_tap.openingProgram()
+        self.n_tap._rou_background()
         pass
 
     def tearDown(self):
-        n_tap.driver.quit()
-        n_tap.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.n_tap.driver.quit()
+        self.n_tap.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_active_tab(self):
@@ -70,8 +71,8 @@ class TestNoticeTabs(unittest.TestCase):
         寻找默认值
         :return:
         """
-        n_tap.setFunctionName(inspect.stack()[0][3])
-        n_tap.active_city('class')
+        self.n_tap.setFunctionName(inspect.stack()[0][3])
+        self.n_tap.active_city('class')
         pass
 
     def test_already_tabs(self):
@@ -79,8 +80,8 @@ class TestNoticeTabs(unittest.TestCase):
         比较tabs中的全部信息
         :return:
         """
-        n_tap.setFunctionName(inspect.stack()[0][3])
-        n_tap.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.n_tap.setFunctionName(inspect.stack()[0][3])
+        self.n_tap.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_tab(self):
@@ -88,8 +89,8 @@ class TestNoticeTabs(unittest.TestCase):
         遍历点击tab
         :return:
         """
-        n_tap.setFunctionName(inspect.stack()[0][3])
-        n_tap.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.n_tap.setFunctionName(inspect.stack()[0][3])
+        self.n_tap.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
@@ -97,8 +98,8 @@ class TestNoticeTabs(unittest.TestCase):
         通过tabs的url进行切换
         :return:
         """
-        n_tap.setFunctionName(inspect.stack()[0][3])
-        n_tap.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
+        self.n_tap.setFunctionName(inspect.stack()[0][3])
+        self.n_tap.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
 

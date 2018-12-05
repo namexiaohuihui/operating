@@ -37,14 +37,6 @@ from CenterBackground import Website
 from CenterBackground.commoditiesJude import CommoditiesJude
 from tools.excelname.Center.officialwebsite import OfficialWebsite
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = Website.add_key(Website.parameter, Website.tabs)
-p_tab = CommoditiesJude(config, basename, OfficialWebsite)
-
 
 class TestParameterTabs(unittest.TestCase):
     """
@@ -53,16 +45,25 @@ class TestParameterTabs(unittest.TestCase):
     # 定义头部button中，后面N位不需要
     BUTTON_REDUCE_NUMBER = 0
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = Website.add_key(Website.parameter, Website.tabs)
+        cls.p_tab = CommoditiesJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.p_tab.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        p_tab.openingProgram()
-        p_tab._rou_background()
-        p_tab.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        self.p_tab.openingProgram()
+        self.p_tab._rou_background()
         pass
 
     def tearDown(self):
-        p_tab.driver.quit()
-        p_tab.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.p_tab.driver.quit()
+        self.p_tab.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_active_tab(self):
@@ -70,8 +71,8 @@ class TestParameterTabs(unittest.TestCase):
         寻找默认值
         :return:
         """
-        p_tab.setFunctionName(inspect.stack()[0][3])
-        p_tab.active_city('class')
+        self.p_tab.setFunctionName(inspect.stack()[0][3])
+        self.p_tab.active_city('class')
         pass
 
     def test_already_tabs(self):
@@ -79,8 +80,8 @@ class TestParameterTabs(unittest.TestCase):
         比较tabs中的全部信息
         :return:
         """
-        p_tab.setFunctionName(inspect.stack()[0][3])
-        p_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.p_tab.setFunctionName(inspect.stack()[0][3])
+        self.p_tab.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_tab(self):
@@ -88,8 +89,8 @@ class TestParameterTabs(unittest.TestCase):
         遍历点击tab
         :return:
         """
-        p_tab.setFunctionName(inspect.stack()[0][3])
-        p_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.p_tab.setFunctionName(inspect.stack()[0][3])
+        self.p_tab.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
@@ -97,8 +98,8 @@ class TestParameterTabs(unittest.TestCase):
         通过tabs的url进行切换
         :return:
         """
-        p_tab.setFunctionName(inspect.stack()[0][3])
-        p_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
+        self.p_tab.setFunctionName(inspect.stack()[0][3])
+        self.p_tab.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
 

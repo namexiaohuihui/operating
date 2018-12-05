@@ -37,6 +37,7 @@ from CenterBackground import SystemSetting
 from tools.excelname.Center.systemparameter import SystemParameter
 from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
+
 class TestAddCategory(unittest.TestCase):
     """
     点击某个按钮,获取弹窗的标题

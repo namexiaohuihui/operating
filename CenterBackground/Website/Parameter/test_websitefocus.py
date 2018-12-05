@@ -36,12 +36,6 @@ import unittest
 from CenterBackground import Website
 from tools.excelname.Center.officialwebsite import OfficialWebsite
 from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-# 传入子集的key，以及Excel文档中的sheet名字
-config = Website.add_key(Website.parameter, Website.add)
-f_operate = InviteOperateJude(config, basename, OfficialWebsite)
 
 
 class TestOperateDelect(unittest.TestCase):
@@ -49,30 +43,39 @@ class TestOperateDelect(unittest.TestCase):
     点击某个按钮,获取弹窗的标题
     """
     INVITE_DESIGNATED_BOX = "友情链接"
-    INVITE_DESIGNATED_TABS = f_operate.bi.yaml_tabs()
+
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = Website.add_key(Website.parameter, Website.add)
+        cls.f_operate = InviteOperateJude(config, cls.basename, InteractionController)
+        cls.INVITE_DESIGNATED_TABS = cls.f_operate.bi.yaml_tabs()
 
     def setUp(self):
+        # 获取运行文件的类名
+        self.f_operate.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        f_operate.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        f_operate.openingProgram()
-        f_operate._rou_background()
+        self.f_operate.openingProgram()
+        self.f_operate._rou_background()
         pass
 
     def tearDown(self):
-        f_operate.driver.quit()
-        f_operate.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.f_operate.driver.quit()
+        self.f_operate.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_focus_home(self):
-        f_operate.setFunctionName(inspect.stack()[0][3])
+        self.f_operate.setFunctionName(inspect.stack()[0][3])
         ov_para = os.path.split(os.path.dirname(__file__))[0]
-        f_operate.conditions_screening(ov_para)
+        self.f_operate.conditions_screening(ov_para)
         pass
 
     def test_focus_friendship(self):
-        f_operate.setFunctionName(inspect.stack()[0][3])
+        self.f_operate.setFunctionName(inspect.stack()[0][3])
         ov_para = os.path.split(os.path.dirname(__file__))[0]
-        f_operate.conditions_screening(ov_para)
+        self.f_operate.conditions_screening(ov_para)
         pass
 
 

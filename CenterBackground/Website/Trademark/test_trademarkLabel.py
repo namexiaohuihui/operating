@@ -37,30 +37,31 @@ from CenterBackground import Website
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.officialwebsite import OfficialWebsite
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = Website.add_key(Website.trademark, Website.page)
-t_page = SurfaceJude(config, basename, OfficialWebsite)
-
 
 class TestTrademarkLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = Website.add_key(Website.trademark, Website.page)
+        cls.t_page = SurfaceJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.t_page.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        t_page.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        t_page.openingProgram()
-        t_page._rou_background()
+        self.t_page.openingProgram()
+        self.t_page._rou_background()
         pass
 
     def tearDown(self):
-        t_page.driver.quit()
-        t_page.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.t_page.driver.quit()
+        self.t_page.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showSurface(self):
@@ -68,8 +69,8 @@ class TestTrademarkLabel(unittest.TestCase):
         页面内容
         :return:test_addtrademark
         """
-        t_page.setFunctionName(inspect.stack()[0][3])
-        t_page.surface_execute()
+        self.t_page.setFunctionName(inspect.stack()[0][3])
+        self.t_page.surface_execute()
         pass
 
 

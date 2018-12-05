@@ -37,11 +37,6 @@ from CenterBackground import MovementUser
 from CenterBackground.MovementUser.Sweating.setSweating import ReleaseSweating
 from tools.excelname.Center.consumers import Consumers
 
-basename = os.path.splitext(os.path.basename(__file__))[0]
-# 传入子集的key，以及Excel文档中的sheet名字
-(config, basename, Consumers) # 重写了点击按钮
-
-
 class TestReleaseSweating(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

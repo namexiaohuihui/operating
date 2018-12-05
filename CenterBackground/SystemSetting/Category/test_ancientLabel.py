@@ -37,38 +37,40 @@ from CenterBackground import SystemSetting
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.systemparameter import SystemParameter
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-config = SystemSetting.add_key(SystemSetting.category, SystemSetting.page)
-
-c_label = SurfaceJude(config, basename, SystemParameter)
-
 
 class TestCategoryLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
 
+    @classmethod
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        cls.basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + cls.basename
+        config = SystemSetting.add_key(SystemSetting.category, SystemSetting.page)
+
+        cls.c_label = SurfaceJude(config, cls.basename, InteractionController)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.c_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        c_label.log.info("%s ---setup: 每个用例开始前后执行" % basename)
-        c_label.openingProgram()
-        c_label._rou_background()
+        self.c_label.openingProgram()
+        self.c_label._rou_background()
         pass
 
     def tearDown(self):
-        c_label.driver.quit()
-        c_label.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.c_label.driver.quit()
+        self.c_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showSurface(self):
-        c_label.setFunctionName(inspect.stack()[0][3])
-        datatatle = c_label.financial[c_label.bi.yaml_datatatle()]
-        datatatle = c_label._visible_returns_selectop(datatatle)
+        self.c_label.setFunctionName(inspect.stack()[0][3])
+        datatatle = self.c_label.financial[self.c_label.bi.yaml_datatatle()]
+        datatatle = self.c_label._visible_returns_selectop(datatatle)
         datatatle = [i.text for i in datatatle]
-        c_label.log.info(datatatle)
+        self.c_label.log.info(datatatle)
         pass
 
 
