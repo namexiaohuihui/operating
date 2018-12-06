@@ -49,7 +49,7 @@ class TestAncientLabel(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = SystemSetting.add_key(SystemSetting.ancient, SystemSetting.page)
-        cls.a_label = SurfaceJude(config, cls.basename, InteractionController)
+        cls.a_label = SurfaceJude(config, cls.basename, SystemParameter)
 
     def setUp(self):
         # 获取运行文件的类名
@@ -64,6 +64,7 @@ class TestAncientLabel(unittest.TestCase):
         self.a_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
+    @unittest.skip("页面处于待定中,后续开放才进行跟进..")
     def test_showTitle(self):
         self.a_label.setFunctionName(inspect.stack()[0][3])
         self.a_label.title_execute()

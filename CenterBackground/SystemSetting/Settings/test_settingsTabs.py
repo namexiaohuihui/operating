@@ -51,7 +51,7 @@ class TestSettingsTabs(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = SystemSetting.add_key(SystemSetting.settings, SystemSetting.tabs)
-        cls.system_p = CommoditiesJude(config, cls.basename, InteractionController)
+        cls.system_p = CommoditiesJude(config, cls.basename, SystemParameter)
 
     def setUp(self):
         # 获取运行文件的类名

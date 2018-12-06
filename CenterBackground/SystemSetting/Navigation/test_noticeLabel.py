@@ -50,7 +50,7 @@ class TestNavigationLabel(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
         config = SystemSetting.add_key(SystemSetting.navigation, SystemSetting.tabs)
 
-        cls.n_label = SurfaceJude(config, cls.basename, InteractionController)
+        cls.n_label = SurfaceJude(config, cls.basename, SystemParameter)
 
     def setUp(self):
         # 获取运行文件的类名

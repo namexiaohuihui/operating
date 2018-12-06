@@ -46,7 +46,7 @@ class TestConsultScreen(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = McroLetter.add_key(McroLetter.consult, McroLetter.select)
-        cls.c_screen = ScreeningJude(config, cls.basename, InteractionController)
+        cls.c_screen = ScreeningJude(config, cls.basename, McroLetterWechat)
 
     def setUp(self):
         # 获取运行文件的类名

@@ -49,7 +49,7 @@ class TestAddAncient(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = SystemSetting.add_key(SystemSetting.ancient, SystemSetting.release)
-        cls.n_operate = InviteOperateJude(config, cls.basename, InteractionController)
+        cls.n_operate = InviteOperateJude(config, cls.basename, SystemParameter)
 
     def setUp(self):
         # 获取运行文件的类名

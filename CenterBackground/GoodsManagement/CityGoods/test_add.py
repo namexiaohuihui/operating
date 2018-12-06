@@ -39,6 +39,7 @@ from CenterBackground.GoodsManagement.CityGoods.shelvesJude import ShelvesJude
 
 
 class TestShelvesGood(unittest.TestCase):
+
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]

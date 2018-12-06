@@ -116,10 +116,16 @@ class SurfaceJude(JudgmentVerification):
         pass
 
     def success_execute(self):
-        soup = self.bs4_soup()
-        thead_th = soup.find('thead').find('tr').find_all('th')
-        text_center = [str.strip(th.text) for th in thead_th]
-        return text_center
+        try:
+            soup = self.bs4_soup()
+            thead_th = soup.find('thead').find('tr').find_all('th')
+            text_center = [str.strip(th.text) for th in thead_th]
+            return text_center
+        except AttributeError:
+            self.log.error("success_execute--页面没有数据信息出现错误:AttributeError: 'find'")
+            assert False
+        except Exception as e:
+            self.log.error("出现未知的错误 %s" % e)
 
     def success_tbody(self, url, thead_tr):
         try:

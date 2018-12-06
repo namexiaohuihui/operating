@@ -50,7 +50,7 @@ class TestJurisdictionLabel(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
         config = Permissions.add_key(Permissions.jurisdiction, Permissions.page)
 
-        cls.p_mana = SurfaceJude(config, cls.basename, InteractionController)
+        cls.p_mana = SurfaceJude(config, cls.basename, RightOfManagement)
 
     def setUp(self):
         # 获取运行文件的类名

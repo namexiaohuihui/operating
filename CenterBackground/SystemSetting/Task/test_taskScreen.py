@@ -47,7 +47,7 @@ class TestTabsScreen(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
         config = SystemSetting.add_key(SystemSetting.task, SystemSetting.select)
 
-        cls.tabs_jude = ScreeningJude(config, cls.basename, InteractionController)
+        cls.tabs_jude = ScreeningJude(config, cls.basename, SystemParameter)
 
     def setUp(self):
         # 获取运行文件的类名

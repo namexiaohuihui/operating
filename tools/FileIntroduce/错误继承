@@ -78,3 +78,10 @@ http.client.CannotSendRequest: Request-sent
 TypeError: 'NoneType' object is not iterable
 原因:读取yaml内容时,yaml文档没有数据.
 方法:在yaml里面随意写入一些数据信息
+
+
+KeyError: <module 'project_path' from 'E:\\project_path\\__init__.py'>
+报错的地方: HTMLTestRunner执行多任务的ceses时,出现这类问题。单个cese执行的时候并没有报错
+原因: 怀疑是命名的问题
+方法: 对case的包名进行修改
+结果: 解决问题

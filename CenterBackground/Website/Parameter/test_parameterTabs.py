@@ -51,7 +51,7 @@ class TestParameterTabs(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = Website.add_key(Website.parameter, Website.tabs)
-        cls.p_tab = CommoditiesJude(config, cls.basename, InteractionController)
+        cls.p_tab = CommoditiesJude(config, cls.basename, OfficialWebsite)
 
     def setUp(self):
         # 获取运行文件的类名

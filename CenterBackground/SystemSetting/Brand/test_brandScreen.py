@@ -47,7 +47,7 @@ class TestBrandScreen(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
         config = SystemSetting.add_key(SystemSetting.brand, SystemSetting.select)
 
-        cls.brand_V = ScreeningJude(config, cls.basename, InteractionController)
+        cls.brand_V = ScreeningJude(config, cls.basename, SystemParameter)
 
     def setUp(self):
         # 获取运行文件的类名

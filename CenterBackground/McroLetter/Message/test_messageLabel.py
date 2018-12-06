@@ -49,7 +49,7 @@ class TestMessageLabel(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = McroLetter.add_key(McroLetter.message, McroLetter.page)
-        cls.msg_label = SurfaceJude(config, cls.basename, InteractionController)
+        cls.msg_label = SurfaceJude(config, cls.basename, McroLetterWechat)
 
     def setUp(self):
         # 获取运行文件的类名

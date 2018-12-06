@@ -51,7 +51,7 @@ class TestInviteLabel(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = McroLetter.add_key(McroLetter.worktime, McroLetter.page)
-        cls.wt_label = SurfaceJude(config, cls.basename, InteractionController)
+        cls.wt_label = SurfaceJude(config, cls.basename, McroLetterWechat)
         cls.INVITE_DESIGNATED_TABS = cls.wt_label.bi.yaml_tabs()
 
     def setUp(self):

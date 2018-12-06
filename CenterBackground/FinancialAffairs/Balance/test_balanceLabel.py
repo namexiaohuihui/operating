@@ -73,7 +73,7 @@ class TestBalanceLabel(unittest.TestCase):
 
     def test_balanceSurface(self):
         self.bala_sur.setFunctionName(inspect.stack()[0][3])
-        self.bala_sur.bala_sur_execute()
+        self.bala_sur.surface_execute()
         pass
 
 

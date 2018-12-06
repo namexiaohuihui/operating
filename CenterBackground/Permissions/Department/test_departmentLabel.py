@@ -50,7 +50,7 @@ class TestDepartmentLabel(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
         config = Permissions.add_key(Permissions.department, Permissions.page)
 
-        cls.d_mana = SurfaceJude(config, cls.basename, InteractionController)
+        cls.d_mana = SurfaceJude(config, cls.basename, RightOfManagement)
 
     def setUp(self):
         # 获取运行文件的类名

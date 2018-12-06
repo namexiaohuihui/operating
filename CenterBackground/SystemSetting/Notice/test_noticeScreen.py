@@ -47,7 +47,7 @@ class TestNoticeScreen(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
         config = SystemSetting.add_key(SystemSetting.notice, SystemSetting.select)
 
-        cls.n_Verity = ScreeningJude(config, cls.basename, InteractionController)
+        cls.n_Verity = ScreeningJude(config, cls.basename, SystemParameter)
 
     def setUp(self):
         # 获取运行文件的类名

@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_tabslabel.py
+@file:      test_messageLabel.py
 @time:      2018/9/19 16:43
 @desc:
 """
@@ -38,7 +38,7 @@ from CenterBackground.mutuallyJude import MutuallyJude
 from tools.excelname.Center.systemparameter import SystemParameter
 
 
-class TestTabsLabel(unittest.TestCase):
+class TestMessageLabel(unittest.TestCase):
     """
     页面展示项的标题
     """
@@ -48,9 +48,9 @@ class TestTabsLabel(unittest.TestCase):
         basepath = os.path.split(os.path.dirname(__file__))[1]
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
-        config = SystemSetting.add_key(SystemSetting.SMSquery, SystemSetting.page)
+        config = SystemSetting.add_key(SystemSetting.intosms, SystemSetting.page)
 
-        cls.sms_mutually = MutuallyJude(config, cls.basename, InteractionController)
+        cls.sms_mutually = MutuallyJude(config, cls.basename, SystemParameter)
 
     def setUp(self):
         # 获取运行文件的类名

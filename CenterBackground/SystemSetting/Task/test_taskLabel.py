@@ -50,7 +50,7 @@ class TestTabsLabel(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
         config = SystemSetting.add_key(SystemSetting.task, SystemSetting.page)
 
-        cls.t_label = MutuallyJude(config, cls.basename, InteractionController)
+        cls.t_label = MutuallyJude(config, cls.basename, SystemParameter)
 
     def setUp(self):
         # 获取运行文件的类名

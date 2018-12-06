@@ -124,7 +124,7 @@ def run_main(file_name):
 
     # 获取最新的测试报告
     report_file = get_report_file(report_path)
-    print("{0}最新报告路径为".format(report_file))
+    print("最新报告路径为{0}".format(report_file))
 
 
 def threading_run_all():
@@ -164,18 +164,21 @@ def threading_run_all():
 
     # 获取最新的测试报告
     report_file = get_report_file(report_path)
-    print("{0}最新报告路径为".format(report_file))
+    print("最新报告路径为:{0}".format(report_file))
 
 
 if __name__ == '__main__':
     file_name = r'CenterBackground'
     all_dir = list_dir(file_name)
     print(all_dir)
-    dir = os.path.join(file_name, all_dir[1])
+    # 指定要运行的对象
+    dir = os.path.join(file_name, all_dir[8])
+    print("需要运行的文件: %s" % dir)
     run_main(dir)
     # for dir in all_dir:
     #     if "__pycache__" in dir:
     #         continue
     #     else:
     #         dir = os.path.join(file_name, dir)
+    #         print("需要运行的文件: %s" % dir)
     #         run_main(dir)

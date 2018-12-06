@@ -51,7 +51,7 @@ class TestBalanceTabs(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = McroLetter.add_key(McroLetter.worktime, McroLetter.tabs)
-        cls.wt_tab = CommoditiesJude(config, cls.basename, InteractionController)
+        cls.wt_tab = CommoditiesJude(config, cls.basename, McroLetterWechat)
 
     def setUp(self):
         # 获取运行文件的类名

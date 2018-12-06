@@ -49,7 +49,7 @@ class TestAddDepartment(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = Permissions.add_key(Permissions.department, Permissions.add)
-        cls.d_operate = InviteOperateJude(config, cls.basename, InteractionController)
+        cls.d_operate = InviteOperateJude(config, cls.basename, RightOfManagement)
 
     def setUp(self):
         # 获取运行文件的类名

@@ -66,8 +66,8 @@ class TestCityTab(unittest.TestCase):
         读取全部的城市
         :return:
         '''
-        city_tab.setFunctionName(inspect.stack()[0][3])
-        city_tab.get_already_citys()
+        self.city_tab.setFunctionName(inspect.stack()[0][3])
+        self.city_tab.get_already_citys()
         pass
 
     def test_already_codes(self):

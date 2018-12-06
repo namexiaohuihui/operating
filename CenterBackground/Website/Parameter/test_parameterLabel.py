@@ -50,7 +50,7 @@ class TestParameterLabel(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = Website.add_key(Website.parameter, Website.page)
-        cls.p_page = SurfaceJude(config, cls.basename, InteractionController)
+        cls.p_page = SurfaceJude(config, cls.basename, OfficialWebsite)
         cls.INVITE_DESIGNATED_TABS = cls.p_page.bi.yaml_tabs()
 
     def setUp(self):

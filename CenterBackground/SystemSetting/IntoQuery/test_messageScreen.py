@@ -23,7 +23,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_SMSScreen.py
+@file:      test_messageScreen.py
 @time:      2018/9/25 16:43
 @desc:
 """
@@ -34,25 +34,19 @@ from CenterBackground import SystemSetting
 from CenterBackground.screeningjude import ScreeningJude
 from tools.excelname.Center.systemparameter import SystemParameter
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
 
-# 传入子集的key，以及Excel文档中的sheet名字
-(config, basename, SystemParameter)
-
-
-class TestSMSScreen(unittest.TestCase):
+class TestMessageScreen(unittest.TestCase):
     """
     条件筛选
     """
+
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
-        config = SystemSetting.add_key(SystemSetting.SMSquery, SystemSetting.select)
-        cls.sms_srceen = ScreeningJude(config, cls.basename, InteractionController)
+        config = SystemSetting.add_key(SystemSetting.intosms, SystemSetting.select)
+        cls.sms_srceen = ScreeningJude(config, cls.basename, SystemParameter)
 
     def setUp(self):
         # 获取运行文件的类名

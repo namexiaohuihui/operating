@@ -50,7 +50,7 @@ class TestOperateDelect(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = Website.add_key(Website.parameter, Website.add)
-        cls.f_operate = InviteOperateJude(config, cls.basename, InteractionController)
+        cls.f_operate = InviteOperateJude(config, cls.basename, OfficialWebsite)
         cls.INVITE_DESIGNATED_TABS = cls.f_operate.bi.yaml_tabs()
 
     def setUp(self):

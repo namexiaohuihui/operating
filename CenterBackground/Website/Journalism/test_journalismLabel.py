@@ -49,7 +49,7 @@ class TestJournalismLabel(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = Website.add_key(Website.journalism, Website.page)
-        cls.p_page = SurfaceJude(config, cls.basename, InteractionController)
+        cls.p_page = SurfaceJude(config, cls.basename, OfficialWebsite)
 
     def setUp(self):
         # 获取运行文件的类名

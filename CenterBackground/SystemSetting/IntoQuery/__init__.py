@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      __init__.py.py
+@file:      __init__.py
 @time:      2018/11/27 16:51
 @desc:
 """

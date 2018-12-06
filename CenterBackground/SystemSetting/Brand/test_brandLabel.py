@@ -50,7 +50,7 @@ class TestBrandLabel(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = SystemSetting.add_key(SystemSetting.brand, SystemSetting.page)
-        cls.n_label = SurfaceJude(config, cls.basename, InteractionController)
+        cls.n_label = SurfaceJude(config, cls.basename, SystemParameter)
         cls.INVITE_DESIGNATED_TABS = cls.n_label.bi.yaml_tabs()
 
     def setUp(self):

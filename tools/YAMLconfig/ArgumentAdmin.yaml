@@ -386,8 +386,8 @@ system:
     child: 7
     select: 筛选
     page: 页面
-  SMSquery:
-    module: SMSquery
+  intosms:
+    module: intosms
     child: 8
     select: 筛选
     page: 页面
