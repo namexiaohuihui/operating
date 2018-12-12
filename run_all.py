@@ -170,15 +170,14 @@ def threading_run_all():
 if __name__ == '__main__':
     file_name = r'CenterBackground'
     all_dir = list_dir(file_name)
-    print(all_dir)
     # 指定要运行的对象
     # dir = os.path.join(file_name, all_dir[0])
     # print("需要运行的文件: %s" % dir)
     # run_main(dir)
-    for dir in all_dir:
-        if "__pycache__" in dir:
+    for dir in range(3, len(all_dir)):
+        if "__pycache__" in all_dir[dir]:
             continue
         else:
-            dir = os.path.join(file_name, dir)
-            print("需要运行的文件: {}".format(dir))
+            dir = os.path.join(file_name, all_dir[dir])
+            print("需要运行的文件: %s" % dir)
             run_main(dir)

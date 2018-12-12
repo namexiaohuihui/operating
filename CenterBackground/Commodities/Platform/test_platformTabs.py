@@ -34,7 +34,7 @@ import os
 import inspect
 import unittest
 from CenterBackground import Commodities
-from CenterBackground.commoditiecJude import CommoditiecJude
+from CenterBackground.commoditiesJude import CommoditiesJude
 from tools.excelname.Center.bundledItems import BundledItems
 
 class TestPlatformTabs(unittest.TestCase):

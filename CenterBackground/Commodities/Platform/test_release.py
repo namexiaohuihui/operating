@@ -37,8 +37,6 @@ from CenterBackground import Commodities
 from CenterBackground.Commodities.Platform.releasewater import ReleaseWatiki
 from tools.excelname.Center.bundledItems import BundledItems
 
-BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-(config, BASENAME, BundledItems)
 
 
 class TestReleaseWater(unittest.TestCase):
