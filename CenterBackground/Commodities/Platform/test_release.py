@@ -38,52 +38,57 @@ from CenterBackground.Commodities.Platform.releasewater import ReleaseWatiki
 from tools.excelname.Center.bundledItems import BundledItems
 
 BASENAME = os.path.splitext(os.path.basename(__file__))[0]
-config = Commodities.add_key(Commodities.platform, Commodities.release)
-rWatiki = ReleaseWatiki(config, BASENAME, BundledItems)
+(config, BASENAME, BundledItems)
 
 
 class TestReleaseWater(unittest.TestCase):
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + basename
+        config = Commodities.add_key(Commodities.platform, Commodities.release)
+        cls.rWatiki = ReleaseWatiki(config, cls.basename, BundledItems)
+
     def setUp(self):
         # 获取运行文件的类名
-        self.basename = os.path.splitext(os.path.basename(__file__))[0]
-        rWatiki.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.rWatiki.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        rWatiki.openingProgram()
-        rWatiki._rou_background()
+        self.rWatiki.openingProgram()
+        self.rWatiki._rou_background()
 
     def tearDown(self):
-        rWatiki.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
-        rWatiki.driver.quit()
+        self.rWatiki.driver.quit()
+        self.rWatiki.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_popupclosed(self):
-        rWatiki.setFunctionName(inspect.stack()[0][3])
-        rWatiki.close_popup()
+        self.rWatiki.setFunctionName(inspect.stack()[0][3])
+        self.rWatiki.close_popup()
         pass
 
     def test_buttoncancel(self):
-        rWatiki.setFunctionName(inspect.stack()[0][3])
-        rWatiki.close_popup()
+        self.rWatiki.setFunctionName(inspect.stack()[0][3])
+        self.rWatiki.close_popup()
         pass
 
     def test_optionsave(self):
-        rWatiki.setFunctionName(inspect.stack()[0][3])
-        rWatiki.show_sweetAlert()
+        self.rWatiki.setFunctionName(inspect.stack()[0][3])
+        self.rWatiki.show_sweetAlert()
         pass
 
     def test_optioncancel(self):
-        rWatiki.setFunctionName(inspect.stack()[0][3])
-        rWatiki.click_information()
+        self.rWatiki.setFunctionName(inspect.stack()[0][3])
+        self.rWatiki.click_information()
         pass
 
     def test_optionpackages(self):
-        rWatiki.setFunctionName(inspect.stack()[0][3])
-        rWatiki.ticket_choose()
+        self.rWatiki.setFunctionName(inspect.stack()[0][3])
+        self.rWatiki.ticket_choose()
         pass
 
     def test_releaseSuccess(self):
-        rWatiki.setFunctionName(inspect.stack()[0][3])
-        rWatiki.releaseSuccess()
+        self.rWatiki.setFunctionName(inspect.stack()[0][3])
+        self.rWatiki.releaseSuccess()
         pass
 
 

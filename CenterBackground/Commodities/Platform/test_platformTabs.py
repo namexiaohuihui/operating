@@ -34,58 +34,60 @@ import os
 import inspect
 import unittest
 from CenterBackground import Commodities
-from CenterBackground.commoditiesJude import CommoditiesJude
+from CenterBackground.commoditiecJude import CommoditiecJude
 from tools.excelname.Center.bundledItems import BundledItems
-
-basename = os.path.splitext(os.path.basename(__file__))[0]
-# 传入子集的key，以及Excel文档中的sheet名字
-config = Commodities.add_key(Commodities.platform, Commodities.city)
-cJude = CommoditiesJude(config, basename, BundledItems)
-
 
 class TestPlatformTabs(unittest.TestCase):
     # 定义头部button中，后面2位不需要
     BUTTON_REDUCE_NUMBER = 2
 
+    def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + basename
+        config = Commodities.add_key(Commodities.platform, Commodities.city)
+        cls.cJude = CommoditiecJude(config, cls.basename, BundledItems)
+
     def setUp(self):
+        # 获取运行文件的类名
+        self.cJude.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        cJude.openingProgram()
-        cJude._rou_background()
-        print("%s ---setup: 每个用例开始前后执行" % basename)
+        self.cJude.openingProgram()
+        self.cJude._rou_background()
 
     def tearDown(self):
-        cJude.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % basename)
+        self.cJude.driver.quit()
+        self.cJude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_active_city(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.active_city('class')
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.active_city('class')
         pass
 
     def test_active_code(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.active_code('class')
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.active_code('class')
         pass
 
     def test_already_citys(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_already_codes(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.already_codes(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.already_codes(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_city(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_switch_url(self):
-        cJude.setFunctionName(inspect.stack()[0][3])
-        cJude.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
+        self.cJude.setFunctionName(inspect.stack()[0][3])
+        self.cJude.switch_url('class', reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
 
