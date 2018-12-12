@@ -32,7 +32,9 @@
 """
 import os
 import inspect
+
 import unittest
+
 from CenterBackground import GeneralizeAssist
 from CenterBackground.commoditiesJude import CommoditiesJude
 from tools.excelname.Center.generalize import Generalize
@@ -71,7 +73,7 @@ class TestFeedbackTabs(unittest.TestCase):
         寻找默认值
         :return:
         """
-        f_tab.setFunctionName(inspect.stack()[0][3])
+        self.f_tab.setFunctionName(inspect.stack()[0][3])
         self.f_tab.active_city('class')
         pass
 

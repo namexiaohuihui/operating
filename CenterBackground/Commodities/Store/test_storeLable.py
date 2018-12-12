@@ -45,7 +45,7 @@ class TestStoreLable(unittest.TestCase):
         basepath = os.path.split(os.path.dirname(__file__))[1]
         basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + basename
-        config = Commodities.add_key(Commodities.platform, Commodities.page)
+        config = Commodities.add_key(Commodities.store, Commodities.page)
         cls.surface = StoreSurface(config, cls.basename, BundledItems)
 
     def setUp(self):

@@ -32,7 +32,9 @@
 """
 import os
 import inspect
+
 import unittest
+
 from CenterBackground import GeneralizeAssist
 from CenterBackground.GeneralizeAssist.Background.photograph import PhotoGraph
 from tools.excelname.Center.generalize import Generalize
@@ -79,11 +81,10 @@ class TestFocusTabs(unittest.TestCase):
         :return:
         """
         self.alert_click(inspect.stack()[0][3])
-        img_self.photo = self.photo.financial[self.photo.bi.yaml_img()]
-        img_self.photo = self.photo.vac.is_visible_id(self.photo.driver, img_self.photo)
-        assert img_self.photo, "%s---没有找到图片" % (self.photo.FUNCTION_NAME)
-        img_self.photo = img_self.photo.get_attribute("src")
-        self.photo.log.info("图片src属性值为:%s" % img_self.photo)
+        photo = self.photo.financial[self.photo.bi.yaml_img()]
+        photo = self.photo.vac.is_visible_id(self.photo.driver, photo)
+        assert photo, "%s---没有找到图片" % (self.photo.FUNCTION_NAME)
+        # photo = photo.get_attribute("src")
         pass
 
     def test_survivalSave(self):
@@ -104,7 +105,6 @@ class TestFocusTabs(unittest.TestCase):
         :return:
         """
         dialog_box = self.photo.driver.switch_to_alert()
-        print(dialog_box.text)
         dialog_box.accept()
 
         self.photo.setFunctionName(fun_name)

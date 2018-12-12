@@ -89,6 +89,7 @@ class InviteOperateJude(JudgmentVerification):
         1. 根据tab/city进行相应的tabs/citys页面
         2. 点击指定的元素跳转到相应的数据页面
         3. 判断数据页面的标题是否正确
+        :param _para: cases用例中参数所在目录
         :return:
         """
         functionName = inspect.stack()[0][3]
@@ -125,7 +126,7 @@ class InviteOperateJude(JudgmentVerification):
             # 3.3 获取产品的title
             valueText = valueText["text"]
             # 3.4 执行断言比较
-            assert operator.eq(valueText, box_title), "%s--进入页面之后title比较错误:(%s-%s)" % (
+            assert operator.eq(valueText, box_title), "%s--进入页面title错误(原因为:有些为商品有些为水票):(%s-%s)" % (
                 functionName, box_title, valueText)
             self.log.info("%s--The title of the box title compares the machinist" % valueText)
             pass

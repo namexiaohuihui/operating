@@ -46,7 +46,7 @@ class TestPlatformSoldLable(unittest.TestCase):
         basepath = os.path.split(os.path.dirname(__file__))[1]
         basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + basename
-        config = Commodities.add_key(Commodities.platform, Commodities.page)
+        config = Commodities.add_key(Commodities.platformsold, Commodities.page)
         cls.sLable = SoldLable(config, cls.basename, BundledItems)
 
     def setUp(self):
@@ -61,10 +61,6 @@ class TestPlatformSoldLable(unittest.TestCase):
         self.sLable.driver.quit()
         print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
-
-    # @classmethod
-    # def tearDownClass(cls):
-    #     del cls.sLable
 
     def test_showTitle(self):
         self.sLable.setFunctionName(inspect.stack()[0][3])

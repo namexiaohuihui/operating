@@ -24,7 +24,7 @@ class action_visible(object):
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.TAG_NAME, locator)))
             return ele
         except Exception as e:
-            print("%s 元素没找到" % locator)
+            print("%s 元素没找到 ele_visible_tag_name" % locator)
             return False
 
     # ------------------------------等待某个元素可见，默认超时5秒-------------------
@@ -45,7 +45,7 @@ class action_visible(object):
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator)))
             return ele
         except Exception as e:
-            print('元素不存在出现超时的情况 %s' % locator)
+            print('is_visible_css_selectop 元素不存在出现超时的情况 %s' % locator)
             # self.error_log(driver, e)
             return False
 
@@ -63,7 +63,7 @@ class action_visible(object):
             return ele
         except Exception as e:
             # self.error_log(driver, e)
-            print("%s 元素找不到" % locator)
+            print("%s 元素找不到 is_visibles_css_selectop " % locator)
             return False
 
     def is_visible_id(self, driver, locator, timeout=3):
@@ -72,7 +72,7 @@ class action_visible(object):
             ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.ID, locator)))
             return ele
         except TimeoutException:
-            print("没有找到输入点 %s" % locator)
+            print(" is_visible_id 没有找到输入点 %s" % locator)
             return False
 
     def is_visible_name(self, driver, locator, timeout=5):

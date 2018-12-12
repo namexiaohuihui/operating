@@ -41,6 +41,7 @@ from tools.excelname.Center.gongsMana import CityGoodsPage
 
 
 class InventoryLabelJude(JudgmentVerification):
+
     def __init__(self, config, basename, centerName):
         '''
         :param config: 头文件所在位置

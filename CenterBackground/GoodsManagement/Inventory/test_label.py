@@ -32,7 +32,9 @@
 '''
 import os
 import inspect
+
 import unittest
+
 from CenterBackground import GoodsManagement
 from tools.excelname.Center.gongsMana import CityGoodsPage
 from CenterBackground.GoodsManagement.Inventory.inventoryLabelJude import InventoryLabelJude

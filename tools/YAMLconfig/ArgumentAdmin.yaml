@@ -125,7 +125,7 @@ goods:
     add: 添加
   evaluation:
     module: evaluation
-    child: 3
+    child: 6
     select: 筛选
     label: 页面
     tap: 标题

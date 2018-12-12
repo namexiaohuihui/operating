@@ -50,7 +50,7 @@ class TestDefaultInvire(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
 
         # 传入子集的key，以及Excel文档中的sheet名字
-        config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.add)
+        config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.default)
         cls.i_jude = InviteOperateJude(config, cls.basename, Generalize)
 
     def setUp(self):

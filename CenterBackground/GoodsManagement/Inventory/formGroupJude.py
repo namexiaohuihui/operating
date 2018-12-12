@@ -61,11 +61,12 @@ class FormGroupJude(JudgmentVerification):
 
     def create_select(self, direction: str) -> ScreeningDrop:
         '''
-        创建操作select的对象
-        :param direction:
+        创建操作select的对象,如果出现找达到select对象
+        可能系统认为传入值为id类型,需要修改成css类型
+        :param direction: 元素的路径值
         :return:
         '''
-        op_se = ScreeningDrop(self.driver, direction)
+        op_se = ScreeningDrop(self.driver, direction, attr='css')
         return op_se
 
     # 获取按钮对象

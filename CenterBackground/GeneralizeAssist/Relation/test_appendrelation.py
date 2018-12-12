@@ -32,7 +32,9 @@
 """
 import os
 import inspect
+
 import unittest
+
 from CenterBackground import GeneralizeAssist
 from tools.excelname.Center.generalize import Generalize
 from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
@@ -67,22 +69,26 @@ class TestAppendRelation(unittest.TestCase):
 
     def test_ongoingRelation(self):
         self.r_append.setFunctionName(inspect.stack()[0][3])
-        self.r_append.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.r_append.conditions_screening(ov_para)
         pass
 
     def test_ongoingOpenlist(self):
         self.r_append.setFunctionName(inspect.stack()[0][3])
-        self.r_append.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.r_append.conditions_screening(ov_para)
         pass
 
     def test_historyRelation(self):
         self.r_append.setFunctionName(inspect.stack()[0][3])
-        self.r_append.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.r_append.conditions_screening(ov_para)
         pass
 
     def test_historyOpenlist(self):
         self.r_append.setFunctionName(inspect.stack()[0][3])
-        self.r_append.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.r_append.conditions_screening(ov_para)
         pass
 
 

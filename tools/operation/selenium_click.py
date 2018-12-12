@@ -43,21 +43,21 @@ class action_click(action_visible):
 
     def id_click(self, browser, prompt):
         ele = self.is_visible_id(browser, prompt)
-        if ele is not False:  # 判断是否出现
+        if ele:  # 判断是否出现
             self.element_click(ele)
         else:
             self.error_log(browser)
 
     def name_click(self, browser, prompt):
         ele = self.is_visible_name(browser, prompt)
-        if ele is not False:  # 判断是否出现
+        if ele:  # 判断是否出现
             self.element_click(ele)
         else:
             self.error_log(browser)
 
     def xpath_click(self, browser, prompt):
         ele = self.is_visible_xpath(browser, prompt)
-        if ele is not False:  # 判断是否出现
+        if ele:  # 判断是否出现
             self.element_click(ele)
         else:
             self.error_log(browser)
@@ -65,7 +65,7 @@ class action_click(action_visible):
     def css_click(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
         # 判断是否出现
-        if ele is not False:
+        if ele:
             self.element_click(ele)
         return ele
 
@@ -75,7 +75,7 @@ class action_click(action_visible):
 
     def ele_confirm_prompt(self, browser, prompt):
         ele = self.is_visible_css_selectop(browser, prompt)
-        if ele is not False:  # 判断是否出现
+        if ele:  # 判断是否出现
             browser.execute_script("arguments[0].click();", ele)
         else:
             self.error_log(browser)
@@ -203,7 +203,7 @@ class action_click(action_visible):
         :return:
         """
         ele = self.is_visible_css_selectop(browser, prompt)
-        if ele is not False:  # 判断是否出现
+        if ele:  # 判断是否出现
             ele.click()
         else:
             self.error_log(browser)

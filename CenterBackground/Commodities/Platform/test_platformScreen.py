@@ -46,18 +46,18 @@ class TestPlatformScreen(unittest.TestCase):
         basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + basename
         config = Commodities.add_key(Commodities.platform, Commodities.select)
-        cls.sJude = ScreeningJude(config, basename, BundledItems)
+        cls.sJude = ScreeningJude(config, cls.basename, BundledItems)
 
     def setUp(self):
         # 获取运行文件的类名
-        self.sJude.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        self.sJude.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
         self.sJude.openingProgram()
         self.sJude._rou_background()
 
     def tearDown(self):
         self.sJude.driver.quit()
-        self.sJude.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.sJude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -95,16 +95,19 @@ class TestPlatformScreen(unittest.TestCase):
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－优惠－－－－－－－－－－－－－－－－－－－－－－－－－－
+    @unittest.skip("test_preferencesSelect筛选已经去除")
     def test_preferencesSelect(self):
         self.sJude.setFunctionName(inspect.stack()[0][3])
         self.sJude.value_options_jude(selectPath=self.sJude.overall[self.sJude.bi.whole_keys()])
         pass
 
+    @unittest.skip("test_preferencesDefault筛选已经去除")
     def test_preferencesDefault(self):
         self.sJude.setFunctionName(inspect.stack()[0][3])
         self.sJude.value_options_default(selectPath=self.sJude.overall[self.sJude.bi.whole_keys()])
         pass
 
+    @unittest.skip("test_preferencesTraverse筛选已经去除")
     def test_preferencesTraverse(self):
         self.sJude.setFunctionName(inspect.stack()[0][3])
         self.sJude.value_option_traverse(formSub=self.sJude.bi.yaml_formSub(),

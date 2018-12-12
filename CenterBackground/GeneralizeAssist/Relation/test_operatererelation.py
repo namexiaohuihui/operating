@@ -72,7 +72,8 @@ class TestOperateRelation(unittest.TestCase):
         :return:
         """
         self.m_operate.setFunctionName(inspect.stack()[0][3])
-        self.m_operate.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.m_operate.conditions_screening(ov_para)
         pass
 
     @unittest.skip("test_ongoingOrder-未注册没有点击按钮:需要通过数据进行检验,先跳过该用例")
@@ -82,7 +83,8 @@ class TestOperateRelation(unittest.TestCase):
         :return:
         """
         self.m_operate.setFunctionName(inspect.stack()[0][3])
-        self.m_operate.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.m_operate.conditions_screening(ov_para)
         pass
 
     @unittest.skip("test_ongoingWatiki-未注册没有点击按钮:需要通过数据进行检验,先跳过该用例")
@@ -92,7 +94,8 @@ class TestOperateRelation(unittest.TestCase):
         :return:
         """
         self.m_operate.setFunctionName(inspect.stack()[0][3])
-        self.m_operate.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.m_operate.conditions_screening(ov_para)
         pass
 
     def test_ongoingAlter(self):
@@ -100,7 +103,8 @@ class TestOperateRelation(unittest.TestCase):
         点击修改
         """
         self.m_operate.setFunctionName(inspect.stack()[0][3])
-        self.m_operate.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.m_operate.conditions_screening(ov_para)
         pass
 
     def test_ongoingHandle(self):
@@ -109,7 +113,8 @@ class TestOperateRelation(unittest.TestCase):
         :return:
         """
         self.m_operate.setFunctionName(inspect.stack()[0][3])
-        self.m_operate.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.m_operate.conditions_screening(ov_para)
         pass
 
     @unittest.skip("test_historyUser-未注册没有点击按钮:需要通过数据进行检验,先跳过该用例")
@@ -119,7 +124,8 @@ class TestOperateRelation(unittest.TestCase):
         :return:
         """
         self.m_operate.setFunctionName(inspect.stack()[0][3])
-        self.m_operate.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.m_operate.conditions_screening(ov_para)
         pass
 
     @unittest.skip("test_historyOrder-未注册没有点击按钮:需要通过数据进行检验,先跳过该用例")
@@ -129,7 +135,8 @@ class TestOperateRelation(unittest.TestCase):
         :return:
         """
         self.m_operate.setFunctionName(inspect.stack()[0][3])
-        self.m_operate.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.m_operate.conditions_screening(ov_para)
         pass
 
     @unittest.skip("test_historyWatiki-未注册没有点击按钮:需要通过数据进行检验,先跳过该用例")
@@ -139,7 +146,8 @@ class TestOperateRelation(unittest.TestCase):
         :return:
         """
         self.m_operate.setFunctionName(inspect.stack()[0][3])
-        self.m_operate.conditions_screening()
+        ov_para = os.path.split(os.path.dirname(__file__))[0]
+        self.m_operate.conditions_screening(ov_para)
         pass
 
 

@@ -52,7 +52,7 @@ class TestPreviewFocus(unittest.TestCase):
         # 传入子集的key，以及Excel文档中的sheet名字
         config = GeneralizeAssist.add_key(GeneralizeAssist.focus, GeneralizeAssist.preview)
 
-        cls.self.f_pre = OperateJude(config, cls.basename, Generalize)
+        cls.f_pre = OperateJude(config, cls.basename, Generalize)
 
     def setUp(self):
         # 获取运行文件的类名

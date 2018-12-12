@@ -70,7 +70,7 @@ class SurfaceJude(JudgmentVerification):
 
     def bs4_soup(self):
         label_text = self.driver.page_source
-        soup = BeautifulSoup(label_text, "html.parser")
+        soup = BeautifulSoup(label_text, "lxml")
         return soup
 
     def info_number(self):
@@ -116,10 +116,14 @@ class SurfaceJude(JudgmentVerification):
         pass
 
     def success_execute(self):
+        """
+        获取thead标签中的元素text
+        :return:
+        """
         try:
             soup = self.bs4_soup()
             thead_th = soup.find('thead').find('tr').find_all('th')
-            text_center = [str.strip(th.text) for th in thead_th]
+            text_center = [str.strip(th.text).replace("\n", "") for th in thead_th]
             return text_center
         except AttributeError:
             self.log.error("success_execute--页面没有数据信息出现错误:AttributeError: 'find'")
@@ -145,8 +149,6 @@ class SurfaceJude(JudgmentVerification):
         获取页面标题
         :return:
         '''
-        # text_center = None
-        # excel_center = None
         text_center = self.success_execute()
         excel_center = str.split(self.overall[self.bi.whole_including()], ',')
         print("----------------------------")
@@ -202,6 +204,3 @@ class SurfaceJude(JudgmentVerification):
         assert operator.eq(ct_default, ov_default), mesg
         # del ct_default, ov_default
         pass
-
-    # def __del__(self):
-    #     del self

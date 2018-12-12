@@ -69,12 +69,11 @@ class ReleaseWatiki(JudgmentVerification):
 
     def click_information(self):
         '''
-        关闭或者保存发布信息
+        点击水票弹窗中的添加选项按钮:关闭或者保存发布信息
         :return:
         '''
         self.click_release()
         release = self.financial[self.bi.yaml_release()]
-        self.log.log_ppriny(release)
         self.vac.css_click(self.driver, release[self.bi.yaml_addticket()])
         button = self.overall[self.bi.whole_keys()]
         self.vac.css_click(self.driver, release[button])

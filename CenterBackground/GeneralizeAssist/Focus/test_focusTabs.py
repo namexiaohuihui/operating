@@ -32,11 +32,13 @@
 '''
 import os
 import inspect
+
 import unittest
-from CenterBackground import GeneralizeAssist
-from CenterBackground.commoditiesJude import CommoditiesJude
-from tools.excelname.Center.generalize import Generalize
+
 from CenterBackground import customTabs
+from CenterBackground import GeneralizeAssist
+from tools.excelname.Center.generalize import Generalize
+from CenterBackground.commoditiesJude import CommoditiesJude
 
 
 class TestFocusTabs(unittest.TestCase):

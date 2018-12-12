@@ -38,7 +38,6 @@ from CenterBackground import GeneralizeAssist
 from CenterBackground.surfacejude import SurfaceJude
 from tools.excelname.Center.generalize import Generalize
 
-
 class TestInviteLabel(unittest.TestCase):
     """
     页面展示项的标题
@@ -54,7 +53,7 @@ class TestInviteLabel(unittest.TestCase):
 
         # 传入子集的key，以及Excel文档中的sheet名字
         config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.page)
-        cls.i_label = InviteOperateJude(config, cls.basename, Generalize)
+        cls.i_label = SurfaceJude(config, cls.basename, Generalize)
 
         cls.INVITE_DESIGNATED_TABS = cls.i_label.bi.yaml_tabs()
 
