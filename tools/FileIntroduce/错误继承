@@ -85,3 +85,7 @@ KeyError: <module 'project_path' from 'E:\\project_path\\__init__.py'>
 原因: 怀疑是命名的问题
 方法: 对case的包名进行修改
 结果: 解决问题
+
+KeyError: 'pass_ticket'
+wxpy框架登陆微信时出现这个错误
+原因:使用了小号来登陆

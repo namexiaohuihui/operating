@@ -30,7 +30,7 @@ print("Use case acquisition completion : %s" % time.strftime('%Y-%m-%d %H:%M:%S'
 """
 
 
-def modifier_Interface_sliding(func): # 装饰器中调用浏览器和界面滚动
+def modifier_Interface_sliding(func):  # 装饰器中调用浏览器和界面滚动
     # Interface_sliding()
 
     def modifier(*s, **gs):
@@ -42,7 +42,8 @@ def modifier_Interface_sliding(func): # 装饰器中调用浏览器和界面滚�
 
     return modifier
 
-def modifier_Browser_usage(func): # 装饰器中只调用浏览器对象
+
+def modifier_Browser_usage(func):  # 装饰器中只调用浏览器对象
     # Interface_sliding()
 
     def modifier(*s, **gs):
@@ -52,6 +53,7 @@ def modifier_Browser_usage(func): # 装饰器中只调用浏览器对象
         return func(*s, **gs)
 
     return modifier
+
 
 class singn_to_use(unittest.TestCase):
     @classmethod

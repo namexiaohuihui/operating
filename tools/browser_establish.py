@@ -117,8 +117,14 @@ class browser_confirm(object):
         return self.browser
 
     def dingdong_mobile_opens(self, url):
+        """
+        打开谷歌并设置为手机模式,将浏览器对象进行返回操作
+        :param url:
+        :return:
+        """
         options = self.mobile_phone_mode()
         self.url_opens(url, options=options)
+        return self.single_browser()
 
     def mobile_phone_mode(self):
         '''

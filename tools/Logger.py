@@ -72,7 +72,7 @@ class Log():
     def error(self, message):
         self.__console('error', "%s---%s" % (self.function, message))
 
-    def functionName(self, functionName="Undefined function"):
+    def functionName(self, functionName):
         self.function = functionName
 
     def getFunctionName(self):
