@@ -79,23 +79,6 @@ class TestOfflineScreen(unittest.TestCase):
                                             selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
         pass
 
-    # －－－－－－－－－－－－－－－－－－－－－－－－其他－－－－－－－－－－－－－－－－－－－－－－－－－－
-    def test_chooseSelect(self):
-        self.slVerity.setFunctionName(inspect.stack()[0][3])
-        self.slVerity.value_options_jude(selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
-        pass
-
-    def test_chooseDefault(self):
-        self.slVerity.setFunctionName(inspect.stack()[0][3])
-        self.slVerity.value_options_default(selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
-        pass
-
-    def test_chooseTraverse(self):
-        self.slVerity.setFunctionName(inspect.stack()[0][3])
-        self.slVerity.value_option_traverse(formSub=self.slVerity.bi.yaml_formSub(),
-                                            selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
-        pass
-
     # －－－－－－－－－－－－－－－－－－－－－－－－编号－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_orderkeySelect(self):
         self.slVerity.setFunctionName(inspect.stack()[0][3])

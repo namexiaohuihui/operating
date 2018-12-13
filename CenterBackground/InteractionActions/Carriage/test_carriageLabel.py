@@ -36,7 +36,6 @@ import unittest
 from CenterBackground import InteractionActions
 from CenterBackground.InteractionActions.samedayorder import SameDayOrder
 from tools.excelname.Center.Interaction import InteractionController
-from CenterBackground.InteractionActions.operationViewJude import OperationViewJude
 
 class TestCarriageLabel(unittest.TestCase):
     """

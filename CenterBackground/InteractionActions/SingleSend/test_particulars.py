@@ -37,6 +37,7 @@ from CenterBackground.InteractionActions.operationViewJude import OperationViewJ
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
+
 class TestParticulars(unittest.TestCase):
     """
     详情页进行操作
@@ -69,8 +70,11 @@ class TestParticulars(unittest.TestCase):
         :return:
         """
         self.parti_c.setFunctionName(inspect.stack()[0][3])
+        # 条件筛选工作
         self.parti_c.release_success()
-        self.parti_c.parti_crder_types()
+        # 进入详情页面
+        self.parti_c.details_order_types()
+        # 执行关闭动作
         self.parti_c.close_cancel()
         pass
 
@@ -80,8 +84,11 @@ class TestParticulars(unittest.TestCase):
         :return:
         """
         self.parti_c.setFunctionName(inspect.stack()[0][3])
+        # 条件筛选工作
         self.parti_c.release_success()
-        self.parti_c.parti_crder_types()
+        # 进入详情页面
+        self.parti_c.details_order_types()
+        # 执行转预约动作
         self.parti_c.appointmen_cancel()
         pass
 
@@ -91,8 +98,11 @@ class TestParticulars(unittest.TestCase):
         :return:
         """
         self.parti_c.setFunctionName(inspect.stack()[0][3])
+        # 条件筛选工作
         self.parti_c.release_success()
-        self.parti_c.parti_crder_types()
+        # 进入详情页面
+        self.parti_c.details_order_types()
+        # 执行转预约动作
         self.parti_c.replace_cancel()
         pass
 

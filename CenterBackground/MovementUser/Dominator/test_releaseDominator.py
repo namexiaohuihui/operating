@@ -45,7 +45,7 @@ class TestReleaseDominator(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = MovementUser.add_key(MovementUser.dominator, MovementUser.release)
-        cls.release = ReleaseConfluence(config, cls.basename, InteractionController)
+        cls.release = ReleaseConfluence(config, cls.basename, Consumers)
 
     def setUp(self):
         # 获取运行文件的类名

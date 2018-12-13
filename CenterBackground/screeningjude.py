@@ -77,7 +77,7 @@ class ScreeningJude(JudgmentVerification):
         :param direction:
         :return:
         '''
-        op_se = ScreeningDrop(self.driver, direction, self.attrEle)
+        op_se = ScreeningDrop(self.driver, direction, attr = self.attrEle)
         return op_se
 
     def button_formSub(self, formSub, att: str):

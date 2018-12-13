@@ -104,7 +104,7 @@ class TestCollectiveView(unittest.TestCase):
         self.tive_v.release_success()
         pass
 
-    def test_tive_vomtoday(self):
+    def test_customtoday(self):
         """
         查看下单时间为自定义的订单
         :return:

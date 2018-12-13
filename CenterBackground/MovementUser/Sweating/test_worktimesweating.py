@@ -46,7 +46,7 @@ class TestWorktimeWweating(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = MovementUser.add_key(MovementUser.sweating, MovementUser.warktime)
-        cls.release = WorktimeSweating(config, cls.basename, InteractionController)
+        cls.release = WorktimeSweating(config, cls.basename, Consumers)
 
     def setUp(self):
         # 获取运行文件的类名

@@ -67,8 +67,10 @@ class ReleaseUser(JudgmentVerification):
         ex_sweet = self.financial[sweet]
         info_css = 'css'
         ex_sweet = self.vac.differentiate_element_text(self.driver, info_css, ex_sweet)
-        self.log.info('ini element text : %s ' % ov_sweet)
-        self.log.info('Excle parameter literals : %s ' % ex_sweet)
+
+        self.log.info('ini element text :%s: data' % ov_sweet)
+        self.log.info('Excle parameter literals :%s: data' % ex_sweet)
+
         self.debugging_log(ov_sweet, ex_sweet, 'options showSweetAlert jude error')
         pass
 
@@ -140,16 +142,22 @@ class ReleaseUser(JudgmentVerification):
             self.vac.css_click(self.driver, self.financial[self.bi.yaml_title()])
         # 8.点击弹窗中的确认按钮 或者 取消按钮
         self.vac.css_click(self.driver, self.financial[self.overall[self.bi.whole_keys()]])
+
         # 9.判断提交之后接口返回的弹窗标题
         self.operator_titleAlert()
+
         # # 10.点击提交之后接口返回弹窗中的确定按钮
         self.vac.css_click(self.driver, self.financial[self.bi.yaml_confirm()])
         pass
 
     def debugging_log(self, ct_default, ov_default, mesg):
         print("--------------------------------")
-        print(ct_default, type(ct_default))
-        print(ov_default, type(ov_default))
+        print(ct_default, type(ct_default), len(ct_default))
+        print(ov_default, type(ov_default), len(ov_default))
         print("--------------------------------")
+
+        ov_default = ov_default.replace(" ", '').replace("\n", '')
+        ct_default = ct_default.replace(" ", '').replace("\n", '')
+
         assert operator.eq(ct_default, ov_default), mesg
         pass

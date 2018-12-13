@@ -35,8 +35,8 @@ import os
 import inspect
 import unittest
 from CenterBackground import MovementUser
+from tools.excelname.Center.consumers import Consumers
 from CenterBackground.screeningjude import ScreeningJude
-from tools.excelname.Center.bundledItems import BundledItems
 
 
 class TestStoreScreen(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestStoreScreen(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = MovementUser.add_key(MovementUser.supporters, MovementUser.select)
-        cls.sJude = ScreeningJude(config, cls.basename, InteractionController)
+        cls.sJude = ScreeningJude(config, cls.basename, Consumers)
 
     def setUp(self):
         # 获取运行文件的类名

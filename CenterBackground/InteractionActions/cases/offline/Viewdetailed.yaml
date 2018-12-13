@@ -115,7 +115,7 @@ test_customtoday:
               type: checkbox
               ele: css
               parameter: True
-          labelwatiki:
+          labellarge:
               type: checkbox
               ele: css
               parameter: False
@@ -132,11 +132,6 @@ test_customtoday:
               type: select
               ele: css
               parameter: 铁道站
-      status:
-          choose:
-              type: select
-              ele: css
-              parameter: 店铺
       orders:
           orderkey:
               type: select

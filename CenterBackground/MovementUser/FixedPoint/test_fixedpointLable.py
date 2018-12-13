@@ -35,9 +35,7 @@ import inspect
 import unittest
 from CenterBackground import MovementUser
 from CenterBackground.Commodities.soldLable import SoldLable
-from tools.excelname.Center.bundledItems import BundledItems
-from CenterBackground.MovementUser.Customer.customersurface import Customersurface
-
+from tools.excelname.Center.consumers import Consumers
 
 _box = 'box'
 _tabs = 'tabs'
@@ -48,7 +46,7 @@ class TestStoreLable(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = MovementUser.add_key(MovementUser.fixedPoint, MovementUser.page)
-        cls.sLable = SoldLable(config, cls.basename, InteractionController)
+        cls.sLable = SoldLable(config, cls.basename, Consumers)
 
     def setUp(self):
         # 获取运行文件的类名

@@ -34,9 +34,9 @@ import os
 import inspect
 import unittest
 from CenterBackground import MovementUser
+from CenterBackground import customTabs
 from CenterBackground.MovementUser.Sweating.sweatingTabs import SweatingTabs
 from tools.excelname.Center.consumers import Consumers
-from CenterBackground import customTabs
 
 
 class TestSweatingTabs(unittest.TestCase):
@@ -49,7 +49,7 @@ class TestSweatingTabs(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = MovementUser.add_key(MovementUser.sweating, MovementUser.city)
-        cls.cJude = SweatingTabs(config, cls.basename, InteractionController)
+        cls.cJude = SweatingTabs(config, cls.basename, Consumers)
 
     def setUp(self):
         # 获取运行文件的类名

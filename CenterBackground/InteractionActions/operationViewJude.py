@@ -90,20 +90,6 @@ class OperationViewJude(JudgmentVerification):
         self.ct = CustomTabs(self.driver, self.financial[self.bi.yaml_tabs()])
         self.ct.into_the_city(self.vac, case_value[self.bi.yaml_city()])
 
-        # # 2.根据tab 读取相应的城市数据
-        # self.ct = CustomTabs(self.driver, self.financial[self.bi.yaml_tabs()])
-        # self.ct.is_visibles()
-        # # 2.1读取全部的城市text
-        # ul_text = [ul.text for ul in self.ct.ul_li]
-        # # 2.2将元素和城市text通过dict形式存储
-        # city_text = dict(zip(self.ct.ul_li, ul_text))
-        # # 2.3找到城市
-        # case_city = case_value[self.bi.yaml_city()]
-        # for city_k, city_v in city_text.items():
-        #     if case_city == city_v:
-        #         self.vac.element_click(city_k)
-        #         break
-
         # 3.根据相应的key值对数据进行操作,遍历执行元素的动作(判断此参数的key是否出现)
         if self.bi.yaml_condition() in case_value:
             case_con = case_value[self.bi.yaml_condition()]
@@ -257,7 +243,7 @@ class OperationViewJude(JudgmentVerification):
                     self.log.info("no appear Change of delivery man %s:" % tr.text)
                     continue
         else:
-            assert True is False, "没有更换配送员按钮"
+            assert True is False, "订单页面没有数据信息,没有更换配送员按钮"
 
     def details_order_types(self):
         """
@@ -273,7 +259,7 @@ class OperationViewJude(JudgmentVerification):
             else:
                 assert True is False, "订单明细 no"
         else:
-            assert True is False, "没有详情按钮"
+            assert True is False, "订单页面没有数据信息,找不到详情按钮进入详情页面"
 
     def record_order_types(self):
         """
@@ -289,7 +275,7 @@ class OperationViewJude(JudgmentVerification):
             _record = self.financial[self.bi.yaml_closerecord()]
             self.vac.css_click(self.driver, _record)
         else:
-            assert True is False, "没有记录按钮"
+            assert True is False, "订单页面没有数据信息,找不到记录按钮,"
         pass
 
     def close_cancel(self):

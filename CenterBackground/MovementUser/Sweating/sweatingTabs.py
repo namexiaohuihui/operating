@@ -37,6 +37,7 @@ class SweatingTabs(CommoditiesJude):
     def __init__(self, config, basename, centerName):
         CommoditiesJude.__init__(self, config, basename, centerName)
         pass
+
     def activeBox(self):
         '''
         比较默认的box

@@ -34,7 +34,10 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class Consumers(ExcelTitle):
-    # 　Configure the key used in the ArgumentAdmin.yaml　 file
+    """
+    用户
+    """
+
     def yaml_customer(self):
         return 'customer'
 
@@ -52,8 +55,6 @@ class Consumers(ExcelTitle):
 
     def yaml_dominator(self):
         return 'dominator'
-
-    # 　Configure the key used in the SocialBuyer.yaml　 file
 
     def yaml_box(self):
         return 'box'
@@ -170,7 +171,7 @@ class Consumers(ExcelTitle):
         return 'register'
 
     def yaml_suregister(self):
-        return 'ysuregister'
+        return 'suregister'
 
     def yaml_tobig(self):
         return 'tobig'

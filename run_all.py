@@ -54,27 +54,27 @@ def run_case(all_case, reportName='report', filename="filename"):
     runner.run(all_case)
     fp.close()
 
-
-def run_case2(all_case, filename="filename", reportName='report'):
-    # 设置时间格式
-    now = time.strftime("%Y_%m_%d_%H_%M_%S")
-    # 报告存放路径
-    report_path = os.path.join(os.getcwd(), reportName)
-
-    if not os.path.exists(report_path): os.mkdir(report_path)
-    filename = "%s-%s.html" % (now, filename)
-    report_abspath = os.path.join(report_path, filename)
-
-    print("新创建报告文件所在位置 %s " % report_abspath)
-
-    fp = open(report_abspath, "wb")
-    runner = HTMLTestRunner.HTMLTestRunner(stream=fp,
-                                           title=u'自动化测试报告,测试结果如下：',
-                                           description=u'用例执行情况：')
-    # 调用add_case函数返回值
-    runner.run(all_case)
-    fp.close()
-
+#
+# def run_case2(all_case, filename="filename", reportName='report'):
+#     # 设置时间格式
+#     now = time.strftime("%Y_%m_%d_%H_%M_%S")
+#     # 报告存放路径
+#     report_path = os.path.join(os.getcwd(), reportName)
+#
+#     if not os.path.exists(report_path): os.mkdir(report_path)
+#     filename = "%s-%s.html" % (now, filename)
+#     report_abspath = os.path.join(report_path, filename)
+#
+#     print("新创建报告文件所在位置 %s " % report_abspath)
+#
+#     fp = open(report_abspath, "wb")
+#     runner = HTMLTestRunner.HTMLTestRunner(stream=fp,
+#                                            title=u'自动化测试报告,测试结果如下：',
+#                                            description=u'用例执行情况：')
+#     # 调用add_case函数返回值
+#     runner.run(all_case)
+#     fp.close()
+#
 
 def get_report_file(report_path):
     # 获取最新的测试报告
@@ -171,13 +171,13 @@ if __name__ == '__main__':
     file_name = r'CenterBackground'
     all_dir = list_dir(file_name)
     # 指定要运行的对象
-    # dir = os.path.join(file_name, all_dir[0])
-    # print("需要运行的文件: %s" % dir)
-    # run_main(dir)
-    for dir in range(3, len(all_dir)):
-        if "__pycache__" in all_dir[dir]:
-            continue
-        else:
-            dir = os.path.join(file_name, all_dir[dir])
-            print("需要运行的文件: %s" % dir)
-            run_main(dir)
+    dir = os.path.join(file_name, all_dir[7])
+    print("需要运行的文件: %s" % dir)
+    run_main(dir)
+    # for dir in range(3, len(all_dir)):
+    #     if "__pycache__" in all_dir[dir]:
+    #         continue
+    #     else:
+    #         dir = os.path.join(file_name, all_dir[dir])
+    #         print("需要运行的文件: %s" % dir)
+    #         run_main(dir)

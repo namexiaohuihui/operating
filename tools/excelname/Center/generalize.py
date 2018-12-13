@@ -34,6 +34,9 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class Generalize(ExcelTitle):
+    """
+    推广
+    """
 
     # ---------------------foucs-------------------
 

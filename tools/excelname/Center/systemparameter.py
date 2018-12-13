@@ -34,6 +34,9 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class SystemParameter(ExcelTitle):
+    """
+    设置
+    """
     def yaml_cityselect(self0):
         return "cityselect"
 

@@ -73,10 +73,16 @@ class TestInviteLabel(unittest.TestCase):
         :return:
         """
         self.wt_label.setFunctionName(inspect.stack()[0][3])
+        
+        # 找到单选框对象的元素所在位置
         ele_check = self.wt_label.financial[self.wt_label.bi.yaml_wt_check()]
+        # 根据路径找到元素
         ele_check = self.wt_label._visible_returns_selectop(ele_check)
+        # 断言判断元素是否存在
         assert type(ele_check) != bool, "test_dorkingdays not Could checkout"
+        # 遍历获取元素的text
         ele_check = list(map(lambda single: single.text, ele_check))
+        # 输出text
         self.wt_label.log.debug("test_dorkingdays get is data : %s" % ele_check)
         pass
 
@@ -103,7 +109,18 @@ class TestInviteLabel(unittest.TestCase):
     def test_replymode(self):
         self.wt_label.setFunctionName(inspect.stack()[0][3])
         self.wt_label.designated_box(self.INVITE_DESIGNATED_TABS, self.INVITE_DESIGNATED_REPLY)
-        self.wt_label.surface_execute()
+
+        # 找到单选框对象的元素所在位置
+        ele_check = self.wt_label.financial[self.wt_label.bi.yaml_wt_check()]
+        # 根据路径找到元素
+        ele_check = self.wt_label._visible_returns_selectop(ele_check)
+        # 断言判断元素是否存在
+        assert type(ele_check) != bool, "test_dorkingdays not Could checkout"
+        # 遍历获取元素的text
+        ele_check = list(map(lambda single: single.text, ele_check))
+        # 输出text
+        self.wt_label.log.debug("test_dorkingdays get is data : %s" % ele_check)
+
         pass
 
     def wt_get_attribute_value(self, am_pm, str_msg):

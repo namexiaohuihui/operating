@@ -35,10 +35,8 @@ import os
 import inspect
 import unittest
 from CenterBackground import MovementUser
-from CenterBackground.MovementUser.Customer.customersurface import Customersurface
-from tools.excelname.Center.bundledItems import BundledItems
 from CenterBackground.surfacejude import SurfaceJude
-
+from tools.excelname.Center.consumers import Consumers
 
 class TestDominatorLable(unittest.TestCase):
     @classmethod
@@ -48,7 +46,7 @@ class TestDominatorLable(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
         config = MovementUser.add_key(MovementUser.dominator, MovementUser.page)
 
-        cls.sLable = SurfaceJude(config, cls.basename, InteractionController)
+        cls.sLable = SurfaceJude(config, cls.basename, Consumers)
 
     def setUp(self):
         # 获取运行文件的类名

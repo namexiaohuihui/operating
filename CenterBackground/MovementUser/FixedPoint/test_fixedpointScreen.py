@@ -36,8 +36,7 @@ import inspect
 import unittest
 from CenterBackground import MovementUser
 from CenterBackground.screeningjude import ScreeningJude
-from tools.excelname.Center.bundledItems import BundledItems
-
+from tools.excelname.Center.consumers import Consumers
 _box = 'box'
 _tabs = 'tabs'
 
@@ -49,7 +48,7 @@ class TestFixedpointScreen(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = MovementUser.add_key(MovementUser.fixedPoint, MovementUser.select)
-        cls.sJude = ScreeningJude(config, cls.basename, InteractionController)
+        cls.sJude = ScreeningJude(config, cls.basename, Consumers)
 
     def setUp(self):
         # 获取运行文件的类名

@@ -30,18 +30,9 @@
 import os
 import inspect
 import unittest
-from CenterBackground.InteractionActions.selectlableverify import SelectLableVerify
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
-
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
-
-# 传入子集的key，以及Excel文档中的sheet名字
-config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.select)
-
-slVerity = SelectLableVerify(config, basename, InteractionController)
+from CenterBackground.InteractionActions.selectlableverify import SelectLableVerify
 
 
 class TestCompleteScreen(unittest.TestCase):
@@ -54,8 +45,9 @@ class TestCompleteScreen(unittest.TestCase):
         basepath = os.path.split(os.path.dirname(__file__))[1]
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
-        config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.page)
-        cls.slVerity = SameDayOrder(config, cls.basename, InteractionController)
+        config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.select)
+
+        cls.slVerity = SelectLableVerify(config, cls.basename, InteractionController)
 
     def setUp(self):
         # 获取运行文件的类名

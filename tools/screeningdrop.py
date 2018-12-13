@@ -93,7 +93,6 @@ class ScreeningDrop(action_visible):
         else:
             self.__getOptions__()
             pass
-        print(self.optionsList)
         return self.optionsList
 
     def getAllValue(self):

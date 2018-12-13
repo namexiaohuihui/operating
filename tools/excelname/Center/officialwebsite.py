@@ -34,6 +34,7 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class OfficialWebsite(ExcelTitle):
+    """官网"""
     def yaml_add_focus(self):
         return "add_focus"
 

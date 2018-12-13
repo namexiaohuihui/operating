@@ -49,7 +49,7 @@ class TestCloseOrder(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.close)
-        clsclose_o = OperationViewJude(config, cls.basename, InteractionController)
+        cls.close_o = OperationViewJude(config, cls.basename, InteractionController)
 
     def setUp(self):
         # 获取运行文件的类名

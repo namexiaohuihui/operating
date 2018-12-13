@@ -34,15 +34,11 @@ from CenterBackground.MovementUser.releaseUser import ReleaseUser
 
 
 class ReleaseCustomer(ReleaseUser):
-    def __init__(self, config, basename, centerName):
-        '''
-        定义模块数据信息
-        :param config:   int配置文件的定义
-        :param basename:  执行程序的文件名
-        :param centerName:  元素所在的类
-        '''
-        ReleaseUser.__init__(self, config, basename, centerName)
-        pass
+    """
+    重写点击注册按钮,原因为:
+    按钮元素不一样,无法统一同一个名称。
+    主要重写了click_release方法
+    """
 
     def click_release(self):
         '''

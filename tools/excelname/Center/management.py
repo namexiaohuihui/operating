@@ -34,6 +34,10 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class RightOfManagement(ExcelTitle):
+    """
+    权限
+    """
+
     def yaml_release_add(self):
         return "release_add"
 

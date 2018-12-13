@@ -34,6 +34,9 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class CityGoodsPage(ExcelTitle):
+    """
+    商品
+    """
     def page_shelves(self):
         return 'shelves'
 

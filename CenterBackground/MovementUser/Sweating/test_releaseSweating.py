@@ -44,7 +44,7 @@ class TestReleaseSweating(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = MovementUser.add_key(MovementUser.sweating, MovementUser.release)
-        cls.release = ReleaseSweating(config, cls.basename, InteractionController)
+        cls.release = ReleaseSweating(config, cls.basename, Consumers)
 
     def setUp(self):
         # 获取运行文件的类名

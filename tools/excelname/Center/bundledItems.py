@@ -34,7 +34,9 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class BundledItems(ExcelTitle):
-
+    """
+    水票
+    """
     def yaml_slot(self):
         return 'slot'
 

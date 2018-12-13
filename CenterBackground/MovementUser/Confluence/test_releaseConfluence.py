@@ -45,7 +45,7 @@ class TestReleaseConfluence(unittest.TestCase):
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         config = MovementUser.add_key(MovementUser.confluence, MovementUser.release)
-        cls.release = ReleaseConfluence(config, cls.basename, InteractionController)
+        cls.release = ReleaseConfluence(config, cls.basename, Consumers)
 
     def setUp(self):
         # 获取运行文件的类名
@@ -72,6 +72,10 @@ class TestReleaseConfluence(unittest.TestCase):
         pass
 
     def test_releaseSuccess(self):
+        """
+        成功创建一个对象
+        :return:
+        """
         self.release.setFunctionName(inspect.stack()[0][3])
         self.release.releaseSuccess()
         pass

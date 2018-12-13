@@ -34,6 +34,7 @@ from tools.excelname.excelBeanName import ExcelTitle
 
 
 class McroLetterWechat(ExcelTitle):
+    """微信"""
     def yaml_wt_check(self):
         return "wt_check"
 
