@@ -2,6 +2,7 @@
 import os
 import sys
 import time
+
 import unittest
 import HTMLTestRunner
 
@@ -54,27 +55,6 @@ def run_case(all_case, reportName='report', filename="filename"):
     runner.run(all_case)
     fp.close()
 
-#
-# def run_case2(all_case, filename="filename", reportName='report'):
-#     # 设置时间格式
-#     now = time.strftime("%Y_%m_%d_%H_%M_%S")
-#     # 报告存放路径
-#     report_path = os.path.join(os.getcwd(), reportName)
-#
-#     if not os.path.exists(report_path): os.mkdir(report_path)
-#     filename = "%s-%s.html" % (now, filename)
-#     report_abspath = os.path.join(report_path, filename)
-#
-#     print("新创建报告文件所在位置 %s " % report_abspath)
-#
-#     fp = open(report_abspath, "wb")
-#     runner = HTMLTestRunner.HTMLTestRunner(stream=fp,
-#                                            title=u'自动化测试报告,测试结果如下：',
-#                                            description=u'用例执行情况：')
-#     # 调用add_case函数返回值
-#     runner.run(all_case)
-#     fp.close()
-#
 
 def get_report_file(report_path):
     # 获取最新的测试报告
@@ -127,57 +107,23 @@ def run_main(file_name):
     print("最新报告路径为{0}".format(report_file))
 
 
-def threading_run_all():
-    """
-    不是很稳定,有时会出现service错误
-    :return:
-    """
-    file_name = 'demo'
+def start_loading_case():
+    file_name = r'CenterBackground'
     all_dir = list_dir(file_name)
-    print(all_dir)
-    case_akks = {}
-    for dir in all_dir:
-        if "__pycache__" in dir:
+
+    # 指定要运行的对象
+    # dir = os.path.join(file_name, all_dir[7])
+    # print("需要运行的文件: %s" % dir)
+    # run_main(dir)
+
+    for dir in range(len(all_dir)):
+        if "__pycache__" in all_dir[dir]:
             continue
         else:
-            dir = os.path.join(file_name, dir)
-            all_case = add_case(dir, "test_*.py")
-            file_name1 = str.split(dir, '\\')[-1]
-            case_akks[file_name1] = all_case
-    threads = []
-    import time
-    import threading
-
-    for k, v in case_akks.items():
-        # 运行文件所在目录为文件名
-        thread = threading.Thread(target=run_case2, args=(v, k))
-        thread.setDaemon(True)
-        thread.start()
-        threads.append(thread)
-        time.sleep(1)
-
-    for th in threads:
-        th.join()
-
-    # 获取最新测试报告所在的文件路径
-    report_path = os.path.join(CUR_PATH, "report")  # 报告文件夹
-
-    # 获取最新的测试报告
-    report_file = get_report_file(report_path)
-    print("最新报告路径为:{0}".format(report_file))
+            dir = os.path.join(file_name, all_dir[dir])
+            print("需要运行的文件: %s" % dir)
+            run_main(dir)
 
 
 if __name__ == '__main__':
-    file_name = r'CenterBackground'
-    all_dir = list_dir(file_name)
-    # 指定要运行的对象
-    dir = os.path.join(file_name, all_dir[7])
-    print("需要运行的文件: %s" % dir)
-    run_main(dir)
-    # for dir in range(3, len(all_dir)):
-    #     if "__pycache__" in all_dir[dir]:
-    #         continue
-    #     else:
-    #         dir = os.path.join(file_name, all_dir[dir])
-    #         print("需要运行的文件: %s" % dir)
-    #         run_main(dir)
+    start_loading_case()

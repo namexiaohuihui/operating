@@ -10,8 +10,8 @@ from threading import Thread
 
 class MyThread(Thread):
 
-    def __init__(self,func,args=()):
-        super(MyThread,self).__init__()
+    def __init__(self, func, args=()):
+        super(MyThread, self).__init__()
         self.func = func
         self.args = args
 
@@ -23,21 +23,30 @@ class MyThread(Thread):
             return self.result  # 如果子线程不使用join方法，此处可能会报没有self.result的错误
         except Exception:
             return None
-def foo(a,b,c):
+
+
+def foo(a, b, c):
     time.sleep(1)
-    return a*2,b*2,c*2
+    return a * 2, b * 2, c * 2
+
+
 def fii():
     print("qqq")
+
 
 def ding():
     return "qawe"
 
+
 def dong():
     return "asd"
+
 
 def dingdong():
     aa = abdq + 3
     return aa
+
+
 def get_basename():
     from utils import Log
     import os
@@ -45,10 +54,14 @@ def get_basename():
     log = Log(basename)
     return log
 
-def homepage(a,b):
-    return a+b+3
+
+def homepage(a, b):
+    return a + b + 3
+
+
 if __name__ == '__main__':
     import os
+
     cur_path = os.path.dirname(os.path.realpath(__file__))
 
     log_path = os.path.join(os.path.dirname(cur_path), 'logs')
