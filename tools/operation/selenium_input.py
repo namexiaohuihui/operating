@@ -227,4 +227,4 @@ class action_input(action_visible):
         # print('bijiaozhegnque')
         # else:
         # print('bijiocuowu')
-        self.sleep_Rest()
+        self.sleep_Rest(1)

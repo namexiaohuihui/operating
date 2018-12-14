@@ -42,11 +42,17 @@ from tools.excelname.Center.bundledItems import BundledItems
 class TestPlatformScreen(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        basepath = os.path.split(os.path.dirname(__file__))[1]
-        basename = os.path.splitext(os.path.basename(__file__))[0]
-        cls.basename = basepath + "-" + basename
-        config = Commodities.add_key(Commodities.platform, Commodities.select)
-        cls.sJude = ScreeningJude(config, cls.basename, BundledItems)
+        try:
+            basepath = os.path.split(os.path.dirname(__file__))[1]
+            basename = os.path.splitext(os.path.basename(__file__))[0]
+            cls.basename = basepath + "-" + basename
+            config = Commodities.add_key(Commodities.platform, Commodities.select)
+            cls.sJude = ScreeningJude(config, cls.basename, BundledItems)
+        except TypeError as TE:
+            print(TE)
+            print("又出现下面这个问题----------------------")
+            print("TypeError: setUpClass() missing 1 required positional argument: 'cls'")
+            print("缺少-----@classmethod-------导致-------")
 
     def setUp(self):
         # 获取运行文件的类名
@@ -58,6 +64,11 @@ class TestPlatformScreen(unittest.TestCase):
     def tearDown(self):
         self.sJude.driver.quit()
         self.sJude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
+        pass
+
+    @classmethod
+    def tearDownClass(cls):
+        unittest.TestCase().__init__(cls)
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－

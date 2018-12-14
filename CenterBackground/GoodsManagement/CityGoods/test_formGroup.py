@@ -40,6 +40,7 @@ from CenterBackground.GoodsManagement.CityGoods.formGroupJude import FormGroupJu
 
 class TestFormGroup(unittest.TestCase):
 
+    @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]

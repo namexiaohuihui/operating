@@ -47,29 +47,29 @@ class TestLabel(unittest.TestCase):
 
         # 传入子集的key，以及Excel文档中的sheet名字
         config = GoodsManagement.add_key(GoodsManagement.evaluation, GoodsManagement.label)
-        cls.box = LabelJude(config,cls.basename, CityGoodsPage)
+        cls.box_laberl = LabelJude(config,cls.basename, CityGoodsPage)
 
     def setUp(self):
         # 获取运行文件的类名
-        self.box.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.box_laberl.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        self.box.openingProgram()
-        self.box._rou_background()
+        self.box_laberl.openingProgram()
+        self.box_laberl._rou_background()
 
     def tearDown(self):
-        self.box.driver.quit()
-        self.box.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
+        self.box_laberl.driver.quit()
+        self.box_laberl.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     # -------------------------------顶部uccess用例-----------------------------
     def test_success(self):
-        self.box.setFunctionName(inspect.stack()[0][3])
-        self.box.get_success_execute()
+        self.box_laberl.setFunctionName(inspect.stack()[0][3])
+        self.box_laberl.get_success_execute()
         pass
 
     def test_seven_days(self):
-        self.box.setFunctionName(inspect.stack()[0][3])
-        self.box.get_seven_days()
+        self.box_laberl.setFunctionName(inspect.stack()[0][3])
+        self.box_laberl.get_seven_days()
         pass
 
 

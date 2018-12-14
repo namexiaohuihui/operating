@@ -121,6 +121,7 @@ class ReleaseUser(JudgmentVerification):
                 self.vac.css_click(self.driver, ov_key)
 
             elif ov_ty == 'input':
+                self.vac.sleep_Rest(0.5)
                 # 根据元素进行输出操作
                 self.vai.css_input(self.driver, ov_key, ov_value)
 
@@ -139,7 +140,10 @@ class ReleaseUser(JudgmentVerification):
 
             else:
                 print('What do you type in? %s' % ov_pa['type'])
-            self.vac.css_click(self.driver, self.financial[self.bi.yaml_title()])
+            # # 输入数据之后点击标题
+            # self.vac.css_click(self.driver, self.financial[self.bi.yaml_title()])
+            # # 延迟一下,不加容易出现问题
+            self.vac.sleep_Rest(1)
         # 8.点击弹窗中的确认按钮 或者 取消按钮
         self.vac.css_click(self.driver, self.financial[self.overall[self.bi.whole_keys()]])
 

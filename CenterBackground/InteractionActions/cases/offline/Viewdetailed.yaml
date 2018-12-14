@@ -111,11 +111,11 @@ test_customtoday:
               type: checkbox
               ele: css
               parameter: True
-          labelgroupbuy:
+          labellarge:
               type: checkbox
               ele: css
               parameter: True
-          labellarge:
+          labelwatiki:
               type: checkbox
               ele: css
               parameter: False

@@ -45,6 +45,7 @@ class GroupJude(JudgmentVerification):
         JudgmentVerification.__init__(self, config, basename)
         self.bi = centerName()
         pass
+
     # -----------------------统一返回元素的位置----------
     def quality_direction(self):
         '''
@@ -77,7 +78,7 @@ class GroupJude(JudgmentVerification):
         :param direction:
         :return:
         '''
-        op_se = ScreeningDrop(self.driver, direction)
+        op_se = ScreeningDrop(self.driver, direction, attr='css')
         return op_se
 
     # ----------------------用例二级判断，可抽取到父类-------------------

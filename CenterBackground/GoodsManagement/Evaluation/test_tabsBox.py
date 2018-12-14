@@ -63,34 +63,34 @@ class TestTabsBox(unittest.TestCase):
 
     # -------------------------------顶部tabs用例-----------------------------
     def test_tabs_active(self):
-        box.setFunctionName(inspect.stack()[0][3])
-        box.get_tabs_active()
+        self.box.setFunctionName(inspect.stack()[0][3])
+        self.box.get_tabs_active()
         pass
 
     def test_tabs_text(self):
-        box.setFunctionName(inspect.stack()[0][3])
-        box.get_tabs_text()
+        self.box.setFunctionName(inspect.stack()[0][3])
+        self.box.get_tabs_text()
         pass
 
     def test_tabs_switch(self):
-        box.setFunctionName(inspect.stack()[0][3])
-        box.get_tabs_switch()
+        self.box.setFunctionName(inspect.stack()[0][3])
+        self.box.get_tabs_switch()
         pass
 
     # -------------------------------顶部box用例-----------------------------
     def test_box_active(self):
-        box.setFunctionName(inspect.stack()[0][3])
-        box.get_box_active()
+        self.box.setFunctionName(inspect.stack()[0][3])
+        self.box.get_box_active()
         pass
 
     def test_box_text(self):
-        box.setFunctionName(inspect.stack()[0][3])
-        box.get_box_text()
+        self.box.setFunctionName(inspect.stack()[0][3])
+        self.box.get_box_text()
         pass
 
     def test_box_switch(self):
-        box.setFunctionName(inspect.stack()[0][3])
-        box.get_box_switch()
+        self.box.setFunctionName(inspect.stack()[0][3])
+        self.box.get_box_switch()
         pass
 
 
