@@ -240,8 +240,8 @@ class JudgmentVerification(ComparedVerify):
         """
         # 获取excel路径
         conmodel = readModel.establish_con(model="excelmodel")
-        consyst = conmodel.get("excel", model_key)
-        excelname = conmodel.get("excel", filename)
+        consyst = conmodel.get("admin_excel", model_key)
+        excelname = conmodel.get("admin_excel", filename)
         file_path = os.path.join(consyst, excelname)
 
         # 读取相应路径中的数据

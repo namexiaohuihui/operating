@@ -18,10 +18,10 @@ from tools import DefinitionErrors as dError
 
 class action_visible(object):
     # ------------------------------根据已知元素查找下面子元素的标签-------------------
-    def ele_visible_tag_name(self, driver, locator, timeout=5):
+    def ele_visible_tag_name(self, ele, locator, timeout=5):
         # 根据现有的元素和标签查找子元素是否存在
         try:
-            ele = ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.TAG_NAME, locator)))
+            ele = ui.WebDriverWait(ele, timeout).until(EC.visibility_of_element_located((By.TAG_NAME, locator)))
             return ele
         except Exception as e:
             print("%s 元素没找到 ele_visible_tag_name" % locator)
@@ -48,12 +48,6 @@ class action_visible(object):
             print('is_visible_css_selectop 元素不存在出现超时的情况 %s' % locator)
             # self.error_log(driver, e)
             return False
-
-    def ac_move_to_element(self, driver, locator):
-        el = self.is_visible_css_selectop(driver, locator)
-        ActionChains(driver).move_to_element(el).perform()
-        el.click()
-        pass
 
     def is_visibles_css_selectop(self, driver, locator, timeout=5):
         # 一直等待某元素可见，默认超时5秒,返回全部找到的数据元素组
@@ -238,6 +232,12 @@ class action_visible(object):
         _ele = ui.WebDriverWait(driver, timeout).until(
             EC.visibility_of((By.CSS_SELECTOR, locator)))
         return _ele
+
+    def ac_move_to_element(self, driver, locator):
+        el = self.is_visible_css_selectop(driver, locator)
+        ActionChains(driver).move_to_element(el).perform()
+        el.click()
+        pass
 
     # -----------------------------------滚动条的移动------------------------
     def scrollBar_top(self, browser):

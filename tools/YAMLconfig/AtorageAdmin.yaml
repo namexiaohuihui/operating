@@ -1,0 +1,13 @@
+statement:
+  father: 2
+  module: statement
+  store:
+    module: store
+    child: 1
+    select: 筛选
+    page: 页面
+  staff:
+    module: staff
+    child: 2
+    select: 筛选
+    page: 页面
