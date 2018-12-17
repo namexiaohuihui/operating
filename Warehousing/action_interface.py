@@ -113,7 +113,7 @@ class ActionVisible(object):
         except TimeoutException:
             return False
 
-    def is_visible_single_driver(self, locator, way='css', timeout=5):
+    def is_visible_single_driver(self, locator, way, timeout=5):
         """
         查找单个元素
         :param locator:
@@ -124,7 +124,7 @@ class ActionVisible(object):
         ele_by = self.is_visible_driver(way, locator)
         return self.differentiate_single_exist(ele_by, timeout)
 
-    def is_visible_all_driver(self, locator, way='css', timeout=5):
+    def is_visible_all_driver(self, locator, way, timeout=5):
         """
         根据路径查找全部符合条件的元素
         :param locator:
@@ -135,7 +135,7 @@ class ActionVisible(object):
         ele_by = self.is_visible_driver(way, locator)
         return self.differentiate_all_exist(ele_by, timeout)
 
-    def is_visible_not_driver(self, locator, way='css', timeout=5):
+    def is_visible_not_driver(self, locator, way, timeout=5):
         """
         判断某个元素是否消失
         :param locator:
@@ -147,7 +147,7 @@ class ActionVisible(object):
         ele_by = self.is_visible_driver(way, locator)
         return self.differentiate_not_exist(ele_by, timeout)
 
-    def is_visible_value_driver(self, locator, way='css', attr=None, timeout=5):
+    def is_visible_value_driver(self, locator, way, attr=None, timeout=5):
         """
         获取元素的text或者attribute
         :param locator: 元素路径
@@ -191,17 +191,58 @@ class ActionVisible(object):
             # 将滚动条移动到底部的意思
             self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
 
-    def return_css_click(self, browser, prompt):
+    def is_visible_click(self, prompt):
         """
         点击之后将element对象进行返回
         :param browser:
         :param prompt:
         :return:
         """
-        ele_by = self.is_visible_driver(way, locator)
-        ele = self.is_visible_css_selectop(browser, prompt)
-        if ele:  # 判断是否出现
-            ele_by.click()
-        else:
-            self.error_log(browser)
-        return ele
+        prompt.click()
+
+    def id_confirm_execute(self, prompt):
+        """
+        通过id进行js点击
+        :param prompt:
+        :return:
+        """
+        self.driver.execute_script("document.getElementById(\'" + prompt + "\').click();")
+        pass
+
+    def css_confirm_execute(self, prompt):
+        """
+        输入元素路径通过js进行点击
+        :param prompt:
+        :return:
+        """
+        self.driver.execute_script("document.querySelector(\'" + prompt + "\').click();")
+        pass
+
+    def is_visible_locator_click(self, locator, way, timeout=5):
+        attribute = self.is_visible_single_driver(locator, way, timeout)
+        self.is_visible_click(attribute)
+        return attribute
+
+    def is_visible_execute_click(self, locator, way):
+        if way == 'id':
+            self.id_confirm_execute(locator)
+            pass
+        elif way == 'css':
+            self.css_confirm_execute(locator)
+            pass
+        pass
+
+    def touchActions_tap(self, element):
+        """
+        :param element:
+        :return:
+        """
+        # 点击元素
+        TouchActions(self.driver).tap(element).perform()
+        sleep(1)
+        pass
+
+    def touchActions_selectop_prompt(self, prompt, way, timeout=5):
+        ele = self.is_visible_single_driver(prompt, way, timeout)
+        self.touchActions_tap(ele)
+        pass
