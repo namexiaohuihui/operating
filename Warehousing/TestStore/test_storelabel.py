@@ -29,11 +29,34 @@
 # @time:      2018/12/17 16:23
 # @desc:
 import unittest
+import time
+import os
+from tools.browser_establish import browser_confirm
 
 
 class TestStoreLabel(unittest.TestCase):
+
+    def setUp(self):
+        print("1")
+        br = browser_confirm()
+        self.driver = br.url_opens('http://baidu.com')
+        time.sleep(1)
+    def tearDown(self):
+        for k,v in self._outcome.errors:
+            if v:
+                mn = self._testMethodName
+                kk = self._testMethodDoc
+                print("-*---",kk )
+                print(k,'-*',v,'--')
+                print("-*---",mn)
+                print(os.getcwd())
+                ll_path = os.path.join(os.getcwd(),"qweqw.png")
+                self.driver.save_screenshot(ll_path )
+        print(2)
     def test_qweqw(self):
-        print("666")
+        assert True
+        time.sleep(1)
+        raise Exception
 
 
 if __name__ == '__main__':

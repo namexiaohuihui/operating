@@ -36,16 +36,31 @@ import os
 import inspect
 
 
+
 class TestNihaoOne(unittest.TestCase):
     def setUp(self):
         # 1.创建浏览器所在函数的对象
         bc = browser_confirm.__new__(browser_confirm)
-        self.driver = bc.url_opens("http://baidu.com",liulanqi="firefox")
+        self.driver = bc.url_opens("http://baidu.com", liulanqi="firefox")
         pass
 
     def tearDown(self):
         self.driver.quit()
+        # self.driver.save_screenshot(ll_path)
+        self.get_windows_img()
         pass
+
+    def get_windows_img(self):
+        import time
+        file_path = os.path.join(r'E:\operating\report/', 'screenshots')
+        rq = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+        screen_name = file_path + rq + '.png'
+        screen_name1 = file_path + rq + '1.png'
+        try:
+            self.driver.get_screenshot_as_file(screen_name)
+            self.driver.save_screenshot(screen_name1)
+        except NameError as e:
+            self.get_windows_img()
 
     def test_nihao_one(self):
         basepath = os.path.split(os.path.dirname(__file__))[1]

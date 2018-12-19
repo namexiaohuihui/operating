@@ -31,10 +31,10 @@
 @desc:
 '''
 
-def test_s4(login):
-    print("用例4：登录之后其它动作111")
 
-def test_s5():  # 不传login
-    print("用例5：不需要登录，操作222")
+class nihao(object):
+    def test_s4(self):
+        print("用例4：登录之后其它动作111")
 
-
+    def test_s5(self):  # 不传login
+        print("用例5：不需要登录，操作222")

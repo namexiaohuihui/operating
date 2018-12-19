@@ -65,7 +65,7 @@ class ActionVisible(object):
             ele_by = (By.NAME, locator)
             pass
         else:
-            raise Exception("differentiate_element_text:你写的ele判断有误")
+            raise Exception("is_visible_driver:你写的ele判断有误")
         return ele_by
         pass
 
@@ -163,20 +163,6 @@ class ActionVisible(object):
             attribute = attribute.text
         return attribute
 
-    def ac_move_to_element(self, locator):
-        """
-        该函数适用于：
-        1.浏览器设置为手机模式
-        2.对手机端进行操作
-        鼠标移动到指定的元素上并进行点击
-        :param locator:
-        :return:
-        """
-        action_ele = self.is_visible_css_selectop(locator)
-        ActionChains(self.driver).move_to_element(action_ele).perform()
-        el.click()
-        pass
-
     def scrollBar_mobile_browser(self, action_type):
         """
         将页面滚动条移动到顶部或者底部
@@ -199,6 +185,7 @@ class ActionVisible(object):
         :return:
         """
         prompt.click()
+        sleep(1)
 
     def id_confirm_execute(self, prompt):
         """
@@ -219,6 +206,13 @@ class ActionVisible(object):
         pass
 
     def is_visible_locator_click(self, locator, way, timeout=5):
+        """
+        通过元素路径找到元素并执行selecnium中的click方法
+        :param locator:
+        :param way:
+        :param timeout:
+        :return:
+        """
         attribute = self.is_visible_single_driver(locator, way, timeout)
         self.is_visible_click(attribute)
         return attribute
@@ -232,12 +226,110 @@ class ActionVisible(object):
             pass
         pass
 
+    def is_visible_input(self, attribute, parameter):
+        attribute.clear()
+        attribute.send_keys(parameter)
+        sleep(1)
+
+    def is_visible_locator_input(self, locator, way, parameter, timeout=5):
+        """
+        通过元素路径找到元素并执行selecnium中的input方法
+        :param locator:
+        :param way:
+        :param parameter:  需要输入的参数
+        :param timeout:
+        :return:
+        """
+        attribute = self.is_visible_single_driver(locator, way, timeout)
+        self.is_visible_input(attribute, parameter)
+        return attribute
+
+    def cursor_execute_ordinal(self, locator, way, parameter, timeout=5):
+        """
+        找到元素,通过JS对value进行写入
+        :param browser: 浏览器对象
+        :param ordinal: 需要写入元素的路径
+        :param parameter: 需要输入的对象
+        :return:
+        """
+        locator = self.is_visible_single_driver(locator, way, timeout)
+        self.driver.execute_script("\'" + locator + "\'.value=\'" + parameter + "\';")
+        sleep(1)
+
+    def cursor_execute_selectop(self, locator, parameter):
+        """
+        利用js找到相关selctop的元素,直接对value进行数据修改
+        :param locator:
+        :param parameter:
+        :return:
+        """
+        self.driver.execute_script("document.querySelector(\'" + locator + "\').value=\'" + parameter + "\';")
+        sleep(1)
+
+    def cursor_execute_id(self, locator, parameter):
+        """
+        利用js找到相关id的元素,直接对value进行数据修改
+        :param locator:
+        :param parameter:
+        :return:
+        """
+        self.driver.execute_script("document.getElementById(\'" + locator + "\').value=\'" + parameter + "\';")
+        sleep(1)
+
+    def cursor_execute_estimate(self, locator, execute_type, parameter):
+        if 'id' == execute_type:
+            self.cursor_execute_id(locator, parameter)
+            pass
+        elif 'css' == execute_type:
+            self.cursor_execute_selectop(locator, parameter)
+            pass
+
+    def cursor_focus_blur(self, ele_attr, cursor_type):
+        """
+        根据移动的类型来对实现数据操作
+        :param ele_attr:  元素对象
+        :param cursor_type:  移动类型
+        :return:
+        """
+        if 'blur' == cursor_type:
+            self.driver.execute_script("arguments[0].blur();", ele_attr)
+            pass
+        elif 'focus' == cursor_type:
+            self.driver.execute_script("arguments[0].focus();", ele_attr)
+
+    def attribute_focus_blur(self, ele_attr, cursor_type):
+        """
+        根据元素id的属性值找到元素,并在其上面进行光标移动
+        :param ele_attr:
+        :param cursor_type:
+        :return:
+        """
+        if 'blur' == cursor_type:
+            self.driver.execute_script("document.getElementById(\'" + ele_attr + "\').blur();")
+            pass
+        elif 'focus' == cursor_type:
+            self.driver.execute_script("document.getElementById(\'" + ele_attr + "\').focus();")
+
+    def ac_move_to_element(self, locator):
+        """
+        该函数适用于：
+        1.浏览器设置为手机模式
+        2.对手机端进行操作
+        鼠标移动到指定的元素上并进行点击
+        :param locator:
+        :return:
+        """
+        action_ele = self.is_visible_css_selectop(locator)
+        ActionChains(self.driver).move_to_element(action_ele).perform()
+        el.click()
+        pass
+
     def touchActions_tap(self, element):
         """
+        手机端或者浏览器为手机模式时的点击元素
         :param element:
         :return:
         """
-        # 点击元素
         TouchActions(self.driver).tap(element).perform()
         sleep(1)
         pass
@@ -246,3 +338,18 @@ class ActionVisible(object):
         ele = self.is_visible_single_driver(prompt, way, timeout)
         self.touchActions_tap(ele)
         pass
+
+    def get_size(self):
+        # 获取浏览器的大小
+        x = self.driver.get_window_size()['width']
+        y = self.driver.get_window_size()['height']
+        return (x, y)
+
+    def Interface_sliding(self):
+        # 实行上下滑动的效果
+        screen = self.get_size()
+
+        x1 = screen[0] * 0.5
+        y1 = screen[1] * 0.75
+
+        TouchActions(self.driver).scroll(x1, y1).perform()

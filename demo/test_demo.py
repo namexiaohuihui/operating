@@ -30,7 +30,7 @@
 @time: 2018/7/27 20:44
 @desc:
 '''
-import pytest
+
 class TestDemo:
     def test_one(self):
         x = "this"
@@ -44,5 +44,7 @@ class TestDemo:
         a = 'hello'
         b = 'hello world'
         assert a in b
+
+
 if __name__ == '__main__':
-    pytest.main(['-q', 'test_demo.py',])
+    pytest.main(['-q', 'test_demo.py', ])

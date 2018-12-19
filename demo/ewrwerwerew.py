@@ -32,9 +32,11 @@
 '''
 import pytest
 
+
 @pytest.fixture()
 def fix_err(x):
     raise x
+
 
 @pytest.mark.incremental
 class TestUserHandling:
@@ -47,7 +49,8 @@ class TestUserHandling:
             pass
         except:
             fix_err(e)
-    def test_modification(self,login):
+
+    def test_modification(self, login):
         print('test_modification')
 
     def test_deletion(self):

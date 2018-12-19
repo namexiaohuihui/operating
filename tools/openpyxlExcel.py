@@ -1061,6 +1061,7 @@ if __name__ == '__main__':
     # print(df_excelData)
     # print("--------------------")
     # 不通过pandas来读取文档
-    read = OpenExcelPandas(file_path + read_name3, sheet='买家记录300')
-    df_excelData = read.readCaseExcel("买家ID")
-    print(df_excelData)
+    read = OpenExcelPandas(r"C:\Users\DingDonf\Desktop\完蛋还是蛋完.xlsx", sheet='完蛋还是蛋完')
+    df_excelData = read.readCaseExcel("buyer_id")
+    for d in range(len(df_excelData)):
+        print()

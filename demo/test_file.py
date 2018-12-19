@@ -30,21 +30,29 @@
 @time: 2018/7/31 13:57
 @desc:
 '''
-import pytest
+from demo.test_file2 import nihao
+"""
+http://www.cnblogs.com/cenyu/p/5713686.html
+# Python的hasattr() getattr() setattr() 函数使用方法详解
 
+hasattr(object, name)
+判断一个对象里面是否有name属性或者name方法，返回BOOL值，有name特性返回True， 否则返回False。
+需要注意的是name要用括号括起来
 
-# @pytest.fixture()
-# def login():
-#     print("输入账号，密码先登录")
+getattr(object, name[,default])
+获取对象object的属性或者方法，如果存在打印出来，如果不存在，打印出默认值，默认值可选。
+需要注意的是，如果是返回的对象的方法，返回的是方法的内存地址，如果需要运行这个方法，
+可以在后面添加一对括号。
 
+setattr(object, name, values)
+给对象的属性赋值，若属性不存在，先创建再赋值。
 
-def test_s1(login):
-    print("用例1：登录之后其它动作111")
+一种综合的用法是：判断一个对象的属性是否存在，若不存在就添加该属性。
+getattr(t, "age", setattr(t, "age", "18")) #age属性不存在时，设置该属性
+"""
 
+if __name__ == '__main__':
+    buhao = nihao()
 
-def test_s2():  # 不传login
-    print("用例2：不需要登录，操作222")
+    qwe = getattr(buhao, "test_s4")
 
-
-def test_s3(login):
-    print("用例3：登录之后其它动作333")
