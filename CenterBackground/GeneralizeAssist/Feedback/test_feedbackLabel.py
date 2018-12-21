@@ -52,6 +52,10 @@ class TestFeedbackLabel(unittest.TestCase):
         # I pass in the key of the subset, and the sheet name in the Excel document
         config = GeneralizeAssist.add_key(GeneralizeAssist.feedback, GeneralizeAssist.page)
         cls.f_label = MutuallyJude(config, cls.basename, Generalize)
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
 
     def setUp(self):
         # 获取运行文件的类名
@@ -61,6 +65,7 @@ class TestFeedbackLabel(unittest.TestCase):
         self.f_label._rou_background()
 
     def tearDown(self):
+        self.f_label.get_screenshot_image(method_obj=self)
         self.f_label.driver.quit()
         self.f_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

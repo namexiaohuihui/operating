@@ -50,16 +50,23 @@ class TestPlatformSoldTabs(unittest.TestCase):
         config = Commodities.add_key(Commodities.platformsold, Commodities.city)
         cls.commJ = CommoditiesJude(config, cls.basename, BundledItems)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
-        self.commJ.log.debug("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.commJ.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         self.commJ.openingProgram()
         self.commJ._rou_background()
         pass
 
     def tearDown(self):
+        self.commJ.get_screenshot_image(method_obj=self)
+
         self.commJ.driver.quit()
-        self.commJ.log.debug("%s ---teardown: 每个用例结束后执行" % self.basename)
+        self.commJ.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_active_city(self):

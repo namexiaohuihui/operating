@@ -37,9 +37,6 @@ from CenterBackground import GeneralizeAssist
 from tools.excelname.Center.generalize import Generalize
 from CenterBackground.GeneralizeAssist.Invite.inviteoperatejude import InviteOperateJude
 
-basepath = os.path.split(os.path.dirname(__file__))[1]
-basename = os.path.splitext(os.path.basename(__file__))[0]
-basename = basepath + "-" + basename
 
 
 class TestOperateFeedback(unittest.TestCase):
@@ -49,20 +46,31 @@ class TestOperateFeedback(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        basepath = os.path.split(os.path.dirname(__file__))[1]
+        basename = os.path.splitext(os.path.basename(__file__))[0]
+        cls.basename = basepath + "-" + basename
+
         # I pass in the key of the subset, and the sheet name in the Excel document
         config = GeneralizeAssist.add_key(GeneralizeAssist.feedback, GeneralizeAssist.operate)
-        cls.f_operate = InviteOperateJude(config, basename, Generalize)
+        cls.f_operate = InviteOperateJude(config, cls.basename, Generalize)
+
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
 
     def setUp(self):
         # 获取运行文件的类名
-        self.f_operate.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        self.f_operate.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
         self.f_operate.openingProgram()
         self.f_operate._rou_background()
 
     def tearDown(self):
+        self.f_operate.get_screenshot_image(method_obj=self)
+
         self.f_operate.driver.quit()
-        self.f_operate.log.info("%s ---teardown: 每个用例结束后执行" % basename)
+        self.f_operate.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_watikiAccess(self):

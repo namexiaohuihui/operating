@@ -49,6 +49,13 @@ class TestFormGroup(unittest.TestCase):
         config = GoodsManagement.add_key(GoodsManagement.inventory, GoodsManagement.select)
         cls.form_group = FormGroupJude(config, cls.basename, CityGoodsPage)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
+
     def setUp(self):
         # 获取运行文件的类名
         self.form_group.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -57,6 +64,8 @@ class TestFormGroup(unittest.TestCase):
         self.form_group._rou_background()
 
     def tearDown(self):
+        self.form_group.get_screenshot_image(method_obj=self)
+
         self.form_group.driver.quit()
         self.form_group.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

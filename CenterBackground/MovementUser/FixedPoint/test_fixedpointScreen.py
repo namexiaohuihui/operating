@@ -50,6 +50,12 @@ class TestFixedpointScreen(unittest.TestCase):
         config = MovementUser.add_key(MovementUser.fixedPoint, MovementUser.select)
         cls.sJude = ScreeningJude(config, cls.basename, Consumers)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.sJude.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -59,6 +65,8 @@ class TestFixedpointScreen(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.sJude.get_screenshot_image(method_obj=self)
+
         self.sJude.driver.quit()
         self.sJude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

@@ -51,6 +51,12 @@ class TestBalanceScreen(unittest.TestCase):
 
         cls.bala_screen = ScreeningJude(config, cls.basename, Financial)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.bala_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -59,6 +65,8 @@ class TestBalanceScreen(unittest.TestCase):
         self.bala_screen._rou_background()
 
     def tearDown(self):
+        self.bala_screen.get_screenshot_image(method_obj=self)
+
         self.bala_screen.driver.quit()
         self.bala_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

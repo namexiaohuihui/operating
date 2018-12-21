@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_platformLable.py
+@file:      test_storeLable.py
 @time:      2018/8/28 18:07
 @Site :     
 @desc:
@@ -47,22 +47,24 @@ class TestStoreLable(unittest.TestCase):
         cls.basename = basepath + "-" + basename
         config = Commodities.add_key(Commodities.store, Commodities.page)
         cls.surface = StoreSurface(config, cls.basename, BundledItems)
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
 
     def setUp(self):
-        # 获取运行文件的类名
-        print("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
+        self.surface.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         self.surface.openingProgram()
         self.surface._rou_background()
-
-    def tearDown(self):
-        self.surface.driver.quit()
-        print("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
-    # @classmethod
-    # def tearDownClass(cls):
-    #     del cls.surface
+    def tearDown(self):
+        self.surface.get_screenshot_image(method_obj=self)
+
+        self.surface.driver.quit()
+        self.surface.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
+        pass
 
     def test_showTitle(self):
         self.surface.setFunctionName(inspect.stack()[0][3])

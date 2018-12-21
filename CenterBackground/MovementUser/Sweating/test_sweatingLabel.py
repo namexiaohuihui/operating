@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_confluenceLable.py
+@file:      test_storeLable.py.py
 @time:      2018/8/28 18:07
 @Site :     
 @desc:
@@ -35,18 +35,25 @@ import os
 import inspect
 import unittest
 from CenterBackground import MovementUser
-from tools.excelname.Center.consumers import Consumers
 from CenterBackground.surfacejude import SurfaceJude
+from tools.excelname.Center.consumers import Consumers
 
 
-class TestConfluenceLable(unittest.TestCase):
+class TestSweatingLable(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
-        config = MovementUser.add_key(MovementUser.confluence, MovementUser.page)
+        config = MovementUser.add_key(MovementUser.sweating, MovementUser.page)
+
         cls.sLable = SurfaceJude(config, cls.basename, Consumers)
+
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
 
     def setUp(self):
         # 获取运行文件的类名
@@ -57,6 +64,8 @@ class TestConfluenceLable(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.sLable.get_screenshot_image(method_obj=self)
+
         self.sLable.driver.quit()
         self.sLable.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

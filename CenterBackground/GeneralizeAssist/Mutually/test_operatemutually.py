@@ -53,6 +53,12 @@ class TestOperateMutually(unittest.TestCase):
         config = GeneralizeAssist.add_key(GeneralizeAssist.mutually, GeneralizeAssist.operate)
         cls.m_operate = InviteOperateJude(config, cls.basename, Generalize)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.m_operate.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -61,6 +67,8 @@ class TestOperateMutually(unittest.TestCase):
         self.m_operate._rou_background()
 
     def tearDown(self):
+        self.m_operate.get_screenshot_image(method_obj=self)
+
         self.m_operate.driver.quit()
         self.m_operate.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

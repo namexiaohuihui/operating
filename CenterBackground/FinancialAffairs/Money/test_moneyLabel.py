@@ -56,6 +56,13 @@ class TestMoneyLabel(unittest.TestCase):
         # 实例化用例操作类
         cls.mon_sur = HandleButton(config, cls.basename, Financial)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+
+        pass
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
         self.mon_sur.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -64,6 +71,7 @@ class TestMoneyLabel(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.mon_sur.get_screenshot_image(method_obj=self)
         self.mon_sur.driver.quit()
         self.mon_sur.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

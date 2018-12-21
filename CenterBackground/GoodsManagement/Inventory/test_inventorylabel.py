@@ -27,19 +27,20 @@
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
 @file: test_label.py
-@time: 2018/8/10 18:05
+@time: 2018/8/14 14:08
 @desc:
 '''
 import os
 import inspect
+
 import unittest
+
 from CenterBackground import GoodsManagement
 from tools.excelname.Center.gongsMana import CityGoodsPage
-from CenterBackground.GoodsManagement.CityGoods.labelJude import LabelJude
+from CenterBackground.GoodsManagement.Inventory.inventoryLabelJude import InventoryLabelJude
 
 
-class TestGoodsLabel(unittest.TestCase):
-
+class TestLabel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
@@ -47,8 +48,13 @@ class TestGoodsLabel(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
 
         # 传入子集的key，以及Excel文档中的sheet名字
-        config = GoodsManagement.add_key(GoodsManagement.citys, GoodsManagement.label)
-        cls.label = LabelJude(config, cls.basename, CityGoodsPage)
+        config = GoodsManagement.add_key(GoodsManagement.inventory, GoodsManagement.label)
+        cls.label = InventoryLabelJude(config, cls.basename, CityGoodsPage)
+
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
         pass
 
     def setUp(self):
@@ -59,13 +65,10 @@ class TestGoodsLabel(unittest.TestCase):
         self.label._rou_background()
 
     def tearDown(self):
+        self.label.get_screenshot_image(method_obj=self)
+
         self.label.driver.quit()
         self.label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
-        pass
-
-    def test_table_hover(self):
-        self.label.setFunctionName(inspect.stack()[0][3])
-        self.label.get_table_hover()
         pass
 
     def test_success(self):

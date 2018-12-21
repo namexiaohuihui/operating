@@ -50,7 +50,6 @@ class PlarformSurface(SurfaceJude):
 
     def traverseYield(self, thead_tr, tbody_class):
         '''
-
         :param thead_tr:  页面内容标题
         :param tbody_class:  页面内容展示项
         :return:
@@ -78,6 +77,7 @@ class PlarformSurface(SurfaceJude):
                         td_text = ' '.join([str.strip(a_text.text) for a_text in tr_td[tr_len].find_all('button')])
                     else:
                         td_text = StringCutting.spaces_replace(tr_td[tr_len].text)
+
                 elif (td_length + 3) == thead_length:
                     if tr_len == 1:
                         td_text = watikiType
@@ -89,7 +89,7 @@ class PlarformSurface(SurfaceJude):
                         td_text = sorting
                         tr_td.insert(tr_len, sorting)
                     elif tr_len == thead_length - 1:  # 最后一个td要区分
-                        td_text = ' '.join([str.strip(a_text.text) for a_text in tr_td[tr_len].find_all('button')])
+                        td_text = ' '.join([str.strip(a_text.text) for a_text in tr_td[td_length - 1].find_all('button')])
                     else:
                         td_text = StringCutting.spaces_replace(tr_td[tr_len].text)
                 else:
@@ -102,4 +102,3 @@ class PlarformSurface(SurfaceJude):
         self.vai.scrollBar_buttom(self.driver)  # 界面滑动到浏览器底部
         SurfaceJude.surface_execute(self)
         pass
-

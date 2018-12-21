@@ -49,6 +49,12 @@ class TestOfflineScreen(unittest.TestCase):
 
         cls.slVerity = SelectLableVerify(config, cls.basename, InteractionController)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.slVerity.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -58,6 +64,8 @@ class TestOfflineScreen(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.slVerity.get_screenshot_image(method_obj=self)
+
         self.slVerity.driver.quit()
         self.slVerity.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

@@ -54,6 +54,11 @@ class TestBalanceLabel(unittest.TestCase):
         # 实例化用例操作类
         cls.bala_sur = HandleButton(config, cls.basename, Financial)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
     def setUp(self):
         # 获取运行文件的类名
         self.bala_sur.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -62,6 +67,8 @@ class TestBalanceLabel(unittest.TestCase):
         self.bala_sur._rou_background()
 
     def tearDown(self):
+        self.bala_sur.get_screenshot_image(method_obj=self)
+
         self.bala_sur.driver.quit()
         self.bala_sur.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

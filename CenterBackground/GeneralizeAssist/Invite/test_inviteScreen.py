@@ -53,6 +53,12 @@ class TestInviteScreen(unittest.TestCase):
 
         cls.INVITE_DESIGNATED_TABS = cls.i_screen.bi.yaml_tabs()
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.i_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -61,6 +67,8 @@ class TestInviteScreen(unittest.TestCase):
         self.i_screen._rou_background()
 
     def tearDown(self):
+        self.i_screen.get_screenshot_image(method_obj=self)
+
         self.i_screen.driver.quit()
         self.i_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

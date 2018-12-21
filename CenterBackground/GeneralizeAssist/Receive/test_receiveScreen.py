@@ -50,6 +50,12 @@ class TestReceiveScreen(unittest.TestCase):
         config = GeneralizeAssist.add_key(GeneralizeAssist.receive, GeneralizeAssist.select)
         cls.r_screen = ScreeningJude(config, cls.basename, Generalize)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.r_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -58,6 +64,8 @@ class TestReceiveScreen(unittest.TestCase):
         self.r_screen._rou_background()
 
     def tearDown(self):
+        self.r_screen.get_screenshot_image(method_obj=self)
+
         self.r_screen.driver.quit()
         self.r_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

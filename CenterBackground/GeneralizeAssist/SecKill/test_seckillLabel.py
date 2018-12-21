@@ -54,6 +54,12 @@ class TestSecKillLabel(unittest.TestCase):
         config = GeneralizeAssist.add_key(GeneralizeAssist.secKill, GeneralizeAssist.page)
         cls.s_label = SurfaceJude(config, cls.basename, Generalize)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.s_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -62,6 +68,8 @@ class TestSecKillLabel(unittest.TestCase):
         self.s_label._rou_background()
 
     def tearDown(self):
+        self.s_label.get_screenshot_image(method_obj=self)
+
         self.s_label.driver.quit()
         self.s_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

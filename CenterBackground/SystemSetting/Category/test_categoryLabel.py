@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
                        _oo0oo_
                       o8888888o
                       88" . "88
@@ -26,50 +26,59 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_storeLable.py.py
-@time:      2018/8/28 18:07
-@Site :     
+@file:      test_categorylabel.py
+@time:      2018/9/19 16:43
 @desc:
-'''
+"""
 import os
 import inspect
 import unittest
-from CenterBackground import MovementUser
+from CenterBackground import SystemSetting
 from CenterBackground.surfacejude import SurfaceJude
-from tools.excelname.Center.consumers import Consumers
+from tools.excelname.Center.systemparameter import SystemParameter
 
 
-class TestSweatingLable(unittest.TestCase):
+class TestCategoryLabel(unittest.TestCase):
+    """
+    页面展示项的标题
+    """
+
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
-        config = MovementUser.add_key(MovementUser.sweating, MovementUser.page)
+        config = SystemSetting.add_key(SystemSetting.category, SystemSetting.page)
 
-        cls.sLable = SurfaceJude(config, cls.basename, Consumers)
+        cls.c_label = SurfaceJude(config, cls.basename, SystemParameter)
+
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
 
     def setUp(self):
         # 获取运行文件的类名
-        self.sLable.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.c_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        self.sLable.openingProgram()
-        self.sLable._rou_background()
+        self.c_label.openingProgram()
+        self.c_label._rou_background()
         pass
 
     def tearDown(self):
-        self.sLable.driver.quit()
-        self.sLable.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
-        pass
+        self.c_label.get_screenshot_image(method_obj=self)
 
-    def test_showTitle(self):
-        self.sLable.setFunctionName(inspect.stack()[0][3])
-        self.sLable.title_execute()
+        self.c_label.driver.quit()
+        self.c_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
     def test_showSurface(self):
-        self.sLable.setFunctionName(inspect.stack()[0][3])
-        self.sLable.surface_execute()
+        self.c_label.setFunctionName(inspect.stack()[0][3])
+        datatatle = self.c_label.financial[self.c_label.bi.yaml_datatatle()]
+        datatatle = self.c_label._visible_returns_selectop(datatatle)
+        datatatle = [i.text for i in datatatle]
+        self.c_label.log.info(datatatle)
         pass
 
 

@@ -89,3 +89,6 @@ KeyError: <module 'project_path' from 'E:\\project_path\\__init__.py'>
 KeyError: 'pass_ticket'
 wxpy框架登陆微信时出现这个错误
 原因:使用了小号来登陆
+
+HTMLTestRunner:生成的报告中，“通过”按钮无法点击。
+原因为:logging没有使用好

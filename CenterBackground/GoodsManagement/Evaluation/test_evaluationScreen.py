@@ -26,7 +26,7 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: test_group.py
+@file: test_evaluationScreen.py
 @time: 2018/8/14 15:54
 @desc:
 '''
@@ -38,7 +38,7 @@ from tools.excelname.Center.gongsMana import CityGoodsPage
 from CenterBackground.GoodsManagement.Evaluation.groupJude import GroupJude
 
 
-class TestGroup(unittest.TestCase):
+class TestEvaluationScreen(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
@@ -49,6 +49,12 @@ class TestGroup(unittest.TestCase):
         config = GoodsManagement.add_key(GoodsManagement.evaluation, GoodsManagement.select)
         cls.group = GroupJude(config,cls.basename, CityGoodsPage)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.group.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -57,6 +63,8 @@ class TestGroup(unittest.TestCase):
         self.group._rou_background()
 
     def tearDown(self):
+        self.group.get_screenshot_image(method_obj=self)
+
         self.group.driver.quit()
         self.group.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

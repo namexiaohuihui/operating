@@ -51,6 +51,13 @@ class TestAddDepartment(unittest.TestCase):
         config = Permissions.add_key(Permissions.department, Permissions.add)
         cls.d_operate = InviteOperateJude(config, cls.basename, RightOfManagement)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
+
     def setUp(self):
         # 获取运行文件的类名
         self.d_operate.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -60,6 +67,8 @@ class TestAddDepartment(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.d_operate.get_screenshot_image(method_obj=self)
+
         self.d_operate.driver.quit()
         self.d_operate.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

@@ -1046,22 +1046,10 @@ def sql_de_zhixing():
 
 
 if __name__ == '__main__':
-    file_path = 'F:\\desktop\\'
-    read_name = "买家记录300.xlsx"
-    read_name2 = "买家记录300.csv"
-    read_name3 = "买家记录300.xltx"
-    # 　读取xlsx的方式
-    # read = OpenExcelPandas(file_path + read_name, sheet='买家记录300')
-    # df_excelData = read.internal_pandas_read("买家ID")
-    # print(df_excelData)
-    # print("--------------------")
-    # 读取csv的方式
-    # read = OpenExcelPandas(file_path + read_name2, sheet=',')
-    # df_excelData = read.internal_pandas_read("买家ID")
-    # print(df_excelData)
-    # print("--------------------")
-    # 不通过pandas来读取文档
-    read = OpenExcelPandas(r"C:\Users\DingDonf\Desktop\完蛋还是蛋完.xlsx", sheet='完蛋还是蛋完')
-    df_excelData = read.readCaseExcel("buyer_id")
-    for d in range(len(df_excelData)):
-        print()
+
+    read = OpenExcelPandas(r"E:\drivers\CasePlan\Warehousing\Statement\Staff/\Staff.xlsx", sheet='功能')
+    df = read.readCaseExcel("序号")
+    df_index = df.index
+    print(df.loc['GN_1']["操作"])
+    # for j in df_index:
+    #     print(df.loc[j])

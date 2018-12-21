@@ -53,6 +53,13 @@ class TestParameterLabel(unittest.TestCase):
         cls.p_page = SurfaceJude(config, cls.basename, OfficialWebsite)
         cls.INVITE_DESIGNATED_TABS = cls.p_page.bi.yaml_tabs()
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
+
     def setUp(self):
         # 获取运行文件的类名
         self.p_page.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -62,6 +69,8 @@ class TestParameterLabel(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.p_page.get_screenshot_image(method_obj=self)
+
         self.p_page.driver.quit()
         self.p_page.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

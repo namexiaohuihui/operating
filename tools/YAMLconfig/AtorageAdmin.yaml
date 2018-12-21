@@ -1,13 +1,16 @@
 statement:
   father: 2
   module: statement
+  excel: E:/\drivers/\CasePlan/\Warehousing/\Statement
   store:
     module: store
     child: 1
+    excel: Store/\store.xlsx
     select: 筛选
-    page: 页面
+    page: 功能
   staff:
     module: staff
     child: 2
+    excel: Staff/\staff.xlsx
     select: 筛选
-    page: 页面
+    page: 功能

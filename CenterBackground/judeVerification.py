@@ -22,14 +22,15 @@ class JudgmentVerification(ComparedVerify):
 
     def __init__(self, config, basename):
         self.config_dist = config
+
+        # 定义日志
+        self.log = Log(basename)
+
         # 获取init中定义的数据，并根据menu来读取出相应的参数
         self.argument = readYaml.read_expression()[self.config_dist['menu']]
 
         # 根据init要求的yaml路径来读取该模块下全部元素路径
         self.financial = readYaml.read_expression(self.config_dist['yaml'])
-
-        # 定义日志
-        self.log = Log(basename)
 
         # 读取用例所在的位置
         MODEI_KEY_POSITION = self.argument[module]

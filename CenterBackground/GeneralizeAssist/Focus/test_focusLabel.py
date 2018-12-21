@@ -54,6 +54,11 @@ class TestFocusLabel(unittest.TestCase):
 
         cls.f_page = FocusSurface(config, cls.basename, Generalize)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+
     def setUp(self):
         # 获取运行文件的类名
         self.f_page.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -62,6 +67,8 @@ class TestFocusLabel(unittest.TestCase):
         self.f_page._rou_background()
 
     def tearDown(self):
+        self.f_page.get_screenshot_image(method_obj=self)
+
         self.f_page.driver.quit()
         self.f_page.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

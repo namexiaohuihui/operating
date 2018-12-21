@@ -16,7 +16,7 @@ https://blog.csdn.net/heartroll/article/details/79217315
 """
 
 
-class ExtendBeantifulSoup():
+class ExtendBeantifulSoup(object):
     """
     通过该函数，可以指定一个位置以及旗下的元素标签。然后自动获取相应的数据信息
     """

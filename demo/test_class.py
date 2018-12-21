@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
                        _oo0oo_
                       o8888888o
                       88" . "88
@@ -29,11 +29,34 @@
 @file: test_class.py
 @time: 2018/7/27 15:27
 @desc:
-'''
+"""
+from demo.test_baidu import TestBaiDu
+import HTMLTestRunner
+import unittest
+import time
 
-def func(x):
-    return x + 1
+# 跟test_baidu关联
+class wqweqw():
+    def sdfegrth(self):
+        time_now = time.strftime("%H-%M-%S")
+        filePath = r'E:\operating\report\%sReport.html' % time_now  # 确定生成报告的路径
+        fp = open(filePath, 'wb')
+        suite1 = unittest.TestLoader().loadTestsFromTestCase(TestBaiDu)
+        runner = HTMLTestRunner.HTMLTestRunner(
+            stream=fp,
+            title=u'自动化测试报告',
+            description=u'用例执行情况：'
+        )
+        # 运行测试用例
+        runner.run(suite1)
+        fp.close()
 
 
-def test_answer():
-    assert func(3) == 5
+if __name__ == '__main__':
+    wqweqw().sdfegrth()
+    # dic0 = {'case_name': 'qw', '步骤': 'qw', 'q1w': 'qwe','memberID': 'qw', '场景': 'qwe'}
+    # if '场景' in dic0.keys() and '步骤' in dic0.keys():
+    #     print("@")
+    #     pass
+    # else:
+    #     print("4")

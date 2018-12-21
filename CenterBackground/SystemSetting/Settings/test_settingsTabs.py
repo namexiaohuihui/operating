@@ -53,6 +53,12 @@ class TestSettingsTabs(unittest.TestCase):
         config = SystemSetting.add_key(SystemSetting.settings, SystemSetting.tabs)
         cls.system_p = CommoditiesJude(config, cls.basename, SystemParameter)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.system_p.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -62,6 +68,8 @@ class TestSettingsTabs(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.system_p.get_screenshot_image(method_obj=self)
+
         self.system_p.driver.quit()
         self.system_p.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

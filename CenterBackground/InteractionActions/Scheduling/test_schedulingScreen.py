@@ -39,6 +39,7 @@ class TestSchedulingScreen(unittest.TestCase):
     """
     条件筛选
     """
+
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
@@ -47,6 +48,12 @@ class TestSchedulingScreen(unittest.TestCase):
         config = InteractionActions.add_key(InteractionActions.dispatch, InteractionActions.select)
 
         cls.slVerity = SelectLableVerify(config, cls.basename, InteractionController)
+
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
 
     def setUp(self):
         # 获取运行文件的类名
@@ -57,6 +64,8 @@ class TestSchedulingScreen(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.slVerity.get_screenshot_image(method_obj=self)
+
         self.slVerity.driver.quit()
         self.slVerity.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
@@ -75,7 +84,7 @@ class TestSchedulingScreen(unittest.TestCase):
     def test_timetypeTraverse(self):
         self.slVerity.setFunctionName(inspect.stack()[0][3])
         self.slVerity.value_option_traverse(formSub=self.slVerity.bi.yaml_formSub(),
-                                       selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
+                                            selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－编号－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -92,7 +101,7 @@ class TestSchedulingScreen(unittest.TestCase):
     def test_orderkeyTraverse(self):
         self.slVerity.setFunctionName(inspect.stack()[0][3])
         self.slVerity.value_option_traverse(formSub=self.slVerity.bi.yaml_formSub(),
-                                       selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
+                                            selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－用户－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -109,7 +118,7 @@ class TestSchedulingScreen(unittest.TestCase):
     def test_buyerkeyTraverse(self):
         self.slVerity.setFunctionName(inspect.stack()[0][3])
         self.slVerity.value_option_traverse(formSub=self.slVerity.bi.yaml_formSub(),
-                                       selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
+                                            selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
         pass
 
     # －－－－－－－－－－－－－－－－－－－－－－－－配送－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -126,7 +135,7 @@ class TestSchedulingScreen(unittest.TestCase):
     def test_deliveryTraverse(self):
         self.slVerity.setFunctionName(inspect.stack()[0][3])
         self.slVerity.value_option_traverse(formSub=self.slVerity.bi.yaml_formSub(),
-                                       selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
+                                            selectPath=self.slVerity.overall[self.slVerity.bi.whole_keys()])
         pass
 
     # -----------------------------------------三个没做校验的对象------------------------------------------

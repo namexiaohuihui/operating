@@ -33,18 +33,21 @@
 
 import os
 from time import sleep
-
+from tools.configs import readModel
 import selenium.webdriver.support.ui as ui
 import selenium.webdriver.support.expected_conditions as EC
 
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
+from Warehousing.browser_prepare import BrowserPrepare
 
 
-class ActionVisible(object):
-    def __init__(self, browser):
-        self.driver = browser
+class ActionVisible(BrowserPrepare):
+    """
+    工作内容:
+    1.执行元素校验 = [click,input,visible]
+    """
 
     def is_visible_driver(self, way, locator):
         """
@@ -147,7 +150,7 @@ class ActionVisible(object):
         ele_by = self.is_visible_driver(way, locator)
         return self.differentiate_not_exist(ele_by, timeout)
 
-    def is_visible_value_driver(self, locator, way, attr=None, timeout=5):
+    def get_text_vlue(self, locator, way, attr=None, timeout=5):
         """
         获取元素的text或者attribute
         :param locator: 元素路径
@@ -205,44 +208,40 @@ class ActionVisible(object):
         self.driver.execute_script("document.querySelector(\'" + prompt + "\').click();")
         pass
 
-    def is_visible_locator_click(self, locator, way, timeout=5):
+    def is_click_execute(self, locator, way_type, way, timeout=5):
         """
-        通过元素路径找到元素并执行selecnium中的click方法
-        :param locator:
-        :param way:
+        执行点击操作
+        :param locator:  元素路径 或者 元素本身
+        :param way_type:  是通过js来执行点击还是通过路径来找到元素并执行点击
+        :param way:  元素路径写法为id还是css
         :param timeout:
         :return:
         """
-        attribute = self.is_visible_single_driver(locator, way, timeout)
-        self.is_visible_click(attribute)
-        return attribute
+        if 'js' == way_type:
+            if way == 'id':
+                self.id_confirm_execute(locator)
+                pass
+            elif way == 'css':
+                self.css_confirm_execute(locator)
+                pass
+            pass
 
-    def is_visible_execute_click(self, locator, way):
-        if way == 'id':
-            self.id_confirm_execute(locator)
+        elif 'tag' == way_type:
+            attribute = self.is_visible_single_driver(locator, way, timeout)
+            self.is_visible_click(attribute)
+            return attribute
+
+        elif 'ele' == way_type:
+            self.is_visible_click(locator)
             pass
-        elif way == 'css':
-            self.css_confirm_execute(locator)
-            pass
-        pass
+
+        else:
+            print("is_viskble_click--没有这个类型:%s" % way_type)
 
     def is_visible_input(self, attribute, parameter):
         attribute.clear()
         attribute.send_keys(parameter)
         sleep(1)
-
-    def is_visible_locator_input(self, locator, way, parameter, timeout=5):
-        """
-        通过元素路径找到元素并执行selecnium中的input方法
-        :param locator:
-        :param way:
-        :param parameter:  需要输入的参数
-        :param timeout:
-        :return:
-        """
-        attribute = self.is_visible_single_driver(locator, way, timeout)
-        self.is_visible_input(attribute, parameter)
-        return attribute
 
     def cursor_execute_ordinal(self, locator, way, parameter, timeout=5):
         """
@@ -276,13 +275,58 @@ class ActionVisible(object):
         self.driver.execute_script("document.getElementById(\'" + locator + "\').value=\'" + parameter + "\';")
         sleep(1)
 
-    def cursor_execute_estimate(self, locator, execute_type, parameter):
-        if 'id' == execute_type:
-            self.cursor_execute_id(locator, parameter)
+    def is_input_execute(self, locator, way_type, way, parameter, timeout=5):
+        """
+        执行点击操作
+        :param locator:  元素路径 或者 元素本身
+        :param way_type:  是通过js来执行点击还是通过路径来找到元素并执行点击
+        :param way:  元素路径写法为id还是css
+        :param timeout:
+        :return:
+        """
+        if 'js' == way_type:
+            if 'id' == way:
+                self.cursor_execute_id(locator, parameter)
+                pass
+            elif 'css' == way:
+                self.cursor_execute_selectop(locator, parameter)
+                pass
             pass
-        elif 'css' == execute_type:
-            self.cursor_execute_selectop(locator, parameter)
+
+        elif 'tag' == way_type:
+            attribute = self.is_visible_single_driver(locator, way, timeout)
+            self.is_visible_input(attribute, parameter)
+            return attribute
+
+        elif 'ele' == way_type:
+            self.is_visible_input(locator, parameter)
             pass
+
+        elif 'tag_js' == way_type:
+            self.cursor_execute_ordinal(locator, way, parameter)
+            pass
+
+        else:
+            print("is_input_execute--没有这个类型:%s" % way_type)
+
+    def administrator_login(self, user_ward):
+        """
+        登录操作
+        :param user_name:
+        :param pass_ward:
+        :return:
+        """
+        conf = readModel.establish_con(model="model")  # 获取账号密码
+        account = conf.get("username", "atorage_account")
+        password = conf.get("username", "atorage_password")
+        # 账号
+        self.is_input_execute(locator='phone', way_type='js', way='id', parameter=account)
+        # 密码
+        self.is_input_execute(locator='password', way_type='js', way='id', parameter=password)
+        # 点击登录
+        self.is_click_execute(locator='loginBtn', way_type='js', way='id')
+        sleep(1)
+        pass
 
     def cursor_focus_blur(self, ele_attr, cursor_type):
         """

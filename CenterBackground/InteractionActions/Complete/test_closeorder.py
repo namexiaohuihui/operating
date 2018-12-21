@@ -51,6 +51,12 @@ class TestCloseOrder(unittest.TestCase):
         config = InteractionActions.add_key(InteractionActions.complete, InteractionActions.close)
         cls.close_o = OperationViewJude(config, cls.basename, InteractionController)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.close_o.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -60,6 +66,8 @@ class TestCloseOrder(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.close_o.get_screenshot_image(method_obj=self)
+
         self.close_o.driver.quit()
         self.close_o.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

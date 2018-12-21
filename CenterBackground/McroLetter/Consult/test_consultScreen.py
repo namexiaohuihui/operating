@@ -48,6 +48,12 @@ class TestConsultScreen(unittest.TestCase):
         config = McroLetter.add_key(McroLetter.consult, McroLetter.select)
         cls.c_screen = ScreeningJude(config, cls.basename, McroLetterWechat)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.c_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -57,6 +63,8 @@ class TestConsultScreen(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.c_screen.get_screenshot_image(method_obj=self)
+
         self.c_screen.driver.quit()
         self.c_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

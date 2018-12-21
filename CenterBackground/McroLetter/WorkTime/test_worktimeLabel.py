@@ -54,6 +54,12 @@ class TestInviteLabel(unittest.TestCase):
         cls.wt_label = SurfaceJude(config, cls.basename, McroLetterWechat)
         cls.INVITE_DESIGNATED_TABS = cls.wt_label.bi.yaml_tabs()
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.wt_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -63,6 +69,8 @@ class TestInviteLabel(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.wt_label.get_screenshot_image(method_obj=self)
+
         self.wt_label.driver.quit()
         self.wt_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
@@ -73,7 +81,7 @@ class TestInviteLabel(unittest.TestCase):
         :return:
         """
         self.wt_label.setFunctionName(inspect.stack()[0][3])
-        
+
         # 找到单选框对象的元素所在位置
         ele_check = self.wt_label.financial[self.wt_label.bi.yaml_wt_check()]
         # 根据路径找到元素

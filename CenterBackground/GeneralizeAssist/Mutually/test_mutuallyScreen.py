@@ -51,6 +51,12 @@ class TestMutuallyScreen(unittest.TestCase):
 
         cls.m_screen = SecKillLableVerify(config, cls.basename, Generalize)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.m_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -59,6 +65,8 @@ class TestMutuallyScreen(unittest.TestCase):
         self.m_screen._rou_background()
 
     def tearDown(self):
+        self.m_screen.get_screenshot_image(method_obj=self)
+
         self.m_screen.driver.quit()
         self.m_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

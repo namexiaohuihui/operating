@@ -27,17 +27,15 @@
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
 @file: test_label.py
-@time: 2018/8/14 14:08
+@time: 2018/8/15 10:17
 @desc:
 '''
 import os
 import inspect
-
 import unittest
-
 from CenterBackground import GoodsManagement
 from tools.excelname.Center.gongsMana import CityGoodsPage
-from CenterBackground.GoodsManagement.Inventory.inventoryLabelJude import InventoryLabelJude
+from CenterBackground.GoodsManagement.Evaluation.labelJude import LabelJude
 
 
 class TestLabel(unittest.TestCase):
@@ -48,29 +46,38 @@ class TestLabel(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
 
         # 传入子集的key，以及Excel文档中的sheet名字
-        config = GoodsManagement.add_key(GoodsManagement.inventory, GoodsManagement.label)
-        cls.label = InventoryLabelJude(config, cls.basename, CityGoodsPage)
+        config = GoodsManagement.add_key(GoodsManagement.evaluation, GoodsManagement.label)
+        cls.box_laberl = LabelJude(config,cls.basename, CityGoodsPage)
+
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
 
     def setUp(self):
         # 获取运行文件的类名
-        self.label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
+        self.box_laberl.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
-        self.label.openingProgram()
-        self.label._rou_background()
+        self.box_laberl.openingProgram()
+        self.box_laberl._rou_background()
 
     def tearDown(self):
-        self.label.driver.quit()
-        self.label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
+        self.box_laberl.get_screenshot_image(method_obj=self)
+
+        self.box_laberl.driver.quit()
+        self.box_laberl.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
 
+    # -------------------------------顶部uccess用例-----------------------------
     def test_success(self):
-        self.label.setFunctionName(inspect.stack()[0][3])
-        self.label.get_success_execute()
+        self.box_laberl.setFunctionName(inspect.stack()[0][3])
+        self.box_laberl.get_success_execute()
         pass
 
-    def test_table_bordered(self):
-        self.label.setFunctionName(inspect.stack()[0][3])
-        self.label.get_execute()
+    def test_seven_days(self):
+        self.box_laberl.setFunctionName(inspect.stack()[0][3])
+        self.box_laberl.get_seven_days()
         pass
 
 

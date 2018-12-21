@@ -37,6 +37,7 @@ from CenterBackground.InteractionActions.operationViewJude import OperationViewJ
 from CenterBackground import InteractionActions
 from tools.excelname.Center.Interaction import InteractionController
 
+
 class TestRecordOrder(unittest.TestCase):
     """
     记录
@@ -50,6 +51,12 @@ class TestRecordOrder(unittest.TestCase):
         config = InteractionActions.add_key(InteractionActions.dispatch, InteractionActions.record)
         cls.record_o = OperationViewJude(config, cls.basename, InteractionController)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.record_o.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -59,6 +66,8 @@ class TestRecordOrder(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.record_o.get_screenshot_image(method_obj=self)
+
         self.record_o.driver.quit()
         self.record_o.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

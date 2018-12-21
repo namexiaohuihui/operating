@@ -2,7 +2,7 @@
 import os
 import sys
 import time
-
+import datetime
 import unittest
 import HTMLTestRunner
 
@@ -21,6 +21,10 @@ sys.path.append(path_project)
 # 获取当前文件所在目录
 CUR_PATH = os.path.dirname(os.path.realpath(__file__))
 
+# 设置时间格式
+day_now = time.strftime("%Y-%m-%d")
+time_now = time.strftime("%H-%M-%S")
+
 
 def add_case(case_name='Case', rule='test*.py'):
     # 加载所有的用例
@@ -35,13 +39,13 @@ def add_case(case_name='Case', rule='test*.py'):
 
 
 def run_case(all_case, reportName='report', filename="filename"):
-    # 设置时间格式
-    now = time.strftime("%Y_%m_%d_%H_%M_%S")
-    # 报告存放路径
+    # 1.1报告存放路径
     report_path = os.path.join(os.getcwd(), reportName)
-
+    # 1.2报告根据时间来分类
+    report_path = os.path.join(report_path, day_now)
     if not os.path.exists(report_path): os.mkdir(report_path)
-    filename = "%s-%s.html" % (now, filename)
+
+    filename = "%s-%s.html" % (time_now, filename)
     report_abspath = os.path.join(report_path, filename)
 
     print("新创建报告文件所在位置 %s " % report_abspath)
@@ -67,6 +71,26 @@ def get_report_file(report_path):
     return report_file
 
 
+def run_main(file_name):
+    # 加载用例
+    all_case = add_case(file_name, "test_*Label.py")
+
+    # 运行文件所在目录为文件名
+    file_name = str.split(file_name, '\\')[-1]
+
+    # 生成测试报告的路径
+    run_case(all_case, filename=file_name)
+
+    # 获取最新测试报告所在的文件路径
+
+    report_path = os.path.join("report", day_now)  # 最新报告文件夹在项目中的路径
+    report_path = os.path.join(CUR_PATH, report_path)  # 拼接项目
+
+    # 获取最新的测试报告
+    report_file = get_report_file(report_path)
+    print("最新报告路径为{0}".format(report_file))
+
+
 def list_dir(file_dir):
     '''
         通过 listdir 得到的是仅当前路径下的文件名，不包括子目录中的文件，如果需要得到所有文件需要递归
@@ -89,26 +113,8 @@ def list_dir(file_dir):
     return file_name
 
 
-def run_main(file_name):
-    # 加载用例
-    all_case = add_case(file_name, "test*.py")
-
-    # 运行文件所在目录为文件名
-    file_name = str.split(file_name, '\\')[-1]
-
-    # 生成测试报告的路径
-    run_case(all_case, filename=file_name)
-
-    # 获取最新测试报告所在的文件路径
-    report_path = os.path.join(CUR_PATH, "report")  # 报告文件夹
-
-    # 获取最新的测试报告
-    report_file = get_report_file(report_path)
-    print("最新报告路径为{0}".format(report_file))
-
-
 def start_loading_case():
-    file_name = r'CenterBackground'
+    file_name = r'CenterBackground/Permissions'
     all_dir = list_dir(file_name)
 
     # 指定要运行的对象
@@ -126,4 +132,13 @@ def start_loading_case():
 
 
 if __name__ == '__main__':
+    # 记录运行时间
+    startTime = datetime.datetime.now()
+    print("\nStart Run Time: %s\n" % startTime)
+    # 运行程序
     start_loading_case()
+    # 记录结束时间
+    stopTime = datetime.datetime.now()
+    print("\nFinish Run Time: %s\n" % stopTime)
+    # 打印一共运行的时间
+    print('\nRunning time: %s\n' % (stopTime - startTime), file=sys.stderr)

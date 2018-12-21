@@ -51,6 +51,13 @@ class TestDepositScreen(unittest.TestCase):
 
         cls.d_screen = ScreeningJude(config, cls.basename, Financial)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+
+        pass
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
         self.d_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -59,6 +66,8 @@ class TestDepositScreen(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.d_screen.get_screenshot_image(method_obj=self)
+
         self.d_screen.driver.quit()
         self.d_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

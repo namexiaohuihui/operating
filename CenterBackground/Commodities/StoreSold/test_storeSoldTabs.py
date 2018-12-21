@@ -50,6 +50,13 @@ class TestStoreSoldTabs(unittest.TestCase):
         config = Commodities.add_key(Commodities.storesold, Commodities.city)
         cls.group = CommoditiesJude(config, basename, BundledItems)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+
+        pass
+
     def setUp(self):
         # 打开浏览器，定义log日志。读取excle文档数据
         self.group.log.debug("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -58,6 +65,8 @@ class TestStoreSoldTabs(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.group.get_screenshot_image(method_obj=self)
+
         self.group.driver.quit()
         self.group.log.debug("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

@@ -112,7 +112,7 @@ class browser_confirm(object):
         self.browser.get(url)
         # 等待网页加载，加载时间为10s，加载完就跳过
         # 隐形等待时间和显性等待时间不同时，默认使用两者之间最大的那个
-        self.browser.implicitly_wait(15)
+        self.browser.implicitly_wait(5)
 
         return self.browser
 
@@ -187,3 +187,22 @@ class browser_confirm(object):
         basename = os.path.splitext(os.path.basename(__file__))[0]
 
         dError.error_mess(basename)
+
+
+if __name__ == '__main__':
+    bc = browser_confirm()
+    bc.url_opens(r'C:\Users\DingDonf\Desktop\customer.htm')
+    from bs4 import BeautifulSoup
+
+    label_text = bc.browser.page_source
+    soup = BeautifulSoup(label_text, "lxml")
+    fatal_error = soup.br
+    if fatal_error:
+        fatal_error_pare = fatal_error.parent
+        for i, child in enumerate(fatal_error_pare.children, start=1):
+            if not child.name in ('div', 'table'):
+                print(child, child.name)
+
+    else:
+        print("没有报错")
+    bc.browser.quit()

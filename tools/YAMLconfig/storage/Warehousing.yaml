@@ -1,3 +1,5 @@
-# 时间选择器
-# 关键字选择器
-# 操作按钮
+staff_select: select[name='type']
+search_button: .btn.btn-xs.btn-danger.btn-search.J_ipt
+export_button: .btn.btn-xs.btn-success.btn-anthor.J_ipt
+explain_button: .btn.btn-xs.btn-search.pull-right.elucidateshow
+

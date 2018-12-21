@@ -52,6 +52,11 @@ class TestFocusTabs(unittest.TestCase):
         config = GeneralizeAssist.add_key(GeneralizeAssist.img, GeneralizeAssist.page)
         cls.photo = PhotoGraph(config, cls.basename, Generalize)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+
     def setUp(self):
         # 获取运行文件的类名
         self.photo.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -60,6 +65,8 @@ class TestFocusTabs(unittest.TestCase):
         self.photo._rou_background()
 
     def tearDown(self):
+        self.photo.get_screenshot_image(method_obj=self)
+
         self.photo.driver.quit()
         self.photo.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

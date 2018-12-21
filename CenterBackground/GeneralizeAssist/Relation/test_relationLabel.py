@@ -56,6 +56,12 @@ class TestRelationLabel(unittest.TestCase):
         cls.rt_label = SurfaceJude(config, cls.basename, Generalize)
         cls.INVITE_DESIGNATED_TABS = cls.rt_label.bi.yaml_tabs()
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.rt_label.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -64,6 +70,7 @@ class TestRelationLabel(unittest.TestCase):
         self.rt_label._rou_background()
 
     def tearDown(self):
+        self.rt_label.get_screenshot_image(method_obj=self)
         self.rt_label.driver.quit()
         self.rt_label.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

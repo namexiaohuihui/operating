@@ -40,6 +40,7 @@ from tools.excelname.Center.bundledItems import BundledItems
 
 
 class TestPlatformScreen(unittest.TestCase):
+
     @classmethod
     def setUpClass(cls):
         try:
@@ -48,6 +49,13 @@ class TestPlatformScreen(unittest.TestCase):
             cls.basename = basepath + "-" + basename
             config = Commodities.add_key(Commodities.platform, Commodities.select)
             cls.sJude = ScreeningJude(config, cls.basename, BundledItems)
+
+            # 获取执行文件路径
+            if "\\" in os.path.dirname(__file__):
+                cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+            elif "/" in os.path.dirname(__file__):
+                cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+
         except TypeError as TE:
             print(TE)
             print("又出现下面这个问题----------------------")
@@ -55,6 +63,7 @@ class TestPlatformScreen(unittest.TestCase):
             print("缺少-----@classmethod-------导致-------")
 
     def setUp(self):
+
         # 获取运行文件的类名
         self.sJude.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
         # 打开浏览器，定义log日志。读取excle文档数据
@@ -62,6 +71,8 @@ class TestPlatformScreen(unittest.TestCase):
         self.sJude._rou_background()
 
     def tearDown(self):
+        self.sJude.get_screenshot_image(method_obj=self)
+
         self.sJude.driver.quit()
         self.sJude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

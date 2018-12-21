@@ -50,6 +50,11 @@ class TestStoreScreen(unittest.TestCase):
         # 读取配置所在文件
         config = Commodities.add_key(Commodities.store, Commodities.select)
         cls.sJude = ScreeningJude(config, cls.basename, BundledItems)
+
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
         pass
 
     def setUp(self):
@@ -61,10 +66,11 @@ class TestStoreScreen(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.sJude.get_screenshot_image(method_obj=self)
+
         self.sJude.driver.quit()
         self.sJude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
-
 
     # －－－－－－－－－－－－－－－－－－－－－－－－状态－－－－－－－－－－－－－－－－－－－－－－－－－－
     def test_statusSelect(self):

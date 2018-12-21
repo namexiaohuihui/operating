@@ -48,7 +48,10 @@ setattr(object, name, values)
 给对象的属性赋值，若属性不存在，先创建再赋值。
 
 一种综合的用法是：判断一个对象的属性是否存在，若不存在就添加该属性。
-getattr(t, "age", setattr(t, "age", "18")) #age属性不存在时，设置该属性
+#age属性不存在时，设置该属性
+if getattr(t, "age", None) is None:
+    setattr(t, "age", "18")
+age = getattr(t, "age")
 """
 
 if __name__ == '__main__':

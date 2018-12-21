@@ -233,6 +233,42 @@ class ComparedVerify(object):
     #--------------------其他一些配置部分-----------------------------------------
     """
 
+    def get_screenshot_image(self, method_obj):
+        """
+        执行保存截图功能
+        :param method_obj: 当前运行文件主体
+        :return:
+        """
+        # 判断执行是否出错
+        bl_image_error = True
+        for fun_name, error in method_obj._outcome.errors:
+            if error:
+                method_status = 'error'
+                bl_image_error = False
+
+        if bl_image_error:
+            method_status = 'correct'
+
+        method_obj.method_path = os.path.join(method_obj.method_path, method_status)
+
+        method_name = "%s-%s.png" % (method_obj.basename.split("-")[-1], method_obj._testMethodName)
+
+        # 获取年月日
+        current_time = time.strftime('%Y-%m-%d', time.localtime())
+
+        # 路径这块先这样写
+        report_path = os.path.join(os.path.join(os.getcwd(), 'screenshots/imgs'), current_time)
+        report_path = os.path.join(report_path, method_obj.method_path)
+
+        # 文件保存路径不存在就创建
+        if not os.path.exists(report_path): os.makedirs(report_path)
+
+        file_path = os.path.join(report_path, method_name)
+        print("截图" + file_path)
+
+        # 截图保存
+        self.driver.save_screenshot(file_path)
+
     def sleep_time(self, times=1):
         time.sleep(times)
 

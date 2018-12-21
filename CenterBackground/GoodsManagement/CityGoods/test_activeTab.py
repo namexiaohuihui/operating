@@ -49,6 +49,12 @@ class TestCityTab(unittest.TestCase):
         config = GoodsManagement.add_key(GoodsManagement.citys, GoodsManagement.tab)
         cls.city_tab = ActiveTabJude(config, cls.basename, CityGoodsPage)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.city_tab.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -57,6 +63,8 @@ class TestCityTab(unittest.TestCase):
         self.city_tab._rou_background()
 
     def tearDown(self):
+        self.city_tab.get_screenshot_image(method_obj=self)
+
         self.city_tab.driver.quit()
         self.city_tab.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

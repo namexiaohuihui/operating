@@ -151,10 +151,10 @@ class SurfaceJude(JudgmentVerification):
         '''
         text_center = self.success_execute()
         excel_center = str.split(self.overall[self.bi.whole_including()], ',')
-        print("----------------------------")
-        print(text_center)
-        print(excel_center)
-        print("----------------------------")
+        # print("----------------------------")
+        # print(text_center)
+        # print(excel_center)
+        # print("----------------------------")
         self.debugging_log(text_center, excel_center, 'Thead title display is incorrectly displayed.')
         del text_center
         del excel_center
@@ -168,8 +168,6 @@ class SurfaceJude(JudgmentVerification):
         """
         # 1.根据info获取当前分页的总数
         pages = self.info_number()  # 获取into的总数据信息
-        self.log.info('There is data that needs to be paged: %s' % pages)
-
         self.tbody_list = []
         self.threads = []
 
@@ -180,27 +178,50 @@ class SurfaceJude(JudgmentVerification):
 
         # 3.通过线程来获取内容
         current = self.driver.current_url
-        # 如果界面只有一行数据的话,执行下面遍历操作就会出现IndexError: list index out of range
-        for qe in range(1, 3):
-            url = current + '&page={}'.format(qe)
+
+        if pages:
+            self.log.info("页面有翻页按钮")
+            # 如果界面只有一行数据的话,执行下面遍历操作就会出现IndexError: list index out of range
+            for qe in range(1, 3):
+                url = current + '&page={}'.format(qe)
+                thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
+                thread.setDaemon(True)
+                thread.start()
+                self.threads.append(thread)
+                time.sleep(1)
+
+            for th in self.threads:
+                th.join()
+
+            self.debugging_ppint(self.tbody_list)
+            pass
+        else:
+            self.log.error("页面没有翻页按钮")
+
+            url = current + '&page={}'.format(1)
             thread = threading.Thread(target=self.success_tbody, args=(url, thead_tr,))
             thread.setDaemon(True)
             thread.start()
             self.threads.append(thread)
             time.sleep(1)
 
-        for th in self.threads:
-            th.join()
-        self.debugging_ppint(self.tbody_list)
+        # 判断页面是否出现报错的文字提示
+        soup = self.bs4_soup()
+        fatal_error = soup.br
+        if fatal_error:
+            fatal_error_pare = fatal_error.parent
+            for i, child in enumerate(fatal_error_pare.children, start=1):
+                if not child.name in ('div', 'table'):
+                    self.log.error(child)
+            assert False, "页面报错"
         pass
 
     def debugging_ppint(self, oppara):
-        print("/*******************************/")
-        import pprint
-        pprint.pprint(oppara)
-        print("/*******************************/")
+        # print("/*******************************/")
+        # self.log.log_ppriny(oppara)
+        # print("/*******************************/")
+        pass
 
     def debugging_log(self, ct_default, ov_default, mesg):
         assert operator.eq(ct_default, ov_default), mesg
-        # del ct_default, ov_default
         pass

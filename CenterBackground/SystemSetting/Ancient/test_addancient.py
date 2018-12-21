@@ -51,6 +51,12 @@ class TestAddAncient(unittest.TestCase):
         config = SystemSetting.add_key(SystemSetting.ancient, SystemSetting.release)
         cls.n_operate = InviteOperateJude(config, cls.basename, SystemParameter)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.n_operate.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -60,6 +66,8 @@ class TestAddAncient(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.n_operate.get_screenshot_image(method_obj=self)
+
         self.n_operate.driver.quit()
         self.n_operate.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

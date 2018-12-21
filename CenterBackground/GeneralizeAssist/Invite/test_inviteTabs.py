@@ -56,6 +56,12 @@ class TestInviteTabs(unittest.TestCase):
         config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.tabs)
         cls.sw_tab = CommoditiesJude(config, cls.basename, Generalize)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.sw_tab.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -64,6 +70,8 @@ class TestInviteTabs(unittest.TestCase):
         self.sw_tab._rou_background()
 
     def tearDown(self):
+        self.sw_tab.get_screenshot_image(method_obj=self)
+
         self.sw_tab.driver.quit()
         self.sw_tab.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

@@ -51,6 +51,12 @@ class TestShelvesGood(unittest.TestCase):
         # 传入子集的key，以及Excel文档中的sheet名字
         config = GoodsManagement.add_key(GoodsManagement.citys, GoodsManagement.shelves)
         cls.shelves = ShelvesJude(config, cls.basename, CityGoodsPage)
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
 
     def setUp(self):
         # 获取运行文件的类名
@@ -60,6 +66,8 @@ class TestShelvesGood(unittest.TestCase):
         self.shelves._rou_background()
 
     def tearDown(self):
+        self.shelves.get_screenshot_image(method_obj=self)
+
         self.shelves.driver.quit()
         self.shelves.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

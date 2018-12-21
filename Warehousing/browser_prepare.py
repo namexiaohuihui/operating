@@ -35,15 +35,20 @@ import os
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 
+driver_path = 'E:\drivers\Drivers'
+
 
 class BrowserPrepare(object):
     """
     工作内容:
     1. 打开浏览器
-    2. 执行元素校验 = [click,input,visible]
     """
 
     def __init__(self, driver_browser='chrome'):
+
+        pass
+
+    def open_driver_browser(self, driver_browser='chrome'):
         # 创建浏览器对象
         if 'chrome' == driver_browser or 'Chrome' == driver_browser:
             self.chrome_browser()
@@ -52,12 +57,20 @@ class BrowserPrepare(object):
         else:
             self.ie_browser()
 
-        self.browser.maximize_window()
+        self.driver.maximize_window()
         # 输入网址
-        self.browser.get(url)
         # 等待网页加载，加载时间为10s，加载完就跳过
         # 隐形等待时间和显性等待时间不同时，默认使用两者之间最大的那个
-        self.browser.implicitly_wait(15)
+        self.driver.implicitly_wait(10)
+
+        pass
+
+    def input_browser_url(self, url):
+        self.driver.get(url)
+        pass
+
+    def close_driver_browser(self, _quit):
+        self.driver.quit()
         pass
 
     def chrome_browser(self):
@@ -65,7 +78,7 @@ class BrowserPrepare(object):
         调用函数，实现打开谷歌浏览器的步骤
         :return:
         """
-        self.browser = webdriver.Chrome(executable_path=os.path.join(driver_path, 'chromedriver239-68.exe'))
+        self.driver = webdriver.Chrome(executable_path=os.path.join(driver_path, 'chromedriver239-68.exe'))
 
     def ie_browser(self):
         """
@@ -74,7 +87,7 @@ class BrowserPrepare(object):
         """
         # https://www.cnblogs.com/ppppying/p/6143658.html
         # 实现全局变量的引用
-        self.browser = webdriver.Ie(executable_path=os.path.join(driver_path, 'IEDriverServer.exe'))
+        self.driver = webdriver.Ie(executable_path=os.path.join(driver_path, 'IEDriverServer.exe'))
         self.BROWSER_NAME = "IE浏览器"
 
     def firefox_browser(self):
@@ -89,7 +102,7 @@ class BrowserPrepare(object):
         self.BROWSER_NAME = "火狐浏览器"
         # 代码加载火狐驱动
         firefoxgeckobdriver = os.path.abspath(os.path.join(driver_path, 'geckodriver64.exe'))
-        self.browser = webdriver.Firefox(options, executable_path=firefoxgeckobdriver)
+        self.driver = webdriver.Firefox(options, executable_path=firefoxgeckobdriver)
 
     def mobile_phone_mode(self):
         '''

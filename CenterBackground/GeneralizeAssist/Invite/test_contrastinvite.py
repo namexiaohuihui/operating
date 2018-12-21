@@ -53,6 +53,12 @@ class TestContrastInvire(unittest.TestCase):
         config = GeneralizeAssist.add_key(GeneralizeAssist.invite, GeneralizeAssist.contrast)
         cls.i_jude = InviteOperateJude(config, cls.basename, Generalize)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.i_jude.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -61,6 +67,8 @@ class TestContrastInvire(unittest.TestCase):
         self.i_jude._rou_background()
 
     def tearDown(self):
+        self.i_jude.get_screenshot_image(method_obj=self)
+
         self.i_jude.driver.quit()
         self.i_jude.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

@@ -47,6 +47,12 @@ class TestCollectiveView(unittest.TestCase):
         config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.views)
         cls.tive_v = OperationViewJude(config, cls.basename, InteractionController)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
     def setUp(self):
         # 获取运行文件的类名
         self.tive_v.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -55,6 +61,8 @@ class TestCollectiveView(unittest.TestCase):
         self.tive_v._rou_background()
 
     def tearDown(self):
+        self.tive_v.get_screenshot_image(method_obj=self)
+
         self.tive_v.driver.quit()
         self.tive_v.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass

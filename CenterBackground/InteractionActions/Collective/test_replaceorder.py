@@ -47,6 +47,13 @@ class TestReplaceOrder(unittest.TestCase):
         config = InteractionActions.add_key(InteractionActions.collective, InteractionActions.replace)
         cls.replace_o = OperationViewJude(config, cls.basename, InteractionController)
 
+        if "\\" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
+        elif "/" in os.path.dirname(__file__):
+            cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        pass
+
+
     def setUp(self):
         # 获取运行文件的类名
         self.replace_o.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
@@ -56,6 +63,8 @@ class TestReplaceOrder(unittest.TestCase):
         pass
 
     def tearDown(self):
+        self.replace_o.get_screenshot_image(method_obj=self)
+
         self.replace_o.driver.quit()
         self.replace_o.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
         pass
