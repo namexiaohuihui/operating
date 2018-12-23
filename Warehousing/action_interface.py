@@ -309,7 +309,7 @@ class ActionVisible(BrowserPrepare):
         else:
             print("is_input_execute--没有这个类型:%s" % way_type)
 
-    def administrator_login(self, user_ward):
+    def administrator_login(self, *user_ward):
         """
         登录操作
         :param user_name:

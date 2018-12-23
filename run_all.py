@@ -71,9 +71,9 @@ def get_report_file(report_path):
     return report_file
 
 
-def run_main(file_name):
+def run_main(file_name, rule='test*.py'):
     # 加载用例
-    all_case = add_case(file_name, "test_*Label.py")
+    all_case = add_case(file_name, rule)
 
     # 运行文件所在目录为文件名
     file_name = str.split(file_name, '\\')[-1]
@@ -131,12 +131,17 @@ def start_loading_case():
             run_main(dir)
 
 
+def start_single_loading():
+    run_main('SimpleProcess')
+
+
 if __name__ == '__main__':
     # 记录运行时间
     startTime = datetime.datetime.now()
     print("\nStart Run Time: %s\n" % startTime)
     # 运行程序
-    start_loading_case()
+    # start_loading_case()
+    start_single_loading()
     # 记录结束时间
     stopTime = datetime.datetime.now()
     print("\nFinish Run Time: %s\n" % stopTime)
