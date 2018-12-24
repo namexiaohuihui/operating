@@ -56,7 +56,7 @@ class CommunalProcess(object):
         self.open_browser.is_visible_inputs(locator='password', way='id', parameter=password)
         # 点击登录
         self.open_browser.is_visible_clicks(locator='loginBtn', way='id')
-
+        del conf
         sleep(1)
         pass
 
@@ -68,20 +68,3 @@ class CommunalProcess(object):
         # 进入模块
         module_int = 'li.hsub.open>ul>li:nth-child(%s)' % module_int
         self.open_browser.is_visible_clicks(locator=module_int, way='css')
-
-    def traverse_jump(self, box_path, box_int):
-        """
-        遍历点击
-        :param box_path:
-        :param box_int:
-        :return:
-        """
-        tabbox_list = self.open_browser.is_visible_all_drivers(box_path, 'css', timeout=10)
-        # 检验页面有没有出现br错误
-        jump_bool = self.open_browser.report_an_error()
-        assert jump_bool, '点击第%s个box时出现错误' % str(box_int)
-        if box_int < len(tabbox_list):
-            tabbox_list[box_int].click()
-            sleep(1)
-            return self.traverse_jump(box_path, box_int + 1)
-        pass

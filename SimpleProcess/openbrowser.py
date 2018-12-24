@@ -35,7 +35,7 @@
 
 import os
 from time import sleep
-
+import re
 from selenium import webdriver
 import selenium.webdriver.support.ui as ui
 import selenium.webdriver.support.expected_conditions as EC
@@ -46,7 +46,7 @@ from tools.configs import readModel
 
 class OpenBrowper(object):
 
-    def open_driver(self):
+    def open_driver(self, user_url):
         self.driver = webdriver.Chrome(
             executable_path=os.path.join(os.path.split(os.path.abspath(__file__))[0], 'chromedriver.exe'))
         self.driver.maximize_window()
@@ -54,7 +54,7 @@ class OpenBrowper(object):
         # 等待网页加载，加载时间为10s，加载完就跳过
         # 隐形等待时间和显性等待时间不同时，默认使用两者之间最大的那个
         self.driver.implicitly_wait(5)
-        url = readModel.establish_con(model="model").get("username", "atorage_url")
+        url = readModel.establish_con(model="model").get("wap", user_url)
         self.driver.get(url)
         pass
 
@@ -171,3 +171,35 @@ class OpenBrowper(object):
             pass
         del soup
         return True
+
+    def info_number(self):
+        # 读取info的数据并把int数据切割
+        info_text = self.is_visible_singles("div.dataTables_info", 'css')
+
+        if info_text:
+            info_text = str.split(info_text.text, '，')[-1]
+            searchObj = re.search("\d+", info_text)
+            info_text = int(searchObj.group() if searchObj else searchObj)
+            if (info_text % 10) > 0:
+                number = 1
+            else:
+                number = 0
+            info_text = int((info_text / 10)) + number
+        return info_text
+
+    def traverse_jump(self, box_path, box_int):
+        """
+        遍历点击
+        :param box_path:
+        :param box_int:
+        :return:
+        """
+        tabbox_list = self.is_visible_all_drivers(box_path, 'css', timeout=10)
+        # 检验页面有没有出现br错误
+        jump_bool = self.report_an_error()
+        assert jump_bool, '点击第%s个box时出现错误' % str(box_int)
+        if box_int < len(tabbox_list):
+            tabbox_list[box_int].click()
+            sleep(1)
+            return self.traverse_jump(box_path, box_int + 1)
+        pass

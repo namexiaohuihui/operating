@@ -40,7 +40,7 @@ from tools.screeningdrop import ScreeningDrop
 class PreWork(object):
     def __init__(self, muen_i, module_i):
         self.op_br = OpenBrowper()
-        self.op_br.open_driver()
+        self.op_br.open_driver('atorage_url')
         self.comm = CommunalProcess(self.op_br)
 
         self.comm.warehousing_login()

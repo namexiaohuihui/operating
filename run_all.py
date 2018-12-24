@@ -132,7 +132,7 @@ def start_loading_case():
 
 
 def start_single_loading():
-    run_main('SimpleProcess')
+    run_main('SimpleProcess',"test_store_label.py")
 
 
 if __name__ == '__main__':

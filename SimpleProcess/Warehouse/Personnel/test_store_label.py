@@ -117,6 +117,10 @@ class TestStoreLabel(unittest.TestCase):
         assert False, "操作按钮+翻页等功能没有做"
 
     # 以下操作是在配送点详情页面进行的.而不是在配送点列表页面进行
+    def test_shop_deficiency_module(self):
+        """配送点详情页,库存日志TAB页面,操作按钮+翻页"""
+        assert False, "配送点详情页,操作按钮+翻页等功能没有做"
+
     def test_shop_goods(self):
         """配送点详情页面切换tab"""
         # 1.先进入页面
@@ -174,7 +178,7 @@ class TestStoreLabel(unittest.TestCase):
         """配送点详情页,商品管理TAB页面，点击铺货按钮检测"""
         # 1.先进入页面
         self.op_br.is_visible_clicks("tbody > tr:nth-child(1) > td:nth-child(7) > a", "css")
-        #切换到商品管理TAB
+        # 切换到商品管理TAB
         self.op_br.is_visible_clicks("ul.nav.nav-tabs>li:nth-child(1) > a", "css")
         # 点击铺货
         self.op_br.is_visible_clicks("button.handbtn.handbtn-blue.pull-right.modal-btn", "css")
@@ -197,10 +201,6 @@ class TestStoreLabel(unittest.TestCase):
         del elucidate
         self.op_br.driver.back()
         pass
-
-    def test_shop_goods_deficiency_module(self):
-        """配送点详情页,商品管理TAB页面,操作按钮+翻页"""
-        assert False, "配送点详情页,操作按钮+翻页等功能没有做"
 
     def test_shop_inventory_timeinput(self):
         """配送点详情页,库存日志TAB页面,时间输入框"""
@@ -246,6 +246,42 @@ class TestStoreLabel(unittest.TestCase):
         del elucidate
         pass
 
+    def test_shop_inventory_remarks(self):
+        """配送点详情页,库存日志TAB页面,点击操作备注为订单的连接,实现跳转"""
+        # 1.先进入页面
+        self.op_br.is_visible_clicks("tbody > tr:nth-child(1) > td:nth-child(7) > a", "css")
+        # 切换到库存日志tab
+        self.op_br.is_visible_clicks("ul.nav.nav-tabs>li:nth-child(2) > a", "css")
+        error_bool = True
+        # 遍历tr只到除该页面中能跳转的数据信息.
+        info_text = self.op_br.info_number()
+        if True:
+            for info in range(info_text):
+                # 找到页面上全部为tr的数据
+                tbody_tr = self.op_br.is_visible_all_drivers("#datatatle>tbody>tr", 'css')
+                # 遍历tr数据
+                for tr in tbody_tr:
+                    # 找到tr下面为td的数据
+                    tbody_td = tr.find_elements_by_tag_name("td")
+                    print("tbody_td长度:%s" % len(tbody_td))
+                    # 判断倒数操作备注这个td元素旗下是否有a标签,有说明能跳转
+                    try:
+                        tbody_td_a = tbody_td[6].find_element_by_tag_name('a')
+                        if tbody_td_a:
+                            tbody_td_a.click()
+                            error_bool = self.op_br.report_an_error()
+                            self.op_br.driver.back()
+                            break
+                            pass
+                    except:
+                        print("td标签没有a开始跳过")
+                    pass
+                pass
+            pass
+
+        assert error_bool, "库存日志点击操作日志为订单进行跳转出现了错误.."
+        pass
+
     def test_shop_empty_timeinput(self):
         """配送点详情页,空桶日志TAB页面,时间输入框"""
         # 1.先进入页面
@@ -258,7 +294,7 @@ class TestStoreLabel(unittest.TestCase):
         pass
 
     def test_shop_empty_change(self):
-        """配送点详情页,空桶日志TAB页面,库存变更下拉"""
+        """配送点详情页,空桶日志TAB页面,库存变更类型下拉"""
         # 1.先进入页面
         self.op_br.is_visible_clicks("tbody > tr:nth-child(1) > td:nth-child(7) > a", "css")
         # 切换到空桶日志tab
@@ -277,6 +313,43 @@ class TestStoreLabel(unittest.TestCase):
         elucidate = self.work.get_option_text("select[name='goodsType']")
         assert elucidate == '商品ID', '配送点详情页,空桶日志TAB页面,库存变更类型下拉默认文字判断有误:%s' % elucidate
         del elucidate
+        pass
+
+    def test_shop_empty_remarks(self):
+        """配送点详情页,空桶日志TAB页面,点击操作备注为订单的连接,实现跳转"""
+        # 1.先进入页面
+        self.op_br.is_visible_clicks("tbody > tr:nth-child(1) > td:nth-child(7) > a", "css")
+        # 切换到库存日志tab
+        self.op_br.is_visible_clicks("ul.nav.nav-tabs>li:nth-child(2) > a", "css")
+        error_bool = True
+        # 遍历tr只到除该页面中能跳转的数据信息.
+        info_text = self.op_br.info_number()
+        if True:
+            for info in range(info_text):
+                # 找到页面上全部为tr的数据
+                tbody_tr = self.op_br.is_visible_all_drivers("#datatatle>tbody>tr", 'css')
+                # 遍历tr数据
+                for tr in tbody_tr:
+                    # 找到tr下面为td的数据
+                    tbody_td = tr.find_elements_by_tag_name("td")
+                    print("tbody_td长度:%s" % len(tbody_td))
+                    # 判断倒数操作备注这个td元素旗下是否有a标签,有说明能跳转
+                    try:
+                        tbody_td_a = tbody_td[6].find_element_by_tag_name('a')
+                        if tbody_td_a:
+                            tbody_td_a.click()
+                            error_bool = self.op_br.report_an_error()
+                            self.op_br.driver.back()
+                            break
+                            pass
+                    except:
+                        print("td标签没有a开始跳过")
+                    pass
+                pass
+            pass
+
+        assert error_bool, "空桶日志点击操作日志为订单进行跳转出现了错误.."
+
         pass
 
 
