@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      seller_home.py
+@file:      test_home.py
 @time:      2018/12/24 17:40
 @desc:
 """
@@ -34,7 +34,7 @@ import unittest
 from SimpleProcess.SellerStore.seller_work import SellerWork
 
 
-class SellerHome(unittest.TestCase):
+class TestHome(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.muen_int = 1

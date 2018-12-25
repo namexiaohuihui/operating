@@ -83,3 +83,19 @@ class SellerWork(object):
         # 进入菜单
         muen_int = '.nav.nav-list>li:nth-child(%s)' % muen_int
         self.op_br.is_visible_clicks(locator=muen_int, way='css')
+        pass
+
+    def seller_info_number(self):
+        # 读取info的数据并把int数据切割
+        info_text = self.op_br.is_visible_singles("div.dataTables_info", 'css')
+
+        if info_text:
+            info_text = str.split(info_text.text, '，')[-1]
+            searchObj = re.search("\d+", info_text)
+            info_text = int(searchObj.group() if searchObj else searchObj)
+            if (info_text % 6) > 0:
+                number = 1
+            else:
+                number = 0
+            info_text = int((info_text / 6)) + number
+        return info_text
