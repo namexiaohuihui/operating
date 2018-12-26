@@ -39,6 +39,7 @@ import selenium.webdriver.support.expected_conditions as EC
 
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.touch_actions import TouchActions
 from selenium.webdriver.common.action_chains import ActionChains
 from Warehousing.browser_prepare import BrowserPrepare
 
@@ -354,7 +355,7 @@ class ActionVisible(BrowserPrepare):
         elif 'focus' == cursor_type:
             self.driver.execute_script("document.getElementById(\'" + ele_attr + "\').focus();")
 
-    def ac_move_to_element(self, locator):
+    def ac_move_to_element(self, locator, way):
         """
         该函数适用于：
         1.浏览器设置为手机模式
@@ -363,14 +364,14 @@ class ActionVisible(BrowserPrepare):
         :param locator:
         :return:
         """
-        action_ele = self.is_visible_css_selectop(locator)
+        action_ele = self.is_visible_single_driver(locator, way)
         ActionChains(self.driver).move_to_element(action_ele).perform()
-        el.click()
         pass
 
     def touchActions_tap(self, element):
         """
-        手机端或者浏览器为手机模式时的点击元素
+        手机端或者浏览器为手机模式时的单击操作。
+        也可模拟一些上拉，下滑的操
         :param element:
         :return:
         """

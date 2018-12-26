@@ -39,7 +39,7 @@ from SimpleProcess.SellerStore.seller_work import SellerWork
 class TestBarrelDeposit(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.muen_int = 2
+        cls.muen_int = 3
         # 登录账户进入菜单
         cls.work = SellerWork(muen_i=cls.muen_int)
         # 找到公用对象
@@ -53,15 +53,20 @@ class TestBarrelDeposit(unittest.TestCase):
         del cls.op_br
         pass
 
+    def test_status_input(self):
+        """桶押金管理页面押金状态的默认值显示"""
+        label_text = self.work.get_option_text("select[name='status']" )
+        assert '押金状态' == label_text, "桶押金管理页面押金状态的默认值显示有误:%s" % label_text
+
     def test_time_input(self):
-        """订单调度页面日期输入框默认值"""
-        label_text = self.op_br.get_ele_text_vlue("reservationtime", "id")
-        assert '全部' == label_text, "订单调度页面日期输入框默认值判断有误%s" % label_text
+        """桶押金管理页面时间输入框默认值显示"""
+        label_text = self.op_br.get_ele_text_vlue("reservationtime']", "id", 'value')
+        assert '今日' == label_text, "桶押金管理页面时间输入框默认值显示有误:%s" % label_text
 
     def test_key_input(self):
-        """订单调度页面关键字输入框默认值"""
-        label_text = self.op_br.get_ele_text_vlue("input[name='content']", "id", 'placeholder')
-        assert '请输入完整订单号/配送员姓名/配送员ID/手机' == label_text, "订单调度页面关键字输入框默认值判断有误%s" % label_text
+        """桶押金管理页面关键字下拉默认值显示"""
+        label_text = self.work.get_option_text("select[name='val']" )
+        assert '押金状态' == label_text, "桶押金管理页面关键字下拉默认值显示有误:%s" % label_text
 
     def test_search_error(self):
         """遍历点击tab切换,判断是否出现错误"""
