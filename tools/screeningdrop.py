@@ -23,6 +23,8 @@ class ScreeningDrop(action_visible):
         self.drivers = drivers
         if labelPath:
             self.setSelectData(labelPath, attr)
+        else:
+            print("为空不创建")
 
     def setSelectData(self, labelPath, attr='id'):
         try:
@@ -34,7 +36,7 @@ class ScreeningDrop(action_visible):
             self.ele_select(selectEle)
             return self
         except UnexpectedTagNameException:
-            print("The incoming element path is not a select.")
+            print("该元素不是select对象:The incoming element path is not a select.")
 
     def ele_select(self, selectEle):
         """

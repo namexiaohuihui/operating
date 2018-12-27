@@ -200,6 +200,6 @@ class OpenBrowper(object):
         assert jump_bool, '点击第%s个box时出现错误' % str(box_int)
         if box_int < len(tabbox_list):
             tabbox_list[box_int].click()
-            sleep(1)
+            sleep(2)
             return self.traverse_jump(box_path, box_int + 1)
         pass

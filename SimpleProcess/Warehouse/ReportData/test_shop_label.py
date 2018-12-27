@@ -23,13 +23,11 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
                佛祖保佑         永无BUG
-@author:  ln_company
-@license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
-@software: PyCharm
-@file:  text_courier_label.py
-@time: 2018/12/23 13:10
-@Software: PyCharm
-@Site    : 
+@author:    ln_company
+@license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
+@Software:  PyCharm
+@file:      test_shop_label.py
+@time:      2018/12/27 18:30
 @desc:
 """
 import unittest
@@ -37,11 +35,11 @@ from SimpleProcess.Warehouse.pre_work import PreWork
 import time
 
 
-class TextCourierLabel(unittest.TestCase):
+class TestShopLabel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # 登录账户进入菜单
-        cls.work = PreWork(muen_i=1, module_i=2)
+        cls.work = PreWork(muen_i=1, module_i=1)
         # 找到公用对象
         cls.op_br, cls.comm = cls.work.get_object_work()
         pass
@@ -52,19 +50,15 @@ class TextCourierLabel(unittest.TestCase):
 
     def test_time_value(self):
         """时间选择器默认值"""
-        label_value = self.op_br.get_ele_text_vlue('reservationtime', 'id', 'value')
-        time_year = time.strftime('%Y', time.localtime())
-        time_month = time.strftime('%m', time.localtime())
-        pm_value = "%s年%s月" % (time_year, time_month)
-        assert label_value == pm_value, '配送员业绩时间默认显示不对:(%s-%s)' % (label_value, pm_value)
-        del label_value, pm_value
-        print("时间检验完毕")
+        label_value = self.op_br.get_ele_text_vlue('reservationtime', 'id', 'placeholder')
+        assert label_value == '昨天', '配送点业绩时间默认显示不对:(%s-%s)' % (label_value, pm_value)
+        del label_value
         pass
 
     def test_counrier_default(self):
         """关键字下拉框的默认值显示"""
         label_option = self.work.get_option_text("select[name='type']")
-        assert label_option == '配送员名称', '配送员业绩关键字下拉默认值不对:%s' % label_option
+        assert label_option == '配送点ID', '配送点业绩关键字下拉默认值不对:%s' % label_option
         del label_option
         print("关键字默认检验完毕")
         pass
@@ -72,20 +66,10 @@ class TextCourierLabel(unittest.TestCase):
     def test_instructions(self):
         """点击列表说明出现弹窗"""
         self.op_br.is_visible_clicks(".btn.btn-default.btn-sm.J-rule", 'css')
-        modal_text = self.op_br.get_ele_text_vlue(" div.modal.fade.in > div > div > div.modal-header > h4",'css')
+        modal_text = self.op_br.get_ele_text_vlue(" div.modal.fade.in > div > div > div.modal-header > h4", 'css')
         assert '列表说明' == modal_text, "点击列表说明出现弹窗错误:%s" % modal_text
         del modal_text
         pass
-
-    def test_detail_jump(self):
-        """点击详情,页面跳转"""
-        self.op_br.is_visible_clicks("tbody > tr:nth-child(1) > td:nth-child(6) > a", 'css')
-        label_text = self.op_br.get_ele_text_vlue("ul.breadcrumb", 'css')
-        assert label_text == '售出统计', '点击详细页面跳转页面标题正确:%s' % label_text
-
-        jump_bool = self.op_br.report_an_error()
-        assert jump_bool, "跳转之后,页面不能显示数据然会报错了"
-        self.op_br.driver.back()
 
     def test_judge_error(self):
         """检查页面有没有出现错误提示"""
@@ -95,6 +79,3 @@ class TextCourierLabel(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
-    # s1 = unittest.TestLoader.loadTestsFromTestCase(TextCourierLabel)
-    # suite = unittest.TestSuite(s1)
-    # unittest.TextTestRunner(verbosity=2).run(suite)

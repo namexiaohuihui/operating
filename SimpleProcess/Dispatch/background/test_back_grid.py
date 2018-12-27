@@ -68,8 +68,8 @@ class TestBackGrid(unittest.TestCase):
 
     def test_grid_content(self):
         """网格管理页面界面数据显示"""
-        ele_list = self.op_br.is_visible_all_drivers(".poibox.amap-ui-markerlist-list-ele", 'css')
-        assert len(ele_list) > 10, '网格管理页面界面数据显示检验错误:%s' % len(ele_list)
+        ele_list = self.op_br.driver.find_elements_by_css_selector("#area-box>li")
+        assert ele_list, '网格管理页面界面数据显示检验错误:%s' % len(ele_list)
         del ele_list
         pass
 

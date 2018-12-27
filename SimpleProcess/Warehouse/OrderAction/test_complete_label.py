@@ -93,7 +93,7 @@ class TestCompleteLabel(unittest.TestCase):
 
     def test_complete_shopname(self):
         """点击店铺名称进行跳转"""
-        attribute = - self.op_br.is_visible_clicks("tbody > tr:nth-child(1) > td:nth-child(3) > a", "css")
+        attribute = self.op_br.is_visible_clicks("tbody > tr:nth-child(1) > td:nth-child(3) > a", "css")
         assert attribute, "界面没有店铺名称可点击"
         label_text = self.op_br.get_ele_text_vlue("ul.breadcrumb>li", 'css')
         assert label_text == '配送点详情', '点击店铺名称进行跳转出现错误:%s' % label_text
@@ -114,7 +114,7 @@ class TestCompleteLabel(unittest.TestCase):
         attribute = self.op_br.is_visible_clicks("tbody > tr:nth-child(1) > td:nth-child(9) > button", "css")
         assert attribute, "界面没有操作记录按钮"
         label_text = self.op_br.get_ele_text_vlue("h4.modal-title", "css")
-        assert label_text == '操作记录', '点击页面记录按钮弹窗标题错误:%s' % s
+        assert label_text == '操作记录', '点击页面记录按钮弹窗标题错误:%s' % label_text
         pass
 
     def test_deficiency_module(self):

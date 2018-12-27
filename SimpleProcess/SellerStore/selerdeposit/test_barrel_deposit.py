@@ -60,17 +60,17 @@ class TestBarrelDeposit(unittest.TestCase):
 
     def test_time_input(self):
         """桶押金管理页面时间输入框默认值显示"""
-        label_text = self.op_br.get_ele_text_vlue("reservationtime']", "id", 'value')
+        label_text = self.op_br.get_ele_text_vlue("reservationtime", "id", 'value')
         assert '今日' == label_text, "桶押金管理页面时间输入框默认值显示有误:%s" % label_text
 
     def test_key_input(self):
         """桶押金管理页面关键字下拉默认值显示"""
         label_text = self.work.get_option_text("select[name='val']" )
-        assert '押金状态' == label_text, "桶押金管理页面关键字下拉默认值显示有误:%s" % label_text
+        assert '用户ID' == label_text, "桶押金管理页面关键字下拉默认值显示有误:%s" % label_text
 
     def test_search_error(self):
         """遍历点击tab切换,判断是否出现错误"""
-        jump_error = self.traverse_jump('div.subsearch>a', 0)
+        jump_error = self.op_br.traverse_jump('div.subsearch>a', 0)
         assert jump_error, "遍历点击tab切换,出现错误:%s" % jump_error
 
 

@@ -62,7 +62,7 @@ class TestBalanceLabel(unittest.TestCase):
 
     def test_balance_detail(self):
         """我的余额页面遍历点击tab"""
-        self.comm.traverse_jump("ul.cashTabarea>li", 0)
+        self.op_br.traverse_jump("ul.cashTabarea>li", 0)
         # 回到初始页面
         self.op_br.is_visible_clicks("ul.cashTabarea>li:nth-child(2)", 'css')
 

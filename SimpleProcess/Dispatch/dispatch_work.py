@@ -155,15 +155,16 @@ class DispatchWork(object):
 
         # 读取该数据中派单按钮
         self.op_br.is_visible_clicks("div.row>div:nth-child(3)>span", "css")
+
         # 获取弹窗标题文字
-        label_title = self.op_br.get_ele_text_vlue("myModalLabel", "id")
+        label_title = self.op_br.is_visible_singles("myModalLabel", "id")
         assert label_title, "该区域没有可派单的人员,点击派单没有弹窗:%s" % label_title
 
         # 点击关闭弹窗
         self.op_br.is_visible_clicks("close", 'id')
 
         # 比较弹窗标题文字是否正确
-        assert "派单" == label_title, "点击派单按钮之后,弹窗标题显示有误:%s" % label_title
+        assert "派单" == label_title.text, "点击派单按钮之后,弹窗标题显示有误:%s" % label_title
         pass
 
     def even_more_jump(self, subs_int):
@@ -186,7 +187,7 @@ class DispatchWork(object):
             else:
                 self.op_br.driver.switch_to.window(handles)
 
-        bread_text = self.op_br.get_ele_text_vlue("#breadcrumbs > ul > li", "css")
+        bread_text = self.op_br.get_ele_text_vlue("h2.page-header", "css")
 
         # 关闭新打开的浏览器窗口
         self.op_br.driver.close()

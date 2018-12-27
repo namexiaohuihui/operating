@@ -126,7 +126,7 @@ class TestStoreLabel(unittest.TestCase):
         # 1.先进入页面
         self.op_br.is_visible_clicks("tbody > tr:nth-child(1) > td:nth-child(7) > a", "css")
         # 2.遍历切换
-        self.comm.traverse_jump("ul.nav.nav-tabs>li", 1)
+        self.op_br.traverse_jump("ul.nav.nav-tabs>li", 1)
         # 点击完成之后，回到初始tab
         self.op_br.is_visible_clicks("ul.nav.nav-tabs>li:net-child(1)", 1)
 

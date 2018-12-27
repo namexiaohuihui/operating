@@ -41,7 +41,7 @@ from tools.configs import readModel
 class DatacenterWork(object):
     def __init__(self, muen_i, module_i):
         self.op_br = OpenBrowper()
-        self.op_br.open_driver('seller_url')
+        self.op_br.open_driver('datacenter_url')
 
         self.warehousing_login()
         self.access_muen_module(muen_i, module_i)
@@ -68,10 +68,10 @@ class DatacenterWork(object):
         :return:
         """
         conf = readModel.establish_con(model="model")  # 获取账号密码
-        account = conf.get("username", "seller_account")
-        password = conf.get("username", "seller_password")
+        account = conf.get("username", "datacenter_account")
+        password = conf.get("username", "datacenter_password")
         # 账号
-        self.op_br.is_visible_inputs(locator='phone', way='id', parameter=account)
+        self.op_br.is_visible_inputs(locator='username', way='id', parameter=account)
         # 密码
         self.op_br.is_visible_inputs(locator='password', way='id', parameter=password)
         # 点击登录
@@ -87,6 +87,6 @@ class DatacenterWork(object):
         self.op_br.is_visible_clicks(locator=muen_int, way='css')
 
         if type(module_i) is int:
-            module_i = 'li.hsub open>ul>li:nth-child(%s)' % module_i
+            module_i = 'li.hsub.open>ul>li:nth-child(%s)' % module_i
             self.op_br.is_visible_clicks(locator=module_i, way='css')
         pass

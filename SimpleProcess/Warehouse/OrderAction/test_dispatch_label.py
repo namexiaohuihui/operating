@@ -59,7 +59,7 @@ class TestDispatchLabel(unittest.TestCase):
 
     def test_tabbox_jump(self):
         """遍历点击tab"""
-        self.comm.traverse_jump('div.col-xs-12.tabbox > a.btn.btn-sm.btn-info', 1)
+        self.op_br.traverse_jump('div.col-xs-12.tabbox > a.btn.btn-sm.btn-info', 1)
         # 回到初始页面
         self.op_br.is_visible_clicks('div.col-xs-12.tabbox > a.btn.btn-sm.btn-info','css')
         pass

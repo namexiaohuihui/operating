@@ -56,7 +56,7 @@ class TestBackHome(unittest.TestCase):
     def test_home_type(self):
         """进入首页判断登录者类型"""
         label_text = self.op_br.get_ele_text_vlue("div.userinfo > ul > li:nth-child(3)", "css")
-        assert "管理者" == label_text, "进入首页判断登录者类型有误:%s" % label_text
+        assert "管理员" in label_text, "进入首页判断登录者类型有误:%s" % label_text
         pass
 
     def test_judge_error(self):

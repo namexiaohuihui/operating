@@ -64,21 +64,21 @@ class TestBackConsole(unittest.TestCase):
     def test_city_select(self):
         """调度控制台城市下拉框默认值显示"""
         label_text = self.work.get_option_text("select[name='city']")
-        assert '全部' == label_text, ':调度控制台城市下拉框默认值显示判断有误%s' % label_text
+        assert '南宁市' == label_text, ':调度控制台城市下拉框默认值显示判断有误:%s' % label_text
         del label_text
         pass
 
     def test_area_select(self):
         """调度控制台片区下拉框默认值显示"""
-        label_text = self.work.get_option_text("#select2-area-container")
-        assert '全部片区' == label_text, ':调度控制台片区下拉框默认值显示判断有误%s' % label_text
+        label_text = self.work.get_option_text("#area")
+        assert '全部片区' == label_text, ':调度控制台片区下拉框默认值显示判断有误:%s' % label_text
         del label_text
         pass
 
     def test_key_input(self):
         """调度控制台关键字输入框默认值显示"""
-        label_text = self.work.get_option_text("#select2-area-container")
-        assert '全部片区' == label_text, ':调度控制台片区下拉框默认值显示判断有误%s' % label_text
+        label_text = self.op_br.get_ele_text_vlue("input[name='content']", 'css', 'placeholder')
+        assert '请输入完整订单号/配送员姓名/配送员ID/手机' == label_text, '调度控制台片区下拉框默认值显示判断有误:%s' % label_text
         del label_text
         pass
 
