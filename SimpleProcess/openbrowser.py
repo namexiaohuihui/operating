@@ -203,3 +203,7 @@ class OpenBrowper(object):
             sleep(2)
             return self.traverse_jump(box_path, box_int + 1)
         pass
+
+    def ec_url_changes_jump(self, url_para):
+        """校验url是否在里面"""
+        return EC.url_changes(url_para)

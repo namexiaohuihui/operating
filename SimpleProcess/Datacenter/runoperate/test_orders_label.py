@@ -35,10 +35,6 @@ from SimpleProcess.Datacenter.datacenter_work import DatacenterWork
 import time
 
 
-# 3.时间选择
-# 4.对比按钮
-# 5.列表说明
-# 6.页面跳转
 class TestOrdersLabel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -76,6 +72,28 @@ class TestOrdersLabel(unittest.TestCase):
         pm_start = time.strftime('%Y-%m-%d', time.localtime())
         assert pm_start == label_start, "订单数据页面时间输入框默认值校验失败:%s" % label_start
         pass
+
+    def test_contrast_button(self):
+        """订单数据页面对比按钮"""
+        try:
+            self.op_br.is_visible_clicks("button.btn.btn-xs.btn-success.btn-search-top", "css")
+            self.op_br.driver.find_element_by_tag_name("iframe")
+        except:
+            assert False, '订单数据页面对比按钮点击之后没有日期选择框'
+        pass
+
+    def test_search_button(self):
+        """订单数据页面列表说明弹窗"""
+        self.op_br.is_visible_clicks("button.btn.btn-xs.btn-light.btn-search-top.J-rule", "css")
+        label_text = self.op_br.get_ele_text_vlue("div.modal-content>div.modal-header > h4", 'css')
+        assert '列表说明' == label_text, "订单数据页面列表说明弹窗标题有误:%s" % label_text
+
+    # 6.页面跳转
+    def test_tendency_whole(self):
+        """整体趋势跳转校验"""
+        self.op_br.is_visible_clicks("a.btn-search-top", 'css')
+        changes_url = self.op_br.ec_url_changes_jump('order/section')
+        assert changes_url, '整体趋势跳转失败:%s' % changes_url
 
     def test_judge_error(self):
         """检测是否出现错误"""
