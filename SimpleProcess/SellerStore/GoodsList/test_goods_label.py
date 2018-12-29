@@ -26,7 +26,7 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_gooss.py
+@file:      test_goods_label.py
 @time:      2018/12/25 11:46
 @desc:
 """
@@ -34,7 +34,7 @@ import unittest
 from SimpleProcess.SellerStore.seller_work import SellerWork
 
 
-class TestGoods(unittest.TestCase):
+class TestGoodsLabel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.muen_int = 2

@@ -26,23 +26,22 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file:  test_data_home.py
-@time: 2018/12/26 22:47
+@file:  test_barrel_label.py
+@time: 2018/12/25 21:45
 @Software: PyCharm
 @Site    : 
 @desc:
 """
 import unittest
-from SimpleProcess.Datacenter.datacenter_work import DatacenterWork
+from SimpleProcess.SellerStore.seller_work import SellerWork
 
 
-class TestDataHome(unittest.TestCase):
+class TestBarrelLabel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.muen_int = 1
-        cls.module_i = False
+        cls.muen_int = 3
         # 登录账户进入菜单
-        cls.work = DatacenterWork(muen_i=cls.muen_int, module_i=cls.module_i)
+        cls.work = SellerWork(muen_i=cls.muen_int)
         # 找到公用对象
         cls.op_br = cls.work.get_object_work()
         pass
@@ -54,17 +53,25 @@ class TestDataHome(unittest.TestCase):
         del cls.op_br
         pass
 
-    def test_home_type(self):
-        """进入首页判断登录者类型"""
-        label_text = self.op_br.get_ele_text_vlue("div.userinfo > ul > li:nth-child(3)", "css")
-        assert "管理员" in label_text, "进入首页判断登录者类型有误:%s" % label_text
-        pass
+    def test_status_input(self):
+        """桶押金管理页面押金状态的默认值显示"""
+        label_text = self.work.get_option_text("select[name='status']" )
+        assert '押金状态' == label_text, "桶押金管理页面押金状态的默认值显示有误:%s" % label_text
 
-    def test_judge_error(self):
-        """检测是否出现错误"""
-        error_judge = self.op_br.report_an_error()
-        assert error_judge, "界面出现了Fatal error错误提示"
-        pass
+    def test_time_input(self):
+        """桶押金管理页面时间输入框默认值显示"""
+        label_text = self.op_br.get_ele_text_vlue("reservationtime", "id", 'value')
+        assert '今日' == label_text, "桶押金管理页面时间输入框默认值显示有误:%s" % label_text
+
+    def test_key_input(self):
+        """桶押金管理页面关键字下拉默认值显示"""
+        label_text = self.work.get_option_text("select[name='val']" )
+        assert '用户ID' == label_text, "桶押金管理页面关键字下拉默认值显示有误:%s" % label_text
+
+    def test_search_error(self):
+        """遍历点击tab切换,判断是否出现错误"""
+        jump_error = self.op_br.traverse_jump('div.subsearch>a', 0)
+        assert jump_error, "遍历点击tab切换,出现错误:%s" % jump_error
 
 
 if __name__ == '__main__':

@@ -26,22 +26,23 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file:  test_back_home.py
-@time: 2018/12/26 21:01
+@file:  test_home_label.py
+@time: 2018/12/26 22:47
 @Software: PyCharm
 @Site    : 
 @desc:
 """
 import unittest
-from SimpleProcess.Dispatch.dispatch_work import DispatchWork
+from SimpleProcess.Datacenter.datacenter_work import DatacenterWork
 
 
-class TestBackHome(unittest.TestCase):
+class TestHomeLabel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.muen_int = 1
+        cls.module_i = False
         # 登录账户进入菜单
-        cls.work = DispatchWork(muen_i=cls.muen_int, user_pass=True)
+        cls.work = DatacenterWork(muen_i=cls.muen_int, module_i=cls.module_i)
         # 找到公用对象
         cls.op_br = cls.work.get_object_work()
         pass

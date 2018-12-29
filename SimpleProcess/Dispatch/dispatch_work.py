@@ -32,6 +32,7 @@
 @Site    : 
 @desc:
 """
+import re
 from time import sleep
 from SimpleProcess.openbrowser import OpenBrowper
 from tools.screeningdrop import ScreeningDrop
@@ -40,6 +41,10 @@ from tools.configs import readModel
 
 class DispatchWork(object):
     def __init__(self, muen_i, user_pass=True):
+        """
+        :param muen_i:  菜单的所属位置
+        :param user_pass:  用户登录类型,True为管理员登录，False为普通用户登录
+        """
         self.op_br = OpenBrowper()
         self.op_br.open_driver('dispatch_url')
 
@@ -110,7 +115,9 @@ class DispatchWork(object):
         self.op_br.is_visible_clicks('div.subsearch>a:nth-child(%s)' % subs_int, 'css')
         # 1.判断是否有数据
         show_data = self.op_br.is_visible_singles("div.shownodata", "css")
-        assert not show_data, "该页面没有数据需人工手动点击:%s" % show_data
+
+        # 暂无数据提示如果能找到那么就执行断言,该提示没数据说明有数据信息那么就执行下面操作
+        assert type(show_data) is bool, "该页面没有数据需人工手动点击:%s" % show_data
         pass
 
     def subscribe_jump(self, subs_int):

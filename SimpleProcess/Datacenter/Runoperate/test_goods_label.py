@@ -26,8 +26,8 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_orders_label.py
-@time:      2018/12/27 18:39
+@file:      test_goods_label.py
+@time:      2018/12/29 16:12
 @desc:
 """
 import unittest
@@ -35,11 +35,11 @@ from SimpleProcess.Datacenter.datacenter_work import DatacenterWork
 import time
 
 
-class TestOrdersLabel(unittest.TestCase):
+class TestGoodsLabel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.muen_int = 2
-        cls.module_i = 1
+        cls.module_i = 2
         # 登录账户进入菜单
         cls.work = DatacenterWork(muen_i=cls.muen_int, module_i=cls.module_i)
         # 找到公用对象
@@ -53,52 +53,37 @@ class TestOrdersLabel(unittest.TestCase):
         del cls.op_br
         pass
 
+    # 1.城市
     def test_citys_tab(self):
-        "订单数据页面城市tab遍历点击"
+        """商品数据页面城市tab遍历点击"""
         self.op_br.traverse_jump(".nav.nav-tabs>li", 0)
-        print('该页面不需要回到')
-        pass
-
-    def test_real_pay(self):
-        """点击实付款切换到付款页面"""
-        self.op_br.is_visible_clicks("div.datatype>span:nth-child(2)", 'css')
-        thistype_text = self.op_br.get_ele_text_vlue("span.btn-type.thistype", 'css')
-        assert '实付款 (元)' == thistype_text, "点击实付款切换到付款页面出现问题:%s" % thistype_text
-        pass
-
-    def test_time_input(self):
-        """订单数据页面时间输入框默认值校验"""
-        label_start = self.op_br.get_ele_text_vlue("starttime", 'id', 'value')
-        pm_start = time.strftime('%Y-%m-%d', time.localtime())
-        assert pm_start == label_start, "订单数据页面时间输入框默认值校验失败:%s" % label_start
-        pass
-
-    def test_contrast_button(self):
-        """订单数据页面对比按钮"""
-        try:
-            self.op_br.is_visible_clicks("button.btn.btn-xs.btn-success.btn-search-top", "css")
-            self.op_br.driver.find_element_by_tag_name("iframe")
-        except:
-            assert False, '订单数据页面对比按钮点击之后没有日期选择框'
         pass
 
     def test_search_button(self):
-        """订单数据页面列表说明弹窗"""
+        """商品数据页面列表说明弹窗"""
         self.op_br.is_visible_clicks("button.btn.btn-xs.btn-light.btn-search-top.J-rule", "css")
         label_text = self.op_br.get_ele_text_vlue("div.modal-content>div.modal-header > h4", 'css')
         assert '列表说明' == label_text, "订单数据页面列表说明弹窗标题有误:%s" % label_text
 
-    # 6.页面跳转
-    def test_tendency_whole(self):
-        """整体趋势跳转校验"""
-        self.op_br.is_visible_clicks("a.btn-search-top", 'css')
-        changes_url = self.op_br.ec_url_changes_jump('order/section')
-        assert changes_url, '整体趋势跳转失败:%s' % changes_url
+    # 3.输入框
+    def test_input_search(self):
+        """商品数据页面输入框默认值显示"""
+        label_text = self.op_br.get_ele_text_vlue("input[name='search']", "css", 'placeholder')
+        assert '请输入关键字' == label_text, '商品数据页面输入框默认值显示出现问题:%s' % label_text
+        pass
 
-    def test_judge_error(self):
-        """检测是否出现错误"""
-        error_judge = self.op_br.report_an_error()
-        assert error_judge, "界面出现了Fatal error错误提示"
+    # 4.下拉
+    def test_select_option(self):
+        """商品数据页面下拉默认值显示"""
+        label_option = self.work.get_option_text("select[name='type']")
+        assert '商品名称' == label_option, '商品数据页面下拉默认值显示有误:%s' % label_option
+        pass
+
+    # 5.时间
+    def test_tendency_time(self):
+        """整体趋势页面校验时间默认值"""
+        label_start = self.op_br.get_ele_text_vlue("reservationtime", 'id', 'value')
+        assert '过去7天' == label_start, '整体趋势页面校验时间默认值错误:%s' % label_start
         pass
 
 

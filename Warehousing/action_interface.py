@@ -380,21 +380,23 @@ class ActionVisible(BrowserPrepare):
         pass
 
     def touchActions_selectop_prompt(self, prompt, way, timeout=5):
+        # 找到元素并进行点击
         ele = self.is_visible_single_driver(prompt, way, timeout)
         self.touchActions_tap(ele)
         pass
 
     def get_size(self):
-        # 获取浏览器的大小
+        # 获取浏览器界面的大小
         x = self.driver.get_window_size()['width']
         y = self.driver.get_window_size()['height']
         return (x, y)
 
     def Interface_sliding(self):
-        # 实行上下滑动的效果
+        # 实行滚动条上下滑动的效果
         screen = self.get_size()
 
         x1 = screen[0] * 0.5
         y1 = screen[1] * 0.75
 
         TouchActions(self.driver).scroll(x1, y1).perform()
+
