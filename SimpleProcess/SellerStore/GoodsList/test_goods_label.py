@@ -37,7 +37,7 @@ from SimpleProcess.SellerStore.seller_work import SellerWork
 class TestGoodsLabel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.muen_int = 2
+        cls.muen_int = 3
         # 登录账户进入菜单
         cls.work = SellerWork(muen_i=cls.muen_int)
         # 找到公用对象

@@ -108,7 +108,7 @@ class TestOrdersLabel(unittest.TestCase):
     def test_tendency_time(self):
         """整体趋势页面校验时间默认值"""
         self.go_to_search_top()
-        label_start = self.op_br.get_ele_text_vlue("starttime", 'id', 'value')
+        label_start = self.op_br.get_ele_text_vlue("reservationtime", 'id', 'value')
         self.work.access_muen_module(self.muen_int, self.module_i)
         assert '过去7天' == label_start, '整体趋势页面校验时间默认值错误:%s' % label_start
         pass
@@ -118,6 +118,7 @@ class TestOrdersLabel(unittest.TestCase):
         self.go_to_search_top()
         self.op_br.is_visible_clicks("button.btn.btn-xs.btn-light.btn-search-top.J-rule", "css")
         label_text = self.op_br.get_ele_text_vlue("div.modal-content>div.modal-header > h4", 'css')
+        self.op_br.is_visible_clicks("div.modal-content>div>button.close",'css')
         self.work.access_muen_module(self.muen_int, self.module_i)
         assert '列表说明' == label_text, "整体趋势页面列表说明弹窗标题有误:%s" % label_text
         pass
@@ -125,7 +126,7 @@ class TestOrdersLabel(unittest.TestCase):
     def test_tendency_datatype(self):
         """整体趋势页面切换数据类型"""
         self.go_to_search_top()
-        self.op_br.traverse_jump("div.datatype>a", 0)
+        self.op_br.traverse_jump("div.datatype>a>span", 0)
         self.work.access_muen_module(self.muen_int, self.module_i)
         pass
 

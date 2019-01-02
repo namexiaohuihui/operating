@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationScreen.py" description="&#10;    def test_hotherInput(self):&#10;        i_screen...." line="205" />
+    <bookmark url="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationScreen.py" description="&#10;    def test_hotherInput(self):&#10;        i_screen...." line="213" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Warehousing/TestStore/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Warehousing/TestStore/test_storelabel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Warehousing/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Warehousing/action_interface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Warehousing/browser_prepare.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/YAMLconfig/AtorageAdmin.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/YAMLconfig/storage/Warehousing.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CenterBackground/judeVerification.py" beforeDir="false" afterPath="$PROJECT_DIR$/CenterBackground/judeVerification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/operation/selenium_visible.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operation/selenium_visible.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_goods_label.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_goods_label.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_orders_label.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_orders_label.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleProcess/Dispatch/dispatch_work.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleProcess/Dispatch/dispatch_work.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleProcess/SellerStore/GoodsList/test_goods_label.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleProcess/SellerStore/GoodsList/test_goods_label.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleProcess/SellerStore/Selerdeposit/test_barrel_label.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleProcess/SellerStore/Selerdeposit/test_barrel_label.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerorders/test_orders_label.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerorders/test_orders_label.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData/test_courier_label.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData/test_courier_label.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -101,56 +99,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="action_interface.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Warehousing/action_interface.py">
+      <file leaf-file-name="test_courier_label.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData/test_courier_label.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-208">
-              <caret line="165" column="26" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="26" />
-              <folding>
-                <element signature="e#990#999#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selenium_input.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/operation/selenium_input.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4460">
-              <caret line="223" column="20" selection-start-line="223" selection-start-column="20" selection-end-line="223" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selenium_click.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/operation/selenium_click.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3860">
-              <caret line="197" column="4" selection-start-line="197" selection-start-column="4" selection-end-line="209" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selenium_visible.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/operation/selenium_visible.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4520">
-              <caret line="234" selection-start-line="234" selection-end-line="234" />
-              <folding>
-                <element signature="e#112#121#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="browser_prepare.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Warehousing/browser_prepare.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
-              <folding>
-                <element signature="e#999#1008#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="342">
+              <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -168,61 +121,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>confluence</find>
-      <find>Customersurface</find>
-      <find>运行时长</find>
-      <find>click_release</find>
-      <find>ysuregister</find>
-      <find>suregister</find>
-      <find>test_buttoncancel</find>
-      <find>test_conditionsInput</find>
-      <find>placeholder</find>
-      <find>test_workstatusTraverse</find>
-      <find>Process</find>
-      <find>Queue</find>
-      <find>cpu_count</find>
-      <find>setUpClass</find>
-      <find>test_recordTitle</find>
-      <find>evaluation</find>
-      <find>test_condDefault</find>
-      <find>box</find>
-      <find>.minuteselect</find>
-      <find>fifty</find>
-      <find>label_large</find>
-      <find>label_watiki</find>
-      <find>test_customtoday</find>
-      <find>WebDriverException</find>
-      <find>test_sevendayorder</find>
-      <find>customer</find>
-      <find>test_releaseSuccess</find>
-      <find>title</find>
-      <find>readModel</find>
-      <find>basename</find>
+      <find>操作按钮</find>
+      <find>open_browser</find>
+      <find>test_area_select</find>
+      <find>The incoming element path is not a select.</find>
+      <find>有误%s</find>
+      <find>test_complete_more</find>
+      <find>test_delivery_time_more</find>
+      <find>test_delivery_time_single</find>
+      <find>test_tab_click</find>
+      <find>test_grid_content</find>
+      <find>test_time_input</find>
+      <find>test_dispatch_more</find>
+      <find>test_balance_detail</find>
+      <find>test_tabbox_jump</find>
+      <find>test_shop_goods</find>
+      <find>test_instructions</find>
+      <find>url</find>
+      <find>expected_conditions</find>
+      <find>商品数据</find>
+      <find>水票数据</find>
+      <find>searchlist_verify</find>
+      <find>searchlist_verify_selelr</find>
+      <find>even_more_jump</find>
+      <find>test_input_search</find>
+      <find>test_tendency_search</find>
+      <find>test_tendency_whole</find>
+      <find>test_dispatch_subscribe</find>
+      <find>test_goods_city_status</find>
+      <find>test_search_error</find>
+      <find>test_counrier_default</find>
     </findStrings>
     <replaceStrings>
-      <replace>self.tive_v</replace>
-      <replace>self.trans_o</replace>
-      <replace>self.c_screen</replace>
-      <replace>self.msg_label</replace>
-      <replace>self.wt_label</replace>
-      <replace>self.wt_tab</replace>
-      <replace>self.c_label</replace>
-      <replace>self.n_operate</replace>
-      <replace>n_label</replace>
-      <replace>self.n_label</replace>
-      <replace>self.n_Verity</replace>
-      <replace>n_tap</replace>
-      <replace>system_p</replace>
-      <replace>self.sms_mutually</replace>
-      <replace>self.n_tap</replace>
-      <replace>self.system_p</replace>
-      <replace>self.sms_srceen</replace>
-      <replace>self.tabs_jude</replace>
-      <replace>self.t_label</replace>
-      <replace>self.i_screen</replace>
-      <replace>self.p_page</replace>
-      <replace>self.f_operate</replace>
-      <replace>self.p_tab</replace>
       <replace>self.t_page</replace>
       <replace>self.j_operate</replace>
       <replace>iamgepage\</replace>
@@ -230,6 +160,29 @@
       <replace>self.rWatiki</replace>
       <replace>box_laberl</replace>
       <replace>self.box</replace>
+      <replace>bala_sur</replace>
+      <replace>d_sur</replace>
+      <replace>mon_sur</replace>
+      <replace>tra_sur</replace>
+      <replace>sLable</replace>
+      <replace>commJ</replace>
+      <replace>surface</replace>
+      <replace>sLabel</replace>
+      <replace>close_o</replace>
+      <replace>'</replace>
+      <replace>/\</replace>
+      <replace>driver</replace>
+      <replace>get_select_text</replace>
+      <replace>get_text_vlue</replace>
+      <replace>op_br</replace>
+      <replace>有误:%s</replace>
+      <replace>水票数据</replace>
+      <replace>收入统计</replace>
+      <replace>searchlist_verify_selelr</replace>
+      <replace>searchlist_verify_seller</replace>
+      <replace>subscribe_jump_seller</replace>
+      <replace>single_jump_seller</replace>
+      <replace>even_more_jump_seller</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -239,65 +192,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tools/excelname/Center/systemparameter.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Confluence/test_confluenceLable.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Confluence/test_confluenceScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Customer/test_customerTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Customer/test_customerLable.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Customer/test_customerScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Dominator/test_dominatorLable.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Dominator/test_dominatorScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Dominator/test_releaseDominator.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/FixedPoint/test_fixedpointTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/FixedPoint/test_fixedpointScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/FixedPoint/test_fixedpointLable.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Supporters/test_storeLable.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Supporters/test_storeScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Sweating/test_bigorderssweating.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Sweating/test_releaseSweating.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Sweating/test_sweatingScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Sweating/test_sweatingLable.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/screeningjude.py" />
-        <option value="G:/Program Files/Python/Lib/HTMLTestRunner.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Commodities/StoreSold/test_storeSoldTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Confluence/test_releaseConfluence.py" />
-        <option value="$PROJECT_DIR$/tools/excelname/Center/consumers.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Customer/releaseCustomer.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Customer/__init__.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Sweating/test_worktimesweating.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Sweating/sweatingTabs.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Sweating/test_sweatingTabs.py" />
-        <option value="$PROJECT_DIR$/demo/demo_test.py" />
-        <option value="$PROJECT_DIR$/demo/shenme2/paqushujuxinxi.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/seller_pork.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/sellerprocess.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/communalprocess.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/sellerhome/seller_home.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/pre_work.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/sellerhome/test_home.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerhome/test_home.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/GoodsList/test_googs.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/GoodsList/test_goods.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/test_data_home.py" />
+        <option value="$PROJECT_DIR$/tools/screeningdrop.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/background/test_back_console.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/background/test_back_grid.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/background/test_back_home.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/selerdeposit/test_barrel_deposit.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/MaterialData/test_balance_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/OrderAction/test_complete_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/OrderAction/test_dispatch_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/Personnel/test_store_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData/test_shop_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/datacenter_work.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/openbrowser.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/runoperate/test_orders_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/runoperate/test_goods_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/runoperate/test_user_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/runoperate/test_watikis_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/finance/test_income_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/Finance/test_income_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_user_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/seller_work.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerorders/test_orders.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_pra_home.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_pra_console.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/__init__.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_team_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Background/test_console_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/test_home_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Background/test_home_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Background/test_grid_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_console_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_home_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerhome/test_home_label.py" />
         <option value="$PROJECT_DIR$/run_all.py" />
-        <option value="$PROJECT_DIR$/WeChatBuyers/loginsign/test_login_to.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/test_goodsmanegement.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformScreen.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_formGroup.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/groupJude.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_label.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_tabsBox.py" />
-        <option value="$PROJECT_DIR$/tools/YAMLconfig/expression/WholeCondition.yaml" />
-        <option value="$PROJECT_DIR$/CenterBackground/InteractionActions/cases/offline/Viewdetailed.yaml" />
-        <option value="$PROJECT_DIR$/tools/operation/selenium_input.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/releaseUser.py" />
-        <option value="$PROJECT_DIR$/CenterBackground/MovementUser/Customer/test_releaseBuyer.py" />
-        <option value="$PROJECT_DIR$/tools/YAMLconfig/AtorageAdmin.yaml" />
-        <option value="$PROJECT_DIR$/CenterBackground/judeVerification.py" />
-        <option value="$PROJECT_DIR$/Warehousing/TestStore/__init__.py" />
-        <option value="$PROJECT_DIR$/tools/YAMLconfig/storage/Warehousing.yaml" />
-        <option value="$PROJECT_DIR$/Warehousing/TestStore/test_storelabel.py" />
-        <option value="$PROJECT_DIR$/tools/operation/selenium_visible.py" />
-        <option value="$PROJECT_DIR$/Warehousing/browser_prepare.py" />
         <option value="$PROJECT_DIR$/Warehousing/action_interface.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_goods_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_orders_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/dispatch_work.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/GoodsList/test_goods_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/Selerdeposit/test_barrel_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerorders/test_orders_label.py" />
+        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData/test_courier_label.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="324" />
-    <option name="y" value="97" />
-    <option name="width" value="1353" />
-    <option name="height" value="952" />
+    <option name="y" value="126" />
+    <option name="width" value="1451" />
+    <option name="height" value="926" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -307,6 +260,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -317,60 +271,38 @@
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
+              <item name="SimpleProcess" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="CenterBackground" type="462c0819:PsiDirectoryNode" />
-              <item name="Commodities" type="462c0819:PsiDirectoryNode" />
+              <item name="SimpleProcess" type="462c0819:PsiDirectoryNode" />
+              <item name="SellerStore" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="SimpleProcess" type="462c0819:PsiDirectoryNode" />
+              <item name="SellerStore" type="462c0819:PsiDirectoryNode" />
+              <item name="Selerdeposit" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-              <item name="configs" type="462c0819:PsiDirectoryNode" />
+              <item name="SimpleProcess" type="462c0819:PsiDirectoryNode" />
+              <item name="Warehouse" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="operating" type="b2602c69:ProjectViewProjectNode" />
               <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-              <item name="operation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-              <item name="YAMLconfig" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-              <item name="YAMLconfig" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="Warehousing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="Warehousing" type="462c0819:PsiDirectoryNode" />
-              <item name="TestStore" type="462c0819:PsiDirectoryNode" />
+              <item name="SimpleProcess" type="462c0819:PsiDirectoryNode" />
+              <item name="Warehouse" type="462c0819:PsiDirectoryNode" />
+              <item name="ReportData" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -384,18 +316,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\operating\simple\simple_admin" />
       <recent name="E:\operating\demo" />
       <recent name="E:\operating\WeChatBuyers" />
       <recent name="E:\operating\tools\imageZhuanHuan" />
       <recent name="E:\operating\CenterBackground\SystemSetting\Category" />
-      <recent name="E:\operating\CenterBackground\SystemSetting\Ancient" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\operating\WeChatBuyers\loginsign" />
-      <recent name="E:\operating\tools" />
-      <recent name="E:\operating\demo\demotest" />
-      <recent name="E:\operating\demo\shenme2" />
-      <recent name="E:\operating\demo\shaleba" />
+      <recent name="E:\operating\SimpleProcess\Dispatch\Practitioners" />
+      <recent name="E:\operating\SimpleProcess\Datacenter\finance" />
+      <recent name="E:\operating\SimpleProcess\Datacenter\runoperate" />
+      <recent name="E:\operating\demo" />
+      <recent name="E:\operating\simple\simple_admin\systemsetting" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -410,94 +342,71 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_storelabel">
-    <configuration name="test_file" type="PythonConfigurationType" factoryName="Python">
-      <module name="operating" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/test_file.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="test_storelabel" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="operating" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Warehousing/TestStore" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Warehousing/TestStore/test_storelabel.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="Unittests for test_fiftyView.TestFiftyView.test_sevendayorder" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Unittests for test_courier_label.TextCourierLabel.test_shop_default">
+    <configuration name="Unittests for test_console_label.TestConsoleLabel.test_dispatch_subscribe" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SimpleProcess/Dispatch/Background" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_fiftyView.TestFiftyView.test_sevendayorder&quot;" />
+      <option name="_new_target" value="&quot;test_console_label.TestConsoleLabel.test_dispatch_subscribe&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for test_courier_label.TextCourierLabel.test_counrier_default" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/MovementUser/Customer" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess&quot;" />
+      <option name="_new_target" value="&quot;test_courier_label.TextCourierLabel.test_counrier_default&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Unittests in test_group.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for test_courier_label.TextCourierLabel.test_shop_default" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_group.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;test_courier_label.TextCourierLabel.test_shop_default&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Unittests in test_tabsBox.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for test_goods_label.TestGoodsLabel.test_goods_city_status" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SimpleProcess/SellerStore/GoodsList" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_tabsBox.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;test_goods_label.TestGoodsLabel.test_goods_city_status&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for test_orders_label.TestOrdersLabel.test_search_error" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="operating" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerorders" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_orders_label.TestOrdersLabel.test_search_error&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <module name="operating" />
@@ -513,20 +422,19 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list>
-      <item itemvalue="Python.test_file" />
-      <item itemvalue="Python tests.Unittests in test_group.py" />
-      <item itemvalue="Python tests.Unittests in test_tabsBox.py" />
-      <item itemvalue="Python tests.Unittests for test_fiftyView.TestFiftyView.test_sevendayorder" />
-      <item itemvalue="Python tests.Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" />
-      <item itemvalue="Python.test_storelabel" />
+      <item itemvalue="Python tests.Unittests for test_console_label.TestConsoleLabel.test_dispatch_subscribe" />
+      <item itemvalue="Python tests.Unittests for test_goods_label.TestGoodsLabel.test_goods_city_status" />
+      <item itemvalue="Python tests.Unittests for test_orders_label.TestOrdersLabel.test_search_error" />
+      <item itemvalue="Python tests.Unittests for test_courier_label.TextCourierLabel.test_counrier_default" />
+      <item itemvalue="Python tests.Unittests for test_courier_label.TextCourierLabel.test_shop_default" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_storelabel" />
-        <item itemvalue="Python tests.Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" />
-        <item itemvalue="Python tests.Unittests for test_fiftyView.TestFiftyView.test_sevendayorder" />
-        <item itemvalue="Python tests.Unittests in test_tabsBox.py" />
-        <item itemvalue="Python tests.Unittests in test_group.py" />
+        <item itemvalue="Python tests.Unittests for test_courier_label.TextCourierLabel.test_shop_default" />
+        <item itemvalue="Python tests.Unittests for test_courier_label.TextCourierLabel.test_counrier_default" />
+        <item itemvalue="Python tests.Unittests for test_orders_label.TestOrdersLabel.test_search_error" />
+        <item itemvalue="Python tests.Unittests for test_goods_label.TestGoodsLabel.test_goods_city_status" />
+        <item itemvalue="Python tests.Unittests for test_console_label.TestConsoleLabel.test_dispatch_subscribe" />
       </list>
     </recent_temporary>
   </component>
@@ -552,35 +460,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_test_releaseBuyer_TestReleaseBuyer_test_releaseSuccess - 2018.12.14 at 16h 58m 41s.xml">
-      <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" configurationId="tests" />
+    <history-entry file="Unittests_for_test_console_label_TestConsoleLabel_test_dispatch_subscribe - 2019.01.02 at 11h 53m 10s.xml">
+      <configuration name="Unittests for test_console_label.TestConsoleLabel.test_dispatch_subscribe" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_releaseBuyer_TestReleaseBuyer_test_releaseSuccess - 2018.12.14 at 16h 59m 12s.xml">
-      <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" configurationId="tests" />
+    <history-entry file="Unittests_for_test_console_label_TestConsoleLabel_test_dispatch_subscribe - 2019.01.02 at 11h 59m 38s.xml">
+      <configuration name="Unittests for test_console_label.TestConsoleLabel.test_dispatch_subscribe" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_releaseBuyer_TestReleaseBuyer_test_releaseSuccess - 2018.12.14 at 17h 05m 39s.xml">
-      <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" configurationId="tests" />
+    <history-entry file="Unittests_for_test_console_label_TestConsoleLabel_test_dispatch_subscribe - 2019.01.02 at 12h 00m 58s.xml">
+      <configuration name="Unittests for test_console_label.TestConsoleLabel.test_dispatch_subscribe" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_releaseBuyer_TestReleaseBuyer_test_releaseSuccess - 2018.12.14 at 17h 07m 47s.xml">
-      <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" configurationId="tests" />
+    <history-entry file="Unittests_for_test_goods_label_TestGoodsLabel_test_goods_city_status - 2019.01.02 at 14h 13m 33s.xml">
+      <configuration name="Unittests for test_goods_label.TestGoodsLabel.test_goods_city_status" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_releaseBuyer_TestReleaseBuyer_test_releaseSuccess - 2018.12.14 at 17h 08m 52s.xml">
-      <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" configurationId="tests" />
+    <history-entry file="Unittests_for_test_goods_label_TestGoodsLabel_test_goods_city_status - 2019.01.02 at 14h 13m 55s.xml">
+      <configuration name="Unittests for test_goods_label.TestGoodsLabel.test_goods_city_status" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_releaseBuyer_TestReleaseBuyer_test_releaseSuccess - 2018.12.14 at 17h 09m 35s.xml">
-      <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" configurationId="tests" />
+    <history-entry file="Unittests_for_test_orders_label_TestOrdersLabel_test_search_error - 2019.01.02 at 14h 15m 00s.xml">
+      <configuration name="Unittests for test_orders_label.TestOrdersLabel.test_search_error" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_releaseBuyer_TestReleaseBuyer_test_releaseSuccess - 2018.12.14 at 17h 10m 43s.xml">
-      <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" configurationId="tests" />
+    <history-entry file="Unittests_for_test_orders_label_TestOrdersLabel_test_search_error - 2019.01.02 at 14h 15m 53s.xml">
+      <configuration name="Unittests for test_orders_label.TestOrdersLabel.test_search_error" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_releaseBuyer_TestReleaseBuyer_test_releaseSuccess - 2018.12.14 at 17h 12m 32s.xml">
-      <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" configurationId="tests" />
+    <history-entry file="Unittests_for_test_courier_label_TextCourierLabel_test_counrier_default - 2019.01.02 at 14h 17m 04s.xml">
+      <configuration name="Unittests for test_courier_label.TextCourierLabel.test_counrier_default" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_releaseBuyer_TestReleaseBuyer_test_releaseSuccess - 2018.12.14 at 17h 13m 38s.xml">
-      <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" configurationId="tests" />
+    <history-entry file="Unittests_for_test_courier_label_TextCourierLabel_test_counrier_default - 2019.01.02 at 14h 21m 20s.xml">
+      <configuration name="Unittests for test_courier_label.TextCourierLabel.test_counrier_default" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_releaseBuyer_TestReleaseBuyer_test_releaseSuccess - 2018.12.14 at 17h 16m 59s.xml">
-      <configuration name="Unittests for test_releaseBuyer.TestReleaseBuyer.test_releaseSuccess" configurationId="tests" />
+    <history-entry file="Unittests_for_test_courier_label_TextCourierLabel_test_shop_default - 2019.01.02 at 14h 21m 23s.xml">
+      <configuration name="Unittests for test_courier_label.TextCourierLabel.test_shop_default" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -593,25 +501,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="324" y="97" width="1353" height="952" extended-state="0" />
-    <editor active="true" />
+    <frame x="324" y="126" width="1451" height="926" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4909091" visible="true" weight="0.20912547" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4862069" visible="true" weight="0.17197452" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3288835" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5012531" side_tool="true" weight="0.4318508" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3276316" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32600734" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49874687" weight="0.41391942" />
-      <window_info id="Structure" order="1" sideWeight="0.5123457" side_tool="true" weight="0.17421603" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49874687" weight="0.31273645" />
+      <window_info id="Structure" order="1" sideWeight="0.5137931" side_tool="true" weight="0.2808913" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3919414" />
-      <window_info id="Favorites" order="2" sideWeight="0.5090909" side_tool="true" weight="0.17421603" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4932845" />
+      <window_info id="Favorites" order="2" sideWeight="0.5117541" side_tool="true" weight="0.18568535" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34678435" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" id="R Graphics" order="1" weight="0.3298466" />
       <window_info anchor="right" id="R Packages" order="0" weight="0.3298466" />
-      <window_info anchor="right" x="0" y="0" width="371" height="802" id="Documentation" order="6" side_tool="true" weight="0.32944068" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="6" side_tool="true" weight="0.21641791" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -636,11 +543,6 @@
           <line>1</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CenterBackground/FinancialAffairs/Deposit/test_depositTabs.py</url>
-          <line>63</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -649,7 +551,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="4" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="tests">
@@ -658,341 +560,348 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WeChatBuyers/loginsign/test_login_to.py">
+    <entry file="file://$PROJECT_DIR$/Warehousing/TestStore/test_stafflabel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="93" column="68" lean-forward="true" selection-start-line="93" selection-start-column="68" selection-end-line="93" selection-end-column="68" />
+        <state relative-caret-position="1220">
+          <caret line="67" column="12" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://G:/Program Files/Python/Lib/unittest/case.py">
+    <entry file="file://$PROJECT_DIR$/Warehousing/screeningSelecy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2240">
-          <caret line="466" column="14" selection-start-line="466" selection-start-column="14" selection-end-line="466" selection-end-column="14" />
+        <state relative-caret-position="780">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Warehousing/handle_action.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1240">
+          <caret line="67" column="76" selection-start-line="67" selection-start-column="76" selection-end-line="67" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CenterBackground/McroLetter/Consult/test_consultScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CenterBackground/screeningjude.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="47" column="19" lean-forward="true" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+        <state relative-caret-position="-16">
+          <caret line="123" column="34" selection-start-line="123" selection-start-column="34" selection-end-line="123" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/test_goodsmanegement.py" />
-    <entry file="file://G:/Program Files/Python/Lib/unittest/suite.py">
+    <entry file="file://$PROJECT_DIR$/CenterBackground/surfacejude.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="162" selection-start-line="162" selection-end-line="162" />
+        <state relative-caret-position="200">
+          <caret line="78" column="32" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Redpacket/test_redpacketLabel.py">
+    <entry file="file://$PROJECT_DIR$/tools/StringCutting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="92" column="39" lean-forward="true" selection-start-line="92" selection-start-column="39" selection-end-line="92" selection-end-column="39" />
+        <state relative-caret-position="334">
+          <caret line="187" column="49" lean-forward="true" selection-start-line="187" selection-start-column="49" selection-end-line="187" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/Platform/test_platformScreen.py">
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/SellerStore/sellerprocess.py" />
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Warehouse/GoodsList/test_goods_label.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="520">
+          <caret line="103" column="37" lean-forward="true" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/CityGoods/test_formGroup.py">
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Warehouse/communalprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+        <state relative-caret-position="341">
+          <caret line="31" column="11" lean-forward="true" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/__init__.py">
+    <entry file="file://G:/Program Files/Python/Lib/unittest/case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="39" column="24" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_group.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="87" column="27" lean-forward="true" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/Program Files/Python/Lib/site-packages/selenium/webdriver/support/select.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/groupJude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/tabsJude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="45" column="12" lean-forward="true" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_label.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="71" column="16" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/GoodsManagement/Evaluation/test_tabsBox.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="77" column="12" lean-forward="true" selection-start-line="77" selection-start-column="12" selection-end-line="77" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/cases/fifty/Viewdetails.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/operationViewJude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="121" column="40" lean-forward="true" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/cases/fifty/Viewdetailed.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="47" column="26" lean-forward="true" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Offline/test_offlineView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="114" column="16" lean-forward="true" selection-start-line="114" selection-start-column="16" selection-end-line="114" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="50" column="41" lean-forward="true" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/WholeCondition.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="13" column="64" lean-forward="true" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/cases/offline/Viewdetailed.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="119" column="22" lean-forward="true" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/错误继承">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="45" selection-start-column="27" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/MovementUser/Customer/test_customerTabs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-780" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/MovementUser/Customer/test_customerScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-600" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/MovementUser/Customer/test_customerLable.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-600" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/MovementUser/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="61" column="35" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/MovementUser/releaseUser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="123" column="39" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/MovementUser/Customer/test_releaseBuyer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="59" column="28" lean-forward="true" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/SocialBuyer.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="36" column="5" selection-start-line="36" selection-end-line="36" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/readYaml.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/ArgumentAdmin.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/configs/excelmodel.ini">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/configs/readModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/judeVerification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="228" column="36" selection-start-line="228" selection-start-column="36" selection-end-line="228" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Commodities/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Warehousing/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/storage/Warehousing.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Warehousing/TestStore/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="51" column="12" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/AtorageAdmin.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Warehousing/TestStore/test_storelabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/browser_establish.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="123" column="11" lean-forward="true" selection-start-line="123" selection-start-column="11" selection-end-line="123" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/screeningdrop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/comparedVerify.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="120" column="40" lean-forward="true" selection-start-line="120" selection-start-column="40" selection-end-line="120" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/operation/selenium_input.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4460">
-          <caret line="223" column="20" selection-start-line="223" selection-start-column="20" selection-end-line="223" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Warehousing/browser_prepare.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
-          <folding>
-            <element signature="e#999#1008#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="203">
+          <caret line="616" selection-start-line="616" selection-end-line="616" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/operation/selenium_visible.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4520">
-          <caret line="234" selection-start-line="234" selection-end-line="234" />
-          <folding>
-            <element signature="e#112#121#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="163">
+          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/operation/selenium_click.py">
+    <entry file="file://G:/Program Files/Python/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3860">
-          <caret line="197" column="4" selection-start-line="197" selection-start-column="4" selection-end-line="209" selection-end-column="18" />
+        <state relative-caret-position="372">
+          <caret line="598" column="8" selection-start-line="598" selection-start-column="8" selection-end-line="598" selection-end-column="8" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/SellerStore/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Warehouse/MaterialData/test_balance_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="63" column="27" lean-forward="true" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Warehouse/OrderAction/test_complete_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Warehouse/OrderAction/test_dispatch_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/timeFromat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="240" column="26" lean-forward="true" selection-start-line="240" selection-start-column="26" selection-end-line="240" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/Program Files/Python/Lib/site-packages/selenium/webdriver/support/expected_conditions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="108" column="8" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_watikis_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_user_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Datacenter/Finance/test_income_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/SellerStore/seller_work.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="162" column="29" selection-start-line="162" selection-start-column="29" selection-end-line="162" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Warehouse/Personnel/test_store_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1854">
+          <caret line="123" column="30" lean-forward="true" selection-start-line="123" selection-start-column="29" selection-end-line="123" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="33" column="3" lean-forward="true" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Datacenter/test_home_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Dispatch/Background/test_home_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Dispatch/Background/test_grid_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_console_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_home_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_team_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="824">
+          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/SellerStore/GoodsList/还有没写完">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerhome/test_home_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_all.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="134" column="41" selection-start-line="134" selection-start-column="41" selection-end-line="134" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/demo_re_bea.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1342" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/demo_image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-720" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Warehousing/action_interface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="165" column="26" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="26" />
+        <state relative-caret-position="701">
+          <caret line="382" column="19" selection-start-line="382" selection-start-column="19" selection-end-line="382" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Warehousing/browser_prepare.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_goods_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="61" column="33" lean-forward="true" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Datacenter/datacenter_work.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1660">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_orders_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1840">
+          <caret line="94" column="27" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="27" />
           <folding>
-            <element signature="e#990#999#0" expanded="true" />
+            <element signature="e#990#1005#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Dispatch/Background/test_console_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1980">
+          <caret line="101" column="18" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Dispatch/dispatch_work.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="160" column="21" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/SellerStore/GoodsList/test_goods_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/SellerStore/Selerdeposit/test_barrel_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/openbrowser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="189" column="8" selection-start-line="189" selection-start-column="8" selection-end-line="189" selection-end-column="8" />
+          <folding>
+            <element signature="e#1002#1011#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerorders/test_orders_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/screeningdrop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Warehouse/pre_work.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData/test_shop_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="69" column="67" lean-forward="true" selection-start-line="69" selection-start-column="67" selection-end-line="69" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData/test_courier_label.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
         </state>
       </provider>
     </entry>

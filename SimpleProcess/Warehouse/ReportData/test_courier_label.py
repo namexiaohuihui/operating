@@ -63,16 +63,24 @@ class TextCourierLabel(unittest.TestCase):
 
     def test_counrier_default(self):
         """关键字下拉框的默认值显示"""
-        label_option = self.work.get_option_text("select[name='type']")
+        label_option = self.work.get_option_text("select[name='key']")
         assert label_option == '配送员名称', '配送员业绩关键字下拉默认值不对:%s' % label_option
         del label_option
         print("关键字默认检验完毕")
         pass
 
+    def test_shop_default(self):
+        """配送点下拉框的默认值显示"""
+        label_option = self.work.get_option_text("select[name='shop_type']")
+        assert label_option == '配送点ID', '配送员业绩关键字下拉默认值不对:%s' % label_option
+        del label_option
+        print("配送点下拉框的默认值显示")
+        pass
+
     def test_instructions(self):
         """点击列表说明出现弹窗"""
         self.op_br.is_visible_clicks(".btn.btn-default.btn-sm.J-rule", 'css')
-        modal_text = self.op_br.get_ele_text_vlue(" div.modal.fade.in > div > div > div.modal-header > h4",'css')
+        modal_text = self.op_br.get_ele_text_vlue(" div.modal.fade.in > div > div > div.modal-header > h4", 'css')
         assert '列表说明' == modal_text, "点击列表说明出现弹窗错误:%s" % modal_text
         del modal_text
         pass

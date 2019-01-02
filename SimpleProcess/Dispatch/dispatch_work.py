@@ -126,13 +126,14 @@ class DispatchWork(object):
 
         # 判断翻页的数据长度
         info_text = self.seller_info_number()
+        info_bool = True
         for info in range(info_text):
             # 获取全部数据
             search_list = self.op_br.is_visible_all_drivers("div.searchlist", "css")
             # 遍历获取数据
             for search in search_list:
                 # 读取该数据中转预约按钮
-                search_attr = search.find_element_by_css_selector("div.row>div:nth-child(2)>span", "css")
+                search_attr = search.find_element_by_css_selector("div.row>div:nth-child(2)>span")
                 # 获取转预约按钮的属性值
                 search_attr_text = search_attr.get_attribute('class')
                 # 判断转预约按钮的状态
@@ -145,15 +146,19 @@ class DispatchWork(object):
                     self.op_br.is_visible_clicks("div.modal-header > button > span", 'css')
                     # 比较弹窗标题文字是否正确
                     assert "转预约" == label_title, "点击转预约按钮之后,弹窗标题显示有误:%s" % label_title
+                    info_bool = False
                     break
-
-            # 没有点击转预约进行跳转时,进入下一个页面
-            li_active = self.op_br.is_visible_singles("ul.pagination>li:nth-child(-1)", "css")
-            li_active_text = li_active.get_attribute('class')
-            if 'active' in li_active_text:
-                break
+            if info_bool:
+                # 没有点击转预约进行弹窗时,点击下一页按钮
+                li_active = self.op_br.is_visible_all_drivers("ul.pagination>li", "css")
+                li_active_text = li_active[-1].get_attribute('class')
+                if 'active' in li_active_text:
+                    break
+                else:
+                    li_active.click()
             else:
-                li_active.click()
+                print("当页点击了转预约按钮")
+                break
         pass
 
     def single_jump(self, subs_int):

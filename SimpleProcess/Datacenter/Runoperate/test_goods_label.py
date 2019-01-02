@@ -68,7 +68,7 @@ class TestGoodsLabel(unittest.TestCase):
     # 3.输入框
     def test_input_search(self):
         """商品数据页面输入框默认值显示"""
-        label_text = self.op_br.get_ele_text_vlue("input[name='search']", "css", 'placeholder')
+        label_text = self.op_br.get_ele_text_vlue("input[type='search']", "css", 'placeholder')
         assert '请输入关键字' == label_text, '商品数据页面输入框默认值显示出现问题:%s' % label_text
         pass
 

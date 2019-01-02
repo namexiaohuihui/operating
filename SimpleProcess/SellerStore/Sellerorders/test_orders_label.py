@@ -65,8 +65,7 @@ class TestOrdersLabel(unittest.TestCase):
 
     def test_search_error(self):
         """遍历点击tab切换,判断是否出现错误"""
-        jump_error = self.traverse_jump('div.subsearch>a', 0)
-        assert jump_error, "遍历点击tab切换,出现错误:%s" % jump_error
+        self.op_br.traverse_jump('div.subsearch>a', 0)
 
     def test_dispatch_subscribe(self):
         """调度控制台待调度页面转预约功能"""

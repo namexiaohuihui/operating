@@ -39,7 +39,7 @@ from SimpleProcess.SellerStore.seller_work import SellerWork
 class TestBarrelLabel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.muen_int = 3
+        cls.muen_int = 4
         # 登录账户进入菜单
         cls.work = SellerWork(muen_i=cls.muen_int)
         # 找到公用对象
