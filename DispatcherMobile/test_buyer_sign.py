@@ -11,10 +11,13 @@ import unittest
 from appium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from tools.operation.selenium_input import action_input
+from tools.operation.selenium_click import action_click
 
 
-class buyer_sign(unittest.TestCase):
+class test_buyer_sign(unittest.TestCase):
     strr = "qweads11"
+    app_package = "com.lianni.delivery.develop"
     # 设置可支持中文输入unicodeKeyboard，有你就会出现code：1的错误
     r"""
     	[error] [MJSONWP] Encountered internal error running command: 
@@ -30,15 +33,20 @@ class buyer_sign(unittest.TestCase):
     desired_caps = {
         "platformName": "Android",
         "platformVersion": "7.1.1",
-        "deviceName": "Android Emulator",
-        "appPackage": "com.lianni.delivery",
-        "appActivity": ".StartActivity",
+        "deviceName": "64535188",
+        "appPackage": app_package,
+        "appActivity": "com.lianni.delivery.StartActivity",
+        # "automationName": 'uiautomator2',
         "noReset": 'True',
-        "resetKeyboard": 'True'
+        "resetKeyboard": 'True',
+        "unicodeKeyboard": 'True',
     }
 
     @classmethod
     def setUp(cls):
+        cls.a_input = action_input()
+        cls.a_click = action_click()
+
         cls.start_server(cls)
         # desired_caps = {
         #   "platformName": "Android",
@@ -62,6 +70,28 @@ class buyer_sign(unittest.TestCase):
     def start_server(self):
         self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", self.desired_caps)
         time.sleep(5)
+        cu_ac = self.driver.current_activity
+
+        if 'LoginActivity' in cu_ac:
+            print("进入登录页面")
+            self.a_input.id_input(self.driver, self.app_package + ':id/edt_account', '19968049483')
+            self.a_input.id_input(self.driver, self.app_package + ':id/edt_password', 'a123456')
+            self.driver.press_keycode(66)
+            login_button = self.driver.find_element_by_class_name('android.widget.Button')
+            self.a_click.touchActions_tap(self.driver, login_button)
+
+        elif 'MainActivity' in cu_ac:
+            print("进入菜单页面")
+        else:
+            print("什么页面都没有进入")
+
+        login_load = self.a_click.is_visible_id(self.driver, 'com.lianni.delivery.develop:id/txt_weex_hint')
+        print(login_load.text)
+        if login_load:
+            self.driver.tap([(10, 50), (30, 100), (50, 150)])
+            pass
+        else:
+            print("更新提示没有出现跳过滑动")
 
     def always_allow(self, number=5):
         '''
