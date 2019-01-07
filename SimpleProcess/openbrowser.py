@@ -48,7 +48,7 @@ class OpenBrowper(object):
 
     def open_driver(self, user_url):
         self.driver = webdriver.Chrome(
-            executable_path=os.path.join(os.path.split(os.path.abspath(__file__))[0], 'chromedriver.exe'))
+            executable_path=os.path.join(r'E:\drivers\Drivers', 'chromedriver700353867.exe'))
         self.driver.maximize_window()
         # 输入网址
         # 等待网页加载，加载时间为10s，加载完就跳过

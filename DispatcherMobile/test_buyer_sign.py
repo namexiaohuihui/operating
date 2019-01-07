@@ -30,16 +30,32 @@ class test_buyer_sign(unittest.TestCase):
     	 Code: '1'
     """
     # 设置输入法为系统默认resetKeyboard
+    # desired_caps = {
+    #     "platformName": "Android",
+    #     "platformVersion": "7.1.1",
+    #     "deviceName": "64535188",
+    #     "appPackage": app_package,
+    #     "appActivity": "com.lianni.delivery.StartActivity",
+    #     # "automationName": 'uiautomator2',
+    #     "noReset": 'True',
+    #     "resetKeyboard": 'True',
+    #     "unicodeKeyboard": 'True',
+    # }
+    # desired_caps = {
+    #     "platformName": "Android",
+    #     "platformVersion": "8.1.0",
+    #     "deviceName": "bba2100",
+    #     "appPackage": app_package,
+    #     "appActivity": "com.lianni.delivery.StartActivity",
+    #     "noReset": True,
+    # }
     desired_caps = {
         "platformName": "Android",
-        "platformVersion": "7.1.1",
-        "deviceName": "64535188",
+        "platformVersion": "6.0.1",
+        "deviceName": "be3dd43e",
         "appPackage": app_package,
         "appActivity": "com.lianni.delivery.StartActivity",
-        # "automationName": 'uiautomator2',
-        "noReset": 'True',
-        "resetKeyboard": 'True',
-        "unicodeKeyboard": 'True',
+        "noReset": True,
     }
 
     @classmethod
@@ -69,9 +85,9 @@ class test_buyer_sign(unittest.TestCase):
 
     def start_server(self):
         self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", self.desired_caps)
+        self.driver.implicitly_wait(10)
         time.sleep(5)
         cu_ac = self.driver.current_activity
-
         if 'LoginActivity' in cu_ac:
             print("进入登录页面")
             self.a_input.id_input(self.driver, self.app_package + ':id/edt_account', '19968049483')
@@ -83,11 +99,11 @@ class test_buyer_sign(unittest.TestCase):
         elif 'MainActivity' in cu_ac:
             print("进入菜单页面")
         else:
-            print("什么页面都没有进入")
+            print("什么页面都没有进入:%s" % cu_ac)
 
         login_load = self.a_click.is_visible_id(self.driver, 'com.lianni.delivery.develop:id/txt_weex_hint')
-        print(login_load.text)
         if login_load:
+            print(login_load.text)
             self.driver.tap([(10, 50), (30, 100), (50, 150)])
             pass
         else:
