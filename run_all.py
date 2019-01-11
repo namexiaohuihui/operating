@@ -128,7 +128,11 @@ def start_loading_case():
 
 
 def start_single_loading():
+<<<<<<< HEAD
     run_main('Warehousing',"test_*label.py")
+=======
+    run_main('SimpleProcess\SellerStore',"test_goods_label.py")
+>>>>>>> 5dc99338d74dec5b128d54e2a16624e6ddfd7869
 
 
 if __name__ == '__main__':
