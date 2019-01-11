@@ -65,7 +65,7 @@ class HandleAction(object):
                     self.is_action.setSelectData(self.financial[locator], 'css')
                     option_text = method_way()
                     if ',' in expect_data:
-                        assert expect_data == option_text, '下拉全部值不对' + option_text + expect_data
+                        assert expect_data == option_text, '下拉全部值不对%s--%s' % (option_text, expect_data)
                         pass
                     else:
                         assert expect_data == option_text, "下拉默认值不对"

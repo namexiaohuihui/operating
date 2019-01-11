@@ -110,7 +110,7 @@ class pymysqls(object):
                 # index[i][0] 获取字段里属性中的局部信息
                 row[index[i][0]] = res[i]
 
-            return row;
+            return row
         except Exception as msg:
             print('MySQL connect fail... %s ' % msg)
 
@@ -141,111 +141,29 @@ class pymysqls(object):
 
 #
 if __name__ == '__main__':
-    sql1 = """
-	SELECT
-	 d.`name`,d.deliveryman_id,d.job_level,
-  ar.`name`,
-  u.`status` '账户状态',
-  d. STATUS as '接单状态',
-d.type as '类型',
-d.shop_id '店铺 ',
-  COUNT(st.custom_area_id)
-FROM
-	lnsm_deliveryman AS d
-LEFT JOIN lnsm_user AS u ON u.id = d.deliveryman_id
-INNER JOIN lnsm_shop AS sp ON d.shop_id = sp.id
-INNER JOIN lnsm_custom_area_staff AS st ON st.deliveryman_id = d.deliveryman_id AND st.`status` = 1
-INNER JOIN lnsm_custom_area AS ar ON ar.id = st.custom_area_id
-WHERE
-	sp.`warehouse_id` = '458208'
-GROUP BY
-	d.deliveryman_id
-ORDER BY
-	d.`deliveryman_id` DESC
-LIMIT 0,
- 1000;
-
-
-"""
-
-
-    sql2 = """SELECT 
-  d.`name`,d.deliveryman_id,d.job_level,
-  ca.`name`,
-  u.`status` '账户状态',
-  d. STATUS as '接单状态',
-d.type as '类型',
-d.shop_id '店铺 ',
-  COUNT(cas.custom_area_id)
-FROM lnsm_deliveryman AS d
-LEFT JOIN lnsm_user AS u ON u.id = d.deliveryman_id
-INNER JOIN lnsm_shop AS s ON d.shop_id = s.id 
-LEFT JOIN lnsm_custom_area_staff as cas ON cas.deliveryman_id = d.deliveryman_id
-AND cas.`status` = 1
-LEFT JOIN lnsm_custom_area AS ca ON cas.custom_area_id = ca.id
-WHERE s.warehouse_id = 458208 
-GROUP BY d.deliveryman_id
-ORDER BY d.deliveryman_id DESC;
+    sql2 = """
+	SELECT id,action_time as '时间',ip_addr,message,user_id from xadmin_log ;
 """
     from tools.openpyxlExcel import PANDASDATA
 
-    py = pymysqls()
-    py.connects_readModel()
-
-    neirong = py.total_vertical_selects(sql1)
-    # 数据转换
-    pan = PANDASDATA(neirong)
-    df = pan.dataFrame()
-    # print(df)
-    print(df.index)
-    df.to_csv(r"F:\desktop\foo.csv", index=False, encoding="gbk")
     py2 = pymysqls()
     py2.connects_readModel()
+
     neirong2 = py2.total_vertical_selects(sql2)
     pan2 = PANDASDATA(neirong2)
     df2 = pan2.dataFrame()
-    df2.to_csv(r"F:\desktop\foo2.csv", index=False, encoding="gbk")
+    ll = ['id','ip_addr','user_id','message','时间']
+    df2 = pan2.dataFrame(df2.get('id'),ll)
+
+    df2.to_csv(r"foo2.csv", index=False, encoding="gbk")
+    df2.to_csv(r"foo1.csv", index=False, encoding="utf8")
+    print(df2)
+    print('------------')
     print(df2.index)
-    # print(df2)
     import time
     import operator
-    shujuneirong = {}
-    chuxianguo = []
-    zhongjian = False
     for nei in df2.index:
         row_df2 = df2.iloc[nei]
-        for rong in df.index:
-            row_df = df.iloc[rong]
-            if operator.eq(list(row_df), list(row_df2)):
-                zhongjian =True
-                break
-            else:
-                # print(row_df2[0])
-                zhongjian = False
-                # shujuneirong[row_df2['deliveryman_id']] = list(row_df2)
-        if zhongjian:
-            # break
-            chuxianguo.append(list(row_df2))
-            zhongjian = False
-        else:
-            shujuneirong[row_df2['deliveryman_id']] = list(row_df2)
+        print(row_df2)
+        print(row_df2.loc['action_time'])
 
-
-    import pprint
-
-    print(len(shujuneirong))
-    # pprint.pprint(shujuneirong)
-
-    nihaoma = []
-    for buhao in shujuneirong.values():
-        nihaoma.append(buhao)
-    from tools.openpyxlExcel import OpenExcelPandas
-
-    # pprint.pprint(nihaoma)
-    pan3 = PANDASDATA(nihaoma)
-    df3 = pan3.dataFrame()
-    df3.to_csv(r"F:\desktop\foo3.csv", index=False, encoding="gbk")
-
-    pan4 = PANDASDATA(chuxianguo)
-    df4 = pan4.dataFrame()
-    df4.to_csv(r"F:\desktop\foo4.csv", index=False, encoding="gbk")

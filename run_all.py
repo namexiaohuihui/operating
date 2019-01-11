@@ -114,13 +114,9 @@ def list_dir(file_dir):
 
 
 def start_loading_case():
-    file_name = r'CenterBackground/Permissions'
+    file_name = r'CenterBackground'
     all_dir = list_dir(file_name)
 
-    # 指定要运行的对象
-    # dir = os.path.join(file_name, all_dir[7])
-    # print("需要运行的文件: %s" % dir)
-    # run_main(dir)
 
     for dir in range(len(all_dir)):
         if "__pycache__" in all_dir[dir]:
@@ -132,7 +128,7 @@ def start_loading_case():
 
 
 def start_single_loading():
-    run_main('SimpleProcess',"test_*label.py")
+    run_main('Warehousing',"test_*label.py")
 
 
 if __name__ == '__main__':
