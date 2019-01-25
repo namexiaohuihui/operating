@@ -22,6 +22,7 @@ modift_assist: tbody > tr:nth-child(1) > td:nth-child(6) > button:nth-child(1)
 delect_assist: tbody > tr:nth-child(1) > td:nth-child(6) > button:nth-child(2)
 
 # 编辑和新增弹窗
+#create_default: div.modal-footer>button:nth-child(1)
 # 取消
 cancel_assist: .modal-footer > button.btn.btn-default
 # 确定
@@ -98,3 +99,12 @@ rela_add: li.box-tools > button.btn.btn-default.btn-sm.modal-btn
 rela_list: li.box-tools > button.btn.btn-default.btn-sm.lookExplain
 rela_modal_title: myModalLabel
 rela_modal_h4: div.modal.fade.in > div > div > div.modal-header > h4
+
+
+# 13.1
+attention: tbody > tr:nth-child(1) > td:nth-child(2) > a
+wechat_qr: tbody > tr:nth-child(1) > td:nth-child(4) > button
+create_qr: div.box-tools > .btn.btn-default.btn-sm.modal-btn
+create_qr_input: input[id='name']
+timename: input[id='reservationtime']
+select_key: select[name='key']
