@@ -1,0 +1,36 @@
+二维码推广管理需求用例:
+1.在E:\drivers\CasePlan\BackStageManagement\GeneralizeAssist路径下面创建二维码推广用例文件夹，其中BackStageManagement表示为管理后台的意思，GeneralizeAssist表示为推广管理的意思
+
+2.在红包用例文件夹（E:\drivers\CasePlan\BackStageManagement\GeneralizeAssist\Redpacket\redpacket.xlsx）中将用例拷贝过来，拷贝的原因为：用例头部名称以及一些用例信息基本相同。
+
+3.将用例名字修改为qrcode.xlsx
+
+4.在现有推广管理元素存放地(E:\operating\tools\YAMLconfig\expression\GeneralizeAssist.yaml)处配置元素路径.
+	4.1 tab为二维码管理/推广效果的路径为ul.nav.nav-tabs > li，而该文件顶部已经创建了tabs。故不用写
+	
+	4.2 编写二维码管理页面,点击关注用户的元素路径，关注用户可支持跳转
+		tbody > tr:nth-child(1) > td:nth-child(2) > a
+		
+	4.3 编写二维码管理页面操作按钮为公众号二维码元素的路径.点击可出现弹窗。故要编写元素路径
+		wechat_qr: tbody > tr:nth-child(1) > td:nth-child(4) > button 二维码按钮
+		顶部已经创建有标题的路径h4.modal-title故不用写
+		
+	4.4 编写二维码管理页面生成二维码按钮，点击可出现弹窗，故也要编写相应的元素路径
+		顶部已经创建有标题的路径h4.modal-title故不用写
+		create_qr_input: input[id='name'] 发布弹窗名字输入框元素路径
+		顶部写好取消及确认按钮的元素路径故不用在写
+
+		
+	4.5 编写二维码管理页面时间输入框/下拉框/关键字输入框/搜索按钮元素路径
+		timename: input[id='reservationtime']
+		select_key: select[name='key']
+		input[type='search'] 顶部已经创建关键字输入框的元素路径故不用写
+		顶部已经创建搜索/导出按钮元素路径故不用写
+	
+	4.6 编写推广效果页面元素路径：
+		因时间选择框/关键字下拉/关键字输入框/搜索及导出按钮跟推广管理页面一致故不重复定义
+		但用户昵称和二维码昵称跳转不一致需自己定义
+	
+	
+5.修改sheet名字为标题的用例,主要修改点为
+
