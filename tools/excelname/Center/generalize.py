@@ -186,4 +186,23 @@ class Generalize(ExcelTitle):
     def yaml_rela_modal_h4(self):
         return "rela_modal_h4"
 
+    # ----------------------qr_code--------------------
+    def yaml_attention(self):
+        return "attention"
+
+    def yaml_wechat_qr(self):
+        return "wechat_qr"
+
+    def yaml_create_qr(self):
+        return "create_qr"
+
+    def yaml_create_qr_input(self):
+        return "create_qr_input"
+
+    def yaml_timename(self):
+        return "timename"
+
+    def yaml_select_key(self):
+        return "select_key"
+
     pass

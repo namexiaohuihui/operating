@@ -50,6 +50,7 @@ redpacket = 'redpacket'
 feedback = 'feedback'
 entrance = 'entrance'
 relation = 'relation'
+qrcode="qrcode"
 
 # 根据sheet的value值来读取ArgumentAdmin.yaml中，用例的标签名
 city = 'city'

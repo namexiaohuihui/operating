@@ -1,0 +1,103 @@
+二维码推广管理需求用例:
+1.在E:\drivers\CasePlan\BackStageManagement\GeneralizeAssist路径下面创建二维码推广用例文件夹，其中BackStageManagement表示为管理后台的意思，GeneralizeAssist表示为推广管理的意思
+
+2.在红包用例文件夹（E:\drivers\CasePlan\BackStageManagement\GeneralizeAssist\Redpacket\redpacket.xlsx）中将用例拷贝过来，拷贝的原因为：用例头部名称以及一些用例信息基本相同。
+
+3.将用例名字修改为qrcode.xlsx
+
+4.在现有推广管理元素存放地(E:\operating\tools\YAMLconfig\expression\GeneralizeAssist.yaml)处配置元素路径.
+	4.1 tab为二维码管理/推广效果的路径为ul.nav.nav-tabs > li，而该文件顶部已经创建了tabs。故不用写
+	
+	4.2 编写二维码管理页面,点击关注用户的元素路径，关注用户可支持跳转
+		tbody > tr:nth-child(1) > td:nth-child(2) > a
+		
+	4.3 编写二维码管理页面操作按钮为公众号二维码元素的路径.点击可出现弹窗。故要编写元素路径
+		wechat_qr: tbody > tr:nth-child(1) > td:nth-child(4) > button 二维码按钮
+		顶部已经创建有标题的路径h4.modal-title故不用写
+		
+	4.4 编写二维码管理页面生成二维码按钮，点击可出现弹窗，故也要编写相应的元素路径
+		顶部已经创建有标题的路径h4.modal-title故不用写
+		create_qr_input: input[id='name'] 发布弹窗名字输入框元素路径
+		顶部写好取消及确认按钮的元素路径故不用在写
+
+		
+	4.5 编写二维码管理页面时间输入框/下拉框/关键字输入框/搜索按钮元素路径
+		timename: input[id='reservationtime']
+		select_key: select[name='key']
+		input[type='search'] 顶部已经创建关键字输入框的元素路径故不用写
+		顶部已经创建搜索/导出按钮元素路径故不用写
+	
+	4.6 编写推广效果页面元素路径：
+		因时间选择框/关键字下拉/关键字输入框/搜索及导出按钮跟推广管理页面一致故不重复定义
+		但用户昵称和二维码昵称跳转不一致需自己定义
+
+5.给元素路径定义指定的函数,在E:\operating\tools\excelname\Center\generalize.py。Center目录下存储后台元素路径指定函数的工作目录,generalize文件只存推广管理元素路径
+	例如:4.3中定义一个元素路径名称为wechat_qr
+	那么在文件中定义的格式为:
+	def yaml_元素名(self):
+		retunru "元素名"
+	def yaml_wechat_qr(self):
+        return "wechat_qr"
+	
+5.在E:\drivers\CasePlan\BackStageManagement\GeneralizeAssist\Qrcode\qrcode.xlsx修改sheet名字为标题的用例,主要对以下标题名进行修改:
+	函数/场景/城市/全部/类型
+对上诉内容进行修改的原因为:
+	函数:不同功能之间的用例应有不同的名字
+	场景:指定该用例所运行的操场景
+	城市:顶部tan的默认值,如果一个页面既有功能tab切换也有城市tab切换时,那么此处所代表即可以是功能tab的默认值也可以表示城市tab的默认值
+	例如:E:\drivers\CasePlan\BackStageManagement\GeneralizeAssist\Focus\focus.xlxs
+	对应的代码为:E:\operating\CenterBackground\GeneralizeAssist\Focus\test_focusTabs.py
+
+6.将用例加入到系统文件中 
+	6.1编写E:\drivers\CasePlan\excelmodel.ini文件
+	6.2在generalize下面加入qrcode=Qrcode/\qrcode.xlsx
+
+7.将第六步加入的文件识别码写入系统配置文件中
+	7.1编辑:E:\operating\tools\YAMLconfig\ArgumentAdmin.yaml
+	7.2在下面generalize新增数据:
+	qrcode:   # 二维码推广的集合地
+		module: qrcode	# 推广管理中二维码推广用例所在地的识别码
+		child: 13	# 二维码推广模块在推广管理菜单的第几个位置
+		tabs: 标题	# 定义二维码推广用例中名字为标题的sheet的识别码
+
+	
+7.编写tab切换以及tab默认值的功能检测代码
+	默认A的路径为:E:\operating\CenterBackground\GeneralizeAssist
+	7.1创建二维码推广用例代码所在的文件夹
+		在A路径下新建名为Qrcode包
+	7.2在A路径下的__init__.py文件中relation的下面加入新增用例位置的识别码,qrcode="qrcode"
+	7.3新增sheet名的识别码:但因为之前已经定义了tabs = 'tabs',所以此次就不进行定义
+	7.4在7.1新建包下面建二维码推广管理tab检测代码文件.文件名格式为:test_功能名(此处名为:test_qrcode_tabs)
+	7.5编写class名:TestQrcodeTabs.并继承unittest.TestCase
+	7.6编写main函数,main函数为代码运行的入口.unittest运行的方式有三种,这里用最普通的一种
+	7.7经7.5和7.6步骤之后页面代码有:
+	import unittest
+	class TestQrcodeTabs(unittest.TestCase):
+		# pass为跳过的意思。当class或者函数里面没有编写逻辑时,可写pass。不然会提示错误
+		pass
+
+
+	if __name__ == '__main__':
+		unittest.main(verbosity=2)
+	
+	7.8从E:\operating\CenterBackground\GeneralizeAssist\Redpacket\test_redpacketTabs.py中将
+	函数名为setUpClass/setUp/tearDown的内容复制过来,并把导入的包复制过来
+	从这文件复制的原因：同样是tab功能检测初始值定义大多数的代码都相同
+	
+	7.9修改不同点
+	config = GeneralizeAssist.add_key(GeneralizeAssist.redpacket, GeneralizeAssist.tabs)中
+	GeneralizeAssist.redpacket改为GeneralizeAssist.qrcode，其他地方不用动
+	
+	7.10将第五步中编写的函数在 该文件(test_qrcode_tabs.py)下定义出来
+	
+
+
+
+
+
+
+
+
+
+
+	

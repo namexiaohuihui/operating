@@ -285,6 +285,10 @@ generalize:
     page: 页面
     operate: 操作
     add: 添加
+  qrcode:
+    module: qrcode
+    child: 13
+    tabs: 标题
 financial:
   father: 7
   module: financial
