@@ -42,9 +42,9 @@ class CommoditiesJude(JudgmentVerification):
 
     def __init__(self, config, basename, centerName):
         '''
-        :param config: 头文件所在位置
-        :param basename: 执行用例的文件名
-        :param centerName: 参数定义的类对象
+        :param config: 头文件所在位置,即__init__.py文件中定义的INVENTORY
+        :param basename: 当前执行用例的文件名,在用例文件中自动获取
+        :param centerName: 元素路径对应的关键字的函数
         '''
         JudgmentVerification.__init__(self, config, basename)
         self.bi = centerName()

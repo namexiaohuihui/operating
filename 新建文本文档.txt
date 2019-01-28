@@ -42,7 +42,7 @@
 5.在E:\drivers\CasePlan\BackStageManagement\GeneralizeAssist\Qrcode\qrcode.xlsx修改sheet名字为标题的用例,主要对以下标题名进行修改:
 	函数/场景/城市/全部/类型
 对上诉内容进行修改的原因为:
-	函数:不同功能之间的用例应有不同的名字
+	函数:不同功能之间的用例应有不同的名字(可先看看7.10在进行修改函数)
 	场景:指定该用例所运行的操场景
 	城市:顶部tan的默认值,如果一个页面既有功能tab切换也有城市tab切换时,那么此处所代表即可以是功能tab的默认值也可以表示城市tab的默认值
 	例如:E:\drivers\CasePlan\BackStageManagement\GeneralizeAssist\Focus\focus.xlxs
@@ -88,7 +88,10 @@
 	config = GeneralizeAssist.add_key(GeneralizeAssist.redpacket, GeneralizeAssist.tabs)中
 	GeneralizeAssist.redpacket改为GeneralizeAssist.qrcode，其他地方不用动
 	
-	7.10将第五步中编写的函数在 该文件(test_qrcode_tabs.py)下定义出来
+	7.10将第五步中编写的函数在 该文件(test_qrcode_tabs.py)下定义出来。
+	  因为二维码管理页面跟红包记录页面都是显示功能tab，如果第五步没有修改名字的话可以直接复制
+	  E:\operating\CenterBackground\GeneralizeAssist\Redpacket\test_redpacketTabs.py
+	  中case的代码
 	
 
 
