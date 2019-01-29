@@ -108,3 +108,5 @@ create_qr: div.box-tools > .btn.btn-default.btn-sm.modal-btn
 create_qr_input: input[id='name']
 timename: input[id='reservationtime']
 select_key: select[name='key']
+effect_nick: tbody > tr:nth-child(1) > td:nth-child(3) > a
+effect_qr_name: tbody > tr:nth-child(1) > td:nth-child(4) > a

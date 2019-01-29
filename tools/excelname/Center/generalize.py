@@ -205,4 +205,10 @@ class Generalize(ExcelTitle):
     def yaml_select_key(self):
         return "select_key"
 
+    def yaml_effect_nick(self):
+        return "effect_nick"
+
+    def yaml_effect_qr_name(self):
+        return "effect_qr_name"
+
     pass
