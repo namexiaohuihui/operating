@@ -114,7 +114,7 @@ def list_dir(file_dir):
 
 
 def start_loading_case():
-    file_name = r'CenterBackground'
+    file_name = r'CenterBackground/GoodsManagement'
     all_dir = list_dir(file_name)
 
 
@@ -137,8 +137,8 @@ if __name__ == '__main__':
     startTime = datetime.datetime.now()
     print("\nStart Run Time: %s\n" % startTime)
     # 运行程序
-    # start_loading_case()
-    start_single_loading()
+    start_loading_case()
+    # start_single_loading()
     # 记录结束时间
     stopTime = datetime.datetime.now()
     print("\nFinish Run Time: %s\n" % stopTime)

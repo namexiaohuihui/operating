@@ -50,7 +50,9 @@ class ShelvesJude(JudgmentVerification):
     def perform_quit_shelves(self):
         self._visible_css_selectop(self.financial[self.bi.page_add()])
         title_text = self._visible_css_selectop_text(
-            self.financial[self.bi.page_shelves()][self.bi.page_title()])
+            # self.financial[self.bi.page_shelves()][self.bi.page_title()])
+            self.financial[self.bi.page_title()])
         print("shelves----> %s " % title_text)
         self._visible_css_selectop(
-            self.financial[self.bi.page_shelves()][self.bi.page_quit()])
+            # self.financial[self.bi.page_shelves()][self.bi.page_quit()])
+            self.financial[self.bi.page_quit()])

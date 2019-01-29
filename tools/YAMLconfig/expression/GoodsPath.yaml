@@ -1,39 +1,28 @@
-citytab:
-  name: 城市
-  type: cssSelector/li
-  value: .nav.nav-tabs > li
-  label: a
-  attribute: href
-  active: li.active
-  obj: .nav.nav-tabs
-
-formGroup:
-  status: select[name='status']
-  category: select[name='category']
-  preferences: select[name='preferences']
-  conditions: input.form-control
-  formSub: .btn.btn-default.btn-flat.formSub
-  search: 1
-  export: 2
-
-shelves:
-  title: .modal-title
-  quit: button.close
-
-evaluation:
-  quality: select[name='service']
-  type: select[name='type']
-  timeType: select[name='timeType']
-  timename: .form-control.pull-right
-  ranges: div.ranges > ul > li
-  formSub: .btn.btn-default.btn-flat.btn-action
-  search: 1
-  export: 2
-  tabs: .nav.nav-tabs > li
-  box: .box-city>a
-
-
-
+type: cssSelector/li
+value: .nav.nav-tabs > li
+label: a
+attribute: href
+active: li.active
+obj: .nav.nav-tabs
+status: select[name='status']
+category: select[name='category']
+preferences: select[name='preferences']
+conditions: input.form-control
+formSub: .btn.btn-default.btn-flat.formSub
+search: 1
+export: 2
+title: .modal-title
+quit: button.close
+quality: select[name='service']
+type: select[name='type']
+timeType: select[name='timeType']
+timename: .form-control.pull-right
+ranges: div.ranges > ul > li
+formSub: .btn.btn-default.btn-flat.btn-action
+search: 1
+export: 2
+tabs: .nav.nav-tabs > li
+box: .box-city>a
 info: div.dataTables_info
 add: .fa.fa-plus-square
 through: ul.pagination > li

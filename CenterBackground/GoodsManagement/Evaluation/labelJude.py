@@ -139,9 +139,11 @@ class LabelJude(JudgmentVerification):
         df.to_csv("foo.csv", index=False, encoding="gbk")
 
     def get_seven_days(self):
-        locator = self.financial[self.bi.page_evaluation()][self.bi.page_timename()]
+        # locator = self.financial[self.bi.page_evaluation()][self.bi.page_timename()]
+        locator = self.financial[self.bi.page_timename()]
         self.vac.css_click(self.driver, locator)
-        locator = self.financial[self.bi.page_evaluation()][self.bi.page_ranges()]
+        # locator = self.financial[self.bi.page_evaluation()][self.bi.page_ranges()]
+        locator = self.financial[self.bi.page_ranges()]
         ele = self.vac.is_visibles_css_selectop(self.driver, locator)
         for e in range(len(ele)):
             if ele[e].text == self.overall[self.bi.excle_time_zone()]:

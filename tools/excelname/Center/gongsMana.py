@@ -37,6 +37,7 @@ class CityGoodsPage(ExcelTitle):
     """
     商品
     """
+
     def page_shelves(self):
         return 'shelves'
 
@@ -51,6 +52,9 @@ class CityGoodsPage(ExcelTitle):
 
     def page_evaluation(self):
         return 'evaluation'
+
+    def page_formSub(self):
+        return "formSub"
 
     def page_quality(self):
         return 'quality'
