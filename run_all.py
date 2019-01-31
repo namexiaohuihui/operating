@@ -128,7 +128,7 @@ def start_loading_case():
 
 
 def start_single_loading():
-    run_main('Warehousing',"test_*label.py")
+    run_main('CenterBackground',"test_citygoodScreen.py")
 
 
 

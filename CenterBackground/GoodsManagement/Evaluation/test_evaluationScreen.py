@@ -34,11 +34,12 @@ import unittest
 import os
 import inspect
 from CenterBackground import GoodsManagement
-from tools.excelname.Center.gongsMana import CityGoodsPage
-from CenterBackground.GoodsManagement.Evaluation.groupJude import GroupJude
+from tools.excelname.Center.googsMana import CityGoodsPage
+from CenterBackground.screeningjude import ScreeningJude
 
 
 class TestEvaluationScreen(unittest.TestCase):
+
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
@@ -47,7 +48,7 @@ class TestEvaluationScreen(unittest.TestCase):
 
         # 传入子集的key，以及Excel文档中的sheet名字
         config = GoodsManagement.add_key(GoodsManagement.evaluation, GoodsManagement.select)
-        cls.group = GroupJude(config,cls.basename, CityGoodsPage)
+        cls.group = ScreeningJude(config, cls.basename, CityGoodsPage)
 
         if "\\" in os.path.dirname(__file__):
             cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
@@ -72,70 +73,73 @@ class TestEvaluationScreen(unittest.TestCase):
     # ------------------quality所对应的用例所在地------------------
     def test_quality(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_quality()
+        self.group.value_options_jude(selectPath=self.group.overall[self.group.bi.whole_keys()])
         pass
 
     def test_qualityDefault(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_qualityDefault()
+        self.group.value_options_default(selectPath=self.group.overall[self.group.bi.whole_keys()])
         pass
 
     def test_qualityTraversey(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_qualityTraverse()
+        self.group.value_option_traverse(formSub=self.group.bi.yaml_formSub(),
+                                         selectPath=self.group.overall[self.group.bi.whole_keys()])
         pass
 
     # -------------------conditions所对应的用例所在地------------------
     def test_conditions(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_conditions()
+        self.group.value_options_jude(selectPath=self.group.overall[self.group.bi.whole_keys()])
         pass
 
     def test_condDefault(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_conndDefault()
+        self.group.value_options_default(selectPath=self.group.overall[self.group.bi.whole_keys()])
         pass
 
     def test_condTraverse(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_conndTraverse()
+        self.group.value_option_traverse(formSub=self.group.bi.yaml_formSub(),
+                                         selectPath=self.group.overall[self.group.bi.whole_keys()])
         pass
 
     # ---------------------timetype所对应的用例所在地----------------
     def test_timeOrder(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_timeOrder()
+        self.group.value_options_jude(selectPath=self.group.overall[self.group.bi.whole_keys()])
         pass
 
     def test_timeDefault(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_timeDefault()
+        self.group.value_options_default(selectPath=self.group.overall[self.group.bi.whole_keys()])
         pass
 
     def test_timeTraverse(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_timeTraverse()
+        self.group.value_option_traverse(formSub=self.group.bi.yaml_formSub(),
+                                         selectPath=self.group.overall[self.group.bi.whole_keys()])
         pass
 
     # ----------------------关键字及按钮的位置----------------------
     def test_conditionsInput(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_conditionsInput()
+        self.group.attribute_value()
         pass
 
     def test_timename(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.get_timename()
+        self.group.attribute_value('value')
         pass
 
     def test_button_search(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.jude_button_search()
+        self.group.searchExport(formSub=self.group.bi.yaml_formSub())
         pass
 
     def test_button_export(self):
         self.group.setFunctionName(inspect.stack()[0][3])
-        self.group.jude_button_export()
+        self.group.searchExport(formSub=self.group.bi.yaml_formSub())
         pass
 
 

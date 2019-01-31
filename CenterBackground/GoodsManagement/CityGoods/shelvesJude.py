@@ -32,7 +32,7 @@
 '''
 from CenterBackground.GoodsManagement import CityGoods
 from CenterBackground.judeVerification import JudgmentVerification
-from tools.excelname.Center.gongsMana import CityGoodsPage
+from tools.excelname.Center.googsMana import CityGoodsPage
 
 
 class ShelvesJude(JudgmentVerification):
@@ -48,11 +48,9 @@ class ShelvesJude(JudgmentVerification):
         pass
 
     def perform_quit_shelves(self):
-        self._visible_css_selectop(self.financial[self.bi.page_add()])
+        self._visible_css_selectop(self.financial[self.bi.yaml_add()])
         title_text = self._visible_css_selectop_text(
-            # self.financial[self.bi.page_shelves()][self.bi.page_title()])
-            self.financial[self.bi.page_title()])
+            self.financial[self.bi.yaml_title()])
         print("shelves----> %s " % title_text)
         self._visible_css_selectop(
-            # self.financial[self.bi.page_shelves()][self.bi.page_quit()])
-            self.financial[self.bi.page_quit()])
+            self.financial[self.bi.yaml_quit()])

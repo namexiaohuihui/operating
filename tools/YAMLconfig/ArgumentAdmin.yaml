@@ -113,7 +113,7 @@ goods:
   citys:
     module: city
     child: 1
-    tab: 城市
+    city: 城市
     select: 筛选
     label: 页面
     shelves: 上架
@@ -128,7 +128,7 @@ goods:
     child: 6
     select: 筛选
     label: 页面
-    tap: 标题
+    tab: 标题
 
 water:
   father: 4

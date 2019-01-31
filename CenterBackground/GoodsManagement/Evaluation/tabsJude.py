@@ -52,7 +52,7 @@ class TabsJude(JudgmentVerification):
     def get_tabs_active(self):
         # 根据界面元素，获取相应的text
         # locator = self.financial[self.bi.page_evaluation()][self.bi.page_tabs()]
-        locator = self.financial[self.bi.page_tabs()]
+        locator = self.financial[self.bi.yaml_tabs()]
         locator = '%s.active' % locator
         label_tabs = self.vac.is_visible_css_selectop(self.driver, locator)
         # 获取用例设置的数据信息
@@ -65,7 +65,7 @@ class TabsJude(JudgmentVerification):
     def get_tabs_text(self):
         # 获取界面元素，并将list存储的text转成str
         # locator = self.financial[self.bi.page_evaluation()][self.bi.page_tabs()]
-        locator = self.financial[self.bi.page_tabs()]
+        locator = self.financial[self.bi.yaml_tabs()]
         label_tabs = self.vac.is_visibles_css_selectop(self.driver, locator)
         label_tabs = [str.strip(tabs.text) for tabs in label_tabs]
         # 获取用例设置的数据信息
@@ -77,7 +77,7 @@ class TabsJude(JudgmentVerification):
 
     def get_tabs_switch(self):
         # locator = self.financial[self.bi.page_evaluation()][self.bi.page_tabs()]
-        locator = self.financial[self.bi.page_tabs()]
+        locator = self.financial[self.bi.yaml_tabs()]
         label_tabs = self.vac.is_visibles_css_selectop(self.driver, locator)
         for tabs in range(len(label_tabs)):
             self.vac.element_click(label_tabs[tabs])
@@ -89,8 +89,7 @@ class TabsJude(JudgmentVerification):
     # --------------------------------------------------------
     def get_box_active(self):
         # 根据界面元素，获取相应的text
-        # locator = self.financial[self.bi.page_evaluation()][self.bi.page_box()]
-        locator = self.financial[self.bi.page_box()]
+        locator = self.financial[self.bi.yaml_box()]
         locator = '%s.on' % locator
         label_tabs = self.vac.is_visible_css_selectop(self.driver, locator)
         # 获取用例设置的数据信息
@@ -102,8 +101,7 @@ class TabsJude(JudgmentVerification):
 
     def get_box_text(self):
         # 获取界面元素，并将list存储的text转成str
-        # locator = self.financial[self.bi.page_evaluation()][self.bi.page_box()]
-        locator = self.financial[self.bi.page_box()]
+        locator = self.financial[self.bi.yaml_box()]
         label_tabs = self.vac.is_visibles_css_selectop(self.driver, locator)
         label_tabs = [str.strip(tabs.text) for tabs in label_tabs]
         # 获取用例设置的数据信息
@@ -114,8 +112,7 @@ class TabsJude(JudgmentVerification):
         pass
 
     def get_box_switch(self):
-        # locator = self.financial[self.bi.page_evaluation()][self.bi.page_box()]
-        locator = self.financial[self.bi.page_box()]
+        locator = self.financial[self.bi.yaml_box()]
         label_tabs = self.vac.is_visibles_css_selectop(self.driver, locator)
         for tabs in range(len(label_tabs)):
             self.vac.element_click(label_tabs[tabs])

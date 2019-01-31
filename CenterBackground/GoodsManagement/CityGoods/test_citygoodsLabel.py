@@ -34,7 +34,7 @@ import os
 import inspect
 import unittest
 from CenterBackground import GoodsManagement
-from tools.excelname.Center.gongsMana import CityGoodsPage
+from tools.excelname.Center.googsMana import CityGoodsPage
 from CenterBackground.GoodsManagement.CityGoods.labelJude import LabelJude
 
 
@@ -81,7 +81,7 @@ class TestGoodsLabel(unittest.TestCase):
 
     def test_success(self):
         """
-        这是备注3
+        这是备注2
         :return:
         """
         self.label.setFunctionName(inspect.stack()[0][3])

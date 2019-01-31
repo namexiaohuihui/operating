@@ -34,9 +34,8 @@ import os
 import inspect
 import unittest
 from CenterBackground import GoodsManagement
-from tools.excelname.Center.gongsMana import CityGoodsPage
+from tools.excelname.Center.googsMana import CityGoodsPage
 from CenterBackground.commoditiesJude import CommoditiesJude
-from CenterBackground.GoodsManagement.CityGoods.activeTabJude import ActiveTabJude
 
 
 class TestCityTab(unittest.TestCase):
@@ -52,8 +51,7 @@ class TestCityTab(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
 
         # 传入子集的key，以及Excel文档中的sheet名字
-        config = GoodsManagement.add_key(GoodsManagement.citys, GoodsManagement.tab)
-        # cls.city_tab = ActiveTabJude(config, cls.basename, CityGoodsPage)
+        config = GoodsManagement.add_key(GoodsManagement.citys, GoodsManagement.city)
         cls.city_tab = CommoditiesJude(config, cls.basename, CityGoodsPage)
 
         if "\\" in os.path.dirname(__file__):

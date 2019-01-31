@@ -70,10 +70,9 @@ class CommoditiesJude(JudgmentVerification):
         try:
             ov_default = self.overall[self.bi.whole_city()]
             self.custom_tabs().judge_city(tag, ov_default)
+            del ov_default
         except KeyError as a:
             raise KeyError("用例上的类型参数没有设置内容 %s" % ov_default)
-        finally:
-            del ov_default
         pass
 
     def active_code(self, tag):

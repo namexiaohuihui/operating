@@ -77,7 +77,7 @@ class ScreeningJude(JudgmentVerification):
         :param direction:
         :return:
         '''
-        op_se = ScreeningDrop(self.driver, direction, attr = self.attrEle)
+        op_se = ScreeningDrop(self.driver, direction, attr=self.attrEle)
         return op_se
 
     def button_formSub(self, formSub, att: str):
@@ -92,9 +92,18 @@ class ScreeningJude(JudgmentVerification):
         return attribute
 
     def searchExport(self, formSub):
+        """
+        指定某个元素组,并获取指定位置的元素
+        :param formSub:  指定元素组的元素路径.在yaml中配置
+        :return:
+        """
+        # 读取excel配置中指定位置的元素路径
         att = self.overall[self.bi.whole_keys()]
+        # 将元素组的路径传入,结合需要读取的数据位置来读取
         op_str = self.button_formSub(formSub, att).text
+        # 读取excel中配置的默认值
         ov_str = self.overall[self.bi.whole_default()]
+        # 默认值与指定位置读取的数据进行比较
         self.debugging_log(op_str, ov_str, 'Obtain all options values incorrectly %s' % att)
 
     def value_options_jude(self, selectPath: str):
@@ -128,11 +137,12 @@ class ScreeningJude(JudgmentVerification):
         pass
 
     def value_option_traverse(self, formSub, selectPath):
-        '''
-
+        """
+        遍历选择下拉对象中的option属性值,然后在点击搜索按钮。
+        :param formSub: 搜索按钮
         :param selectPath: 元素的路径
         :return:
-        '''
+        """
         selectPath = self.financial[selectPath]  # 找到指定标签的元素地址
         op_se = self.create_select(selectPath)
         op_list = op_se.getAllOptions()
@@ -155,7 +165,7 @@ class ScreeningJude(JudgmentVerification):
         prompt_value = op_se.setSelectorValue(self.overall[self.overall.whole_parameter()])
         return prompt_value
 
-    def attribute_value(self):
+    def attribute_value(self, attribute='placeholder'):
         '''
         找到元素中的placeholder属性值
         :return:
@@ -163,7 +173,7 @@ class ScreeningJude(JudgmentVerification):
         # 1. 找到界面数据
         timePath = self.overall[self.bi.whole_keys()]
         timePath = self.financial[timePath]  # 元素路径
-        op_str = self.vai._visible_selectop_attribute(self.driver, timePath, _placeholder)  # 将属性转成对象
+        op_str = self.vai._visible_selectop_attribute(self.driver, timePath, attribute)  # 将属性转成对象
         # 2. 找到产品规定的数据
         ov_str = self.overall[self.bi.whole_default()]
         # 3. 数据比较

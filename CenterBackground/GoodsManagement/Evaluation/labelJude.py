@@ -109,7 +109,7 @@ class LabelJude(JudgmentVerification):
         # 界面滑动到底部
         # self.vac.scrollBar_buttom(self.driver)
         for page in range(2):
-            throughs = self._visible_returns_selectop(self.financial[self.bi.page_through()])
+            throughs = self._visible_returns_selectop(self.financial[self.bi.yaml_through()])
             last = len(throughs) - 1
             thread = threading.Thread(target=self.success_tbody, args=(thead_tr,))
             thread.setDaemon(True)
@@ -139,11 +139,9 @@ class LabelJude(JudgmentVerification):
         df.to_csv("foo.csv", index=False, encoding="gbk")
 
     def get_seven_days(self):
-        # locator = self.financial[self.bi.page_evaluation()][self.bi.page_timename()]
-        locator = self.financial[self.bi.page_timename()]
+        locator = self.financial[self.bi.yaml_timename()]
         self.vac.css_click(self.driver, locator)
-        # locator = self.financial[self.bi.page_evaluation()][self.bi.page_ranges()]
-        locator = self.financial[self.bi.page_ranges()]
+        locator = self.financial[self.bi.yaml_ranges()]
         ele = self.vac.is_visibles_css_selectop(self.driver, locator)
         for e in range(len(ele)):
             if ele[e].text == self.overall[self.bi.excle_time_zone()]:

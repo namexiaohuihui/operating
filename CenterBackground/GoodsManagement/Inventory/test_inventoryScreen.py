@@ -34,8 +34,8 @@ import os
 import inspect
 import unittest
 from CenterBackground import GoodsManagement
-from tools.excelname.Center.gongsMana import CityGoodsPage
-from CenterBackground.GoodsManagement.Inventory.formGroupJude import FormGroupJude
+from tools.excelname.Center.googsMana import CityGoodsPage
+from CenterBackground.screeningjude import ScreeningJude
 
 
 class TestFormGroup(unittest.TestCase):
@@ -47,14 +47,13 @@ class TestFormGroup(unittest.TestCase):
 
         # 传入子集的key，以及Excel文档中的sheet名字
         config = GoodsManagement.add_key(GoodsManagement.inventory, GoodsManagement.select)
-        cls.form_group = FormGroupJude(config, cls.basename, CityGoodsPage)
+        cls.form_group = ScreeningJude(config, cls.basename, CityGoodsPage)
 
         if "\\" in os.path.dirname(__file__):
             cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
         elif "/" in os.path.dirname(__file__):
             cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
         pass
-
 
     def setUp(self):
         # 获取运行文件的类名
@@ -76,7 +75,7 @@ class TestFormGroup(unittest.TestCase):
         :return:
         '''
         self.form_group.setFunctionName(inspect.stack()[0][3])
-        self.form_group.get_categorySelect()
+        self.form_group.value_options_jude(selectPath=self.form_group.overall[self.form_group.bi.whole_keys()])
         pass
 
     def test_categoryDefault(self):
@@ -85,7 +84,7 @@ class TestFormGroup(unittest.TestCase):
         :return:
         '''
         self.form_group.setFunctionName(inspect.stack()[0][3])
-        self.form_group.get_categoryDefault()
+        self.form_group.value_options_default(selectPath=self.form_group.overall[self.form_group.bi.whole_keys()])
         pass
 
     def test_categoryTraverse(self):
@@ -94,22 +93,24 @@ class TestFormGroup(unittest.TestCase):
         :return:
         '''
         self.form_group.setFunctionName(inspect.stack()[0][3])
-        self.form_group.get_categoryTraverse()
+        self.form_group.value_option_traverse(formSub=self.form_group.bi.yaml_cityformSub(),
+                                         selectPath=self.form_group.overall[self.form_group.bi.whole_keys()])
         pass
 
+    # ----------------------关键字及按钮的位置----------------------
     def test_conditionsInput(self):
         self.form_group.setFunctionName(inspect.stack()[0][3])
-        self.form_group.jude_input_conditions()
+        self.form_group.attribute_value()
         pass
 
     def test_button_search(self):
         self.form_group.setFunctionName(inspect.stack()[0][3])
-        self.form_group.jude_button_search()
+        self.form_group.searchExport(formSub=self.form_group.bi.yaml_cityformSub())
         pass
 
     def test_button_export(self):
         self.form_group.setFunctionName(inspect.stack()[0][3])
-        self.form_group.jude_button_export()
+        self.form_group.searchExport(formSub=self.form_group.bi.yaml_cityformSub())
         pass
 
 

@@ -38,43 +38,46 @@ class CityGoodsPage(ExcelTitle):
     商品
     """
 
-    def page_shelves(self):
+    def yaml_shelves(self):
         return 'shelves'
 
-    def page_title(self):
+    def yaml_title(self):
         return 'title'
 
-    def page_quit(self):
+    def yaml_quit(self):
         return 'quit'
 
-    def page_add(self):
+    def yaml_add(self):
         return 'add'
 
-    def page_evaluation(self):
+    def yaml_evaluation(self):
         return 'evaluation'
 
-    def page_formSub(self):
+    def yaml_formSub(self):
         return "formSub"
 
-    def page_quality(self):
+    def yaml_cityformSub(self):
+        return "cityformSub"
+
+    def yaml_quality(self):
         return 'quality'
 
-    def page_timeType(self):
+    def yaml_timeType(self):
         return 'timeType'
 
-    def page_timename(self):
+    def yaml_timename(self):
         return 'timename'
 
-    def page_tabs(self):
+    def yaml_tabs(self):
         return 'tabs'
 
-    def page_box(self):
+    def yaml_box(self):
         return 'box'
 
-    def page_through(self):
+    def yaml_through(self):
         return 'through'
 
-    def page_ranges(self):
+    def yaml_ranges(self):
         return 'ranges'
 
     def excle_time_zone(self):

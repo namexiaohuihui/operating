@@ -34,11 +34,16 @@ import os
 import inspect
 import unittest
 from CenterBackground import GoodsManagement
-from tools.excelname.Center.gongsMana import CityGoodsPage
-from CenterBackground.GoodsManagement.Evaluation.tabsJude import TabsJude
+from tools.excelname.Center.googsMana import CityGoodsPage
+from CenterBackground.commoditiesJude import CommoditiesJude
 
 
 class TestTabsBox(unittest.TestCase):
+    """
+    评价tab
+    """
+    BUTTON_REDUCE_NUMBER = 0
+
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
@@ -46,8 +51,8 @@ class TestTabsBox(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
 
         # 传入子集的key，以及Excel文档中的sheet名字
-        config = GoodsManagement.add_key(GoodsManagement.evaluation, GoodsManagement.tap)
-        cls.box = TabsJude(config,cls.basename, CityGoodsPage)
+        config = GoodsManagement.add_key(GoodsManagement.evaluation, GoodsManagement.tab)
+        cls.box = CommoditiesJude(config, cls.basename, CityGoodsPage)
 
         if "\\" in os.path.dirname(__file__):
             cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
@@ -72,33 +77,33 @@ class TestTabsBox(unittest.TestCase):
     # -------------------------------顶部tabs用例-----------------------------
     def test_tabs_active(self):
         self.box.setFunctionName(inspect.stack()[0][3])
-        self.box.get_tabs_active()
+        self.box.active_city('class')
         pass
 
     def test_tabs_text(self):
         self.box.setFunctionName(inspect.stack()[0][3])
-        self.box.get_tabs_text()
+        self.box.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_tabs_switch(self):
         self.box.setFunctionName(inspect.stack()[0][3])
-        self.box.get_tabs_switch()
+        self.box.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     # -------------------------------顶部box用例-----------------------------
     def test_box_active(self):
         self.box.setFunctionName(inspect.stack()[0][3])
-        self.box.get_box_active()
+        self.box.active_city('class')
         pass
 
     def test_box_text(self):
         self.box.setFunctionName(inspect.stack()[0][3])
-        self.box.get_box_text()
+        self.box.already_citys(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
     def test_box_switch(self):
         self.box.setFunctionName(inspect.stack()[0][3])
-        self.box.get_box_switch()
+        self.box.switch_city(reduce=self.BUTTON_REDUCE_NUMBER)
         pass
 
 

@@ -1,14 +1,8 @@
-type: cssSelector/li
-value: .nav.nav-tabs > li
-label: a
-attribute: href
-active: li.active
-obj: .nav.nav-tabs
 status: select[name='status']
 category: select[name='category']
 preferences: select[name='preferences']
 conditions: input.form-control
-formSub: .btn.btn-default.btn-flat.formSub
+cityformSub: .btn.btn-default.btn-flat.formSub
 search: 1
 export: 2
 title: .modal-title
@@ -19,10 +13,8 @@ timeType: select[name='timeType']
 timename: .form-control.pull-right
 ranges: div.ranges > ul > li
 formSub: .btn.btn-default.btn-flat.btn-action
-search: 1
-export: 2
 tabs: .nav.nav-tabs > li
-box: .box-city>a
+box: .box-city > a
 info: div.dataTables_info
 add: .fa.fa-plus-square
 through: ul.pagination > li

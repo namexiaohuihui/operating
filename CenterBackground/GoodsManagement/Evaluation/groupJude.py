@@ -52,8 +52,7 @@ class GroupJude(JudgmentVerification):
         返回quality元素对应的路径
         :return:
         '''
-        # value = self.financial[self.bi.page_evaluation()][self.bi.page_quality()]
-        value = self.financial[self.bi.page_quality()]
+        value = self.financial[self.bi.yaml_quality()]
         return value
 
     def cond_direction(self):
@@ -61,7 +60,6 @@ class GroupJude(JudgmentVerification):
         返回cond元素对应的路径
         :return:
         '''
-        # value = self.financial[self.bi.page_evaluation()][self.bi.yaml_type()]
         value = self.financial[self.bi.yaml_type()]
         return value
 
@@ -70,8 +68,7 @@ class GroupJude(JudgmentVerification):
         返回time元素对应的路径
         :return:
         '''
-        # value = self.financial[self.bi.page_evaluation()][self.bi.page_timeType()]
-        value = self.financial[self.bi.page_timeType()]
+        value = self.financial[self.bi.yaml_timeType()]
         return value
 
     # -----------------------下拉框对象定义------------------------
@@ -88,7 +85,7 @@ class GroupJude(JudgmentVerification):
     def button_formSub(self, att):
         # form_group = self.financial[self.bi.page_evaluation()]
         # 找到按钮元素对象路径
-        form_group = self.financial[self.bi.page_formSub()]
+        form_group = self.financial[self.bi.yaml_formSub()]
         # 通过路径找到相应的元素
         attribute = self._visible_returns_selectop(form_group)
         # 根据位置读取相应的元素
@@ -228,7 +225,7 @@ class GroupJude(JudgmentVerification):
         # 读取输入框上显示的内容
         # attribute = self._visible_css_selectop_attribute(
         #     self.financial[self.bi.page_evaluation()][self.bi.page_timename()])
-        attribute = self._visible_css_selectop_attribute(self.financial[self.bi.page_timename()])
+        attribute = self._visible_css_selectop_attribute(self.financial[self.bi.yaml_timename()])
         # 读取用例默认应显示的内容
         ov_attribute = self.overall[self.bi.whole_default()]
         # 错误时的提示信息
