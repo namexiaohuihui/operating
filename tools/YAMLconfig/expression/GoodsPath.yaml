@@ -1,20 +1,47 @@
+# 下拉
 status: select[name='status']
 category: select[name='category']
 preferences: select[name='preferences']
-conditions: input.form-control
-cityformSub: .btn.btn-default.btn-flat.formSub
-search: 1
-export: 2
-title: .modal-title
-quit: button.close
 quality: select[name='service']
 type: select[name='type']
 timeType: select[name='timeType']
-timename: .form-control.pull-right
-ranges: div.ranges > ul > li
+userType: select[name='userType']
+change: select[name='change']
+
+# 按钮
+cityformSub: .btn.btn-default.btn-flat.formSub
 formSub: .btn.btn-default.btn-flat.btn-action
+jiptformsub: .btn.btn-default.btn-flat.btn-action.J_ipt
+search: 1
+export: 2
+
+# 输入框
+conditions: input.form-control
+detail_user: .form-inline> div:nth-child(2) > input
+detail_goods: .form-inline> div:nth-child(3) > input
+log_user: .form-inline> div:nth-child(4) > input
+log_goods: .form-inline> div:nth-child(5) > input
+
+# tab标题
 tabs: .nav.nav-tabs > li
 box: .box-city > a
+
+# 其他
+timename: .form-control.pull-right
+ranges: div.ranges > ul > li
 info: div.dataTables_info
 add: .fa.fa-plus-square
 through: ul.pagination > li
+title: .modal-title
+quit: button.close
+
+# 进销库跳转
+good_id: tbody > tr:nth-child(1) > td:nth-child(1) > a
+good_name: tbody > tr:nth-child(1) > td:nth-child(2) > a
+water_store: tbody > tr:nth-child(1) > td:nth-child(3) > a
+other_type: tbody > tr:nth-child(1) > td:nth-child(4) > a
+online_sales: tbody > tr:nth-child(1) > td:nth-child(5) > a
+offline_sales: tbody > tr:nth-child(1) > td:nth-child(6) > a
+loss_repertory: tbody > tr:nth-child(1) > td:nth-child(7) > a
+to_promote: tbody > tr:nth-child(1) > td:nth-child(8) > a
+current_repertory: tbody > tr:nth-child(1) > td:nth-child(9) > a
