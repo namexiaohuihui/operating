@@ -128,7 +128,7 @@ def start_loading_case():
 
 
 def start_single_loading():
-    run_main('CenterBackground',"test_citygoodScreen.py")
+    run_main('CenterBackground',"test_salesScreen.py")
 
 
 
@@ -137,8 +137,8 @@ if __name__ == '__main__':
     startTime = datetime.datetime.now()
     print("\nStart Run Time: %s\n" % startTime)
     # 运行程序
-    start_loading_case()
-    # start_single_loading()
+    # start_loading_case()
+    start_single_loading()
     # 记录结束时间
     stopTime = datetime.datetime.now()
     print("\nFinish Run Time: %s\n" % stopTime)

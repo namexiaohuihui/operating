@@ -123,6 +123,12 @@ goods:
     select: 筛选
     label: 页面
     add: 添加
+  entersales:
+    module: entersales
+    child: 3
+    select: 筛选
+    label: 页面
+    add: 添加
   evaluation:
     module: evaluation
     child: 6

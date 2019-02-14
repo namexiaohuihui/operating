@@ -219,12 +219,22 @@ class TimeFromat(object):
 
     def at_the_present_day(self):
         """
-        返回当天的年月日
+        返回当前的年月日
         :return:
         """
         y_m_d = datetime.date.today()
         y_m_d = str(y_m_d)
         return y_m_d
+
+    def get_time_ym(self):
+        """
+        返回当前年月
+        :return:
+        """
+        y = time.strftime('%Y', time.localtime())
+        m = time.strftime('%m', time.localtime())
+        y_m = "%s年%s月" % (y, m)
+        return y_m
 
     def dormancy_time(self, sp: int = 0.5):
         """

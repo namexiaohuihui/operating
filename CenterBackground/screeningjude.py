@@ -181,6 +181,30 @@ class ScreeningJude(JudgmentVerification):
         self.debugging_log(op_str, ov_str, msg)
         pass
 
+    def time_value_jump(self, time_jump, attribute='value'):
+        """
+
+        读取时间选择框中默认显示的年月日(或者年月日)并于程序计算的年月日(或者年月)进行比较
+        :return:
+        """
+        # 1. 找到界面数据
+        timePath = self.overall[self.bi.whole_keys()]
+        timePath = self.financial[timePath]  # 元素路径
+        op_str = self.vai._visible_selectop_attribute(self.driver, timePath, attr=attribute)  # 将属性转成对象
+
+        # 2. 找到产品规定的数据
+        if 'ymd' in time_jump:
+            ov_str = self.ti.at_the_present_day()
+        elif 'ym' in time_jump:
+            ov_str = self.ti.get_time_ym()
+        else:
+            ov_str = "没有这个内容哟!!..."
+
+        # 3. 数据比较
+        msg = 'Error in time entry box :　%s ' % timePath
+        self.debugging_log(op_str, ov_str, msg)
+        pass
+
     def test_value(self):
         """
         判断指定元素的test是否正确
@@ -196,8 +220,8 @@ class ScreeningJude(JudgmentVerification):
 
     def debugging_log(self, ct_default, ov_default, mesg):
         print("--------------------------------")
-        print("label", ct_default, type(ct_default))
-        print("Pm", ov_default, type(ov_default))
+        print("label:%s,%s" % (ct_default, type(ct_default)))
+        print("Pm:%s,%s" % (ov_default, type(ov_default)))
         print("--------------------------------")
         assert operator.eq(ct_default, ov_default), mesg
         pass

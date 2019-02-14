@@ -135,10 +135,12 @@ class LabelJude(JudgmentVerification):
 
         # 打印获取到的内容
         self.log.log_ppriny(self.tbody_list)
-        df = self.list_to_pandas(self.tbody_list, thead_tr, '订单编号')
-        df.to_csv("foo.csv", index=False, encoding="gbk")
 
     def get_seven_days(self):
+        """
+        搜索关键内容在进行读取
+        :return:
+        """
         locator = self.financial[self.bi.yaml_timename()]
         self.vac.css_click(self.driver, locator)
         locator = self.financial[self.bi.yaml_ranges()]

@@ -80,18 +80,23 @@ class TestMessageScreen(unittest.TestCase):
         pass
 
     def test_fight_time(self):
+        """
+        读取时间选择框中默认显示的年月日并于程序计算的年月日进行比较
+        :return:
+        """
         self.sms_srceen.setFunctionName(inspect.stack()[0][3])
-        # 1. 找到界面数据
-        timePath = self.sms_srceen.overall[self.sms_srceen.bi.whole_keys()]
-        timePath = self.sms_srceen.financial[timePath]  # 元素路径
-        op_str = self.sms_srceen.vai._visible_selectop_attribute(self.sms_srceen.driver, timePath)  # 将属性转成对象
-
-        # 2. 找到产品规定的数据
-        ov_str = self.sms_srceen.ti.at_the_present_day()
-
-        # 3. 数据比较
-        msg = 'Error in time entry box :　%s ' % timePath
-        self.sms_srceen.debugging_log(op_str, ov_str, msg)
+        # # 1. 找到界面数据
+        # timePath = self.sms_srceen.overall[self.sms_srceen.bi.whole_keys()]
+        # timePath = self.sms_srceen.financial[timePath]  # 元素路径
+        # op_str = self.sms_srceen.vai._visible_selectop_attribute(self.sms_srceen.driver, timePath)  # 将属性转成对象
+        #
+        # # 2. 找到产品规定的数据
+        # ov_str = self.sms_srceen.ti.at_the_present_day()
+        #
+        # # 3. 数据比较
+        # msg = 'Error in time entry box :　%s ' % timePath
+        # self.sms_srceen.debugging_log(op_str, ov_str, msg)
+        self.sms_srceen.time_value_jump(time_jump="ymd")
         pass
 
 

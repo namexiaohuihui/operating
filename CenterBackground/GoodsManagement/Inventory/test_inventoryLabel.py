@@ -26,7 +26,7 @@
 @author:  ln_company
 @license: (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @software: PyCharm
-@file: test_label.py
+@file: test_inventoryLabel.py
 @time: 2018/8/14 14:08
 @desc:
 '''
@@ -40,7 +40,7 @@ from tools.excelname.Center.googsMana import CityGoodsPage
 from CenterBackground.GoodsManagement.Inventory.inventoryLabelJude import InventoryLabelJude
 
 
-class TestLabel(unittest.TestCase):
+class TestInventoryLabel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]

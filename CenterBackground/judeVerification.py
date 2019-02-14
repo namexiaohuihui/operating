@@ -73,6 +73,30 @@ class JudgmentVerification(ComparedVerify):
     # -------------------通过第三方参数来设置或者读取子菜单的位置
     child_tags = property(treeview_number_get, set_treeview_number, doc="Error setting or getting subtags.")
 
+    def screen_set_up(self, basename):
+        """
+        select用例中,需要执行的前置条件统一定义并进行调用
+        :param basename: 文件名和类名的拼接对象
+        :return:
+        """
+        # 获取运行文件的类名
+        self.log.info("%s ---setup: 每个用例开始前后执行" % basename)
+        # 打开浏览器，定义log日志。读取excle文档数据
+        self.openingProgram()
+        self._rou_background()
+        pass
+
+    def screen_tear_down(self, perform_obj):
+        """
+        select用例中,需要执行的后置条件统一定义并进行调用
+        :param perform_obj: 当前case运行的对象
+        :return:
+        """
+        self.get_screenshot_image(method_obj=perform_obj)
+        self.driver.quit()
+        self.log.info("%s ---teardown: 每个用例结束后执行" % perform_obj.basename)
+        pass
+
     # ------------------------------进入目录路径-------------------------------
     def _rou_background(self):
         """
@@ -153,6 +177,9 @@ class JudgmentVerification(ComparedVerify):
 
         # 创建时间对象
         self.ti = TimeFromat()
+
+        # 打印用例场景作为注释内容,格式最好不用动.如果不需要注释就将其隐藏
+        self.log.info("注释开头%s注释结尾" % self.overall['场景'])
 
     def read_yaml_case(self, file_name, case_key):
         """

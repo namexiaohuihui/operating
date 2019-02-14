@@ -16,7 +16,7 @@ search: 1
 export: 2
 
 # 输入框
-conditions: input.form-control
+conditions: form > div:nth-child(2) > input
 detail_user: .form-inline> div:nth-child(2) > input
 detail_goods: .form-inline> div:nth-child(3) > input
 log_user: .form-inline> div:nth-child(4) > input
@@ -45,3 +45,14 @@ offline_sales: tbody > tr:nth-child(1) > td:nth-child(6) > a
 loss_repertory: tbody > tr:nth-child(1) > td:nth-child(7) > a
 to_promote: tbody > tr:nth-child(1) > td:nth-child(8) > a
 current_repertory: tbody > tr:nth-child(1) > td:nth-child(9) > a
+
+# 明细页面跳转
+default_to: div.box-tools>a:nth-child(1)
+default_name: tbody > tr:nth-child(1) > td:nth-child(2) > a
+default_repertory: tbody > tr:nth-child(1) > td:nth-child(4) > a
+default_modify: tbody > tr:nth-child(1) > td:nth-child(5) > button
+
+# 日志操作页面跳转
+log_to: div.box-tools>a:nth-child(2)
+log_name: tbody > tr:nth-child(1) > td:nth-child(2) > a
+log_remark: tbody > tr:nth-child(1) > td:nth-child(7) > a

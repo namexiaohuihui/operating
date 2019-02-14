@@ -80,5 +80,26 @@ class CityGoodsPage(ExcelTitle):
     def yaml_ranges(self):
         return 'ranges'
 
+    def yaml_default_to(self):
+        return "default_to"
+
+    def yaml_default_name(self):
+        return "default_name"
+
+    def yaml_default_repertory(self):
+        return "default_repertory"
+
+    def yaml_default_modify(self):
+        return "default_modify"
+
+    def yaml_log_to(self):
+        return "log_to"
+
+    def yaml_log_name(self):
+        return "log_name"
+
+    def yaml_log_remark(self):
+        return "log_remark"
+
     def excle_time_zone(self):
         return '时区'

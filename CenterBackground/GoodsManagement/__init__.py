@@ -39,6 +39,7 @@ def add_key(module, sheet):
 # 根据module的key值来读取相应的在ArgumentAdmin.yaml中相应的子dict内容
 evaluation = 'evaluation'
 inventory = 'inventory'
+entersales = 'entersales'
 citys = 'citys'
 
 
