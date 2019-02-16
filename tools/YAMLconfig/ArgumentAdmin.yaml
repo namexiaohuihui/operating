@@ -128,7 +128,8 @@ goods:
     child: 3
     select: 筛选
     label: 页面
-    add: 添加
+    jump: 跳转
+    modetail: 明细修改
   evaluation:
     module: evaluation
     child: 6

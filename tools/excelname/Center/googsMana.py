@@ -103,3 +103,15 @@ class CityGoodsPage(ExcelTitle):
 
     def excle_time_zone(self):
         return '时区'
+
+    def yaml_h1_title(self):
+        return 'h1_title'
+
+    def yaml_h2_title(self):
+        return 'h2_title'
+
+    def yaml_h3_title(self):
+        return 'h3_title'
+
+    def yaml_h4_title(self):
+        return 'h4_title'
