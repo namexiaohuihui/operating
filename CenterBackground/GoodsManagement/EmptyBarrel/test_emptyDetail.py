@@ -26,8 +26,8 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_salesClick.py
-@time:      2019/2/15 11:04
+@file:      test_emptyDetail.py
+@time:      2019/2/20 11:56
 @desc:
 """
 import os
@@ -43,49 +43,59 @@ from CenterBackground.GoodsManagement.EnterSales.handle_action_ddt import Handle
 
 
 def read_excle_data():
-    GoodsManagement.add_key(GoodsManagement.entersales, GoodsManagement.jump)
+    GoodsManagement.add_key(GoodsManagement.emptybarrel, GoodsManagement.modetail)
     excle_data = GoodsManagement._excel_Data('序号')
     return excle_data
 
 
 @ddt.ddt
-class TestSalesClick(unittest.TestCase):
+class TestEmptyDetail(unittest.TestCase):
+
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
         cls.basename = os.path.splitext(os.path.basename(__file__))[0]
         cls.basename = basepath + "-" + cls.basename
         #
-        cls.sales_click = HandleActionDdt(cls.basename, GoodsManagement.INVENTORY['yaml'])
+        cls.empty_detail = HandleActionDdt(cls.basename, GoodsManagement.INVENTORY['yaml'])
 
         if "\\" in os.path.dirname(__file__):
             cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
         elif "/" in os.path.dirname(__file__):
             cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+        cls.empty_detail.screen_set_up('admin_url', 'admin_account', 'admin_password')
+
+        cls.empty_detail.a_click.css_click(cls.empty_detail.driver,
+                                     cls.empty_detail.financial['default_to'])
 
         pass
 
-    def setUp(self):
-        self.sales_click.screen_set_up('admin_url', 'admin_account', 'admin_password')
-        pass
-
-    def tearDown(self):
-        self.sales_click.screen_tear_down(self)
+    @classmethod
+    def tearDownClass(cls):
+        cls.empty_detail.screen_tear_down(cls)
         pass
 
     @ddt.data(*read_excle_data())
-    def test_sales_jump(self, case):
+    def test_modify_operation(self, case):
         """用例场景=:="""
-        self.sales_click.log.info("注释开头%s注释结尾" % case['场景'])
-        self.sales_click.log.fun_name = inspect.stack()[0][3]
-        if 'y' in case['进入'] or 'Y' in case['进入']:
-            self.sales_click.element_click_jump(case['位置'])
+        self.empty_detail.log.fun_name = inspect.stack()[0][3]
+        self.empty_detail.log.info("注释开头%s注释结尾" % case['场景'])
+        print(case)
+        if 'y' in case['执行'] or 'Y' in case['执行']:
+            method_way = case.loc['执行方法']
+            locator = case.loc['元素']
+            way = case.loc['信息']
+            method_way = self.function_getattr(method_way)
+            method_way(locator, way)
             pass
-        self.sales_click.element_click_jump(case['元素'])
-        text_title = case['标题']
-        title_key = str.split(text_title, ':')[0]
-        title_value = str.split(text_title, ':')[-1]
-        self.sales_click.element_text(title_key, title_value)
+        else:
+            self.empty_detail.log.info("该场景不执行:%s" % case["场景"])
+
+        pass
+
+    def function_getattr(self, fun_attr):
+        fun_attr = getattr(self.empty_detail, fun_attr, False)
+        return fun_attr
         pass
 
 

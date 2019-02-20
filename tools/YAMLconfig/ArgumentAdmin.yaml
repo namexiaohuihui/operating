@@ -129,6 +129,13 @@ goods:
     select: 筛选
     label: 页面
     jump: 跳转
+    emdetail: 空桶修改
+  emptybarrel:
+    module: emptybarrel
+    child: 4
+    select: 筛选
+    label: 页面
+    jump: 跳转
     modetail: 明细修改
   evaluation:
     module: evaluation

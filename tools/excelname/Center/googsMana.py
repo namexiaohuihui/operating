@@ -115,3 +115,87 @@ class CityGoodsPage(ExcelTitle):
 
     def yaml_h4_title(self):
         return 'h4_title'
+
+    def yaml_repertory_change(self):
+        return 'repertory_change'
+
+    def yaml_repertory_quantity(self):
+        return 'repertory_quantity'
+
+    def yaml_repertory_type(self):
+        return 'repertory_type'
+
+    def yaml_repertory_source(self):
+        return 'repertory_source'
+
+    def yaml_repertory_strong(self):
+        return 'repertory_strong'
+
+    def yaml_repertory_shop(self):
+        return 'repertory_shop'
+
+    def yaml_repertory_remark(self):
+        return 'repertory_remark'
+
+    def yaml_empty_changeBarrel(self):
+        return 'empty_changeBarrel'
+
+    def yaml_empty_quantityBarrel(self):
+        return 'empty_quantityBarrel'
+
+    def yaml_empty_typeBarrel(self):
+        return 'empty_typeBarrel'
+
+    def yaml_empty_barrel(self):
+        return 'empty_barrel'
+
+    def yaml_empty_strong(self):
+        return 'empty_strong'
+
+    def yaml_empty_shop(self):
+        return 'empty_shop'
+
+    def yaml_empty_remark(self):
+        return 'empty_remark'
+
+    def yaml_popup_close(self):
+        return 'popup_close'
+
+    def yaml_popup_default(self):
+        return 'popup_default'
+
+    def yaml_popup_primary(self):
+        return 'popup_primary'
+
+    def yaml_prompt_title(self):
+        return 'prompt_title'
+
+    def yaml_prompt_show(self):
+        return 'prompt_show'
+
+    def yaml_prompt_clock(self):
+        return 'prompt_clock'
+
+    def yaml_barrel_detail(self):
+        return 'barrel_detail'
+
+    def yaml_barrel_logs(self):
+        return 'barrel_logs'
+
+    def yaml_barrel_val(self):
+        return 'barrel_val'
+
+    def yaml_barrel_good(self):
+        return 'barrel_good'
+
+    def yaml_barrel_name(self):
+        return 'barrel_name'
+
+    def yaml_barrel_resume(self):
+        return 'barrel_resume'
+
+    def yaml_barrel_shopempty(self):
+        return 'barrel_shopempty'
+
+    def yaml_log_order(self):
+        return 'log_order'

@@ -56,24 +56,10 @@ class TestSalesScreen(unittest.TestCase):
         pass
 
     def setUp(self):
-        """
-        # # 获取运行文件的类名
-        # self.sales_screen.log.info("%s ---setup: 每个用例开始前后执行" % self.basename)
-        # # 打开浏览器，定义log日志。读取excle文档数据
-        # self.sales_screen.openingProgram()
-        # self.sales_screen._rou_background()
-        """
-        # 将上面注释的内容统一写在一个地方,方便日后统一调用
         self.sales_screen.screen_set_up(self.basename)
+        pass
 
     def tearDown(self):
-        """
-        self.sales_screen.get_screenshot_image(method_obj=self)
-        self.sales_screen.driver.quit()
-        self.sales_screen.log.info("%s ---teardown: 每个用例结束后执行" % self.basename)
-        """
-
-        # 将上面注释的内容统一写在一个地方,方便日后统一调用
         self.sales_screen.screen_tear_down(self)
         pass
 
@@ -88,7 +74,7 @@ class TestSalesScreen(unittest.TestCase):
 
     def log_jump_to(self):
         """
-        统一编写跳转进入库存明细页面
+        统一编写跳转进入库存变更日志页面
         :return:
         """
         self.sales_screen.vac.css_click(self.sales_screen.driver,

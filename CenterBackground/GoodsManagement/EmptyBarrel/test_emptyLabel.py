@@ -26,8 +26,8 @@
 @author:    ln_company
 @license:   (C) Copyright 2016- 2018, Node Supply Chain Manager Corporation Limited.
 @Software:  PyCharm
-@file:      test_salesLabel.py
-@time:      2019/2/14 16:55
+@file:      test_emptyLabel.py
+@time:      2019/2/20 11:10
 @desc:
 """
 import os
@@ -38,7 +38,12 @@ from tools.excelname.Center.googsMana import CityGoodsPage
 from CenterBackground.surfacejude import SurfaceJude
 
 
-class TestSalesLabel(unittest.TestCase):
+class TestEmptyLabel(unittest.TestCase):
+    # 跳转到明细页面关键字定义
+    jump_detail = "detail"
+    # 跳转到日志页面关键字定义
+    jump_logs = "logs"
+
     @classmethod
     def setUpClass(cls):
         basepath = os.path.split(os.path.dirname(__file__))[1]
@@ -46,8 +51,8 @@ class TestSalesLabel(unittest.TestCase):
         cls.basename = basepath + "-" + cls.basename
 
         # 传入子集的key，以及Excel文档中的sheet名字
-        config = GoodsManagement.add_key(GoodsManagement.entersales, GoodsManagement.label)
-        cls.sales_label = SurfaceJude(config, cls.basename, CityGoodsPage)
+        config = GoodsManagement.add_key(GoodsManagement.emptybarrel, GoodsManagement.label)
+        cls.empty_label = SurfaceJude(config, cls.basename, CityGoodsPage)
 
         if "\\" in os.path.dirname(__file__):
             cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
@@ -56,66 +61,59 @@ class TestSalesLabel(unittest.TestCase):
         pass
 
     def setUp(self):
-        self.sales_label.screen_set_up(self.basename)
+        self.empty_label.screen_set_up(self.basename)
         pass
 
     def tearDown(self):
-        self.sales_label.screen_tear_down(self)
+        self.empty_label.screen_tear_down(self)
         pass
 
-    def detail_jump_to(self):
+    def barrel_empty_to(self, way):
         """
-        统一编写跳转进入库存明细页面
+        统一编写跳转页面
         :return:
         """
-        self.sales_label.vac.css_click(self.sales_label.driver,
-                                       self.sales_label.financial[self.sales_label.bi.yaml_default_to()])
+        fun_attr = "yaml_barrel_%s" % way
+        fun_attr = getattr(self.empty_label.bi, fun_attr, False)
+        self.empty_label.vac.css_click(self.empty_label.driver,
+                                        self.empty_label.financial[fun_attr()])
         pass
 
-    def log_jump_to(self):
-        """
-        统一编写跳转进入库存明细页面
-        :return:
-        """
-        self.sales_label.vac.css_click(self.sales_label.driver,
-                                       self.sales_label.financial[self.sales_label.bi.yaml_log_to()])
+    # -------------------------------进销库顶部success用例-----------------------------
+    def test_empty_success(self):
+        self.empty_label.setFunctionName(inspect.stack()[0][3])
+        self.empty_label.title_execute()
         pass
 
-    # -------------------------------进销库顶部uccess用例-----------------------------
-    def test_repertory_success(self):
-        self.sales_label.setFunctionName(inspect.stack()[0][3])
-        self.sales_label.title_execute()
+    def test_empty_datas(self):
+        self.empty_label.setFunctionName(inspect.stack()[0][3])
+        self.empty_label.surface_execute()
         pass
 
-    def test_repertory_datas(self):
-        self.sales_label.setFunctionName(inspect.stack()[0][3])
-        self.sales_label.surface_execute()
-        pass
-
-    # -------------------------------库存明细顶部uccess用例-----------------------------
+    # -------------------------------库存明细顶部success用例-----------------------------
     def test_detail_success(self):
-        self.sales_label.setFunctionName(inspect.stack()[0][3])
-        self.detail_jump_to()
-        self.sales_label.title_execute()
+        self.empty_label.setFunctionName(inspect.stack()[0][3])
+        self.barrel_empty_to(self.jump_detail)
+        self.empty_label.title_execute()
         pass
 
     def test_detail_datas(self):
-        self.sales_label.setFunctionName(inspect.stack()[0][3])
-        self.detail_jump_to()
-        self.sales_label.surface_execute()
+        self.empty_label.setFunctionName(inspect.stack()[0][3])
+        self.barrel_empty_to(self.jump_detail)
+        self.empty_label.surface_execute()
         pass
 
-    # -------------------------------库存变更顶部uccess用例-----------------------------
+    # -------------------------------库存变更顶部success用例-----------------------------
     def test_log_success(self):
-        self.sales_label.setFunctionName(inspect.stack()[0][3])
-        self.log_jump_to()
-        self.sales_label.title_execute()
+        self.empty_label.setFunctionName(inspect.stack()[0][3])
+        self.barrel_empty_to(self.jump_logs)
+        self.empty_label.title_execute()
         pass
 
     def test_log_datas(self):
-        self.sales_label.setFunctionName(inspect.stack()[0][3])
-        self.log_jump_to()
-        self.sales_label.surface_execute()
+        self.empty_label.setFunctionName(inspect.stack()[0][3])
+        self.barrel_empty_to(self.jump_logs)
+        self.empty_label.surface_execute()
         pass
 
 

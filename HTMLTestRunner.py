@@ -859,20 +859,22 @@ class HTMLTestRunner(Template_mixin):
 
         # doc为注释内容,根据自己注释样式，来判断哪些是可以用来转换为dict
         if '=:=' in doc:
-            doc0 = doc.split('=')[0].strip()
-            doc1 = doc.split('=')[1].strip()
+            # # 通过=来切割用例注释信息.
+            # doc0 = doc.split('=')[0].strip()
+            # doc1 = doc.split('=')[1].strip()
+            doc = "用例场景:"
         else:
             # 如果代码没有场景注释,那么系统自动插入
-            doc = "系统自动插入-用例场景:"
+            doc = "系统插入-用例场景:"
             pass
 
         # doc1存储日志里面包含特殊标签的内容值
         if "注释开头" in o:  # 判断程序中是否出现注释提示语
             doc1 = o.split("注释开头", 2)[-1]
             doc1 = doc1.split("注释结尾", 2)[0]
-            doc = "%s%s" % (doc0, doc1)  # 根据自己所需拼凑doc
+            doc = "%s%s" % (doc, doc1)  # 根据自己所需拼凑doc
         else:
-            doc = "%s%s" % (doc0, "该case没有注释,原因为程序中没有打印注释信息")
+            doc = "%s%s" % (doc, "该case没有注释,原因为程序中没有打印注释信息")
 
         # desc输出到表格中的内容信息
         desc = doc and ('%s: %s' % (name, doc)) or name

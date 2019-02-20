@@ -33,13 +33,14 @@
 import os
 import time
 
+from CenterBackground import GoodsManagement
+from tools.screeningdrop import ScreeningDrop
 from tools.Logger import Log
 from tools.YAMLconfig import readYaml
 from tools.operation.selenium_click import action_click
 from tools.operation.selenium_input import action_input
 from tools.configs import readModel
 from tools.browser_establish import browser_confirm
-from CenterBackground import GoodsManagement
 
 
 class HandleActionDdt(object):
@@ -61,6 +62,8 @@ class HandleActionDdt(object):
 
         self.a_click = action_click()
         self.a_input = action_input()
+        # 因为浏览器对象还没有创建所有先丢入一个false
+        self.drop = ScreeningDrop(False)
         pass
 
     def open_browser(self, option, liulanqi='chrome', options=None):
@@ -69,6 +72,7 @@ class HandleActionDdt(object):
         conf = readModel.establish_con(model="model")
         url = conf.get("wap", option)
         self.driver = bc.url_opens(url, liulanqi, options)
+        self.drop.drivers = self.driver
         pass
 
     def sigin_user_login(self, account, password):
@@ -150,40 +154,97 @@ class HandleActionDdt(object):
         :param method_obj: 当前运行文件主体
         :return:
         """
-        # 判断执行是否出错
-        bl_image_error = True
-        for fun_name, error in method_obj._outcome.errors:
-            if error:
-                method_status = 'error'
-                bl_image_error = False
+        try:
+            raise Exception("我要跳转截图")
+            # 判断执行是否出错
+            bl_image_error = True
+            for fun_name, error in method_obj._outcome.errors:
+                if error:
+                    method_status = 'error'
+                    bl_image_error = False
 
-        if bl_image_error:
-            method_status = 'correct'
+            if bl_image_error:
+                method_status = 'correct'
 
-        method_obj.method_path = os.path.join(method_obj.method_path, method_status)
+            method_obj.method_path = os.path.join(method_obj.method_path, method_status)
 
-        method_name = "%s-%s.png" % (method_obj.basename.split("-")[-1], method_obj._testMethodName)
+            method_name = "%s-%s.png" % (method_obj.basename.split("-")[-1], method_obj._testMethodName)
 
-        # 获取年月日
-        current_time = time.strftime('%Y-%m-%d', time.localtime())
+            # 获取年月日
+            current_time = time.strftime('%Y-%m-%d', time.localtime())
 
-        # 路径这块先这样写
-        report_path = os.path.join(os.path.join(os.getcwd(), 'screenshots/imgs'), current_time)
-        report_path = os.path.join(report_path, method_obj.method_path)
+            # 路径这块先这样写
+            report_path = os.path.join(os.path.join(os.getcwd(), 'screenshots/imgs'), current_time)
+            report_path = os.path.join(report_path, method_obj.method_path)
 
-        # 文件保存路径不存在就创建
-        if not os.path.exists(report_path): os.makedirs(report_path)
+            # 文件保存路径不存在就创建
+            if not os.path.exists(report_path): os.makedirs(report_path)
 
-        file_path = os.path.join(report_path, method_name)
-        print("截图" + file_path)
+            file_path = os.path.join(report_path, method_name)
+            print("截图" + file_path)
 
-        # 截图保存
-        self.driver.save_screenshot(file_path)
+            # 截图保存
+            self.driver.save_screenshot(file_path)
+        except Exception as ex:
+            print("跳过截图:%s" % ex)
 
-    def element_click_jump(self, ele_path):
-
+    def element_click_jump(self, ele_path, is_fixed=False):
+        # 点击一个元素
         self.a_click.css_click(self.driver, self.financial[ele_path])
         pass
+
+    def element_input_data(self, ele_path, text):
+        # 根据元素路径输入指定的数据信息
+        self.a_input.css_input(self.driver, self.financial[ele_path], text)
+        pass
+
+    def element_option_select(self, ele_path, option):
+        # 设置select下拉中的option
+        self.drop.setSelectData(self.financial[ele_path], 'css')
+        self.drop.setSelectorText(text=option)
+        pass
+
+    def element_get_text(self, ele_path, text):
+        # 获取指定元素的text,判断与用例设置的预期结果是否相同
+        ele_text = self.a_input.is_visible_css_selectop(self.driver, self.financial[ele_path])
+        if ele_text:
+            if text:
+                if ele_text.text is text:
+                    self.log.info("点击提交,提示语内容相同")
+                    pass
+                else:
+                    self.log.info("弹窗提示语和用例设置的提示语不一致")
+            else:
+                self.log.info("该操作完成之后后台不需要有提示语信息.")
+        else:
+            self.log.info("提示语判断时,提示语对象不存在")
+            pass
+
+    def source_entity(self, ele_path, place):
+        """
+        # 点击店铺/配送中心选择框,然后选择内容
+        放弃的方式
+        1. 判断空桶还是库存
+        if 'repertory' == ele_path:
+            2. 点击选择输入框
+            self.a_click.css_click(self.driver, self.financial['repertory_strong'])
+            3. 找到输入下拉框对象,并拼接需要获取的对象位置
+            place = self.financial['repertory_shop'] % place
+        elif 'empty' == ele_path:
+            self.a_click.css_click(self.driver, self.financial['empty_strong'])
+            place = self.financial['empty_shop'] % place
+        else:
+            place = False
+            self.log.info("元素没有找到")
+        self.a_click.css_click(self.driver, place)
+        """
+        # 根据传入的类型拼接名字,并点击选择输入框
+        strong_path = '%s_strong' % ele_path
+        self.a_click.css_click(self.driver, self.financial[strong_path])
+        # 根据传的类型拼接下拉对象的名字,并获取对象位置
+        shop_path = '%s_shop' % ele_path
+        place = self.financial[shop_path] % place
+        self.a_click.css_click(self.driver, place)
 
     def element_text(self, ele_path, text_title):
         ele_path = self.financial[ele_path]
