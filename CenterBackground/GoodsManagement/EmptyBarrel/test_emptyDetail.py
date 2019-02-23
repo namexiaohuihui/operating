@@ -43,7 +43,7 @@ from CenterBackground.GoodsManagement.EnterSales.handle_action_ddt import Handle
 
 
 def read_excle_data():
-    GoodsManagement.add_key(GoodsManagement.emptybarrel, GoodsManagement.modetail)
+    GoodsManagement.add_key(GoodsManagement.emptybarrel, GoodsManagement.emdetail)
     excle_data = GoodsManagement._excel_Data('序号')
     return excle_data
 
@@ -63,11 +63,16 @@ class TestEmptyDetail(unittest.TestCase):
             cls.method_path = os.path.dirname(__file__).split('\\', 2)[-1]
         elif "/" in os.path.dirname(__file__):
             cls.method_path = os.path.dirname(__file__).split('/', 2)[-1]
+
+        # 执行打开页面以及登录用户操作
         cls.empty_detail.screen_set_up('admin_url', 'admin_account', 'admin_password')
 
+        # 进入空桶变更步骤
         cls.empty_detail.a_click.css_click(cls.empty_detail.driver,
-                                     cls.empty_detail.financial['default_to'])
+                                           cls.empty_detail.financial['barrel_logs'])
 
+        # 设置日志名称
+        cls.empty_detail.log.fun_name = "test_modify_operation"
         pass
 
     @classmethod
@@ -78,15 +83,17 @@ class TestEmptyDetail(unittest.TestCase):
     @ddt.data(*read_excle_data())
     def test_modify_operation(self, case):
         """用例场景=:="""
-        self.empty_detail.log.fun_name = inspect.stack()[0][3]
         self.empty_detail.log.info("注释开头%s注释结尾" % case['场景'])
-        print(case)
+
         if 'y' in case['执行'] or 'Y' in case['执行']:
+
             method_way = case.loc['执行方法']
             locator = case.loc['元素']
             way = case.loc['信息']
+
             method_way = self.function_getattr(method_way)
             method_way(locator, way)
+
             pass
         else:
             self.empty_detail.log.info("该场景不执行:%s" % case["场景"])

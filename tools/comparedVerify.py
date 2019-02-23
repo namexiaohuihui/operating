@@ -183,8 +183,7 @@ class ComparedVerify(object):
         :return:
         """
         status = self.str_to_bool(status)
-        print("元素为:%s,需要点击的状态为%s,不用点击." % (check.text, status)) \
-            if operator.eq(check.is_selected(), status) else self.vac.element_click(check)  # 元素点击
+        "" if operator.eq(check.is_selected(), status) else self.vac.element_click(check)  # 元素点击
         pass
 
     """
@@ -203,14 +202,12 @@ class ComparedVerify(object):
 
     def mysql_single_selects(self, sql):
         pm = self.create_database()
-        print("mysql_single_selects --------> {}".format(sql))
         result = pm.single_cross_selects(sql)
         pm.closes()
         return result
 
     def mysqlTotalSelects(self, sql):
         pm = self.create_database()
-        print("mysqlTotalSelects --------> {}".format(sql))
         result = pm.total_vertical_selects(sql)
         pm.closes()
         return result
@@ -220,7 +217,6 @@ class ComparedVerify(object):
     """
 
     def strTodict(self, title):
-        # print("需要转化你json数据--> %s" % title)
         return json.loads(title) if title is not None else "json中loads错误了"
 
     def astTodict(self, title):
@@ -266,12 +262,11 @@ class ComparedVerify(object):
             if not os.path.exists(report_path): os.makedirs(report_path)
 
             file_path = os.path.join(report_path, method_name)
-            print("截图" + file_path)
 
             # 截图保存
             self.driver.save_screenshot(file_path)
         except Exception as ex:
-            print("跳过截图:%s" % ex)
+            pass
 
     def sleep_time(self, times=1):
         time.sleep(times)
@@ -280,7 +275,7 @@ class ComparedVerify(object):
         try:
             sys.exit(0)
         except:
-            print("%s ,程序强制退出" % msg)
+            pass
 
     def error_log(self, function):
         # 执行文件的文件名
@@ -294,7 +289,6 @@ class ComparedVerify(object):
 
     def skip_waiting(self, funktion):
         # funktion = [ap._excel_Data, get_basename]  # 该列表存放需要执行的函数
-        # print("Opening thread execution %s" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
         faden = []  # 该列表存放已经开启的线程
         for para in funktion:  # 遍历函数开启线程
             # th是内置的函数

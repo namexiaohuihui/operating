@@ -47,7 +47,6 @@ def read_excle_data():
     excle_data = GoodsManagement._excel_Data('序号')
     return excle_data
 
-
 @ddt.ddt
 class TestSalesClick(unittest.TestCase):
     @classmethod

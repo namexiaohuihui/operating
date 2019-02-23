@@ -24,7 +24,7 @@ class ScreeningDrop(action_visible):
         if labelPath:
             self.setSelectData(labelPath, attr)
         else:
-            print("为空不创建")
+            pass
 
     def setSelectData(self, labelPath, attr='id'):
         try:

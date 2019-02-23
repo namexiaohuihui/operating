@@ -1,3 +1,6 @@
+tabs: ul.nav.nav-tabs > li
+citys: div.box-city > a
+
 # title
 h1_title: h1
 h2_title: h2.page-header
@@ -15,6 +18,7 @@ userType: select[name='userType']
 change: select[name='change']
 val_user: select[name='val_user']
 val_goods: select[name='val_goods']
+payment: select[name='payment']
 
 # 按钮
 cityformSub: .btn.btn-default.btn-flat.formSub
@@ -25,12 +29,14 @@ export: 2
 
 # 输入框
 conditions: form > div:nth-child(2) > input
+user_key: form > div:nth-child(3) > input
+deposit_key: form > div:nth-child(4) > input
+good_key: form > div:nth-child(5) > input
+log_user_key: form > div:nth-child(6) > input
 detail_user: .form-inline> div:nth-child(2) > input
 detail_goods: .form-inline> div:nth-child(3) > input
 log_user: .form-inline> div:nth-child(4) > input
 log_goods: .form-inline> div:nth-child(5) > input
-user_key: form > div:nth-child(3) > input
-good_key: form > div:nth-child(5) > input
 
 # tab标题
 tabs: .nav.nav-tabs > li
@@ -65,21 +71,23 @@ default_modify: tbody > tr:nth-child(1) > td:nth-child(5) > button
 # 明细页面修改库存弹窗
 repertory_change: select[name='change']               # 库存增减类型
 repertory_quantity: input[name='quantity']            # 库存增减数量
-repertory_type: select[name='type']                   # 库存来源
-repertory_source: input[name='userIdSource']          # 调货渠道
+type_addlibrary: .form-control.addlibrary             # 库存来源为增加时
+type_lesslibrary: .form-control.lesslibrary           # 库存来源为减少时
+repertory_source: select[name='userTypeSource']       # 调货渠道
 repertory_strong: div.changbox.form-userlibrary.form-usershop > span > strong                             # 调货渠道名称
-repertory_shop: div.changbox.form-userlibrary.form-usershop > span > div > p:nth-child(%s) > b             # 调度渠道名称选择
+repertory_shop: div.changbox.form-userlibrary.form-usershop > span> div> p:nth-of-type(%s) > b             # 调度渠道名称选择
 repertory_remark: input[name='remark']                # 库存备注输入框
 empty_changeBarrel: select[name='changeBarrel']       # 空桶增减类型
 empty_quantityBarrel: input[name='quantityBarrel']    # 空桶增减数量
-empty_typeBarrel: select[name='typeBarrel']           # 空桶来源
+type_addSort: .form-control.addSort                   # 空桶来源
+type_lessSort: .form-control.lessSort                 # 空桶来源
 empty_barrel: select[name='userTypeBarrel']           # 空桶渠道
 empty_strong: div.changbox.form-usersort.form-usershop > span > strong                                  # 空桶渠道名称
-empty_shop: div.changbox.form-usersort.form-usershop > span > div > p:nth-child(%s) > b                  # 空桶渠道名称选择
+empty_shop: div.changbox.form-usersort.form-usershop > span > div > p:nth-of-type(%s) > b                  # 空桶渠道名称选择
 empty_remark: input[name='remarkBarrel']
 popup_close: .close                                   # 弹窗顶部关闭按钮
 popup_default: .modal-footer > .btn.btn-default       # 弹窗取消按钮
-popup_primary: .modal-footer > .btn btn-primary       # 弹窗确认按钮
+popup_primary: .modal-footer > .btn.btn-primary       # 弹窗确认按钮
 
 # 提交明细页面输入信息,弹窗显示
 prompt_title: .sweet-alert.showSweetAlert.visible > h2    # 弹窗标题
@@ -101,5 +109,14 @@ barrel_name: tbody > tr:nth-child(1) > td:nth-child(2) > a
 barrel_resume: tbody > tr:nth-child(1) > td:nth-child(3) > a
 barrel_shopempty: tbody > tr:nth-child(1) > td:nth-child(4) > a
 
-# 空桶变更日志
+# 空桶变更日志页面操作备注的跳转
 log_order: tbody > tr > td:nth-child(9) > a
+
+
+# 修改空桶弹窗
+empty_modify: div.box-header > div:nth-child(2) > button
+order_id: input[name='orderId']
+empty_quantity: input[name='quantity']
+empty_goods_id: .select2-search.select2-search--inline>input:nth-child(1)
+empth_choose: .select2-results__options > li:nth-child(1)
+empty_close: div.modal-content>div.modal-header > button       # 弹窗顶部关闭按钮

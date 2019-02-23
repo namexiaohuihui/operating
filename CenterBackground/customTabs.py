@@ -184,7 +184,6 @@ class CustomTabs(object):
         '''
         self.visibles_tabs(reduce)
         length = len(self.ul_li)
-        print(length)
         for l in range(length):
             self.ac.element_click(self.ul_li[l])
             self.visibles_tabs(reduce)
@@ -219,7 +218,6 @@ class CustomTabs(object):
 
     def judge_citys(self, reduce=0, ov_default=True):
         list_text = self.instance_citys(reduce)
-        print(list_text)
         self.debugging_log(True, ov_default, 'All labels in the title are misjudged.')
         return list_text
 
@@ -285,8 +283,8 @@ class CustomTabs(object):
 
     def debugging_log(self, ct_default, ov_default, mesg):
         print("--------------------------------")
-        print('moren', ct_default, type(ct_default))
-        print('duqu', ov_default, type(ov_default))
+        # print('moren', ct_default, type(ct_default))
+        # print('duqu', ov_default, type(ov_default))
         print("--------------------------------")
         # 暂时先这样,因为把统计数也加到里面去了
         assert operator.eq(ct_default, ov_default), mesg
@@ -299,7 +297,7 @@ class CustomTabs(object):
         :param strData:
         :return:
         '''
-        print('Data read from the excel table : %s' % strData)
+        # print('Data read from the excel table : %s' % strData)
         return str(int(strData)) if strData else None
 
     def into_the_city(self, vac, case_city):

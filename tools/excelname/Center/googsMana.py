@@ -53,9 +53,6 @@ class CityGoodsPage(ExcelTitle):
     def yaml_evaluation(self):
         return 'evaluation'
 
-    def yaml_formSub(self):
-        return "formSub"
-
     def yaml_cityformSub(self):
         return "cityformSub"
 
@@ -67,9 +64,6 @@ class CityGoodsPage(ExcelTitle):
 
     def yaml_timename(self):
         return 'timename'
-
-    def yaml_tabs(self):
-        return 'tabs'
 
     def yaml_box(self):
         return 'box'
@@ -199,3 +193,6 @@ class CityGoodsPage(ExcelTitle):
 
     def yaml_log_order(self):
         return 'log_order'
+
+    def yaml_jiptformsub(self):
+        return 'jiptformsub'

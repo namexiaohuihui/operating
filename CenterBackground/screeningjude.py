@@ -219,9 +219,5 @@ class ScreeningJude(JudgmentVerification):
         pass
 
     def debugging_log(self, ct_default, ov_default, mesg):
-        print("--------------------------------")
-        print("label:%s,%s" % (ct_default, type(ct_default)))
-        print("Pm:%s,%s" % (ov_default, type(ov_default)))
-        print("--------------------------------")
         assert operator.eq(ct_default, ov_default), mesg
         pass

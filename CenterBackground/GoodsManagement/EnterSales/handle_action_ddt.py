@@ -58,6 +58,7 @@ class HandleActionDdt(object):
         """
         self.basename = basename
         self.log = Log(self.basename)
+
         self.financial = readYaml.read_expression(yaml_path)
 
         self.a_click = action_click()
@@ -186,7 +187,7 @@ class HandleActionDdt(object):
             # 截图保存
             self.driver.save_screenshot(file_path)
         except Exception as ex:
-            print("跳过截图:%s" % ex)
+            pass
 
     def element_click_jump(self, ele_path, is_fixed=False):
         # 点击一个元素
@@ -207,18 +208,10 @@ class HandleActionDdt(object):
     def element_get_text(self, ele_path, text):
         # 获取指定元素的text,判断与用例设置的预期结果是否相同
         ele_text = self.a_input.is_visible_css_selectop(self.driver, self.financial[ele_path])
-        if ele_text:
-            if text:
-                if ele_text.text is text:
-                    self.log.info("点击提交,提示语内容相同")
-                    pass
-                else:
-                    self.log.info("弹窗提示语和用例设置的提示语不一致")
-            else:
-                self.log.info("该操作完成之后后台不需要有提示语信息.")
-        else:
-            self.log.info("提示语判断时,提示语对象不存在")
-            pass
+        # 判断是否找到指定元素
+        assert ele_text, "提示语判断时,提示语对象不存在"
+        # 判断元素信息跟预定的是否一致
+        assert ele_text.text == text, "弹窗提示语和用例设置的提示语不一致:(%s--%s)" % (text, ele_text.text)
 
     def source_entity(self, ele_path, place):
         """

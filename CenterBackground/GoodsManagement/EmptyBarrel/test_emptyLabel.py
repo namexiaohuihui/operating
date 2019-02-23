@@ -98,6 +98,7 @@ class TestEmptyLabel(unittest.TestCase):
         pass
 
     def test_detail_datas(self):
+        """用例场景=:="""
         self.empty_label.setFunctionName(inspect.stack()[0][3])
         self.barrel_empty_to(self.jump_detail)
         self.empty_label.surface_execute()

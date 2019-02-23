@@ -114,9 +114,9 @@ def list_dir(file_dir):
 
 
 def start_loading_case():
-    file_name = r'CenterBackground/GoodsManagement'
+    file_name = r'CenterBackground'
     all_dir = list_dir(file_name)
-
+    dir = os.path.join(file_name, all_dir[3])
 
     for dir in range(len(all_dir)):
         if "__pycache__" in all_dir[dir]:
@@ -128,8 +128,7 @@ def start_loading_case():
 
 
 def start_single_loading():
-    run_main('CenterBackground',"test_emptyScreen.py")
-
+    run_main('CenterBackground', "test_emptyLabel.py")
 
 
 if __name__ == '__main__':
@@ -137,8 +136,8 @@ if __name__ == '__main__':
     startTime = datetime.datetime.now()
     print("\nStart Run Time: %s\n" % startTime)
     # 运行程序
-    # start_loading_case()
-    start_single_loading()
+    start_loading_case()
+    # start_single_loading()
     # 记录结束时间
     stopTime = datetime.datetime.now()
     print("\nFinish Run Time: %s\n" % stopTime)

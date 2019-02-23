@@ -147,7 +147,7 @@ class JudgmentVerification(ComparedVerify):
             # 6.重新设置序列号
             df = df.set_index([list(df[title_key])])
         else:
-            print("页面数据为空")
+            self.log.info("页面数据为空")
             pass
         return df
 
@@ -155,7 +155,7 @@ class JudgmentVerification(ComparedVerify):
         # 获取页面全部数据
         self.LABLE_DF = self.tbody_td_data(content, button_next, "#订单编号")
         if type(self.LABLE_DF) is int:
-            print("self.LABLE_DF 数据对象为空")
+            self.log.info("self.LABLE_DF 数据对象为空")
         else:
             # 将空格全部去除
             list_operation = self.LABLE_DF[operation]
@@ -233,7 +233,6 @@ class JudgmentVerification(ComparedVerify):
         regular = self.mysql_match(my_sql)
         if regular:
             # 读取数据库内容
-            print("msql--->%s" % my_sql)
             result = self.mysqlTotalSelects(my_sql)
             return result
         return None
@@ -321,7 +320,6 @@ class JudgmentVerification(ComparedVerify):
         information = self._verify_parameter(title)
         if type(information) is float:
             information = str(int(information))
-        print("输入的内容: %s 输入的对象: %s 输入的地方: %s " % (information, eleInformation, caseTitle))
         self._visible_json_input(eleInformation, information)  # 通过元素id利用json进行输入输入
 
     # -----------------------城市编码和默认的获取---------------------
@@ -379,9 +377,9 @@ class JudgmentVerification(ComparedVerify):
         op_execl = OpenExcelPandas(data_list, key_title)
         data_df = op_execl.conversionPandas(column)  # 转换数据
         if len(data_df.index) > 0:
-            print("list_to_pandas df data is not empty")
+            self.log.info("list_to_pandas df data is not empty")
             pass
         else:
-            print("list_to_pandas No data...")
+            self.log.info("list_to_pandas No data...")
             data_df = 0
         return data_df

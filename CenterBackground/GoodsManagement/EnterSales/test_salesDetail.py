@@ -33,8 +33,10 @@
 
 import os
 import inspect
+import time
 import unittest
 import ddt
+
 from CenterBackground import GoodsManagement
 from tools.excelname.Center.googsMana import CityGoodsPage
 from CenterBackground.surfacejude import SurfaceJude
@@ -67,8 +69,9 @@ class TestSalesDetail(unittest.TestCase):
         cls.sales_detail.screen_set_up('admin_url', 'admin_account', 'admin_password')
 
         cls.sales_detail.a_click.css_click(cls.sales_detail.driver,
-                                     cls.sales_detail.financial['default_to'])
+                                           cls.sales_detail.financial['default_to'])
 
+        cls.sales_detail.log.fun_name = "test_modify_operation"
         pass
 
     @classmethod
@@ -79,9 +82,9 @@ class TestSalesDetail(unittest.TestCase):
     @ddt.data(*read_excle_data())
     def test_modify_operation(self, case):
         """用例场景=:="""
-        self.sales_detail.log.fun_name = inspect.stack()[0][3]
+
         self.sales_detail.log.info("注释开头%s注释结尾" % case['场景'])
-        print(case)
+
         if 'y' in case['执行'] or 'Y' in case['执行']:
             method_way = case.loc['执行方法']
             locator = case.loc['元素']
@@ -89,9 +92,10 @@ class TestSalesDetail(unittest.TestCase):
             method_way = self.function_getattr(method_way)
             method_way(locator, way)
             pass
-        else:
-            self.sales_detail.log.info("该场景不执行:%s" % case["场景"])
 
+        else:
+            self.sales_detail.log.info("不执行:%s" % case["场景"])
+        time.sleep(1)
         pass
 
     def function_getattr(self, fun_attr):

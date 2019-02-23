@@ -151,10 +151,6 @@ class SurfaceJude(JudgmentVerification):
         '''
         text_center = self.success_execute()
         excel_center = str.split(self.overall[self.bi.whole_including()], ',')
-        # print("----------------------------")
-        # print(text_center)
-        # print(excel_center)
-        # print("----------------------------")
         self.debugging_log(text_center, excel_center, 'Thead title display is incorrectly displayed.')
         del text_center
         del excel_center
@@ -193,7 +189,6 @@ class SurfaceJude(JudgmentVerification):
             for th in self.threads:
                 th.join()
 
-            self.debugging_ppint(self.tbody_list)
             pass
         else:
             self.log.error("页面没有翻页按钮")
@@ -214,12 +209,6 @@ class SurfaceJude(JudgmentVerification):
                 if not child.name in ('div', 'table'):
                     self.log.error(child)
             assert False, "页面报错"
-        pass
-
-    def debugging_ppint(self, oppara):
-        # print("/*******************************/")
-        # self.log.log_ppriny(oppara)
-        # print("/*******************************/")
         pass
 
     def debugging_log(self, ct_default, ov_default, mesg):

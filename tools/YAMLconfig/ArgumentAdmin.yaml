@@ -129,14 +129,22 @@ goods:
     select: 筛选
     label: 页面
     jump: 跳转
-    emdetail: 空桶修改
+    modetail: 明细修改
   emptybarrel:
     module: emptybarrel
     child: 4
     select: 筛选
     label: 页面
     jump: 跳转
-    modetail: 明细修改
+    emdetail: 空桶修改
+  barrelsdeposit:
+    module: barrelsdeposit
+    child: 5
+    city: 城市
+    select: 筛选
+    label: 页面
+    jump: 跳转
+    emdetail: 空桶修改
   evaluation:
     module: evaluation
     child: 6
