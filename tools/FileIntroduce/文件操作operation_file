@@ -2,6 +2,14 @@ python中对文件、文件夹（文件操作函数）的操作需要涉及到os
 
 得到当前工作目录，即当前Python脚本工作的目录路径: os.getcwd()
 
+'***获取上级目录***'
+print(os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
+print(os.path.abspath(os.path.dirname(os.getcwd())))
+print(os.path.abspath(os.path.join(os.getcwd(), "..")))
+
+'***获取上上级目录***'
+print(os.path.abspath(os.path.join(os.getcwd(), "../..")))
+
 返回指定目录下的所有文件和目录名:os.listdir()
 
 函数用来删除一个文件:os.remove()
