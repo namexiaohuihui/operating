@@ -114,9 +114,8 @@ def list_dir(file_dir):
 
 
 def start_loading_case():
-    file_name = r'CenterBackground'
+    file_name = r'Warehousing'
     all_dir = list_dir(file_name)
-    dir = os.path.join(file_name, all_dir[3])
 
     for dir in range(len(all_dir)):
         if "__pycache__" in all_dir[dir]:

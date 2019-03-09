@@ -44,10 +44,6 @@ class BrowserPrepare(object):
     1. 打开浏览器
     """
 
-    def __init__(self, driver_browser='chrome'):
-
-        pass
-
     def open_driver_browser(self, driver_browser='chrome'):
         # 创建浏览器对象
         if 'chrome' == driver_browser or 'Chrome' == driver_browser:

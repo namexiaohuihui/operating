@@ -278,7 +278,7 @@ class ActionVisible(BrowserPrepare):
 
     def is_input_execute(self, locator, way_type, way, parameter, timeout=5):
         """
-        执行点击操作
+        执行输入操作
         :param locator:  元素路径 或者 元素本身
         :param way_type:  是通过js来执行点击还是通过路径来找到元素并执行点击
         :param way:  元素路径写法为id还是css

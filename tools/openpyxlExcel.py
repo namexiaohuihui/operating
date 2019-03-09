@@ -1046,10 +1046,49 @@ def sql_de_zhixing():
 
 
 if __name__ == '__main__':
-
-    read = OpenExcelPandas(r"E:\drivers\CasePlan\Warehousing\Statement\Staff/\Staff.xlsx", sheet='功能')
+    # 读取数据
+    read = OpenExcelPandas(r"C:\Users\Administrator\Desktop\例子.xlsx", sheet='单元')
     df = read.readCaseExcel("序号")
-    df_index = df.index
-    print(df.loc['GN_1']["操作"])
-    # for j in df_index:
-    #     print(df.loc[j])
+    steps_context = df.loc['CT_01']['步骤']
+
+    # 根据分号区分要执行的步骤,根据星号切割数据
+    context_list = steps_context.split(';')
+    context_action = {}
+    for context in range(len(context_list)):
+        context_action[context] = context_list[context].replace('\n', '').split('****')[-1]
+        pass
+    context_list = []
+
+    # 根据关键字切分动作
+    for action in range(len(context_action)):
+
+        ele_action = {}
+        context = context_action[action]
+        if context:
+
+            context_split = context.split(',')
+            input_action = context_split[0].split('-')[-1]
+            input_element = context_split[0].split('-')[-1]
+
+            if len(context_split) > 1:
+                input_context = context_split[-1].split('-')[-1]
+            else:
+                input_context = ''
+
+            action_list = {'ele': input_element, 'context': input_context, 'action': input_action}
+
+            # 整合数据并执行储存操作
+            ele_action[action] = action_list
+            context_list.append(ele_action)
+
+            # 清空内容以防万一
+            del action_list
+            del ele_action
+        else:
+            print('内容为空')
+
+    # 将动作的内容读取
+    import pprint
+
+    pprint.pprint(context_list)
+    # 合并数据

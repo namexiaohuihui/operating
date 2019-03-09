@@ -187,3 +187,40 @@ def re_zip_code(str_text: str, pattern="[1-9]\d{5}(?!\d)"):
     # re_span = searchObj.span()  # 返回已查到的数据信息所在位置
     # searchObj = searchObj.group()  # 返回已查到的数据信息
     return searchObj.group() if searchObj else searchObj
+
+
+def parsing_action(action):
+    # 根据分号区分要执行的步骤,根据星号切割数据
+    content_list = action.split(';')
+    content_action = {}
+    for content in range(len(content_list)):
+        content_action[content] = content_list[content].replace('\n', '').split('****')[-1]
+        pass
+
+    content_list = {}
+    # 根据关键字切分动作
+    for action in range(len(content_action)):
+
+        content = content_action[action]
+        if content:
+
+            content_split = content.split(',')
+            input_action = content_split[0].split('-')[0]
+            input_element = content_split[0].split('-')[-1]
+
+            if len(content_split) > 1:
+                input_content = content_split[-1].split('-')[-1]
+            else:
+                input_content = ''
+
+            action_list = {'ele': input_element, 'content': input_content, 'action': input_action}
+
+            # 整合数据并执行储存操作
+            content_list[action] = action_list
+
+            # 清空内容以防万一
+            del action_list
+
+        else:
+            print('内容为空')
+    return content_list
