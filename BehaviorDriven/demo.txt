@@ -1,0 +1,16 @@
+https://behave.readthedocs.io/en/stable/tutorial.html#environmental-controls
+
+before_step（context，step），after_step（context，step）
+这些在每一步之前和之后运行。
+
+before_scenario（context，scenario），after_scenario（context，scenario）
+这些在每个场景运行之前和之后运行。
+
+before_feature（context，feature），after_feature（context，feature）
+这些在运行每个功能文件之前和之后运行。
+
+before_tag（context，tag），after_tag（context，tag）
+这些在使用给定名称标记的部分之前和之后运行。它们按照在特征文件中找到的顺序遇到的每个标记被调用。
+
+before_all（context），after_all（context）
+这些在整个射击比赛之前和之后运行。

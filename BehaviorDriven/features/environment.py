@@ -38,6 +38,7 @@ import time
 import os
 import sys
 
+from behave import fixture, use_fixture
 from selenium import webdriver
 
 # 获取项目路径下的目录
@@ -53,14 +54,22 @@ from BehaviorDriven.features.lib.register_page import RegisterPage
 driver_path = 'E:\drivers\Drivers'
 
 
-def before_all(context):
+@fixture
+def selenium_browser_chrome(context):
     context.browser = webdriver.Chrome(executable_path=os.path.join(driver_path, 'chromedriver239-68.exe'))
     context.browser.maximize_window()
     context.browser.implicitly_wait(5)
 
+
+@fixture
+def selenium_browser_chrome_close(context):
+    context.browser.close()
+
+
+def before_feature(context,feature):
+    use_fixture(selenium_browser_chrome, context)
     context.register = RegisterPage(context)
 
-
-def after_all(context):
+def after_feature(context,feature):
     time.sleep(5)
-    context.browser.close()
+    use_fixture(selenium_browser_chrome_close, context)
