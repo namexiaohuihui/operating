@@ -19,39 +19,60 @@ if not os.path.exists(log_path): os.mkdir(log_path)
 
 
 class Log():
-    def __init__(self, executor="Root", classification='Journal'):
+        def __init__(self, executor="Root", classification='Journal'):
         # 文件的命名
         self.logname = os.path.join(log_path, classification + '-%s.log' % time.strftime('%Y_%m_%d'))
-        self.logger = logging.getLogger(executor)  # 定义执行者的名字
-        self.logger.setLevel(logging.DEBUG)  # 设置输入语句的等级
+
+        # 定义执行者的名字
+        self.logger = logging.getLogger(executor)
+
+        # 设置输入语句的等级
+        self.logger.setLevel(logging.DEBUG)
+
         # 日志输出格式
         # self.formatter = logging.Formatter('[%(asctime)s] - %(name)s - %(filename)s] - %(levelname)s: %(message)s')
         self.formatter = logging.Formatter('[%(asctime)s] - %(name)s] - %(levelname)s: %(message)s',
                                            datefmt='%Y-%m-%d %H:%M:%S')
-        self.fun_name = "Undefined function"
 
-    def __console(self, level, message):
-        # 创建一个FileHandler，用于写到本地
+        # 定义执行函数的名字供外部进行调用和修改
+        self.fun_name = "Undefined_function"
+
+    def log_write_file(self) -> logging.FileHandler:
+        """
+        创建一个FileHandler，将日志写到本地文件中
+        :return: logging.FileHandler
+        """
         # fh = logging.FileHandler(self.logname, 'a')  # 追加模式  这个是python2的
         fh = logging.FileHandler(self.logname, 'a', encoding='utf-8')  # 这个是python3的
+
+        # 大于等于该错误等级的才被写入到日志文件
         fh.setLevel(logging.DEBUG)
         fh.setFormatter(self.formatter)
         self.logger.addHandler(fh)
+        return fh
 
-        # 创建一个StreamHandler,用于输出到控制台
+    def log_output_console(self) -> logging.StreamHandler:
+        """
+        创建一个StreamHandler,用于输出到控制台
+        :return: logging.StreamHandler
+        """
         ch = logging.StreamHandler()
+
+        # 大于等于该错误等级的才被输出到控制台
         ch.setLevel(logging.DEBUG)
         ch.setFormatter(self.formatter)
         self.logger.addHandler(ch)
+        return ch
 
-        if level == 'info':
-            self.logger.info(message)
-        elif level == 'debug':
-            self.logger.debug(message)
-        elif level == 'warning':
-            self.logger.warning(message)
-        elif level == 'error':
-            self.logger.error(message)
+    def __console(self, level, message):
+        # 写入文件的定义
+        fh = self.log_write_file()
+
+        # 输出到控制的定义
+        ch = self.log_output_console()
+
+        level = getattr(self.logger, level)
+        level(message)
 
         # 这两行代码是为了避免日志输出重复问题
         self.logger.removeHandler(ch)
@@ -72,16 +93,16 @@ class Log():
     def error(self, message):
         self.__console('error', "%s---%s" % (self.function, message))
 
-    def functionName(self, functionName):
-        self.function = functionName
+    def set_function_name(self, function_name):
+        self.function = function_name
 
-    def getFunctionName(self):
+    def get_function_name(self):
         return self.function
 
     def log_ppriny(self, message):
         pprint.pprint(message)
 
-    fun_name = property(getFunctionName, functionName, "log获取的时候出错了")
+    fun_name = property(get_function_name, set_function_name, doc="log获取的时候出错了")
 
 
 if __name__ == "__main__":

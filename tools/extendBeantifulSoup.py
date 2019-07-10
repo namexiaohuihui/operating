@@ -5,6 +5,8 @@ __author__ = 'DingDong'
 @time: 2018/4/11 9:20
 """
 
+import time
+
 import pandas as pd
 from bs4 import BeautifulSoup
 
@@ -152,19 +154,16 @@ class ExtendBeantifulSoup(object):
 
     def lable_parsing_cssselector(self, parsing, span=None):
         self.htmlToSoup()
-        import time
+        
         # 查找：在BeautifulSoup中是否有下面路径的数据
         adress = self.soup.select(self.lablePath)
-        print("-----------------")
-        print(adress)
+
         time.sleep(1)
         lableOne = adress[0].find_all(parsing)
-        print("-----------------")
-        print(lableOne)
+
         time.sleep(1)
         span = lableOne.find(span)
-        print("-----------------")
-        print(span.text)
+
         time.sleep(1)
         # daily = map(lambda one: one.text.strip(), lableOne)
 
