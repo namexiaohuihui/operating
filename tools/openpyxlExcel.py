@@ -853,7 +853,7 @@ class PANDASDATA:
             print('bus')
 
     def qwjfqajf(self):
-        df.to_csv("foo.csv", index=False, encoding="gbk")
+        df.to_csv("foo.csv", index=False, encoding="gbk",mode='a')
         print(pd.read_csv("foo.csv", encoding="gbk"))
 
         df.to_excel("foo.csv", index=False, encoding="gbk")
