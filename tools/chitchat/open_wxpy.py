@@ -47,3 +47,7 @@ class OpenWxpy(object):
 
     def __init__(self):
         self.bot = Bot(cache_path='logoo.pkl', qr_path='QR.png')
+
+    # @bot.register()
+    # def print_others(self,msg):
+    #     print(msg)

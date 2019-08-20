@@ -19,7 +19,12 @@ if not os.path.exists(log_path): os.mkdir(log_path)
 
 
 class Log():
-        def __init__(self, executor="Root", classification='Journal'):
+    def __init__(self, executor="Root", classification='Journal'):
+        """
+        实例化日志对象
+        :param executor: 使用者的名字
+        :param classification: 日志文件存储之后的前缀名字
+        """
         # 文件的命名
         self.logname = os.path.join(log_path, classification + '-%s.log' % time.strftime('%Y_%m_%d'))
 
