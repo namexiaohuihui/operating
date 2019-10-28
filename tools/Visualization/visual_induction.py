@@ -28,7 +28,7 @@
 @Software:  PyCharm
 @file:      visual_induction.py
 @time:      2019/1/9 10:44
-@desc:
+@desc:      显示柱状图
 https://blog.csdn.net/qq_34859482/article/details/80617391
 """
 import matplotlib.pyplot as plt

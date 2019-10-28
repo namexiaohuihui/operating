@@ -4,13 +4,6 @@
 @file: OpenpyxlExcel.py
 @time: 2017/12/9 18:39
 @项目名称:operating
-http://openpyxl.readthedocs.io/en/latest/ 读取excel
-http://blog.csdn.net/tanzuozhev/article/details/76713387 pandas迭代
-http://www.cnblogs.com/chaosimple/p/4153083.html 十分钟搞定pandas
-http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.set_index.html 官网
-https://pandas.pydata.org/pandas-docs/stable/index.html官网
-https://www.cnblogs.com/en-heng/p/5630849.html 函数解释
-https://jingyan.baidu.com/article/36d6ed1f6c54b01bcf488312.html pandas数据合并
 """
 
 import os
