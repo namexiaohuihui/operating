@@ -1,173 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/CenterBackground/GeneralizeAssist/Relation/test_relationScreen.py" description="&#10;    def test_hotherInput(self):&#10;        i_screen...." line="213" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/CustomSteps/IEDriverServer.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/Logger.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/action_interface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/chromedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/custom_login.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/custom_settings.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/geckodriver64.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/handle_action.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/open_browser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/openpyxlExcel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/readYaml.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/test_custom.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/例子.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomSteps/说明" afterDir="false" />
+    <list default="true" id="2f2b37af-cfba-415e-96cd-b1c19830d124" name="Default" comment="内置工具进行格式化">
+      <change afterPath="$PROJECT_DIR$/tools/demo/django_xadmin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/operating.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/operating.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Warehousing/action_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/Warehousing/action_interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Warehousing/browser_prepare.py" beforeDir="false" afterPath="$PROJECT_DIR$/Warehousing/browser_prepare.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/StringCutting.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/StringCutting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/openpyxlExcel.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/openpyxlExcel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/browser_establish.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/browser_establish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/operation/selenium_input.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operation/selenium_input.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/operation/selenium_visible.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/operation/selenium_visible.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1925964948">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="ini" value="17" />
-          <entry key="log" value="1" />
-          <entry key="py" value="874" />
-          <entry key="pytest介绍" value="4" />
-          <entry key="python一些重要的语法" value="1" />
-          <entry key="selenium 定位" value="2" />
-          <entry key="yaml" value="53" />
-          <entry key="yml" value="2" />
-          <entry key="文件操作operation_file" value="3" />
-          <entry key="步骤" value="2" />
-          <entry key="网址" value="1" />
-          <entry key="错误继承" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Ini" value="17" />
-          <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="986" />
-          <entry key="YAML" value="66" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="28" />
-          <entry key="ini" value="100" />
-          <entry key="py" value="16737" />
-          <entry key="yaml" value="1125" />
-          <entry key="文件操作operation_file" value="141" />
-          <entry key="步骤" value="150" />
-          <entry key="错误继承" value="28" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Ini" value="100" />
-          <entry key="PLAIN_TEXT" value="389" />
-          <entry key="Python" value="20407" />
-          <entry key="YAML" value="1238" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="30" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.17" value="2" />
-          <entry key="project.open.time.2" value="2" />
-          <entry key="project.open.time.21" value="2" />
-          <entry key="project.open.time.23" value="1" />
-          <entry key="project.open.time.26" value="1" />
-          <entry key="project.open.time.28" value="1" />
-          <entry key="project.open.time.3" value="2" />
-          <entry key="project.open.time.30" value="1" />
-          <entry key="project.open.time.31" value="1" />
-          <entry key="project.open.time.34" value="1" />
-          <entry key="project.open.time.37" value="1" />
-          <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.5" value="7" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="34" />
-        </counts>
-      </usages-collector>
-    </session>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="operating" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomSteps/test_custom.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-250">
-              <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
-              <folding>
-                <element signature="e#248#259#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomSteps/handle_action.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
-              <folding>
-                <element signature="e#986#1037#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tools/StringCutting.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomSteps/custom_login.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="26" selection-start-column="26" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomSteps/action_interface.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="156" selection-start-line="156" selection-end-line="156" />
-              <folding>
-                <element signature="e#990#999#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -178,227 +42,55 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>test_time_input</find>
-      <find>test_dispatch_more</find>
-      <find>test_balance_detail</find>
-      <find>test_tabbox_jump</find>
-      <find>test_shop_goods</find>
-      <find>test_instructions</find>
-      <find>url</find>
-      <find>expected_conditions</find>
-      <find>商品数据</find>
-      <find>水票数据</find>
-      <find>searchlist_verify</find>
-      <find>searchlist_verify_selelr</find>
-      <find>even_more_jump</find>
-      <find>test_input_search</find>
-      <find>test_tendency_search</find>
-      <find>test_tendency_whole</find>
-      <find>test_dispatch_subscribe</find>
-      <find>test_goods_city_status</find>
-      <find>test_search_error</find>
-      <find>test_counrier_default</find>
-      <find>h4.modal-title</find>
-      <find>select[name='key']</find>
-      <find>input[type='search']</find>
-      <find>.modal-footer &gt; button.btn.btn-default</find>
-      <find>action</find>
-      <find>readModel</find>
-      <find>administrator_login</find>
-      <find>pymysqls</find>
-      <find>context</find>
-      <find>broswer</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>self.cJude</replace>
-      <replace>self.rWatiki</replace>
-      <replace>box_laberl</replace>
-      <replace>self.box</replace>
-      <replace>bala_sur</replace>
-      <replace>d_sur</replace>
-      <replace>mon_sur</replace>
-      <replace>tra_sur</replace>
-      <replace>sLable</replace>
-      <replace>commJ</replace>
-      <replace>surface</replace>
-      <replace>sLabel</replace>
-      <replace>close_o</replace>
-      <replace>'</replace>
-      <replace>/\</replace>
-      <replace>driver</replace>
-      <replace>get_select_text</replace>
-      <replace>get_text_vlue</replace>
-      <replace>op_br</replace>
-      <replace>有误:%s</replace>
-      <replace>水票数据</replace>
-      <replace>收入统计</replace>
-      <replace>searchlist_verify_selelr</replace>
-      <replace>searchlist_verify_seller</replace>
-      <replace>subscribe_jump_seller</replace>
-      <replace>single_jump_seller</replace>
-      <replace>even_more_jump_seller</replace>
-      <replace>context</replace>
-      <replace>content</replace>
-      <replace>self.broswer</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/OrderAction/test_dispatch_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/Personnel/test_store_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData/test_shop_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/datacenter_work.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/openbrowser.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/runoperate/test_orders_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/runoperate/test_goods_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/runoperate/test_user_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/runoperate/test_watikis_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/finance/test_income_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/Finance/test_income_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_user_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/seller_work.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerorders/test_orders.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_pra_home.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_pra_console.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/__init__.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_team_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Background/test_console_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/test_home_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Background/test_home_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Background/test_grid_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_console_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/Practitioners/test_home_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerhome/test_home_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_goods_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Datacenter/Runoperate/test_orders_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Dispatch/dispatch_work.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/GoodsList/test_goods_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/Selerdeposit/test_barrel_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/SellerStore/Sellerorders/test_orders_label.py" />
-        <option value="$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData/test_courier_label.py" />
-        <option value="$PROJECT_DIR$/tools/YAMLconfig/expression/GeneralizeAssist.yaml" />
-        <option value="$PROJECT_DIR$/CenterBackground/judeVerification.py" />
-        <option value="$PROJECT_DIR$/run_all.py" />
-        <option value="$PROJECT_DIR$/CustomSteps/说明" />
-        <option value="$PROJECT_DIR$/CustomSteps/custom_settings.py" />
-        <option value="$PROJECT_DIR$/tools/openpyxlExcel.py" />
-        <option value="$PROJECT_DIR$/Warehousing/browser_prepare.py" />
-        <option value="$PROJECT_DIR$/CustomSteps/readModel.py" />
-        <option value="$PROJECT_DIR$/Warehousing/action_interface.py" />
-        <option value="$PROJECT_DIR$/CustomSteps/Logger.py" />
-        <option value="$PROJECT_DIR$/CustomSteps/openpyxlExcel.py" />
-        <option value="$PROJECT_DIR$/CustomSteps/open_browser.py" />
-        <option value="$PROJECT_DIR$/CustomSteps/test_custom.py" />
-        <option value="$PROJECT_DIR$/CustomSteps/custom_settings.yaml" />
-        <option value="$PROJECT_DIR$/CustomSteps/readYaml.py" />
-        <option value="$PROJECT_DIR$/CustomSteps/action_interface.py" />
-        <option value="$PROJECT_DIR$/CustomSteps/custom_login.yaml" />
-        <option value="$PROJECT_DIR$/CustomSteps/handle_action.py" />
-        <option value="$PROJECT_DIR$/tools/StringCutting.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="273" />
-    <option name="y" value="32" />
-    <option name="width" value="1030" />
-    <option name="height" value="711" />
-  </component>
+  <component name="JupyterTrust" id="935c1ea8-0fa6-49c9-a1c4-37cf3963f96e" />
+  <component name="ProjectId" id="1SdOkOer1VMqSQ0IFBM9AymrNFs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="CustomSteps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-              <item name="FileIntroduce" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="Warehousing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operating" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operating" type="462c0819:PsiDirectoryNode" />
-              <item name="Warehousing" type="462c0819:PsiDirectoryNode" />
-              <item name="TestStore" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/operating/tools/excelname/Center/mcroletterwechat.py&#10;of&#9;null&#9;null&#10;:&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="yaml&#10;XML" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/page_web/web_shop/target_parameter/parameter/discount" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\operating\BehaveDemo\features" />
+      <recent name="E:\operating\BehaveDemo\features\steps" />
       <recent name="E:\operating\CustomSteps" />
       <recent name="E:\operating\SimpleProcess\Dispatch\Practitioners" />
       <recent name="E:\operating\SimpleProcess\Datacenter\finance" />
-      <recent name="E:\operating\SimpleProcess\Datacenter\runoperate" />
-      <recent name="E:\operating\demo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\operating\BehaviorDriven\features" />
+      <recent name="E:\operating\BehaviorDriven\features\steps" />
       <recent name="E:\operating\simple\simple_admin" />
       <recent name="E:\operating\demo" />
       <recent name="E:\operating\WeChatBuyers" />
-      <recent name="E:\operating\tools\imageZhuanHuan" />
-      <recent name="E:\operating\CenterBackground\SystemSetting\Category" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_custom.py">
-    <configuration name="openpyxlExcel (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.run_all">
+    <configuration name="article_demo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -406,11 +98,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CustomSteps" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wechat_article" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CustomSteps/openpyxlExcel.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wechat_article/article_demo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -419,7 +112,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="openpyxlExcel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="histogram_sort" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -427,11 +120,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools/Visualization" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/openpyxlExcel.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/Visualization/histogram_sort.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -440,45 +134,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test_courier_label.TextCourierLabel.test_shop_default" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="run_all" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="operating" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_all.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for django_xadmin.DjangoXadmin.test_demo" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SimpleProcess/Warehouse/ReportData" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools/demo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_courier_label.TextCourierLabel.test_shop_default&quot;" />
+      <option name="_new_target" value="&quot;django_xadmin.DjangoXadmin.test_demo&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test_custom.TestCustom.test_run_case" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in django_xadmin.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="operating" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CustomSteps" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools/demo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_custom.TestCustom.test_run_case&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests in test_custom.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="operating" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CustomSteps" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/CustomSteps/test_custom.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tools/demo/django_xadmin.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -491,28 +195,23 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Python tests.Unittests for test_courier_label.TextCourierLabel.test_shop_default" />
-      <item itemvalue="Python.openpyxlExcel" />
-      <item itemvalue="Python.openpyxlExcel (1)" />
-      <item itemvalue="Python tests.Unittests in test_custom.py" />
-      <item itemvalue="Python tests.Unittests for test_custom.TestCustom.test_run_case" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in test_custom.py" />
-        <item itemvalue="Python tests.Unittests for test_custom.TestCustom.test_run_case" />
-        <item itemvalue="Python.openpyxlExcel (1)" />
-        <item itemvalue="Python.openpyxlExcel" />
-        <item itemvalue="Python tests.Unittests for test_courier_label.TextCourierLabel.test_shop_default" />
+        <item itemvalue="Python.run_all" />
+        <item itemvalue="Python tests.Unittests in django_xadmin.py" />
+        <item itemvalue="Python tests.Unittests for django_xadmin.DjangoXadmin.test_demo" />
+        <item itemvalue="Python.article_demo" />
+        <item itemvalue="Python.histogram_sort" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -523,6 +222,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1497965294038</updated>
+      <workItem from="1562660804735" duration="614000" />
+      <workItem from="1566207619210" duration="1414000" />
+      <workItem from="1566265141605" duration="3056000" />
+      <workItem from="1566270792889" duration="903000" />
+      <workItem from="1566272800274" duration="816000" />
+      <workItem from="1566281284781" duration="6494000" />
+      <workItem from="1566290453056" duration="1745000" />
+      <workItem from="1566292764442" duration="2717000" />
+      <workItem from="1566377755041" duration="624000" />
+      <workItem from="1566462168253" duration="5418000" />
+      <workItem from="1566548029819" duration="1661000" />
+      <workItem from="1597545314911" duration="209000" />
     </task>
     <task id="LOCAL-00001" summary="内置工具进行格式化">
       <created>1542612272140</created>
@@ -534,38 +245,6 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="Unittests_in_test_custom_py - 2019.03.09 at 16h 50m 23s.xml">
-      <configuration name="Unittests in test_custom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_custom_py - 2019.03.09 at 16h 50m 49s.xml">
-      <configuration name="Unittests in test_custom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_custom_py - 2019.03.09 at 16h 52m 02s.xml">
-      <configuration name="Unittests in test_custom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_custom_py - 2019.03.09 at 16h 53m 37s.xml">
-      <configuration name="Unittests in test_custom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_custom_py - 2019.03.09 at 16h 54m 06s.xml">
-      <configuration name="Unittests in test_custom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_custom_py - 2019.03.09 at 16h 56m 38s.xml">
-      <configuration name="Unittests in test_custom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_custom_py - 2019.03.09 at 17h 00m 28s.xml">
-      <configuration name="Unittests in test_custom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_custom_py - 2019.03.09 at 17h 02m 08s.xml">
-      <configuration name="Unittests in test_custom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_custom_py - 2019.03.09 at 17h 03m 39s.xml">
-      <configuration name="Unittests in test_custom.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_custom_py - 2019.03.09 at 17h 05m 19s.xml">
-      <configuration name="Unittests in test_custom.py" configurationId="tests" />
-    </history-entry>
-  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -575,34 +254,20 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="273" y="32" width="1030" height="711" extended-state="0" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4862069" visible="true" weight="0.2016129" />
-      <window_info id="Structure" order="1" sideWeight="0.5137931" side_tool="true" weight="0.2808913" />
-      <window_info id="Favorites" order="2" sideWeight="0.5117541" side_tool="true" weight="0.18568535" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.31683168" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49874687" weight="0.407279" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.34511784" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3288835" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5012531" side_tool="true" weight="0.4318508" />
-      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32600734" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3919414" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3276316" />
-      <window_info anchor="right" id="R Packages" order="0" weight="0.3298466" />
-      <window_info anchor="right" id="R Graphics" order="1" weight="0.3298466" />
-      <window_info anchor="right" id="Commander" order="2" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="5" weight="0.32983023" />
-      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="6" side_tool="true" weight="0.21641791" />
-    </layout>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="内置工具进行格式化" />
@@ -633,338 +298,15 @@
       </configuration>
     </watches-manager>
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/FinancialAffairs.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/GoodsPath.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/McroLetter.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/OfficialWebsite.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/Permissions.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/Popularize.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/SocialBuyer.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1274" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/SystemSettings.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/WaterProduct.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/WholeCondition.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/YAMLconfig/expression/GeneralizeAssist.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/configs/readModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_completeLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/excelname/Center/Interaction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/excelname/excelBeanName.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/Permissions/Jurisdiction/test_jurisdictionLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="52" column="32" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Complete/test_recordorder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/operationViewJude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/comparedVerify.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/judeVerification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/surfacejude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/samedayorder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/Fifty/test_fiftyLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="52" column="27" lean-forward="true" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/MovementUser/FixedPoint/test_fixedpointScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/screeningjude.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_all.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="129" column="22" selection-start-line="129" selection-start-column="22" selection-end-line="129" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CenterBackground/InteractionActions/cases/dispatch/Viewdetailed.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Programs/Python37/Lib/site-packages/pandas/core/arrays/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-727">
-          <caret line="321" column="16" lean-forward="true" selection-start-line="321" selection-start-column="16" selection-end-line="321" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/说明">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/custom_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/网址">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="61" selection-start-line="61" selection-end-line="61" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Warehousing/handle_action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-860" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Warehousing/screeningSelecy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1881" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Warehousing/action_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="280" column="12" selection-start-line="280" selection-start-column="12" selection-end-line="280" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/screeningSelecy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4389" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/Logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Warehousing/browser_prepare.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="136" selection-start-line="136" selection-end-line="136" />
-          <folding>
-            <element signature="e#999#1008#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/openpyxlExcel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="919" lean-forward="true" selection-start-line="919" selection-end-line="919" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Warehousing/TestStore/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Warehousing/TestStore/test_stafflabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="59" column="23" lean-forward="true" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/readModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#113#132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/openpyxlExcel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="210" column="17" lean-forward="true" selection-start-line="210" selection-start-column="17" selection-end-line="210" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/FileIntroduce/selenium 定位">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1197" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/open_browser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="54" column="94" selection-start-line="54" selection-start-column="94" selection-end-line="54" selection-end-column="94" />
-          <folding>
-            <element signature="e#248#257#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/readYaml.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#960#969#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/custom_settings.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/custom_login.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/action_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="156" selection-start-line="156" selection-end-line="156" />
-          <folding>
-            <element signature="e#990#999#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/test_custom.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
-          <folding>
-            <element signature="e#248#259#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomSteps/handle_action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-          <folding>
-            <element signature="e#986#1037#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/StringCutting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" />
-        </state>
-      </provider>
-    </entry>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/operating$__init____1_.coverage" NAME="__init__ (1) Coverage Results" MODIFIED="1566466101937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/Visualization" />
+    <SUITE FILE_PATH="coverage/operating$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1566286766891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/operating$visual_induction.coverage" NAME="visual_induction Coverage Results" MODIFIED="1566462786115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/Visualization" />
+    <SUITE FILE_PATH="coverage/operating$imagetoimage.coverage" NAME="imagetoimage Coverage Results" MODIFIED="1566273561368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/imageZhuanHuan" />
+    <SUITE FILE_PATH="coverage/operating$draw_pie_chart.coverage" NAME="draw_pie_chart Coverage Results" MODIFIED="1566294570940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/Visualization" />
+    <SUITE FILE_PATH="coverage/operating$mass_texting.coverage" NAME="mass_texting Coverage Results" MODIFIED="1566267886930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/chitchat" />
+    <SUITE FILE_PATH="coverage/operating$histogram_sort.coverage" NAME="histogram_sort Coverage Results" MODIFIED="1566467125460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/Visualization" />
+    <SUITE FILE_PATH="coverage/operating$article_demo.coverage" NAME="article_demo Coverage Results" MODIFIED="1566549155148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wechat_article" />
+    <SUITE FILE_PATH="coverage/operating$run_all.coverage" NAME="run_all Coverage Results" MODIFIED="1562661224581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
