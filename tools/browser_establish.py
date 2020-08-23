@@ -43,7 +43,11 @@ driver_path = 'E:\drivers\Drivers'
 # https://www.jianshu.com/p/82b0fdb5d2b8
 # https://blog.csdn.net/chufazhe/article/details/51145834
 # https://www.flash.cn/
+
+
 # __new__创建一个对象，__init__实例化一个对象
+
+
 class browser_confirm(object):
     BROWSER_NAME = ""
 
@@ -62,8 +66,7 @@ class browser_confirm(object):
     def chrome_browser(self, options=None):
         try:
             import sys
-            self.browser = webdriver.Chrome(executable_path=os.path.join(driver_path, 'chromedriver239-68.exe'),
-                                            chrome_options=options)
+            self.browser = webdriver.Chrome(executable_path=os.path.join(driver_path, 'chromedriver.exe'))
             self.BROWSER_NAME = "无options的谷歌"
             # 实现全局变量的引用
         except WebDriverException as msg:
