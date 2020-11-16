@@ -40,6 +40,7 @@ from threading import Thread
 from multiprocessing import cpu_count, Process, Queue
 import requests
 from bs4 import BeautifulSoup
+
 print(sys.version_info)
 if sys.version_info <= (3, 6):
     from tomorrow import threads
@@ -88,6 +89,7 @@ def single_save_img(imgUrl):
             print(r)
             print(r.content)
             print('-------------')
+            time.sleep(0.5)
             f.write(r.content)
 
     except:
@@ -138,6 +140,7 @@ def many_save_img(imgUrl):
         with open(os.path.join(save_files, title + '.jpg'), "wb") as f:
 
             f.write(requests.get(jpg_rl).content)
+
     except:
 
         pass
@@ -159,5 +162,5 @@ def many_thread():
 
 
 if __name__ == '__main__':
-    many_thread()
-    # single_thread()
+    # many_thread()
+    single_thread()
