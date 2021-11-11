@@ -9,6 +9,7 @@ import logging
 import os
 import pprint
 import time
+import colorlog
 
 # log_path是存放日志的路径
 cur_path = os.path.dirname(os.path.realpath(__file__))
@@ -16,6 +17,13 @@ log_path = os.path.join(cur_path, 'logs')
 
 # 如果不存在这个logs文件夹，就自动创建一个
 if not os.path.exists(log_path): os.mkdir(log_path)
+log_colors_config = {
+    'DEBUG': 'cyan',
+    'INFO': 'green',
+    'WARNING': 'yellow',
+    'ERROR': 'red',
+    'CRITICAL': 'red',
+}
 
 
 class Log():
@@ -36,9 +44,12 @@ class Log():
 
         # 日志输出格式
         # self.formatter = logging.Formatter('[%(asctime)s] - %(name)s - %(filename)s] - %(levelname)s: %(message)s')
-        self.formatter = logging.Formatter('[%(asctime)s] - %(name)s] - %(levelname)s: %(message)s',
-                                           datefmt='%Y-%m-%d %H:%M:%S')
-
+        # self.formatter = logging.Formatter('[%(asctime)s] - %(name)s] - %(levelname)s: %(message)s',
+        #                                  datefmt='%Y-%m-%d %H:%M:%S')
+        self.formatter = colorlog.ColoredFormatter(
+            '%(log_color)s[%(asctime)s] [%(name)s] [%(filename)s:%(lineno)d] [%(module)s:%(funcName)s] [%(levelname)s]- %(message)s',
+            log_colors=log_colors_config)  # 日志输出格式
+        
         # 定义执行函数的名字供外部进行调用和修改
         self.fun_name = "Undefined_function"
 
@@ -111,11 +122,11 @@ class Log():
 
 
 if __name__ == "__main__":
-    # basename = "112"
-    # logs = Log()
-    # logs.fun_name = "biaer "
-    # logs.debug(basename)
-    # logs.info(basename)
-    # logs.warning(basename)
-    # logs.error(basename)
+    basename = "112"
+    logs = Log()
+    logs.fun_name = "biaer "
+    logs.debug(basename)
+    logs.info(basename)
+    logs.warning(basename)
+    logs.error(basename)
     pass

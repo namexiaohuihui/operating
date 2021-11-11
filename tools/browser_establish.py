@@ -190,22 +190,3 @@ class browser_confirm(object):
         basename = os.path.splitext(os.path.basename(__file__))[0]
 
         dError.error_mess(basename)
-
-
-if __name__ == '__main__':
-    bc = browser_confirm()
-    bc.url_opens(r'C:\Users\DingDonf\Desktop\customer.htm')
-    from bs4 import BeautifulSoup
-
-    label_text = bc.browser.page_source
-    soup = BeautifulSoup(label_text, "lxml")
-    fatal_error = soup.br
-    if fatal_error:
-        fatal_error_pare = fatal_error.parent
-        for i, child in enumerate(fatal_error_pare.children, start=1):
-            if not child.name in ('div', 'table'):
-                print(child, child.name)
-
-    else:
-        print("没有报错")
-    bc.browser.quit()

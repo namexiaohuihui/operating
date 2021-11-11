@@ -104,3 +104,12 @@ KeyError: nan
 
 selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <input name="str" placeholder="关键字" class="layui-input"> is not clickable at point (102, 44). Other element would receive the click: <div class="layui-layer-shade" id="layui-layer-shade1" times="1" style="z-index: 19891014; background-color: rgb(0, 0, 0); opacity: 0.3;"></div>
 原因：同路径下有多个元素,执行输入的时候默认选择第一个元素。
+
+
+from django.db.models.fields import FieldDoesNotExist
+改成
+from django.core.exceptions import FieldDoesNotExist
+from django.utils import six
+改爲
+import six
+django版本更新之後的包替換

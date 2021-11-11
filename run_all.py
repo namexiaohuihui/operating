@@ -14,7 +14,7 @@ import HTMLTestRunner
 # 获取项目路径下的目录
 path_project = os.path.split(os.path.abspath(__file__))[0]
 os.chdir(path_project)
-
+print(path_project)
 # 将项目路径保存
 sys.path.append(path_project)
 
@@ -135,8 +135,8 @@ if __name__ == '__main__':
     startTime = datetime.datetime.now()
     print("\nStart Run Time: %s\n" % startTime)
     # 运行程序
-    # start_loading_case()
-    start_single_loading()
+    start_loading_case()
+    # start_single_loading()
     # 记录结束时间
     stopTime = datetime.datetime.now()
     print("\nFinish Run Time: %s\n" % stopTime)
